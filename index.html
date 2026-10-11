@@ -1737,11 +1737,20 @@ function simH2H(sportKey, scoreA, scoreB, upsets, seed) {
   return playGame(sportKey, scoreA, scoreB, UPSET_SIGMA[upsets] || 0, r, true);
 }
 
-const TEAM_PLACES = ['Norwalk', 'Bridgeport', 'Stamford', 'Hartford', 'New Haven', 'Danbury', 'Mystic', 'Providence', 'Albany', 'Portland', 'Burlington', 'Worcester', 'Newport', 'Scranton', 'Buffalo', 'Syracuse', 'Trenton', 'Concord', 'Bangor', 'Montauk', 'Greenwich', 'Westport', 'Fairfield', 'Waterbury', 'Springfield', 'Lowell', 'Nashua', 'Saratoga', 'Ithaca', 'Montpelier', 'Kennebunk', 'Narragansett'];
+const TEAM_PLACES = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami', 'Boston', 'Seattle', 'San Francisco', 'Atlanta', 'Dallas', 'Denver', 'Philadelphia', 'Phoenix', 'Detroit', 'Las Vegas', 'New Orleans', 'Nashville', 'Washington', 'San Diego', 'Honolulu', 'London', 'Paris', 'Tokyo', 'Rome', 'Madrid', 'Berlin', 'Sydney', 'Rio de Janeiro', 'Mexico City', 'Toronto', 'Seoul', 'Cairo', 'Mumbai', 'Buenos Aires', 'Istanbul', 'Cape Town'];
 const TEAM_NAMES = ['Narwhals', 'Lighthouses', 'Gulls', 'Comets', 'Foxes', 'Ironclads', 'Mariners', 'Thunder', 'Owls', 'Moose', 'Hornets', 'Rockets', 'Squalls', 'Pilots', 'Wolves', 'Herons', 'Lobsters', 'Bison', 'Ravens', 'Clippers', 'Sharks', 'Kraken', 'Stags', 'Falcons', 'Bears', 'Hawks', 'Pirates', 'Titans', 'Sentinels', 'Cyclones', 'Admirals', 'Mustangs'];
+// never hand out a real pro team's name
+const REAL_TEAMS = new Set(['Houston Rockets', 'Seattle Kraken', 'Seattle Mariners', 'Atlanta Falcons', 'Atlanta Hawks', 'Chicago Bears', 'Los Angeles Clippers', 'Boston Bears']);
 function aiTeamNames(n, rng) {
   const p = [...TEAM_PLACES].sort(() => rng() - 0.5), m = [...TEAM_NAMES].sort(() => rng() - 0.5);
-  return Array.from({ length: n }, (_, i) => p[i % p.length] + ' ' + m[i % m.length]);
+  const out = [], used = new Set();
+  for (let i = 0; i < n; i++) {
+    const place = p[i % p.length];
+    let k = 0; while (k < m.length && (used.has(m[(i + k) % m.length]) || REAL_TEAMS.has(place + ' ' + m[(i + k) % m.length]))) k++;
+    const nick = m[(i + k) % m.length]; used.add(nick); if (used.size >= m.length) used.clear();
+    out.push(place + ' ' + nick);
+  }
+  return out;
 }
 
 // Full pro season: real season lengths and playoff formats, scaled to the size of your league.
@@ -2486,7 +2495,7 @@ function renderChampSetup() {
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>${sportPicker(c.sport, 'c-sport')}</div>
     <div class="step"><div class="step-head"><span class="n">2</span><h2 class="h">Pick a talent pool</h2></div>${poolPicker(c.poolId, 'c-pool', c.sport)}</div>
     <div class="step"><div class="step-head"><span class="n">3</span><h2 class="h">Name your team</h2></div>
-      <div class="panel rules"><label class="field-label" for="c-team"><span>Team name</span><input id="c-team" type="text" maxlength="32" placeholder="Norwalk Originals" value="${esc(c.teamName)}" data-input="c-team"></label>
+      <div class="panel rules"><label class="field-label" for="c-team"><span>Team name</span><input id="c-team" type="text" maxlength="32" placeholder="Chicago Originals" value="${esc(c.teamName)}" data-input="c-team"></label>
       <div class="field-label"><span>The season</span><small class="note" style="margin-top:4px">${esc(SEASONS[c.sport].league)}-style, ${LEAGUE_SIZE[c.sport]} teams: ${esc(SEASONS[c.sport].desc)}.</small></div></div>
     </div>
     <div class="cta-row"><button class="btn primary big" data-act="c-start" ${getCands(c.poolId).length >= SPORTS[c.sport].pos.length ? '' : 'disabled'}>Start casting</button><span class="note">Pick anyone. No limits, no clock.</span></div>
@@ -2497,7 +2506,7 @@ function renderChampSetup() {
     <div class="step"><div class="step-head"><span class="n">2</span><h2 class="h">Pick a talent pool</h2></div>${poolPicker(c.poolId, 'c-pool', c.sport)}</div>
     <div class="step"><div class="step-head"><span class="n">3</span><h2 class="h">Set the league</h2></div>
       <div class="panel rules">
-        <label class="field-label" for="c-team"><span>Your team name</span><input id="c-team" type="text" maxlength="32" placeholder="Norwalk Originals" value="${esc(c.teamName)}" data-input="c-team"></label>
+        <label class="field-label" for="c-team"><span>Your team name</span><input id="c-team" type="text" maxlength="32" placeholder="Chicago Originals" value="${esc(c.teamName)}" data-input="c-team"></label>
         <label class="field-label" for="c-opps"><span>Rival teams: <b class="num" id="c-opps-v">${c.opps}</b></span><input id="c-opps" type="range" min="3" max="${Math.max(3, lim.maxOpp)}" value="${c.opps}" data-input="c-opps" ${lim.ok ? '' : 'disabled'}><small class="note">Up to ${Math.max(3, lim.maxOpp)} with this pool (${lim.n} candidates ÷ ${SPORTS[c.sport].pos.length} roster spots).</small></label>
         ${handMode() ? '' : `<div class="field-label"><span>Rival strength</span><div class="seg" role="group"><button data-act="c-crivals" data-v="stack" aria-pressed="${c.champRivals !== 'even'}">Superteams first</button><button data-act="c-crivals" data-v="even" aria-pressed="${c.champRivals === 'even'}">Spread evenly · easier</button></div><small class="note">${c.champRivals === 'even' ? 'What you leave is snake-drafted so every rival is about the same.' : 'The first rival is the best team possible from what you leave, then the next best, and so on.'}</small></div>`}
         ${handMode() ? `<div class="field-label"><span>Rival drafters</span><div class="seg" role="group"><button data-act="c-rivals" data-v="random" aria-pressed="${c.rivals === 'random'}">Random · easy</button><button data-act="c-rivals" data-v="balanced" aria-pressed="${c.rivals === 'balanced'}">Balanced</button><button data-act="c-rivals" data-v="sharp" aria-pressed="${c.rivals === 'sharp'}">Sharp · hard</button></div><small class="note">${c.rivals === 'sharp' ? 'Rivals get random hands too, but always take the best fit. Tough to beat.' : c.rivals === 'random' ? 'Rivals fill their rosters at random. Your judgment is the edge.' : 'Rivals get random hands and draft like good fans: usually smart, sometimes wrong. Winning it all is very hard but doable.'}</small></div>` : ''}
