@@ -400,6 +400,15 @@ const BENCH = () => ({ id: 'bn', ab: 'BN', nm: 'Bench Spark', side: true, bench:
 // Position: id, ab (on-token label), nm (full name), x/y (% of surface), w (attribute weights), imp (team importance)
 // side: true = shown on the sideline strip instead of the surface. coach: true = coach multiplier slot.
 // bench: true = Bench Spark slot (a smaller whole-squad multiplier).
+// ===== Baseball batting =====
+// Everyone in the lineup bats (the pitcher doesn't: there's a DH). Fielding and hitting are scored separately:
+// a position's weights are its glove, and the batting order is a second layer built from every hitter.
+// Hitting = contact (Reflexes to see it, Accuracy to square it up) and power (Strength), plus approach and nerve.
+// Power counts almost as much as contact, so a slugger with a shaky eye still hits some bombs.
+const BAT_W = { ref: 3, acc: 3, str: 6, iq: 1, clu: 1 };
+const BAT_FLOOR = ['ref', 'acc'];
+// Plate appearances by lineup spot (leadoff bats most). Scaled so offense counts about as much as run prevention.
+const BAT_ORDER_W = [1.09, 1.07, 1.05, 1.02, 1.0, 0.98, 0.96, 0.93, 0.9];
 const SPORTS = {
   basketball: {
     name: 'Basketball', unit: 'pts', aspect: 100 / 94, surface: 'court',
@@ -465,18 +474,19 @@ const SPORTS = {
   },
   baseball: {
     name: 'Baseball', unit: 'runs', aspect: 1, surface: 'diamond',
-    blurb: '9 in the field, a DH, a bench spark and a manager',
+    blurb: '9 in the field, a DH, a bench spark and a manager. Everyone but the pitcher bats',
+    batting: true,
     pos: [
       { id: 'p',   ab: 'P',  nm: 'Starting Pitcher',   x: 50, y: 62, imp: 2.0,  w: { acc: 4, str: 2, clu: 2, end: 2, iq: 1 } },
-      { id: 'c',   ab: 'C',  nm: 'Catcher',            x: 50, y: 93, imp: 1.0,  w: { iq: 3, ref: 2, ldr: 2, end: 2, str: 1, tch: 1 } },
-      { id: '1b',  ab: '1B', nm: 'First Base',         x: 73, y: 58, imp: 0.8,  w: { str: 3, tch: 2, siz: 2, acc: 2, ref: 1 } },
-      { id: '2b',  ab: '2B', nm: 'Second Base',        x: 63, y: 42, imp: 0.85, w: { agi: 3, tch: 3, ref: 2, acc: 1, spd: 1, iq: 1 } },
-      { id: 'ss',  ab: 'SS', nm: 'Shortstop',          x: 37, y: 42, imp: 1.0,  w: { agi: 3, tch: 3, ref: 2, acc: 2, spd: 1 } },
-      { id: '3b',  ab: '3B', nm: 'Third Base',         x: 27, y: 58, imp: 0.85, w: { ref: 3, tch: 2, acc: 2, str: 2 } },
-      { id: 'lf',  ab: 'LF', nm: 'Left Field',         x: 18, y: 24, imp: 0.8,  w: { str: 2, acc: 2, ref: 2, spd: 2, tch: 1 } },
-      { id: 'cf',  ab: 'CF', nm: 'Center Field',       x: 50, y: 11, imp: 1.0,  w: { spd: 4, tch: 2, ref: 2, lep: 1, acc: 1 } },
-      { id: 'rf',  ab: 'RF', nm: 'Right Field',        x: 82, y: 24, imp: 0.85, w: { acc: 3, str: 2, ref: 2, spd: 1, tch: 1 } },
-      { id: 'dh',  ab: 'DH', nm: 'Designated Hitter', side: true, imp: 0.8, w: { str: 4, acc: 3, ref: 3, clu: 1 } },
+      { id: 'c',   ab: 'C',  nm: 'Catcher',            x: 50, y: 93, imp: 1.0,  bats: true, w: { iq: 3, ref: 2, ldr: 2, end: 2, tch: 1, acc: 1 } },
+      { id: '1b',  ab: '1B', nm: 'First Base',         x: 73, y: 58, imp: 0.6,  bats: true, w: { tch: 3, siz: 2, ref: 2, agi: 1 } },
+      { id: '2b',  ab: '2B', nm: 'Second Base',        x: 63, y: 42, imp: 0.85, bats: true, w: { agi: 3, tch: 3, ref: 2, acc: 1, spd: 1, iq: 1 } },
+      { id: 'ss',  ab: 'SS', nm: 'Shortstop',          x: 37, y: 42, imp: 1.0,  bats: true, w: { agi: 3, tch: 3, ref: 2, acc: 2, spd: 1 } },
+      { id: '3b',  ab: '3B', nm: 'Third Base',         x: 27, y: 58, imp: 0.75, bats: true, w: { ref: 3, tch: 2, acc: 2, str: 1, agi: 1 } },
+      { id: 'lf',  ab: 'LF', nm: 'Left Field',         x: 18, y: 24, imp: 0.6,  bats: true, w: { spd: 2, ref: 2, tch: 2, acc: 1, iq: 1 } },
+      { id: 'cf',  ab: 'CF', nm: 'Center Field',       x: 50, y: 11, imp: 0.95, bats: true, w: { spd: 4, tch: 2, ref: 2, lep: 1, acc: 1 } },
+      { id: 'rf',  ab: 'RF', nm: 'Right Field',        x: 82, y: 24, imp: 0.7,  bats: true, w: { acc: 3, str: 2, spd: 2, ref: 1, tch: 1 } },
+      { id: 'dh',  ab: 'DH', nm: 'Designated Hitter', side: true, imp: 0, bats: true, dh: true, w: BAT_W, floorKeys: BAT_FLOOR, floorW: 0.1 },
       BENCH(),
       { id: 'mgr', ab: 'MGR',nm: 'Manager', side: true, coach: true, imp: 0, w: COACH_W },
     ],
@@ -530,6 +540,14 @@ for (const sk of SPORT_ORDER) {
   }
 }
 
+const BAT_POS = { id: 'bat', w: BAT_W, floorKeys: BAT_FLOOR };
+{ const tot = Object.values(BAT_W).reduce((a, b) => a + b, 0); BAT_POS.wv = AK.map(k => (BAT_W[k] || 0) / tot); BAT_POS.keys = []; BAT_POS.fkeys = BAT_FLOOR.map(k => AK.indexOf(k)); BAT_POS.fw = 0.1; }
+// lineup weights scaled so the whole order counts as much as all the gloves and the pitcher together
+{ const sp = SPORTS.baseball, def = sp.pos.reduce((a, p) => a + (p.coach || p.bench ? 0 : p.imp), 0), ow = BAT_ORDER_W.reduce((a, b) => a + b, 0);
+  sp.lineupW = BAT_ORDER_W.map(w => w * def / ow); sp.lwAvg = def / BAT_ORDER_W.length; }
+function batFit(c) { return fitFor(c, BAT_POS); }
+function batFitAI(c) { return fitScore(c.a, BAT_POS); }
+
 // ===== Scoring =====
 // Fit: 75% weighted average of the position's attributes + 25% the weakest of its 3 key traits,
 // so a candidate who is great at one thing but missing a core trait for the role is exposed.
@@ -560,12 +578,19 @@ function teamScore(sportKey, roster) {
     if (p.bench) { if (c) benchFit = fit; continue; }
     num += p.imp * fit; den += p.imp;
   }
+  // baseball: the batting order is its own layer. Best hitters bat first and get the most trips to the plate.
+  let order = null;
+  if (sp.batting) {
+    order = rows.filter(r => r.pos.bats && r.cand).map(r => { r.bat = batFit(r.cand); return r; }).sort((a, b) => b.bat - a.bat);
+    order.forEach((r, k) => { r.order = k + 1; num += sp.lineupW[k] * r.bat; });
+    den += sp.lineupW.reduce((a, b) => a + b, 0);
+  }
   const playerScore = num / den;
   const cm = coachMult(coachFit), bm = benchMult(benchFit), mult = cm * bm;
-  for (const r of rows) r.w = r.pos.coach ? playerScore * 0.2 / 99 * bm : r.pos.bench ? playerScore * 0.1 / 99 * cm : r.pos.imp / den * mult;
+  for (const r of rows) r.w = r.pos.coach ? playerScore * 0.2 / 99 * bm : r.pos.bench ? playerScore * 0.1 / 99 * cm : (r.pos.imp + (r.order ? sp.lineupW[r.order - 1] : 0)) / den * mult;
   const syn = synergyOf(sportKey, roster);
   const sig = sigOf(rows);
-  return { rating: playerScore * mult + syn.total + sig.lift, playerScore, coachFit, benchFit, mult, syn, sig, rows };
+  return { rating: playerScore * mult + syn.total + sig.lift, playerScore, coachFit, benchFit, mult, syn, sig, rows, order };
 }
 
 function grade(f) {
@@ -1468,8 +1493,9 @@ function bestRoleFor(c, sportKey) {
   return best;
 }
 function slotImp(sportKey, p) {
-  if (!p.coach && !p.bench) return p.imp;
-  const tot = SPORTS[sportKey].pos.reduce((s, q) => s + (q.coach || q.bench ? 0 : q.imp), 0);
+  const sp = SPORTS[sportKey];
+  if (!p.coach && !p.bench) return p.imp + (sp.batting && p.bats ? sp.lwAvg : 0);
+  const tot = sp.pos.reduce((s, q) => s + (q.coach || q.bench ? 0 : slotImp(sportKey, q)), 0);
   return (p.coach ? 0.14 : 0.07) * tot;
 }
 function maxTeams(sportKey, poolSize) { return Math.floor(poolSize / SPORTS[sportKey].pos.length); }
@@ -2260,7 +2286,13 @@ function expertAdj(sportKey, c, pos, base) {
 }
 // fit used for real team strength (knows signature moves) and the one the computer drafts with
 function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return b + expertAdj(sportKey, c, pos, b); }
-function fitAI(sportKey, c, pos) { const b = fitScore(c.a, pos); return b + expertAdj(sportKey, c, pos, b); }
+function fitAI(sportKey, c, pos) {
+  const b = fitScore(c.a, pos), f = b + expertAdj(sportKey, c, pos, b);
+  if (!pos.bats || !SPORTS[sportKey].batting) return f;
+  // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
+  const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
+  return pos.dh ? bat : (pos.imp * f + L * bat) / (pos.imp + L);
+}
 
 // ----- Projected season averages -----
 // Everyone without real NBA numbers gets a line built from the NBA players whose attribute profiles
@@ -2407,7 +2439,7 @@ restoreBoard(S.boards.deal, BOARD_KEYS.deal);
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
 function sigLine(c) { return c.sig ? `<small class="sig">Signature move · ${esc(c.sig.name)}</small>` : ''; }
 function shortName(n) { if (n.length <= 12) return n; const w = n.split(' '); return w[w.length - 1].length > 2 ? w[w.length - 1] : w.slice(-2).join(' '); }
-function needsText(pos) { return pos.keys.map(i => ATTRS[i].n); }
+function needsText(pos) { const t = pos.keys.map(i => ATTRS[i].n); return pos.dh ? ['Contact', 'Power'] : pos.bats ? [...t, '+ bats'] : t; }
 function bars(c, pos) { return `<span class="bars" title="Attribute profile; highlighted bars are this role's key traits">${c.a.map((v, i) => `<i class="${pos.keys.includes(i) ? 'k' : ''}" style="height:${Math.max(2, v / 99 * 22)}px" title="${ATTRS[i].n} ${v}"></i>`).join('')}</span>`; }
 
 function renderField(sportKey, roster, o = {}) {
@@ -2455,6 +2487,7 @@ function renderModal() {
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
     <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>No scores, grades or rankings are ever shown.</b> You find out how you did from the results.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
+    <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
     <p><b>Bench Spark:</b> every team carries one bench player who lives on intangibles: Stamina, Leadership and Clutch. A great one lifts the whole squad, a little less than a great coach does.</p>
@@ -2694,10 +2727,12 @@ function linkChips(sc, mine = true) {
   return (L || S || SG) ? `<div class="links">${L}${S}${SG}</div>` : `<div class="note" style="padding:12px 16px">No chemistry fired. Look for shared teams, schools, factions and coaches.</div>`;
 }
 function rosterTable(sportKey, poolId, t) {
-  return `<table class="t"><thead><tr><th>Pos</th><th>Pick</th></tr></thead><tbody>
-    ${t.score.rows.map(r => { const c = r.cand; if (!c) return ''; return `<tr><td class="ab-cell">${r.pos.ab}</td><td><span class="pname">${avatar(c)}<span><b>${esc(c.n)}</b><br><small class="muted">${esc(c.t)}</small></span></span></td></tr>`; }).join('')}
+  const bat = SPORTS[sportKey].batting;
+  return `<table class="t"><thead><tr><th>Pos</th><th>Pick</th>${bat ? '<th class="n" title="Spot in the batting order">Bats</th>' : ''}</tr></thead><tbody>
+    ${t.score.rows.map(r => { const c = r.cand; if (!c) return ''; return `<tr><td class="ab-cell">${r.pos.ab}</td><td><span class="pname">${avatar(c)}<span><b>${esc(c.n)}</b><br><small class="muted">${esc(c.t)}</small></span></span></td>${bat ? `<td class="n num">${r.order ? r.order + ordSuffix(r.order) : '<span class="muted">—</span>'}</td>` : ''}</tr>`; }).join('')}
   </tbody></table>`;
 }
+function ordSuffix(n) { return n % 10 === 1 && n !== 11 ? 'st' : n % 10 === 2 && n !== 12 ? 'nd' : n % 10 === 3 && n !== 13 ? 'rd' : 'th'; }
 function seriesLabel(g) { return g.bo > 1 ? 'best of ' + g.bo : ''; }
 function renderChampResults() {
   const c = S.champ, { teams, sim } = c.result, sp = SPORTS[c.sport], season = sim.format === 'season', SE = SEASONS[c.sport];
