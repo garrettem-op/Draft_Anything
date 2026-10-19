@@ -1,0 +1,408 @@
+{
+  "schema": "mcu-evidence-v0.1",
+  "status": "provisional-not-live",
+  "rule": "Unrestricted repeatable powers; no one-off temporary boosts",
+  "character_count": 12,
+  "characters": [
+    {
+      "name": "Iron Man",
+      "version": "Avengers: Endgame",
+      "primary_works": [
+        "Iron Man (2008)",
+        "The Avengers (2012)",
+        "Captain America: Civil War (2016)",
+        "Avengers: Infinity War (2018)",
+        "Avengers: Endgame (2019)"
+      ],
+      "powers": "Powered armor flight, repulsors, sensors, targeting AI, nanotechnology",
+      "wins_and_feats": "Defeated Iron Monger; fought Thanos on Titan with team; helped defeat Thanos by using Stones at lethal cost",
+      "losses_and_limits": "Lost to Steve Rogers and Bucky in Civil War; Thanos overwhelmed him on Titan; suit-dependent",
+      "score_rationale": "Armor and AI provide repeatable flight, targeting, strength, and precision; strategy and invention unusually strong; impulsivity limits composure",
+      "scores": {
+        "spd": 95,
+        "agi": 83,
+        "str": 96,
+        "siz": 76,
+        "lep": 96,
+        "end": 91,
+        "tch": 90,
+        "acc": 97,
+        "ref": 93,
+        "iq": 99,
+        "clu": 88,
+        "ldr": 87
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/iron-man-tony-stark"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Captain America",
+      "version": "Avengers: Endgame",
+      "primary_works": [
+        "Captain America: The First Avenger (2011)",
+        "The Winter Soldier (2014)",
+        "Civil War (2016)",
+        "Endgame (2019)"
+      ],
+      "powers": "Super-soldier strength, reflexes, endurance, shield mastery; Mjolnir only conditional",
+      "wins_and_feats": "Defeated Red Skull's forces; fought Winter Soldier; with Bucky defeated Iron Man; briefly fought Thanos with Mjolnir",
+      "losses_and_limits": "Overpowered by Thanos; not immune to weapons or heavy hitters",
+      "score_rationale": "Exceptional leadership and composure; accurate shield throwing; physical capabilities superhuman but far below cosmic characters",
+      "scores": {
+        "spd": 84,
+        "agi": 93,
+        "str": 88,
+        "siz": 70,
+        "lep": 89,
+        "end": 95,
+        "tch": 96,
+        "acc": 97,
+        "ref": 95,
+        "iq": 96,
+        "clu": 98,
+        "ldr": 99
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/captain-america-steve-rogers"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Thor",
+      "version": "Avengers: Infinity War",
+      "primary_works": [
+        "Thor (2011)",
+        "Ragnarok (2017)",
+        "Infinity War (2018)",
+        "Endgame (2019)",
+        "Love and Thunder (2022)"
+      ],
+      "powers": "Asgardian physiology, lightning, flight and weapon control with Mjolnir/Stormbreaker",
+      "wins_and_feats": "Defeated Hela's troops; struck Thanos with Stormbreaker; helped defeat Thanos in Endgame",
+      "losses_and_limits": "Hela destroyed Mjolnir; Thanos defeated him at start of Infinity War; Gorr challenged him",
+      "score_rationale": "Stormbreaker is standard late-era weapon; lightning enables extreme reach and vertical movement; accuracy and decision-making not automatically perfect",
+      "scores": {
+        "spd": 97,
+        "agi": 83,
+        "str": 99,
+        "siz": 85,
+        "lep": 99,
+        "end": 99,
+        "tch": 87,
+        "acc": 92,
+        "ref": 88,
+        "iq": 84,
+        "clu": 89,
+        "ldr": 88
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/thor-thor-odinson"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Hulk",
+      "version": "The Avengers",
+      "primary_works": [
+        "The Incredible Hulk (2008)",
+        "The Avengers (2012)",
+        "Age of Ultron (2015)",
+        "Ragnarok (2017)",
+        "Infinity War (2018)"
+      ],
+      "powers": "Extreme physical strength, leaping, durability, rage escalation",
+      "wins_and_feats": "Defeated Loki physically; fought Fenris; subdued Leviathan",
+      "losses_and_limits": "Thanos defeated Hulk in Infinity War; Hulkbuster restrained him; uncontrolled rage",
+      "score_rationale": "Massive strength/leap and durability; limited finesse and tactics in rage form; keep separate from Smart Hulk",
+      "scores": {
+        "spd": 82,
+        "agi": 65,
+        "str": 99,
+        "siz": 98,
+        "lep": 99,
+        "end": 99,
+        "tch": 42,
+        "acc": 45,
+        "ref": 80,
+        "iq": 38,
+        "clu": 65,
+        "ldr": 40
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/hulk-bruce-banner"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Black Widow",
+      "version": "Black Widow",
+      "primary_works": [
+        "Iron Man 2 (2010)",
+        "The Avengers (2012)",
+        "The Winter Soldier (2014)",
+        "Black Widow (2021)",
+        "Endgame (2019)"
+      ],
+      "powers": "Espionage, acrobatics, precision weapons, martial arts, deception",
+      "wins_and_feats": "Defeated multiple guards and assassins; escaped Taskmaster encounters with help; helped defeat Chitauri",
+      "losses_and_limits": "Vulnerable to superhuman force; cannot overpower enhanced foes directly",
+      "score_rationale": "Top-tier human coordination, tactical reading, and composure; no intrinsic superhuman strength",
+      "scores": {
+        "spd": 77,
+        "agi": 96,
+        "str": 65,
+        "siz": 50,
+        "lep": 85,
+        "end": 88,
+        "tch": 96,
+        "acc": 95,
+        "ref": 96,
+        "iq": 94,
+        "clu": 97,
+        "ldr": 89
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/black-widow-natasha-romanova"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Hawkeye",
+      "version": "Hawkeye",
+      "primary_works": [
+        "The Avengers (2012)",
+        "Age of Ultron (2015)",
+        "Endgame (2019)",
+        "Hawkeye (2021)"
+      ],
+      "powers": "Extraordinary archery, trick arrows, field tactics, sword training",
+      "wins_and_feats": "Precision shots against Chitauri; survived Ronin years; defeated many Tracksuit Mafia attackers with Kate",
+      "losses_and_limits": "Human vulnerability; close-range combat against powerful enhanced foes is disadvantageous",
+      "score_rationale": "Near-ceiling accuracy; high anticipation and touch; lacks enhanced speed or durability",
+      "scores": {
+        "spd": 70,
+        "agi": 86,
+        "str": 63,
+        "siz": 59,
+        "lep": 76,
+        "end": 86,
+        "tch": 98,
+        "acc": 99,
+        "ref": 93,
+        "iq": 92,
+        "clu": 96,
+        "ldr": 85
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/hawkeye-clint-barton"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Spider-Man",
+      "version": "Spider-Man: No Way Home",
+      "primary_works": [
+        "Civil War (2016)",
+        "Homecoming (2017)",
+        "Far From Home (2019)",
+        "No Way Home (2021)"
+      ],
+      "powers": "Spider-sense, strength, agility, web-slinging, wall-crawling",
+      "wins_and_feats": "Stopped Winter Soldier's metal arm; helped restrain Thanos; defeated Mysterio's drones; fought Green Goblin",
+      "losses_and_limits": "Lost control emotionally against Goblin; trapped by illusions; inexperienced decision-making",
+      "score_rationale": "Elite reflexes and mobility; webs and spider-sense improve ball handling and court coverage; leadership still developing",
+      "scores": {
+        "spd": 95,
+        "agi": 99,
+        "str": 96,
+        "siz": 63,
+        "lep": 99,
+        "end": 92,
+        "tch": 97,
+        "acc": 94,
+        "ref": 99,
+        "iq": 88,
+        "clu": 80,
+        "ldr": 74
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/spider-man-peter-parker"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Doctor Strange",
+      "version": "Doctor Strange in the Multiverse of Madness",
+      "primary_works": [
+        "Doctor Strange (2016)",
+        "Infinity War (2018)",
+        "Endgame (2019)",
+        "Multiverse of Madness (2022)"
+      ],
+      "powers": "Portals, telekinesis, shields, binding spells, astral projection, Cloak of Levitation",
+      "wins_and_feats": "Temporarily constrained Thanos on Titan; outmaneuvered Kaecilius through time-loop tactic against Dormammu; helped defeat Wanda via America Chavez",
+      "losses_and_limits": "Thanos overcame his defenses; Wanda breached Kamar-Taj; spells require concentration",
+      "score_rationale": "Magic gives elite positional speed and object manipulation; physical muscle strength remains human; Time Stone excluded from default post-Endgame loadout",
+      "scores": {
+        "spd": 99,
+        "agi": 90,
+        "str": 54,
+        "siz": 62,
+        "lep": 99,
+        "end": 88,
+        "tch": 99,
+        "acc": 96,
+        "ref": 93,
+        "iq": 99,
+        "clu": 95,
+        "ldr": 87
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/doctor-strange-stephen-strange/on-screen"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Scarlet Witch",
+      "version": "Doctor Strange in the Multiverse of Madness",
+      "primary_works": [
+        "Age of Ultron (2015)",
+        "Civil War (2016)",
+        "Infinity War (2018)",
+        "WandaVision (2021)",
+        "Multiverse of Madness (2022)"
+      ],
+      "powers": "Chaos magic, telekinesis, barriers, reality alteration, flight, mind manipulation",
+      "wins_and_feats": "Destroyed Mind Stone while resisting Thanos; nearly defeated Thanos in Endgame; defeated Illuminati members in alternate universe",
+      "losses_and_limits": "Agatha exploited her ignorance of runes; grief and Darkhold corruption distorted judgment; physical vulnerability when unshielded",
+      "score_rationale": "Magic gives extreme reach, touch and positional control; unstable decision-making means power is not synonymous with clutch or leadership",
+      "scores": {
+        "spd": 98,
+        "agi": 92,
+        "str": 58,
+        "siz": 56,
+        "lep": 99,
+        "end": 92,
+        "tch": 99,
+        "acc": 98,
+        "ref": 93,
+        "iq": 87,
+        "clu": 73,
+        "ldr": 66
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/scarlet-witch-wanda-maximoff/"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Captain Marvel",
+      "version": "The Marvels",
+      "primary_works": [
+        "Captain Marvel (2019)",
+        "Endgame (2019)",
+        "The Marvels (2023)"
+      ],
+      "powers": "Cosmic energy absorption/projection, flight, strength, high durability",
+      "wins_and_feats": "Destroyed Kree ships; shattered Thanos's warship; challenged Thanos directly",
+      "losses_and_limits": "Thanos knocked her away using Power Stone; energy interactions may be conditional",
+      "score_rationale": "Elite cosmic mobility, power and durability; precision and team coordination distinct from raw energy output",
+      "scores": {
+        "spd": 99,
+        "agi": 88,
+        "str": 99,
+        "siz": 69,
+        "lep": 99,
+        "end": 99,
+        "tch": 86,
+        "acc": 94,
+        "ref": 94,
+        "iq": 88,
+        "clu": 91,
+        "ldr": 84
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/captain-marvel-carol-danvers"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Thanos",
+      "version": "Avengers: Infinity War",
+      "primary_works": [
+        "The Avengers (2012)",
+        "Guardians of the Galaxy (2014)",
+        "Infinity War (2018)",
+        "Endgame (2019)"
+      ],
+      "powers": "Extreme strength, resilience, combat technique; Infinity Gauntlet conditional",
+      "wins_and_feats": "Defeated Hulk unarmed; overcame Avengers on Titan; fought Thor, Iron Man and Steve simultaneously",
+      "losses_and_limits": "Thor nearly killed him with Stormbreaker; Avengers defeated 2014 Thanos in Endgame",
+      "score_rationale": "Default ratings exclude Infinity Stones; high strategy and physical skill; size and reach large",
+      "scores": {
+        "spd": 83,
+        "agi": 87,
+        "str": 99,
+        "siz": 94,
+        "lep": 82,
+        "end": 99,
+        "tch": 90,
+        "acc": 91,
+        "ref": 94,
+        "iq": 98,
+        "clu": 95,
+        "ldr": 92
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/thanos"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    },
+    {
+      "name": "Loki",
+      "version": "Loki season 2",
+      "primary_works": [
+        "Thor (2011)",
+        "The Avengers (2012)",
+        "Ragnarok (2017)",
+        "Loki (2021–2023)"
+      ],
+      "powers": "Illusions, sorcery, shapeshifting, daggers, Asgardian resilience; timeline powers version-dependent",
+      "wins_and_feats": "Outmaneuvered foes through deception; fought alongside Thor against Hela's forces; Loki series finale involves exceptional temporal feat",
+      "losses_and_limits": "Defeated by Hulk in The Avengers; Thanos killed prime-timeline Loki; overconfidence",
+      "score_rationale": "Magic and misdirection improve positioning and touch; godlike timeline manipulation should be separately tagged rather than silently applied to every game",
+      "scores": {
+        "spd": 94,
+        "agi": 87,
+        "str": 88,
+        "siz": 74,
+        "lep": 95,
+        "end": 93,
+        "tch": 94,
+        "acc": 91,
+        "ref": 89,
+        "iq": 97,
+        "clu": 87,
+        "ldr": 81
+      },
+      "source_urls": [
+        "https://www.marvel.com/characters/loki"
+      ],
+      "confidence": "provisional; primary-scene descriptions and official profile links; source-by-source verification outstanding",
+      "review_status": "researched_pending_verification"
+    }
+  ]
+}
