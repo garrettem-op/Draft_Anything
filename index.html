@@ -366,6 +366,34 @@ table.t.stats .pname small { white-space: normal; }
 .credits li { overflow-wrap: anywhere; }
 .credits a { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
 
+
+/* Draft play is a fixed viewport; only candidate lists scroll. */
+html.draft-active, html.draft-active body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+html.draft-active .app { height: 100dvh; max-height: 100dvh; display: flex; flex-direction: column; overflow: hidden; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+html.draft-active .top { flex: none; margin-bottom: 8px; padding-bottom: 8px; }
+html.draft-active main { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+html.draft-active .board-head, html.draft-active .clock { flex: none; margin-bottom: 8px; }
+html.draft-active .board { flex: 1 1 auto; min-height: 0; overflow: hidden; align-items: stretch; }
+html.draft-active .board > div { min-height: 0; min-width: 0; overflow: hidden; }
+html.draft-active .board-side { display: flex; flex-direction: column; }
+html.draft-active .board-side > .panel { min-height: 0; flex: 1 1 auto; overflow: hidden; }
+html.draft-active .picker { height: 100%; max-height: none; min-height: 0; }
+html.draft-active .plist, html.draft-active .log, html.draft-active .roster-list { min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+html.draft-active .board-side > .panel:not(.picker) { overflow-y: auto; overscroll-behavior: contain; }
+html.draft-active .board.h2h > div:last-child { display: flex; flex-direction: column; }
+html.draft-active .board.h2h > div:last-child > .panel { flex: 1 1 auto; min-height: 0; overflow: hidden; }
+html.draft-active input, html.draft-active select { font-size: 16px; }
+@media (max-width: 899px) {
+  html.draft-active .app { padding-inline: 8px; }
+  html.draft-active .board { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: 0; }
+  html.draft-active .board > div:first-child { overflow: hidden; }
+  html.draft-active .board-side { min-height: 0; }
+  html.draft-active .board-side > .panel:not(.picker) { display: none; }
+  html.draft-active .picker.open { height: min(78dvh, 760px); min-height: 0; max-height: 78dvh; }
+  html.draft-active .board.h2h > div:nth-child(2) { display: none; }
+  html.draft-active .board.h2h > div:last-child { position: static; }
+}
+
 </style>
 </head>
 <body>
@@ -3615,6 +3643,8 @@ function render() {
   let main;
   if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
+  const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
+  document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderShareModal();
   if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus(); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
 }
