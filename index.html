@@ -43,7 +43,7 @@ html,body{margin:0}
 }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.45; }
-button, input, select { font: inherit; color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; font-size: max(16px, 1em); }
 button { cursor: pointer; }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .app { max-width: 1240px; margin: 0 auto; padding-inline: 16px; padding-block: 12px 48px; }
@@ -382,7 +382,7 @@ html.draft-active .plist, html.draft-active .log, html.draft-active .roster-list
 html.draft-active .board-side > .panel:not(.picker) { overflow-y: auto; overscroll-behavior: contain; }
 html.draft-active .board.h2h > div:last-child { display: flex; flex-direction: column; }
 html.draft-active .board.h2h > div:last-child > .panel { flex: 1 1 auto; min-height: 0; overflow: hidden; }
-html.draft-active input, html.draft-active select { font-size: 16px; }
+html.draft-active input, html.draft-active select, html.draft-active textarea { font-size: 16px; }
 @media (max-width: 899px) {
   html.draft-active .app { padding-inline: 8px; }
   html.draft-active .board { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: 0; }
