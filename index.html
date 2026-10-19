@@ -410,6 +410,13 @@ const BAT_W = { ref: 3, acc: 3, str: 6, iq: 1, clu: 1 };
 const BAT_FLOOR = ['ref', 'acc'];
 // Plate appearances by lineup spot (leadoff bats most). Scaled so offense counts about as much as run prevention.
 const BAT_ORDER_W = [1.09, 1.07, 1.05, 1.02, 1.0, 0.98, 0.96, 0.93, 0.9];
+// ===== Battle Royale damage styles =====
+// A damage dealer can be anything: a powerhouse, a speedster or a precision fighter. They play whichever suits them.
+const DPS_STYLES = [
+  { name: 'Power', w: { str: 4, end: 2, siz: 1, lep: 1, clu: 1 } },
+  { name: 'Speed', w: { spd: 3, agi: 3, ref: 2, acc: 1, clu: 1 } },
+  { name: 'Precision', w: { acc: 4, ref: 2, iq: 2, tch: 1, clu: 1 } },
+];
 const SPORTS = {
   basketball: {
     name: 'Basketball', unit: 'pts', aspect: 100 / 94, surface: 'court',
@@ -528,18 +535,15 @@ const SPORTS = {
   },
   brawl: {
     name: 'Battle Royale', unit: 'KOs', aspect: 1, surface: 'arena', fight: true,
-    blurb: 'A straight-up 5-on-5 brawl: five fighters, a reinforcement and a commander. Last side standing wins',
+    blurb: 'A straight-up 5-on-5 brawl: two tanks, three damage dealers, a reinforcement and a commander',
     pos: [
-      // Tank: the wall up front. Size and stamina to soak it up, strength to hold the line.
-      { id: 'tnk', ab: 'TNK', nm: 'Tank',         x: 50, y: 24, imp: 1.0,  at: 'on the front line', w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
-      // Bruiser: the heavy hitter who wins the slugfest in the middle.
-      { id: 'brw', ab: 'BRU', nm: 'Bruiser',      x: 26, y: 42, imp: 1.1,  at: 'in the thick of it', w: { str: 4, end: 2, siz: 1, agi: 1, lep: 1, clu: 1 } },
-      // Striker: fast, slippery, hits first and gets out.
-      { id: 'stk', ab: 'STK', nm: 'Striker',      x: 74, y: 42, imp: 1.0,  at: 'on the flank', w: { spd: 3, agi: 3, ref: 2, acc: 1, clu: 1 } },
-      // Wildcard: the all-rounder who fills any gap. The floor checks four traits, so a one-trick pick gets exposed.
-      { id: 'wld', ab: 'WLD', nm: 'Wildcard',     x: 50, y: 58, imp: 0.95, at: 'as the wildcard', w: { agi: 2, lep: 2, tch: 2, clu: 2, iq: 1, spd: 1, str: 1 }, floorK: 4, floorW: 0.3 },
-      // Sharpshooter: picks people off from range. Accuracy first, then reflexes and a cool head.
-      { id: 'shp', ab: 'SHP', nm: 'Sharpshooter', x: 50, y: 82, imp: 0.95, at: 'from range', w: { acc: 5, ref: 2, iq: 2, clu: 1 } },
+      // Tanks: the wall up front. Size and stamina to soak it up, strength to hold the line.
+      { id: 'tk1', ab: 'TNK', nm: 'Tank', x: 35, y: 26, imp: 1.0, at: 'on the front line', w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
+      { id: 'tk2', ab: 'TNK', nm: 'Tank', x: 65, y: 26, imp: 1.0, at: 'on the front line', w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
+      // Damage dealers: any way you hurt people counts. Each is judged by whichever style suits them best.
+      { id: 'd1', ab: 'DPS', nm: 'Damage', x: 20, y: 58, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
+      { id: 'd2', ab: 'DPS', nm: 'Damage', x: 50, y: 70, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
+      { id: 'd3', ab: 'DPS', nm: 'Damage', x: 80, y: 58, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
       { ...BENCH(), nm: 'Reinforcement', ab: 'RNF' },
       { id: 'cmd', ab: 'CMD', nm: 'Commander', side: true, coach: true, imp: 0, w: COACH_W },
     ],
@@ -548,8 +552,17 @@ const SPORTS = {
 const SPORT_ORDER = ['basketball', 'football', 'soccer', 'baseball', 'hockey', 'volleyball', 'brawl'];
 
 // Precompute normalized weights and key traits (top 3 weights) per position
+function prepPos(p) {
+  const tot = Object.values(p.w).reduce((a, b) => a + b, 0);
+  p.wv = AK.map(k => (p.w[k] || 0) / tot);
+  p.keys = Object.entries(p.w).sort((a, b) => b[1] - a[1]).slice(0, 3).map(e => AK.indexOf(e[0]));
+  p.fkeys = p.floorKeys ? p.floorKeys.map(k => AK.indexOf(k)) : Object.entries(p.w).sort((a, b) => b[1] - a[1]).slice(0, p.floorK || 3).map(e => AK.indexOf(e[0]));
+  p.fw = p.floorW || 0.25;
+}
+for (const st of DPS_STYLES) prepPos(st);
 for (const sk of SPORT_ORDER) {
   for (const p of SPORTS[sk].pos) {
+    if (p.styles) { const w = {}; for (const st of p.styles) for (const [k, v] of Object.entries(st.w)) w[k] = (w[k] || 0) + v; p.w = w; }
     const tot = Object.values(p.w).reduce((a, b) => a + b, 0);
     p.wv = AK.map(k => (p.w[k] || 0) / tot);
     p.keys = Object.entries(p.w).sort((a, b) => b[1] - a[1]).slice(0, 3).map(e => AK.indexOf(e[0]));
@@ -570,7 +583,9 @@ function batFitAI(c) { return fitScore(c.a, BAT_POS); }
 // ===== Scoring =====
 // Fit: 75% weighted average of the position's attributes + 25% the weakest of its 3 key traits,
 // so a candidate who is great at one thing but missing a core trait for the role is exposed.
+function bestStyle(attrs, pos) { let best = null; for (const st of pos.styles) { const f = fitScore(attrs, st); if (!best || f > best.f) best = { st, f }; } return best; }
 function fitScore(attrs, pos) {
+  if (pos.styles) return bestStyle(attrs, pos).f;
   let s = 0;
   for (let i = 0; i < 12; i++) s += pos.wv[i] * attrs[i];
   let mn = 99;
@@ -580,7 +595,7 @@ function fitScore(attrs, pos) {
 function coachMult(fit) { return 0.9 + 0.2 * (fit / 99); }
 function benchMult(fit) { return 0.95 + 0.1 * (fit / 99); }
 // Unbreakable signature: no weakest-trait penalty, so a lopsided build plays to its strengths.
-function fitFree(attrs, pos) { let s = 0; for (let i = 0; i < 12; i++) s += pos.wv[i] * attrs[i]; return s; }
+function fitFree(attrs, pos) { if (pos.styles) return Math.max(...pos.styles.map(st => fitFree(attrs, st))); let s = 0; for (let i = 0; i < 12; i++) s += pos.wv[i] * attrs[i]; return s; }
 function fitFor(c, pos) { return c.sig && c.sig.kind === 'unbreakable' ? fitFree(c.a, pos) : fitScore(c.a, pos); }
 
 // roster: { posId: candidate } -> { rating, playerScore, coachFit, benchFit, mult, syn, sig, rows:[{pos, cand, fit, w}] }
@@ -2105,11 +2120,12 @@ function rcPoolBaseline(sportKey, cands, k = 6) {
   });
 }
 function rcEdges(c, ref, p, n, r) {
+  if (p.styles) p = bestStyle(c.a, p).st; // a damage dealer is described by the style they fight in
   let ks = p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, n).map(x => AK[x.k]);
   if (!ks.length) ks = [...p.keys].sort((a, b) => c.a[b] - c.a[a]).slice(0, n).map(k => AK[k]);
   return rcAnd(ks.map(k => rcPick(r, TRAIT_STR[k])));
 }
-function rcLackKey(c, ref, p) { return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
+function rcLackKey(c, ref, p) { if (p.styles) p = bestStyle(c.a, p).st; return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
 
 // Shared building blocks
 function rcStars(sportKey, sc, base, N, r) {
@@ -2479,7 +2495,7 @@ restoreBoard(S.boards.deal, BOARD_KEYS.deal);
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
 function sigLine(c) { return c.sig ? `<small class="sig">Signature move · ${esc(c.sig.name)}</small>` : ''; }
 function shortName(n) { if (n.length <= 12) return n; const w = n.split(' '); return w[w.length - 1].length > 2 ? w[w.length - 1] : w.slice(-2).join(' '); }
-function needsText(pos) { const t = pos.keys.map(i => ATTRS[i].n); return pos.dh ? ['Contact', 'Power'] : pos.bats ? [...t, '+ bats'] : t; }
+function needsText(pos) { if (pos.styles) return pos.styles.map(st => st.name); const t = pos.keys.map(i => ATTRS[i].n); return pos.dh ? ['Contact', 'Power'] : pos.bats ? [...t, '+ bats'] : t; }
 function bars(c, pos) { return `<span class="bars" title="Attribute profile; highlighted bars are this role's key traits">${c.a.map((v, i) => `<i class="${pos.keys.includes(i) ? 'k' : ''}" style="height:${Math.max(2, v / 99 * 22)}px" title="${ATTRS[i].n} ${v}"></i>`).join('')}</span>`; }
 
 function renderField(sportKey, roster, o = {}) {
@@ -2527,7 +2543,7 @@ function renderModal() {
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
     <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>No scores, grades or rankings are ever shown.</b> You find out how you did from the results.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
-    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. A Tank holds the front, a Bruiser wins the slugfest, a Striker hits fast from the flank, a Wildcard covers every gap and a Sharpshooter picks people off from range. The Commander calls it and the Reinforcement jumps in late. The final shows knockouts: the winners drop all five, and the loser's count shows how close it got.</p>
+    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front (size, stamina, strength). Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got.</p>
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
