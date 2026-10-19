@@ -383,14 +383,41 @@ html.draft-active .board-side > .panel:not(.picker) { overflow-y: auto; overscro
 html.draft-active .board.h2h > div:last-child { display: flex; flex-direction: column; }
 html.draft-active .board.h2h > div:last-child > .panel { flex: 1 1 auto; min-height: 0; overflow: hidden; }
 html.draft-active input, html.draft-active select, html.draft-active textarea { font-size: 16px; }
+
+/* Size playing surfaces to available height instead of cropping them. */
+html.draft-active .board > div:first-child { display: flex; flex-direction: column; min-height: 0; }
+html.draft-active .field-wrap { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+html.draft-active .field { flex: 0 1 auto; width: auto; max-width: 100%; max-height: 100%; height: auto; aspect-ratio: var(--field-ratio); }
+html.draft-active .field-wrap > .field { width: min(100%, 100cqw); }
+html.draft-active .sideline { flex: 0 0 auto; width: 100%; gap: 4px; }
+html.draft-active .side-node { flex-basis: 110px; padding: 3px 6px; gap: 5px; }
+html.draft-active .side-node .disc { width: 26px; height: 26px; font-size: 12px; }
+html.draft-active .side-node .lbl small { font-size: 10px; }
+html.draft-active .side-node .lbl b { font-size: 12px; }
+html.draft-active .board-head .title h2 { font-size: clamp(17px, 3vh, 26px); }
+html.draft-active .board-head { gap: 4px 8px; }
+html.draft-active .board-head .btn { padding: 5px 8px; font-size: 12px; }
+html.draft-active .top { gap: 4px 8px; }
+html.draft-active .brand h1 { font-size: clamp(22px, 4vh, 34px); }
+html.draft-active .brand small { display: none; }
+html.draft-active .modes button { padding: 5px 8px; font-size: 12px; }
+html.draft-active .clock { padding: 6px 10px; }
+html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px; }
+
 @media (max-width: 899px) {
   html.draft-active .app { padding-inline: 8px; }
   html.draft-active .board { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: 0; }
   html.draft-active .board > div:first-child { overflow: hidden; }
+  html.draft-active .field-wrap > .field { width: min(100%, 46dvh); max-height: 100%; }
   html.draft-active .board-side { min-height: 0; }
   html.draft-active .board-side > .panel:not(.picker) { display: none; }
   html.draft-active .picker.open { height: min(78dvh, 760px); min-height: 0; max-height: 78dvh; }
-  html.draft-active .board.h2h > div:nth-child(2) { display: none; }
+  html.draft-active .board.h2h { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); gap: 6px; }
+  html.draft-active .board.h2h > div:nth-child(2) { display: flex; flex-direction: column; min-height: 0; }
+  html.draft-active .board.h2h > div:nth-child(2) .field-wrap { min-height: 0; }
+  html.draft-active .board.h2h .mini-head { font-size: 11px; }
+  html.draft-active .board.h2h > div:last-child { grid-column: 1 / -1; }
+  html.draft-active .board.h2h .side-node .lbl small { display: none; }
   html.draft-active .board.h2h > div:last-child { position: static; }
 }
 
@@ -2618,7 +2645,7 @@ function renderField(sportKey, roster, o = {}) {
     return `<button class="${cls}" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''}>${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
-    <div class="field ${sportKey === 'hockey' ? 'light' : ''}" style="aspect-ratio:${sp.aspect}">${surfaceSVG(sportKey)}${sp.pos.filter(p => !p.side).map(node).join('')}</div>
+    <div class="field ${sportKey === 'hockey' ? 'light' : ''}" style="aspect-ratio:${sp.aspect};--field-ratio:${sp.aspect}">${surfaceSVG(sportKey)}${sp.pos.filter(p => !p.side).map(node).join('')}</div>
     <div class="sideline">${sp.pos.filter(p => p.side).map(side).join('')}</div>
   </div>`;
 }
