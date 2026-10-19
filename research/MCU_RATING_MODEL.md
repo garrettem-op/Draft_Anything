@@ -50,9 +50,22 @@ Every claim records: source URL or work reference, universe (MCU/comics), event,
 6. Peer-review outliers and relative order, especially character variants. Test how rankings change for positions across each sport.
 7. Only after review, replace existing 12-value MCU arrays, preserving names and IDs, and invalidate cached role rankings if updating in a running app.
 
+
+## Confirmed game rule: full powers permitted
+**Decision:** All characters may use their standard, repeatable supernatural powers during sports, including magic, portals, flight, telekinesis, shapeshifting, and super-speed. This rule applies to every pool.
+
+- Judge **effective on-field capability**, not unpowered human biomechanics. A portal may support speed/positioning and accuracy; telekinesis can support touch, accuracy, and reach.
+- Distinguish effects: teleportation is near-instant relocation, but not necessarily faster reaction time; magical shielding boosts defensive endurance, not necessarily muscle strength.
+- Standard personal equipment and artifacts are permitted if normally carried in the chosen version; temporary or borrowed Infinity Stones and one-off cosmic enhancements require explicit variant tags.
+- Score based on reliable, controllable, repeatable feats. Keep concentration, preparation time, range, energy costs, counters, and demonstrated failures as real limitations.
+- Keep the 1–99 scale comparable across pools. A powered 99 means a demonstrably extreme advantage; don't give 99 to every category just because a character is cosmic.
+- This is a fictional unrestricted-powers sports simulation; conventional league rules against outside interference or unusual movement do not suppress powers.
+
+Source example: Marvel documents Strange's portals, barriers, astral projection, Cloak of Levitation and Time Stone as distinct capabilities and equipment; each affects different attributes. https://www.marvel.com/characters/doctor-strange-stephen-strange/on-screen
+
 ## Evidence-to-sports mapping
-- Flight: improves movement speed and leap/vertical mobility only if legal under game simulation rules; it does not imply quick hand skills.
-- Teleportation: distinguish instantaneous relocation from straight-line speed and reaction speed; specify how sport rules handle it.
+- Flight: improves effective movement speed and leap/vertical mobility under the unrestricted-powers rules; it does not imply quick hand skills.
+- Teleportation: distinguish instantaneous relocation from straight-line speed and reaction speed; score its effective sports utility under the unrestricted-powers rule.
 - Telekinesis: can enhance touch and accuracy if shown controlling objects precisely, but do not equate large-object manipulation with fine motor precision.
 - Invulnerability: improves endurance/durability, not automatically stamina, clutch or leadership.
 - Combat tactics: may support IQ and reflexes; coaching, reading formations and team decisions need separate evidence.
