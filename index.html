@@ -624,7 +624,8 @@ function teamScore(sportKey, roster) {
   for (const r of rows) r.w = r.pos.coach ? playerScore * 0.2 / 99 * bm : r.pos.bench ? playerScore * 0.1 / 99 * cm : (r.pos.imp + (r.order ? sp.lineupW[r.order - 1] : 0)) / den * mult;
   const syn = synergyOf(sportKey, roster);
   const sig = sigOf(rows);
-  return { rating: playerScore * mult + syn.total + sig.lift, playerScore, coachFit, benchFit, mult, syn, sig, rows, order };
+  const variety = sp.fight ? brawlVariety(rows) : null;
+  return { rating: playerScore * mult + syn.total + sig.lift + (variety ? variety.pts : 0), playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety };
 }
 
 function grade(f) {
@@ -1228,6 +1229,77 @@ function gameRatings(A, B, playoff, rng) {
     if (side === 0) ra += d; else rb += d;
   }
   return { ra, rb, ev };
+}
+
+// ===== Battle Royale: fighting styles and the variety bonus =====
+// A crew that brings different ways to fight (ranged attacks, flyers, tech, close quarters, explosives,
+// powers and magic) is harder to answer than five of the same thing.
+// R ranged · F flyer · T technician · C close quarters · X explosives · M powers & magic
+const FIGHT_STYLES = { R: 'Ranged', F: 'Flyer', T: 'Technician', C: 'Close quarters', X: 'Explosives', M: 'Powers & magic' };
+const FIGHT_TAGS = {
+  mcu: {
+    'Iron Man': 'FTR', 'Captain America': 'C', 'Thor': 'FMC', 'Hulk': 'C', 'Bruce Banner': 'T', 'Smart Hulk': 'CT', 'Black Widow': 'CR',
+    'Hawkeye': 'RX', 'Kate Bishop': 'R', 'Spider-Man': 'CT', 'Doctor Strange': 'M', 'Black Panther': 'CT', 'Captain Marvel': 'FR',
+    'Scarlet Witch': 'MF', 'Vision': 'FR', 'Ant-Man': 'TC', 'The Wasp': 'FT', 'Janet van Dyne': 'T', 'Hank Pym': 'T', 'Falcon': 'FR',
+    'Winter Soldier': 'CR', 'War Machine': 'FRX', 'Pepper Potts': 'TF', 'Howard Stark': 'T', 'Happy Hogan': 'C', 'Star-Lord': 'RF',
+    'Gamora': 'C', 'Drax': 'C', 'Rocket': 'RXT', 'Groot': 'C', 'Mantis': 'M', 'Nebula': 'C', 'Yondu': 'R', 'Cosmo the Spacedog': 'M',
+    'Adam Warlock': 'FR', 'Taserface': 'C', 'Okoye': 'C', 'Ayo': 'C', 'Shuri': 'T', "M'Baku": 'C', 'Nakia': 'C', 'Killmonger': 'CR',
+    'Namor': 'FC', 'Attuma': 'C', 'Ironheart': 'FT', 'Valkyrie': 'C', 'Loki': 'M', 'Odin': 'M', 'Hela': 'MC', 'Heimdall': 'CM', 'Sif': 'C',
+    'Korg': 'C', 'Hercules': 'C', 'Zeus': 'MR', 'Gorr the God Butcher': 'MC', 'Thanos': 'C', 'Ultron': 'FTR', 'Red Skull': 'C',
+    'Vulture': 'FT', 'Mysterio': 'TX', 'Green Goblin': 'FX', 'Doc Ock': 'TC', 'Electro': 'R', 'Sandman': 'C', 'Kang the Conqueror': 'T',
+    'Ego': 'M', 'Ronan the Accuser': 'C', 'Abomination': 'C', 'Whiplash': 'TC', 'Obadiah Stane': 'T', 'Kaecilius': 'M', 'Wong': 'M',
+    'The Ancient One': 'M', 'Mordo': 'M', 'Shang-Chi': 'C', 'Xu Wenwu': 'CR', 'Katy': 'R', 'Ms. Marvel': 'C', 'She-Hulk': 'C',
+    'Moon Knight': 'C', 'Yelena Belova': 'CR', 'Red Guardian': 'C', 'Taskmaster': 'CR', 'John Walker': 'C', 'Zemo': 'C', 'Sharon Carter': 'R',
+    'Agatha Harkness': 'M', 'Nick Fury': 'R', 'Maria Hill': 'R', 'Phil Coulson': 'R', 'Peggy Carter': 'R', 'Darcy Lewis': 'T', 'Ghost': 'C',
+    'Ned Leeds': 'T', 'Ikaris': 'FR', 'Thena': 'C', 'Makkari': 'C', 'Gilgamesh': 'C', 'Ajak': 'M', 'Kingo': 'R', 'Druig': 'M', 'Phastos': 'T',
+    'Sersi': 'M', 'Sprite': 'M', 'Monica Rambeau': 'FR', 'America Chavez': 'C', 'Echo': 'C', 'Kingpin': 'C', 'Daredevil': 'C',
+    'Jessica Jones': 'C', 'Luke Cage': 'C', 'Iron Fist': 'CM', 'The Punisher': 'RX', 'Deadpool': 'CRX', 'Wolverine': 'C', 'Professor X': 'M',
+    'Cassandra Nova': 'M', 'Elektra': 'C', 'Miek': 'C', 'Sentry': 'FC', 'Bill Foster': 'C', 'Jean Grey': 'MF', 'Doctor Doom': 'TMF',
+    'Mister Fantastic': 'T', 'Invisible Woman': 'M', 'Human Torch': 'FRX', 'The Thing': 'C', 'H.E.R.B.I.E.': 'T', 'Silver Surfer': 'FR',
+    'Galactus': 'M', 'Franklin Richards': 'M', 'Stick': 'C', 'The Watcher': 'M', 'Captain Carter': 'C', 'Erik Selvig': 'T', 'Bullseye': 'R',
+  },
+  toons: {
+    'Bugs Bunny': 'XC', 'Wile E. Coyote': 'XT', 'Tasmanian Devil': 'C', 'Tweety': 'F', 'Yosemite Sam': 'RX', 'Marvin the Martian': 'RXT',
+    'Elmer Fudd': 'R', 'Mickey Mouse': 'M', 'Hercules': 'C', 'Mulan': 'CX', 'Simba': 'C', 'Baloo': 'C', 'Tarzan': 'C', 'Maui': 'MCF',
+    'Elsa': 'MR', 'Stitch': 'RTC', 'Buzz Lightyear': 'RF', 'Mr. Incredible': 'C', 'Elastigirl': 'C', 'Violet': 'M', 'Frozone': 'R',
+    'Edna Mode': 'T', 'Sulley': 'C', 'WALL-E': 'T', 'Wreck-It Ralph': 'C', 'Shrek': 'C', 'Puss in Boots': 'C', 'Po': 'C', 'Master Shifu': 'C',
+    'Tigress': 'C', 'Sandy Cheeks': 'CT', 'Plankton': 'T', 'Bart Simpson': 'R', 'Velma': 'T', 'Fred Jones': 'T', 'Popeye': 'C', 'Bluto': 'C',
+    'Optimus Prime': 'RC', 'Megatron': 'RF', 'Leonardo': 'C', 'Raphael': 'C', 'Michelangelo': 'C', 'Donatello': 'TC', 'Master Splinter': 'C',
+    'Aang': 'FM', 'Toph Beifong': 'MC', 'Zuko': 'MR', 'Uncle Iroh': 'MR', 'Katara': 'M', 'Sokka': 'R', 'Blossom': 'F', 'Bubbles': 'F',
+    'Buttercup': 'FC', 'Professor Utonium': 'T', 'Mojo Jojo': 'TX', 'Dexter': 'T', 'Snoopy': 'F', 'Jerry': 'X', 'Rick Sanchez': 'TR',
+  },
+  muppets: {
+    'Miss Piggy': 'C', 'Gonzo': 'X', 'Animal': 'C', 'Dr. Bunsen Honeydew': 'TX', 'Sam Eagle': 'F', 'Camilla the Chicken': 'F', 'Crazy Harry': 'X',
+    'Sweetums': 'C', 'Uncle Deadly': 'M', 'Dr. Julius Strangepork': 'T', 'Lew Zealand': 'R', 'Big Mean Carl': 'C', 'Thog': 'C', 'Doglion': 'C',
+    'Hoots the Owl': 'F', 'Little Bird': 'F', 'The Amazing Mumford': 'M', 'Abby Cadabby': 'MF', 'Grover': 'F', 'Sherlock Hemlock': 'T',
+    'Junior Gorg': 'C', 'Pa Gorg': 'C', 'Ma Gorg': 'C', 'Cotterpin Doozer': 'T', 'Marjory the Trash Heap': 'M', 'Cantus': 'M', 'Herry Monster': 'C',
+  },
+};
+// Anyone not listed (athletes, custom pools) is read from their profile: elite leapers fly, deadeyes shoot,
+// masterminds are technicians, and the strong or quick handle close quarters.
+function fightStyles(c) {
+  const t = FIGHT_TAGS[c.pool] && FIGHT_TAGS[c.pool][c.n];
+  if (t) return t.split('');
+  const a = c.a, out = [];
+  if (a[4] >= 92) out.push('F');
+  if (a[7] >= 90) out.push('R');
+  if (a[9] >= 92) out.push('T');
+  if (a[2] >= 80 || a[1] >= 85) out.push('C');
+  return out;
+}
+const VARIETY_PTS = [0, 0, 0, 0.6, 1.3, 2.0];
+// Count how many different styles the five fighters cover, each fighter filling one style (best matching).
+function brawlVariety(rows) {
+  const fighters = rows.filter(r => r.cand && !r.pos.coach && !r.pos.bench).map(r => ({ c: r.cand, s: fightStyles(r.cand) }));
+  let best = [];
+  const go = (i, used, pick) => {
+    if (pick.length > best.length) best = pick.slice();
+    if (i >= fighters.length || pick.length + (fighters.length - i) <= best.length) return;
+    for (const s of fighters[i].s) if (!used.has(s)) { used.add(s); pick.push({ s, c: fighters[i].c }); go(i + 1, used, pick); pick.pop(); used.delete(s); }
+    go(i + 1, used, pick);
+  };
+  go(0, new Set(), []);
+  return { n: best.length, picks: best, pts: VARIETY_PTS[Math.min(5, best.length)] };
 }
 
 // ===== Chemistry: links between candidates + coach styles =====
@@ -2543,7 +2615,7 @@ function renderModal() {
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
     <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>No scores, grades or rankings are ever shown.</b> You find out how you did from the results.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
-    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front (size, stamina, strength). Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got.</p>
+    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front (size, stamina, strength). Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
@@ -2781,7 +2853,8 @@ function linkChips(sc, mine = true) {
   const verdict = st ? (st.pts > 0.4 ? `${who} fit the system` : st.pts < -0.1 ? `${who} worked against the system` : 'barely mattered') : '';
   const S = st ? `<span class="link style ${st.pts > 0.4 ? 'on' : st.pts < -0.1 ? 'off' : ''}">${esc(st.name)}'s ${esc(st.label)}: ${verdict}</span>` : '';
   const SG = (sc.sig ? sc.sig.list : []).map(x => `<span class="link sig">${esc(x.c.n)} · ${esc(x.name)}: ${SIG_TEXT[x.kind]}</span>`).join('');
-  return (L || S || SG) ? `<div class="links">${L}${S}${SG}</div>` : `<div class="note" style="padding:12px 16px">No chemistry fired. Look for shared teams, schools, factions and coaches.</div>`;
+  const V = sc.variety && sc.variety.n >= 3 ? `<span class="link variety">Fighting variety <b>×${sc.variety.n}</b>: ${sc.variety.picks.map(x => `${esc(FIGHT_STYLES[x.s])} (${esc(x.c.n)})`).join(', ')}</span>` : '';
+  return (L || S || SG || V) ? `<div class="links">${L}${S}${SG}${V}</div>` : `<div class="note" style="padding:12px 16px">No chemistry fired. Look for shared teams, schools, factions and coaches.</div>`;
 }
 function rosterTable(sportKey, poolId, t) {
   const bat = SPORTS[sportKey].batting;
