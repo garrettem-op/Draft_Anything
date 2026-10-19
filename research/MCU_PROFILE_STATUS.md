@@ -8,6 +8,7 @@
 - `MCU_ALL_143_PROFILES.json` — ordered canonical working catalog, one record per MCU entry; powers, variant, screen works, notable feats, defeats/limits, sport-specific relevance, power tier, twelve proposed attributes and twelve written rationales, source URLs where located, continuity caveats.
 - `MCU_PROFILES_BATCH_01.json` through `MCU_PROFILES_BATCH_05.json` — smaller editable source files for all 143, retained for iterative revisions.
 - `MCU_RATING_MODEL.md` — shared methodology for this and all future talent pools.
+- `MCU_MATCHUP_EVIDENCE.json` — 42 candidate contextual matchup records, explicitly distinguishing solo wins, teamwork, equipment-dependent wins, interrupted near-wins and noncombat resolutions. All await scene-level review.
 - `validate_mcu_profiles.mjs` — structural validation: run `node research/validate_mcu_profiles.mjs` from repository root.
 
 ## Completed structural QA
@@ -16,6 +17,7 @@
 - Each profile has all **12 scores** between 1 and 99.
 - Full-power rule included: standard controllable magic, telekinesis, flight, portals, suit technology and shapeshifting allowed.
 - A **provisional** rating differs from existing game data for **52 characters / 223 attribute cells**. The other 91 character score rows currently match the baseline, even though their narrative profiles are new.
+- **42 matchup edges drafted**, including alternative-universe caveats and solo/team distinctions.
 - **0 individual screen-scene claims formally signed off.** This is the remaining substantial QA task, as opposed to source titles being listed.
 
 ## Source policy
