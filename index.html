@@ -18,6 +18,7 @@ html,body{margin:0}
   --turf: #2E8A4F; --turf2: #297D47; --los: #3E7BFA; --first: #F5D33A; --dirt: #C68456; --wall: #1F5233;
   --ice: #F1F7FA; --boards: #9FB3BF; --rink-red: #D2383A; --rink-blue: #2B5FC2; --crease: #BFD8F2;
   --vb: #E07A3E; --vb-free: #2D7F8E; --net: #1B2B33; --post: #E9EEF0;
+  --pit: #B98F5E; --pit-out: #3A2F28; --pit-ring: #6B5446;
   --shadow: 0 1px 2px rgba(18,32,26,.08), 0 6px 18px rgba(18,32,26,.08);
   --f-display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
   --f-body: "Barlow", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -29,7 +30,7 @@ html,body{margin:0}
   --accent: #F2B33A; --accent-strong: #F2B33A; --accent-ink: #1C1406; --you: #6E95FF; --opp: #FF7B5E;
   --good: #4CC27F; --warn: #E7B13E; --bad: #F06A55; --focus: #8FB0FF;
   --wood: #B98A55; --wood2: #AE7F4B; --paint: #2A4FA8; --turf: #23703F; --turf2: #1F6639; --dirt: #A86E46; --wall: #123822;
-  --ice: #DCE7EC; --boards: #6F8592; --vb: #C2662F; --vb-free: #23646F;
+  --ice: #DCE7EC; --boards: #6F8592; --vb: #C2662F; --vb-free: #23646F; --pit: #94704A; --pit-out: #241D18; --pit-ring: #54423A;
   --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 22px rgba(0,0,0,.35); color-scheme: dark;
 } }
 :root[data-theme="dark"] {
@@ -37,7 +38,7 @@ html,body{margin:0}
   --accent: #F2B33A; --accent-strong: #F2B33A; --accent-ink: #1C1406; --you: #6E95FF; --opp: #FF7B5E;
   --good: #4CC27F; --warn: #E7B13E; --bad: #F06A55; --focus: #8FB0FF;
   --wood: #B98A55; --wood2: #AE7F4B; --paint: #2A4FA8; --turf: #23703F; --turf2: #1F6639; --dirt: #A86E46; --wall: #123822;
-  --ice: #DCE7EC; --boards: #6F8592; --vb: #C2662F; --vb-free: #23646F;
+  --ice: #DCE7EC; --boards: #6F8592; --vb: #C2662F; --vb-free: #23646F; --pit: #94704A; --pit-out: #241D18; --pit-ring: #54423A;
   --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 22px rgba(0,0,0,.35); color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -525,8 +526,26 @@ const SPORTS = {
       { id: 'hc',  ab: 'HC',  nm: 'Head Coach', side: true, coach: true, imp: 0, w: COACH_W },
     ],
   },
+  brawl: {
+    name: 'Battle Royale', unit: 'KOs', aspect: 1, surface: 'arena', fight: true,
+    blurb: 'A straight-up 5-on-5 brawl: five fighters, a reinforcement and a commander. Last side standing wins',
+    pos: [
+      // Tank: the wall up front. Size and stamina to soak it up, strength to hold the line.
+      { id: 'tnk', ab: 'TNK', nm: 'Tank',         x: 50, y: 24, imp: 1.0,  at: 'on the front line', w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
+      // Bruiser: the heavy hitter who wins the slugfest in the middle.
+      { id: 'brw', ab: 'BRU', nm: 'Bruiser',      x: 26, y: 42, imp: 1.1,  at: 'in the thick of it', w: { str: 4, end: 2, siz: 1, agi: 1, lep: 1, clu: 1 } },
+      // Striker: fast, slippery, hits first and gets out.
+      { id: 'stk', ab: 'STK', nm: 'Striker',      x: 74, y: 42, imp: 1.0,  at: 'on the flank', w: { spd: 3, agi: 3, ref: 2, acc: 1, clu: 1 } },
+      // Wildcard: the all-rounder who fills any gap. The floor checks four traits, so a one-trick pick gets exposed.
+      { id: 'wld', ab: 'WLD', nm: 'Wildcard',     x: 50, y: 58, imp: 0.95, at: 'as the wildcard', w: { agi: 2, lep: 2, tch: 2, clu: 2, iq: 1, spd: 1, str: 1 }, floorK: 4, floorW: 0.3 },
+      // Sharpshooter: picks people off from range. Accuracy first, then reflexes and a cool head.
+      { id: 'shp', ab: 'SHP', nm: 'Sharpshooter', x: 50, y: 82, imp: 0.95, at: 'from range', w: { acc: 5, ref: 2, iq: 2, clu: 1 } },
+      { ...BENCH(), nm: 'Reinforcement', ab: 'RNF' },
+      { id: 'cmd', ab: 'CMD', nm: 'Commander', side: true, coach: true, imp: 0, w: COACH_W },
+    ],
+  },
 };
-const SPORT_ORDER = ['basketball', 'football', 'soccer', 'baseball', 'hockey', 'volleyball'];
+const SPORT_ORDER = ['basketball', 'football', 'soccer', 'baseball', 'hockey', 'volleyball', 'brawl'];
 
 // Precompute normalized weights and key traits (top 3 weights) per position
 for (const sk of SPORT_ORDER) {
@@ -1721,6 +1740,12 @@ function scoreline(sportKey, margin, avg, r) {
       }
       return [3, lost, sets.map(s => s.join('-')).join(', ')];
     }
+    case 'brawl': {
+      // the winners knock out all five; the loser's KOs show how close it was
+      const k = margin < 1.5 ? 4 : margin < 4 ? 3 : margin < 8 ? 2 : margin < 13 ? 1 : 0;
+      const lk = Math.max(0, Math.min(4, k + (r() < 0.25 ? -1 : 0)));
+      return [5, lk, lk === 0 ? 'flawless' : lk === 4 ? 'last one standing' : ''];
+    }
   }
   return [1, 0, ''];
 }
@@ -1788,6 +1813,7 @@ const SEASONS = {
   baseball: { league: 'MLB', games: 162, field: [12, 30], series: [3, 5, 7, 7], sigma: 10, desc: '162 games, then best-of-3, 5, 7 and 7 series, with byes for the top seeds' },
   hockey: { league: 'NHL', games: 82, field: [16, 32], pow2: true, series: [7], sigma: 8, otl: true, desc: '82 games with overtime losses counted, then best-of-7 series' },
   volleyball: { league: 'Serie A1', games: 26, field: [8, 14], pow2: true, series: [3, 5, 5], sigma: 5, desc: '26 matches, then Serie A1-style playoffs: best-of-3 quarterfinals, best-of-5 semifinals and final' },
+  brawl: { league: 'Royale Circuit', games: 30, field: [8, 16], pow2: true, series: [3, 3, 5], sigma: 7, desc: '30 fights, two against every other crew, then best-of-3 quarterfinals and semifinals and a best-of-5 final' },
   soccer: { league: 'Serie A', games: 38, field: null, sigma: 7, draws: 0.32, desc: '38 matches with draws. No playoffs: the table decides the title' },
 };
 const SEASON_VAR = 1; // global scale for game-to-game swings in a full season
@@ -1945,6 +1971,18 @@ function surfaceSVG(sportKey) {
         `<circle cx="27" cy="46" r="0.9" fill="var(--rink-red)"/><circle cx="73" cy="46" r="0.9" fill="var(--rink-red)"/>`;
       break;
     }
+    case 'arena': case 'brawl': {
+      // a fighting pit: worn sand floor, a stone ring and the two starting marks
+      g = `<rect width="100" height="100" fill="var(--pit-out)"/>` +
+        `<circle cx="50" cy="50" r="47" fill="var(--pit)"/>` +
+        `<circle cx="50" cy="50" r="47" fill="none" stroke="var(--pit-ring)" stroke-width="2.4"/>` +
+        `<circle cx="50" cy="50" r="44.6" fill="none" stroke="var(--chalk)" stroke-width="0.4" opacity=".55" stroke-dasharray="2 1.6"/>` +
+        `<circle cx="50" cy="50" r="18" fill="none" stroke="var(--chalk)" stroke-width="0.5" opacity=".5"/>` +
+        `<line x1="5" y1="50" x2="95" y2="50" stroke="var(--chalk)" stroke-width="0.5" opacity=".45"/>` +
+        `<path d="M44 50 L50 44 L56 50 L50 56 Z" fill="none" stroke="var(--pit-ring)" stroke-width="0.8"/>` +
+        `<text x="50" y="9.5" font-size="2.8" fill="var(--chalk)" opacity=".75" text-anchor="middle" font-family="var(--f-mono)">THEIR SIDE</text>`;
+      break;
+    }
     case 'volleyball': {
       g = `<rect width="100" height="100" fill="var(--vb-free)"/>` +
         `<rect x="10" y="8" width="80" height="84" fill="var(--vb)"/>` +
@@ -1972,6 +2010,7 @@ function sportGlyph(sportKey) {
     baseball: `<circle cx="16" cy="16" r="11" ${s}/><path d="M9 7.5c3 5 3 12 0 17M23 7.5c-3 5-3 12 0 17" ${s}/>`,
     hockey: `<path d="M9 4l7 20h9" ${s}/><ellipse cx="11" cy="26" rx="5" ry="2" ${s}/>`,
     volleyball: `<circle cx="16" cy="16" r="11" ${s}/><path d="M16 5c-2 6 0 12 6 15M27 16c-6-1-11 2-13 8M7 9c5 3 11 3 15-1" ${s}/>`,
+    brawl: `<path d="M6 6l15 15M26 6L11 21M17 22l5 5M15 22l-5 5M8 19l5 5M24 19l-5 5" ${s}/><path d="M4 4l4 1-1 3-3-4ZM28 4l-4 1 1 3 3-4Z" ${s}/>`,
   };
   return `<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">${m[sportKey]}</svg>`;
 }
@@ -2033,6 +2072,7 @@ function rcPosName(p) { return p.nm.replace(/\s*\(.*\)$/, ''); }
 function rcAt(p) {
   if (p.coach) return 'on the sideline';
   if (p.bench) return 'off the bench';
+  if (p.at) return p.at;
   const n = rcPosName(p);
   if (/^(Goalkeeper|Goaltender)$/.test(n)) return 'in goal';
   if (n === 'Starting Pitcher') return 'on the mound';
@@ -2487,6 +2527,7 @@ function renderModal() {
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
     <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>No scores, grades or rankings are ever shown.</b> You find out how you did from the results.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
+    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. A Tank holds the front, a Bruiser wins the slugfest, a Striker hits fast from the flank, a Wildcard covers every gap and a Sharpshooter picks people off from range. The Commander calls it and the Reinforcement jumps in late. The final shows knockouts: the winners drop all five, and the loser's count shows how close it got.</p>
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
@@ -2750,7 +2791,7 @@ function renderChampResults() {
   const champName = teams[sim.champ].name;
   const bug = final ? scorebug(teams[final.w].name, teams[final.w === final.a ? final.b : final.a].name, final.line, final.w === 0 ? 'you' : 'opp', (final.a === 0 || final.b === 0) && final.w !== 0 ? 'you' : 'neutral', final.bo > 1 ? 'Final · series' : 'Final')
     : `<div class="scorebug"><div style="background:${sim.champ === 0 ? 'var(--you)' : 'var(--opp)'};color:#fff">${esc(champName)} <span class="s">${sim.standings[0].pts} pts</span></div><div class="x">League champions</div></div>`;
-  const foot = season ? `${esc(SE.league)}-style season: ${SE.games} ${c.sport === 'soccer' || c.sport === 'volleyball' ? 'matches' : 'games'} each${rounds.length ? `, top ${sim.seeds.length} make the playoffs${sim.byes ? ` (top ${sim.byes} seed${sim.byes > 1 ? 's get byes' : ' gets a bye'})` : ''}` : '. The table decides the title'}.`
+  const foot = season ? `${esc(SE.league)}-style season: ${SE.games} ${c.sport === 'brawl' ? 'fights' : c.sport === 'soccer' || c.sport === 'volleyball' ? 'matches' : 'games'} each${rounds.length ? `, top ${sim.seeds.length} make the playoffs${sim.byes ? ` (top ${sim.byes} seed${sim.byes > 1 ? 's get byes' : ' gets a bye'})` : ''}` : '. The table decides the title'}.`
     : `Round robin, top ${sim.seeds.length} make the playoffs.`;
   return `<section>
     <div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${handMode() ? 'Dealt Hand · ' : ''}${season ? esc(SE.league) + '-style season · ' : ''}${esc(sp.name)} · ${esc(getPool(c.poolId).short || getPool(c.poolId).name)} · ${teams.length}-team league</span>
@@ -2792,7 +2833,7 @@ function champResultText() {
 // The season is fixed: a real-length pro season against teams from every universe.
 // Each opponent comes from ONE universe (NBA, Marvel, Cartoons, Muppets); mixed All-Star
 // teams only show up when you cast from the All-Star Mashup yourself.
-const LEAGUE_SIZE = { basketball: 30, football: 16, soccer: 20, baseball: 30, hockey: 32, volleyball: 14 };
+const LEAGUE_SIZE = { basketball: 30, football: 16, soccer: 20, baseball: 30, hockey: 32, volleyball: 14, brawl: 16 };
 const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', mashup: 'All-Stars' };
 function universeLabel(id) { return UNIVERSE_LABEL[id] || (S.custom[id] ? (S.custom[id].short || S.custom[id].name) : 'Custom'); }
 
@@ -2801,7 +2842,7 @@ function shuffleWith(arr, rng) { const a = arr.slice(); for (let i = a.length - 
 // in units of the sport's game-to-game swing, so a Muppets cast and an NBA cast face an equally
 // hard road. Contenders sit just below that ceiling; everyone else is a step or more down.
 // [contender gap, others min gap, others max gap] in swing units, tuned per season length.
-const PERFECT_TIERS = { basketball: [1.4, 2.0, 3.8], football: [1.1, 1.5, 3.2], soccer: [1.3, 1.8, 3.6], baseball: [1.6, 2.0, 4.0], hockey: [1.6, 2.0, 4.0], volleyball: [1.2, 1.7, 3.4] };
+const PERFECT_TIERS = { basketball: [1.4, 2.0, 3.8], football: [1.1, 1.5, 3.2], soccer: [1.3, 1.8, 3.6], baseball: [1.6, 2.0, 4.0], hockey: [1.6, 2.0, 4.0], volleyball: [1.2, 1.7, 3.4], brawl: [1.05, 1.5, 3.4] };
 const CEILING = {};
 function poolCeiling(sportKey, poolId) {
   const k = sportKey + '|' + poolId + '|' + getCands(poolId).length;
@@ -2899,11 +2940,11 @@ function renderPerfectResults() {
   const myRow = sim.standings.find(s => s.i === 0), place = sim.standings.findIndex(s => s.i === 0) + 1;
   const rec = recordText(c.sport, myRow, 'season');
   const rounds = sim.rounds, rn = roundNames(rounds.length), final = rounds.length ? rounds[rounds.length - 1][0] : null;
-  const unit = c.sport === 'soccer' || c.sport === 'volleyball' ? 'match' : 'game';
+  const unit = c.sport === 'brawl' ? 'fight' : c.sport === 'soccer' || c.sport === 'volleyball' ? 'match' : 'game';
   const title = pi.perfect ? `<em>Perfect season</em>` : fin.title === 'Champions' ? `<em>Champions</em>` : esc(fin.title);
   const losses = sim.games.filter(g => (g.a === 0 || g.b === 0) && g.w !== 0);
   const pLine = rounds.length ? ` · ${pi.pw}–${pi.pl} in the playoffs` : '';
-  const lw = n => n === 1 ? unit : unit === 'match' ? 'matches' : 'games';
+  const lw = n => n === 1 ? unit : unit === 'match' ? 'matches' : unit + 's';
   const sub = pi.perfect
     ? `${rec} in the regular season${pLine}. Not a single ${unit} lost.`
     : `${rec} in the regular season, ${ordinal(place)} of ${teams.length}${pLine}. ${losses.length ? `${losses.length} regular-season ${lw(losses.length)} without a win kept it from perfect.` : rounds.length ? 'A perfect regular season, then the playoffs got in the way.' : ''}`;
