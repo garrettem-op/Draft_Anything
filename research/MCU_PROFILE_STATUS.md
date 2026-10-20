@@ -2,7 +2,7 @@
 
 **Snapshot:** 2026-10-19  
 **Scope:** Exactly the 143 entries in `index.html` `POOLS.mcu`.  
-**Status:** ALL CHARACTER PROFILES DRAFTED. Scene-by-scene evidence verification remains outstanding. **Do not mistake roster completion for factual verification or score approval.**
+**Status:** All character draft profiles now implemented in app following the owner's explicit approval. Scene-by-scene evidence verification remains outstanding; do not mistake roster completion or publication for official Marvel confirmation.
 
 ## Deliverables
 - `MCU_ALL_143_PROFILES.json` — ordered canonical working catalog, one record per MCU entry; powers, variant, screen works, notable feats, defeats/limits, sport-specific relevance, power tier, twelve proposed attributes and twelve written rationales, source URLs where located, continuity caveats.
@@ -49,7 +49,7 @@ These URLs are **general references**; do not present them as proof of an unsour
 - **Echo:** MCU spiritual powers should not be confused with comics' photographic reflex ability, despite the current game's descriptor.
 
 ## Next evidence gate before live game update
-For each character, attach actual film/episode references to each feat, with actor/victim, result, solo vs team assistance, equipment, conditions, repeatability, and independent confirmation. Add explicit direct win/loss graph edges and counterexamples. Re-score attributes from those verified feats. Compare all characters and test position effects. Then patch MCU arrays in `index.html` on a separate PR. The current PR does **not** modify live ratings.
+For each character, attach actual film/episode references to each feat, with actor/victim, result, solo vs team assistance, equipment, conditions, repeatability, and independent confirmation. Add explicit direct win/loss graph edges and counterexamples. Re-score attributes from those verified feats. Compare all characters and test position effects. The owner authorized publication before individual source verification. Attribute arrays in `index.html` now mirror the draft model. Future fact checks can be iterative revisions. The owner approved applying the proposed ratings on 2026-10-19. The PR now updates all MCU in-app attributes to the current research values, embeds the optional profile viewer, and is ready to merge.
 
 ## Ikaris motivation correction (2026-10-19)
 Ikaris's loyalty to the Celestial mission is not interchangeable with loyalty to the Eternals' majority or moral evaluation of Earth. His high operational discipline and charisma were underrepresented by the initial clutch 58 and leadership 60. **Provisional revisions: clutch 84, leadership 78; tactical IQ remains 86.** Official Marvel/Disney framing describes Ikaris as a charismatic tactician who puts the cosmic mission above personal priorities: https://d23.com/meet-the-characters-of-marvel-studios-eternals/ . The betrayal of Ajak, fracture of the team, and inability to kill Sersi remain real counterexamples. Both batch 04 and consolidated full catalog have been updated.
