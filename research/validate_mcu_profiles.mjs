@@ -36,5 +36,17 @@ for (let i=0;i<roster.length;i++) {
   assert(normalized.limits_and_losses?.length, name+' lacks weaknesses');
   assert(normalized.screen_sources?.length, name+' lacks source works');
 }
+// Ensure the shipped MCU arrays match the researched scores, including pending approvals.
+const rosterSlice = html.slice(start,end);
+const entryRx = /\\["([^"]+)","([^"]*)","([^"]*)",\\[([0-9,\\s]+)\\]\\]/g;
+const shipped = [...rosterSlice.matchAll(entryRx)].map(m => [m[1],m[4].split(',').map(Number)]);
+assert.equal(shipped.length, roster.length, 'App roster count mismatch');
+for (const [name, attrs] of shipped) {
+ const row = entries.find(x=>x.name===name);
+ assert(row, 'Game character missing research profile: '+name);
+ assert.deepEqual(attrs, keys.map(k=>row.scores[k]), 'Game attribute mismatch for '+name);
+}
+const guide = fs.readFileSync('data/mcu-profiles.js','utf8');
+assert(guide.includes('DA_CHARACTER_GUIDES.mcu='), 'MCU guide asset missing');
 console.log('PASS: '+entries.length+' unique MCU profiles, roster IDs, 12 attributes, rationales, feats, losses, source works.');
 console.log('NOTE: This script does not verify film scenes or establish that ratings are defensible.');
