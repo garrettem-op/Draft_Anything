@@ -16,7 +16,7 @@
 - All names match existing MCU pool, no duplicates or missing characters.
 - Each profile has all **12 scores** between 1 and 99.
 - Full-power rule included: standard controllable magic, telekinesis, flight, portals, suit technology and shapeshifting allowed.
-- A **provisional** rating differs from existing game data for **52 characters / 223 attribute cells**. The other 91 character score rows currently match the baseline, even though their narrative profiles are new.
+- A **provisional** rating differs from existing game data for **53 characters / 225 attribute cells**. The other 90 character score rows currently match the baseline, even though their narrative profiles are new.
 - **42 matchup edges drafted**, including alternative-universe caveats and solo/team distinctions.
 - **0 individual screen-scene claims formally signed off.** This is the remaining substantial QA task, as opposed to source titles being listed.
 
@@ -50,3 +50,6 @@ These URLs are **general references**; do not present them as proof of an unsour
 
 ## Next evidence gate before live game update
 For each character, attach actual film/episode references to each feat, with actor/victim, result, solo vs team assistance, equipment, conditions, repeatability, and independent confirmation. Add explicit direct win/loss graph edges and counterexamples. Re-score attributes from those verified feats. Compare all characters and test position effects. Then patch MCU arrays in `index.html` on a separate PR. The current PR does **not** modify live ratings.
+
+## Ikaris motivation correction (2026-10-19)
+Ikaris's loyalty to the Celestial mission is not interchangeable with loyalty to the Eternals' majority or moral evaluation of Earth. His high operational discipline and charisma were underrepresented by the initial clutch 58 and leadership 60. **Provisional revisions: clutch 84, leadership 78; tactical IQ remains 86.** Official Marvel/Disney framing describes Ikaris as a charismatic tactician who puts the cosmic mission above personal priorities: https://d23.com/meet-the-characters-of-marvel-studios-eternals/ . The betrayal of Ajak, fracture of the team, and inability to kill Sersi remain real counterexamples. Both batch 04 and consolidated full catalog have been updated.
