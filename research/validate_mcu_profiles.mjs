@@ -38,8 +38,8 @@ for (let i=0;i<roster.length;i++) {
 }
 // Ensure the shipped MCU arrays match the researched scores, including pending approvals.
 const rosterSlice = html.slice(start,end);
-const entryRx = /\\["([^"]+)","([^"]*)","([^"]*)",\\[([0-9,\\s]+)\\]\\]/g;
-const shipped = [...rosterSlice.matchAll(entryRx)].map(m => [m[1],m[4].split(',').map(Number)]);
+// Reuse the same roster matcher as the original pool integrity check.
+const shipped = [...rosterSlice.matchAll(regex)].map(m => [m[1],m[4].split(',').map(Number)]);
 assert.equal(shipped.length, roster.length, 'App roster count mismatch');
 for (const [name, attrs] of shipped) {
  const row = entries.find(x=>x.name===name);
