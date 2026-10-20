@@ -685,9 +685,10 @@ const SPORTS = {
     name: 'Battle Royale', unit: 'KOs', aspect: 1, surface: 'arena', fight: true,
     blurb: 'A straight-up 5-on-5 brawl: two tanks, three damage dealers, a reinforcement and a commander',
     pos: [
-      // Tanks: the wall up front. Size and stamina to soak it up, strength to hold the line.
-      { id: 'tk1', ab: 'TNK', nm: 'Tank', x: 35, y: 26, imp: 1.0, at: 'on the front line', w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
-      { id: 'tk2', ab: 'TNK', nm: 'Tank', x: 65, y: 26, imp: 1.0, at: 'on the front line', w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
+      // Tanks: Size, Strength and Endurance are one physical-resilience group;
+      // an unusually low individual trait cannot negate the other two.
+      { id: 'tk1', ab: 'TNK', nm: 'Tank', x: 35, y: 26, imp: 1.0, at: 'on the front line', tank: true, w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
+      { id: 'tk2', ab: 'TNK', nm: 'Tank', x: 65, y: 26, imp: 1.0, at: 'on the front line', tank: true, w: { siz: 3, end: 3, str: 2, ref: 1, ldr: 1 } },
       // Damage dealers: any way you hurt people counts. Each is judged by whichever style suits them best.
       { id: 'd1', ab: 'DPS', nm: 'Damage', x: 20, y: 58, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
       { id: 'd2', ab: 'DPS', nm: 'Damage', x: 50, y: 70, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
@@ -731,8 +732,35 @@ function batFitAI(c) { return fitScore(c.a, BAT_POS); }
 // ===== Scoring =====
 // Fit: 75% weighted average of the position's attributes + 25% the weakest of its 3 key traits,
 // so a candidate who is great at one thing but missing a core trait for the role is exposed.
+// Battle Royale Tanks use a different model: a durable powered fighter should not
+// lose front-line standing merely for having ordinary-sized physical dimensions.
+const TANK_OUTLIER_GAP = 10; // a trait at least 10 below the other two's average is excluded
+const TANK_PHYSICAL = ['siz', 'str', 'end'];
+function tankPhysical(attrs) {
+  // Drop at most ONE low outlier. A high number alone cannot erase two low ones.
+  const vals = TANK_PHYSICAL.map(k => ({ key: k, value: attrs[AK.indexOf(k)] }));
+  const low = vals.reduce((best, v) => v.value < best.value ? v : best, vals[0]);
+  const others = vals.filter(v => v !== low);
+  const pairAvg = (others[0].value + others[1].value) / 2;
+  const excluded = pairAvg - low.value >= TANK_OUTLIER_GAP ? low.key : null;
+  return { value: excluded ? pairAvg : vals.reduce((n, v) => n + v.value, 0) / 3, excluded };
+}
+function tankFit(attrs) {
+  // Physical resilience: 80%; reflexes and leadership: 10% each.
+  // Only the Tank role uses this composite. Original attributes remain intact elsewhere.
+  return 0.8 * tankPhysical(attrs).value + 0.1 * attrs[AK.indexOf('ref')] + 0.1 * attrs[AK.indexOf('ldr')];
+}
+function tankFactors(c, ref) {
+  const a = c.a;
+  return [
+    { key: 'physical', value: tankPhysical(a).value, diff: tankPhysical(a).value - tankPhysical(ref).value, weight: 0.8 },
+    { key: 'ref', value: a[AK.indexOf('ref')], diff: a[AK.indexOf('ref')] - ref[AK.indexOf('ref')], weight: 0.1 },
+    { key: 'ldr', value: a[AK.indexOf('ldr')], diff: a[AK.indexOf('ldr')] - ref[AK.indexOf('ldr')], weight: 0.1 }
+  ];
+}
 function bestStyle(attrs, pos) { let best = null; for (const st of pos.styles) { const f = fitScore(attrs, st); if (!best || f > best.f) best = { st, f }; } return best; }
 function fitScore(attrs, pos) {
+  if (pos.tank) return tankFit(attrs);
   if (pos.styles) return bestStyle(attrs, pos).f;
   let s = 0;
   for (let i = 0; i < 12; i++) s += pos.wv[i] * attrs[i];
@@ -743,7 +771,7 @@ function fitScore(attrs, pos) {
 function coachMult(fit) { return 0.9 + 0.2 * (fit / 99); }
 function benchMult(fit) { return 0.95 + 0.1 * (fit / 99); }
 // Unbreakable signature: no weakest-trait penalty, so a lopsided build plays to its strengths.
-function fitFree(attrs, pos) { if (pos.styles) return Math.max(...pos.styles.map(st => fitFree(attrs, st))); let s = 0; for (let i = 0; i < 12; i++) s += pos.wv[i] * attrs[i]; return s; }
+function fitFree(attrs, pos) { if (pos.tank) return tankFit(attrs); if (pos.styles) return Math.max(...pos.styles.map(st => fitFree(attrs, st))); let s = 0; for (let i = 0; i < 12; i++) s += pos.wv[i] * attrs[i]; return s; }
 function fitFor(c, pos) { return c.sig && c.sig.kind === 'unbreakable' ? fitFree(c.a, pos) : fitScore(c.a, pos); }
 
 // roster: { posId: candidate } -> { rating, playerScore, coachFit, benchFit, mult, syn, sig, rows:[{pos, cand, fit, w}] }
@@ -2340,12 +2368,20 @@ function rcPoolBaseline(sportKey, cands, k = 6) {
   });
 }
 function rcEdges(c, ref, p, n, r) {
+  if (p.tank) {
+    const factors = tankFactors(c, ref);
+    let wins = factors.filter(x => x.diff > 0).sort((a, b) => b.diff * b.weight - a.diff * a.weight).slice(0, n);
+    if (!wins.length) wins = [...factors].sort((a, b) => b.value - a.value).slice(0, n);
+    return rcAnd(wins.map(x => x.key === 'physical'
+      ? rcPick(r, ['physical resilience', 'raw staying power'])
+      : rcPick(r, TRAIT_STR[x.key])));
+  }
   if (p.styles) p = bestStyle(c.a, p).st; // a damage dealer is described by the style they fight in
   let ks = p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, n).map(x => AK[x.k]);
   if (!ks.length) ks = [...p.keys].sort((a, b) => c.a[b] - c.a[a]).slice(0, n).map(k => AK[k]);
   return rcAnd(ks.map(k => rcPick(r, TRAIT_STR[k])));
 }
-function rcLackKey(c, ref, p) { if (p.styles) p = bestStyle(c.a, p).st; return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
+function rcLackKey(c, ref, p) { if (p.tank) return [...tankFactors(c, ref)].sort((a,b) => a.diff * a.weight - b.diff * b.weight)[0].key; if (p.styles) p = bestStyle(c.a, p).st; return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
 
 // Shared building blocks
 function rcStars(sportKey, sc, base, N, r) {
@@ -2376,6 +2412,14 @@ function rcWeak(eff, base, used, N, r, champ) {
   const W = [...eff].reverse().find(e => e.d < (champ ? -0.15 : 0) && !used.includes(e.i));
   if (!W) return '';
   const c = W.x.cand, p = W.x.pos, k = rcLackKey(c, base[W.i].a, p), nm = N(c);
+  if (p.tank) {
+    // Position weakness is relative model output, NOT proof the character was
+    // physically beaten. In particular, excluded size is not a valid 'weakness'.
+    const physicallyElite = tankPhysical(c.a).value >= 90;
+    if (k === 'ldr') return `${nm} ${physicallyElite ? 'had the raw resilience for the front line, but' : 'was held back up front because'} the model marked down leadership and coordination.`;
+    if (k === 'ref') return `${nm} ${physicallyElite ? 'had the toughness for the front line, but' : 'was held back up front because'} the model rated reaction time below other tanks.`;
+    return `${nm} trailed other tanks in combined physical resilience, rather than any single measurement of size, strength or endurance.`;
+  }
   if (champ) return `The one soft spot was ${rcPlace(p)}, where ${nm} lacked ${TRAIT_LACK[k]} the role demands.`;
   return rcPick(r, [
     `The weak spot was ${rcPlace(p)}, where ${nm} lacked ${TRAIT_LACK[k]} the role demands.`,
@@ -2719,7 +2763,7 @@ restoreBoard(S.boards.deal, BOARD_KEYS.deal);
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
 function sigLine(c) { return c.sig ? `<small class="sig">Signature move · ${esc(c.sig.name)}</small>` : ''; }
 function shortName(n) { if (n.length <= 12) return n; const w = n.split(' '); return w[w.length - 1].length > 2 ? w[w.length - 1] : w.slice(-2).join(' '); }
-function needsText(pos) { if (pos.styles) return pos.styles.map(st => st.name); const t = pos.keys.map(i => ATTRS[i].n); return pos.dh ? ['Contact', 'Power'] : pos.bats ? [...t, '+ bats'] : t; }
+function needsText(pos) { if (pos.tank) return ['Physical resilience', 'Reflexes', 'Leadership']; if (pos.styles) return pos.styles.map(st => st.name); const t = pos.keys.map(i => ATTRS[i].n); return pos.dh ? ['Contact', 'Power'] : pos.bats ? [...t, '+ bats'] : t; }
 function bars(c, pos) { return `<span class="bars" title="Attribute profile; highlighted bars are this role's key traits">${c.a.map((v, i) => `<i class="${pos.keys.includes(i) ? 'k' : ''}" style="height:${Math.max(2, v / 99 * 22)}px" title="${ATTRS[i].n} ${v}"></i>`).join('')}</span>`; }
 
 function renderField(sportKey, roster, o = {}) {
@@ -2767,7 +2811,7 @@ function renderModal() {
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
     <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>Draft picks remain unranked.</b> You can inspect the optional Character Guide for research and explicitly reveal the numeric attributes if you want spoilers.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
-    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front (size, stamina, strength). Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
+    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front. For each Tank, size, strength and stamina form one physical-resilience rating; if one falls at least 10 points below the average of the other two, that one is excluded. Physical resilience counts 80%, with reflexes and leadership adding 10% each. Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
