@@ -1,6 +1,6 @@
 # Draft Anything
 
-Draft anyone into any sport: all-time NBA legends, Marvel, cartoons and Muppets.
+Draft anyone into any sport: all-time NBA legends, Marvel, cartoons, Muppets and video game characters.
 
 - **Championship**: fan-cast a dream lineup, share it as an image, then chase a perfect season against teams from every universe.
 - **Dealt Hand**: draft from random three-card hands while rival teams draft alongside you.

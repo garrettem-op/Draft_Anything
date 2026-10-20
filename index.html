@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Draft Anything</title>
-<meta name="description" content="Draft anyone into any sport: NBA legends, Marvel, cartoons and Muppets. Fan-cast a lineup, chase a perfect season, or draft head-to-head with a friend.">
+<meta name="description" content="Draft anyone into any sport: NBA legends, Marvel, cartoons, Muppets and video game characters. Fan-cast a lineup, chase a perfect season, or draft head-to-head with a friend.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
@@ -364,7 +364,7 @@ details.st-row .roster-mini { padding-top: 10px; }
 
 /* Championship: perfect season */
 .uchip { display: inline-block; vertical-align: 1px; margin-left: 4px; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; color: #fff; background: #5B6670; white-space: nowrap; }
-.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
+.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
 .game .w .uchip, .game .l .uchip { font-size: 9px; }
 .result-hero .meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,.14); overflow: hidden; max-width: 520px; margin: 4px 0 8px; }
 .result-hero .meter i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
@@ -1323,6 +1323,128 @@ POOLS.muppets = { id: 'muppets', name: 'The Muppets', short: 'Muppets', blurb: '
 ["Ma Otter","","Takes in washing, never quits",[50,50,40,34,44,80,86,56,56,72,80,70]],
 ]};
 
+// Video game characters: Nintendo, PlayStation, Xbox, PC and arcade icons. Rated by Claude on the universal scale.
+// Order: spd agi str siz lep end tch acc ref iq clu ldr. The fifth field lists shared franchises and factions (chemistry links).
+POOLS.games = { id: 'games', name: 'Video Game Characters', short: 'Video Games', blurb: '117 icons from Mario and Link to Master Chief and Kratos', entries: [
+["Mario","","Mushroom Kingdom's plumber hero",[62,88,60,45,88,80,72,70,82,78,88,80],["Mario Franchise","Nintendo","Plumbers"]],
+["Luigi","","Brave but nervous brother",[60,84,58,50,90,76,70,66,78,66,60,58],["Mario Franchise","Nintendo","Plumbers"]],
+["Princess Peach","","Ruler of Mushroom Kingdom",[48,62,38,46,60,60,70,62,66,80,82,92],["Mario Franchise","Nintendo","Royalty"]],
+["Bowser","","Koopa King, perennial villain",[50,48,94,90,70,86,40,50,60,58,72,86],["Mario Franchise","Nintendo","Villains"]],
+["Yoshi","","Loyal dinosaur steed",[58,76,52,48,80,76,74,70,74,60,70,62],["Mario Franchise","Nintendo","Dinosaurs"]],
+["Toad","","Loyal mushroom retainer",[52,66,36,26,56,60,60,52,64,50,60,52],["Mario Franchise","Nintendo"]],
+["Donkey Kong","","Barrel-throwing ape powerhouse",[60,64,97,92,72,88,60,82,66,52,76,70],["Donkey Kong Crew","Nintendo","Apes"]],
+["Diddy Kong","","Agile jetpack sidekick",[70,92,40,28,84,76,84,80,88,62,72,50],["Donkey Kong Crew","Nintendo","Apes"]],
+["Link","","Hero of Hyrule",[74,90,70,56,82,88,86,92,92,86,92,82],["Zelda Franchise","Nintendo","Swordsmen"]],
+["Zelda","","Wise princess of Hyrule",[50,66,40,48,50,62,76,84,70,94,86,92],["Zelda Franchise","Nintendo","Royalty"]],
+["Ganondorf","","Dark lord seeking the Triforce",[58,60,96,80,72,90,50,72,74,84,82,84],["Zelda Franchise","Nintendo","Villains"]],
+["Samus Aran","","Elite bounty hunter",[78,92,82,64,90,92,86,94,94,90,94,80],["Metroid Franchise","Nintendo","Sci-Fi Heroes"]],
+["Kirby","","Inhaling pink powerhouse",[56,76,88,22,84,82,74,60,76,58,82,56],["Kirby Franchise","Nintendo"]],
+["King Dedede","","Gluttonous Dreamland monarch",[40,46,92,76,62,86,50,62,52,44,62,76],["Kirby Franchise","Nintendo","Royalty"]],
+["Meta Knight","","Masked swordsman and rival",[88,96,70,26,94,88,92,84,96,92,90,80],["Kirby Franchise","Nintendo","Swordsmen"]],
+["Pikachu","","Electric mouse mascot",[78,92,36,26,76,72,70,86,90,68,84,66],["Pokémon","Nintendo","Electric Types"]],
+["Charizard","","Fire-breathing fan favorite",[80,70,90,84,92,86,48,76,76,66,80,66],["Pokémon","Nintendo","Dragons"]],
+["Mewtwo","","Genetically engineered psychic",[88,82,84,76,92,90,60,96,96,98,92,78],["Pokémon","Nintendo","Legendary Beings"]],
+["Ash Ketchum","","Eternal aspiring Pokémon Master",[60,66,50,48,60,82,66,70,76,66,94,84],["Pokémon","Trainers"]],
+["Professor Oak","","Pokémon research mentor",[30,34,40,50,28,50,56,40,44,90,70,82],["Pokémon","Mentors"]],
+["Jigglypuff","","Sleep-inducing singer",[32,56,30,26,58,54,44,40,52,34,40,30],["Pokémon","Nintendo"]],
+["Fox McCloud","","Star Fox team leader",[76,92,60,50,86,84,86,92,95,90,92,92],["Star Fox","Nintendo","Pilots"]],
+["Falco Lombardi","","Cocky ace pilot",[76,90,62,54,84,82,84,92,94,84,88,62],["Star Fox","Nintendo","Pilots"]],
+["Captain Falcon","","F-Zero racer with a punch",[92,82,90,68,76,84,66,70,94,70,90,76],["F-Zero","Nintendo","Pilots"]],
+["Ness","","Psychic kid from EarthBound",[46,60,44,36,54,56,66,72,72,74,88,66],["EarthBound","Nintendo"]],
+["Marth","","Fire Emblem prince",[66,82,64,54,70,76,76,82,86,86,88,90],["Fire Emblem","Nintendo","Royalty"]],
+["Sonic the Hedgehog","","Supersonic blue speedster",[99,95,50,34,84,90,70,64,98,74,90,76],["Sonic Franchise","Sega","Speedsters"]],
+["Tails","","Two-tailed genius sidekick",[72,80,32,28,70,70,86,64,82,94,72,60],["Sonic Franchise","Sega","Pilots"]],
+["Knuckles","","Guardian of the Master Emerald",[84,84,92,52,82,88,60,66,84,60,78,58],["Sonic Franchise","Sega"]],
+["Dr. Eggman","","Mad scientist mastermind",[32,34,50,64,28,50,60,58,50,96,60,82],["Sonic Franchise","Sega","Masterminds"]],
+["Shadow the Hedgehog","","Brooding ultimate lifeform",[97,92,75,30,88,90,60,75,95,60,78,50],["Sonic Franchise","Sega","Speedsters"]],
+["Amy Rose","","Hammer-wielding fan of Sonic",[80,80,55,28,70,75,55,50,75,50,65,60],["Sonic Franchise","Sega"]],
+["Master Chief","","Spartan supersoldier",[68,72,95,88,70,90,72,90,90,85,97,90],["Halo","Xbox","Sci-Fi Heroes"]],
+["Cortana","","Brilliant AI companion",[50,50,5,40,5,99,70,90,95,97,85,80],["Halo","Xbox","AI Characters"]],
+["Arbiter","","Sangheili warrior turned ally",[66,74,92,90,68,88,65,78,86,82,88,88],["Halo","Xbox","Soldiers"]],
+["Marcus Fenix","","Gears of War squad leader",[55,58,88,85,40,82,55,85,72,80,86,85],["Gears of War","Xbox","Soldiers"]],
+["Kratos","","Spartan god-slayer",[72,78,98,88,80,96,70,80,88,85,95,88],["God of War","PlayStation","Gods"]],
+["Atreus","","Kratos's capable son",[62,76,40,42,60,65,75,88,80,70,70,55],["God of War","PlayStation"]],
+["Nathan Drake","","Wisecracking treasure hunter",[64,86,68,66,78,80,80,76,82,76,88,72],["Uncharted","PlayStation","Treasure Hunters"]],
+["Sully","","Veteran mentor to Drake",[40,40,60,66,30,55,55,60,55,75,75,80],["Uncharted","PlayStation","Mentors"]],
+["Joel Miller","","Hardened survivor and smuggler",[50,55,72,66,35,70,60,82,78,78,88,76],["The Last of Us","PlayStation","Survivors"]],
+["Ellie","","Immune teenager, fierce survivor",[58,72,45,45,55,65,78,82,80,72,80,60],["The Last of Us","PlayStation","Survivors"]],
+["Aloy","","Machine-hunting outcast archer",[68,86,62,58,70,84,82,96,90,84,88,82],["Horizon","PlayStation","Archers"]],
+["Ratchet","","Lombax mechanic hero",[62,84,55,36,80,78,84,80,82,72,80,70],["Ratchet & Clank","PlayStation","Sci-Fi Heroes"]],
+["Clank","","Tiny robot partner",[35,45,40,22,45,80,65,60,72,90,75,60],["Ratchet & Clank","PlayStation","Robots"]],
+["Sly Cooper","","Master thief raccoon",[70,95,38,32,88,75,92,70,90,86,85,78],["Sly Cooper","PlayStation","Thieves"]],
+["Crash Bandicoot","","Spinning marsupial mascot",[72,84,52,36,86,78,50,48,76,25,62,38],["Crash Bandicoot","PlayStation"]],
+["Dr. Neo Cortex","","Cartoonish evil genius",[30,32,30,40,22,40,50,50,45,82,50,70],["Crash Bandicoot","Masterminds","Villains"]],
+["Spyro","","Purple fire-breathing dragon",[72,84,52,40,80,80,40,66,84,52,72,50],["Spyro","PlayStation","Dragons"]],
+["Lara Croft","","Tomb Raider archaeologist",[70,94,66,56,86,88,84,90,88,82,90,75],["Tomb Raider","Treasure Hunters","Archers"]],
+["Solid Snake","","Legendary stealth operative",[62,82,78,66,60,84,80,94,92,92,95,80],["Metal Gear","Soldiers","Stealth Agents"]],
+["Big Boss","","Mercenary legend and founder",[60,78,80,68,58,86,78,94,90,96,94,97],["Metal Gear","Soldiers","Masterminds"]],
+["Raiden","","Cyborg ninja swordsman",[86,96,78,66,92,88,86,80,96,78,82,66],["Metal Gear","Swordsmen","Stealth Agents"]],
+["Sam Fisher","","Splinter Cell shadow operative",[58,78,70,66,52,76,78,92,88,90,90,82],["Splinter Cell","Stealth Agents","Soldiers"]],
+["Ezio Auditore","","Renaissance Assassin mentor",[68,95,66,62,86,82,92,80,90,90,90,92],["Assassin's Creed","Assassins","Mentors"]],
+["Altaïr","","Original master Assassin",[68,95,66,62,86,84,90,82,92,88,88,84],["Assassin's Creed","Assassins","Mentors"]],
+["Geralt of Rivia","","White Wolf monster slayer",[66,88,78,66,66,86,76,80,92,86,92,72],["The Witcher","Swordsmen","Monster Hunters"]],
+["Yennefer","","Powerful sorceress",[48,56,40,50,30,70,70,86,76,92,88,84],["The Witcher","Mages"]],
+["Ciri","","Child of Destiny",[76,95,58,52,86,80,86,84,94,80,86,68],["The Witcher","Swordsmen"]],
+["Dovahkiin","","Dragonborn of Skyrim",[60,66,82,68,52,86,62,78,76,66,90,86],["Elder Scrolls","Dragons","Mages"]],
+["Alduin","","World-eater dragon",[88,70,99,99,90,95,30,70,80,88,80,92],["Elder Scrolls","Dragons","Villains"]],
+["Commander Shepard","","Mass Effect fleet leader",[72,78,76,58,68,82,72,88,84,90,94,98],["Mass Effect","Soldiers","Sci-Fi Heroes"]],
+["Garrus Vakarian","","Turian sniper, loyal friend",[68,74,72,62,62,80,78,98,88,86,88,78],["Mass Effect","Soldiers"]],
+["Mordin Solus","","Fast-talking salarian scientist",[62,66,45,45,45,70,88,78,80,96,86,72],["Mass Effect","Scientists"]],
+["GLaDOS","","Sardonic testing AI mastermind",[10,10,40,70,5,99,70,80,92,97,80,78],["Portal","AI Characters","Masterminds"]],
+["Chell","","Silent Aperture test subject",[72,84,55,50,82,88,84,86,88,92,92,40],["Portal","Survivors"]],
+["Gordon Freeman","","Silent theoretical physicist",[70,74,72,56,66,86,84,90,88,86,92,60],["Half-Life","Scientists","Survivors"]],
+["Alyx Vance","","Resourceful resistance fighter",[72,86,56,46,70,82,92,90,88,88,90,72],["Half-Life","Survivors"]],
+["Doomguy","","Demon-slaying space marine",[88,82,96,66,78,98,72,92,94,70,98,70],["Doom","Soldiers"]],
+["Duke Nukem","","Wisecracking action hero",[68,66,88,66,58,84,66,88,82,60,95,72],["Duke Nukem","Soldiers"]],
+["Pac-Man","","Dot-devouring arcade icon",[74,92,25,30,30,92,70,40,88,66,72,50],["Arcade Classics","Namco"]],
+["Blinky","","Red ghost, relentless chaser",[78,86,20,32,35,98,30,30,86,72,76,70],["Arcade Classics","Namco","Ghosts"]],
+["Ms. Pac-Man","","Bow-wearing arcade star",[75,93,25,30,30,92,72,42,88,70,74,52],["Arcade Classics","Namco"]],
+["Q*bert","","Orange hopper of cubes",[48,76,24,28,80,66,40,30,70,40,60,28],["Arcade Classics"]],
+["Mega Man","","Blue Bomber robot hero",[72,86,66,40,82,90,88,94,92,80,90,76],["Mega Man","Capcom","Robots"]],
+["Dr. Wily","","Rival robotics mastermind",[35,40,38,50,28,60,78,50,55,94,50,70],["Mega Man","Capcom","Masterminds"]],
+["Dr. Light","","Kindly robotics creator",[25,28,35,52,22,50,80,45,45,92,70,70],["Mega Man","Capcom","Mentors"]],
+["Ryu","","Wandering Street Fighter",[74,88,84,64,80,92,76,70,92,86,96,78],["Street Fighter","Capcom","Fighters"]],
+["Chun-Li","","Interpol agent, fastest kicks",[84,92,70,52,88,92,80,72,94,86,90,78],["Street Fighter","Capcom","Fighters"]],
+["M. Bison","","Shadaloo's crime lord",[76,78,94,72,82,86,60,72,86,92,86,95],["Street Fighter","Capcom","Masterminds"]],
+["Guile","","Air Force sonic boomer",[72,76,86,70,74,88,66,72,86,82,90,86],["Street Fighter","Capcom","Fighters"]],
+["Scorpion","","Hellfire spectre ninja",[78,92,84,66,86,90,76,80,92,78,92,66],["Mortal Kombat","Fighters","Ninjas"]],
+["Sub-Zero","","Cryomancer Lin Kuei warrior",[76,90,84,68,82,90,76,82,90,84,92,76],["Mortal Kombat","Fighters","Ninjas"]],
+["Raiden (MK)","","Thunder god, Earthrealm protector",[82,80,92,70,84,95,70,92,90,95,95,92],["Mortal Kombat","Gods","Mentors"]],
+["Liu Kang","","Shaolin champion",[82,94,82,60,92,92,78,76,94,86,96,84],["Mortal Kombat","Fighters"]],
+["Jin Kazama","","Devil-gene Tekken fighter",[80,90,84,64,84,90,72,72,92,76,90,70],["Tekken","Fighters"]],
+["Heihachi Mishima","","Ruthless Tekken patriarch",[66,76,92,68,70,92,60,66,84,88,92,92],["Tekken","Fighters","Masterminds"]],
+["Cloud Strife","","Buster Sword ex-SOLDIER",[78,88,86,66,96,88,76,70,90,76,86,70],["Final Fantasy","Swordsmen","Soldiers"]],
+["Sephiroth","","One-winged angel",[88,95,92,74,97,94,82,84,96,92,94,86],["Final Fantasy","Swordsmen","Villains"]],
+["Tifa Lockhart","","Martial artist bartender",[78,92,84,56,88,90,78,70,92,76,88,78],["Final Fantasy","Fighters"]],
+["Aerith Gainsborough","","Flower girl and Ancient",[48,55,25,45,45,50,60,55,55,85,85,75],["Final Fantasy","Mages"]],
+["Sora","","Keyblade wielder",[82,90,72,48,92,88,78,70,86,60,85,78],["Kingdom Hearts","Swordsmen"]],
+["Chrono","","Time-traveling swordsman",[76,84,70,50,80,80,70,60,80,65,85,75],["Chrono Series","Swordsmen"]],
+["Dante","","Stylish demon hunter",[88,95,90,62,95,92,82,92,95,70,92,60],["Devil May Cry","Capcom","Swordsmen"]],
+["Leon S. Kennedy","","Resident Evil survivor agent",[76,88,76,55,68,84,82,92,92,80,92,72],["Resident Evil","Capcom","Survivors"]],
+["Jill Valentine","","S.T.A.R.S. survivor",[74,86,66,50,66,82,84,90,88,82,88,76],["Resident Evil","Capcom","Survivors"]],
+["Albert Wesker","","Umbrella traitor mastermind",[96,92,92,58,92,88,70,78,96,90,88,82],["Resident Evil","Capcom","Masterminds"]],
+["Pyramid Head","","Silent Hill executioner",[40,38,96,90,30,90,30,30,45,25,70,25],["Silent Hill","Villains"]],
+["Steve","","Blocky Minecraft crafter",[55,58,62,52,56,72,80,60,60,70,60,45],["Minecraft","Survivors"]],
+["Creeper","","Explosive green menace",[48,42,35,36,38,40,10,35,60,10,40,10],["Minecraft","Villains"]],
+["Calamity Ganon","","Hyrule's ancient Calamity",[78,70,99,94,80,95,35,45,70,35,75,55],["Zelda Franchise","Nintendo","Villains"]],
+["Isabelle","","Cheerful Animal Crossing assistant",[42,50,26,34,35,48,70,40,50,70,70,60],["Animal Crossing","Nintendo"]],
+["Tom Nook","","Raccoon landlord entrepreneur",[34,35,38,45,30,45,60,35,40,90,75,72],["Animal Crossing","Nintendo"]],
+["Rayman","","Limbless platforming hero",[72,90,45,40,88,80,92,78,84,60,72,55],["Ubisoft Heroes"]],
+["Ezreal","","Prodigal explorer",[70,86,45,52,80,76,84,92,84,76,82,48],["League of Legends","Archers"]],
+["Jinx","","Chaotic Piltover gunslinger",[66,84,45,46,72,76,86,90,86,64,60,45],["League of Legends","Villains"]],
+["Tracer","","Time-jumping Overwatch hero",[92,98,50,44,78,84,88,88,96,78,88,72],["Overwatch","Speedsters"]],
+["Winston","","Genius gorilla scientist",[55,60,92,88,86,82,60,55,66,92,80,82],["Overwatch","Apes","Scientists"]],
+["Reinhardt","","Crusader shield knight",[44,45,94,90,52,88,48,40,60,70,86,92],["Overwatch","Soldiers"]],
+["Illidan Stormrage","","The Betrayer demon hunter",[84,92,92,84,92,92,70,76,92,84,86,70],["Warcraft","Monster Hunters"]],
+["Arthas Menethil","","Fallen Lich King",[60,66,90,70,52,88,45,50,72,80,82,92],["Warcraft","Villains","Royalty"]],
+["Thrall","","Orc Warchief and shaman",[62,66,92,82,60,88,54,58,76,86,90,96],["Warcraft","Mentors","Mages"]],
+["Jim Raynor","","Terran rebel marshal",[52,60,68,56,40,74,62,82,72,76,86,92],["StarCraft","Soldiers","Sci-Fi Heroes"]],
+["Sarah Kerrigan","","Queen of Blades",[84,90,97,60,90,95,72,84,94,96,94,92],["StarCraft","Villains","Sci-Fi Heroes"]],
+["Widowmaker","","Talon sniper assassin",[66,90,60,50,76,86,88,99,93,90,96,70],["Overwatch","Assassins","Villains"]],
+["Agent 47","","Bald barcoded hitman",[72,88,76,60,64,86,90,96,92,97,98,60],["Hitman","Assassins","Stealth Agents"]],
+["Bayonetta","","Umbra Witch",[82,98,88,62,95,90,86,92,96,82,94,68],["Bayonetta","Mages","Fighters"]]
+]};
+
 // Signature moves (iconic characters only) and Playoff Boom.
 // Every signature uses one of four effects; only the name changes. Effects stay hidden in the game.
 //   lift        – lifts the whole squad a little, wherever they play
@@ -1375,12 +1497,19 @@ const SIGS = {
     'Gobo Fraggle': ['Dance Your Cares Away', 'lift'], 'Marjory the Trash Heap': ['The Trash Heap Has Spoken', 'lift'], 'Emmet Otter': ['Jug-Band Christmas', 'clutch'],
   },
 };
+SIGS.games = {
+  'Mario': ['Power Star', 'lift'], 'Link': ['Hero of Time', 'clutch'], 'Master Chief': ['Finish the Fight', 'clutch'], 'Kirby': ['Copy Ability', 'unbreakable'],
+  'Sonic the Hedgehog': ['Gotta Go Fast', 'chaos'], 'Pac-Man': ['Power Pellet', 'clutch'], 'Kratos': ['Spartan Rage', 'chaos'], 'Samus Aran': ['Morph Ball', 'unbreakable'],
+  'Pikachu': ['Thunderbolt', 'chaos'], 'Doomguy': ['Rip and Tear', 'chaos'], 'Commander Shepard': ['Paragon', 'lift'], 'Solid Snake': ['Cardboard Box', 'unbreakable'],
+  'Creeper': ['Sssss… Boom', 'chaos'], 'Steve': ['Crafting Table', 'lift'], 'Crash Bandicoot': ['Wumpa Spin', 'unbreakable'], 'Ryu': ['Hadouken', 'clutch'],
+};
 const BOOMERS = {
   nba: ['Robert Horry', 'Jimmy Butler', 'Reggie Miller', 'Kawhi Leonard', 'Allen Iverson', 'Spud Webb', 'Muggsy Bogues', 'Rajon Rondo', 'Klay Thompson', 'Andre Iguodala'],
   mcu: ['Groot', 'Ant-Man', 'The Wasp', 'Star-Lord', 'Rocket', 'Drax', 'Mantis', 'Korg', 'Spider-Man', 'Ms. Marvel', 'Deadpool', 'Kate Bishop', 'Hawkeye', 'Cosmo the Spacedog', 'Happy Hogan', 'Ned Leeds', 'Miek', 'H.E.R.B.I.E.', 'Franklin Richards', 'Sentry', 'Human Torch'],
   toons: ['SpongeBob SquarePants', 'Patrick Star', 'Scooby-Doo', 'Shaggy', 'Goofy', 'Homer Simpson', 'Bart Simpson', 'Courage the Cowardly Dog', 'Charlie Brown', 'Po', 'Donkey', 'Wile E. Coyote', 'Daffy Duck', 'Pluto', 'Stitch', 'Bluey', 'Bandit', 'Morty', 'Michelangelo', 'Snoopy'],
   muppets: ['Animal', 'Gonzo', 'Beaker', 'Fozzie Bear', 'Swedish Chef', 'Elmo', 'Cookie Monster', 'Grover', 'Pepe the King Prawn', 'Rizzo the Rat', 'Crazy Harry', 'Wembley Fraggle', 'Big Bird', 'Oscar the Grouch'],
 };
+BOOMERS.games = ['Luigi', 'Toad', 'Diddy Kong', 'Jigglypuff', 'Tails', 'Crash Bandicoot', 'Rayman', 'Clank', 'Creeper', 'Q*bert', 'Captain Falcon', 'Ness'];
 const BOOM_SET = Object.fromEntries(Object.entries(BOOMERS).map(([k, v]) => [k, new Set(v)]));
 
 function sigOf(rows) {
@@ -1451,6 +1580,23 @@ const FIGHT_TAGS = {
     'Optimus Prime': 'RC', 'Megatron': 'RF', 'Leonardo': 'C', 'Raphael': 'C', 'Michelangelo': 'C', 'Donatello': 'TC', 'Master Splinter': 'C',
     'Aang': 'FM', 'Toph Beifong': 'MC', 'Zuko': 'MR', 'Uncle Iroh': 'MR', 'Katara': 'M', 'Sokka': 'R', 'Blossom': 'F', 'Bubbles': 'F',
     'Buttercup': 'FC', 'Professor Utonium': 'T', 'Mojo Jojo': 'TX', 'Dexter': 'T', 'Snoopy': 'F', 'Jerry': 'X', 'Rick Sanchez': 'TR',
+  },
+  games: {
+    'Mario': 'CR', 'Luigi': 'CR', 'Princess Peach': 'F', 'Bowser': 'CR', 'Yoshi': 'C', 'Donkey Kong': 'CR', 'Diddy Kong': 'FR', 'Link': 'CRX',
+    'Zelda': 'M', 'Ganondorf': 'MC', 'Samus Aran': 'RXT', 'Kirby': 'CF', 'King Dedede': 'C', 'Meta Knight': 'CF', 'Pikachu': 'R', 'Charizard': 'FR',
+    'Mewtwo': 'MF', 'Professor Oak': 'T', 'Jigglypuff': 'M', 'Fox McCloud': 'RTF', 'Falco Lombardi': 'RF', 'Captain Falcon': 'C', 'Ness': 'M',
+    'Marth': 'C', 'Sonic the Hedgehog': 'C', 'Tails': 'FT', 'Knuckles': 'C', 'Dr. Eggman': 'TX', 'Shadow the Hedgehog': 'CM', 'Amy Rose': 'C',
+    'Master Chief': 'RX', 'Cortana': 'T', 'Arbiter': 'CR', 'Marcus Fenix': 'RX', 'Kratos': 'CM', 'Atreus': 'R', 'Nathan Drake': 'RX', 'Sully': 'R',
+    'Joel Miller': 'RX', 'Ellie': 'RC', 'Aloy': 'RT', 'Ratchet': 'TRX', 'Clank': 'T', 'Sly Cooper': 'C', 'Crash Bandicoot': 'C', 'Dr. Neo Cortex': 'TR',
+    'Spyro': 'FR', 'Lara Croft': 'R', 'Solid Snake': 'RXT', 'Big Boss': 'RC', 'Raiden': 'C', 'Sam Fisher': 'RT', 'Ezio Auditore': 'C', 'Altaïr': 'C',
+    'Geralt of Rivia': 'CM', 'Yennefer': 'M', 'Ciri': 'CM', 'Dovahkiin': 'CM', 'Alduin': 'FM', 'Commander Shepard': 'RT', 'Garrus Vakarian': 'R',
+    'Mordin Solus': 'T', 'GLaDOS': 'T', 'Chell': 'T', 'Gordon Freeman': 'RT', 'Alyx Vance': 'RT', 'Doomguy': 'RX', 'Duke Nukem': 'RX', 'Mega Man': 'R',
+    'Dr. Wily': 'T', 'Dr. Light': 'T', 'Ryu': 'CR', 'Chun-Li': 'C', 'M. Bison': 'CM', 'Guile': 'CR', 'Scorpion': 'CM', 'Sub-Zero': 'CM',
+    'Raiden (MK)': 'MR', 'Liu Kang': 'CR', 'Jin Kazama': 'C', 'Heihachi Mishima': 'C', 'Cloud Strife': 'C', 'Sephiroth': 'CMF', 'Tifa Lockhart': 'C',
+    'Aerith Gainsborough': 'M', 'Sora': 'CM', 'Chrono': 'C', 'Dante': 'CR', 'Leon S. Kennedy': 'R', 'Jill Valentine': 'R', 'Albert Wesker': 'C',
+    'Pyramid Head': 'C', 'Steve': 'TX', 'Creeper': 'X', 'Calamity Ganon': 'M', 'Rayman': 'R', 'Ezreal': 'RM', 'Jinx': 'RX', 'Tracer': 'R',
+    'Winston': 'TR', 'Reinhardt': 'C', 'Illidan Stormrage': 'CF', 'Arthas Menethil': 'CM', 'Thrall': 'MC', 'Jim Raynor': 'R', 'Sarah Kerrigan': 'MF',
+    'Widowmaker': 'R', 'Agent 47': 'R', 'Bayonetta': 'MR',
   },
   muppets: {
     'Miss Piggy': 'C', 'Gonzo': 'X', 'Animal': 'C', 'Dr. Bunsen Honeydew': 'TX', 'Sam Eagle': 'F', 'Camilla the Chicken': 'F', 'Crazy Harry': 'X',
@@ -2289,7 +2435,7 @@ function sportGlyph(sportKey) {
 // Player tokens: a designed jersey for every candidate. No photos or character art.
 // Pool sets the kit colors; on the field the jersey takes the team color.
 const JERSEY = 'M12 4 L16 4 Q20 8.5 24 4 L28 4 L36.5 10.5 L32.5 17.5 L29 15.5 L29 35.5 Q20 37.5 11 35.5 L11 15.5 L7.5 17.5 L3.5 10.5 Z';
-const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'] };
+const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'] };
 const CUSTOM_KIT = ['#0F7C8C', '#F4E9D8'];
 // Real jersey numbers for the NBA pool (the number each is best known for).
 const NBA_NUM = {
@@ -2727,13 +2873,13 @@ function saveChamp() {
 
 // ----- Pools -----
 POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 'Every built-in pool at once, on one scale', entries: [] };
-const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'mashup'];
+const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'mashup'];
 const candCache = {};
 function getPool(id) { return POOLS[id] || S.custom[id] || null; }
 function getCands(id) {
   if (candCache[id]) return candCache[id];
   const p = getPool(id); if (!p) return [];
-  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets')] : poolCandidates(p);
+  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games')] : poolCandidates(p);
   return (candCache[id] = list);
 }
 function candById(poolId, cid) { return getCands(poolId).find(c => c.id === cid) || null; }
@@ -2874,7 +3020,9 @@ function sportPicker(cur, act) {
     <span class="mini" style="aspect-ratio:${SPORTS[k].aspect}">${surfaceSVG(k)}</span></button>`).join('')}</div>`;
 }
 function poolPicker(cur, act, sportKey) {
-  const ids = [...BUILTIN, ...Object.keys(S.custom).sort((a, b) => (S.custom[b].createdAt || 0) - (S.custom[a].createdAt || 0))];
+  // a custom pool that has since become a built-in one (same name) is hidden from the picker
+  const builtinNames = new Set(BUILTIN.map(k => POOLS[k].name.toLowerCase()));
+  const ids = [...BUILTIN, ...Object.keys(S.custom).filter(k => !builtinNames.has(String(S.custom[k].name).toLowerCase()) || k === cur).sort((a, b) => (S.custom[b].createdAt || 0) - (S.custom[a].createdAt || 0))];
   const need = SPORTS[sportKey].pos.length;
   const cards = ids.map(id => {
     const p = getPool(id), n = getCands(id).length;
@@ -3183,7 +3331,7 @@ function champResultText() {
 // Each opponent comes from ONE universe (NBA, Marvel, Cartoons, Muppets); mixed All-Star
 // teams only show up when you cast from the All-Star Mashup yourself.
 const LEAGUE_SIZE = { basketball: 30, football: 16, soccer: 20, baseball: 30, hockey: 32, volleyball: 14, brawl: 16 };
-const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', mashup: 'All-Stars' };
+const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', mashup: 'All-Stars' };
 function universeLabel(id) { return UNIVERSE_LABEL[id] || (S.custom[id] ? (S.custom[id].short || S.custom[id].name) : 'Custom'); }
 
 function shuffleWith(arr, rng) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -3205,7 +3353,7 @@ function buildCrossLeague(sportKey, userPoolId, userRoster, rng) {
   const P = SPORTS[sportKey].pos.length, sig = SEASONS[sportKey].sigma, [ke, klo, khi] = PERFECT_TIERS[sportKey];
   const C = poolCeiling(sportKey, userPoolId);
   const used = new Set(Object.values(userRoster).map(c => c.id));
-  const U = ['nba', 'mcu', 'toons', 'muppets'];
+  const U = ['nba', 'mcu', 'toons', 'muppets', 'games'];
   if (userPoolId === 'mashup') U.push('mashup');
   else if (!U.includes(userPoolId) && getPool(userPoolId)) U.push(userPoolId);
   const avail = u => getCands(u).filter(c => !used.has(c.id));
