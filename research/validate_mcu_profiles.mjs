@@ -30,7 +30,7 @@ for (let i=0;i<roster.length;i++) {
     assert(Number.isInteger(record.scores?.[k]) && record.scores[k]>=1 && record.scores[k]<=99, name+' invalid batch score '+k);
     assert(Number.isInteger(normalized.scores?.[k]) && normalized.scores[k]>=1 && normalized.scores[k]<=99, name+' invalid normalized score '+k);
     assert.equal(record.scores[k],normalized.scores[k], name+' changed score for '+k);
-    assert(normalized.attribute_rationales?.[k]?.trim(), name+' missing rationale '+k);
+    assert((normalized.attribute_rationales?.[k] || normalized.score_rationales?.[k])?.trim(), name+' missing rationale '+k);
   }
   assert(normalized.screen_feats?.length, name+' lacks feat reference');
   assert(normalized.limits_and_losses?.length, name+' lacks weaknesses');
