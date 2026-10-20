@@ -440,6 +440,78 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
   html.draft-active .board.h2h > div:last-child { position: static; }
 }
 
+/* Dealt Hand: keep the three choices in an actual second grid row on mobile.
+   The generic draft CSS above hides all side panels except pickers; this
+   dedicated override restores the hand panel without exposing other panels. */
+@media (max-width: 899px) {
+  html.draft-active .board.hand {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 6px;
+  }
+  html.draft-active .board.hand > .board-side {
+    display: flex;
+    position: relative;
+    bottom: auto;
+    z-index: 6;
+    padding-bottom: max(3px, env(safe-area-inset-bottom, 0px));
+    min-height: 0;
+    overflow: visible;
+  }
+  html.draft-active .board.hand > .board-side > .hand-panel {
+    display: flex; /* higher specificity than .board-side > .panel:not(.picker) */
+    flex: 0 1 auto;
+    flex-direction: column;
+    width: 100%;
+    min-height: 0;
+    max-height: min(38dvh, 235px);
+    overflow: hidden;
+  }
+  html.draft-active .board.hand .hand-head {
+    flex: none;
+    padding: 6px 10px 3px;
+  }
+  html.draft-active .board.hand .hand-head .h { font-size: 16px; }
+  html.draft-active .board.hand .hand-list {
+    display: flex;
+    flex: 0 1 auto;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 4px 6px 7px;
+  }
+  html.draft-active .board.hand .hand-card {
+    flex: 0 0 calc((100% - 12px) / 3);
+    min-width: 0;
+    padding: 5px 3px;
+    gap: 3px;
+  }
+  html.draft-active .board.hand .hand-card .av { width: 40px; height: 40px; }
+  html.draft-active .board.hand .hand-card .who b {
+    font-size: 12px;
+    line-height: 1.15;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+  }
+  html.draft-active .board.hand .hand-card .who small { display: none; }
+  html.draft-active .board.hand .hand-hint {
+    flex: none;
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  html.draft-active .board.hand .field-wrap > .field { width: min(100%, 41dvh); }
+}
+@media (max-width: 899px) and (max-height: 560px) {
+  html.draft-active .board.hand > .board-side > .hand-panel { max-height: min(45dvh, 168px); }
+  html.draft-active .board.hand .hand-head { padding: 3px 8px; }
+  html.draft-active .board.hand .hand-head .eyebrow { display: none; }
+  html.draft-active .board.hand .hand-list { padding: 2px 6px 4px; }
+  html.draft-active .board.hand .hand-card .av { width: 30px; height: 30px; }
+  html.draft-active .board.hand .hand-hint { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -2868,11 +2940,30 @@ function randomPick(sportKey, roster, from) {
   if (!open.length || !from.length) return null;
   return { c: from[Math.floor(Math.random() * from.length)], slot: open[Math.floor(Math.random() * open.length)].id };
 }
-function handDraftReady() { const c = S.champ; return !!(c.queue && c.ai && c.draftOpps === c.opps); }
+function handDraftReady() {
+  const c = S.champ, sp = SPORTS[c.sport];
+  return !!(sp && Array.isArray(c.queue) && c.queue.length === (c.opps + 1) * sp.pos.length &&
+    Array.isArray(c.ai) && c.ai.length === c.opps && c.draftOpps === c.opps &&
+    Number.isInteger(c.pickIdx) && c.pickIdx >= 0 && c.pickIdx <= c.queue.length);
+}
+// Old/incomplete saved drafts could restore an empty hand while remaining on
+// the draft screen. Repair the turn without resetting valid in-progress picks.
+function ensureDealtHand() {
+  if (!handMode()) return;
+  const c = S.champ;
+  if (c.stage !== 'draft' || rosterFull(c.sport, c.roster)) return;
+  if (!handDraftReady()) { initHandDraft(); return; }
+  if (!Array.isArray(c.hand) || c.hand.length === 0) {
+    if (c.pickIdx < c.queue.length && c.queue[c.pickIdx] === 0) dealHand();
+    else if (c.pickIdx < c.queue.length) advanceDraft();
+    else initHandDraft();
+  }
+}
 function handPanelHTML() {
   const c = S.champ, sp = SPORTS[c.sport];
   const filled = sp.pos.filter(p => c.roster[p.id]).length, full = filled === sp.pos.length;
   if (full) return `<div class="panel hand-panel"><div class="sec"><h3 class="h">Roster set</h3><span class="num muted">${filled}/${sp.pos.length}</span></div><div class="empty-state">Every spot is filled. Simulate the championship when you're ready.</div></div>`;
+  if (!c.hand || !c.hand.length) return `<div class="panel hand-panel"><div class="hand-head"><h3 class="h">Your hand</h3></div><div class="empty-state">Your hand could not be restored. <button class="btn small" data-act="hand-restart">Start a fresh draft</button></div></div>`;
   const selCand = c.handSel ? c.hand.find(x => x.id === c.handSel) : null;
   const selPos = c.sel ? sp.pos.find(p => p.id === c.sel) : null;
   const hint = selCand ? `Now tap an open spot for <b>${esc(selCand.n)}</b>.` : selPos ? `Pick someone from your hand for <b>${esc(selPos.nm)}</b>.` : 'Tap a card, then tap an open spot. Picks are final.';
@@ -2914,6 +3005,7 @@ function champTaken() {
   return m;
 }
 function renderChampDraft() {
+  ensureDealtHand();
   const c = S.champ, sp = SPORTS[c.sport], pool = getPool(c.poolId);
   const filled = sp.pos.filter(p => c.roster[p.id]).length, full = filled === sp.pos.length;
   const panel = handMode() ? handPanelHTML() : c.sel
@@ -3766,6 +3858,7 @@ document.addEventListener('click', e => {
       break;
     }
     case 'hand-redeal': if (canRedeal()) { c.redeals--; dealHand(); toast(`New hand dealt. ${c.redeals} redeal${c.redeals === 1 ? '' : 's'} left.`); } break;
+    case 'hand-restart': initHandDraft(); c.stage = 'draft'; break;
     case 'c-newdeal': initHandDraft(); c.stage = 'draft'; window.scrollTo(0, 0); break;
     case 'c-upsets': c.upsets = t.dataset.v; break;
     case 'c-crivals': c.champRivals = t.dataset.v === 'even' ? 'even' : 'stack'; break;
