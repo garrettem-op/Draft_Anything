@@ -1,7 +1,7 @@
 # Evidence-based talent-pool ratings: MCU pilot (v0.1)
 
 ## Scope and status
-The MCU pool has 143 entries. This is the methodology and evidence schema, **not** a completed audit of all 143 profiles. No character ratings have been changed yet. The same methodology will apply to NBA, cartoons, Muppets and future pools.
+The MCU pool has 143 entries. This is the methodology and evidence schema, now supported by draft profiles for all 143 characters. The owner approved deployment of provisional ratings before scene-by-scene verification. The same methodology will apply to NBA, cartoons, Muppets and future pools.
 
 ## Rating contract
 The game's attributes, in exact array order: speed (spd), agility (agi), strength (str), size/reach (siz), leap (lep), stamina/durability (end), touch/dexterity (tch), accuracy (acc), reflexes (ref), tactical/game IQ (iq), clutch/composure (clu), leadership (ldr). Integer 1–99. Ratings represent *potential to perform a physical team sport* under the character's standard, repeatable equipment and powers, not a raw combat-power leaderboard.
@@ -48,7 +48,7 @@ Every claim records: source URL or work reference, universe (MCU/comics), event,
 4. For each attribute set a baseline from directly observed capability, then compare with benchmark characters and evidence. Track source reliability, repeatability, contextual applicability and uncertainty. Do not average raw comic Power Grid scores.
 5. Evaluate contradictions; choose the repeatable *standard* form, not temporary peak form. Retain peak form as a separate conditional record.
 6. Peer-review outliers and relative order, especially character variants. Test how rankings change for positions across each sport.
-7. Only after review, replace existing 12-value MCU arrays, preserving names and IDs, and invalidate cached role rankings if updating in a running app.
+7. After owner-authorized release, continue verifying source claims and refine existing 12-value MCU arrays, preserving names and IDs, and invalidate cached role rankings if updating in a running app.
 
 
 ## Confirmed game rule: full powers permitted
