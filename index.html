@@ -256,6 +256,25 @@ details.team .roster-mini .mt { width: 22px; height: 22px; flex: none; margin-ri
 .vs-bar i { display: block; height: 100%; }
 
 /* Dialog */
+/* Optional source-backed character intelligence. Hidden while drafting until explicitly opened. */
+.guide-modal { max-width: 930px; width: 100%; }
+.guide-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.guide-controls input { min-width: 0; flex: 1 1 180px; }
+.guide-shell { display: grid; grid-template-columns: minmax(160px, 220px) minmax(0,1fr); gap: 14px; min-height: 0; }
+.guide-index { display: grid; align-content: start; gap: 3px; max-height: 57vh; overflow-y: auto; border-right: 1px solid var(--line); padding-right: 8px; }
+.guide-index button { text-align: left; padding: 7px 9px; border: none; background: none; border-radius: 7px; font-size: 13px; }
+.guide-index button[aria-pressed="true"] { color: var(--ink); background: color-mix(in srgb, var(--accent) 23%, var(--panel)); font-weight: 700; }
+.guide-detail { display: grid; align-content: start; gap: 12px; min-width: 0; max-height: 57vh; overflow-y: auto; padding: 2px 4px 18px 0; }
+.guide-detail p { margin: 0; }
+.guide-detail h3 { font-family: var(--f-display); font-size: 25px; margin: 0; line-height: 1.05; }
+.guide-detail h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 5px; }
+.guide-detail ul { margin: 0; padding-left: 19px; display: grid; gap: 4px; }
+.guide-scores { display: grid; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)); gap: 5px; }
+.guide-score { background: var(--panel2); border: 1px solid var(--line); padding: 7px 10px; border-radius: 8px; display: flex; justify-content: space-between; gap: 6px; font-size: 12px; }
+.guide-score b { font-family: var(--f-mono); font-size: 14px; }
+.guide-source { font-size: 12px; overflow-wrap: anywhere; }
+@media(max-width: 640px) { .guide-shell { grid-template-columns: 1fr; gap: 8px; } .guide-index { display: flex; gap: 4px; border: 0; border-bottom: 1px solid var(--line); padding: 0 0 8px; min-height: 40px; max-height: 56px; overflow-x: auto; overflow-y: hidden; } .guide-index button { flex: 0 0 auto; white-space: nowrap; } .guide-detail { max-height: 56vh; } .guide-modal { padding: 14px; } }
+
 .modal-back { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 50; display: grid; place-items: center; padding: 16px; }
 .modal { background: var(--panel); color: var(--ink); border-radius: 14px; max-width: 760px; width: 100%; max-height: 86vh; overflow-y: auto; padding: 20px; box-shadow: var(--shadow); display: grid; gap: 12px; }
 .attr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px 14px; font-size: 13px; }
@@ -427,17 +446,18 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 <div class="app" id="app"></div>
 <script src="vendor/supabase.js"></script>
 <script>window.DA_SUPA = { url: "https://pbwpyzfgqdcmchfciqeu.supabase.co", key: "sb_publishable_9ArvtVXd4slgJZY67NQe5A_aw0DMhyz" };</script>
+<script src="data/mcu-profiles.js"></script>
 <script>
 const POOLS = {};
 // ===== Universal attribute model =====
 // Every candidate in every pool is rated 1–99 on the same absolute scale:
 // 99 superhuman ceiling · 90 best-ever human · 75 good pro · 50 average adult · 25 small child · 5 almost none
 const ATTRS = [
-  { k: 'spd', n: 'Speed',      d: 'Top-end straight-line speed' },
+  { k: 'spd', n: 'Speed',      d: 'Effective movement speed (including supernatural mobility)' },
   { k: 'agi', n: 'Agility',    d: 'Quickness, footwork, change of direction' },
   { k: 'str', n: 'Strength',   d: 'Raw power and physical force' },
   { k: 'siz', n: 'Size',       d: 'Height, length, mass and reach' },
-  { k: 'lep', n: 'Leap',       d: 'Vertical jump and explosive burst' },
+  { k: 'lep', n: 'Leap',       d: 'Vertical reach, jump, flight and powered elevation' },
   { k: 'end', n: 'Stamina',    d: 'Endurance and durability over a full game' },
   { k: 'tch', n: 'Touch',      d: 'Hands, ball control, dexterity, finesse' },
   { k: 'acc', n: 'Accuracy',   d: 'Aim and precision throwing, shooting, striking' },
@@ -835,41 +855,41 @@ const NBA_STATS = {"Michael Jordan":[33.4,6.1,5.9,2.9,1.1,0.533,0.273,31.5,0.305
 
 // Marvel Cinematic Universe characters. Order: spd agi str siz lep end tch acc ref iq clu ldr
 POOLS.mcu = { id: 'mcu', name: 'Marvel Cinematic Universe', short: 'MCU', blurb: '143 heroes, villains and sidekicks from the films and series', entries: [
-["Iron Man","🦾","Genius in a flying suit",[88,74,88,66,90,72,80,94,84,99,88,84]],
-["Captain America","🛡️","Super-soldier, shield thrower",[82,88,88,68,86,95,90,95,92,90,96,99]],
-["Thor","⚡","God of Thunder",[88,78,98,72,95,96,78,88,84,70,80,86]],
-["Hulk","💚","Rage Hulk (Banner is separate)",[78,60,99,97,99,94,35,50,74,30,60,40]],
+["Iron Man","🦾","Genius in a flying suit",[95,83,96,76,96,91,90,97,93,99,88,87]],
+["Captain America","🛡️","Super-soldier, shield thrower",[84,93,88,70,89,95,96,97,95,96,98,99]],
+["Thor","⚡","God of Thunder",[97,83,99,85,99,99,87,92,88,84,89,88]],
+["Hulk","💚","Rage Hulk (Banner is separate)",[82,65,99,98,99,99,42,45,80,38,65,40]],
 ["Bruce Banner","🧪","The Hulk's brain, minus the Hulk",[44,50,46,58,40,58,82,60,64,99,72,78]],
 ["Smart Hulk","🧠","Banner's mind in Hulk's body",[74,64,97,96,92,94,72,62,76,95,84,78]],
-["Black Widow","🕷️","Elite spy and acrobat",[74,96,62,48,82,86,92,92,94,92,94,84]],
-["Hawkeye","🏹","Never misses",[68,86,62,58,70,84,94,99,92,86,92,74]],
+["Black Widow","🕷️","Elite spy and acrobat",[77,96,65,50,85,88,96,95,96,94,97,89]],
+["Hawkeye","🏹","Never misses",[70,86,63,59,76,86,98,99,93,92,96,85]],
 ["Kate Bishop","🎯","Hawkeye's protégé",[76,90,58,56,76,84,90,97,90,84,70,70]],
-["Spider-Man","🕸️","Spider-sense and web-slinging",[86,99,90,52,98,84,90,88,99,84,74,62]],
-["Doctor Strange","🔮","Sorcerer Supreme",[70,64,45,62,80,72,95,88,82,97,88,84]],
+["Spider-Man","🕸️","Spider-sense and web-slinging",[95,99,96,63,99,92,97,94,99,88,80,74]],
+["Doctor Strange","🔮","Sorcerer Supreme",[99,90,54,62,99,88,99,96,93,99,95,87]],
 ["Black Panther","🐾","King of Wakanda",[86,94,86,66,88,90,88,86,94,92,94,97]],
-["Captain Marvel","✴️","Cosmic-powered pilot",[96,82,97,58,97,96,72,88,90,76,84,78]],
-["Scarlet Witch","🌀","Chaos magic",[64,60,50,52,82,72,92,80,86,82,58,55]],
-["Vision","💎","Synthezoid with a Mind Stone",[80,78,90,64,90,99,86,88,92,96,88,70]],
-["Ant-Man","🐜","Shrinks small, grows giant",[74,88,70,70,82,74,82,74,86,76,68,62]],
-["The Wasp","🐝","Shrinking, flying fighter",[90,96,62,30,92,80,84,82,94,88,78,78]],
+["Captain Marvel","✴️","Cosmic-powered pilot",[99,88,99,69,99,99,86,94,94,88,91,84]],
+["Scarlet Witch","🌀","Chaos magic",[98,92,58,56,99,92,99,98,93,87,73,66]],
+["Vision","💎","Synthezoid with a Mind Stone",[88,81,90,64,97,99,90,88,92,96,88,70]],
+["Ant-Man","🐜","Shrinks small, grows giant",[82,88,70,70,92,74,82,74,86,76,68,62]],
+["The Wasp","🐝","Shrinking, flying fighter",[94,96,62,30,96,80,84,82,94,88,78,78]],
 ["Janet van Dyne","","The original Wasp",[86,94,58,30,90,84,84,86,92,88,86,86]],
 ["Hank Pym","","Original Ant-Man, scientist",[62,80,60,60,74,70,88,82,84,96,64,72]],
 ["Falcon","🦅","Winged aerial ace",[94,92,68,60,96,90,84,90,92,86,88,92]],
 ["Winter Soldier","🦿","Metal-armed assassin",[76,84,88,66,78,92,88,94,90,78,78,66]],
 ["War Machine","🚀","Heavy-artillery armor",[84,64,88,72,86,82,72,95,82,84,86,86]],
-["Pepper Potts","","Rescue armor, CEO",[84,76,84,58,88,80,82,88,84,90,82,90]],
+["Pepper Potts","","Rescue armor, CEO",[99,76,99,58,99,80,82,88,84,90,82,90]],
 ["Howard Stark","","Inventor and industrialist",[50,52,52,60,46,62,82,56,66,96,82,86]],
 ["Happy Hogan","","Bodyguard and driver",[64,62,74,66,56,74,62,70,68,64,70,68]],
-["Star-Lord","🎧","Guardians frontman",[74,80,60,60,80,78,82,86,82,68,66,76]],
+["Star-Lord","🎧","Guardians frontman",[84,80,60,60,89,78,82,86,82,68,66,76]],
 ["Gamora","🗡️","Deadliest woman in the galaxy",[82,94,80,62,86,90,90,92,92,84,86,70]],
 ["Drax","","Literal-minded warrior",[64,62,94,82,70,96,60,62,70,40,72,60]],
 ["Rocket","🦝","Raccoon weapons expert",[70,90,40,8,72,74,96,96,90,94,66,72]],
 ["Groot","🌳","Adult Groot, Guardians Vol. 1",[54,60,92,92,62,96,72,50,68,70,86,62]],
-["Mantis","","Empath",[62,78,40,48,60,66,80,50,76,62,56,48]],
+["Mantis","","Empath",[62,78,40,48,60,66,88,50,79,62,56,48]],
 ["Nebula","","Cybernetic assassin",[80,88,82,62,80,94,84,88,88,84,82,62]],
-["Yondu","","Whistle-guided arrow",[62,70,60,52,60,80,82,99,90,80,86,86]],
-["Cosmo the Spacedog","🐕","Telekinetic good girl",[70,76,52,22,66,80,60,40,82,72,72,60]],
-["Adam Warlock","","Golden cosmic being",[88,80,92,70,94,88,70,84,82,52,56,45]],
+["Yondu","","Whistle-guided arrow",[62,70,60,52,60,80,84,99,90,80,86,86]],
+["Cosmo the Spacedog","🐕","Telekinetic good girl",[70,76,52,22,76,80,82,65,82,72,72,60]],
+["Adam Warlock","","Golden cosmic being",[94,80,92,70,99,88,70,84,82,52,56,45]],
 ["Taserface","","Ravager with a regrettable name",[62,64,80,70,60,80,62,70,66,50,52,68]],
 ["Okoye","⚔️","General of the Dora Milaje",[84,92,82,68,84,92,90,94,94,86,88,90]],
 ["Ayo","","Dora Milaje warrior",[84,94,78,62,84,90,90,92,94,84,84,88]],
@@ -877,80 +897,80 @@ POOLS.mcu = { id: 'mcu', name: 'Marvel Cinematic Universe', short: 'MCU', blurb:
 ["M'Baku","🦍","Leader of the Jabari",[72,74,92,80,76,90,72,70,80,72,76,90]],
 ["Nakia","","War Dog spy",[80,90,70,56,80,86,88,90,90,86,88,82]],
 ["Killmonger","","Special-ops challenger",[84,92,88,68,86,92,88,92,90,90,78,80]],
-["Namor","🔱","King of Talokan, winged ankles",[94,92,96,70,94,95,84,88,92,90,86,94]],
+["Namor","🔱","King of Talokan, winged ankles",[94,92,97,70,99,95,84,88,92,90,86,94]],
 ["Attuma","","Talokan warrior",[76,74,90,82,70,90,70,82,80,60,74,70]],
-["Ironheart","","Teen inventor in armor",[86,74,84,60,88,78,90,90,84,96,80,74]],
+["Ironheart","","Teen inventor in armor",[99,74,84,60,99,78,90,90,84,96,80,74]],
 ["Valkyrie","🐎","Asgardian warrior, pegasus rider",[80,86,86,66,84,90,84,90,88,76,76,82]],
-["Loki","🐍","God of Mischief",[76,86,74,64,80,80,92,88,90,96,64,70]],
-["Odin","","All-Father",[60,62,94,76,70,82,80,84,82,96,86,94]],
-["Hela","💀","Goddess of Death",[86,86,96,66,82,96,88,94,92,84,82,82]],
-["Heimdall","🌈","All-seeing gatekeeper",[72,76,86,74,76,90,82,90,99,88,84,84]],
+["Loki","🐍","God of Mischief",[94,87,88,74,95,93,94,91,89,97,87,81]],
+["Odin","","All-Father",[72,62,94,76,82,82,88,92,82,96,86,94]],
+["Hela","💀","Goddess of Death",[95,86,96,66,96,96,88,94,92,84,82,82]],
+["Heimdall","🌈","All-seeing gatekeeper",[72,76,86,74,76,90,82,90,99,91,84,84]],
 ["Sif","","Asgardian warrior",[82,88,84,64,84,90,86,88,88,80,86,84]],
 ["Korg","🪨","Gentle rock guy",[44,40,88,86,40,92,50,62,60,60,74,66]],
 ["Hercules","","Son of Zeus",[80,80,96,78,90,96,70,74,80,60,74,72]],
-["Zeus","","God of Thunder (the other one)",[62,60,94,72,72,94,74,90,84,74,72,80]],
-["Gorr the God Butcher","","Necrosword wielder",[84,86,90,66,80,92,84,86,86,84,72,60]],
-["Thanos","🟣","Mad Titan",[72,70,99,85,78,96,78,84,84,95,90,90]],
+["Zeus","","God of Thunder (the other one)",[72,60,94,72,82,94,74,90,84,74,72,80]],
+["Gorr the God Butcher","","Necrosword wielder",[96,86,90,66,94,92,84,95,86,84,72,60]],
+["Thanos","🟣","Mad Titan",[83,87,99,94,82,99,90,91,94,98,95,92]],
 ["Ultron","🤖","Rogue AI",[88,84,95,74,92,99,82,90,90,96,70,80]],
 ["Red Skull","☠️","HYDRA commander",[80,78,84,64,72,86,76,88,82,88,70,78]],
 ["Vulture","","Winged salvage boss",[82,72,76,60,90,74,80,78,76,86,70,82]],
 ["Mysterio","🫧","Illusion master",[56,58,50,60,50,62,90,66,70,92,62,74]],
 ["Green Goblin","🎃","Glider-riding maniac",[86,84,88,62,90,86,80,84,84,88,74,70]],
 ["Doc Ock","🐙","Four mechanical arms",[60,72,90,74,82,82,97,80,88,94,66,60]],
-["Electro","","Living lightning",[94,70,60,58,80,84,70,86,86,70,60,50]],
-["Sandman","⏳","Man made of sand",[60,60,92,90,70,96,60,60,66,58,56,45]],
-["Kang the Conqueror","⌛","Time-traveling tyrant",[72,76,82,64,76,86,88,88,88,98,86,92]],
-["Ego","🌍","A living planet",[70,60,95,99,70,99,70,70,70,90,80,70]],
+["Electro","","Living lightning",[99,70,60,58,99,84,70,86,86,70,60,50]],
+["Sandman","⏳","Man made of sand",[60,60,92,99,70,96,60,60,66,58,56,45]],
+["Kang the Conqueror","⌛","Time-traveling tyrant",[82,76,82,64,84,86,88,88,88,98,86,92]],
+["Ego","🌍","A living planet",[95,60,95,99,95,99,90,70,70,90,80,70]],
 ["Ronan the Accuser","🔨","Kree zealot",[64,62,92,80,66,92,76,90,80,74,72,78]],
 ["Abomination","","Hulk's rival",[76,70,97,94,92,92,40,60,76,58,56,58]],
 ["Whiplash","","Electric-whip engineer",[60,64,84,72,56,80,84,84,72,90,64,45]],
 ["Obadiah Stane","","Iron Monger",[62,60,90,80,60,80,64,60,70,82,56,70]],
 ["The Collector","","Obsessive curator",[40,46,40,58,34,76,80,60,62,92,72,72]],
 ["Grandmaster","","Runs the Contest of Champions",[44,50,40,62,40,66,82,60,66,82,84,76]],
-["Kaecilius","","Rogue sorcerer",[76,88,72,60,82,82,88,84,86,84,70,72]],
-["Wong","📚","Sorcerer and librarian",[62,78,62,58,66,84,92,86,86,94,88,86]],
-["The Ancient One","🧘","Former Sorcerer Supreme",[66,92,48,50,70,78,94,86,95,99,94,94]],
-["Mordo","","Master of the mystic arts",[74,88,74,66,76,86,88,88,88,84,80,70]],
-["Shang-Chi","🐉","Master martial artist",[88,99,82,60,92,92,94,90,98,84,82,70]],
+["Kaecilius","","Rogue sorcerer",[95,88,72,60,99,82,91,84,86,84,70,72]],
+["Wong","📚","Sorcerer and librarian",[88,78,62,58,94,84,96,86,86,94,88,86]],
+["The Ancient One","🧘","Former Sorcerer Supreme",[88,92,48,50,94,78,94,86,95,99,94,94]],
+["Mordo","","Master of the mystic arts",[92,88,74,66,91,86,88,88,88,84,80,70]],
+["Shang-Chi","🐉","Master martial artist",[93,99,82,60,98,92,94,90,98,84,82,70]],
 ["Xu Wenwu","💍","Ten Rings warlord",[82,90,92,66,84,92,90,92,92,86,78,86]],
 ["Katy","","Valet driver turned archer",[70,70,50,48,62,74,72,88,72,68,56,58]],
-["Ms. Marvel","✨","Hard-light embiggening",[74,80,78,56,82,80,80,74,82,80,68,70]],
+["Ms. Marvel","✨","Hard-light embiggening",[74,80,78,68,92,80,80,74,82,80,68,70]],
 ["She-Hulk","⚖️","Attorney with Hulk strength",[80,84,96,82,92,94,76,70,80,90,72,84]],
-["Moon Knight","🌙","Avatar of Khonshu",[80,88,84,68,86,90,84,86,86,72,80,68]],
+["Moon Knight","🌙","Avatar of Khonshu",[80,88,84,68,86,95,84,86,86,72,80,68]],
 ["Yelena Belova","","Widow-trained operative",[80,94,66,52,82,90,90,92,92,86,86,82]],
 ["Red Guardian","🐻","Soviet super-soldier, past his prime",[70,58,86,74,68,78,60,76,70,52,56,70]],
 ["Taskmaster","","Copies any fighting style",[84,96,80,60,86,90,92,95,96,78,72,64]],
 ["John Walker","","U.S. Agent",[80,84,88,68,80,88,82,86,84,78,58,68]],
 ["Zemo","🎭","Strategist and schemer",[64,74,70,62,62,70,88,92,82,96,88,80]],
 ["Sharon Carter","","Agent turned power broker",[72,86,62,56,72,84,84,90,88,88,88,86]],
-["Agatha Harkness","🧙","Centuries-old witch",[62,66,50,56,60,82,90,86,84,88,72,82]],
+["Agatha Harkness","🧙","Centuries-old witch",[82,66,50,56,82,82,95,86,84,88,72,82]],
 ["Nick Fury","🕶️","Director of S.H.I.E.L.D.",[62,70,60,62,62,78,80,92,86,98,92,94]],
 ["Maria Hill","","Deputy director",[72,82,62,58,72,84,82,90,88,90,92,92]],
 ["Phil Coulson","","Agent and superfan",[62,70,62,58,60,80,80,86,82,88,92,92]],
 ["Peggy Carter","🎖️","Founder of S.H.I.E.L.D.",[72,86,66,52,70,86,84,92,88,92,92,97]],
 ["Jimmy Woo","","FBI agent, close-up magician",[62,70,58,56,58,76,84,80,78,86,78,74]],
 ["Darcy Lewis","","Scientist and intern",[50,56,40,52,44,60,66,60,62,80,56,48]],
-["Ghost","","Phases through anything",[88,90,68,52,84,70,82,82,92,78,54,40]],
+["Ghost","","Phases through anything",[98,90,68,52,84,70,82,82,92,78,54,40]],
 ["Ned Leeds","","Guy in the chair",[44,40,46,58,38,56,74,60,60,86,58,62]],
 ["MJ","","Sharp observer",[62,68,48,54,58,70,72,70,76,90,82,76]],
 ["Aunt May","","With great power…",[36,40,40,50,30,66,72,60,60,80,76,90]],
-["Ikaris","☀️","Eternal with laser eyes",[96,84,95,68,96,96,74,94,88,86,58,60]],
+["Ikaris","☀️","Eternal with laser eyes",[96,84,95,68,96,96,74,94,88,86,84,78]],
 ["Thena","","Eternal weapon-forger",[84,96,88,64,90,92,92,94,94,80,70,66]],
 ["Makkari","💨","Fastest Eternal",[99,96,60,54,90,92,84,80,98,82,84,72]],
 ["Gilgamesh","","Strongest Eternal",[62,62,96,82,66,94,70,72,76,72,84,84]],
 ["Ajak","","Prime Eternal",[70,74,72,60,76,86,84,80,84,94,88,96]],
 ["Kingo","","Eternal energy shooter",[80,82,80,62,80,84,84,92,84,74,66,58]],
-["Druig","","Mind controller",[70,74,62,60,60,82,86,80,82,90,72,82]],
+["Druig","","Mind controller",[70,74,62,60,60,82,96,94,82,90,72,82]],
 ["Phastos","","Eternal inventor",[62,72,74,64,64,82,96,84,82,96,70,68]],
-["Sersi","","Matter transmuter",[76,78,62,56,64,82,88,82,82,84,76,84]],
+["Sersi","","Matter transmuter",[76,78,62,56,64,82,96,82,82,84,76,84]],
 ["Sprite","","Eternal illusionist",[66,82,40,26,60,76,86,80,84,82,70,58]],
-["Monica Rambeau","🌟","Energy-absorbing pilot",[90,82,74,58,92,88,80,88,90,84,84,84]],
-["America Chavez","⭐","Punches star portals",[70,72,80,54,60,80,76,80,76,66,58,60]],
+["Monica Rambeau","🌟","Energy-absorbing pilot",[95,82,80,58,92,88,80,88,90,84,84,84]],
+["America Chavez","⭐","Punches star portals",[85,72,80,54,78,80,76,80,76,66,58,60]],
 ["Echo","","Photographic reflexes",[80,94,70,54,82,86,90,88,96,84,86,80]],
 ["Kingpin","🕴️","Crime boss",[56,58,94,90,50,84,70,70,64,90,70,84]],
 ["Daredevil","","Blind with radar sense",[80,94,80,62,86,90,90,88,99,88,82,78]],
 ["Jessica Jones","","Super-strong P.I.",[70,72,92,56,92,86,66,70,74,84,54,56]],
-["Luke Cage","","Unbreakable skin",[70,66,96,74,66,96,62,60,72,76,72,76]],
+["Luke Cage","","Unbreakable skin",[70,66,96,74,66,99,62,60,72,76,72,76]],
 ["Iron Fist","","Chi-powered fists",[82,92,84,62,86,86,88,84,90,66,64,66]],
 ["The Punisher","","One-man army",[72,80,82,68,70,94,84,98,90,86,78,66]],
 ["Deadpool","","Healing factor, no filter",[84,92,82,64,84,99,90,94,90,70,72,40]],
@@ -959,20 +979,20 @@ POOLS.mcu = { id: 'mcu', name: 'Marvel Cinematic Universe', short: 'MCU', blurb:
 ["Cassandra Nova","","Telepath of the Void",[60,60,50,50,50,88,80,78,84,96,82,88]],
 ["Elektra","","Assassin with sai",[90,96,78,52,86,88,92,94,94,82,84,74]],
 ["Miek","","Korg's knife-handed sidekick",[60,62,72,50,50,80,55,70,66,40,60,30]],
-["Sentry","","Golden Guardian with a Void inside",[95,85,99,62,96,97,70,80,94,62,45,40]],
+["Sentry","","Golden Guardian with a Void inside",[99,94,99,62,99,97,70,90,94,62,45,40]],
 ["Valentina Allegra de Fontaine","","Val, the Thunderbolts' boss",[55,58,45,52,40,62,70,70,70,90,82,88]],
 ["Bill Foster","","Ex-Goliath, grows 21 feet tall",[50,48,80,72,50,62,78,72,66,94,74,80]],
 ["Jean Grey","","Telepath and psionic powerhouse",[70,72,60,52,80,82,85,85,88,90,78,80]],
 ["Doctor Doom","","Armored sorcerer-king of Latveria",[82,72,90,66,85,90,88,92,88,99,92,94]],
-["Mister Fantastic","","Stretching genius, leads the FF",[60,88,58,80,80,74,88,80,80,99,80,92]],
-["Invisible Woman","","Force fields and invisibility",[62,70,70,55,70,80,85,85,86,92,90,94]],
-["Human Torch","","Flying plasma hothead",[94,82,60,52,92,82,70,88,86,70,70,58]],
+["Mister Fantastic","","Stretching genius, leads the FF",[60,88,58,86,80,74,99,80,80,99,80,92]],
+["Invisible Woman","","Force fields and invisibility",[77,70,70,55,85,91,99,99,86,92,90,94]],
+["Human Torch","","Flying plasma hothead",[99,82,60,52,94,82,70,88,86,70,70,58]],
 ["The Thing","","Rock-skinned brawler and ace pilot",[50,48,96,88,55,96,62,66,66,72,88,82]],
 ["H.E.R.B.I.E.","","The FF's robot babysitter",[50,60,25,30,60,90,80,70,80,90,60,40]],
-["Silver Surfer","","Herald of Galactus",[99,92,92,58,96,99,80,92,96,86,80,70]],
+["Silver Surfer","","Herald of Galactus",[99,92,92,58,96,99,92,92,96,86,80,70]],
 ["Galactus","","Devourer of worlds",[40,30,99,99,60,99,60,70,60,99,80,85]],
 ["Mole Man","","Ruler of Subterranea",[40,45,45,40,30,62,72,60,58,86,66,82]],
-["Franklin Richards","","Baby with the Power Cosmic",[8,10,8,10,5,40,12,8,30,20,60,15]],
+["Franklin Richards","","Baby with the Power Cosmic",[1,1,1,10,1,40,12,1,20,20,45,1]],
 ["Stick","","Blind sensei of the Chaste",[62,88,62,52,70,80,90,88,97,90,90,88]],
 ["The Watcher","","Sees everything, swore not to act",[85,75,95,96,85,99,80,80,92,99,40,60]],
 ["Captain Carter","","Super-soldier Peggy from What If...?",[82,88,86,58,84,94,88,94,92,90,95,97]],
@@ -2569,6 +2589,10 @@ const S = {
   custom: {},           // custom pools from db/local
   cap: { db: null, user: null, sample: null, uid: null, ready: false },
   modal: null,
+  guidePool: 'mcu',
+  guideName: 'Ikaris',
+  guideQuery: '',
+  guideScores: false,
   gen: null,            // pool generation progress
 };
 function saveChamp() {
@@ -2659,16 +2683,16 @@ function renderTop() {
       <button data-act="mode" data-mode="deal" aria-pressed="${S.mode === 'deal'}">Dealt Hand</button>
       <button data-act="mode" data-mode="h2h" aria-pressed="${S.mode === 'h2h'}">Head-to-Head</button>
     </div>
-    <button class="linkish" data-act="howto">How scoring works</button>
+    <button class="linkish" data-act="open-guide">Character guide</button><button class="linkish" data-act="howto">How scoring works</button>
   </header>`;
 }
 function renderModal() {
   if (S.modal !== 'howto') return '';
   return `<div class="modal-back" data-act="close-modal"><div class="modal" role="dialog" aria-modal="true" aria-label="How scoring works" data-stop="1">
     <div class="row" style="justify-content:space-between"><h2 class="h">How scoring works</h2><button class="btn small" data-act="close-modal">Close</button></div>
-    <p>Every candidate in every pool carries the same 12-attribute profile, rated 1–99 on one universal scale: <b>99</b> is a superhuman ceiling, <b>90</b> the best human ever in that trait, <b>75</b> a good pro, <b>50</b> an average adult, <b>25</b> a small child. That's why a Hulk, a Hall of Famer and a Muppet can be compared directly.</p>
+    <p>Every candidate in every pool carries the same 12-attribute profile, rated 1–99 on one universal scale: <b>99</b> is a superhuman ceiling, <b>90</b> the best human ever in that trait, <b>75</b> a good pro, <b>50</b> an average adult, <b>25</b> a small child. Magical powers, flight, telekinesis and normally carried equipment are all allowed. That's why a Hulk, a Hall of Famer and a Muppet can be compared directly.</p>
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
-    <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>No scores, grades or rankings are ever shown.</b> You find out how you did from the results.</p>
+    <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>Draft picks remain unranked.</b> You can inspect the optional Character Guide for research and explicitly reveal the numeric attributes if you want spoilers.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
     <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front (size, stamina, strength). Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
@@ -2679,6 +2703,43 @@ function renderModal() {
     <p><b>Playoff Boom:</b> some players are boom-or-bust. In any playoff game they can catch fire and take over, or go cold. They're a gamble, and that's the point.</p>
     <p><b>Full pro season:</b> instead of a quick round robin, play a real-length season (82 NBA games, 17 NFL games, 162 MLB games, 82 NHL games with overtime losses, 26 Serie A1 volleyball matches, or 38 soccer matches with draws), then that league's playoff format: series, byes and all. Soccer has no playoffs; the table decides the title.</p>
     <p><b>Championship:</b> fan-cast your lineup with no limits, share it, then play a full pro-length season against teams from every universe. Each opponent comes from a single universe (only Mashup casts face mixed All-Star teams), every universe sends a contender (scaled to the best your own universe could field, so any universe can go perfect), and the rest is a random mix. The goal: the perfect season, undefeated through the regular season and the playoffs. <b>Dealt Hand:</b> its own mode. Each pick deals you ${HAND_SIZE} random candidates you haven't seen yet; you take one and place them in any open spot, with ${REDEALS} redeals per draft. Anyone you pass on is gone from your hands for good, though a rival may still draft them. Rival teams draft alongside you in a snake order. By default they draft like good fans from random hands: usually smart, sometimes wrong. Random rivals are easy; Sharp rivals always take the best fit. <b>Head-to-Head:</b> two people draft from the same pool and the higher rating wins. With upsets off, the better team wins unless a boom player catches fire.</p>
+  </div></div>`;
+}
+
+
+function guideCollection(id) { return (window.DA_CHARACTER_GUIDES && window.DA_CHARACTER_GUIDES[id]) || {}; }
+function renderGuideModal() {
+  if (S.modal !== 'guide') return '';
+  const enabled = ['mcu','toons'].filter(p => Object.keys(guideCollection(p)).length);
+  if (!enabled.includes(S.guidePool)) S.guidePool = enabled[0] || 'mcu';
+  const coll = guideCollection(S.guidePool);
+  const names = Object.keys(coll);
+  const q = S.guideQuery.toLowerCase().trim();
+  const visible = names.filter(n => !q || n.toLowerCase().includes(q));
+  const current = coll[S.guideName] && visible.includes(S.guideName) ? S.guideName : visible[0];
+  const profile = coll[current];
+  const list = v => Array.isArray(v) ? v.filter(Boolean) : (v ? [v] : []);
+  const bullets = (items, empty) => list(items).length ? '<ul>' + list(items).map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>' : '<p class="muted">'+esc(empty)+'</p>';
+  return `<div class="modal-back" data-act="close-modal"><div class="modal guide-modal" role="dialog" aria-modal="true" aria-label="Character research guide" data-stop="1">
+    <div class="row" style="justify-content:space-between"><div><span class="eyebrow">Draft Anything research</span><h2 class="h">Character Guide</h2></div><button class="btn small" data-act="close-modal">Close</button></div>
+    <div class="guide-controls">${enabled.map(p=>`<button class="btn small" data-act="guide-pool" data-pool="${p}" aria-pressed="${S.guidePool===p}">${p==='mcu'?'Marvel':'Cartoons'}</button>`).join('')}
+      <input id="guide-q" aria-label="Find a character" type="search" data-input="guide-q" placeholder="Search ${names.length} characters" value="${esc(S.guideQuery)}">
+      <button class="btn small" data-act="guide-reveal">${S.guideScores?'Hide scores':'Reveal scores'}</button>
+    </div>
+    <div class="guide-shell">
+      <div class="guide-index" role="list" aria-label="Characters">${visible.map(n=>`<button data-act="guide-character" data-name="${esc(n)}" aria-pressed="${n===current}">${esc(n)}</button>`).join('')||'<span class="note">No matching characters.</span>'}</div>
+      ${profile ? `<div class="guide-detail"><div><h3>${esc(profile.name||current)}</h3><span class="note">${esc(profile.tier||'Character')} · ${esc((profile.works||[]).slice(0,2).join(' · '))}</span></div>
+        <section><h4>Powers &amp; skills</h4>${bullets(profile.powers,'Not established')}</section>
+        <section><h4>Notable feats</h4>${bullets(profile.feats,'Direct feats not documented')}</section>
+        <section><h4>Defeats, limitations &amp; weaknesses</h4>${bullets(profile.limits,'Unverified')}</section>
+        <section><h4>Sports translation</h4><p>${esc(profile.effect||'Provisional assessment')}</p></section>
+        ${profile.disclaimer?`<p class="note"><b>Continuity:</b> ${esc(profile.disclaimer)}</p>`:''}
+        ${S.guideScores&&profile.scores?`<section><h4>12-attribute research ratings</h4><div class="guide-scores">${ATTRS.map(a=>`<div class="guide-score"><span>${esc(a.n)}</span><b>${profile.scores[a.k]??'—'}</b></div>`).join('')}</div></section>`:''}
+        <p class="note">${esc(profile.status||'Research scores are subjective estimates, not official canon statistics.')}</p>
+        ${(profile.sources||[]).length?`<section><h4>Reference links</h4>${profile.sources.filter(u=>/^https:\/\//.test(u)).map(u=>`<div class="guide-source"><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(u)}</a></div>`).join('')}</section>`:''}
+        <p class="note">Works: ${esc(list(profile.works).join('; '))}</p>
+       </div>`:'<div class="empty-state">No matching profile.</div>'}
+    </div>
   </div></div>`;
 }
 
@@ -3672,7 +3733,7 @@ function render() {
   else main = renderH2H();
   const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
-  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderShareModal();
+  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal();
   if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus(); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
 }
 function refreshPlist() {
@@ -3688,6 +3749,10 @@ document.addEventListener('click', e => {
   switch (a) {
     case 'mode': S.mode = t.dataset.mode; lsSet('da.mode', S.mode); S.gen.open = false; break;
     case 'howto': S.modal = 'howto'; break;
+    case 'open-guide': S.guidePool = getPool(S.mode==='h2h'?(S.h2h.contest?.poolId||S.h2h.form.poolId):S.champ.poolId)?.id === 'toons' && Object.keys(guideCollection('toons')).length?'toons':'mcu'; S.guideQuery = ''; S.modal='guide'; break;
+    case 'guide-pool': S.guidePool = t.dataset.pool; S.guideName = ''; S.guideQuery = ''; break;
+    case 'guide-character': S.guideName = t.dataset.name; break;
+    case 'guide-reveal': S.guideScores = !S.guideScores; break;
     case 'close-modal': S.modal = null; break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
@@ -3757,6 +3822,7 @@ document.addEventListener('input', e => {
   const v = e.target.value;
   if (k === 'c-team') { S.champ.teamName = v; saveChamp(); }
   else if (k === 'c-opps') { S.champ.opps = +v; const l = $('#c-opps-v'); if (l) l.textContent = v; saveChamp(); }
+  else if (k === 'guide-q') { S.guideQuery = v; render(); }
   else if (k === 'pick-q') { if (S.mode !== 'h2h') S.champ.query = v; else S.h2h.query = v; refreshPlist(); }
   else if (k === 'h-team') { S.h2h.form.teamName = v; lsSet('da.h2hform', S.h2h.form); }
   else if (k === 'h-code') { S.h2h.joinCode = v.toUpperCase(); }
