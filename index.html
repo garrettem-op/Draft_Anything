@@ -4064,13 +4064,19 @@ document.addEventListener('click', e => {
     case 'camp-setup': S.campaign.status = 'setup'; S.campaign.selected = null; break;
     case 'camp-slot': {
       const slots = campaignSlots(S.campaign.sport,campaignStage().rule);
-      if (slots.some(p=>p.id===t.dataset.slot)) { S.campaign.selected=t.dataset.slot;S.campaign.query=''; }
+      if (slots.some(p=>p.id===t.dataset.slot)) {
+        const v=S.campaign,limit=campaignLimit(v.sport,campaignStage().rule);
+        if(!v.roster[t.dataset.slot]&&Object.keys(v.roster).length>=limit){toast('This challenge allows only '+limit+' picks. Remove a character first.');break;}
+        v.selected=t.dataset.slot;v.query='';
+      }
       break;
     }
     case 'camp-close': S.campaign.selected = null; break;
+    case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];}break;
     case 'camp-pick': {
       const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
       if (!candidate || !v.selected || !campaignAllowed(candidate,campaignStage().rule)) break;
+      if(!v.roster[v.selected]&&Object.keys(v.roster).length>=campaignLimit(v.sport,campaignStage().rule))break;
       if (Object.entries(v.roster).some(([k,p])=>k!==v.selected&&p.id===candidate.id)) break;
       v.roster[v.selected]=candidate;
       v.query='';
@@ -4082,7 +4088,7 @@ document.addEventListener('click', e => {
       const v=S.campaign,slots=campaignSlots(v.sport,campaignStage().rule);
       const taken=new Set(Object.values(v.roster).map(c=>c.id));
       const options=shuffled(campaignCandidates(campaignStage().rule).filter(c=>!taken.has(c.id)));
-      for(const p of slots)if(!v.roster[p.id])v.roster[p.id]=options.pop();
+      for(const p of slots)if(!v.roster[p.id]&&Object.keys(v.roster).length<campaignLimit(v.sport,campaignStage().rule))v.roster[p.id]=options.pop();
       v.selected=null;
       break;
     }
