@@ -14,7 +14,7 @@ const CAMPAIGN_STAGES = [
 const CAMPAIGN_WOMEN=new Set('Black Widow|Scarlet Witch|Captain Marvel|Gamora|Nebula|Mantis|The Wasp|Janet van Dyne|Kate Bishop|Okoye|Ayo|Shuri|Nakia|Ironheart|Valkyrie|Hela|Sif|Pepper Potts|Ms. Marvel|She-Hulk|Yelena Belova|Taskmaster|Sharon Carter|Agatha Harkness|Maria Hill|Peggy Carter|Darcy Lewis|Ghost|MJ|Aunt May|Thena|Makkari|Ajak|Sersi|Sprite|Monica Rambeau|America Chavez|Echo|Jessica Jones|Elektra|Jean Grey|Invisible Woman|Silver Surfer|Captain Carter|Lola Bunny|Minnie Mouse|Daisy Duck|Elsa|Moana|Mulan|Violet|Elastigirl|Sandy Cheeks|Lisa Simpson|Marge Simpson|Velma|Lucy van Pelt|Peppermint Patty|Blossom|Bubbles|Buttercup|Katara|Toph Beifong|Tigress|Bluey|Anna|Vanellope von Schweetz|Princess Peach|Princess Daisy|Rosalina|Samus Aran|Zelda|Princess Zelda|Lara Croft|Chun-Li|Sonya Blade|Kitana|Mileena|Bayonetta|Jill Valentine|Ada Wong|Ellie|Aloy'.split('|'));
 const CAMPAIGN_RED=new Set('Iron Man|Spider-Man|Scarlet Witch|Vision|Red Guardian|Red Skull|Daredevil|Deadpool|Human Torch|Star-Lord|Carnage|Mario|Knuckles|Diddy Kong|Donkey Kong|Raphael|Lightning McQueen|Mr. Incredible|Elastigirl|Blossom|Optimus Prime|Zuko|Po|Yosemite Sam|Mr. Krabs|Anger|Incineroar|Scorpion|Flash|The Flash|Ant-Man|Wreck-It Ralph|Mickey Mouse'.split('|'));
 const CAMPAIGN_KIDS=new Set('Spider-Man|Ms. Marvel|Kate Bishop|Ironheart|America Chavez|Sprite|Franklin Richards|Dash|Violet|Jack-Jack|Blossom|Bubbles|Buttercup|Bluey|Bingo|Bart Simpson|Lisa Simpson|Charlie Brown|Lucy van Pelt|Peppermint Patty|Snoopy|Aang|Toph Beifong|Zuko|Katara|Sokka|Mickey Mouse|Minnie Mouse|Morty|Ned Leeds|MJ|Vanellope von Schweetz|Ness|Lucas|Ash Ketchum|Pokémon Trainer|Young Link|Kid Link|Baby Mario|Baby Luigi|Dora the Explorer|Jimmy Neutron|Dexter|Timmy Turner|Penny Proud|Phineas|Ferb|Stewie Griffin|Maggie Simpson|Huey|Dewey|Louie|Lincoln Loud|Courage the Cowardly Dog'.split('|'));
-const CAMPAIGN_MORTAL=new Set('Black Widow|Hawkeye|Kate Bishop|Falcon|Winter Soldier|Happy Hogan|Howard Stark|Nick Fury|Maria Hill|Phil Coulson|Peggy Carter|Jimmy Woo|Darcy Lewis|Sharon Carter|Yelena Belova|Zemo|Katy|MJ|Ned Leeds|Aunt May|Kingpin|The Punisher|John Walker|Mulan|Phil|Tarzan|Fred Jones|Velma|Shaggy|Hank Hill|Bob Belcher|Sokka|Marge Simpson|Lisa Simpson|Bart Simpson|Charlie Brown|Peppermint Patty|Moana|Edna Mode|Porky Pig|Minnie Mouse|Lola Bunny'.split('|'));
+const CAMPAIGN_MORTAL=new Set('Black Widow|Hawkeye|Kate Bishop|Falcon|Happy Hogan|Howard Stark|Nick Fury|Maria Hill|Phil Coulson|Peggy Carter|Jimmy Woo|Darcy Lewis|Sharon Carter|Yelena Belova|Zemo|Katy|MJ|Ned Leeds|Aunt May|Kingpin|The Punisher|Mulan|Phil|Tarzan|Fred Jones|Velma|Shaggy|Hank Hill|Bob Belcher|Sokka|Marge Simpson|Lisa Simpson|Bart Simpson|Charlie Brown|Peppermint Patty|Moana|Edna Mode|Porky Pig|Minnie Mouse|Lola Bunny'.split('|'));
 function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',history:[],result:null};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
@@ -34,7 +34,11 @@ function campaignSlots(sport,rule){
   const slots=SPORTS[sport].pos;
   if(rule!=='short'&&rule!=='final')return slots;
   const starters=slots.filter(p=>!p.side&&!p.coach&&!p.bench);
-  return starters.slice(0,Math.max(1,Math.ceil(starters.length*0.6)));
+  return starters;
+}
+function campaignLimit(sport,rule){
+  const eligible=campaignSlots(sport,rule);
+  return rule==='short'||rule==='final'?Math.max(1,Math.ceil(eligible.length*0.6)):eligible.length;
 }
 function campaignUsed(){return new Set(S.campaign.history.flatMap(h=>h.ids||[]));}
 function campaignAllowed(c,rule){
@@ -52,10 +56,10 @@ function campaignAllowed(c,rule){
   }
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
-function campaignSportValid(sport){return CAMPAIGN_STAGES.every(ch=>campaignCandidates(ch.rule).length>=campaignSlots(sport,ch.rule).length);}
+function campaignSportValid(sport){return CAMPAIGN_STAGES.every(ch=>campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule));}
 function campaignReady(){
-  const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),pick=slots.map(p=>v.roster[p.id]);
-  return pick.every(c=>c&&campaignAllowed(c,st.rule))&&new Set(pick.map(c=>c.id)).size===slots.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id));
+  const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),pick=slots.map(p=>v.roster[p.id]).filter(Boolean);
+  return pick.length===campaignLimit(v.sport,st.rule)&&pick.every(c=>campaignAllowed(c,st.rule))&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id));
 }
 function campaignProgress(){
   const v=S.campaign,done=v.status==='complete'?10:v.step;
@@ -81,21 +85,21 @@ function renderCampaignSetup(){
 }
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id));
-  const filled=slots.filter(p=>v.roster[p.id]).length,valid=campaignReady(),all=campaignCandidates(st.rule),taken=new Set(Object.values(v.roster).map(c=>c.id));
+  const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=campaignCandidates(st.rule),taken=new Set(Object.values(v.roster).map(c=>c.id));
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
   const pool=getPool('mashup'),q=v.query.toLowerCase().trim();
   const matches=all.filter(c=>!q||c.n.toLowerCase().includes(q)||c.t.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n));
   const picker=pos?`<div class="panel picker open">
-    <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><button class="btn small" data-act="camp-close">Done</button></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
+    <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><div class="row"><button class="btn small" data-act="camp-remove" ${v.roster[pos.id]?"":"disabled"}>Remove</button><button class="btn small" data-act="camp-close">Done</button></div></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
     <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search ${all.length} eligible characters" autocomplete="off"></div>
     <div class="plist">${matches.length?matches.map(c=>`<button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small></span>${taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button>`).join(''):'<div class="empty-state">No eligible characters match your search.</div>'}</div>
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
-  `<div class="panel"><div class="sec"><h3 class="h">Your lineup</h3><span class="num muted">${filled}/${slots.length}</span></div>
+  `<div class="panel"><div class="sec"><h3 class="h">Your lineup</h3><span class="num muted">${filled}/${limit}</span></div>
     <div class="roster-list">${SPORTS[v.sport].pos.map(p=>`<button class="rl ${v.roster[p.id]?'':'empty'}" data-act="camp-slot" data-slot="${p.id}" ${allowedSet.has(p.id)?'':'disabled'}><span class="ab">${p.ab}</span><span class="who"><b>${!allowedSet.has(p.id)?'Locked for this challenge':v.roster[p.id]?esc(v.roster[p.id].n):'Open — tap to fill'}</b><small>${esc(p.nm)}</small></span>${v.roster[p.id]?avatar(v.roster[p.id]):''}</button>`).join('')}</div>
-    <div class="sec"><span class="note">${filled===slots.length?'Ready to play.':'Fill every available position.'}</span><button class="linkish" data-act="camp-random">Fill available spots</button></div>
+    <div class="sec"><span class="note">${filled===limit?'Ready to play.':'Choose '+limit+' positions from the available starters.'}</span><button class="linkish" data-act="camp-random">Fill available spots</button></div>
   </div>`;
   return `<section>${campaignProgress()}
-    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} eligible candidates · ${slots.length} roster spots · Opponent: ${esc(st.rival)}.</p></div>
+    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} eligible candidates · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p></div>
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${slots.length}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Play challenge</button></div>
     <div class="board"><div>${renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet})}</div><div class="board-side">${picker}</div></div>
   </section>`;
