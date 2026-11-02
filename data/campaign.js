@@ -1,7 +1,7 @@
 /* Draft Anything: Championship Campaign. Ten must-win challenges, persisted on this device. */
 const CAMPAIGN_STAGES = [
   {name:'The Fast Lane',rule:'fast',blurb:'Only speedsters. Every pick must have Speed 90 or higher.',rival:'The Blitz'},
-  {name:'Queens of the Court',rule:'women',blurb:'Women and female characters only. The roster is curated from established character identities.',rival:'The Queensguard'},
+  {name:'Queens of the Court',rule:'women',blurb:'Women and female characters only. Use your knowledge of character identities to select your team.',rival:'The Queensguard'},
   {name:'Seeing Red',rule:'red',blurb:'Red-themed characters only: red costumes, red bodies, or a distinctly red design.',rival:'The Crimson Crew'},
   {name:'The Young Guns',rule:'kids',blurb:'Only children and teenage characters. No adult versions.',rival:'The Veterans'},
   {name:'No Powers Allowed',rule:'mortal',blurb:'No supernatural powers or superhuman bodies. Human athleticism and skill still count.',rival:'The Supernaturals'},
@@ -76,7 +76,7 @@ function campaignProgress(){
 function renderCampaignSetup(){
   const v=S.campaign,existing=v.step>0||v.status!=='setup';
   return `<section class="setup">
-    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Win ten different challenges in order to claim the campaign crown. Every stage changes who you can draft or how many players you get. A loss means retrying that stage; completed wins remain saved on this device.</span></div>
+    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. A loss means retrying that stage; completed wins remain saved on this device.</span></div>
     <div class="panel rules" style="margin-bottom:16px"><div class="field-label"><span>Championship mode</span><div class="seg"><button data-act="c-kind" data-v="classic">Perfect Season</button><button data-act="c-kind" data-v="campaign" aria-pressed="true">Campaign · 10 challenges</button></div></div></div>
     ${campaignProgress()}
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>
