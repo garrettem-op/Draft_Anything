@@ -2937,7 +2937,7 @@ function renderField(sportKey, roster, o = {}) {
   const side = p => {
     const c = roster[p.id];
     const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
-    const dis = !o.interactive || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
+    const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
     return `<button class="${cls}" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''}>${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
