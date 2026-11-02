@@ -4030,7 +4030,7 @@ function render() {
   else main = renderH2H();
   const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
-  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal();
+  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo() : '');
   if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus(); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
 }
 function refreshPlist() {
@@ -4072,14 +4072,16 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-close': S.campaign.selected = null; break;
-    case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];}break;
+    case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
+    case 'camp-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break;S.campaign.infoId=null;break;
+    case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validation='';}break;
     case 'camp-pick': {
       const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
-      if (!candidate || !v.selected || !campaignAllowed(candidate,campaignStage().rule)) break;
+      if (!candidate || !v.selected) break;
       if(!v.roster[v.selected]&&Object.keys(v.roster).length>=campaignLimit(v.sport,campaignStage().rule))break;
       if (Object.entries(v.roster).some(([k,p])=>k!==v.selected&&p.id===candidate.id)) break;
       v.roster[v.selected]=candidate;
-      v.query='';
+      v.validation='';v.query='';
       const remaining=campaignSlots(v.sport,campaignStage().rule).find(p=>!v.roster[p.id]);
       v.selected=window.innerWidth<900?null:remaining?.id||null;
       break;
@@ -4087,13 +4089,13 @@ document.addEventListener('click', e => {
     case 'camp-random': {
       const v=S.campaign,slots=campaignSlots(v.sport,campaignStage().rule);
       const taken=new Set(Object.values(v.roster).map(c=>c.id));
-      const options=shuffled(campaignCandidates(campaignStage().rule).filter(c=>!taken.has(c.id)));
+      const options=shuffled(getCands('mashup').filter(c=>!taken.has(c.id)));
       for(const p of slots)if(!v.roster[p.id]&&Object.keys(v.roster).length<campaignLimit(v.sport,campaignStage().rule))v.roster[p.id]=options.pop();
       v.selected=null;
       break;
     }
     case 'camp-play': campaignPlay(); window.scrollTo(0,0); break;
-    case 'camp-retry': case 'camp-edit': S.campaign.status='draft'; S.campaign.result=null; break;
+    case 'camp-retry': case 'camp-edit': S.campaign.status='draft'; S.campaign.result=null; S.campaign.validation='';break;
     case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
@@ -4174,6 +4176,7 @@ document.addEventListener('input', e => {
   else if (k === 'gen-topic') { S.gen.topic = v; const b = document.querySelector('[data-act="gen-go"]'); if (b) b.disabled = v.trim().length < 2; }
 });
 document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && S.campaign?.infoId) { S.campaign.infoId=null; render(); return; }
   if (e.key === 'Escape') { if (S.modal) { S.modal = null; render(); } else if (S.champ.sel || S.h2h.sel || S.champ.handSel) { S.champ.sel = null; S.h2h.sel = null; S.champ.handSel = null; render(); } }
   if (e.key === 'Enter' && e.target.id === 'h-code') joinByCode();
   if (e.key === 'Enter' && e.target.id === 'gen-topic' && S.gen.topic.trim().length >= 2) generatePool();
