@@ -60,9 +60,9 @@ function campaignReady(){
 function campaignProgress(){
   const v=S.campaign,done=v.status==='complete'?10:v.step;
   return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
-    <div class="row" style="justify-content:space-between;align-items:center"><b>Campaign progress</b><span class="num">${{done} / 10 wins</span></div>
-    <div class="meter" role="progressbar" aria-label="Campaign wins" aria-valuenow="${{done}" aria-valuemin="0" aria-valuemax="10"><i style="width:${{done*10}%"></i></div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${{CAMPAIGN_STAGES.map((ch,i)=>`<span class="chip" title="${{esc(ch.name)}" style="${{i<done?'border-color:var(--good);color:var(--good)':i===v.step&&v.status!=='complete'?'border-color:var(--accent-strong)':''}">${{i+1}. ${{esc(ch.name)}</span>`).join('')}</div>
+    <div class="row" style="justify-content:space-between;align-items:center"><b>Campaign progress</b><span class="num">${done} / 10 wins</span></div>
+    <div class="meter" role="progressbar" aria-label="Campaign wins" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="10"><i style="width:${done*10}%"></i></div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${CAMPAIGN_STAGES.map((ch,i)=>`<span class="chip" title="${esc(ch.name)}" style="${i<done?'border-color:var(--good);color:var(--good)':i===v.step&&v.status!=='complete'?'border-color:var(--accent-strong)':''}">${i+1}. ${esc(ch.name)}</span>`).join('')}</div>
   </div>`;
 }
 function renderCampaignSetup(){
@@ -70,13 +70,13 @@ function renderCampaignSetup(){
   return `<section class="setup">
     <div class="mode-intro panel"><b>Championship · Campaign</b><span>Win ten different challenges in order to claim the campaign crown. Every stage changes who you can draft or how many players you get. A loss means retrying that stage; completed wins remain saved on this device.</span></div>
     <div class="panel rules" style="margin-bottom:16px"><div class="field-label"><span>Championship mode</span><div class="seg"><button data-act="c-kind" data-v="classic">Perfect Season</button><button data-act="c-kind" data-v="campaign" aria-pressed="true">Campaign · 10 challenges</button></div></div></div>
-    ${{campaignProgress()}
+    ${campaignProgress()}
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>
-      <div class="sports">${{SPORT_ORDER.map(k=>`<button class="sport" data-act="camp-sport" data-sport="${{k}" aria-pressed="${{v.sport===k}" ${{campaignSportValid(k)?'':'disabled title="Not enough eligible characters for all ten challenges"'}><span class="glyph">${{sportGlyph(k)}</span><b>${{esc(SPORTS[k].name)}</b><span>${{campaignSportValid(k)?'10 campaign challenges':'Not enough eligible characters'}</span></button>`).join('')}</div>
+      <div class="sports">${SPORT_ORDER.map(k=>`<button class="sport" data-act="camp-sport" data-sport="${k}" aria-pressed="${v.sport===k}" ${campaignSportValid(k)?'':'disabled title="Not enough eligible characters for all ten challenges"'}><span class="glyph">${sportGlyph(k)}</span><b>${esc(SPORTS[k].name)}</b><span>${campaignSportValid(k)?'10 campaign challenges':'Not enough eligible characters'}</span></button>`).join('')}</div>
       <p class="note">Campaign drafts from the All-Star Mashup (all built-in universes), so themed rounds always have a broad selection. Changing sports starts a new campaign.</p>
     </div>
-    <div class="step"><div class="step-head"><span class="n">2</span><h2 class="h">Your team</h2></div><div class="panel rules"><label class="field-label"><span>Team name</span><input data-input="camp-team" maxlength="32" value="${{esc(v.teamName)}" placeholder="The Challengers"></label></div></div>
-    <div class="cta-row"><button class="btn primary big" data-act="camp-start">${{existing?'Resume campaign':'Begin the campaign'}</button>${{existing?'<button class="btn" data-act="camp-reset">Restart from challenge 1</button>':''}<span class="note">Win all ten matchups to become Campaign Champion.</span></div>
+    <div class="step"><div class="step-head"><span class="n">2</span><h2 class="h">Your team</h2></div><div class="panel rules"><label class="field-label"><span>Team name</span><input data-input="camp-team" maxlength="32" value="${esc(v.teamName)}" placeholder="The Challengers"></label></div></div>
+    <div class="cta-row"><button class="btn primary big" data-act="camp-start">${existing?'Resume campaign':'Begin the campaign'}</button>${existing?'<button class="btn" data-act="camp-reset">Restart from challenge 1</button>':''}<span class="note">Win all ten matchups to become Campaign Champion.</span></div>
   </section>`;
 }
 function renderCampaignDraft(){
@@ -86,18 +86,18 @@ function renderCampaignDraft(){
   const pool=getPool('mashup'),q=v.query.toLowerCase().trim();
   const matches=all.filter(c=>!q||c.n.toLowerCase().includes(q)||c.t.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n));
   const picker=pos?`<div class="panel picker open">
-    <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${{esc(pos.nm)}</h3></div><button class="btn small" data-act="camp-close">Done</button></div><div class="needs">${{needsText(pos).map(t=>`<span>${{esc(t)}</span>`).join('')}</div></div>
-    <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${{esc(v.query)}" placeholder="Search ${{all.length} eligible characters" autocomplete="off"></div>
-    <div class="plist">${{matches.length?matches.map(c=>`<button class="cand" data-act="camp-pick" data-cid="${{esc(c.id)}" ${{taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${{avatar(c)}<span class="who"><b>${{esc(c.n)}</b><small>${{esc(c.t)}</small></span>${{taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button>`).join(''):'<div class="empty-state">No eligible characters match your search.</div>'}</div>
+    <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><button class="btn small" data-act="camp-close">Done</button></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
+    <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search ${all.length} eligible characters" autocomplete="off"></div>
+    <div class="plist">${matches.length?matches.map(c=>`<button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small></span>${taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button>`).join(''):'<div class="empty-state">No eligible characters match your search.</div>'}</div>
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
-  `<div class="panel"><div class="sec"><h3 class="h">Your lineup</h3><span class="num muted">${{filled}/${{slots.length}</span></div>
-    <div class="roster-list">${{SPORTS[v.sport].pos.map(p=>`<button class="rl ${{v.roster[p.id]?'':'empty'}" data-act="camp-slot" data-slot="${{p.id}" ${{allowedSet.has(p.id)?'':'disabled'}><span class="ab">${{p.ab}</span><span class="who"><b>${{!allowedSet.has(p.id)?'Locked for this challenge':v.roster[p.id]?esc(v.roster[p.id].n):'Open — tap to fill'}</b><small>${{esc(p.nm)}</small></span>${{v.roster[p.id]?avatar(v.roster[p.id]):''}</button>`).join('')}</div>
-    <div class="sec"><span class="note">${{filled===slots.length?'Ready to play.':'Fill every available position.'}</span><button class="linkish" data-act="camp-random">Fill available spots</button></div>
+  `<div class="panel"><div class="sec"><h3 class="h">Your lineup</h3><span class="num muted">${filled}/${slots.length}</span></div>
+    <div class="roster-list">${SPORTS[v.sport].pos.map(p=>`<button class="rl ${v.roster[p.id]?'':'empty'}" data-act="camp-slot" data-slot="${p.id}" ${allowedSet.has(p.id)?'':'disabled'}><span class="ab">${p.ab}</span><span class="who"><b>${!allowedSet.has(p.id)?'Locked for this challenge':v.roster[p.id]?esc(v.roster[p.id].n):'Open — tap to fill'}</b><small>${esc(p.nm)}</small></span>${v.roster[p.id]?avatar(v.roster[p.id]):''}</button>`).join('')}</div>
+    <div class="sec"><span class="note">${filled===slots.length?'Ready to play.':'Fill every available position.'}</span><button class="linkish" data-act="camp-random">Fill available spots</button></div>
   </div>`;
-  return `<section>${{campaignProgress()}
-    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${{v.step+1} / 10 · ${{esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${{esc(st.name)}</h2><p style="margin:0">${{esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${{all.length} eligible candidates · ${{slots.length} roster spots · Opponent: ${{esc(st.rival)}.</p></div>
-    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${{esc(v.teamName||'Your team')}</h2></div><span class="chip num">${{filled}/${{slots.length}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${{valid?'':'disabled'}>Play challenge</button></div>
-    <div class="board"><div>${{renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet})}</div><div class="board-side">${{picker}</div></div>
+  return `<section>${campaignProgress()}
+    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} eligible candidates · ${slots.length} roster spots · Opponent: ${esc(st.rival)}.</p></div>
+    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${slots.length}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Play challenge</button></div>
+    <div class="board"><div>${renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet})}</div><div class="board-side">${picker}</div></div>
   </section>`;
 }
 function campaignOpponent(sport,excluded,target,rng){
@@ -130,19 +130,19 @@ function campaignPlay(){
 function renderCampaignResults(){
   const v=S.campaign,r=v.result,st=campaignStage();
   if(!r){v.status='draft';return renderCampaignDraft();}
-  return `<section>${{campaignProgress()}<div class="result-hero ${{r.win?'perfect':''}">
-    <span class="eyebrow" style="color:inherit">Challenge ${{v.step+1} / 10 · ${{esc(st.name)}</span>
-    <div class="big">${{r.win?'<em>Challenge won</em>':'Challenge lost'}</div>
-    <p>${{r.win?'You cleared this stage.':'Your completed campaign wins are safe. Rework your lineup or retry this matchup.'}</p>
-    <div class="scorebug"><div style="background:var(--you);color:#fff">${{esc(v.teamName||'Your team')} <span class="s">${{r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${{esc(r.opponent)} <span class="s">${{r.theirPoints}</span></div></div>
+  return `<section>${campaignProgress()}<div class="result-hero ${r.win?'perfect':''}">
+    <span class="eyebrow" style="color:inherit">Challenge ${v.step+1} / 10 · ${esc(st.name)}</span>
+    <div class="big">${r.win?'<em>Challenge won</em>':'Challenge lost'}</div>
+    <p>${r.win?'You cleared this stage.':'Your completed campaign wins are safe. Rework your lineup or retry this matchup.'}</p>
+    <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
   </div>
-  <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${{r.ourRating}</b> · Rival rating: <b class="num">${{r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${{esc(r.names.join(', '))}</p></div>
-  <div class="cta-row">${{r.win?`<button class="btn primary big" data-act="camp-next">${{v.step===9?'Claim campaign championship':'Unlock challenge '+(v.step+2)}</button>`:`<button class="btn primary" data-act="camp-retry">Retry this challenge</button><button class="btn" data-act="camp-edit">Edit your lineup</button>`}<button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
+  <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p></div>
+  <div class="cta-row">${r.win?`<button class="btn primary big" data-act="camp-next">${v.step===9?'Claim campaign championship':'Unlock challenge '+(v.step+2)}</button>`:`<button class="btn primary" data-act="camp-retry">Retry this challenge</button><button class="btn" data-act="camp-edit">Edit your lineup</button>`}<button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
 }
 function renderCampaignComplete(){
   const v=S.campaign;
-  return `<section>${{campaignProgress()}<div class="result-hero perfect"><span class="eyebrow" style="color:inherit">10 / 10 challenges won</span><div class="big"><em>Campaign Champion</em></div><p>${{esc(v.teamName)} completed all ten restricted-roster matchups. Every stage has been cleared.</p></div>
-    <div class="panel" style="padding:16px;margin-top:14px"><h2 class="h">Your ten victories</h2><div class="roster-list">${{v.history.map((x,i)=>`<div class="rl"><span class="ab">${{i+1}</span><span class="who"><b>${{esc(x.name)}</b><small>${{esc(x.names.join(', '))}</small></span></div>`).join('')}</div></div>
+  return `<section>${campaignProgress()}<div class="result-hero perfect"><span class="eyebrow" style="color:inherit">10 / 10 challenges won</span><div class="big"><em>Campaign Champion</em></div><p>${esc(v.teamName)} completed all ten restricted-roster matchups. Every stage has been cleared.</p></div>
+    <div class="panel" style="padding:16px;margin-top:14px"><h2 class="h">Your ten victories</h2><div class="roster-list">${v.history.map((x,i)=>`<div class="rl"><span class="ab">${i+1}</span><span class="who"><b>${esc(x.name)}</b><small>${esc(x.names.join(', '))}</small></span></div>`).join('')}</div></div>
     <div class="cta-row"><button class="btn primary" data-act="camp-reset">Start a new campaign</button><button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
 }
 function renderCampaign(){
