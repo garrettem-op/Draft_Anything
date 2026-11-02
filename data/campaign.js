@@ -1,6 +1,6 @@
 /* Draft Anything: Championship Campaign. Ten must-win challenges, persisted on this device. */
 const CAMPAIGN_STAGES = [
-  {name:'The Fast Lane',rule:'fast',blurb:'Only speedsters. Every pick must have Speed 85 or higher.',rival:'The Blitz'},
+  {name:'The Fast Lane',rule:'fast',blurb:'Only speedsters. Every pick must have Speed 90 or higher.',rival:'The Blitz'},
   {name:'Queens of the Court',rule:'women',blurb:'Women and female characters only. The roster is curated from established character identities.',rival:'The Queensguard'},
   {name:'Seeing Red',rule:'red',blurb:'Red-themed characters only: red costumes, red bodies, or a distinctly red design.',rival:'The Crimson Crew'},
   {name:'The Young Guns',rule:'kids',blurb:'Only children and teenage characters. No adult versions.',rival:'The Veterans'},
@@ -15,13 +15,13 @@ const CAMPAIGN_WOMEN=new Set('Black Widow|Scarlet Witch|Captain Marvel|Gamora|Ne
 const CAMPAIGN_RED=new Set('Iron Man|Spider-Man|Scarlet Witch|Vision|Red Guardian|Red Skull|Daredevil|Deadpool|Human Torch|Star-Lord|Carnage|Mario|Knuckles|Diddy Kong|Donkey Kong|Raphael|Lightning McQueen|Mr. Incredible|Elastigirl|Blossom|Optimus Prime|Zuko|Yosemite Sam|Mr. Krabs|Anger|Incineroar|Scorpion|Flash|The Flash|Ant-Man|Wreck-It Ralph|Mickey Mouse'.split('|'));
 const CAMPAIGN_KIDS=new Set('Spider-Man|Ms. Marvel|Ironheart|America Chavez|Sprite|Franklin Richards|Dash|Violet|Jack-Jack|Blossom|Bubbles|Buttercup|Bluey|Bingo|Bart Simpson|Lisa Simpson|Charlie Brown|Lucy van Pelt|Peppermint Patty|Aang|Toph Beifong|Zuko|Katara|Sokka|Morty|Ned Leeds|MJ|Vanellope von Schweetz|Ness|Lucas|Ash Ketchum|Pokémon Trainer|Young Link|Kid Link|Baby Mario|Baby Luigi|Dora the Explorer|Jimmy Neutron|Dexter|Timmy Turner|Penny Proud|Phineas|Ferb|Stewie Griffin|Maggie Simpson|Huey|Dewey|Louie|Lincoln Loud'.split('|'));
 const CAMPAIGN_MORTAL=new Set('Black Widow|Hawkeye|Kate Bishop|Falcon|Happy Hogan|Howard Stark|Nick Fury|Maria Hill|Phil Coulson|Peggy Carter|Jimmy Woo|Darcy Lewis|Sharon Carter|Yelena Belova|Zemo|Katy|MJ|Ned Leeds|Aunt May|Kingpin|The Punisher|Mulan|Phil|Tarzan|Fred Jones|Velma|Shaggy|Hank Hill|Bob Belcher|Sokka|Marge Simpson|Lisa Simpson|Bart Simpson|Charlie Brown|Peppermint Patty|Moana|Edna Mode|Porky Pig|Minnie Mouse|Lola Bunny'.split('|'));
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',history:[],result:null};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
   v.history=v.history.slice(0,10);
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
-  v.selected=null;v.query='';
+  v.selected=null;v.query='';v.infoId=null;
   if(v.status==='results'&&!v.result)v.status='draft';
   return v;
 }
@@ -43,7 +43,7 @@ function campaignLimit(sport,rule){
 function campaignUsed(){return new Set(S.campaign.history.flatMap(h=>h.ids||[]));}
 function campaignAllowed(c,rule){
   switch(rule){
-    case 'fast':return c.a[0]>=85;
+    case 'fast':return c.a[0]>=90;
     case 'women':return CAMPAIGN_WOMEN.has(c.n);
     case 'red':return CAMPAIGN_RED.has(c.n);
     case 'kids':return CAMPAIGN_KIDS.has(c.n);
@@ -57,9 +57,13 @@ function campaignAllowed(c,rule){
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
 function campaignSportValid(sport){return CAMPAIGN_STAGES.every(ch=>campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule));}
+function campaignQualified(){
+  const v=S.campaign,st=campaignStage();
+  return Object.values(v.roster).every(c=>campaignAllowed(c,st.rule));
+}
 function campaignReady(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),pick=slots.map(p=>v.roster[p.id]).filter(Boolean);
-  return pick.length===campaignLimit(v.sport,st.rule)&&pick.every(c=>campaignAllowed(c,st.rule))&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id));
+  return pick.length===campaignLimit(v.sport,st.rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id));
 }
 function campaignProgress(){
   const v=S.campaign,done=v.status==='complete'?10:v.step;
@@ -85,22 +89,23 @@ function renderCampaignSetup(){
 }
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id));
-  const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=campaignCandidates(st.rule),taken=new Set(Object.values(v.roster).map(c=>c.id));
+  const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
   const pool=getPool('mashup'),q=v.query.toLowerCase().trim();
   const matches=all.filter(c=>!q||c.n.toLowerCase().includes(q)||c.t.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n));
   const picker=pos?`<div class="panel picker open">
     <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><div class="row"><button class="btn small" data-act="camp-remove" ${v.roster[pos.id]?"":"disabled"}>Remove</button><button class="btn small" data-act="camp-close">Done</button></div></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
-    <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search ${all.length} eligible characters" autocomplete="off"></div>
-    <div class="plist">${matches.length?matches.map(c=>`<button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small></span>${taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button>`).join(''):'<div class="empty-state">No eligible characters match your search.</div>'}</div>
+    <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search all ${all.length} characters" autocomplete="off"></div>
+    <div class="plist">${matches.length?matches.map(c=>`<div class="row" style="gap:4px;padding:0 6px"><button class="cand" style="min-width:0;flex:1" data-act="camp-pick" data-cid="${esc(c.id)}" ${taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small></span>${taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn small" style="flex:none;padding:6px 10px" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`).join(''):'<div class="empty-state">No characters match your search.</div>'}</div>
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel"><div class="sec"><h3 class="h">Your lineup</h3><span class="num muted">${filled}/${limit}</span></div>
     <div class="roster-list">${SPORTS[v.sport].pos.map(p=>`<button class="rl ${v.roster[p.id]?'':'empty'}" data-act="camp-slot" data-slot="${p.id}" ${allowedSet.has(p.id)?'':'disabled'}><span class="ab">${p.ab}</span><span class="who"><b>${!allowedSet.has(p.id)?'Locked for this challenge':v.roster[p.id]?esc(v.roster[p.id].n):'Open — tap to fill'}</b><small>${esc(p.nm)}</small></span>${v.roster[p.id]?avatar(v.roster[p.id]):''}</button>`).join('')}</div>
     <div class="sec"><span class="note">${filled===limit?'Ready to play.':'Choose '+limit+' positions from the available starters.'}</span><button class="linkish" data-act="camp-random">Fill available spots</button></div>
   </div>`;
   return `<section>${campaignProgress()}
-    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} eligible candidates · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p></div>
-    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${slots.length}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Play challenge</button></div>
+    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p></div>
+    ${v.validation?`<div class="panel" role="alert" style="padding:12px 16px;border:1px solid var(--bad);margin-bottom:12px"><b>Lineup rejected</b><p style="margin:4px 0 0">${esc(v.validation)}</p></div>`:''}
+    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet})}</div><div class="board-side">${picker}</div></div>
   </section>`;
 }
@@ -120,7 +125,12 @@ function campaignOpponent(sport,excluded,target,rng){
   return best||{roster:{},score:teamScore(sport,{}),diff:999};
 }
 function campaignPlay(){
-  if(!campaignReady())return toast('Fill the eligible roster spots first.');
+  if(!campaignReady())return toast('Fill all available roster spots first.');
+  if(!campaignQualified()){
+    S.campaign.validation='Some picks do not meet this challenge’s restrictions. Reconsider your lineup.';
+    return;
+  }
+  S.campaign.validation='';
   const v=S.campaign,st=campaignStage(),rng=rngFrom(Date.now()+':'+Math.random());
   const score=teamScore(v.sport,v.roster),excluded=new Set(Object.values(v.roster).map(c=>c.id));
   // Each opponent is a complete team, generally stronger than your restricted roster.
@@ -130,6 +140,30 @@ function campaignPlay(){
   const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
   v.result={win,ourPoints,theirPoints,note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
+}
+function campaignOrigin(c){
+  if(!c)return {universe:'Unknown',work:'Unknown origin'};
+  const universe=universeLabel(c.pool);
+  const guide=window.DA_CHARACTER_GUIDES?.[c.pool]?.[c.n];
+  if(guide?.works?.length)return {universe,work:guide.works.slice(0,3).join(' · ')};
+  const entry=POOLS[c.pool]?.entries?.find(x=>x[0]===c.n);
+  const tags=Array.isArray(entry?.[4])?entry[4]:[];
+  if(c.pool==='games'&&tags.length)return {universe,work:tags[0].replace(/ Franchise$/,' franchise')};
+  const groupNames=(c.g||[]).map(id=>GROUPS[id]?.name).filter(Boolean);
+  const preferred=groupNames.find(n=>/Sesame Street|Fraggle Rock|The Muppet Show|The Simpsons|Looney Tunes|SpongeBob|Avatar|Kung Fu Panda|Tom and Jerry|Scooby|Peanuts|Mario|Zelda|Sonic|Disney|Pixar|Rick and Morty|Powerpuff|Transformers|Teenage Mutant|Mickey|Ralph|Incredibles|Shrek|Bluey/i.test(n));
+  if(preferred)return {universe,work:preferred};
+  return {universe,work:c.pool==='mcu'?'Marvel Cinematic Universe':c.pool==='nba'?'National Basketball Association':universe};
+}
+function renderCampaignInfo(){
+  const id=S.campaign.infoId;
+  if(!id||S.mode!=='champ'||!S.champ.campaignMode)return '';
+  const c=candById('mashup',id);
+  if(!c)return '';
+  const o=campaignOrigin(c);
+  return `<div class="modal-back" data-act="camp-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1">
+    <div class="row" style="justify-content:space-between"><h2 class="h">${esc(c.n)}</h2><button class="btn small" data-act="camp-info-close">Close</button></div>
+    <p class="note">Where this character is from</p><p><b>${esc(o.work)}</b></p><p class="muted">Talent pool: ${esc(o.universe)}</p>
+  </div></div>`;
 }
 function renderCampaignResults(){
   const v=S.campaign,r=v.result,st=campaignStage();
