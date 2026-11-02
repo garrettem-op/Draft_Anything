@@ -521,6 +521,7 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 <script src="data/mcu-profiles.js"></script>
 <script src="data/toons-profiles.js"></script>
 <script src="data/games-profiles.js"></script>
+<script src="data/campaign.js"></script>
 <script>
 const POOLS = {};
 // ===== Universal attribute model =====
@@ -2840,7 +2841,7 @@ async function copyText(txt) { try { await navigator.clipboard.writeText(txt); t
 const HAND_SIZE = 3, REDEALS = 3, RESERVE_HAND = 6;
 // Balanced Dealt Hand rivals judge their hands with human-sized mistakes (sharp = perfect judgment).
 const RIVAL_NOISE = { sharp: 0, balanced: 20 };
-const BOARD_DEFAULTS = { stage: 'setup', sport: 'basketball', poolId: 'nba', opps: 7, upsets: 'off', showRatings: false, teamName: '', roster: {}, sel: null, query: '', result: null, style: 'open', hand: [], redeals: 3, handSel: null, seen: [], rivals: 'balanced', champRivals: 'stack', format: 'quick' };
+const BOARD_DEFAULTS = { campaignMode: false, stage: 'setup', sport: 'basketball', poolId: 'nba', opps: 7, upsets: 'off', showRatings: false, teamName: '', roster: {}, sel: null, query: '', result: null, style: 'open', hand: [], redeals: 3, handSel: null, seen: [], rivals: 'balanced', champRivals: 'stack', format: 'quick' };
 const BOARD_KEYS = { champ: 'da.champ', deal: 'da.deal' };
 function loadBoard(mode) {
   const saved = lsGet(BOARD_KEYS[mode], {});
@@ -2869,7 +2870,7 @@ const S = {
 function saveChamp() {
   if (S.mode === 'h2h') return;
   const c = S.champ;
-  lsSet(BOARD_KEYS[S.mode], { stage: c.stage, sport: c.sport, poolId: c.poolId, opps: c.opps, upsets: c.upsets, rivals: c.rivals, rv2: true, champRivals: c.champRivals, format: c.format, teamName: c.teamName, roster: Object.fromEntries(Object.entries(c.roster).map(([k, v]) => [k, v.id])), style: c.style, hand: (c.hand || []).map(x => x.id), seen: c.seen || [], redeals: c.redeals, queue: c.queue || null, pickIdx: c.pickIdx || 0, draftOpps: c.draftOpps || null, ai: c.ai ? c.ai.map(r => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, v.id]))) : null });
+  lsSet(BOARD_KEYS[S.mode], { campaignMode: !!c.campaignMode, stage: c.stage, sport: c.sport, poolId: c.poolId, opps: c.opps, upsets: c.upsets, rivals: c.rivals, rv2: true, champRivals: c.champRivals, format: c.format, teamName: c.teamName, roster: Object.fromEntries(Object.entries(c.roster).map(([k, v]) => [k, v.id])), style: c.style, hand: (c.hand || []).map(x => x.id), seen: c.seen || [], redeals: c.redeals, queue: c.queue || null, pickIdx: c.pickIdx || 0, draftOpps: c.draftOpps || null, ai: c.ai ? c.ai.map(r => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, v.id]))) : null });
 }
 
 // ----- Pools -----
@@ -2912,6 +2913,7 @@ function restoreBoard(st, key) {
 }
 restoreBoard(S.boards.champ, BOARD_KEYS.champ);
 restoreBoard(S.boards.deal, BOARD_KEYS.deal);
+S.campaign = loadCampaign();
 
 // ----- Shared render bits -----
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
@@ -2927,7 +2929,7 @@ function renderField(sportKey, roster, o = {}) {
   const node = p => {
     const c = roster[p.id];
     const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
-    const dis = !o.interactive || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
+    const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
     return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(shortName(c.n))}</span></span>` : ''}${gr}</button>`;
@@ -2935,7 +2937,7 @@ function renderField(sportKey, roster, o = {}) {
   const side = p => {
     const c = roster[p.id];
     const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
-    const dis = !o.interactive || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
+    const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
     return `<button class="${cls}" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''}>${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
@@ -3042,6 +3044,7 @@ function renderChampSetup() {
   const c = S.champ, lim = champLimits();
   if (c.opps > lim.maxOpp) c.opps = Math.max(3, lim.maxOpp);
   if (!handMode()) return `<section class="setup">
+    <div class="panel rules" style="margin-bottom:16px"><div class="field-label"><span>Championship mode</span><div class="seg"><button data-act="c-kind" data-v="classic" aria-pressed="true">Perfect Season</button><button data-act="c-kind" data-v="campaign">Campaign · 10 challenges</button></div></div></div>
     <div class="mode-intro panel"><b>Championship</b><span>Fan-cast your dream lineup from any universe, share it with friends, then chase the perfect season: a full pro-length season and playoffs against teams from every universe. Each opponent is built from one universe, and every universe sends a contender.</span></div>
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>${sportPicker(c.sport, 'c-sport')}</div>
     <div class="step"><div class="step-head"><span class="n">2</span><h2 class="h">Pick a talent pool</h2></div>${poolPicker(c.poolId, 'c-pool', c.sport)}</div>
@@ -4022,7 +4025,8 @@ function render() {
   const app = $('#app');
   const ae = document.activeElement; lastFocus = ae && ae.id ? { id: ae.id, s: ae.selectionStart, e: ae.selectionEnd } : null;
   let main;
-  if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
+  if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
+  else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
   const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
@@ -4047,6 +4051,50 @@ document.addEventListener('click', e => {
     case 'guide-character': S.guideName = t.dataset.name; break;
     case 'guide-reveal': S.guideScores = !S.guideScores; break;
     case 'close-modal': S.modal = null; break;
+    // Championship campaign (state is separate from Perfect Season and Dealt Hand).
+    case 'c-kind': c.campaignMode = t.dataset.v === 'campaign'; c.stage = 'setup'; break;
+    case 'camp-sport':
+      if (campaignSportValid(t.dataset.sport) && S.campaign.sport !== t.dataset.sport) {
+        const name = S.campaign.teamName;
+        S.campaign = { ...campaignDefault(), sport: t.dataset.sport, teamName: name };
+      }
+      break;
+    case 'camp-start': S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
+    case 'camp-reset': campaignReset(); break;
+    case 'camp-setup': S.campaign.status = 'setup'; S.campaign.selected = null; break;
+    case 'camp-slot': {
+      const slots = campaignSlots(S.campaign.sport,campaignStage().rule);
+      if (slots.some(p=>p.id===t.dataset.slot)) {
+        const v=S.campaign,limit=campaignLimit(v.sport,campaignStage().rule);
+        if(!v.roster[t.dataset.slot]&&Object.keys(v.roster).length>=limit){toast('This challenge allows only '+limit+' picks. Remove a character first.');break;}
+        v.selected=t.dataset.slot;v.query='';
+      }
+      break;
+    }
+    case 'camp-close': S.campaign.selected = null; break;
+    case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];}break;
+    case 'camp-pick': {
+      const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
+      if (!candidate || !v.selected || !campaignAllowed(candidate,campaignStage().rule)) break;
+      if(!v.roster[v.selected]&&Object.keys(v.roster).length>=campaignLimit(v.sport,campaignStage().rule))break;
+      if (Object.entries(v.roster).some(([k,p])=>k!==v.selected&&p.id===candidate.id)) break;
+      v.roster[v.selected]=candidate;
+      v.query='';
+      const remaining=campaignSlots(v.sport,campaignStage().rule).find(p=>!v.roster[p.id]);
+      v.selected=window.innerWidth<900?null:remaining?.id||null;
+      break;
+    }
+    case 'camp-random': {
+      const v=S.campaign,slots=campaignSlots(v.sport,campaignStage().rule);
+      const taken=new Set(Object.values(v.roster).map(c=>c.id));
+      const options=shuffled(campaignCandidates(campaignStage().rule).filter(c=>!taken.has(c.id)));
+      for(const p of slots)if(!v.roster[p.id]&&Object.keys(v.roster).length<campaignLimit(v.sport,campaignStage().rule))v.roster[p.id]=options.pop();
+      v.selected=null;
+      break;
+    }
+    case 'camp-play': campaignPlay(); window.scrollTo(0,0); break;
+    case 'camp-retry': case 'camp-edit': S.campaign.status='draft'; S.campaign.result=null; break;
+    case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
@@ -4109,12 +4157,15 @@ document.addEventListener('click', e => {
     case 'h-rematch': rematch(); return;
   }
   saveChamp();
+  if(S.mode==='champ'&&S.champ.campaignMode)saveCampaign();
   render();
 });
 document.addEventListener('input', e => {
   const k = e.target.dataset.input; if (!k) return;
   const v = e.target.value;
-  if (k === 'c-team') { S.champ.teamName = v; saveChamp(); }
+  if (k === 'camp-team') { S.campaign.teamName=v; saveCampaign(); }
+  else if (k === 'camp-query') { S.campaign.query=v; render(); }
+  else if (k === 'c-team') { S.champ.teamName = v; saveChamp(); }
   else if (k === 'c-opps') { S.champ.opps = +v; const l = $('#c-opps-v'); if (l) l.textContent = v; saveChamp(); }
   else if (k === 'guide-q') { S.guideQuery = v; render(); }
   else if (k === 'pick-q') { if (S.mode !== 'h2h') S.champ.query = v; else S.h2h.query = v; refreshPlist(); }
