@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Draft Anything</title>
-<meta name="description" content="Draft anyone into any sport: NBA legends, Marvel, cartoons, Muppets and video game characters. Fan-cast a lineup, chase a perfect season, or draft head-to-head with a friend.">
+<meta name="description" content="Draft anyone into any sport: NBA legends, Marvel, cartoons, Muppets, video game characters, Pokémon and Star Wars. Fan-cast a lineup, chase a perfect season, or draft head-to-head with a friend.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
@@ -364,7 +364,7 @@ details.st-row .roster-mini { padding-top: 10px; }
 
 /* Championship: perfect season */
 .uchip { display: inline-block; vertical-align: 1px; margin-left: 4px; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; color: #fff; background: #5B6670; white-space: nowrap; }
-.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
+.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-pokemon { background: #C9561F; } .uchip.u-starwars { background: #1C1C1C; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
 .game .w .uchip, .game .l .uchip { font-size: 9px; }
 .result-hero .meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,.14); overflow: hidden; max-width: 520px; margin: 4px 0 8px; }
 .result-hero .meter i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
@@ -1446,6 +1446,264 @@ POOLS.games = { id: 'games', name: 'Video Game Characters', short: 'Video Games'
 ["Agent 47","","Bald barcoded hitman",[72,88,76,60,64,86,90,96,92,97,98,60],["Hitman","Assassins","Stealth Agents"]],
 ["Bayonetta","","Umbra Witch",[82,98,88,62,95,90,86,92,96,82,94,68],["Bayonetta","Mages","Fighters"]]
 ]};
+// The original 151 Pokémon from Kanto. Rated by Claude on the universal scale.
+// Order: spd agi str siz lep end tch acc ref iq clu ldr. The fifth field lists types, evolution lines and teams (chemistry links).
+POOLS.pokemon = { id: 'pokemon', name: 'Original 151 Pokémon', short: 'Pokémon', blurb: 'All 151 Kanto Pokémon, Bulbasaur to Mew', entries: [
+["Bulbasaur","🌱","Loyal bulb-backed starter",[35,40,38,28,25,50,35,45,45,52,55,50],["Kanto Starters","Grass Types","Poison Types"]],
+["Ivysaur","🌿","Budding vine-whip bruiser",[38,42,48,38,28,55,38,48,48,55,58,55],["Kanto Starters","Grass Types","Poison Types"]],
+["Venusaur","🌺","Flower-backed solar tank",[42,40,72,66,30,72,35,52,50,60,70,68],["Kanto Starters","Grass Types","Poison Types"]],
+["Charmander","🔥","Tail-flame underdog starter",[40,45,35,28,30,48,38,48,50,50,60,45],["Kanto Starters","Fire Types"]],
+["Charmeleon","🦎","Hot-tempered middle evolution",[50,52,55,45,38,60,40,55,58,55,60,55],["Kanto Starters","Fire Types"]],
+["Charizard","🐉","Fire-breathing fan favorite",[78,70,78,74,86,80,45,70,75,65,78,70],["Kanto Starters","Fire Types","Flying Types"]],
+["Squirtle","🐢","Cool shades, shell defense",[34,45,34,26,28,50,40,55,50,58,62,55],["Kanto Starters","Water Types"]],
+["Wartortle","🌊","Fluffy-tailed shell veteran",[40,48,48,38,30,58,42,58,52,60,64,60],["Kanto Starters","Water Types"]],
+["Blastoise","💦","Cannon-armed water fortress",[42,42,76,68,28,76,40,74,52,64,72,70],["Kanto Starters","Water Types"]],
+["Caterpie","🐛","Humble green crawler",[12,20,6,6,8,25,15,15,30,15,25,10],["Bug Types"]],
+["Metapod","🟢","Harden and wait",[2,2,10,8,3,40,2,5,10,18,35,10],["Bug Types"]],
+["Butterfree","🦋","Graceful powder-scattering flyer",[55,68,22,36,72,62,50,55,65,60,55,45],["Bug Types","Flying Types"]],
+["Weedle","🐛","Stinger-headed pest",[16,26,8,7,10,28,12,22,35,15,28,10],["Bug Types","Poison Types"]],
+["Kakuna","🟡","Cocooned and waiting",[2,2,10,8,3,40,2,5,10,18,35,10],["Bug Types","Poison Types"]],
+["Beedrill","🐝","Triple-stinger swarm striker",[75,80,40,38,72,60,55,75,78,50,58,40],["Bug Types","Poison Types"]],
+["Pidgey","🐦","Common sky scout",[48,60,15,15,60,52,25,35,60,32,40,25],["Flying Types","Normal Types"]],
+["Pidgeotto","🐦","Territorial patrol flyer",[62,66,28,34,70,62,35,48,68,45,52,45],["Flying Types","Normal Types"]],
+["Pidgeot","🦅","Speedy crested hunter",[82,76,50,58,80,75,40,58,78,60,65,60],["Flying Types","Normal Types"]],
+["Rattata","🐀","Scrappy everywhere rodent",[48,62,14,12,34,45,30,30,62,35,40,25],["Normal Types"]],
+["Raticate","🐀","Fang-heavy rodent bruiser",[58,62,40,34,40,58,35,40,65,45,50,50],["Normal Types"]],
+["Spearow","🐦","Angry little beak",[55,64,16,14,58,50,25,42,62,32,38,28],["Flying Types","Normal Types"]],
+["Fearow","🦅","Long-beaked aerial striker",[76,72,48,56,76,72,35,65,72,52,58,52],["Flying Types","Normal Types"]],
+["Ekans","🐍","Sneaky coiled snake",[36,60,28,40,10,48,10,38,55,38,45,30],["Poison Types","Team Rocket"]],
+["Arbok","🐍","Hood-flaring intimidator",[48,66,62,70,18,62,12,58,62,52,62,62],["Poison Types","Team Rocket"]],
+["Pikachu","⚡","Iconic electric mascot",[68,82,28,24,58,62,62,78,88,62,78,72],["Electric Types","Pikachu Line","Ash's Team"]],
+["Raichu","⚡","Evolved voltage powerhouse",[74,78,48,42,52,68,62,80,84,62,74,66],["Electric Types","Pikachu Line","Gym Leaders' Aces"]],
+["Sandshrew","🏜️","Ball-rolling desert digger",[38,52,34,24,24,52,32,32,52,38,45,32],["Ground Types"]],
+["Sandslash","🦔","Spiky ground slasher",[52,60,66,55,34,66,52,52,64,50,60,52],["Ground Types"]],
+["Nidoran♀","💜","Small but venomous",[38,50,24,22,35,48,25,38,52,40,48,35],["Poison Types","Nido Family"]],
+["Nidorina","💙","Protective poison mother-to-be",[44,54,40,36,36,56,30,44,56,48,55,52],["Poison Types","Nido Family"]],
+["Nidoqueen","👑","Armored poison matriarch",[50,45,85,72,45,70,40,35,50,55,70,72],["Poison Types","Ground Types","Nido Family"]],
+["Nidoran♂","💜","Horned poison scrapper",[48,60,32,25,55,45,40,40,62,42,50,30],["Poison Types","Nido Family"]],
+["Nidorino","🦏","Aggressive horned fighter",[55,62,52,40,60,58,42,42,65,48,58,48],["Poison Types","Nido Family"]],
+["Nidoking","🤴","Mighty poison monarch",[58,52,92,82,52,78,42,40,58,58,75,78],["Poison Types","Ground Types","Nido Family"]],
+["Clefairy","🌙","Moonlit fairy darling",[35,50,25,28,40,50,60,45,50,55,60,50],["Normal Types","Moon Pokemon"]],
+["Clefable","✨","Elusive moon fairy",[52,68,40,50,72,62,70,55,68,70,72,62],["Normal Types","Moon Pokemon"]],
+["Vulpix","🦊","Six-tailed fire pup",[62,72,25,28,58,50,45,45,68,52,55,38],["Fire Types","Fox Pokemon"]],
+["Ninetales","🦊","Wise nine-tailed sage",[80,82,55,62,70,78,55,62,80,90,80,80],["Fire Types","Fox Pokemon","Mentors & Leaders"]],
+["Jigglypuff","🎤","Singing sleep-inducer",[25,32,20,26,28,45,45,35,38,40,55,45],["Normal Types","Singers"]],
+["Wigglytuff","🎀","Fluffy balloon crooner",[40,40,40,52,38,60,50,40,45,45,55,50],["Normal Types","Singers"]],
+["Zubat","🦇","Eyeless cave swarmer",[60,78,10,15,65,55,25,35,78,28,35,20],["Poison Types","Flying Types","Cave Dwellers"]],
+["Golbat","🦇","Blood-sipping night flyer",[74,82,38,45,72,70,32,40,80,40,50,35],["Poison Types","Flying Types","Cave Dwellers"]],
+["Oddish","🌿","Night-walking weed",[22,30,15,15,25,40,40,35,35,35,40,22],["Grass Types","Poison Types"]],
+["Gloom","🌸","Smelly drooling flower",[26,32,25,28,26,48,45,40,38,38,45,28],["Grass Types","Poison Types"]],
+["Vileplume","🌺","Giant-petaled pollen cannon",[28,32,52,55,28,62,50,60,40,45,55,40],["Grass Types","Poison Types"]],
+["Paras","🍄","Mushroom-backed crab bug",[28,40,18,15,30,42,55,42,45,38,45,28],["Bug Types","Grass Types"]],
+["Parasect","🍄","Host to a mushroom master",[35,45,50,40,35,65,70,50,50,48,55,40],["Bug Types","Grass Types"]],
+["Venonat","👁️","Big-eyed fuzzy bug",[35,50,22,26,35,48,40,40,55,38,45,30],["Bug Types","Poison Types"]],
+["Venomoth","🦋","Dusty-winged night moth",[70,80,35,48,70,70,60,62,75,58,60,45],["Bug Types","Poison Types"]],
+["Diglett","🕳️","Peeking mole",[55,70,20,10,30,48,35,35,78,35,48,25],["Ground Types","Cave Dwellers"]],
+["Dugtrio","⛏️","Triple-headed tunneler",[82,82,45,35,35,70,62,48,85,52,62,50],["Ground Types","Cave Dwellers"]],
+["Meowth","🐱","Talking coin-chasing cat",[58,76,22,18,62,52,66,48,68,72,58,50],["Normal Types","Team Rocket","Cat Pokemon"]],
+["Persian","😼","Elegant, prideful cat",[78,88,40,45,78,68,72,60,84,68,70,60],["Normal Types","Cat Pokemon"]],
+["Psyduck","🦆","Perpetual headache, hidden power",[32,35,35,38,30,55,30,25,30,22,70,25],["Water Types","Ash's Team"]],
+["Golduck","🦆","Swift swimming duck",[72,72,60,62,55,82,58,55,70,58,65,55],["Water Types"]],
+["Mankey","🐵","Easily enraged brawler",[62,70,48,32,55,58,55,48,72,38,40,30],["Fighting Types"]],
+["Primeape","🦍","Furious fighting ape",[68,72,76,52,62,70,58,52,76,48,52,42],["Fighting Types","Ash's Team"]],
+["Growlithe","🐕","Loyal fire puppy",[62,66,45,40,50,66,40,45,70,52,65,60],["Fire Types","Dog Pokemon"]],
+["Arcanine","🦁","Legendary-looking fast hound",[90,82,78,76,66,92,52,60,82,70,80,82],["Fire Types","Dog Pokemon"]],
+["Poliwag","🌀","Swirl-bellied tadpole",[28,45,18,18,30,48,40,35,45,30,40,25],["Water Types","Poliwag Line"]],
+["Poliwhirl","🌀","Swirling amphibian",[48,58,55,40,52,62,45,40,55,40,50,35],["Water Types","Poliwag Line"]],
+["Poliwrath","🥊","Muscular swimming boxer",[52,60,88,62,58,82,50,45,62,58,78,55],["Water Types","Fighting Types","Poliwag Line"]],
+["Abra","💤","Sleepy teleporting psychic",[30,45,12,25,40,25,35,50,55,70,25,15],["Psychic Types","Abra Line"]],
+["Kadabra","🥄","Spoon-bending telepath",[60,62,30,45,55,50,70,85,82,88,65,40],["Psychic Types","Abra Line"]],
+["Alakazam","🧠","Genius psychic mastermind",[72,68,38,50,58,62,80,95,88,98,85,60],["Psychic Types","Abra Line","Mentors & Leaders"]],
+["Machop","💪","Training-obsessed brawler",[40,52,80,38,48,65,40,40,52,35,55,30],["Fighting Types","Machop Line"]],
+["Machoke","💪","Belt-wearing powerlifter",[44,52,92,60,50,75,40,40,55,40,62,42],["Fighting Types","Machop Line"]],
+["Machamp","🥋","Four-armed fighting champ",[56,70,98,72,58,85,70,50,78,62,82,65],["Fighting Types","Machop Line"]],
+["Bellsprout","🌱","Thin vine-limbed sprout",[28,48,18,30,36,38,45,45,48,25,38,15],["Grass Types","Poison Types"]],
+["Weepinbell","🍃","Leafy acid spitter",[26,45,28,40,32,48,48,60,48,30,42,20],["Grass Types","Poison Types"]],
+["Victreebel","🪴","Prey-swallowing pitcher plant",[28,48,52,62,40,62,55,65,52,38,52,28],["Grass Types","Poison Types"]],
+["Tentacool","🪼","Drifting jellyfish scout",[40,52,22,38,22,60,58,58,55,30,40,20],["Water Types","Poison Types"]],
+["Tentacruel","🪼","Many-tentacled sea terror",[58,72,62,78,28,78,88,70,68,45,58,35],["Water Types","Poison Types"]],
+["Geodude","🪨","Punching boulder",[22,28,82,40,25,60,32,35,30,15,45,10],["Rock Types","Ground Types","Geodude Line"]],
+["Graveler","🪨","Rolling rock avalanche",[32,28,92,56,22,72,32,38,32,20,52,15],["Rock Types","Ground Types","Geodude Line"]],
+["Golem","🌋","Boulder-armored heavyweight",[26,25,99,72,22,88,30,35,30,25,62,25],["Rock Types","Ground Types","Geodude Line"]],
+["Ponyta","🐴","Flaming-mane foal",[84,82,52,56,68,70,35,35,72,35,50,32],["Fire Types","Horse Pokemon"]],
+["Rapidash","🏇","Blazing gallop sprinter",[94,88,64,70,76,82,38,40,78,48,62,50],["Fire Types","Horse Pokemon"]],
+["Slowpoke","🦛","Delayed-reaction daydreamer",[12,15,45,48,12,60,25,20,10,12,30,10],["Water Types","Psychic Types","Slowpoke Line"]],
+["Slowbro","🐚","Shellder-bitten thinker",[25,28,68,66,20,72,48,45,30,60,55,30],["Water Types","Psychic Types","Slowpoke Line"]],
+["Magnemite","🧲","Floating magnet orb",[38,45,18,25,40,50,50,70,62,50,45,15],["Electric Types","Steel Types","Magnet Line"]],
+["Magneton","🧲","Triple magnet cluster",[52,52,40,45,46,65,62,82,72,62,55,25],["Electric Types","Steel Types","Magnet Line"]],
+["Farfetch'd","🦆","Leek-wielding duck swordsman",[56,72,35,38,64,60,86,75,72,62,70,40],["Normal Types","Flying Types"]],
+["Doduo","🐦","Two-headed runner",[72,60,45,52,35,75,40,35,65,28,45,25],["Normal Types","Flying Types","Bird Runners"]],
+["Dodrio","🏃","Three-headed sprinter",[92,72,62,70,48,88,45,42,78,40,58,40],["Normal Types","Flying Types","Bird Runners"]],
+["Seel","🦭","Icy-water seal",[30,48,45,55,20,62,40,30,40,30,42,25],["Water Types","Ice Types"]],
+["Dewgong","🦭","Graceful snow-white swimmer",[45,68,60,72,28,82,50,48,52,50,62,40],["Water Types","Ice Types"]],
+["Grimer","🟣","Living sludge",[15,32,52,55,12,55,20,30,28,12,35,10],["Poison Types","Sludge Pokemon"]],
+["Muk","🤢","Toxic sludge heap",[22,30,82,78,15,75,20,32,30,18,48,22],["Poison Types","Sludge Pokemon"]],
+["Shellder","🐚","Snapping bivalve",[24,35,30,25,38,48,15,40,62,28,40,10],["Water Types","Shell Pokemon"]],
+["Cloyster","🦪","Spiked shell fortress",[45,40,70,62,55,70,30,60,55,60,65,40],["Water Types","Ice Types","Shell Pokemon"]],
+["Gastly","👻","Floating gas ghost",[55,60,10,45,50,40,40,45,60,45,40,15],["Ghost Types","Gastly Line","Poison Types"]],
+["Haunter","👻","Prankster with floating hands",[58,62,25,55,50,50,60,55,62,55,50,25],["Ghost Types","Gastly Line","Poison Types"]],
+["Gengar","😈","Mischievous shadow trickster",[66,72,60,62,55,70,65,65,75,72,68,40],["Ghost Types","Gastly Line","Poison Types"]],
+["Onix","🐍","Giant rock serpent",[48,25,92,96,20,80,15,35,35,35,50,45],["Rock Types","Ground Types","Brock's Team"]],
+["Drowzee","😴","Dream-eating tapir",[35,40,40,45,35,50,50,45,40,50,40,25],["Psychic Types","Dream Pokemon"]],
+["Hypno","🌀","Pendulum hypnotist",[42,48,55,60,38,65,60,70,55,78,70,55],["Psychic Types","Dream Pokemon"]],
+["Krabby","🦀","Pincer-snapping crab",[38,50,35,22,30,45,60,35,50,35,40,20],["Water Types","Crab Pokemon"]],
+["Kingler","🦀","Oversized claw crusher",[45,55,85,50,40,70,70,45,55,45,55,35],["Water Types","Crab Pokemon"]],
+["Voltorb","🔴","Pokeball-disguised bomb",[78,50,25,25,30,45,15,45,70,30,55,15],["Electric Types","Ball Pokemon"]],
+["Electrode","💥","Explosive speedy sphere",[92,65,35,35,35,60,15,55,85,40,60,25],["Electric Types","Ball Pokemon"]],
+["Exeggcute","🥚","Six-egg psychic cluster",[25,35,15,28,25,40,35,50,40,40,35,30],["Grass Types","Psychic Types","Exeggcute Line"]],
+["Exeggutor","🌴","Tropical walking palm",[48,45,78,90,50,78,30,55,45,55,60,50],["Grass Types","Psychic Types","Exeggcute Line"]],
+["Cubone","💀","Lonely skull-wearer",[38,48,40,30,40,55,60,70,55,50,55,30],["Ground Types","Bone Keepers"]],
+["Marowak","🦴","Bone-club wielder",[58,62,75,52,55,75,72,78,68,62,70,48],["Ground Types","Bone Keepers"]],
+["Hitmonlee","🦵","Kicking specialist",[78,86,82,60,92,86,60,70,82,60,68,45],["Fighting Types","Fighting Dojo"]],
+["Hitmonchan","🥊","Punching specialist",[80,82,84,58,60,86,78,80,86,62,70,45],["Fighting Types","Fighting Dojo"]],
+["Lickitung","👅","Long-tongued oddball",[35,40,65,58,40,65,60,40,42,25,45,25],["Normal Types"]],
+["Koffing","☁️","Floating gas bag",[40,40,30,35,45,45,25,40,40,30,40,15],["Poison Types","Team Rocket","Gas Pokemon"]],
+["Weezing","☁️","Twin-headed smog maker",[48,48,50,58,45,60,35,50,50,42,50,30],["Poison Types","Team Rocket","Gas Pokemon"]],
+["Rhyhorn","🦏","Charging armored rhino",[52,45,88,78,28,82,15,35,45,30,50,30],["Rock Types","Ground Types","Rhyhorn Line"]],
+["Rhydon","🦏","Drill-horned rock beast",[55,52,96,88,40,88,25,50,50,40,62,45],["Rock Types","Ground Types","Rhyhorn Line"]],
+["Chansey","🥚","Nurse with egg in pouch",[28,32,35,55,28,92,45,25,35,50,60,65],["Normal Types","Healers"]],
+["Tangela","🌿","Mysterious vine tangle",[38,55,50,55,30,60,70,45,55,35,45,25],["Grass Types"]],
+["Kangaskhan","🦘","Protective pouch parent",[62,60,90,85,52,88,65,50,65,65,80,82],["Normal Types","Parent Pokemon"]],
+["Horsea","🐴","Tiny ink-spraying seahorse",[30,50,10,15,25,40,40,60,50,30,35,15],["Water Types","Dragon-like Sea"]],
+["Seadra","🐉","Spiny sea dragon",[58,70,45,48,42,65,60,76,68,55,58,35],["Water Types","Dragon-like Sea"]],
+["Goldeen","🐟","Elegant horned goldfish",[52,62,25,25,50,55,30,40,55,30,40,20],["Water Types","Goldeen Line"]],
+["Seaking","🐠","Horn-butting river swimmer",[66,70,62,50,55,70,40,52,62,45,55,35],["Water Types","Goldeen Line"]],
+["Staryu","⭐","Core-glowing starfish",[68,78,40,32,45,60,50,62,72,50,55,25],["Water Types","Misty's Team","Staryu Line"]],
+["Starmie","💎","Jeweled psychic star",[88,84,55,48,60,78,50,72,85,80,70,40],["Water Types","Psychic Types","Misty's Team"]],
+["Mr. Mime","🎭","Invisible-wall performer",[55,80,45,50,60,65,90,60,75,85,75,55],["Psychic Types","Performers"]],
+["Scyther","🗡️","Blade-armed mantis",[90,92,62,60,85,75,70,75,92,70,70,50],["Bug Types","Flying Types","Blade Pokemon"]],
+["Jynx","💋","Singing ice dancer",[58,72,40,52,50,60,70,60,65,65,65,55],["Ice Types","Psychic Types","Performers"]],
+["Electabuzz","⚡","Power-plant brawler",[78,72,76,60,55,75,55,60,75,60,65,55],["Electric Types","Elemental Brawlers"]],
+["Magmar","🔥","Lava-spitting brawler",[62,62,78,62,50,75,50,65,62,55,62,50],["Fire Types","Elemental Brawlers"]],
+["Pinsir","🪲","Pincer-grappling beetle",[62,60,90,60,55,78,45,40,60,50,62,45],["Bug Types","Blade Pokemon"]],
+["Tauros","🐂","Tail-lashing wild bull",[88,78,85,76,60,88,25,30,72,40,70,55],["Normal Types","Safari Zone"]],
+["Magikarp","🐟","Splashing underdog legend",[30,40,12,30,45,35,15,5,30,10,25,10],["Water Types","Magikarp Line"]],
+["Gyarados","🐲","Furious sea serpent",[76,68,95,96,45,90,20,70,70,60,75,65],["Water Types","Flying Types","Magikarp Line"]],
+["Lapras","🦕","Gentle ferrying companion",[50,50,80,88,35,92,35,60,50,80,70,75],["Water Types","Ice Types","Ash's Team"]],
+["Ditto","🫠","Shape-shifting copycat",[25,60,20,20,30,50,95,40,60,75,65,40],["Normal Types","Transformers"]],
+["Eevee","🦊","Adaptable evolution fan favorite",[62,72,25,25,52,55,55,45,72,72,72,65],["Eeveelutions","Normal Types"]],
+["Vaporeon","💧","Water-bending Eevee evolution",[66,72,50,55,45,85,55,70,70,76,75,62],["Eeveelutions","Water Types"]],
+["Jolteon","⚡","Spiky electric Eevee evolution",[94,92,45,45,70,70,55,76,92,70,72,55],["Eeveelutions","Electric Types"]],
+["Flareon","🔥","Fluffy fiery Eevee evolution",[66,66,64,48,50,70,50,66,65,60,68,55],["Eeveelutions","Fire Types"]],
+["Porygon","🤖","Digital polygon construct",[55,62,50,52,50,85,75,85,72,85,60,35],["Normal Types","Transformers"]],
+["Omanyte","🐚","Revived spiral fossil",[25,45,35,32,20,55,40,45,45,40,50,25],["Fossil Pokemon","Water Types","Rock Types"]],
+["Omastar","🐙","Tentacled ancient predator",[35,50,75,70,25,75,55,60,50,55,60,40],["Fossil Pokemon","Water Types","Rock Types"]],
+["Kabuto","🦀","Living dome fossil",[42,55,42,34,30,55,25,30,60,40,50,25],["Fossil Pokemon","Water Types","Rock Types"]],
+["Kabutops","🗡️","Scythe-armed ancient hunter",[84,86,78,62,62,78,60,65,80,62,68,45],["Fossil Pokemon","Water Types","Rock Types"]],
+["Aerodactyl","🦖","Prehistoric sky predator",[96,88,82,86,88,80,35,50,86,65,72,55],["Fossil Pokemon","Rock Types","Flying Types"]],
+["Snorlax","😴","Road-blocking sleeping giant",[28,22,98,96,22,96,30,45,35,45,70,40],["Normal Types","Safari Zone"]],
+["Articuno","❄️","Legendary ice bird",[88,85,75,88,95,90,45,85,82,85,85,82],["Legendary Birds","Legendary","Ice Types"]],
+["Zapdos","🌩️","Legendary thunder bird",[92,88,75,85,95,90,45,85,86,82,85,80],["Legendary Birds","Legendary","Electric Types"]],
+["Moltres","🔥","Legendary flame bird",[88,85,82,88,95,90,45,85,82,82,86,85],["Legendary Birds","Legendary","Fire Types"]],
+["Dratini","🐍","Rare serpentine dragon hatchling",[40,55,30,50,25,50,30,35,50,45,55,35],["Dragon Types","Dratini Line"]],
+["Dragonair","🌈","Mystic dragon with aura",[62,70,62,80,50,72,40,65,68,70,72,70],["Dragon Types","Dratini Line"]],
+["Dragonite","🐲","Kind-hearted flying dragon",[86,78,92,86,82,92,55,76,76,72,80,80],["Dragon Types","Dratini Line","Flying Types"]],
+["Mewtwo","🧬","Engineered psychic mastermind",[94,90,86,76,90,92,72,97,95,98,96,88],["Legendary","Psychic Types","Mentors & Leaders"]],
+["Mew","","Mythical ancestor of all Pokémon",[90,95,60,20,90,90,85,90,95,95,90,70],["Legendary","Psychic Types","Mythical"]]
+]};
+// Star Wars: the films, The Clone Wars, Rebels, The Mandalorian, Andor and the rest of the live-action and animated saga.
+// Order: spd agi str siz lep end tch acc ref iq clu ldr. The Force shows up as superhuman reflexes, leaping and agility.
+// The fifth field lists shared factions and families (chemistry links).
+POOLS.starwars = { id: 'starwars', name: 'Star Wars', short: 'Star Wars', blurb: '98 Jedi, Sith, rebels, bounty hunters, troopers and droids', entries: [
+["Luke Skywalker","","Farm boy turned Jedi Knight",[78,88,70,60,90,85,85,88,96,80,95,85],["Jedi","Skywalker Family","Rebel Alliance","Original Trilogy"]],
+["Yoda","","Grand Master, 900 years old",[70,97,40,10,97,75,95,90,99,99,97,99],["Jedi","Jedi Council","Original Trilogy","Prequels"]],
+["Obi-Wan Kenobi","","Has the high ground",[75,90,62,58,88,85,92,85,97,95,93,94],["Jedi","Jedi Council","Prequels","Original Trilogy"]],
+["Anakin Skywalker","","The Chosen One",[85,93,80,62,93,88,92,88,98,85,85,75],["Jedi","Skywalker Family","Prequels","The Clone Wars"]],
+["Mace Windu","","Purple-bladed Council master",[78,92,75,66,90,88,92,88,97,92,92,94],["Jedi","Jedi Council","Prequels"]],
+["Qui-Gon Jinn","","Maverick Jedi Master",[72,86,72,68,85,80,90,82,94,94,90,90],["Jedi","Prequels"]],
+["Ahsoka Tano","","Anakin's padawan, twin blades",[86,95,62,52,92,88,92,88,97,88,90,85],["Jedi","The Clone Wars","Rebels Crew"]],
+["Plo Koon","","Kel Dor master and pilot",[70,82,66,62,80,80,85,85,92,90,88,90],["Jedi","Jedi Council","The Clone Wars"]],
+["Kit Fisto","","Grinning Nautolan swordsman",[80,90,70,62,88,84,85,82,93,80,85,78],["Jedi","Jedi Council","The Clone Wars"]],
+["Aayla Secura","","Twi'lek general",[82,92,62,52,88,84,85,82,93,80,84,78],["Jedi","The Clone Wars"]],
+["Kanan Jarrus","","Order 66 survivor, Ghost crew",[74,84,66,60,82,80,85,84,92,84,88,84],["Jedi","Rebels Crew","Rebel Alliance"]],
+["Ezra Bridger","","Street kid turned Jedi",[80,86,50,44,86,78,82,84,90,78,84,70],["Jedi","Rebels Crew","Rebel Alliance"]],
+["Cal Kestis","","Fallen Order survivor",[80,90,64,58,88,85,86,84,94,82,88,74],["Jedi"]],
+["Grogu","","Tiny, powerful foundling",[40,60,15,4,70,50,60,60,90,70,70,50],["Jedi","The Mandalorian"]],
+["Rey","","Scavenger who rose",[82,88,66,52,86,86,88,86,95,82,92,80],["Jedi","Resistance","Sequels"]],
+["Kylo Ren","","Ben Solo, torn in two",[80,84,85,70,84,88,85,82,94,82,80,78],["Skywalker Family","First Order","Sequels"]],
+["Leia Organa","","Princess, general, leader",[62,70,40,32,58,78,72,84,82,92,93,98],["Skywalker Family","Rebel Alliance","Original Trilogy","Resistance"]],
+["Padmé Amidala","","Queen and senator of Naboo",[62,72,40,36,60,72,72,85,80,90,88,92],["Skywalker Family","Prequels","Naboo"]],
+["Darth Vader","","Dark Lord of the Sith",[62,70,92,82,70,90,88,82,96,90,90,92],["Sith","Skywalker Family","Galactic Empire","Original Trilogy"]],
+["Emperor Palpatine","","Darth Sidious, unlimited power",[55,80,40,52,75,70,92,90,97,99,95,96],["Sith","Galactic Empire","Prequels","Original Trilogy"]],
+["Darth Maul","","Double-bladed Zabrak",[88,96,70,64,95,88,88,84,96,80,85,70],["Sith","Prequels","The Clone Wars"]],
+["Count Dooku","","Elegant Sith duelist",[62,86,58,62,80,70,95,85,95,95,90,88],["Sith","Separatists","Prequels"]],
+["General Grievous","","Four-armed cyborg general",[80,86,80,76,70,85,90,78,90,78,70,72],["Separatists","Prequels","The Clone Wars"]],
+["Asajj Ventress","","Dathomiri assassin",[84,92,58,56,88,82,88,84,93,80,82,70],["Separatists","Nightsisters","The Clone Wars"]],
+["Savage Opress","","Maul's brute of a brother",[76,80,90,84,80,88,72,72,86,55,70,60],["Nightsisters","The Clone Wars"]],
+["Grand Inquisitor","","Head of the Jedi hunters",[76,84,64,64,80,80,84,80,90,82,80,80],["Inquisitors","Galactic Empire"]],
+["Reva","","The Third Sister",[80,86,64,52,82,82,82,80,90,74,74,66],["Inquisitors","Galactic Empire"]],
+["Supreme Leader Snoke","","Shadowy First Order ruler",[40,40,50,80,30,60,80,80,92,94,88,92],["First Order","Sequels"]],
+["Han Solo","","Smuggler who shot first",[72,80,62,62,62,80,85,93,92,85,96,82],["Smugglers","Rebel Alliance","Original Trilogy","Falcon Crew"]],
+["Chewbacca","","Wookiee co-pilot",[66,66,92,90,62,90,80,84,82,75,85,72],["Wookiees","Rebel Alliance","Original Trilogy","Falcon Crew"]],
+["Lando Calrissian","","Smooth gambler, Cloud City boss",[66,74,56,62,58,74,85,86,85,88,88,85],["Smugglers","Rebel Alliance","Original Trilogy","Falcon Crew"]],
+["Wedge Antilles","","Survived every Death Star run",[64,70,55,56,55,74,88,88,92,80,88,80],["Rebel Alliance","Rogue Squadron","Original Trilogy"]],
+["Nien Nunb","","Sullustan co-pilot",[55,62,52,40,45,70,85,85,88,78,85,70],["Rebel Alliance","Resistance","Falcon Crew"]],
+["Admiral Ackbar","","It's a trap",[40,40,48,58,30,62,60,60,72,88,80,92],["Rebel Alliance","Original Trilogy"]],
+["Mon Mothma","","Founder of the Rebellion",[40,40,28,48,30,60,55,50,55,92,85,96],["Rebel Alliance","Andor"]],
+["Bail Organa","","Senator of Alderaan",[52,52,50,58,40,66,62,70,70,85,82,90],["Rebel Alliance","Prequels"]],
+["Jyn Erso","","Rebel who stole the plans",[75,82,56,48,66,82,80,88,88,82,90,85],["Rogue One","Rebel Alliance"]],
+["Cassian Andor","","Rebel spy, all in",[74,80,60,56,64,86,82,92,90,88,88,82],["Rogue One","Rebel Alliance","Andor"]],
+["K-2SO","","Reprogrammed Imperial droid",[60,55,92,85,40,95,60,80,80,90,70,50],["Droids","Rogue One"]],
+["Chirrut Îmwe","","Blind warrior monk",[62,86,58,56,70,78,92,90,97,88,92,80],["Rogue One","Guardians of the Whills"]],
+["Baze Malbus","","Repeating-cannon guardian",[52,55,85,76,40,88,70,90,80,70,85,72],["Rogue One","Guardians of the Whills"]],
+["Saw Gerrera","","Extremist rebel veteran",[60,60,70,66,40,72,72,85,82,82,85,85],["Rogue One","Andor"]],
+["Hera Syndulla","","Ace pilot, Ghost captain",[62,70,52,50,52,78,92,85,88,88,90,92],["Rebels Crew","Rebel Alliance"]],
+["Sabine Wren","","Mandalorian artist and bomber",[76,84,56,46,78,80,90,88,88,85,85,78],["Rebels Crew","Mandalorians","Rebel Alliance"]],
+["Zeb Orrelios","","Lasat honor guard",[66,70,88,82,62,86,62,70,78,58,72,60],["Rebels Crew","Rebel Alliance"]],
+["Chopper","","Grumpy astromech",[50,55,40,20,30,85,85,60,80,82,70,40],["Droids","Rebels Crew"]],
+["Poe Dameron","","Best pilot in the Resistance",[72,76,60,56,60,80,90,90,93,82,92,88],["Resistance","Sequels"]],
+["Finn","","Stormtrooper who walked away",[76,76,72,62,62,82,72,82,84,70,85,78],["Resistance","Sequels"]],
+["Rose Tico","","Resistance mechanic",[58,62,46,36,46,72,82,62,70,82,80,70],["Resistance","Sequels"]],
+["Admiral Holdo","","Lightspeed sacrifice",[50,52,40,56,30,66,60,62,70,90,96,92],["Resistance","Sequels"]],
+["Maz Kanata","","Thousand-year-old pirate queen",[30,40,40,20,30,70,85,70,82,95,82,85],["Sequels","Smugglers"]],
+["R2-D2","","Astromech who saves the day",[30,40,30,22,40,95,95,70,85,92,90,60],["Droids","Original Trilogy","Prequels"]],
+["C-3PO","","Fluent in six million forms",[24,22,40,48,10,90,50,20,30,90,20,40],["Droids","Original Trilogy","Prequels"]],
+["BB-8","","Rolling Resistance astromech",[62,60,22,18,30,85,85,50,82,82,85,60],["Droids","Resistance","Sequels"]],
+["IG-11","","Nurse-droid assassin",[65,70,88,74,55,95,82,92,90,80,80,50],["Droids","The Mandalorian","Bounty Hunters"]],
+["Gonk Droid","","Walking battery. Gonk.",[10,5,40,40,0,95,5,5,5,10,30,5],["Droids"]],
+["Battle Droid","","Roger, roger",[55,40,50,50,20,60,30,30,30,15,15,15],["Droids","Separatists","Prequels"]],
+["Droideka","","Shielded rolling destroyer",[80,55,70,52,10,85,30,80,75,30,50,20],["Droids","Separatists","Prequels"]],
+["Grand Moff Tarkin","","Commander of the Death Star",[40,40,40,52,25,60,55,62,70,94,90,94],["Galactic Empire","Original Trilogy","Rogue One"]],
+["Grand Admiral Thrawn","","Chiss tactical genius",[52,58,50,60,40,72,70,80,85,99,96,96],["Galactic Empire","Rebels Crew"]],
+["Director Krennic","","Death Star project chief",[52,52,52,56,40,66,60,70,72,85,72,82],["Galactic Empire","Rogue One"]],
+["Moff Gideon","","Darksaber-wielding warlord",[62,70,62,60,55,72,82,85,85,88,82,88],["Galactic Empire","The Mandalorian"]],
+["Stormtrooper","","Can't hit the broad side",[60,50,60,58,40,65,40,22,45,40,40,40],["Galactic Empire","Original Trilogy"]],
+["Death Trooper","","Elite black-armored guard",[66,60,74,72,40,80,55,80,72,62,70,60],["Galactic Empire","Rogue One"]],
+["Captain Phasma","","Chrome-armored commander",[70,72,78,80,52,84,72,82,82,72,74,82],["First Order","Sequels"]],
+["General Hux","","First Order's sneering general",[50,52,46,52,40,64,60,62,66,82,60,82],["First Order","Sequels"]],
+["Boba Fett","","Galaxy's most feared bounty hunter",[70,80,72,62,88,88,88,94,92,82,85,72],["Bounty Hunters","Fett Family","Original Trilogy"]],
+["Jango Fett","","Template for the clone army",[74,84,72,62,88,88,88,95,93,84,85,78],["Bounty Hunters","Fett Family","Prequels"]],
+["The Mandalorian","","Din Djarin. This is the way",[74,80,76,64,80,90,88,92,92,80,90,78],["Mandalorians","Bounty Hunters","The Mandalorian"]],
+["Bo-Katan Kryze","","Rightful ruler of Mandalore",[76,84,64,56,82,84,85,90,90,84,85,90],["Mandalorians","The Clone Wars","The Mandalorian"]],
+["Cad Bane","","Duros gunslinger",[70,76,62,64,62,82,88,96,94,85,88,70],["Bounty Hunters","The Clone Wars"]],
+["Fennec Shand","","Elite assassin and sniper",[78,86,56,52,70,84,84,96,92,85,88,66],["Bounty Hunters","Fett Family"]],
+["Aurra Sing","","Long-range bounty hunter",[74,82,52,50,70,78,80,94,92,72,78,58],["Bounty Hunters","The Clone Wars"]],
+["Bossk","","Trandoshan hunter",[60,55,82,78,45,84,60,78,72,55,60,55],["Bounty Hunters","Original Trilogy"]],
+["IG-88","","Assassin droid",[60,60,82,72,40,92,70,85,82,72,60,40],["Bounty Hunters","Droids","Original Trilogy"]],
+["Greedo","","Shot second",[55,55,52,52,40,60,55,30,40,35,20,30],["Bounty Hunters","Original Trilogy"]],
+["Cara Dune","","Ex-rebel shock trooper",[70,74,82,64,55,86,70,88,82,72,84,74],["The Mandalorian","Rebel Alliance"]],
+["Cobb Vanth","","Marshal of Mos Pelgo",[66,70,62,58,52,78,80,90,85,78,85,82],["The Mandalorian"]],
+["Greef Karga","","Guild boss turned magistrate",[52,52,62,66,40,70,70,80,72,78,72,80],["The Mandalorian","Bounty Hunters"]],
+["Kuiil","","Ugnaught who has spoken",[40,42,52,40,30,70,92,66,62,85,72,72],["The Mandalorian"]],
+["Migs Mayfeld","","Ex-Imperial sharpshooter",[62,66,60,56,52,74,78,88,82,80,72,60],["The Mandalorian"]],
+["Captain Rex","","Clone captain of the 501st",[74,80,70,62,62,86,82,94,92,85,92,92],["Clone Troopers","The Clone Wars","Rebels Crew"]],
+["Commander Cody","","Clone commander, 212th",[72,78,70,62,60,86,78,90,88,84,85,88],["Clone Troopers","The Clone Wars","Prequels"]],
+["Hunter","","Bad Batch leader and tracker",[76,82,72,64,62,88,82,90,96,84,86,86],["Clone Troopers","The Bad Batch"]],
+["Wrecker","","Bad Batch muscle",[60,58,96,90,50,92,55,70,70,45,72,58],["Clone Troopers","The Bad Batch"]],
+["Tech","","Bad Batch genius",[60,62,52,52,50,76,95,80,80,96,72,62],["Clone Troopers","The Bad Batch"]],
+["Crosshair","","Bad Batch sniper",[66,74,62,60,56,80,82,99,95,82,90,58],["Clone Troopers","The Bad Batch"]],
+["Omega","","Bad Batch's young clone",[62,70,30,24,52,68,72,80,80,72,78,60],["The Bad Batch"]],
+["Qi'ra","","Crimson Dawn lieutenant",[70,82,52,48,62,78,85,88,88,90,88,82],["Smugglers","Crimson Dawn"]],
+["Tobias Beckett","","Veteran thief and gunslinger",[62,70,62,60,52,76,85,94,90,85,85,72],["Smugglers"]],
+["Dryden Vos","","Crimson Dawn crime boss",[64,74,72,62,55,76,85,85,85,85,82,82],["Crimson Dawn"]],
+["Enfys Nest","","Cloud-Rider marauder",[76,84,62,52,80,84,82,88,88,80,85,85],["Rebel Alliance"]],
+["Jabba the Hutt","","Crime lord of Tatooine",[10,10,70,95,5,70,30,30,30,85,70,80],["Hutts","Original Trilogy"]],
+["Rancor","","Jabba's pit monster",[58,40,99,98,40,90,20,20,55,15,40,10],["Creatures","Original Trilogy"]],
+["Wampa","","Hoth ice beast",[55,45,94,88,45,90,30,20,60,25,40,10],["Creatures","Original Trilogy"]],
+["Wicket","","Ewok scout",[60,76,30,10,62,74,78,74,80,62,82,60],["Ewoks","Original Trilogy"]],
+["Jar Jar Binks","","Clumsy Gungan hero",[62,84,52,62,86,70,40,30,64,22,60,36],["Gungans","Prequels","Naboo"]],
+["Watto","","Toydarian junk dealer",[40,62,30,30,60,50,82,40,50,70,40,50],["Prequels"]],
+]};
 
 // Signature moves (iconic characters only) and Playoff Boom.
 // Every signature uses one of four effects; only the name changes. Effects stay hidden in the game.
@@ -1512,6 +1770,19 @@ const BOOMERS = {
   muppets: ['Animal', 'Gonzo', 'Beaker', 'Fozzie Bear', 'Swedish Chef', 'Elmo', 'Cookie Monster', 'Grover', 'Pepe the King Prawn', 'Rizzo the Rat', 'Crazy Harry', 'Wembley Fraggle', 'Big Bird', 'Oscar the Grouch'],
 };
 BOOMERS.games = ['Luigi', 'Toad', 'Diddy Kong', 'Jigglypuff', 'Tails', 'Crash Bandicoot', 'Rayman', 'Clank', 'Creeper', 'Q*bert', 'Captain Falcon', 'Ness'];
+SIGS.pokemon = {
+  'Pikachu': ['Thunderbolt', 'chaos'], 'Snorlax': ['Rest', 'unbreakable'], 'Mewtwo': ['Psystrike', 'clutch'], 'Mew': ['Transform', 'unbreakable'],
+  'Charizard': ['Blast Burn', 'clutch'], 'Gengar': ['Hypnosis', 'chaos'], 'Ditto': ['Copycat', 'unbreakable'], 'Jigglypuff': ['Sing', 'chaos'],
+  'Machamp': ['Dynamic Punch', 'clutch'], 'Dragonite': ['Gentle Giant', 'lift'], 'Magikarp': ['Splash', 'unbreakable'], 'Eevee': ['Adaptability', 'lift'],
+};
+SIGS.starwars = {
+  'Yoda': ['Size Matters Not', 'unbreakable'], 'Darth Vader': ['Force Choke', 'chaos'], 'Han Solo': ['Shot First', 'clutch'], 'Luke Skywalker': ['Trench Run', 'clutch'],
+  'Emperor Palpatine': ['Unlimited Power', 'chaos'], 'Obi-Wan Kenobi': ['The High Ground', 'clutch'], 'Leia Organa': ['Our Only Hope', 'lift'], 'Chewbacca': ['Wookiee Roar', 'chaos'],
+  'R2-D2': ['Saves the Day', 'clutch'], 'The Mandalorian': ['This Is the Way', 'lift'], 'Grogu': ['The Child', 'unbreakable'], 'Wicket': ['Ewok Ambush', 'unbreakable'],
+  'Lando Calrissian': ['Fly Casual', 'lift'], 'Mace Windu': ['Vaapad', 'chaos'], 'Captain Rex': ['Clones Stick Together', 'lift'],
+};
+BOOMERS.pokemon = ['Magikarp', 'Psyduck', 'Ditto', 'Jigglypuff', 'Pikachu', 'Eevee', 'Snorlax', 'Electrode', 'Mr. Mime', "Farfetch'd", 'Slowpoke', 'Voltorb'];
+BOOMERS.starwars = ['Jar Jar Binks', 'Wicket', 'BB-8', 'Ezra Bridger', 'Rose Tico', 'Omega', 'Zeb Orrelios', 'Chopper', 'Gonk Droid', 'Battle Droid', 'Finn', 'Grogu'];
 const BOOM_SET = Object.fromEntries(Object.entries(BOOMERS).map(([k, v]) => [k, new Set(v)]));
 
 function sigOf(rows) {
@@ -1583,6 +1854,8 @@ const FIGHT_TAGS = {
     'Aang': 'FM', 'Toph Beifong': 'MC', 'Zuko': 'MR', 'Uncle Iroh': 'MR', 'Katara': 'M', 'Sokka': 'R', 'Blossom': 'F', 'Bubbles': 'F',
     'Buttercup': 'FC', 'Professor Utonium': 'T', 'Mojo Jojo': 'TX', 'Dexter': 'T', 'Snoopy': 'F', 'Jerry': 'X', 'Rick Sanchez': 'TR',
   },
+  pokemon: { "Bulbasaur": 'CR', "Ivysaur": 'CR', "Venusaur": 'CR', "Charmander": 'R', "Charmeleon": 'R', "Charizard": 'FR', "Squirtle": 'R', "Wartortle": 'R', "Blastoise": 'R', "Caterpie": 'C', "Metapod": 'C', "Butterfree": 'CF', "Weedle": 'CR', "Kakuna": 'CR', "Beedrill": 'CR', "Pidgey": 'CF', "Pidgeotto": 'CF', "Pidgeot": 'CF', "Rattata": 'C', "Raticate": 'C', "Spearow": 'CF', "Fearow": 'CF', "Ekans": 'CR', "Arbok": 'CR', "Pikachu": 'R', "Raichu": 'R', "Sandshrew": 'C', "Sandslash": 'C', "Nidoran♀": 'R', "Nidorina": 'R', "Nidoqueen": 'CR', "Nidoran♂": 'R', "Nidorino": 'R', "Nidoking": 'CR', "Clefairy": 'CM', "Clefable": 'CM', "Vulpix": 'R', "Ninetales": 'R', "Jigglypuff": 'CM', "Wigglytuff": 'CM', "Zubat": 'FR', "Golbat": 'FR', "Oddish": 'CR', "Gloom": 'CR', "Vileplume": 'CR', "Paras": 'C', "Parasect": 'C', "Venonat": 'CR', "Venomoth": 'CR', "Diglett": 'C', "Dugtrio": 'C', "Meowth": 'C', "Persian": 'C', "Psyduck": 'R', "Golduck": 'R', "Mankey": 'C', "Primeape": 'C', "Growlithe": 'R', "Arcanine": 'R', "Poliwag": 'R', "Poliwhirl": 'R', "Poliwrath": 'CR', "Abra": 'M', "Kadabra": 'MT', "Alakazam": 'MT', "Machop": 'C', "Machoke": 'C', "Machamp": 'C', "Bellsprout": 'CR', "Weepinbell": 'CR', "Victreebel": 'CR', "Tentacool": 'R', "Tentacruel": 'R', "Geodude": 'CX', "Graveler": 'CX', "Golem": 'CX', "Ponyta": 'R', "Rapidash": 'R', "Slowpoke": 'MR', "Slowbro": 'MR', "Magnemite": 'RT', "Magneton": 'RT', "Farfetch'd": 'CF', "Doduo": 'CF', "Dodrio": 'CF', "Seel": 'R', "Dewgong": 'R', "Grimer": 'R', "Muk": 'CR', "Shellder": 'R', "Cloyster": 'R', "Gastly": 'FMR', "Haunter": 'FMR', "Gengar": 'MR', "Onix": 'C', "Drowzee": 'M', "Hypno": 'M', "Krabby": 'R', "Kingler": 'CR', "Voltorb": 'RX', "Electrode": 'RX', "Exeggcute": 'CM', "Exeggutor": 'CMX', "Cubone": 'C', "Marowak": 'C', "Hitmonlee": 'C', "Hitmonchan": 'C', "Lickitung": 'C', "Koffing": 'CRX', "Weezing": 'CRX', "Rhyhorn": 'C', "Rhydon": 'C', "Chansey": 'C', "Tangela": 'C', "Kangaskhan": 'C', "Horsea": 'R', "Seadra": 'R', "Goldeen": 'R', "Seaking": 'R', "Staryu": 'R', "Starmie": 'MR', "Mr. Mime": 'MT', "Scyther": 'CF', "Jynx": 'MR', "Electabuzz": 'R', "Magmar": 'R', "Pinsir": 'C', "Tauros": 'C', "Magikarp": 'R', "Gyarados": 'CFR', "Lapras": 'CR', "Ditto": 'CT', "Eevee": 'C', "Vaporeon": 'R', "Jolteon": 'R', "Flareon": 'R', "Porygon": 'CT', "Omanyte": 'CR', "Omastar": 'CR', "Kabuto": 'CR', "Kabutops": 'CR', "Aerodactyl": 'CF', "Snorlax": 'C', "Articuno": 'R', "Zapdos": 'R', "Moltres": 'CR', "Dratini": 'R', "Dragonair": 'R', "Dragonite": 'CFR', "Mewtwo": 'CM', "Mew": 'FM' },
+  starwars: { "Luke Skywalker": 'CMF', "Yoda": 'CM', "Obi-Wan Kenobi": 'CM', "Anakin Skywalker": 'CMF', "Mace Windu": 'CM', "Qui-Gon Jinn": 'CM', "Ahsoka Tano": 'CM', "Plo Koon": 'CMF', "Kit Fisto": 'CM', "Aayla Secura": 'CM', "Kanan Jarrus": 'CM', "Ezra Bridger": 'CMR', "Cal Kestis": 'CM', "Grogu": 'M', "Rey": 'CM', "Kylo Ren": 'CM', "Leia Organa": 'RM', "Padmé Amidala": 'R', "Darth Vader": 'CM', "Emperor Palpatine": 'MR', "Darth Maul": 'CM', "Count Dooku": 'CM', "General Grievous": 'C', "Asajj Ventress": 'CM', "Savage Opress": 'CM', "Grand Inquisitor": 'CM', "Reva": 'CM', "Supreme Leader Snoke": 'M', "Han Solo": 'RF', "Chewbacca": 'RC', "Lando Calrissian": 'RF', "Wedge Antilles": 'FR', "Nien Nunb": 'F', "Admiral Ackbar": 'T', "Bail Organa": 'R', "Jyn Erso": 'RC', "Cassian Andor": 'R', "K-2SO": 'CT', "Chirrut Îmwe": 'C', "Baze Malbus": 'R', "Saw Gerrera": 'RX', "Hera Syndulla": 'F', "Sabine Wren": 'XRF', "Zeb Orrelios": 'C', "Chopper": 'T', "Poe Dameron": 'FR', "Finn": 'R', "Rose Tico": 'T', "Admiral Holdo": 'F', "R2-D2": 'T', "BB-8": 'T', "IG-11": 'RX', "Battle Droid": 'R', "Droideka": 'R', "Grand Admiral Thrawn": 'T', "Director Krennic": 'R', "Moff Gideon": 'RC', "Stormtrooper": 'R', "Death Trooper": 'R', "Captain Phasma": 'R', "General Hux": 'R', "Boba Fett": 'RFX', "Jango Fett": 'RFX', "The Mandalorian": 'RFC', "Bo-Katan Kryze": 'RFC', "Cad Bane": 'R', "Fennec Shand": 'R', "Aurra Sing": 'R', "Bossk": 'R', "IG-88": 'RX', "Greedo": 'R', "Cara Dune": 'RC', "Cobb Vanth": 'R', "Greef Karga": 'R', "Kuiil": 'T', "Migs Mayfeld": 'R', "Captain Rex": 'R', "Commander Cody": 'R', "Hunter": 'RC', "Wrecker": 'XC', "Tech": 'T', "Crosshair": 'R', "Omega": 'R', "Qi'ra": 'CR', "Tobias Beckett": 'R', "Dryden Vos": 'C', "Enfys Nest": 'CF', "Rancor": 'C', "Wampa": 'C', "Wicket": 'R', "Jar Jar Binks": 'C', "Watto": 'F', "Maz Kanata": 'T', "Grand Moff Tarkin": 'T', "Mon Mothma": 'T' },
   games: {
     'Mario': 'CR', 'Luigi': 'CR', 'Princess Peach': 'F', 'Bowser': 'CR', 'Yoshi': 'C', 'Donkey Kong': 'CR', 'Wreck-It Ralph': 'C', 'Diddy Kong': 'FR', 'Link': 'CRX',
     'Zelda': 'M', 'Ganondorf': 'MC', 'Samus Aran': 'RXT', 'Kirby': 'CF', 'King Dedede': 'C', 'Meta Knight': 'CF', 'Pikachu': 'R', 'Charizard': 'FR',
@@ -2437,7 +2710,7 @@ function sportGlyph(sportKey) {
 // Player tokens: a designed jersey for every candidate. No photos or character art.
 // Pool sets the kit colors; on the field the jersey takes the team color.
 const JERSEY = 'M12 4 L16 4 Q20 8.5 24 4 L28 4 L36.5 10.5 L32.5 17.5 L29 15.5 L29 35.5 Q20 37.5 11 35.5 L11 15.5 L7.5 17.5 L3.5 10.5 Z';
-const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'] };
+const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'], pokemon: ['#E0662A', '#1F3A68'], starwars: ['#1C1C1C', '#FFE81F'] };
 const CUSTOM_KIT = ['#0F7C8C', '#F4E9D8'];
 // Real jersey numbers for the NBA pool (the number each is best known for).
 const NBA_NUM = {
@@ -2875,13 +3148,15 @@ function saveChamp() {
 
 // ----- Pools -----
 POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 'Every built-in pool at once, on one scale', entries: [] };
-const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'mashup'];
+// Pokémon who also appear in the video game pool (Pikachu, Charizard...) show up once in the Mashup.
+function mashupOnly(id) { const seen = new Set(getCands('games').map(c => c.n)); return getCands(id).filter(c => !seen.has(c.n)); }
+const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'mashup'];
 const candCache = {};
 function getPool(id) { return POOLS[id] || S.custom[id] || null; }
 function getCands(id) {
   if (candCache[id]) return candCache[id];
   const p = getPool(id); if (!p) return [];
-  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games')] : poolCandidates(p);
+  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games'), ...mashupOnly('pokemon'), ...getCands('starwars')] : poolCandidates(p);
   return (candCache[id] = list);
 }
 function candById(poolId, cid) { return getCands(poolId).find(c => c.id === cid) || null; }
@@ -3033,7 +3308,7 @@ function poolPicker(cur, act, sportKey) {
     return `<button class="pool" data-act="${act}" data-pool="${id}" aria-pressed="${cur === id}" ${small ? 'disabled title="Too few candidates for this sport"' : ''}>
       <b>${esc(p.name)}</b><span>${esc(p.blurb || '')}${p.topic ? '' : ''}</span><span class="num">${n} candidates${S.custom[id] ? ' · made with Claude' : ''}</span>${poolFaces(id) ? `<span class="faces" aria-hidden="true">${poolFaces(id)}</span>` : ''}</button>`;
   }).join('');
-  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Pokémon, Star Wars, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${renderGen()}`;
+  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Harry Potter, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${renderGen()}`;
 }
 function champLimits() {
   const c = S.champ, n = getCands(c.poolId).length;
@@ -3335,7 +3610,7 @@ function champResultText() {
 // Each opponent comes from ONE universe (NBA, Marvel, Cartoons, Muppets); mixed All-Star
 // teams only show up when you cast from the All-Star Mashup yourself.
 const LEAGUE_SIZE = { basketball: 30, football: 16, soccer: 20, baseball: 30, hockey: 32, volleyball: 14, brawl: 16 };
-const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', mashup: 'All-Stars' };
+const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', pokemon: 'Pokémon', starwars: 'Star Wars', mashup: 'All-Stars' };
 function universeLabel(id) { return UNIVERSE_LABEL[id] || (S.custom[id] ? (S.custom[id].short || S.custom[id].name) : 'Custom'); }
 
 function shuffleWith(arr, rng) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -3357,7 +3632,7 @@ function buildCrossLeague(sportKey, userPoolId, userRoster, rng) {
   const P = SPORTS[sportKey].pos.length, sig = SEASONS[sportKey].sigma, [ke, klo, khi] = PERFECT_TIERS[sportKey];
   const C = poolCeiling(sportKey, userPoolId);
   const used = new Set(Object.values(userRoster).map(c => c.id));
-  const U = ['nba', 'mcu', 'toons', 'muppets', 'games'];
+  const U = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars'];
   if (userPoolId === 'mashup') U.push('mashup');
   else if (!U.includes(userPoolId) && getPool(userPoolId)) U.push(userPoolId);
   const avail = u => getCands(u).filter(c => !used.has(c.id));
