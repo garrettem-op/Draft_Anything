@@ -137,12 +137,17 @@ function daReport(sport,score,points,title='',options={}) {
   const active=result.filter(r=>!['hc','mgr','cmd','bn'].includes(r.position));
   const top=[...active].sort((a,b)=>b.delta-a.delta)[0];
   const low=[...active].sort((a,b)=>a.delta-b.delta)[0];
+  const weakest=[...active].sort((a,b)=>a.fit-b.fit)[0];
+  const primary=({basketball:'PTS',football:'TD',brawl:'DMG',soccer:'G',hockey:'G',baseball:'R',volleyball:'KILLS'})[sport]||'Scoring';
+  const getMetric=r=>r.stats.find(x=>x[0]===primary)?.[1]||0;
+  const leader=[...active].sort((a,b)=>getMetric(b)-getMetric(a))[0];
+  const scouting=leader&&weakest?`<p class="note"><b>Scouting takeaway:</b> ${esc(leader.name)} led the roster in projected ${esc(primary)} (${getMetric(leader)}). Lowest positional fit: ${esc(weakest.name)} (${weakest.fit}) at ${esc(weakest.role)}; consider that slot first when evaluating possible upgrades. These are model estimates, not evidence of actual poor play.</p>`:'';
   const scoring=result.summary?.scoring;
   const footer=scoring?`<p class="note">Scoring allocation: ${scoring.td} TD × 7 + ${scoring.fg} FG × 3 + ${scoring.safeties} safeties × 2${scoring.unassigned?' + '+scoring.unassigned+' other':''} = ${scoring.total}. Field goals are team special-teams points; no kicker position exists on this roster.${result.summary.unassignedTD?' '+result.summary.unassignedTD+' touchdown(s) cannot be assigned because this lineup has no eligible scorer.':''}</p>`:
     sport==='volleyball'?`<p class="note">Estimated rally points: ${result.summary.teamRallyPoints}. Kills, blocks and aces are projected from rally totals, not official recorded events.</p>`:'';
   return `<div class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">${esc(title||'After-action report')}</h3><span class="note">Simulated box score · not tracked play-by-play</span></div>
   <div class="tbl-wrap"><table class="t"><thead><tr><th>Character</th><th>Role</th><th>Fit</th><th>Form</th><th>Estimated contributions</th></tr></thead><tbody>${result.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.role)}</td><td class="num">${r.fit}</td><td class="num">${r.impact} (${r.delta>=0?'+':''}${r.delta})</td><td>${r.stats.map(([k,v])=>`${esc(k)}: <b class="num">${v}</b>`).join(' · ')}</td></tr>`).join('')}</tbody></table></div>
-  ${footer}<p class="note" style="margin:10px 0 0">${top?'Strongest simulated form vs baseline: '+esc(top.name)+'. ':''}${low&&low!==top?'Below baseline: '+esc(low.name)+'. ':''}Form varies deterministically by matchup; use these as scouting estimates, not observed statistics.</p></div>`;
+  ${footer}${scouting}<p class="note" style="margin:10px 0 0">${top?'Strongest simulated form vs baseline: '+esc(top.name)+'. ':''}${low&&low!==top?'Below baseline: '+esc(low.name)+'. ':''}Form varies deterministically by matchup; use these as scouting estimates, not observed statistics.</p></div>`;
 }
 
 function daGameReport(sport,teamA,teamB,game,seed='') {
