@@ -19,4 +19,4 @@ jobs:
         with:
           node-version: '22'
       - name: Verify reports and score reconciliation
-        run: node --test tests/after-action.test.cjs
+        run: node --test tests/*.test.cjs
