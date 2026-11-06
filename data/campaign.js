@@ -41,8 +41,9 @@ giants:'Hulk|Ant-Man|Giant-Man|Goliath|Godzilla|King Kong|Bowser|Donkey Kong|Gro
 };
 for(const k in CAMPAIGN_TAGS) CAMPAIGN_TAGS[k]=new Set(CAMPAIGN_TAGS[k].split('|'));
 function campaignStages(){return S.campaign?.stageOrder?.map(i=>CAMPAIGN_STAGES[i]||CAMPAIGN_EXTRA[i-CAMPAIGN_STAGES.length]).filter(Boolean)||CAMPAIGN_STAGES;}
-function campaignNewOrder(){
- const fixed=CAMPAIGN_STAGES.length-1, pool=CAMPAIGN_STAGES.slice(0,-1).map((_,i)=>i).concat(CAMPAIGN_EXTRA.map((_,i)=>CAMPAIGN_STAGES.length+i));
+function campaignNewOrder(sport='basketball'){
+ const eligible=ch=>ch.rule==='final'||campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule);
+ const fixed=CAMPAIGN_STAGES.length-1, pool=CAMPAIGN_STAGES.slice(0,-1).map((_,i)=>i).concat(CAMPAIGN_EXTRA.map((_,i)=>CAMPAIGN_STAGES.length+i)).filter(i=>eligible(i<CAMPAIGN_STAGES.length?CAMPAIGN_STAGES[i]:CAMPAIGN_EXTRA[i-CAMPAIGN_STAGES.length]));
  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
  return pool.slice(0,9).concat(fixed);
 }
@@ -60,7 +61,7 @@ function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
   v.history=v.history.slice(0,10);
-  if(!Array.isArray(v.stageOrder)||v.stageOrder.length!==10)v.stageOrder=CAMPAIGN_STAGES.map((_,i)=>i);
+  if(!Array.isArray(v.stageOrder)||v.stageOrder.length!==10)v.stageOrder=v.step>0?CAMPAIGN_STAGES.map((_,i)=>i):null;
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
   v.selected=null;v.query='';v.infoId=null;
   if(v.status==='results'&&!v.result)v.status='draft';
@@ -231,7 +232,7 @@ function renderCampaign(){
   const status=S.campaign.status;
   return status==='draft'?renderCampaignDraft():status==='results'?renderCampaignResults():status==='complete'?renderCampaignComplete():renderCampaignSetup();
 }
-function campaignReset(){S.campaign=campaignDefault();S.campaign.stageOrder=campaignNewOrder();saveCampaign();}
+function campaignReset(){S.campaign=campaignDefault();S.campaign.stageOrder=campaignNewOrder(S.campaign.sport);saveCampaign();}
 function campaignAdvance(){
   const v=S.campaign;
   if(v.status!=='results'||!v.result?.win)return;
