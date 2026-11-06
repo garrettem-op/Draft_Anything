@@ -4301,6 +4301,8 @@ Reply with only a JSON array with one object per candidate, in the same order: {
 // ===== Render + events =====
 let lastFocus = null;
 function render() {
+  const oldCampaignList=document.getElementById('camp-plist');
+  const campaignScroll=oldCampaignList?oldCampaignList.scrollTop:null;
   const app = $('#app');
   const ae = document.activeElement; lastFocus = ae && ae.id ? { id: ae.id, s: ae.selectionStart, e: ae.selectionEnd } : null;
   let main;
@@ -4310,6 +4312,7 @@ function render() {
   const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo() : '');
+  if(campaignScroll!==null){const next=document.getElementById('camp-plist');if(next)next.scrollTop=campaignScroll;}
   if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus(); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
 }
 function refreshPlist() {
@@ -4351,6 +4354,7 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-close': S.campaign.selected = null; break;
+    case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
     case 'camp-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break;S.campaign.infoId=null;break;
     case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validation='';}break;
