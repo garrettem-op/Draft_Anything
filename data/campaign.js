@@ -98,10 +98,11 @@ function renderCampaignDraft(){
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
   const pool=getPool('mashup'),q=v.query.toLowerCase().trim();
   const matches=all.filter(c=>!q||c.n.toLowerCase().includes(q)||c.t.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n));
+  const previouslyUsed=st.rule==='final'?campaignUsed():new Set();
   const picker=pos?`<div class="panel picker open">
     <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><div class="row"><button class="btn small" data-act="camp-remove" ${v.roster[pos.id]?"":"disabled"}>Remove</button><button class="btn small" data-act="camp-close">Done</button></div></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
     <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search all ${all.length} characters" autocomplete="off"></div>
-    <div class="plist">${matches.length?matches.map(c=>`<div class="row" style="gap:4px;padding:0 6px"><button class="cand" style="min-width:0;flex:1" data-act="camp-pick" data-cid="${esc(c.id)}" ${taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small></span>${taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn small" style="flex:none;padding:6px 10px" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`).join(''):'<div class="empty-state">No characters match your search.</div>'}</div>
+    <div class="row" style="gap:3px;flex-wrap:wrap;padding:6px">${"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(letter=>`<button class="btn small" type="button" data-act="camp-letter" data-letter="${letter}" style="padding:3px 6px">${letter}</button>`).join("")}</div><div class="plist" id="camp-plist">${matches.length?matches.map(c=>`<div class="row" style="gap:4px;padding:0 6px"><button class="cand" style="min-width:0;flex:1" data-act="camp-pick" data-cid="${esc(c.id)}" ${previouslyUsed.has(c.id)||taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small></span>${previouslyUsed.has(c.id)?'<span class="meta muted">Previously used</span>':taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn small" style="flex:none;padding:6px 10px" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`).join(''):'<div class="empty-state">No characters match your search.</div>'}</div>
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel"><div class="sec"><h3 class="h">Your lineup</h3><span class="num muted">${filled}/${limit}</span></div>
     <div class="roster-list">${SPORTS[v.sport].pos.map(p=>`<button class="rl ${v.roster[p.id]?'':'empty'}" data-act="camp-slot" data-slot="${p.id}" ${allowedSet.has(p.id)?'':'disabled'}><span class="ab">${p.ab}</span><span class="who"><b>${!allowedSet.has(p.id)?'Locked for this challenge':v.roster[p.id]?esc(v.roster[p.id].n):'Open — tap to fill'}</b><small>${esc(p.nm)}</small></span>${v.roster[p.id]?avatar(v.roster[p.id]):''}</button>`).join('')}</div>
@@ -143,7 +144,7 @@ function campaignPlay(){
   const opp=campaignOpponent(v.sport,excluded,target,rng);
   const game=playGame(v.sport,score,opp.score,SEASONS[v.sport].sigma*1.1,rng,true);
   const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
-  v.result={win,ourPoints,theirPoints,note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
+  v.result={win,ourPoints,theirPoints,report:daReport(v.sport,score,ourPoints,v.teamName),note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
 }
 function campaignOrigin(c){
@@ -180,6 +181,7 @@ function renderCampaignResults(){
     <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
   </div>
   <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p></div>
+  ${r.report||""}
   <div class="cta-row">${r.win?`<button class="btn primary big" data-act="camp-next">${v.step===9?'Claim campaign championship':'Unlock challenge '+(v.step+2)}</button>`:`<button class="btn primary" data-act="camp-retry">Retry this challenge</button><button class="btn" data-act="camp-edit">Edit your lineup</button>`}<button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
 }
 function renderCampaignComplete(){
