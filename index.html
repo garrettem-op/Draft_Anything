@@ -522,6 +522,7 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 <script src="data/toons-profiles.js"></script>
 <script src="data/games-profiles.js"></script>
 <script src="data/campaign.js"></script>
+<script src="data/after-action.js"></script>
 <script>
 const POOLS = {};
 // ===== Universal attribute model =====
@@ -3577,6 +3578,7 @@ function renderChampResults() {
     </div>
     ${recapPanel(c.result.recap)}
     <div class="cta-row" style="margin-top:14px"><button class="btn primary" data-act="c-rerun">Run it back</button>${handMode() ? `<button class="btn" data-act="c-newdeal">Deal a new draft</button>` : `<button class="btn" data-act="c-edit">Edit roster</button>`}<button class="btn" data-act="c-setup">New setup</button><button class="btn" data-act="c-copy">Copy result</button></div>
+    ${sim.games.filter(g=>g.a===0||g.b===0).slice(-5).map(g=>{const other=g.a===0?g.b:g.a;return '<details class="panel" style="padding:12px;margin:10px 0"><summary>Match report vs '+esc(teams[other].name)+'</summary>'+daGameReport(c.sport,teams[g.a],teams[g.b],g)+'</details>';}).join('')}
     <div class="res-grid">
       <div class="stack" style="align-content:start">
         <div class="panel"><div class="sec"><h3 class="h">Your roster</h3></div><div class="tbl-wrap">${rosterTable(c.sport, c.poolId, me)}</div></div>
@@ -3745,6 +3747,7 @@ function renderPerfectResults() {
     ${recapPanel(R.recap)}
     <div class="cta-row" style="margin-top:14px"><button class="btn primary" data-act="c-rerun">Play another season</button><button class="btn" data-act="c-share">Share lineup</button><button class="btn" data-act="c-edit">Edit lineup</button><button class="btn" data-act="c-setup">New setup</button><button class="btn" data-act="c-copy">Copy result</button>${bestTxt ? `<span class="note">${esc(bestTxt)}</span>` : ''}</div>
     ${losses.length ? `<div class="panel losses"><div class="sec"><h3 class="h">What kept it from perfect</h3><span class="note">${losses.length > 8 ? 'First 8 of ' + losses.length : losses.length + ' total'}</span></div><div class="loss-list">${lossChips}</div></div>` : ''}
+    ${sim.games.filter(g=>g.a===0||g.b===0).slice(-5).map(g=>{const other=g.a===0?g.b:g.a;return '<details class="panel" style="padding:12px;margin:10px 0"><summary>Match report vs '+esc(teams[other].name)+'</summary>'+daGameReport(c.sport,teams[g.a],teams[g.b],g)+'</details>';}).join('')}
     <div class="res-grid">
       <div class="stack" style="align-content:start">
         ${statsPanel(c.sport, R.stats)}
@@ -4119,6 +4122,7 @@ function renderH2HResult(d) {
   return `<div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${esc(sp.name)} · ${esc(d.poolName || '')} · Final</span><div class="big">${title}</div>
       <p>${nm || no ? `${esc(contestName(d, me))} had ${nm} chemistry link${nm === 1 ? '' : 's'}; ${esc(contestName(d, opp))} had ${no}.` : 'Neither roster had any chemistry.'}${d.rules.upsets !== 'off' ? ' Upsets were on.' : ''}</p>
       ${scorebug(contestName(d, winSide), contestName(d, loseSide), g.line, spectator ? 'you' : iWon ? 'you' : 'opp', spectator ? 'opp' : iWon ? 'opp' : 'you', 'Final')}</div>
+    ${daReport(d.sport,sc[me],g.winner===(me==='host'?0:1)?g.line[0]:g.line[1],contestName(d,me))}${daReport(d.sport,sc[opp],g.winner===(opp==='host'?0:1)?g.line[0]:g.line[1],contestName(d,opp))}
     ${recapPanel(h2hRecap(d.sport, sc[me], sc[opp], contestName(d, me), contestName(d, opp), spectator ? winSide === 'host' : iWon, g.line, UPSET_SIGMA[d.rules.upsets] || 0, getCands(d.poolId), d.id, (g.ev || []).map(e => ({ ...e, team: (e.side === 0) === (me === 'host') ? 0 : 1 }))))}
     <div class="cta-row" style="margin-top:14px">${mySide(d) ? `<button class="btn primary" data-act="h-rematch">Rematch with same rules</button>` : ''}<button class="btn" data-act="h-lobby">Back to lobby</button></div>
     <div class="res-grid">
