@@ -11,6 +11,41 @@ const CAMPAIGN_STAGES = [
   {name:'Short-Handed',rule:'short',blurb:'Play with only 60% of your starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Full Strength'},
   {name:'The Final Gauntlet',rule:'final',blurb:'Again play short-handed, and you cannot reuse ANY character from a previous winning roster.',rival:'The Final Boss'}
 ];
+const CAMPAIGN_EXTRA = [
+{name:'Skyborne',rule:'flight',blurb:'Every pick must be a known flyer or aerial combatant.',rival:'The Air Armada'},
+{name:'Arcane Assembly',rule:'magic',blurb:'Every pick must wield magic or supernatural sorcery.',rival:'The Spellbinders'},
+{name:'Mind Games',rule:'psychic',blurb:'Every pick must have telepathy, telekinesis, or psychic powers.',rival:'The Mind Readers'},
+{name:'Under the Sea',rule:'aquatic',blurb:'Every pick must thrive underwater or have aquatic powers.',rival:'The Deep'},
+{name:'Inferno',rule:'fire',blurb:'Every pick must command fire or flames.',rival:'The Wildfire'},
+{name:'Cold Front',rule:'ice',blurb:'Every pick must command ice or freezing powers.',rival:'The Frostguard'},
+{name:'Shock Troopers',rule:'electric',blurb:'Every pick must wield electricity or lightning.',rival:'The Thunderbolts'},
+{name:'Tech Titans',rule:'tech',blurb:'Every pick must rely on advanced technology or armor.',rival:'The Engineers'},
+{name:'Ghost Protocol',rule:'stealth',blurb:'Every pick must be known for stealth or invisibility.',rival:'The Shadows'},
+{name:'Blink and Miss',rule:'teleport',blurb:'Every pick must be able to teleport.',rival:'The Jumpers'},
+{name:'The Medics',rule:'healing',blurb:'Every pick must have healing or regenerative abilities.',rival:'The Lifesavers'},
+{name:'Giant Problems',rule:'giants',blurb:'Every pick must be capable of becoming enormous or already be giant-sized.',rival:'The Colossi'}
+];
+const CAMPAIGN_TAGS = {
+flight:'Iron Man|Thor|Captain Marvel|Vision|Falcon|War Machine|Superman|Goku|Vegeta|Buzz Lightyear|Charizard|Dragonite|Rayquaza|Mewtwo|Storm|Silver Surfer|Ikaris',
+magic:'Doctor Strange|Scarlet Witch|Loki|Agatha Harkness|Wong|Doctor Fate|Zatanna|Raven|Elsa|Maleficent|Gandalf|Dumbledore|Harry Potter|Hermione Granger|Zelda',
+psychic:'Jean Grey|Professor X|Mewtwo|Mew|Psyduck|Alakazam|Scarlet Witch|Vision|Martian Manhunter|Raven|Mob|Saiki Kusuo',
+aquatic:'Aquaman|Namor|Ariel|SpongeBob SquarePants|Patrick Star|Squidward Tentacles|Mr. Krabs|Squirtle|Wartortle|Blastoise|Magikarp|Gyarados|Kyogre|Dory|Nemo',
+fire:'Human Torch|Ghost Rider|Charizard|Charmander|Charmeleon|Magmar|Flareon|Moltres|Infernape|Bowser|Zuko|Iroh|Azula|Fire Mario',
+ice:'Elsa|Iceman|Sub-Zero|Articuno|Glaceon|Lapras|Jynx|Frozone|Kyurem|Regice|Mr. Freeze',
+electric:'Thor|Pikachu|Raichu|Jolteon|Zapdos|Electabuzz|Electivire|Magneto|Storm|Palpatine|Darth Sidious|Shazam',
+tech:'Iron Man|War Machine|Ironheart|Batman|Cyborg|Ultron|Vision|Rocket Raccoon|Black Panther|Shuri|Samus Aran|Mega Man|RoboCop|Master Chief|Darth Vader|R2-D2',
+stealth:'Black Widow|Hawkeye|Batman|Solid Snake|Sam Fisher|Invisible Woman|Ghost|Elektra|Ninja|Greninja|The Mandalorian|Boba Fett|Predator',
+teleport:'Nightcrawler|Doctor Strange|Loki|Scarlet Witch|America Chavez|Deadpool|Mewtwo|Abra|Kadabra|Alakazam|Hoopa|Sasuke Uchiha|Minato Namikaze',
+healing:'Wolverine|Deadpool|Hulk|She-Hulk|Groot|Mewtwo|Chansey|Blissey|Mercy|Kiriko|Baymax|Rapunzel|Senzu Bean',
+giants:'Hulk|Ant-Man|Giant-Man|Goliath|Godzilla|King Kong|Bowser|Donkey Kong|Groudon|Wailord|Snorlax|Galactus|The Thing'
+};
+for(const k in CAMPAIGN_TAGS) CAMPAIGN_TAGS[k]=new Set(CAMPAIGN_TAGS[k].split('|'));
+function campaignStages(){return S.campaign?.stageOrder?.map(i=>CAMPAIGN_STAGES[i]||CAMPAIGN_EXTRA[i-CAMPAIGN_STAGES.length]).filter(Boolean)||CAMPAIGN_STAGES;}
+function campaignNewOrder(){
+ const fixed=CAMPAIGN_STAGES.length-1, pool=CAMPAIGN_STAGES.slice(0,-1).map((_,i)=>i).concat(CAMPAIGN_EXTRA.map((_,i)=>CAMPAIGN_STAGES.length+i));
+ for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+ return pool.slice(0,9).concat(fixed);
+}
 const CAMPAIGN_WOMEN=new Set('Black Widow|Scarlet Witch|Captain Marvel|Gamora|Nebula|Mantis|The Wasp|Janet van Dyne|Kate Bishop|Okoye|Ayo|Shuri|Nakia|Ironheart|Valkyrie|Hela|Sif|Pepper Potts|Ms. Marvel|She-Hulk|Yelena Belova|Taskmaster|Sharon Carter|Agatha Harkness|Maria Hill|Peggy Carter|Darcy Lewis|Ghost|MJ|Aunt May|Thena|Makkari|Ajak|Sersi|Sprite|Monica Rambeau|America Chavez|Echo|Jessica Jones|Elektra|Jean Grey|Invisible Woman|Silver Surfer|Captain Carter|Lola Bunny|Minnie Mouse|Daisy Duck|Elsa|Moana|Mulan|Violet|Elastigirl|Sandy Cheeks|Lisa Simpson|Marge Simpson|Velma|Lucy van Pelt|Peppermint Patty|Blossom|Bubbles|Buttercup|Katara|Toph Beifong|Tigress|Bluey|Anna|Vanellope von Schweetz|Princess Peach|Princess Daisy|Rosalina|Samus Aran|Zelda|Princess Zelda|Lara Croft|Chun-Li|Sonya Blade|Kitana|Mileena|Bayonetta|Jill Valentine|Ada Wong|Ellie|Aloy'.split('|'));
 const CAMPAIGN_RED=new Set('Iron Man|Spider-Man|Scarlet Witch|Vision|Red Guardian|Red Skull|Daredevil|Deadpool|Human Torch|Star-Lord|Carnage|Mario|Knuckles|Diddy Kong|Donkey Kong|Raphael|Lightning McQueen|Mr. Incredible|Elastigirl|Blossom|Optimus Prime|Zuko|Yosemite Sam|Mr. Krabs|Anger|Incineroar|Scorpion|Flash|The Flash|Ant-Man|Wreck-It Ralph|Mickey Mouse'.split('|'));
 const CAMPAIGN_KIDS=new Set('Spider-Man|Ms. Marvel|Ironheart|America Chavez|Sprite|Franklin Richards|Dash|Violet|Jack-Jack|Blossom|Bubbles|Buttercup|Bluey|Bingo|Bart Simpson|Lisa Simpson|Charlie Brown|Lucy van Pelt|Peppermint Patty|Aang|Toph Beifong|Zuko|Katara|Sokka|Morty|Ned Leeds|MJ|Vanellope von Schweetz|Ness|Lucas|Ash Ketchum|Pokémon Trainer|Young Link|Kid Link|Baby Mario|Baby Luigi|Dora the Explorer|Jimmy Neutron|Dexter|Timmy Turner|Penny Proud|Phineas|Ferb|Stewie Griffin|Maggie Simpson|Huey|Dewey|Louie|Lincoln Loud'.split('|'));
@@ -20,11 +55,12 @@ for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secur
 for (const n of ['Darth Maul','Savage Opress','Charmander','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
   v.history=v.history.slice(0,10);
+  if(!Array.isArray(v.stageOrder)||v.stageOrder.length!==10)v.stageOrder=CAMPAIGN_STAGES.map((_,i)=>i);
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
   v.selected=null;v.query='';v.infoId=null;
   if(v.status==='results'&&!v.result)v.status='draft';
@@ -32,9 +68,9 @@ function loadCampaign(){
 }
 function saveCampaign(){
   const v=S.campaign;
-  lsSet('da.campaign.v1',{status:v.status,step:v.step,sport:v.sport,teamName:v.teamName,roster:Object.fromEntries(Object.entries(v.roster||{}).map(([p,c])=>[p,c.id])),history:v.history,result:v.result});
+  lsSet('da.campaign.v1',{status:v.status,step:v.step,sport:v.sport,teamName:v.teamName,roster:Object.fromEntries(Object.entries(v.roster||{}).map(([p,c])=>[p,c.id])),history:v.history,result:v.result,stageOrder:v.stageOrder});
 }
-function campaignStage(){return CAMPAIGN_STAGES[Math.min(9,S.campaign.step)];}
+function campaignStage(){return campaignStages()[Math.min(9,S.campaign.step)];}
 function campaignSlots(sport,rule){
   const slots=SPORTS[sport].pos;
   if(rule!=='short'&&rule!=='final')return slots;
@@ -57,11 +93,12 @@ function campaignAllowed(c,rule){
     case 'strong':return c.a[2]>=87;
     case 'underdog':return c.a.reduce((n,v)=>n+v,0)/c.a.length<=73;
     case 'final':return !campaignUsed().has(c.id);
-    default:return true;
+    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n);return true;
+
   }
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
-function campaignSportValid(sport){return CAMPAIGN_STAGES.every(ch=>campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule));}
+function campaignSportValid(sport){return [...CAMPAIGN_STAGES,...CAMPAIGN_EXTRA].filter(ch=>ch.rule==='final'||campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule)).length>=10&&CAMPAIGN_STAGES.every(ch=>campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule));}
 function campaignQualified(){
   const v=S.campaign,st=campaignStage();
   return Object.values(v.roster).every(c=>campaignAllowed(c,st.rule));
@@ -75,7 +112,7 @@ function campaignProgress(){
   return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
     <div class="row" style="justify-content:space-between;align-items:center"><b>Campaign progress</b><span class="num">${done} / 10 wins</span></div>
     <div class="meter" role="progressbar" aria-label="Campaign wins" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="10"><i style="width:${done*10}%"></i></div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${CAMPAIGN_STAGES.map((ch,i)=>`<span class="chip" title="${esc(ch.name)}" style="${i<done?'border-color:var(--good);color:var(--good)':i===v.step&&v.status!=='complete'?'border-color:var(--accent-strong)':''}">${i+1}. ${esc(ch.name)}</span>`).join('')}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${campaignStages().map((ch,i)=>`<span class="chip" title="${esc(ch.name)}" style="${i<done?'border-color:var(--good);color:var(--good)':i===v.step&&v.status!=='complete'?'border-color:var(--accent-strong)':''}">${i+1}. ${esc(ch.name)}</span>`).join('')}</div>
   </div>`;
 }
 function renderCampaignSetup(){
@@ -194,13 +231,13 @@ function renderCampaign(){
   const status=S.campaign.status;
   return status==='draft'?renderCampaignDraft():status==='results'?renderCampaignResults():status==='complete'?renderCampaignComplete():renderCampaignSetup();
 }
-function campaignReset(){S.campaign=campaignDefault();saveCampaign();}
+function campaignReset(){S.campaign=campaignDefault();S.campaign.stageOrder=campaignNewOrder();saveCampaign();}
 function campaignAdvance(){
   const v=S.campaign;
   if(v.status!=='results'||!v.result?.win)return;
   v.history.push({name:campaignStage().name,names:v.result.names,ids:v.result.ids});
   v.step++;
   v.roster={};v.selected=null;v.query='';v.result=null;
-  v.status=v.step>=CAMPAIGN_STAGES.length?'complete':'draft';
+  v.status=v.step>=campaignStages().length?'complete':'draft';
   saveCampaign();
 }
