@@ -20,8 +20,8 @@ function daBoxScore(sport,score,points,seed) {
     const i=active.indexOf(r),support=i<0,fit=Math.round(r.fit||0);
     let stats=[];
     if(sport==='basketball')stats=support?[['Team boost',Math.max(0,Math.round((fit-50)/10))]]:[['PTS',main[i]],['REB',aux[i]],['AST',aux2[i]],['STL',aux3[i]]];
-    else if(sport==='football')stats=support?[['Team boost',Math.max(0,Math.round((fit-50)/10))]]:[['Points contributed',main[i]],['YDS',aux[i]*5],['TD',Math.floor(main[i]/7)],['TACK',aux2[i]],['SACK',Math.floor(aux3[i]/3)]];
-    else if(sport==='brawl')stats=support?[['Buff',Math.max(0,Math.round((fit-50)/8))]]:[['Damage dealt',main[i]*12],['Absorbed',aux[i]*16],['Mitigated',aux2[i]*8],['Elims',Math.floor(aux3[i]/4)]];
+    else if(sport==='football')stats=support?[['Team boost',Math.max(0,Math.round((fit-50)/10))]]:[['Points contributed',main[i]],['YDS',aux[i]*5],['Estimated TD share',+(main[i]/7).toFixed(1)],['TACK',aux2[i]],['Estimated sacks',+(aux3[i]/3).toFixed(1)]];
+    else if(sport==='brawl')stats=support?[['Buff',Math.max(0,Math.round((fit-50)/8))]]:[['Damage dealt',main[i]*12],['Absorbed',aux[i]*16],['Mitigated',aux2[i]*8],['Estimated eliminations',+(aux3[i]/4).toFixed(1)]];
     else if(sport==='soccer'||sport==='hockey')stats=support?[['Team boost',Math.max(0,Math.round((fit-50)/10))]]:[['Goals',main[i]],['Assists',aux2[i]]];
     else if(sport==='baseball')stats=support?[['Team boost',Math.max(0,Math.round((fit-50)/10))]]:[['Runs',main[i]],['Hits',aux[i]],['RBI',aux2[i]]];
     else stats=support?[['Team boost',Math.max(0,Math.round((fit-50)/10))]]:[['Scoring share',main[i]],['Key plays',aux2[i]]];
@@ -36,10 +36,10 @@ function daReport(sport,score,points,title) {
   <div class="tbl-wrap"><table class="t"><thead><tr><th>Character</th><th>Role</th><th>Fit</th><th>Contributions</th></tr></thead><tbody>${data.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.role)}</td><td class="num">${r.fit}</td><td>${r.stats.map(([k,v])=>`${esc(k)}: <b class="num">${v}</b>`).join(' · ')}</td></tr>`).join('')}</tbody></table></div>
   <p class="note" style="margin:10px 0 0">${best?'Top positional fit: '+esc(best.name)+'. ':''}Figures distribute the simulated result using positional fit and existing attributes; they are not tracked in-game events. Non-scoring estimates are indicative only.</p></div>`;
 }
-function daGameReport(sport,teamA,teamB,game,teamIndex) {
+function daGameReport(sport,teamA,teamB,game) {
   if(!game||!teamA?.score||!teamB?.score)return '';
-  const winning=game.w===game.a?game.a:game.w===game.b?game.b:null;
-  if(winning==null)return '';
-  const aPts=game.w===game.a?game.line[0]:game.line[1],bPts=game.w===game.b?game.line[0]:game.line[1];
+  const winner=game.w;
+  if(!Array.isArray(game.line))return '';
+  const aPts=winner===game.a?game.line[0]:game.line[1],bPts=winner===game.b?game.line[0]:game.line[1];
   return daReport(sport,teamA.score,aPts,teamA.name)+daReport(sport,teamB.score,bPts,teamB.name);
 }
