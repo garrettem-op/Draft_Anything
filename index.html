@@ -3464,7 +3464,7 @@ function pickerHTML(o) {
       <div class="row" style="flex-wrap:nowrap">${o.canRemove ? `<button class="btn small" data-act="c-remove">Remove</button>` : ''}${o.closeAct ? `<button class="btn small" data-act="${o.closeAct}" aria-label="Close picker">Done</button>` : ''}</div></div>
       <div class="needs" title="What this role leans on most">${needsText(pos).map(n => `<span>${n}</span>`).join('')}</div></div>
     <div class="picker-tools"><input type="text" id="pick-q" placeholder="Search ${getCands(o.poolId).length} candidates" value="${esc(o.query || '')}" data-input="pick-q" autocomplete="off"></div>
-    <div class="plist" id="plist">${plistHTML(o)}</div>`;
+    <div class="picker-tools" style="display:flex;align-items:center;gap:8px"><span class="note">A–Z</span><input type="range" min="0" max="25" value="0" step="1" data-input="pick-letter-range" aria-label="Jump to a candidate name by first letter"><b class="num" id="pick-letter-label">A</b></div><div class="plist" id="plist">${plistHTML(o)}</div>`;
 }
 function plistHTML(o) {
   const sp = SPORTS[o.sportKey], pos = sp.pos.find(p => p.id === o.sel);
@@ -4302,6 +4302,17 @@ Reply with only a JSON array with one object per candidate, in the same order: {
 
 // ===== Render + events =====
 let lastFocus = null;
+function jumpTalentPoolLetter(listId,labelId,letter) {
+  const list=document.getElementById(listId);
+  if(!list)return;
+  const entries=Array.from(list.querySelectorAll('.cand'));
+  if(!entries.length)return;
+  const nameOf=el=>(el.querySelector('.who b')?.textContent||'').trim().toUpperCase();
+  const target=entries.find(el=>nameOf(el).charAt(0)>=letter)||entries[entries.length-1];
+  const anchor=target.closest('.row')||target;
+  list.scrollTop+=anchor.getBoundingClientRect().top-list.getBoundingClientRect().top;
+  const label=document.getElementById(labelId);if(label)label.textContent=letter;
+}
 function render() {
   const oldCampaignList=document.getElementById('camp-plist');
   const campaignScroll=oldCampaignList?oldCampaignList.scrollTop:null;
@@ -4456,6 +4467,7 @@ document.addEventListener('input', e => {
   const v = e.target.value;
   if (k === 'camp-team') { S.campaign.teamName=v; saveCampaign(); }
   else if (k === 'camp-query') { S.campaign.query=v; render(); }
+  else if (k === 'camp-letter-range' || k === 'pick-letter-range') {const letter=String.fromCharCode(65+Math.max(0,Math.min(25,+v||0)));jumpTalentPoolLetter(k==='camp-letter-range'?'camp-plist':'plist',k==='camp-letter-range'?'camp-letter-label':'pick-letter-label',letter);}
   else if (k === 'report-match') { S.champ.reportMatch=+v; render(); }
   else if (k === 'c-team') { S.champ.teamName = v; saveChamp(); }
   else if (k === 'c-opps') { S.champ.opps = +v; const l = $('#c-opps-v'); if (l) l.textContent = v; saveChamp(); }
