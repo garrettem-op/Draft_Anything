@@ -48,7 +48,8 @@ function daBoxScore(sport,score,points,seed='',options={}) {
   const active=entries.filter(r=>r.active);
   function metric(label,total,eligible,weight,salt) {
     const candidates=active.filter(eligible||(()=>true));
-    const recipients=candidates.length?candidates:active;
+    if(!candidates.length)return 0;
+    const recipients=candidates;
     const allocation=daAllocate(total,recipients.map(r=>Math.max(.01,(weight?weight(r):r.fit)*pulse(r))));
     recipients.forEach((r,i)=>r.stats.push([label,allocation[i]]));
     return allocation.reduce((a,b)=>a+b,0);
@@ -72,7 +73,9 @@ function daBoxScore(sport,score,points,seed='',options={}) {
       summary.scoring=b;
       const receiving=only(['wr1','wr2','slot','te']),runner=only(['rb','qb']);
       const skill=only(['qb','rb','wr1','wr2','slot','te']);
-      metric('TD',b.td,skill,r=>val(r,'spd')+val(r,'tch')+({rb:85,wr1:60,wr2:50,te:35,slot:45,qb:18}[r.position]||0),'td');
+      summary.unassignedTD=b.td?0:0;
+      const assignedTD=metric('TD',b.td,skill,r=>val(r,'spd')+val(r,'tch')+({rb:85,wr1:60,wr2:50,te:35,slot:45,qb:18}[r.position]||0),'td');
+      summary.unassignedTD=b.td-assignedTD;
       metric('Pass YDS',Math.round(145+total*5),only(['qb']),r=>val(r,'acc')+val(r,'iq'),'pass');
       metric('Rush YDS',Math.round(55+total*2.7),runner,r=>val(r,'spd')+val(r,'agi')+({rb:90,qb:5}[r.position]||0),'rush');
       metric('Rec YDS',Math.round(145+total*5),receiving,r=>val(r,'tch')+val(r,'spd')+({wr1:40,wr2:30,slot:25,te:20}[r.position]||0),'rec');
@@ -135,7 +138,7 @@ function daReport(sport,score,points,title='',options={}) {
   const top=[...active].sort((a,b)=>b.delta-a.delta)[0];
   const low=[...active].sort((a,b)=>a.delta-b.delta)[0];
   const scoring=result.summary?.scoring;
-  const footer=scoring?`<p class="note">Scoring allocation: ${scoring.td} TD × 7 + ${scoring.fg} FG × 3 + ${scoring.safeties} safeties × 2${scoring.unassigned?' + '+scoring.unassigned+' other':''} = ${scoring.total}. Field goals are team special-teams points; no kicker position exists on this roster.</p>`:
+  const footer=scoring?`<p class="note">Scoring allocation: ${scoring.td} TD × 7 + ${scoring.fg} FG × 3 + ${scoring.safeties} safeties × 2${scoring.unassigned?' + '+scoring.unassigned+' other':''} = ${scoring.total}. Field goals are team special-teams points; no kicker position exists on this roster.${result.summary.unassignedTD?' '+result.summary.unassignedTD+' touchdown(s) cannot be assigned because this lineup has no eligible scorer.':''}</p>`:
     sport==='volleyball'?`<p class="note">Estimated rally points: ${result.summary.teamRallyPoints}. Kills, blocks and aces are projected from rally totals, not official recorded events.</p>`:'';
   return `<div class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">${esc(title||'After-action report')}</h3><span class="note">Simulated box score · not tracked play-by-play</span></div>
   <div class="tbl-wrap"><table class="t"><thead><tr><th>Character</th><th>Role</th><th>Fit</th><th>Form</th><th>Estimated contributions</th></tr></thead><tbody>${result.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.role)}</td><td class="num">${r.fit}</td><td class="num">${r.impact} (${r.delta>=0?'+':''}${r.delta})</td><td>${r.stats.map(([k,v])=>`${esc(k)}: <b class="num">${v}</b>`).join(' · ')}</td></tr>`).join('')}</tbody></table></div>
