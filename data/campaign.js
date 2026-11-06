@@ -144,7 +144,7 @@ function renderCampaignDraft(){
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel"><div class="sec"><h3 class="h">Your lineup</h3><span class="num muted">${filled}/${limit}</span></div>
     <div class="roster-list">${SPORTS[v.sport].pos.map(p=>`<button class="rl ${v.roster[p.id]?'':'empty'}" data-act="camp-slot" data-slot="${p.id}" ${allowedSet.has(p.id)?'':'disabled'}><span class="ab">${p.ab}</span><span class="who"><b>${!allowedSet.has(p.id)?'Locked for this challenge':v.roster[p.id]?esc(v.roster[p.id].n):'Open — tap to fill'}</b><small>${esc(p.nm)}</small></span>${v.roster[p.id]?avatar(v.roster[p.id]):''}</button>`).join('')}</div>
-    <div class="sec"><span class="note">${filled===limit?'Ready to play.':'Choose '+limit+' positions from the available starters.'}</span><button class="linkish" data-act="camp-random">Fill available spots</button></div>
+    <div class="sec"><span class="note">${filled===limit?'Ready to play.':'Choose '+limit+' positions from the available starters.'}</span><span class="note">Pick characters manually; eligibility is evaluated when you submit.</span></div>
   </div>`;
   return `<section>${campaignProgress()}
     <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p></div>
@@ -225,7 +225,7 @@ function renderCampaignResults(){
 function renderCampaignComplete(){
   const v=S.campaign;
   return `<section>${campaignProgress()}<div class="result-hero perfect"><span class="eyebrow" style="color:inherit">10 / 10 challenges won</span><div class="big"><em>Campaign Champion</em></div><p>${esc(v.teamName)} completed all ten restricted-roster matchups. Every stage has been cleared.</p></div>
-    <div class="panel" style="padding:16px;margin-top:14px"><h2 class="h">Your ten victories</h2><div class="roster-list">${v.history.map((x,i)=>`<div class="rl"><span class="ab">${i+1}</span><span class="who"><b>${esc(x.name)}</b><small>${esc(x.names.join(', '))}</small></span></div>`).join('')}</div></div>
+    <div class="panel" style="padding:16px;margin-top:14px"><h2 class="h">Your ten victories</h2><div class="roster-list">${v.history.map((x,i)=>`<details class="panel" style="padding:12px;margin:8px 0"><summary><b>${i+1}. ${esc(x.name)}</b> · ${esc(x.score||'')} · ${(x.names||[]).length} characters</summary><p class="note">${esc((x.names||[]).join(', '))}</p>${x.report||'<p class="note">No archived report for this older challenge.</p>'}</details>`).join('')}</div></div>
     <div class="cta-row"><button class="btn primary" data-act="camp-reset">Start a new campaign</button><button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
 }
 function renderCampaign(){
