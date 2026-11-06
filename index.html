@@ -4406,6 +4406,10 @@ document.addEventListener('click', e => {
       window.scrollTo(0, 0); break;
     case 'c-setup': c.stage = 'setup'; c.sel = null; c.result = null; break;
     case 'slot':
+      if (S.mode === 'champ' && c.campaignMode) {
+        if (campaignSlots(S.campaign.sport,campaignStage().rule).some(p=>p.id===t.dataset.slot)) {S.campaign.selected=t.dataset.slot;S.campaign.validation='';}
+        break;
+      }
       if (handMode()) {
         const slot = t.dataset.slot;
         if (c.roster[slot]) break;
