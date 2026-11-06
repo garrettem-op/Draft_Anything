@@ -1,0 +1,22 @@
+name: After-action regression tests
+on:
+  push:
+    branches:
+      - feature/per-match-box-scores
+  pull_request:
+    paths:
+      - 'data/after-action.js'
+      - 'data/campaign.js'
+      - 'index.html'
+      - 'tests/**'
+      - '.github/workflows/after-action-tests.yml'
+jobs:
+  box-scores:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify reports and score reconciliation
+        run: node --test tests/after-action.test.cjs
