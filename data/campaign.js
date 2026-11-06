@@ -175,14 +175,14 @@ function campaignPlay(){
     return;
   }
   S.campaign.validation='';
-  const v=S.campaign,st=campaignStage(),rng=rngFrom(Date.now()+':'+Math.random());
+  const v=S.campaign,st=campaignStage(),gameSeed=Date.now()+':'+Math.random(),rng=rngFrom(gameSeed);
   const score=teamScore(v.sport,v.roster),excluded=new Set(Object.values(v.roster).map(c=>c.id));
   // Each opponent is a complete team, generally stronger than your restricted roster.
   const target=score.rating+1.5+v.step*0.7;
   const opp=campaignOpponent(v.sport,excluded,target,rng);
   const game=playGame(v.sport,score,opp.score,SEASONS[v.sport].sigma*1.1,rng,true);
   const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
-  v.result={win,ourPoints,theirPoints,report:daReport(v.sport,score,ourPoints,v.teamName),note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
+  v.result={win,ourPoints,theirPoints,report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),opponentReport:daReport(v.sport,opp.score,theirPoints,st.rival,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
 }
 function campaignOrigin(c){
@@ -219,7 +219,7 @@ function renderCampaignResults(){
     <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
   </div>
   <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p></div>
-  ${r.report||""}
+  ${r.report||""}<details class="panel" style="padding:14px;margin:12px 0"><summary>Opponent box score</summary>${r.opponentReport||""}</details>
   <div class="cta-row">${r.win?`<button class="btn primary big" data-act="camp-next">${v.step===9?'Claim campaign championship':'Unlock challenge '+(v.step+2)}</button>`:`<button class="btn primary" data-act="camp-retry">Retry this challenge</button><button class="btn" data-act="camp-edit">Edit your lineup</button>`}<button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
 }
 function renderCampaignComplete(){
@@ -236,7 +236,7 @@ function campaignReset(){S.campaign=campaignDefault();S.campaign.stageOrder=camp
 function campaignAdvance(){
   const v=S.campaign;
   if(v.status!=='results'||!v.result?.win)return;
-  v.history.push({name:campaignStage().name,names:v.result.names,ids:v.result.ids});
+  v.history.push({name:campaignStage().name,names:v.result.names,ids:v.result.ids,report:v.result.report,score:v.result.ourPoints+'–'+v.result.theirPoints});
   v.step++;
   v.roster={};v.selected=null;v.query='';v.result=null;
   v.status=v.step>=campaignStages().length?'complete':'draft';
