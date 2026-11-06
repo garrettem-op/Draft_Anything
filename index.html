@@ -4341,7 +4341,7 @@ document.addEventListener('click', e => {
         S.campaign = { ...campaignDefault(), sport: t.dataset.sport, teamName: name };
       }
       break;
-    case 'camp-start': S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
+    case 'camp-start': if(!S.campaign.stageOrder)S.campaign.stageOrder=campaignNewOrder(S.campaign.sport); S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
     case 'camp-reset': campaignReset(); break;
     case 'camp-setup': S.campaign.status = 'setup'; S.campaign.selected = null; break;
     case 'camp-slot': {
