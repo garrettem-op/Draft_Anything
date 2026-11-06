@@ -154,4 +154,27 @@ function daGameReport(sport,teamA,teamB,game,seed='') {
     daReport(sport,teamB.score,bPoints,teamB.name,{seed:seed+':b',note:game.line[2],side:winner===game.b?0:1,opponentPoints:aPoints});
 }
 
-if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport};
+function daUserMatches(sim) {
+  const games=[];
+  (sim?.games||[]).forEach((g,i)=>{if(g.a===0||g.b===0)games.push({...g,label:'Regular season · Match '+(i+1),key:'reg-'+i});});
+  (sim?.rounds||[]).forEach((round,ri)=>(round||[]).forEach((g,gi)=>{
+    if(g.a!==0&&g.b!==0)return;
+    if(Array.isArray(g.games)&&g.games.length)g.games.forEach((match,mi)=>games.push({a:g.a,b:g.b,w:match.w,line:match.line,label:'Playoffs · Round '+(ri+1)+' · Game '+(mi+1),key:'po-'+ri+'-'+gi+'-'+mi}));
+    else games.push({...g,label:'Playoffs · Round '+(ri+1),key:'po-'+ri+'-'+gi});
+  }));
+  return games;
+}
+
+function daMatchBrowser(sport,sim,teams,selected) {
+  const matches=daUserMatches(sim);
+  if(!matches.length)return '<div class="panel" style="padding:14px">No matches available for this team.</div>';
+  const ix=selected==null||selected===''?matches.length-1:Math.min(matches.length-1,Math.max(0,Math.floor(Number(selected)||0)));
+  const current=matches[ix],opp=current.a===0?current.b:current.a;
+  const result=current.w===-1?'Draw':current.w===0?'Win':'Loss';
+  return `<section class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">Match-by-match box scores</h3><span class="note">${matches.length} outings · including playoffs</span></div>
+  <label class="field-label"><span>Select a match</span><select data-input="report-match" id="report-match">${matches.map((g,i)=>`<option value="${i}" ${i===ix?'selected':''}>${esc(g.label)} · vs ${esc(teams[g.a===0?g.b:g.a].name)}</option>`).join('')}</select></label>
+  <p class="note">${result} vs ${esc(teams[opp].name)} · final ${current.line[0]}–${current.line[1]}${current.line[2]?' · '+esc(current.line[2]):''}</p>
+  ${daGameReport(sport,teams[current.a],teams[current.b],current,current.key)}</section>`;
+}
+
+if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches};
