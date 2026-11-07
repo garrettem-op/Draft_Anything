@@ -2218,7 +2218,12 @@ function synergyOf(sportKey, roster) {
     let avg = 0;
     for (const c of players) avg += ks.reduce((s, k) => s + st.w[k] * c.a[AK.indexOf(k)], 0) / tw;
     avg /= players.length;
-    style = { name: coach.n, label: st.label, pts: Math.max(-0.7, Math.min(1.4, (avg - 70) * 0.07)) };
+    // A strong roster is not automatically a stylistic match. Compare the coach's
+    // prioritized attributes against the roster's own all-attribute baseline.
+    const baseline = players.reduce((sum,c)=>sum+c.a.reduce((x,y)=>x+y,0)/c.a.length,0)/players.length;
+    const diff = avg - baseline;
+    const pts = Math.max(-1.4,Math.min(1.4,diff*0.12));
+    style = { name:coach.n,label:st.label,pts,focusAvg:avg,baseline,diff,match:pts>0.15?'Good fit':pts< -0.15?'Poor fit':'Neutral' };
   }
   return { total: Math.min(LINK_CAP, sum) + (style ? style.pts : 0), links, style };
 }
@@ -2426,13 +2431,24 @@ function randomRosters(sportKey, available, nTeams, rng) {
 
 const UPSET_SIGMA = { off: 0, low: 2.5, high: 6 };
 
+// Explain every factor without inventing play-by-play. Random variation is the
+// same single Gaussian draw already used to resolve the match, split symmetrically
+// between opponents for a transparent side-by-side breakdown.
+function matchRatingBreakdown(A,B,g,randomDelta) {
+  const base=[A.rating,B.rating];
+  const chaos=[-((B.sig&&B.sig.chaos)||0),-((A.sig&&A.sig.chaos)||0)];
+  const spark=[g.ra-base[0]-chaos[0],g.rb-base[1]-chaos[1]];
+  const random=[randomDelta/2,-randomDelta/2];
+  const final=[base[0]+chaos[0]+spark[0]+random[0],base[1]+chaos[1]+spark[1]+random[1]];
+  return {base,chaos,spark,random,final};
+}
 function playGame(sportKey, A, B, sigma, rng, playoff = false) {
-  // A, B: teamScore objects; returns { winner: 0|1, margin, line, ev }
   const g = gameRatings(A, B, playoff, rng);
-  let m = g.ra - g.rb + (sigma ? gauss(rng) * sigma : 0);
-  if (m === 0) m = rng() < 0.5 ? -0.01 : 0.01;
-  const w = m > 0 ? 0 : 1;
-  return { winner: w, margin: Math.abs(m), line: scoreline(sportKey, Math.abs(m), (g.ra + g.rb) / 2, rng), ev: g.ev };
+  let randomDelta = sigma ? gauss(rng)*sigma : 0;
+  let m = g.ra - g.rb + randomDelta;
+  if (m === 0) { const tiebreak = rng() < 0.5 ? -0.01 : 0.01; randomDelta += tiebreak; m=tiebreak; }
+  const w=m>0?0:1;
+  return { winner:w, margin:Math.abs(m),line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),ev:g.ev,breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
 }
 
 // Sport-flavored final score for a game won by `margin` rating points. Returns [winnerScore, loserScore, note]
@@ -2503,7 +2519,7 @@ function simChampionship(sportKey, teams, sigma, rng) {
     const [W, L] = g.winner === 0 ? [i, j] : [j, i];
     rec[W].w++; rec[L].l++;
     rec[W].pf += g.line[0]; rec[W].pa += g.line[1]; rec[L].pf += g.line[1]; rec[L].pa += g.line[0];
-    games.push({ a: i, b: j, w: W, line: g.line, m: g.margin });
+    games.push({ a:i,b:j,w:W,line:g.line,m:g.margin,breakdown:g.breakdown });
   }
   const standings = teams.map((t, i) => ({ i, ...rec[i] }))
     .sort((x, y) => y.w - x.w || (y.pf - y.pa) - (x.pf - x.pa) || teams[y.i].score.rating - teams[x.i].score.rating);
@@ -2513,7 +2529,7 @@ function simChampionship(sportKey, teams, sigma, rng) {
   let round = pairs.map(([a, b]) => [seeds[a], seeds[b]]);
   const rounds = [];
   while (true) {
-    const res = round.map(([a, b]) => { const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true); return { a, b, w: g.winner === 0 ? a : b, line: g.line, m: g.margin, bo: 1, ev: g.ev.map(e => ({ ...e, team: e.side === 0 ? a : b, g: 1 })) }; });
+    const res = round.map(([a, b]) => { const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true); return { a, b, w: g.winner === 0 ? a : b, line: g.line, m: g.margin, bo: 1, breakdown:g.breakdown, ev: g.ev.map(e => ({ ...e, team: e.side === 0 ? a : b, g: 1 })) }; });
     rounds.push(res);
     if (res.length === 1) break;
     const next = [];
@@ -2589,7 +2605,7 @@ function playSeries(sportKey, teams, a, b, bo, sigma, rng) {
   const need = Math.ceil(bo / 2); let wa = 0, wb = 0, last = null; const games = [], ev = [];
   while (wa < need && wb < need) {
     const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true);
-    games.push({ w: g.winner === 0 ? a : b, line: g.line });
+    games.push({ w:g.winner===0?a:b,line:g.line,breakdown:g.breakdown });
     for (const e of g.ev) ev.push({ ...e, team: e.side === 0 ? a : b, g: games.length });
     if (g.winner === 0) wa++; else wb++;
     last = g;
@@ -2603,18 +2619,20 @@ function simSeason(sportKey, teams, rng) {
   const games = [];
   for (const [a, b] of seasonSchedule(n, S.games)) {
     const g = gameRatings(teams[a].score, teams[b].score, false, rng);
-    const m = g.ra - g.rb + gauss(rng) * sigma;
+    const variation=gauss(rng)*sigma;
+    const m = g.ra - g.rb + variation;
+    const breakdown=matchRatingBreakdown(teams[a].score,teams[b].score,g,variation);
     if (S.draws && Math.abs(m) < S.draws * sigma) {
       const k = Math.floor(rng() * 3) - (rng() < 0.4 ? 1 : 0), gl = Math.max(0, k);
       rec[a].d++; rec[b].d++; rec[a].pf += gl; rec[a].pa += gl; rec[b].pf += gl; rec[b].pa += gl;
-      games.push({ a, b, w: -1, line: [gl, gl, ''], m: 0 });
+      games.push({ a,b,w:-1,line:[gl,gl,''],m:0,breakdown });
       continue;
     }
     const W = m > 0 ? a : b, L = W === a ? b : a, line = scoreline(sportKey, Math.abs(m), (g.ra + g.rb) / 2, rng);
     rec[W].w++;
     if (S.otl && /OT|SO/.test(line[2])) rec[L].otl++; else rec[L].l++;
     rec[W].pf += line[0]; rec[W].pa += line[1]; rec[L].pf += line[1]; rec[L].pa += line[0];
-    games.push({ a, b, w: W, line, m: Math.abs(m) });
+    games.push({ a,b,w:W,line,m:Math.abs(m),breakdown });
   }
   const pts = r => S.draws ? 3 * r.w + r.d : S.otl ? 2 * r.w + r.otl : 0;
   const pct = r => (r.w + 0.5 * r.d) / Math.max(1, r.w + r.l + r.d + r.otl);
@@ -3593,8 +3611,9 @@ function linkChips(sc, mine = true) {
   const L = sc.syn.links.map(l => `<span class="link">${esc(l.name)} <b>×${l.count}</b></span>`).join('');
   const st = sc.syn.style;
   const who = mine ? 'your roster' : 'the roster';
-  const verdict = st ? (st.pts > 0.4 ? `${who} fit the system` : st.pts < -0.1 ? `${who} worked against the system` : 'barely mattered') : '';
-  const S = st ? `<span class="link style ${st.pts > 0.4 ? 'on' : st.pts < -0.1 ? 'off' : ''}">${esc(st.name)}'s ${esc(st.label)}: ${verdict}</span>` : '';
+  const verdict = st ? (st.match || (st.pts > .15 ? 'Good fit' : st.pts < -.15 ? 'Poor fit' : 'Neutral')) : '';
+  const signed = n => (n>=0?'+':'')+n.toFixed(2);
+  const S = st ? `<span class="link style ${st.pts>0.15?'on':st.pts< -0.15?'off':''}">${esc(st.name)}'s ${esc(st.label)}: <b>${esc(verdict)}</b> (${signed(st.pts)} rating) · focus ${st.focusAvg.toFixed(1)} vs roster ${st.baseline.toFixed(1)}</span>` : '';
   const SG = (sc.sig ? sc.sig.list : []).map(x => `<span class="link sig">${esc(x.c.n)} · ${esc(x.name)}: ${SIG_TEXT[x.kind]}</span>`).join('');
   const V = sc.variety && sc.variety.n >= 3 ? `<span class="link variety">Fighting variety <b>×${sc.variety.n}</b>: ${sc.variety.picks.map(x => `${esc(FIGHT_STYLES[x.s])} (${esc(x.c.n)})`).join(', ')}</span>` : '';
   return (L || S || SG || V) ? `<div class="links">${L}${S}${SG}${V}</div>` : `<div class="note" style="padding:12px 16px">No chemistry fired. Look for shared teams, schools, factions and coaches.</div>`;
@@ -4178,6 +4197,7 @@ function renderH2HResult(d) {
   return `<div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${esc(sp.name)} · ${esc(d.poolName || '')} · Final</span><div class="big">${title}</div>
       <p>${nm || no ? `${esc(contestName(d, me))} had ${nm} chemistry link${nm === 1 ? '' : 's'}; ${esc(contestName(d, opp))} had ${no}.` : 'Neither roster had any chemistry.'}${d.rules.upsets !== 'off' ? ' Upsets were on.' : ''}</p>
       ${scorebug(contestName(d, winSide), contestName(d, loseSide), g.line, spectator ? 'you' : iWon ? 'you' : 'opp', spectator ? 'opp' : iWon ? 'opp' : 'you', 'Final')}</div>
+    ${daMatchBreakdown(g.breakdown,A,B,contestName(d,'host'),contestName(d,'guest'))}
     ${daReport(d.sport,sc[me],g.winner===(me==='host'?0:1)?g.line[0]:g.line[1],contestName(d,me),{seed:d.id+':'+me,opponentPoints:g.winner===(opp==='host'?0:1)?g.line[0]:g.line[1],note:g.line[2],side:g.winner===(me==='host'?0:1)?0:1})}${daReport(d.sport,sc[opp],g.winner===(opp==='host'?0:1)?g.line[0]:g.line[1],contestName(d,opp),{seed:d.id+':'+opp,opponentPoints:g.winner===(me==='host'?0:1)?g.line[0]:g.line[1],note:g.line[2],side:g.winner===(opp==='host'?0:1)?0:1})}
     ${recapPanel(h2hRecap(d.sport, sc[me], sc[opp], contestName(d, me), contestName(d, opp), spectator ? winSide === 'host' : iWon, g.line, UPSET_SIGMA[d.rules.upsets] || 0, getCands(d.poolId), d.id, (g.ev || []).map(e => ({ ...e, team: (e.side === 0) === (me === 'host') ? 0 : 1 }))))}
     <div class="cta-row" style="margin-top:14px">${mySide(d) ? `<button class="btn primary" data-act="h-rematch">Rematch with same rules</button>` : ''}<button class="btn" data-act="h-lobby">Back to lobby</button></div>
