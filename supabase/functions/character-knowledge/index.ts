@@ -66,7 +66,9 @@ async function quotaHash(req:Request,userId:string){
   // Hash IP rather than storing it. If the platform omits a trusted forwarding
   // header, fall back to the verified user ID, not an attacker-provided identifier.
   const ip=req.headers.get('cf-connecting-ip')||req.headers.get('x-real-ip')||'';
-  const material=(Deno.env.get('KNOWLEDGE_IP_SALT')||'')+':'+(ip||userId);
+  const salt=Deno.env.get('KNOWLEDGE_IP_SALT');
+  if(!salt||salt.length<24)throw new Error('Knowledge quota salt not configured.');
+  const material=salt+':'+(ip||userId);
   const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(material));
   return [...new Uint8Array(digest)].map(n=>n.toString(16).padStart(2,'0')).join('');
 }
@@ -153,6 +155,11 @@ async function review(req:Request,db:any,input:any){
   const supplied=req.headers.get('x-review-token')||'';
   if(!adminToken||adminToken.length<32||supplied!==adminToken)return reply(req,{error:'Admin review not authorized.'},403);
   const action=asText(input.action,20),id=asText(input.dispute_id,40),note=asText(input.note,500);
+  if(action==='list_pending'){
+    const pending=await db.from('character_disputes').select('id,pool,name,tag,status,claim,specific_feat,rationale,sources,created_at,confidence').in('status',['accepted_provisional','rejected','inconclusive']).order('created_at',{ascending:false}).limit(100);
+    if(pending.error)throw pending.error;
+    return reply(req,{items:pending.data||[]});
+  }
   if(!['approve','reject','revoke'].includes(action))return reply(req,{error:'Unknown review action.'},400);
   if(action==='revoke'){
     const pool=asText(input.pool,40),name=asText(input.name,130),tag=asText(input.tag,30);
@@ -198,7 +205,7 @@ Deno.serve(async req=>{
     }
     let input:any;
     try{input=await req.json();}catch{return reply(req,{error:'Invalid JSON request.'},400);}
-    if(input?.action==='approve'||input?.action==='reject'||input?.action==='revoke')return review(req,db,input);
+    if(['approve','reject','revoke','list_pending'].includes(input?.action))return review(req,db,input);
     if(input?.action!=='dispute')return reply(req,{error:'Unknown action.'},400);
     const user=await userFrom(req);
     if(!user)return reply(req,{error:'Sign in to submit a character ruling challenge.'},401);
@@ -209,10 +216,6 @@ Deno.serve(async req=>{
     const existing=await db.from('character_knowledge').select('feat,sources').match({pool,name,tag,status:'approved'}).maybeSingle();
     if(existing.error)throw existing.error;
     if(existing.data)return reply(req,{status:'approved',rationale:'This ability has already been verified for all players.',feat:existing.data.feat,sources:existing.data.sources||[]});
-    const hash=await quotaHash(req,user.id);
-    const charged=await db.rpc('charge_character_research_quota',{p_hash:hash,p_max:8});
-    if(charged.error)throw charged.error;
-    if(!charged.data)return reply(req,{error:'Research limit reached. Please try tomorrow.'},429);
     // Duplicate submissions within 12 hours reuse the original result and incur no additional model cost.
     const prior=await db.from('character_disputes').select('id,status,rationale,specific_feat,sources,created_at').match({owner_id:user.id,pool,name,tag})
       .gte('created_at',new Date(Date.now()-12*3600e3).toISOString()).order('created_at',{ascending:false}).limit(1);
@@ -221,6 +224,10 @@ Deno.serve(async req=>{
       const item=prior.data[0];
       return reply(req,{status:item.status==='approved'?'approved':item.status,dispute_id:item.id,rationale:item.rationale,feat:item.specific_feat,sources:item.sources||[],cached:true});
     }
+    const hash=await quotaHash(req,user.id);
+    const charged=await db.rpc('charge_character_research_quota',{p_hash:hash,p_max:8});
+    if(charged.error)throw charged.error;
+    if(!charged.data)return reply(req,{error:'Research limit reached. Please try tomorrow.'},429);
     const ruling=await research(pool,name,tag,claim,sourceUrl);
     const {data:record,error}=await db.from('character_disputes').insert({
       owner_id:user.id,pool,name,tag,claim,source_url:sourceUrl,status:ruling.status,
