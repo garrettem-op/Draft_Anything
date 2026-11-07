@@ -52,7 +52,18 @@ const server=http.createServer((req,res)=>{
   assert.ok(styles.poor.pts<-.15&&styles.poor.match==='Poor fit','Expected mismatched roster to be penalized');
   await page.locator('button[data-act="c-kind"][data-v="campaign"]').click();
   await page.locator('button[data-act="camp-start"]').click();
-  await page.locator('.field button[data-act="slot"]:not([disabled])').first().click();
+  // Opening a candidate picker must preserve page scroll and must not enable a stale
+  // fixed-viewport mode left over from other Championship drafts.
+  const opening=await page.evaluate(()=>{
+    const max=document.documentElement.scrollHeight-innerHeight;
+    window.scrollTo(0,Math.min(220,Math.max(0,max)));
+    const before=window.scrollY;
+    const btn=document.querySelector('.field button[data-act="slot"]:not([disabled])');
+    btn.click();
+    return {before,after:window.scrollY,scrollable:max,locked:document.documentElement.classList.contains('draft-active')};
+  });
+  assert.equal(opening.locked,false,'Campaign inherited fixed draft layout from another mode');
+  assert.ok(Math.abs(opening.after-opening.before)<2,'Opening the character picker jumped the page: '+JSON.stringify(opening));
   await page.locator('#camp-plist .cand').first().waitFor({timeout:10000});
   const scroll=await page.evaluate(()=>{
    const el=document.getElementById('camp-plist');el.scrollTop=470;return el.scrollTop;
@@ -88,6 +99,8 @@ const server=http.createServer((req,res)=>{
    if(!btn)throw Error('Eligible character not rendered in picker');
    btn.click();
   });
+  const positionAfterPick=await page.evaluate(()=>window.scrollY);
+  assert.ok(Math.abs(positionAfterPick-opening.before)<2,'Selecting a character reset the page position');
   // Selecting a filled field position pins its current character above the scrolling list.
   const chosen=await page.evaluate(()=>Object.values(S.campaign.roster)[0].n);
   await page.locator('.field-wrap button[data-act="slot"].filled:not([disabled])').first().click();
@@ -133,6 +146,70 @@ const server=http.createServer((req,res)=>{
   const afterTouch=await page.evaluate(ids=>[S.campaign.roster[ids[0]].id,S.campaign.roster[ids[1]].id],[from,to]);
   assert.deepEqual(afterTouch,beforeSwap,'Touch hold-and-drag failed to restore original positions');
 
+  // A rejected roster triggers a centered dialog and leaves the offending field
+  // positions marked red until they are replaced, without jumping the page.
+  const rejected=await page.evaluate(()=>{
+    const v=S.campaign;
+    v.stageOrder[0]=0; // No Powers Allowed: reliably test an eligibility restriction.
+    const rule=campaignStage().rule;
+    const slot=campaignSlots(v.sport,rule)[0].id;
+    const existing=new Set(Object.values(v.roster).map(c=>c.id));
+    const bad=getCands('mashup').find(c=>!campaignAllowed(c,rule)&&!existing.has(c.id));
+    if(!bad)throw Error('Could not select a failing candidate');
+    v.roster[slot]=bad;
+    v.selected=null;v.validation='';v.validationOpen=false;
+    render();
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    window.scrollTo(0,Math.min(180,Math.max(0,max)));
+    const before=window.scrollY;
+    const invalid=[...campaignInvalidSlots()];
+    document.querySelector('[data-act="camp-play"]').click();
+    return {before,after:window.scrollY,invalid,slot,bad:bad.n};
+  });
+  assert.ok(rejected.invalid.includes(rejected.slot),'Intentionally ineligible character not detected');
+  assert.ok(Math.abs(rejected.after-rejected.before)<2,'Submitting a rejected lineup jumped the page');
+  const modal=page.locator('[role="alertdialog"][aria-modal="true"]');
+  await modal.waitFor();
+  assert.ok((await modal.textContent()).includes(rejected.bad),'Rejection dialog did not identify offending character');
+  const dialogBox=await modal.boundingBox();
+  assert.ok(Math.abs(dialogBox.y+dialogBox.height/2-844/2)<110,'Rejected lineup dialog is not centered');
+  assert.equal(await page.locator('.field-wrap button.invalid').count(),rejected.invalid.length,'Not all ineligible positions marked red');
+  assert.ok(await page.locator('.field-wrap button.invalid[data-slot="'+rejected.slot+'"]').count(),'Ineligible field slot not highlighted');
+  await page.locator('button[data-act="camp-reject-close"]').click();
+  assert.equal(await modal.count(),0,'Rejection dialog did not close');
+  assert.ok(await page.locator('.field-wrap button.invalid').count(),'Red field indicators disappeared before correction');
+  // Correct the roster using eligible selections only, with the same position.
+  await page.evaluate(()=>{
+    const v=S.campaign,st=campaignStage(),used=new Set();
+    for(const slot of campaignSlots(v.sport,st.rule)){
+      if(!v.roster[slot.id])continue;
+      let chosen=v.roster[slot.id];
+      if(!campaignAllowed(chosen,st.rule)||used.has(chosen.id)){
+        chosen=getCands('mashup').find(c=>campaignAllowed(c,st.rule)&&!used.has(c.id));
+        if(!chosen)throw Error('Insufficient valid options to correct roster');
+        v.roster[slot.id]=chosen;
+      }
+      used.add(chosen.id);
+    }
+    v.validationOpen=false;
+    if(campaignQualified())v.validation='';
+    render();
+  });
+  assert.equal(await page.locator('.field-wrap button.invalid').count(),0,'Corrected lineup remains marked invalid');
+  // Labels are unselectable, including during long-hold gestures.
+  const textRules=await page.locator('.field-wrap .node .tag').first().evaluate(el=>({
+    select:getComputedStyle(el).userSelect,webkit:getComputedStyle(el).webkitUserSelect
+  }));
+  assert.equal(textRules.select,'none','Field token labels can still be text selected');
+  const selected=await page.locator('.field-wrap .node .tag').first().evaluate(el=>{
+    const r=document.createRange();r.selectNodeContents(el);
+    getSelection().removeAllRanges();getSelection().addRange(r);
+    const ev=new Event('selectstart',{bubbles:true,cancelable:true});
+    const allowed=el.dispatchEvent(ev);
+    getSelection().removeAllRanges();
+    return allowed;
+  });
+  assert.equal(selected,false,'Selecting field text was not prevented');
   await page.locator('button[data-act="camp-play"]').click();
   await page.locator('text=Simulated box score').first().waitFor({timeout:12000});
   assert.ok(await page.locator('text=Opponent box score').count(),'Opponent report unavailable');
