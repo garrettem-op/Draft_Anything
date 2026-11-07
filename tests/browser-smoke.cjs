@@ -23,6 +23,33 @@ const server=http.createServer((req,res)=>{
  page.on('pageerror',error=>errors.push(error.message));
  try{
   await page.goto('http://127.0.0.1:'+server.address().port,{waitUntil:'domcontentloaded',timeout:30000});
+  // The rating explanation reconciles with the exact simulation arithmetic.
+  const engineCheck=await page.evaluate(()=>{
+    const A={rating:105.3,sig:{chaos:0,spark:[]}},B={rating:106.9,sig:{chaos:0,spark:[]}};
+    const result=playGame('brawl',A,B,7,rngFrom('breakdown-fixture'),true);
+    const d=result.breakdown;
+    const sum=i=>d.base[i]+d.chaos[i]+d.spark[i]+d.random[i];
+    return {actual:d.final,reconstructed:[sum(0),sum(1)],margin:result.margin,who:result.winner};
+  });
+  assert.ok(engineCheck.actual.every((v,i)=>Math.abs(v-engineCheck.reconstructed[i])<1e-9),'Match explanation did not reconcile');
+  assert.ok(Math.abs(Math.abs(engineCheck.actual[0]-engineCheck.actual[1])-engineCheck.margin)<1e-9,'Match margin inconsistent');
+  assert.equal(engineCheck.actual[0]>engineCheck.actual[1]?0:1,engineCheck.who,'Trace indicates a different winner');
+  // Verify that the same named coach can suit one roster but hurt another.
+  const styles=await page.evaluate(()=>{
+    const team=fast=>{
+      const roster={};
+      for(const p of SPORTS.basketball.pos){
+        const attrs=Array(12).fill(80);
+        for(const key of ['spd','acc','agi'])attrs[AK.indexOf(key)]=fast?98:24;
+        roster[p.id]={id:'fixture:'+p.id,pool:'mcu',n:'Player '+p.id,a:attrs,g:[]};
+      }
+      roster.hc={id:'nba:coach-fixture',pool:'nba',n:"Mike D'Antoni",a:Array(12).fill(80),g:[]};
+      return synergyOf('basketball',roster).style;
+    };
+    return {good:team(true),poor:team(false)};
+  });
+  assert.ok(styles.good.pts>0.15&&styles.good.match==='Good fit','Expected compatible roster to get a positive style fit');
+  assert.ok(styles.poor.pts<-.15&&styles.poor.match==='Poor fit','Expected mismatched roster to be penalized');
   await page.locator('button[data-act="c-kind"][data-v="campaign"]').click();
   await page.locator('button[data-act="camp-start"]').click();
   await page.locator('.field button[data-act="slot"]:not([disabled])').first().click();
@@ -109,6 +136,10 @@ const server=http.createServer((req,res)=>{
   await page.locator('button[data-act="camp-play"]').click();
   await page.locator('text=Simulated box score').first().waitFor({timeout:12000});
   assert.ok(await page.locator('text=Opponent box score').count(),'Opponent report unavailable');
+  await page.getByRole('heading',{name:'Why this match ended this way'}).first().waitFor();
+  assert.ok(await page.locator('text=Effective match rating').count(),'The result is missing effective rating detail');
+  assert.ok(await page.locator('text=Match-day variation').count(),'The result is missing random variation');
+
   assert.ok(await page.locator('text=Scouting takeaway:').count(),'Scouting summary missing');
   // The Dealt Hand choices each expose origin info without selecting a card.
   await page.locator('button[data-act="mode"][data-mode="deal"]').click();
