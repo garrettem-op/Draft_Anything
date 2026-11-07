@@ -48,7 +48,7 @@ test('sourced provisional rulings are stored locally and never inserted into glo
   assert.equal(e.engine.kind(katara,'healing'),'provisional');
   assert.equal(e.engine.status().count,0,'A provisional ruling is not globally approved');
   assert.ok(e.cache.get('da.knowledge.provisional.v1')?.includes('99999999'));
-  assert.equal(e.calls[0].opts.headers.Authorization,'Bearer fake-auth-session');
+  assert.equal(e.calls.find(c=>c.opts.method==='POST')?.opts.headers.Authorization,'Bearer fake-auth-session');
   const afterReload=environment({cache:[...e.cache]});
   assert.equal(afterReload.engine.has(katara,'healing'),true,'Local ruling should survive reload');
   assert.equal(afterReload.engine.has(sameNameOtherPool,'healing'),false);
