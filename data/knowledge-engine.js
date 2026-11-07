@@ -99,6 +99,7 @@ const KnowledgeEngine = (() => {
     if(draftHistory.length>40)draftHistory.length=40;
     write(DRAFT_KEY,draftHistory);
     try{
+      if(!loaded)await load();
       if(!researchReady)throw new Error('Live research is not activated yet; this claim has been saved on your device.');
       const token=await authenticatedToken();
       const response=await fetch(endpoint(),{method:'POST',headers:{...headers(),Authorization:'Bearer '+token},body:JSON.stringify({action:'dispute',...input})});
