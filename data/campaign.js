@@ -121,7 +121,7 @@ function campaignAllowed(c,rule){
     case 'strong':return c.a[2]>=87;
     case 'underdog':return c.a.reduce((n,v)=>n+v,0)/c.a.length<=73;
     case 'final':return !campaignUsed().has(c.id);
-    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n);return true;
+    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||!!characterAbilityEvidence(c,rule);return true;
 
   }
 }

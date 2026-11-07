@@ -9,6 +9,12 @@ test('main browser script remains syntactically valid',()=>{
  assert.ok(main.length>50000);
  assert.doesNotThrow(()=>new Function(main));
 });
+test('curated ability evidence loads before Campaign and is not revealed by picker',()=>{
+ const abilities=html.indexOf('<script src="data/character-abilities.js"></script>');
+ const campaign=html.indexOf('<script src="data/campaign.js"></script>');
+ assert.ok(abilities>0&&campaign>abilities);
+ assert.ok(!html.includes('data-act="camp-abilities"'),'Campaign should not reveal answers before selection');
+});
 test('report module is loaded after campaign helpers and before main app',()=>{
  const campaign=html.indexOf('<script src="data/campaign.js"></script>');
  const reports=html.indexOf('<script src="data/after-action.js"></script>');
