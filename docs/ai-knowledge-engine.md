@@ -8,7 +8,7 @@ This feature is intentionally split into a **web frontend**, a **Supabase Edge F
 2. In the resulting "Lineup rejected" dialog, choose **Challenge ruling** next to a character for one of the 12 thematic ability challenges.
 3. Optionally provide a specific observed feat and an HTTPS source. The claim is researched by a server-side LLM with live web search.
 4. The response is:
-   - **Provisionally accepted:** strong corroborated evidence (at least two cited domains, including an official publisher/franchise source, confidence ≥0.85); the player can continue immediately and this browser caches the provisional result for 30 days.
+   - **Provisionally accepted:** strong corroborated evidence (at least two cited domains, including an official publisher/franchise source, confidence ≥0.85); the player can continue immediately and this browser caches the provisional result for 24 hours.
    - **Rejected:** research does not support the power in that universe.
    - **Inconclusive:** sources are weak or contradict one another; no automatic override.
    - **Approved:** previously approved global knowledge, immediately usable by all players.
@@ -19,7 +19,7 @@ This feature is intentionally split into a **web frontend**, a **Supabase Edge F
 
 Disputes use Supabase Auth anonymous sign-in. Enable **Anonymous Sign-Ins** in Supabase Authentication settings for this project. Only the server holds the OpenAI key and Supabase service-role key; **never insert them into HTML, GitHub Pages or git**. Players cannot write approved facts directly; all database tables have RLS enabled and public grants revoked. A strong, separately managed review token protects approval actions. Approved facts are public; private disputes and moderation notes are not.
 
-Live research has variable OpenAI API and search charges. The server enforces an eight-research-per-day quota per network address (with a fallback to authenticated user identity). Each search requires an authenticated session, and responses for the same user/character/theme within 12 hours are cached to avoid duplicate AI calls. Actual model usage and costs remain subject to the OpenAI account's pricing and project limits. Add an OpenAI **project monthly budget** to limit financial exposure.
+Live research has variable OpenAI API and search charges. The server enforces an eight-research-per-day quota per network address and a global 15-research daily cap (with a fallback to authenticated user identity). Each search requires an authenticated session, and responses for the same user/character/theme within 12 hours are cached to avoid duplicate AI calls. Actual model usage and costs remain subject to the OpenAI account's pricing and project limits. Add an OpenAI **project monthly budget** to limit financial exposure.
 
 ## Deployment
 

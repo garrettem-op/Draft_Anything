@@ -4,7 +4,7 @@
 const KnowledgeEngine = (() => {
   const PRIVATE_KEY='da.knowledge.provisional.v1';
   const DRAFT_KEY='da.knowledge.dispute-drafts.v1';
-  const MAX_AGE=30*864e5;
+  const MAX_AGE=864e5;
   const read=(key,fallback)=>{try{const v=JSON.parse(localStorage.getItem(key));return v&&typeof v==='object'?v:fallback;}catch{return fallback;}};
   const write=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));}catch{}};
   const facts=new Map();
@@ -15,7 +15,7 @@ const KnowledgeEngine = (() => {
     if(record?.at && Date.now()-record.at<MAX_AGE && record?.disputeId)provisional.set(key,record);
   }
   const keyOf=(candidate,tag)=>candidate?.pool+':'+candidate?.n+'|'+tag;
-  let state='idle',loaded=false,inFlight=null,client=null,error='';
+  let state='idle',loaded=false,inFlight=null,client=null,error='',researchReady=false;
   const endpoint=()=>window.DA_SUPA?.url?window.DA_SUPA.url.replace(/\/$/,'')+'/functions/v1/character-knowledge':null;
   const headers=()=>({'apikey':window.DA_SUPA?.key||'','Content-Type':'application/json'});
   function has(candidate,tag){const key=keyOf(candidate,tag);return facts.has(key)||provisional.has(key);}
@@ -65,7 +65,7 @@ const KnowledgeEngine = (() => {
             }
           }catch{/* Stay usable offline; approval never comes from a failed check. */}
         }
-        loaded=true;state='ready';error='';
+        loaded=true;researchReady=data.research_ready===true;state='ready';error='';
         return true;
       }catch(e){state='unavailable';error=e.message||'Knowledge service unavailable.';return false;}
       finally{inFlight=null;}
@@ -99,6 +99,8 @@ const KnowledgeEngine = (() => {
     if(draftHistory.length>40)draftHistory.length=40;
     write(DRAFT_KEY,draftHistory);
     try{
+      if(!loaded)await load();
+      if(!researchReady)throw new Error('Live research is not activated yet; this claim has been saved on your device.');
       const token=await authenticatedToken();
       const response=await fetch(endpoint(),{method:'POST',headers:{...headers(),Authorization:'Bearer '+token},body:JSON.stringify({action:'dispute',...input})});
       const body=await response.json().catch(()=>({}));
@@ -118,6 +120,6 @@ const KnowledgeEngine = (() => {
   function clearProvisional(candidate,tag){
     provisional.delete(keyOf(candidate,tag));write(PRIVATE_KEY,Object.fromEntries(provisional));
   }
-  return {has,kind,load,challenge,clearProvisional,history:()=>draftHistory.slice(),status:()=>({state,error,count:facts.size,pending:draftHistory.filter(d=>d.status==='pending_local').length})};
+  return {has,kind,load,challenge,clearProvisional,history:()=>draftHistory.slice(),status:()=>({state,error,researchReady,count:facts.size,pending:draftHistory.filter(d=>d.status==='pending_local').length})};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=KnowledgeEngine;
