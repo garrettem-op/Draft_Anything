@@ -40,12 +40,35 @@ healing:'Wolverine|Deadpool|Hulk|She-Hulk|Groot|Mewtwo|Chansey|Blissey|Mercy|Kir
 giants:'Hulk|Ant-Man|Giant-Man|Goliath|Godzilla|King Kong|Bowser|Donkey Kong|Groudon|Wailord|Snorlax|Galactus|The Thing'
 };
 for(const k in CAMPAIGN_TAGS) CAMPAIGN_TAGS[k]=new Set(CAMPAIGN_TAGS[k].split('|'));
-function campaignStages(){return S.campaign?.stageOrder?.map(i=>CAMPAIGN_STAGES[i]||CAMPAIGN_EXTRA[i-CAMPAIGN_STAGES.length]).filter(Boolean)||CAMPAIGN_STAGES;}
+function campaignStageById(id){
+  return id<CAMPAIGN_STAGES.length?CAMPAIGN_STAGES[id]:CAMPAIGN_EXTRA[id-CAMPAIGN_STAGES.length];
+}
+function campaignEligibleStageIds(sport){
+  const last=CAMPAIGN_STAGES.length-1;
+  return [...CAMPAIGN_STAGES.slice(0,-1).map((_,i)=>i),
+    ...CAMPAIGN_EXTRA.map((_,i)=>CAMPAIGN_STAGES.length+i)]
+    .filter(i=>campaignCandidates(campaignStageById(i).rule).length>=campaignLimit(sport,campaignStageById(i).rule));
+}
+function campaignStages(){
+  return S.campaign?.stageOrder?.map(campaignStageById).filter(Boolean)||CAMPAIGN_STAGES;
+}
+// A campaign always lasts ten levels: nine eligible, varied challenges plus the Final Gauntlet.
+// Persist usage *per sport* so a new campaign prioritizes the least-played challenges instead of
+// randomly repeating the same selection. Resuming a saved campaign never rerolls its stage order.
 function campaignNewOrder(sport='basketball'){
- const eligible=ch=>ch.rule==='final'||campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule);
- const fixed=CAMPAIGN_STAGES.length-1, pool=CAMPAIGN_STAGES.slice(0,-1).map((_,i)=>i).concat(CAMPAIGN_EXTRA.map((_,i)=>CAMPAIGN_STAGES.length+i)).filter(i=>eligible(i<CAMPAIGN_STAGES.length?CAMPAIGN_STAGES[i]:CAMPAIGN_EXTRA[i-CAMPAIGN_STAGES.length]));
- for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
- return pool.slice(0,9).concat(fixed);
+  const pool=campaignEligibleStageIds(sport),last=CAMPAIGN_STAGES.length-1;
+  if(pool.length<9)return null;
+  const history=lsGet('da.campaign.rotation.v1',{})||{};
+  const previous=history[sport]||{},counts=previous.counts||{},lastRound=new Set(previous.last||[]);
+  const eligible=pool.map(i=>({id:i,count:Math.max(0,Number(counts[i])||0),recent:lastRound.has(i),jitter:Math.random()}));
+  eligible.sort((a,b)=>a.count-b.count||Number(a.recent)-Number(b.recent)||a.jitter-b.jitter);
+  const picked=eligible.slice(0,9).map(x=>x.id);
+  history[sport]={counts:{...counts},last:picked};
+  for(const id of picked)history[sport].counts[id]=(Number(history[sport].counts[id])||0)+1;
+  lsSet('da.campaign.rotation.v1',history);
+  // Shuffle the selected stages so stage number is not dictated by their usage count.
+  for(let i=picked.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[picked[i],picked[j]]=[picked[j],picked[i]];}
+  return [...picked,last];
 }
 const CAMPAIGN_WOMEN=new Set('Black Widow|Scarlet Witch|Captain Marvel|Gamora|Nebula|Mantis|The Wasp|Janet van Dyne|Kate Bishop|Okoye|Ayo|Shuri|Nakia|Ironheart|Valkyrie|Hela|Sif|Pepper Potts|Ms. Marvel|She-Hulk|Yelena Belova|Taskmaster|Sharon Carter|Agatha Harkness|Maria Hill|Peggy Carter|Darcy Lewis|Ghost|MJ|Aunt May|Thena|Makkari|Ajak|Sersi|Sprite|Monica Rambeau|America Chavez|Echo|Jessica Jones|Elektra|Jean Grey|Invisible Woman|Silver Surfer|Captain Carter|Lola Bunny|Minnie Mouse|Daisy Duck|Elsa|Moana|Mulan|Violet|Elastigirl|Sandy Cheeks|Lisa Simpson|Marge Simpson|Velma|Lucy van Pelt|Peppermint Patty|Blossom|Bubbles|Buttercup|Katara|Toph Beifong|Tigress|Bluey|Anna|Vanellope von Schweetz|Princess Peach|Princess Daisy|Rosalina|Samus Aran|Zelda|Princess Zelda|Lara Croft|Chun-Li|Sonya Blade|Kitana|Mileena|Bayonetta|Jill Valentine|Ada Wong|Ellie|Aloy'.split('|'));
 const CAMPAIGN_RED=new Set('Iron Man|Spider-Man|Scarlet Witch|Vision|Red Guardian|Red Skull|Daredevil|Deadpool|Human Torch|Star-Lord|Carnage|Mario|Knuckles|Diddy Kong|Donkey Kong|Raphael|Lightning McQueen|Mr. Incredible|Elastigirl|Blossom|Optimus Prime|Zuko|Yosemite Sam|Mr. Krabs|Anger|Incineroar|Scorpion|Flash|The Flash|Ant-Man|Wreck-It Ralph|Mickey Mouse'.split('|'));
@@ -62,6 +85,10 @@ function loadCampaign(){
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
   v.history=v.history.slice(0,10);
   if(!Array.isArray(v.stageOrder)||v.stageOrder.length!==10)v.stageOrder=v.step>0?CAMPAIGN_STAGES.map((_,i)=>i):null;
+  // Older versions saved the fixed original ten even before the first battle began.
+  // Do not let those placeholder stages permanently lock the user's future rotation.
+  if(v.step===0&&v.status==='setup'&&!v.history.length&&
+    v.stageOrder?.every((id,i)=>id===i))v.stageOrder=null;
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
   v.selected=null;v.query='';v.infoId=null;
   if(v.status==='results'&&!v.result)v.status='draft';
@@ -99,7 +126,7 @@ function campaignAllowed(c,rule){
   }
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
-function campaignSportValid(sport){return [...CAMPAIGN_STAGES,...CAMPAIGN_EXTRA].filter(ch=>ch.rule==='final'||campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule)).length>=10&&CAMPAIGN_STAGES.every(ch=>campaignCandidates(ch.rule).length>=campaignLimit(sport,ch.rule));}
+function campaignSportValid(sport){return campaignEligibleStageIds(sport).length>=9;}
 function campaignQualified(){
   const v=S.campaign,st=campaignStage();
   return Object.values(v.roster).every(c=>campaignAllowed(c,st.rule));
@@ -110,6 +137,13 @@ function campaignReady(){
 }
 function campaignProgress(){
   const v=S.campaign,done=v.status==='complete'?10:v.step;
+  if(!v.stageOrder){
+    const eligible=campaignEligibleStageIds(v.sport).length;
+    return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
+      <div class="row" style="justify-content:space-between;align-items:center"><b>Challenge rotation</b><span class="num">${eligible+1} available</span></div>
+      <p class="note" style="margin:8px 0 0">When you begin, 9 challenges will be selected from the ${eligible} eligible themes, prioritizing those you have not played recently. The Final Gauntlet is always level 10. Your lineup is saved for the duration of the campaign.</p>
+    </div>`;
+  }
   return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
     <div class="row" style="justify-content:space-between;align-items:center"><b>Campaign progress</b><span class="num">${done} / 10 wins</span></div>
     <div class="meter" role="progressbar" aria-label="Campaign wins" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="10"><i style="width:${done*10}%"></i></div>
@@ -119,7 +153,7 @@ function campaignProgress(){
 function renderCampaignSetup(){
   const v=S.campaign,existing=v.step>0||v.status!=='setup';
   return `<section class="setup">
-    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. A loss means retrying that stage; completed wins remain saved on this device.</span></div>
+    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Every new campaign draws nine themed challenges from the eligible pool, prioritizing ones you have not seen recently, then finishes with the Final Gauntlet. Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. A loss means retrying that stage; completed wins remain saved on this device.</span></div>
     <div class="panel rules" style="margin-bottom:16px"><div class="field-label"><span>Championship mode</span><div class="seg"><button data-act="c-kind" data-v="classic">Perfect Season</button><button data-act="c-kind" data-v="campaign" aria-pressed="true">Campaign · 10 challenges</button></div></div></div>
     ${campaignProgress()}
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>
@@ -232,7 +266,7 @@ function renderCampaign(){
   const status=S.campaign.status;
   return status==='draft'?renderCampaignDraft():status==='results'?renderCampaignResults():status==='complete'?renderCampaignComplete():renderCampaignSetup();
 }
-function campaignReset(){S.campaign=campaignDefault();S.campaign.stageOrder=campaignNewOrder(S.campaign.sport);saveCampaign();}
+function campaignReset(){const {sport,teamName}=S.campaign;S.campaign={...campaignDefault(),sport,teamName};S.campaign.stageOrder=campaignNewOrder(sport);saveCampaign();}
 function campaignAdvance(){
   const v=S.campaign;
   if(v.status!=='results'||!v.result?.win)return;
