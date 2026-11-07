@@ -561,6 +561,22 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
   .az-letter { font-size: 8px; }
 }
 
+
+/* Campaign rejection: field targets remain editable, but clearly marked invalid. */
+.field-wrap, .field-wrap *, .field-wrap button { -webkit-user-select:none !important; user-select:none !important; -webkit-touch-callout:none !important; }
+.field-wrap .node, .field-wrap .side-node { touch-action:none; }
+.field-wrap .node.invalid .disc { filter:drop-shadow(0 0 5px var(--bad)) drop-shadow(0 0 5px var(--bad)); }
+.field-wrap .node.invalid .tag { background:var(--bad); color:#fff; outline:2px solid #fff; }
+.field-wrap .node.invalid .disc::after { content:"!"; position:absolute; right:-7px; top:-7px; display:grid; place-items:center; border-radius:50%; background:var(--bad); color:#fff; border:2px solid #fff; width:18px; height:18px; font:800 12px/1 sans-serif; }
+.field-wrap .side-node.invalid { border:3px solid var(--bad); background:color-mix(in srgb,var(--bad) 10%,var(--panel)); box-shadow:0 0 0 2px color-mix(in srgb,var(--bad) 25%,transparent); }
+.field-wrap .side-node.invalid .lbl b { color:var(--bad); }
+.field-wrap .side-node.invalid .disc { filter:drop-shadow(0 0 5px var(--bad)); }
+.campaign-reject-overlay { position:fixed; inset:0; z-index:120; display:grid; place-items:center; padding:20px; padding-bottom:max(20px,env(safe-area-inset-bottom)); background:rgba(0,0,0,.62); }
+.campaign-reject-card { background:var(--panel); color:var(--ink); width:min(100%,430px); max-height:calc(100dvh - 40px); overflow-y:auto; border:2px solid var(--bad); border-radius:18px; padding:23px; box-shadow:0 20px 70px rgba(0,0,0,.35); }
+.campaign-reject-card p { line-height:1.5; }
+.campaign-reject-names { margin:8px 0 12px; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:7px; }
+.campaign-reject-names li { padding:5px 10px; border-radius:7px; background:color-mix(in srgb,var(--bad) 13%,var(--panel)); border:1px solid var(--bad); color:var(--bad); font-weight:700; }
+
 </style>
 </head>
 <body>
@@ -3271,18 +3287,18 @@ function renderField(sportKey, roster, o = {}) {
   const team = o.team === 'opp' ? 'var(--opp)' : 'var(--you)';
   const node = p => {
     const c = roster[p.id];
-    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
+    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
     const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
-    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
+    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
     const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''}>${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
+    return `<button class="${cls}" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
     <div class="field ${sportKey === 'hockey' ? 'light' : ''}" style="aspect-ratio:${sp.aspect};--field-ratio:${sp.aspect}">${surfaceSVG(sportKey)}${sp.pos.filter(p => !p.side).map(node).join('')}</div>
@@ -4438,18 +4454,25 @@ function renderHandInfo() {
   return `<div class="modal-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
 }
 function render() {
-  const listScrolls=['camp-plist','plist'].map(id=>({id,top:document.getElementById(id)?.scrollTop}));
+  const scrollX=window.scrollX,scrollY=window.scrollY;
+  const tracked=['.app','main','.board-side','.board > div:first-child','#camp-plist','#plist'];
+  const scrollState=tracked.map(selector=>({selector,top:document.querySelector(selector)?.scrollTop,left:document.querySelector(selector)?.scrollLeft}));
   const app = $('#app');
   const ae = document.activeElement; lastFocus = ae && ae.id ? { id: ae.id, s: ae.selectionStart, e: ae.selectionEnd } : null;
   let main;
   if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
+  const draftActive = S.mode==='champ' && S.champ.campaignMode ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
-  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo() : '');
-  for(const {id,top} of listScrolls){if(top!=null){const next=document.getElementById(id);if(next)next.scrollTop=top;}}
-  if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus(); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
+  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected() : '');
+  for(const {selector,top,left} of scrollState){
+    if(top==null)continue;
+    const el=document.querySelector(selector);
+    if(el){el.scrollTop=top;el.scrollLeft=left;}
+  }
+  if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus({preventScroll:true}); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
+  if(window.scrollX!==scrollX||window.scrollY!==scrollY)window.scrollTo(scrollX,scrollY);
 }
 function refreshPlist() {
   const el = $('#plist'); if (!el) return;
@@ -4458,6 +4481,10 @@ function refreshPlist() {
 }
 
 
+// The playing field is a control surface, not selectable text.
+document.addEventListener('selectstart',e=>{if(e.target.closest('.field-wrap'))e.preventDefault();});
+document.addEventListener('dragstart',e=>{if(e.target.closest('.field-wrap'))e.preventDefault();});
+document.addEventListener('contextmenu',e=>{if(e.target.closest('.field-wrap button[data-act="slot"]'))e.preventDefault();});
 /* Hold a filled position, then drag onto another position to move or swap the roster.
    Keep this local to editable single-player drafts; multiplayer picks are immutable. */
 let fieldDrag = null;
@@ -4479,7 +4506,7 @@ function swapDraftSlots(from,to) {
   if(target)draft.roster[from]=target;
   else delete draft.roster[from];
   if(draft.campaign) {
-    S.campaign.selected=null;S.campaign.validation='';saveCampaign();
+    S.campaign.selected=null;S.campaign.validationOpen=false;if(campaignQualified())S.campaign.validation='';saveCampaign();
   } else {
     S.champ.sel=null;S.champ.handSel=null;saveChamp();
   }
@@ -4588,17 +4615,18 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-close': S.campaign.selected = null; break;
+    case 'camp-reject-close': if(t.closest('[data-stop]')&&!t.matches('button'))break; S.campaign.validationOpen=false; break;
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
     case 'camp-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break;S.campaign.infoId=null;break;
-    case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validation='';}break;
+    case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validationOpen=false;if(campaignQualified())S.campaign.validation='';}break;
     case 'camp-pick': {
       const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
       if (!candidate || !v.selected) break;
       if(!v.roster[v.selected]&&Object.keys(v.roster).length>=campaignLimit(v.sport,campaignStage().rule))break;
       if (Object.entries(v.roster).some(([k,p])=>k!==v.selected&&p.id===candidate.id)) break;
       v.roster[v.selected]=candidate;
-      v.validation='';v.query='';
+      v.validationOpen=false;if(campaignQualified())v.validation='';v.query='';
       const remaining=campaignSlots(v.sport,campaignStage().rule).find(p=>!v.roster[p.id]);
       v.selected=window.innerWidth<900?null:remaining?.id||null;
       break;
@@ -4611,8 +4639,8 @@ document.addEventListener('click', e => {
       v.selected=null;
       break;
     }
-    case 'camp-play': campaignPlay(); window.scrollTo(0,0); break;
-    case 'camp-retry': case 'camp-edit': S.campaign.status='draft'; S.campaign.result=null; S.campaign.validation='';break;
+    case 'camp-play': campaignPlay(); if(S.campaign.status==='results')window.scrollTo(0,0); break;
+    case 'camp-retry': case 'camp-edit': S.campaign.status='draft'; S.campaign.result=null; S.campaign.validation='';S.campaign.validationOpen=false;break;
     case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
@@ -4641,7 +4669,7 @@ document.addEventListener('click', e => {
     case 'c-setup': c.stage = 'setup'; c.sel = null; c.result = null; break;
     case 'slot':
       if (S.mode === 'champ' && c.campaignMode) {
-        if (campaignSlots(S.campaign.sport,campaignStage().rule).some(p=>p.id===t.dataset.slot)) {S.campaign.selected=t.dataset.slot;S.campaign.validation='';}
+        if (campaignSlots(S.campaign.sport,campaignStage().rule).some(p=>p.id===t.dataset.slot)) {S.campaign.selected=t.dataset.slot;S.campaign.validationOpen=false;}
         break;
       }
       if (handMode()) {
