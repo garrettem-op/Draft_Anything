@@ -243,7 +243,7 @@ function renderCampaignRejected(){
       <h2 class="h" id="campaign-reject-title" style="margin:8px 0 12px">Lineup rejected</h2>
       <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
       <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
-      <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> <button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button></li>`).join('')}</ul>
+      <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> ${CAMPAIGN_TAGS[campaignStage().rule]?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:''}</li>`).join('')}</ul>
       <p class="note">Replace the highlighted characters and submit the lineup again. The talent pool remains unfiltered.</p>
       <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
     </div>
