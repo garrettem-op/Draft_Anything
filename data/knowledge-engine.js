@@ -117,9 +117,12 @@ const KnowledgeEngine = (() => {
       return body;
     }catch(e){draft.status='pending_local';draft.error=e.message;write(DRAFT_KEY,draftHistory);throw e;}
   }
+  function latestDraft(candidate,tag){
+    return draftHistory.find(d=>d.status==='pending_local' && d.pool===candidate?.pool && d.name===candidate?.n && d.tag===tag) || null;
+  }
   function clearProvisional(candidate,tag){
     provisional.delete(keyOf(candidate,tag));write(PRIVATE_KEY,Object.fromEntries(provisional));
   }
-  return {has,kind,load,challenge,clearProvisional,history:()=>draftHistory.slice(),status:()=>({state,error,researchReady,count:facts.size,pending:draftHistory.filter(d=>d.status==='pending_local').length})};
+  return {has,kind,load,challenge,clearProvisional,latestDraft,history:()=>draftHistory.slice(),status:()=>({state,error,researchReady,count:facts.size,pending:draftHistory.filter(d=>d.status==='pending_local').length})};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=KnowledgeEngine;
