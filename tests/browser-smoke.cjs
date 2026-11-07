@@ -95,6 +95,17 @@ const server=http.createServer((req,res)=>{
   await page.mouse.up();
   const afterSwap=await page.evaluate(ids=>[S.campaign.roster[ids[0]].id,S.campaign.roster[ids[1]].id],[from,to]);
   assert.deepEqual(afterSwap,[beforeSwap[1],beforeSwap[0]],'Long-press drag failed to swap the field positions');
+  // Exercise actual touch input rather than relying only on mouse-pointer emulation.
+  const cdp=await page.context().newCDPSession(page);
+  const c=await page.locator('.field button[data-slot="'+to+'"]').boundingBox();
+  const d=await page.locator('.field button[data-slot="'+from+'"]').boundingBox();
+  await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:c.x+c.width/2,y:c.y+c.height/2}]});
+  await page.waitForTimeout(490);
+  await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:d.x+d.width/2,y:d.y+d.height/2}]});
+  await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  const afterTouch=await page.evaluate(ids=>[S.campaign.roster[ids[0]].id,S.campaign.roster[ids[1]].id],[from,to]);
+  assert.deepEqual(afterTouch,beforeSwap,'Touch hold-and-drag failed to restore original positions');
+
   await page.locator('button[data-act="camp-play"]').click();
   await page.locator('text=Simulated box score').first().waitFor({timeout:12000});
   assert.ok(await page.locator('text=Opponent box score').count(),'Opponent report unavailable');
