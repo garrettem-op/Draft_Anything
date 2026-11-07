@@ -17,7 +17,7 @@ function environment(options={}){
     calls.push({url,opts});
     if(opts.method==='POST')return response(options.postStatus||200,options.ruling||{status:'inconclusive',rationale:'More evidence needed',sources:[]});
     if(String(url).includes('my_reviews'))return response(200,{reviews:options.reviewStatuses||[]});
-    return response(options.getStatus||200,{facts:options.facts||[]});
+    return response(options.getStatus||200,{facts:options.facts||[],research_ready:options.researchReady!==false});
   };
   const auth={getSession:async()=>({data:{session:{access_token:'fake-auth-session'}}}),
     signInAnonymously:async()=>({data:{session:{access_token:'fake-anonymous-session'}},error:null})};
@@ -82,4 +82,11 @@ test('moderator rejection of a provisional dispute revokes its persisted local o
   assert.equal(await second.engine.load(),true);
   assert.equal(second.engine.has(katara,'healing'),false);
   assert.equal(second.engine.kind(katara,'healing'),null);
+});
+
+test('unconfigured research saves evidence locally without calling paid API',async()=>{
+ const e=environment({researchReady:false});
+ await assert.rejects(e.engine.challenge(katara,'healing','Waterbending heals injuries'),/Live research is not activated yet/);
+ assert.ok(e.cache.get('da.knowledge.dispute-drafts.v1')?.includes('Waterbending heals injuries'));
+ assert.equal(e.calls.filter(c=>c.opts.method==='POST').length,0,'Offline status must not trigger paid API requests');
 });
