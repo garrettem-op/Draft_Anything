@@ -7,7 +7,10 @@ on:
     paths:
       - 'data/after-action.js'
       - 'data/campaign.js'
+      - 'data/knowledge-engine.js'
+      - 'supabase/**'
       - 'index.html'
+      - 'data/character-abilities.js'
       - 'tests/**'
       - 'data/knowledge-engine.js'
       - 'supabase/**'
@@ -46,3 +49,14 @@ jobs:
           deno-version: v2.x
       - name: Check Edge Function TypeScript and imports
         run: deno check supabase/functions/character-knowledge/index.ts
+
+  edge-static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Type-check AI research function
+        run: deno check --allow-import supabase/functions/character-knowledge/index.ts
