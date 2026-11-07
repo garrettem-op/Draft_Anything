@@ -57,7 +57,9 @@ const server=http.createServer((req,res)=>{
   // Fill remaining roster slots with eligible characters, keeping one manual pick.
   await page.evaluate(()=>{
    const v=S.campaign,st=campaignStage(),taken=new Set(Object.values(v.roster).map(x=>x.id));
+   const limit=campaignLimit(v.sport,st.rule);
    for(const slot of campaignSlots(v.sport,st.rule)){
+    if(Object.keys(v.roster).length>=limit)break;
     if(v.roster[slot.id])continue;
     const candidate=getCands('mashup').find(x=>!taken.has(x.id)&&campaignAllowed(x,st.rule));
     if(!candidate)throw Error('Could not fill eligible campaign roster for '+st.rule);
