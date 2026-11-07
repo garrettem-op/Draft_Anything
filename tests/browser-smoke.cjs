@@ -218,7 +218,7 @@ const server=http.createServer((req,res)=>{
   });
   await page.locator('[data-act="camp-dispute-submit"]').click();
   await page.locator('text=Provisionally accepted').first().waitFor();
-  await page.locator('.knowledge-dialog [data-act="camp-dispute-close"]').click();
+  await page.locator('.knowledge-dialog [data-act="camp-dispute-close"]').last().click();
   assert.equal(await page.locator('.field-wrap button.invalid[data-slot="'+disputed.slot+'"]').count(),0,'Successful provisional appeal should clear this particular invalid marker');
   assert.equal(await page.locator('button[data-act="camp-play"]').isEnabled(),true,'A valid lineup should remain submittable after the appeal');
 
