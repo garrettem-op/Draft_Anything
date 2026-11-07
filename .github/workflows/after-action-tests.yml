@@ -9,6 +9,8 @@ on:
       - 'data/campaign.js'
       - 'index.html'
       - 'tests/**'
+      - 'data/knowledge-engine.js'
+      - 'supabase/**'
       - '.github/workflows/after-action-tests.yml'
 jobs:
   box-scores:
@@ -34,3 +36,13 @@ jobs:
           npx playwright install chromium --with-deps
       - name: Verify real mobile Campaign flow
         run: node tests/browser-smoke.cjs
+  knowledge-edge-typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Check Edge Function TypeScript and imports
+        run: deno check supabase/functions/character-knowledge/index.ts
