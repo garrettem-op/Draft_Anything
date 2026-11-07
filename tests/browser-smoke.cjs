@@ -41,11 +41,18 @@ const server=http.createServer((req,res)=>{
   await page.locator('.modal button[data-act="camp-info-close"]').click();
   const after=await page.evaluate(()=>document.getElementById('camp-plist').scrollTop);
   assert.ok(Math.abs(after-scroll)<4,'Info dialog changed talent list scroll position: '+scroll+' -> '+after);
-  await page.locator('[data-input="camp-letter-range"]').evaluate(el=>{
-   el.value='12';el.dispatchEvent(new Event('input',{bubbles:true}));
-  });
-  const label=await page.locator('#camp-letter-label').textContent();
-  assert.equal(label,'M','Alphabet scrubber failed');
+  const rail=page.locator('[data-az-list="camp-plist"]');
+  await rail.waitFor();
+  const bounds=await rail.boundingBox();
+  assert.ok(bounds&&bounds.width<40,'Vertical alphabetical rail is not visible or too wide');
+  await page.mouse.move(bounds.x+bounds.width/2,bounds.y+6);
+  await page.mouse.down();
+  await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height*12.5/26,{steps:15});
+  await page.mouse.up();
+  assert.equal(await rail.locator('.az-letter.active').textContent(),'M','A-Z drag did not jump to M');
+  assert.ok(await page.evaluate(()=>document.getElementById('camp-plist').scrollTop)>scroll,'Alphabet jump did not advance the list');
+  const nameFont=await page.locator('#camp-plist .cand .who b').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+  assert.ok(nameFont>=16,'Mobile character rows are too small: '+nameFont);
   await page.evaluate(()=>{
    const stage=campaignStage();
    const eligible=getCands('mashup').find(c=>campaignAllowed(c,stage.rule));
@@ -54,6 +61,14 @@ const server=http.createServer((req,res)=>{
    if(!btn)throw Error('Eligible character not rendered in picker');
    btn.click();
   });
+  // Selecting a filled field position pins its current character above the scrolling list.
+  const chosen=await page.evaluate(()=>Object.values(S.campaign.roster)[0].n);
+  await page.locator('.field-wrap button[data-act="slot"].filled:not([disabled])').first().click();
+  assert.equal((await page.locator('.picker-current .who b').textContent()).trim(),chosen);
+  await page.evaluate(()=>{document.getElementById('camp-plist').scrollTop=850;});
+  assert.equal((await page.locator('.picker-current .who b').textContent()).trim(),chosen);
+  await page.locator('[data-act="camp-close"]').first().click();
+  assert.equal(await page.getByRole('heading',{name:'Your lineup'}).count(),0,'Redundant lineup list is still visible');
   // Fill remaining roster slots with eligible characters, keeping one manual pick.
   await page.evaluate(()=>{
    const v=S.campaign,st=campaignStage(),taken=new Set(Object.values(v.roster).map(x=>x.id));
@@ -67,10 +82,33 @@ const server=http.createServer((req,res)=>{
    }
    render();
   });
+  // Long-hold a character and move it to a different filled field spot.
+  const slots=await page.locator('.field button[data-act="slot"].filled:not([disabled])').all();
+  assert.ok(slots.length>=2,'Need at least two drafted characters for swapping');
+  const from=await slots[0].getAttribute('data-slot'),to=await slots[1].getAttribute('data-slot');
+  const beforeSwap=await page.evaluate(ids=>[S.campaign.roster[ids[0]].id,S.campaign.roster[ids[1]].id],[from,to]);
+  const a=await slots[0].boundingBox(),b=await slots[1].boundingBox();
+  await page.mouse.move(a.x+a.width/2,a.y+a.height/2);
+  await page.mouse.down();
+  await page.waitForTimeout(470);
+  await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:10});
+  await page.mouse.up();
+  const afterSwap=await page.evaluate(ids=>[S.campaign.roster[ids[0]].id,S.campaign.roster[ids[1]].id],[from,to]);
+  assert.deepEqual(afterSwap,[beforeSwap[1],beforeSwap[0]],'Long-press drag failed to swap the field positions');
   await page.locator('button[data-act="camp-play"]').click();
   await page.locator('text=Simulated box score').first().waitFor({timeout:12000});
   assert.ok(await page.locator('text=Opponent box score').count(),'Opponent report unavailable');
   assert.ok(await page.locator('text=Scouting takeaway:').count(),'Scouting summary missing');
+  // The Dealt Hand choices each expose origin info without selecting a card.
+  await page.locator('button[data-act="mode"][data-mode="deal"]').click();
+  await page.locator('button[data-act="c-start"]').click();
+  await page.locator('.hand-option').first().waitFor();
+  assert.equal(await page.locator('.hand-option [data-act="hand-info"]').count(),3,'Missing a Dealt Hand information icon');
+  const selectedBefore=await page.evaluate(()=>S.champ.handSel);
+  await page.locator('.hand-option [data-act="hand-info"]').first().click();
+  await page.locator('.modal [data-act="hand-info-close"]').first().waitFor();
+  assert.equal(await page.evaluate(()=>S.champ.handSel),selectedBefore,'Opening Info selected the hand card');
+  await page.locator('.modal [data-act="hand-info-close"]').first().click();
   assert.equal(errors.length,0,'Browser JS errors: '+errors.join('; '));
   process.stdout.write('Browser gameplay smoke test passed: mobile campaign draft, A-Z, info scroll, simulated result.\\n');
  } finally {
