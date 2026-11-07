@@ -211,7 +211,7 @@ Deno.serve(async req=>{
       if(action!=='approved')return reply(req,{error:'Unknown query.'},400);
       const {data,error}=await db.from('character_knowledge').select('pool,name,tag,feat,sources,approved_at').eq('status','approved').limit(4000);
       if(error)throw error;
-      return reply(req,{facts:data||[]});
+      return reply(req,{facts:data||[],research_ready:!!Deno.env.get('OPENAI_API_KEY')&&(Deno.env.get('KNOWLEDGE_IP_SALT')||'').length>=24&&(Deno.env.get('KNOWLEDGE_REVIEW_TOKEN')||'').length>=32});
     }
     let input:any;
     try{input=await req.json();}catch{return reply(req,{error:'Invalid JSON request.'},400);}
@@ -238,6 +238,9 @@ Deno.serve(async req=>{
     const charged=await db.rpc('charge_character_research_quota',{p_hash:hash,p_max:8});
     if(charged.error)throw charged.error;
     if(!charged.data)return reply(req,{error:'Research limit reached. Please try tomorrow.'},429);
+    const global=await db.rpc('charge_character_research_quota',{p_hash:'research-global-day',p_max:15});
+    if(global.error)throw global.error;
+    if(!global.data)return reply(req,{error:'The shared daily AI research budget has been reached. Please try tomorrow.'},429);
     const ruling=await research(pool,name,tag,claim,sourceUrl);
     const {data:record,error}=await db.from('character_disputes').insert({
       owner_id:user.id,pool,name,tag,claim,source_url:sourceUrl,status:ruling.status,
