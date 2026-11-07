@@ -41,6 +41,30 @@ const KnowledgeEngine = (() => {
           if(typeof fact.pool==='string'&&typeof fact.name==='string'&&typeof fact.tag==='string')
             facts.set(fact.pool+':'+fact.name+'|'+fact.tag,fact);
         }
+        // A moderator can reject/revoke a previously provisionally accepted claim.
+        // Reconcile private review status before allowing another Campaign to use it.
+        if(provisional.size && window.supabase?.createClient){
+          try{
+            const auth=authClient();
+            const {data:{session}}=await auth.auth.getSession();
+            if(session?.access_token){
+              const reviewResponse=await fetch(endpoint()+'?action=my_reviews',{
+                headers:{...headers(),Authorization:'Bearer '+session.access_token}
+              });
+              if(reviewResponse.ok){
+                const reviews=await reviewResponse.json();
+                const byId=new Map((reviews.reviews||[]).map(item=>[item.id,item.status]));
+                let changed=false;
+                for(const [key,record] of provisional){
+                  if(['rejected','revoked','approved'].includes(byId.get(record.disputeId))){
+                    provisional.delete(key);changed=true;
+                  }
+                }
+                if(changed)write(PRIVATE_KEY,Object.fromEntries(provisional));
+              }
+            }
+          }catch{/* Stay usable offline; approval never comes from a failed check. */}
+        }
         loaded=true;state='ready';error='';
         return true;
       }catch(e){state='unavailable';error=e.message||'Knowledge service unavailable.';return false;}
@@ -48,14 +72,18 @@ const KnowledgeEngine = (() => {
     })();
     return inFlight;
   }
-  async function authenticatedToken(){
+  function authClient(){
     if(!window.supabase?.createClient)throw new Error('Supabase Auth is unavailable.');
     if(!client)client=window.supabase.createClient(window.DA_SUPA.url,window.DA_SUPA.key,{
       auth:{persistSession:true,autoRefreshToken:true,storageKey:'da-knowledge-user'}
     });
-    let {data:{session}}=await client.auth.getSession();
+    return client;
+  }
+  async function authenticatedToken(){
+    const auth=authClient();
+    let {data:{session}}=await auth.auth.getSession();
     if(!session?.access_token){
-      const result=await client.auth.signInAnonymously();
+      const result=await auth.auth.signInAnonymously();
       if(result.error)throw new Error('Anonymous sign-in must be enabled in Supabase before AI challenges can run: '+result.error.message);
       session=result.data.session;
     }
