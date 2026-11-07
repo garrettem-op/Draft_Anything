@@ -658,6 +658,86 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-art[data-pool="muppets"] { background: radial-gradient(ellipse at 50% 28%, #b5d877, #346f4c); }
 .trading-card .tc-art[data-pool="games"] { background: radial-gradient(ellipse at 50% 28%, #dfbb6f, #4d6688); }
 
+
+/* Individually recognizable pool emblems instead of the generic DA logo. */
+.tc-name .tc-pool-mark {
+  display: grid; place-items: center; flex: 0 0 23px; width: 23px; height: 23px;
+  border: 1px solid #85683b; border-radius: 50%; background: #f7e8b8;
+  box-shadow: inset 0 1px 2px #ffffffaa; color: #594224;
+}
+.tc-name .tc-pool-mark svg { width: 18px; height: 18px; display: block; }
+.tc-name .tc-pool-nba { background: #db9651; color: #422915; }
+.tc-name .tc-pool-mcu { background: #96332b; color: #fce4a2; }
+.tc-name .tc-pool-toons { background: #f3d681; color: #533e1a; }
+.tc-name .tc-pool-muppets { background: #71aa52; color: #173c21; }
+.tc-name .tc-pool-games { background: #5b87ad; color: #f9eee1; }
+.tc-name .tc-pool-pokemon { background: #d14d42; color: #fff; }
+.tc-name .tc-pool-starwars { background: #273d53; color: #f4e2aa; }
+.tc-name .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
+@media (max-width:899px) { .tc-name .tc-pool-mark { flex-basis: 18px; width:18px; height:18px; } .tc-name .tc-pool-mark svg { width:15px; height:15px; } }
+
+
+/* Modal Dealt Hand: animation plays on the popup's portrait cards, then
+   the dialog disappears so the field can receive the selected character. */
+.deal-popup-back {
+  z-index: 55; background: rgba(7,16,13,.84);
+  padding: max(10px,env(safe-area-inset-top)) 10px max(10px,env(safe-area-inset-bottom));
+}
+html.draft-active .modal.deal-popup.board.hand {
+  display: flex; flex: 0 1 auto; flex-direction: column; align-items: stretch;
+  gap: 10px; width: min(100%,860px); max-width: 860px; min-height: 0;
+  max-height: min(94dvh,820px); margin: 0; padding: clamp(10px,2vw,22px);
+  border: 1px solid #806c43; border-radius: 16px;
+  background: radial-gradient(ellipse at 50% 25%, #30483c, #12271e 75%);
+  box-shadow: 0 15px 60px #0009; color: #f7ecd4; overflow: auto;
+}
+.deal-popup .deal-popup-heading {
+  flex: 0 0 auto; display: grid; gap: 4px; text-align: center; align-items: center;
+}
+.deal-popup .deal-popup-heading h2 { font-size: clamp(24px,4vw,36px); color: #f5db96; margin: 0; }
+.deal-popup .deal-popup-heading .eyebrow { color: #e1c989; }
+.deal-popup .deal-popup-heading p { margin: 0; color: #d1dcd3; font-size: 13px; }
+html.draft-active .modal.deal-popup.board.hand > .hand-list {
+  display: grid; flex: 0 1 auto; grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: clamp(6px,1.7vw,15px); width: 100%; min-width: 0; min-height: 0;
+  max-height: none; margin: 0 auto; padding: 8px 6px 15px;
+  overflow-x: hidden; overflow-y: auto; align-items: start; justify-items: stretch;
+}
+.deal-popup .hand-option { min-width: 0; max-width: 230px; width: 100%; justify-self: center; }
+.deal-popup .hand-card.trading-card { width: 100%; }
+.deal-popup .deal-popup-actions {
+  display: flex; flex: 0 0 auto; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 2px 3px 0;
+}
+.deal-popup .deal-popup-actions .note { color: #d9dece; }
+.deal-popup .deal-popup-actions .btn {
+  background: #ead7aa; color: #241b0e; border-color: #ab9055; white-space: nowrap;
+}
+.deal-placement-panel { display: grid; align-content: start; gap: 10px; padding: 16px; }
+.deal-placement-panel p { margin: 0; }
+.deal-placement-panel .btn { width: fit-content; }
+html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
+@media (max-width: 899px) {
+  html.draft-active .board.hand:not(.deal-popup) { grid-template-rows: minmax(0,1fr); }
+  html.draft-active .board.hand:not(.deal-popup) > .board-side { display: none; }
+  html.draft-active .board.hand:not(.deal-popup) .field-wrap > .field { width: min(100%,46dvh); }
+  html.draft-active .modal.deal-popup.board.hand { max-height: min(96dvh,760px); }
+  html.draft-active .modal.deal-popup.board.hand > .hand-list {
+    display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); overflow-x: hidden;
+  }
+  .deal-popup .deal-popup-actions .note { font-size: 11px; }
+}
+@media (max-width: 400px) {
+  .deal-popup .deal-popup-actions { gap: 5px; }
+  .deal-popup .deal-popup-heading p { font-size: 11px; }
+  .deal-popup .deal-popup-actions .btn { font-size: 12px; padding: 7px 9px; }
+}
+@media (max-height:570px) {
+  html.draft-active .modal.deal-popup.board.hand { max-height: 97dvh; gap: 5px; }
+  .deal-popup .deal-popup-heading p { display: none; }
+  html.draft-active .modal.deal-popup.board.hand > .hand-list { max-height: 62dvh; }
+}
+
 /* Campaign rejection: field targets remain editable, but clearly marked invalid. */
 .field-wrap, .field-wrap *, .field-wrap button { -webkit-user-select:none !important; user-select:none !important; -webkit-touch-callout:none !important; }
 .field-wrap .node, .field-wrap .side-node { touch-action:none; }
@@ -3648,13 +3728,30 @@ function handCardIllustration(x) {
   return illustration ? '<span class="tc-illustration" aria-hidden="true">' + illustration + '</span>' : avatar(x);
 }
 
+// Talent-pool identities, used in the top-right corner of every trading card.
+function handPoolMark(poolId) {
+  const glyphs = {
+    nba: '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5v17M5.8 6c6 3 6 9 0 12M18.2 6c-6 3-6 9 0 12"/>',
+    mcu: '<path d="M12 2.5 20 6v6c0 5-3.3 8.1-8 9.5C7.3 20.1 4 17 4 12V6z"/><path d="m12 6 1.7 3.6 3.9.5-2.8 2.7.7 3.9-3.5-1.9-3.5 1.9.7-3.9-2.8-2.7 3.9-.5z"/>',
+    toons: '<path d="M8 11C5 8 4.6 3.3 7 2.5c2.5-.7 3.9 3.4 4.2 6M14 9c.4-3 1.6-7.2 4-6.5 2.6.7 1.8 5.9-1 8.5"/><path d="M5 15c0-4 3.2-6.6 7-6.6s7 2.6 7 6.6-3.2 6.7-7 6.7S5 19 5 15z"/><path d="M9 14h.1m5.8 0h.1M10 18q2 1.4 4 0"/>',
+    muppets: '<path d="M4 14c0-3.3 3.4-5.5 8-5.5s8 2.2 8 5.5-3.2 6.5-8 6.5S4 17.3 4 14z"/><circle cx="8" cy="8" r="2.8"/><circle cx="16" cy="8" r="2.8"/><path d="M8 16q4 3 8 0"/>',
+    games: '<path d="M7.8 8h8.4c2.2 0 3.5 1.2 4.2 3.5l1 4c.7 3-1.5 4.2-3.6 2.5l-2.4-2H8.6l-2.4 2c-2.1 1.7-4.3.5-3.6-2.5l1-4C4.3 9.2 5.6 8 7.8 8z"/><path d="M7 11v5m-2.5-2.5h5"/><circle cx="16.5" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="18.3" cy="14" r=".9" fill="currentColor" stroke="none"/>',
+    pokemon: '<circle cx="12" cy="12" r="9"/><path d="M3.4 12h17.2"/><circle cx="12" cy="12" r="3.1" fill="#f3e7cb"/>',
+    starwars: '<path d="M12 2.5 14 9l7.5 3-7.5 3-2 6.5L10 15l-7.5-3L10 9z"/><circle cx="12" cy="12" r="1.7"/>',
+    mashup: '<path d="m12 2 2.1 7 7.4 3-7.4 2.9L12 22l-2.1-7.1L2.5 12l7.4-3zM19 3l.6 1.6L21 5l-1.4.6L19 7l-.5-1.4L17 5l1.5-.4z"/>'
+  };
+  const kind = Object.hasOwn(glyphs,poolId) ? poolId : 'custom';
+  const shape = glyphs[poolId] || '<circle cx="12" cy="12" r="8.5"/><path d="M3.6 12h16.8M12 3.5c-5 5-5 12 0 17M12 3.5c5 5 5 12 0 17"/>';
+  return '<span class="tc-pool-mark tc-pool-' + kind + '" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + shape + '</svg></span>';
+}
+
 function handTradingCardHTML(x, selected, i) {
   const pool = getPool(x.pool);
   const origin = pool ? pool.short || pool.name : 'Custom pool';
   const move = x.sig?.name || 'Wildcard contender';
   return `<div class="hand-option" style="--deal-order:${i}">
     <button type="button" class="cand hand-card trading-card ${selected ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${selected}" aria-label="Choose ${esc(x.n)} from ${esc(origin)}">
-      <span class="tc-name"><span title="${esc(x.n)}">${esc(x.n)}</span><i>DA</i></span>
+      <span class="tc-name"><span title="${esc(x.n)}">${esc(x.n)}</span>${handPoolMark(x.pool)}</span>
       <span class="tc-art" data-pool="${esc(x.pool)}">${handCardIllustration(x)}</span>
       <span class="tc-type" title="${esc(origin)}">Legendary · ${esc(origin)}</span>
       <span class="tc-rules"><b>${esc(move)}</b><em>${esc(x.t || 'A contender from another universe.')}</em></span>
@@ -3679,6 +3776,32 @@ function handPanelHTML() {
     ${selPos ? `<div class="needs" style="padding:0 16px 8px" title="What this role leans on most">${needsText(selPos).map(n => `<span>${n}</span>`).join('')}</div>` : ''}
     <div class="hand-list ${animateDeal ? 'dealing' : ''}">${c.hand.map((x, i) => handTradingCardHTML(x, c.handSel === x.id, i)).join('')}</div>
     <div class="hand-hint note">${hint}</div>
+  </div>`;
+}
+
+
+/* A new hand opens as a three-card dialog; position placement stays on the field. */
+function renderDealPopup() {
+  const c = S.champ;
+  if (!handMode() || c.stage !== 'draft' || c.handSel || !c.hand?.length ||
+      rosterFull(c.sport, c.roster)) return '';
+  const sp = SPORTS[c.sport];
+  const filled = sp.pos.filter(p => c.roster[p.id]).length;
+  const animateDeal = handDealPending;
+  handDealPending = false;
+  return `<div class="modal-back deal-popup-back">
+    <div class="modal board hand deal-popup" role="dialog" aria-modal="true" aria-label="Choose a character from your three-card hand">
+      <div class="deal-popup-heading">
+        <div class="eyebrow">Dealt Hand · Round ${filled + 1} of ${sp.pos.length}</div>
+        <h2 class="h">Choose your character</h2>
+        <p>Pick one of these three cards. You'll choose their position on the field next.</p>
+      </div>
+      <div class="hand-list ${animateDeal ? 'dealing' : ''}">${c.hand.map((x, i) => handTradingCardHTML(x, false, i)).join('')}</div>
+      <div class="deal-popup-actions">
+        <span class="note">Choose one card · picks become final when placed</span>
+        <button type="button" class="btn" data-act="hand-redeal" ${canRedeal() ? '' : 'disabled'} title="${c.redeals > 0 && !canRedeal() ? 'Not enough unseen candidates left to redeal' : ''}">Redeal · <span class="num">${c.redeals} left</span></button>
+      </div>
+    </div>
   </div>`;
 }
 
@@ -3722,11 +3845,17 @@ function renderChampDraft() {
   ensureDealtHand();
   const c = S.champ, sp = SPORTS[c.sport], pool = getPool(c.poolId);
   const filled = sp.pos.filter(p => c.roster[p.id]).length, full = filled === sp.pos.length;
-  const panel = handMode() ? handPanelHTML() : c.sel
+  const selectedHandCharacter = handMode() && c.handSel ? (c.hand || []).find(x => x.id === c.handSel) : null;
+  const panel = handMode() ? `<div class="panel deal-placement-panel">
+    <div class="eyebrow">Dealt Hand · Round ${filled + 1} of ${sp.pos.length}</div>
+    <h3 class="h">${selectedHandCharacter ? 'Place ' + esc(selectedHandCharacter.n) : full ? 'Roster complete' : 'Choose your card'}</h3>
+    <p class="note">${selectedHandCharacter ? 'Tap any open position on the field. Your pick is only final once placed.' : full ? 'Ready to simulate your championship.' : 'Your three cards are ready in the selection popup.'}</p>
+    ${selectedHandCharacter ? '<button class="btn" data-act="hand-reselect">Change character</button>' : ''}
+  </div>` : c.sel
     ? `<div class="panel picker open">${pickerHTML({ sportKey: c.sport, poolId: c.poolId, sel: c.sel, roster: c.roster, taken: champTaken(), showRatings: c.showRatings, query: c.query, canRemove: !!c.roster[c.sel], closeAct: 'c-close', pickAct: 'c-pick' })}</div><div class="sheet-backdrop open" data-act="c-close"></div>`
     : `<div class="panel" style="padding:14px"><b>${full?'Roster ready':'Build your lineup on the field'}</b><p class="note" style="margin:7px 0">${filled}/${sp.pos.length} selected. Tap a field position to draft or replace; hold a filled position to drag and swap.</p>${full?'':`<button class="linkish" data-act="c-random">Fill the rest at random</button>`}</div>`;
   return `<div class="board-head"><div class="title"><span class="eyebrow">${handMode() ? 'Dealt Hand' : 'Championship · fan-cast'} · ${esc(sp.name)} · ${esc(pool ? pool.short || pool.name : '')}</span><h2 class="h">${esc(c.teamName || 'Your team')}</h2></div>
-      <span class="chip"><span class="num">${filled}/${sp.pos.length}</span> ${handMode() ? 'filled' : 'cast'}</span>${handMode() ? `<span class="chip">${c.opps} rival teams</span>` : ''}
+      <span class="chip"><span class="num">${filled}/${sp.pos.length}</span> ${handMode() ? 'filled' : 'cast'}</span>${handMode() ? `<span class="chip">${c.opps} rival teams</span>${selectedHandCharacter ? `<button class="btn primary hand-reselect-btn" data-act="hand-reselect">↶ Change character</button>` : ""}` : ""}
       <button class="btn" data-act="c-setup">Change setup</button>
       ${handMode() ? `<button class="btn primary" data-act="c-sim" ${full ? '' : 'disabled'}>Simulate championship</button>` : `<button class="btn" data-act="c-share" ${full ? '' : 'disabled'}>Share lineup</button><button class="btn primary" data-act="c-sim" ${full ? '' : 'disabled'}>Play the season</button>`}</div>
     <div class="board ${handMode() ? 'hand' : ''}"><div>${renderField(c.sport, c.roster, { sel: c.sel, interactive: true, lockFilled: handMode(), targets: handMode() && !!c.handSel })}</div><div class="board-side">${panel}</div></div>`;
@@ -4609,7 +4738,7 @@ function render() {
   else main = renderH2H();
   const draftActive = S.mode==='champ' && S.champ.campaignMode ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
-  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
+  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
     const el=document.querySelector(selector);
@@ -4833,9 +4962,16 @@ document.addEventListener('click', e => {
     case 'hand-info': S.handInfoId = t.dataset.cid; break;
     case 'hand-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break; S.handInfoId = null; break;
     case 'hand-pick': {
+      // The popup chooses a character only; the player places them on the field.
       const cid = t.dataset.cid;
-      if (c.sel && !c.roster[c.sel]) placeFromHand(c.sel, cid);
-      else c.handSel = c.handSel === cid ? null : cid;
+      if ((c.hand || []).some(x => x.id === cid)) { c.handSel = cid; c.sel = null; }
+      break;
+    }
+    case 'hand-reselect': {
+      // Cancel the pending selection without using a redeal or changing the hand.
+      if (handMode() && c.handSel && !rosterFull(c.sport, c.roster)) {
+        c.handSel = null; c.sel = null; handDealPending = true;
+      }
       break;
     }
     case 'hand-redeal': if (canRedeal()) { c.redeals--; dealHand(); toast(`New hand dealt. ${c.redeals} redeal${c.redeals === 1 ? '' : 's'} left.`); } break;
@@ -4858,9 +4994,8 @@ document.addEventListener('click', e => {
       }
       if (handMode()) {
         const slot = t.dataset.slot;
-        if (c.roster[slot]) break;
-        if (c.handSel) placeFromHand(slot, c.handSel);
-        else c.sel = c.sel === slot ? null : slot;
+        if (c.roster[slot] || !c.handSel) break;
+        placeFromHand(slot, c.handSel);
       }
       else if (S.mode === 'champ') { c.sel = t.dataset.slot; c.query = ''; }
       else { h.sel = t.dataset.slot; h.query = ''; }
