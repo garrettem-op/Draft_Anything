@@ -512,6 +512,55 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
   html.draft-active .board.hand .hand-hint { display: none; }
 }
 
+
+/* Mobile-first candidate chooser: fixed A-Z rail, larger readable rows, pinned current slot. */
+.picker { display: flex; flex-direction: column; }
+.picker-head, .picker-tools, .picker-current { flex: 0 0 auto; }
+.picker-list-shell { position: relative; display: flex; flex: 1 1 auto; min-height: 0; overflow: hidden; }
+.picker-list-shell .plist { display: grid; flex: 1 1 auto; width: 100%; min-height: 0; max-height: 100%; overflow-x: hidden; overflow-y: auto; padding: 6px 32px 10px 8px; scroll-behavior: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.talent-entry { display: flex; gap: 5px; align-items: center; min-width: 0; border-bottom: 1px solid var(--line); }
+.talent-entry .cand { min-width: 0; flex: 1 1 auto; }
+.info-button { flex: 0 0 38px; display: inline-flex; justify-content: center; align-items: center; width: 38px; min-width: 38px; height: 38px; padding: 0 !important; font-size: 21px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); color: var(--ink); }
+.talent-entry .info-button { margin-right: 2px; }
+.picker-current { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-bottom: 2px solid var(--accent); background: var(--panel2); min-width: 0; }
+.picker-current .av { width: 44px; height: 44px; flex: none; }
+.picker-current .who { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.picker-current .who b { font-size: 15px; white-space: normal; overflow-wrap: anywhere; }
+.picker-current .who small { font-size: 11px; color: var(--muted); }
+.picker-current > .note { font-size: 10px; flex: none; }
+.az-index { position: absolute; top: 2px; right: 0; bottom: 2px; z-index: 3; display: flex; flex-direction: column; justify-content: space-between; align-items: stretch; width: 29px; padding: 3px 0; touch-action: none; user-select: none; -webkit-user-select: none; border-left: 1px solid var(--line); background: color-mix(in srgb, var(--panel) 93%, transparent); }
+.az-letter { flex: 1 1 0; min-height: 0; display: grid; place-items: center; border: 0; border-radius: 3px; margin: 0; padding: 0; background: transparent; color: var(--accent-strong); font-weight: 800; font-family: var(--f-mono); font-size: clamp(9px, 1.3dvh, 11px); line-height: 1; touch-action: none; }
+.az-letter.active, .az-letter:focus-visible { background: var(--accent); color: var(--ink); }
+.picker .cand .who b { overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; }
+.picker .cand .who small { overflow: visible; text-overflow: clip; white-space: normal; }
+.hand-option { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px; min-width: 0; align-items: center; }
+.hand-option .hand-card { min-width: 0; width: 100%; }
+.hand-option .info-button { margin-right: 6px; }
+.node .tag { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; max-width: min(32cqw, 184px); line-height: 1.16; }
+.dense .node .tag { max-width: 19cqw; font-size: clamp(8px, 1.6cqw, 11px); }
+.dense .node .tag .nm { display: inline !important; }
+.side-node .lbl b { overflow: visible; white-space: normal; text-overflow: clip; overflow-wrap: anywhere; }
+.field-wrap .node.filled:not([disabled]), .field-wrap .side-node.filled:not([disabled]) { touch-action: none; }
+.drag-origin { opacity: .55; }
+.drag-target { outline: 3px solid var(--accent) !important; outline-offset: 3px; border-radius: 9px; }
+.drag-ghost { position: fixed; left: 0; top: 0; z-index: 80; pointer-events: none; padding: 9px 13px; max-width: 230px; border-radius: 10px; background: var(--panel); border: 2px solid var(--accent); color: var(--ink); box-shadow: 0 8px 28px rgba(0,0,0,.25); font-size: 14px; font-weight: 700; transform: translate(-50%, -145%); }
+@media (max-width: 899px) {
+  .picker .cand { min-height: 67px; padding: 9px 7px; grid-template-columns: 47px minmax(0, 1fr) auto; gap: 11px; }
+  .picker .cand .av { width: 47px; height: 47px; }
+  .picker .cand .who b { font-size: 17px; line-height: 1.2; }
+  .picker .cand .who small { font-size: 14px; line-height: 1.25; }
+  .picker .picker-list-shell .plist { padding: 5px 31px 8px 5px; }
+  .picker .talent-entry .info-button { flex-basis: 38px; }
+  .hand-option { position: relative; display: flex; flex: 0 0 calc((100% - 12px) / 3); min-width: 0; align-items: stretch; }
+  .board.hand .hand-option .hand-card { width: 100%; flex: 1 1 auto; min-width: 0; padding-bottom: 35px; }
+  .board.hand .hand-option .info-button { position: absolute; bottom: 4px; right: 4px; z-index: 2; width: 32px; height: 30px; min-width: 32px; font-size: 17px; margin: 0; }
+}
+@media (max-width: 899px) and (max-height: 560px) {
+  .picker .cand { min-height: 53px; }
+  .picker .cand .av { width: 39px; height: 39px; }
+  .az-letter { font-size: 8px; }
+}
+
 </style>
 </head>
 <body>
@@ -3208,7 +3257,7 @@ function renderField(sportKey, roster, o = {}) {
     const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(shortName(c.n))}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
@@ -3450,11 +3499,18 @@ function handPanelHTML() {
     <div class="hand-head"><div><div class="eyebrow">Round ${filled + 1} of ${sp.pos.length} · you pick ${ordinal((c.pickIdx % (c.opps + 1)) + 1)} of ${c.opps + 1}</div><h3 class="h">Your hand</h3></div>
       <button class="btn small" data-act="hand-redeal" ${canRedeal() ? '' : 'disabled'} title="${c.redeals > 0 && !canRedeal() ? 'Not enough unseen candidates left to redeal' : ''}">Redeal · <span class="num">${c.redeals} left</span></button></div>
     ${selPos ? `<div class="needs" style="padding:0 16px 8px" title="What this role leans on most">${needsText(selPos).map(n => `<span>${n}</span>`).join('')}</div>` : ''}
-    <div class="hand-list">${c.hand.map(x => `<button class="cand hand-card ${c.handSel === x.id ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${c.handSel === x.id}">${avatar(x)}<span class="who"><b>${esc(x.n)}</b><small>${esc(x.t)}</small>${sigLine(x)}</span></button>`).join('')}</div>
+    <div class="hand-list">${c.hand.map(x => `<div class="hand-option"><button class="cand hand-card ${c.handSel === x.id ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${c.handSel === x.id}">${avatar(x)}<span class="who"><b>${esc(x.n)}</b><small>${esc(x.t)}</small>${sigLine(x)}</span></button><button class="btn info-button" type="button" data-act="hand-info" data-cid="${esc(x.id)}" aria-label="Where is ${esc(x.n)} from?" title="Character origin">ⓘ</button></div>`).join('')}</div>
     <div class="hand-hint note">${hint}</div>
   </div>`;
 }
 
+function pickerIndexHTML(listId) {
+  return `<div class="az-index" role="group" aria-label="Jump to a character by first letter" data-az-list="${listId}">${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter=>`<button type="button" class="az-letter" data-az-letter="${letter}" aria-label="Jump to ${letter}">${letter}</button>`).join('')}</div>`;
+}
+function pickerCurrentHTML(candidate, position) {
+  if (!candidate) return '';
+  return `<div class="picker-current" aria-label="Currently assigned character">${avatar(candidate)}<span class="who"><small>Currently at ${esc(position.nm)}</small><b>${esc(candidate.n)}</b></span><span class="note">Selected</span></div>`;
+}
 function pickerHTML(o) {
   // o: { sportKey, poolId, sel, roster, taken:Set, showRatings, query, title, canRemove, closeAct, pickAct, readOnly }
   const sp = SPORTS[o.sportKey];
@@ -3464,7 +3520,8 @@ function pickerHTML(o) {
       <div class="row" style="flex-wrap:nowrap">${o.canRemove ? `<button class="btn small" data-act="c-remove">Remove</button>` : ''}${o.closeAct ? `<button class="btn small" data-act="${o.closeAct}" aria-label="Close picker">Done</button>` : ''}</div></div>
       <div class="needs" title="What this role leans on most">${needsText(pos).map(n => `<span>${n}</span>`).join('')}</div></div>
     <div class="picker-tools"><input type="text" id="pick-q" placeholder="Search ${getCands(o.poolId).length} candidates" value="${esc(o.query || '')}" data-input="pick-q" autocomplete="off"></div>
-    <div class="picker-tools" style="display:flex;align-items:center;gap:8px"><span class="note">A–Z</span><input type="range" min="0" max="25" value="0" step="1" data-input="pick-letter-range" aria-label="Jump to a candidate name by first letter"><b class="num" id="pick-letter-label">A</b></div><div class="plist" id="plist">${plistHTML(o)}</div>`;
+    ${pickerCurrentHTML(o.roster?.[o.sel],pos)}
+    <div class="picker-list-shell"><div class="plist" id="plist">${plistHTML(o)}</div>${pickerIndexHTML('plist')}</div>`;
 }
 function plistHTML(o) {
   const sp = SPORTS[o.sportKey], pos = sp.pos.find(p => p.id === o.sel);
@@ -3489,10 +3546,7 @@ function renderChampDraft() {
   const filled = sp.pos.filter(p => c.roster[p.id]).length, full = filled === sp.pos.length;
   const panel = handMode() ? handPanelHTML() : c.sel
     ? `<div class="panel picker open">${pickerHTML({ sportKey: c.sport, poolId: c.poolId, sel: c.sel, roster: c.roster, taken: champTaken(), showRatings: c.showRatings, query: c.query, canRemove: !!c.roster[c.sel], closeAct: 'c-close', pickAct: 'c-pick' })}</div><div class="sheet-backdrop open" data-act="c-close"></div>`
-    : `<div class="panel"><div class="sec"><h3 class="h">${esc(c.teamName || 'Your team')}</h3><span class="num muted">${filled}/${sp.pos.length}</span></div>
-        <div class="roster-list">${sp.pos.map(p => { const x = c.roster[p.id]; return `<button class="rl ${x ? '' : 'empty'}" data-act="slot" data-slot="${p.id}"><span class="ab">${p.ab}</span><span class="who"><b>${x ? esc(x.n) : 'Open — tap to fill'}</b><small>${esc(p.nm)}</small></span>${x ? avatar(x) : ''}</button>`; }).join('')}</div>
-        <div class="sec" style="border-top:1px solid var(--line);border-bottom:0"><span class="note">${full ? 'Roster locked and loaded.' : 'Tap any spot on the ' + sp.surface.replace('vball', 'court').replace('diamond', 'diamond').replace('pitch', 'pitch') + ' to fill it.'}</span>
-        ${full ? '' : `<button class="linkish" data-act="c-random">Fill the rest at random</button>`}</div></div>`;
+    : `<div class="panel" style="padding:14px"><b>${full?'Roster ready':'Build your lineup on the field'}</b><p class="note" style="margin:7px 0">${filled}/${sp.pos.length} selected. Tap a field position to draft or replace; hold a filled position to drag and swap.</p>${full?'':`<button class="linkish" data-act="c-random">Fill the rest at random</button>`}</div>`;
   return `<div class="board-head"><div class="title"><span class="eyebrow">${handMode() ? 'Dealt Hand' : 'Championship · fan-cast'} · ${esc(sp.name)} · ${esc(pool ? pool.short || pool.name : '')}</span><h2 class="h">${esc(c.teamName || 'Your team')}</h2></div>
       <span class="chip"><span class="num">${filled}/${sp.pos.length}</span> ${handMode() ? 'filled' : 'cast'}</span>${handMode() ? `<span class="chip">${c.opps} rival teams</span>` : ''}
       <button class="btn" data-act="c-setup">Change setup</button>
@@ -4302,20 +4356,69 @@ Reply with only a JSON array with one object per candidate, in the same order: {
 
 // ===== Render + events =====
 let lastFocus = null;
-function jumpTalentPoolLetter(listId,labelId,letter) {
-  const list=document.getElementById(listId);
-  if(!list)return;
-  const entries=Array.from(list.querySelectorAll('.cand'));
-  if(!entries.length)return;
-  const nameOf=el=>(el.querySelector('.who b')?.textContent||'').trim().toUpperCase();
-  const target=entries.find(el=>nameOf(el).charAt(0)>=letter)||entries[entries.length-1];
-  const anchor=target.closest('.row')||target;
-  list.scrollTop+=anchor.getBoundingClientRect().top-list.getBoundingClientRect().top;
-  const label=document.getElementById(labelId);if(label)label.textContent=letter;
+function jumpTalentPoolLetter(listId, labelId, letter) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+  const entries = Array.from(list.querySelectorAll('.cand'));
+  if (!entries.length) return;
+  const nameOf = el => (el.querySelector('.who b')?.textContent || '').trim().toUpperCase();
+  const target = entries.find(el => nameOf(el).charAt(0) >= letter) || entries[entries.length - 1];
+  const row = target.closest('.talent-entry') || target.closest('.row') || target;
+  list.scrollTop += row.getBoundingClientRect().top - list.getBoundingClientRect().top;
+  const label = labelId && document.getElementById(labelId);
+  if (label) label.textContent = letter;
+  const index = document.querySelector('[data-az-list="' + listId + '"]');
+  if (index) for (const node of index.querySelectorAll('[data-az-letter]')) {
+    const active = node.dataset.azLetter === letter;
+    node.classList.toggle('active', active);
+    node.setAttribute('aria-pressed', String(active));
+  }
+}
+// The fixed index works like iOS Contacts: slide a finger up/down to jump between initials.
+let azGesture = null;
+function azTrack(clientY) {
+  if (!azGesture) return;
+  const el = azGesture.element, rect = el.getBoundingClientRect();
+  const n = Math.max(0, Math.min(25, Math.floor((clientY - rect.top) / Math.max(1, rect.height) * 26)));
+  const letter = String.fromCharCode(65 + n);
+  if (letter !== azGesture.letter) {
+    azGesture.letter = letter;
+    jumpTalentPoolLetter(azGesture.listId, null, letter);
+  }
+}
+document.addEventListener('pointerdown', e => {
+  const index = e.target.closest('[data-az-list]');
+  if (!index || !e.isPrimary) return;
+  azGesture = {element:index, listId:index.dataset.azList, pointerId:e.pointerId, letter:null};
+  index.setPointerCapture?.(e.pointerId);
+  azTrack(e.clientY);
+  e.preventDefault();
+});
+document.addEventListener('pointermove', e => {
+  if (azGesture && azGesture.pointerId === e.pointerId) azTrack(e.clientY);
+});
+document.addEventListener('pointerup', e => {
+  if (azGesture?.pointerId === e.pointerId) { azTrack(e.clientY); azGesture = null; }
+});
+document.addEventListener('pointercancel', e => {
+  if (azGesture?.pointerId === e.pointerId) azGesture = null;
+});
+document.addEventListener('keydown', e => {
+  const button = e.target.closest('[data-az-letter]');
+  if (button && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    jumpTalentPoolLetter(button.closest('[data-az-list]').dataset.azList, null, button.dataset.azLetter);
+  }
+});
+function renderHandInfo() {
+  if(S.mode!=='deal' || !S.handInfoId) return '';
+  const character = (S.champ.hand||[]).find(c=>c.id===S.handInfoId);
+  if(!character)return '';
+  const origin=campaignOrigin(character);
+  return `<div class="modal-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
 }
 function render() {
-  const oldCampaignList=document.getElementById('camp-plist');
-  const campaignScroll=oldCampaignList?oldCampaignList.scrollTop:null;
+  const listScrolls=['camp-plist','plist'].map(id=>({id,top:document.getElementById(id)?.scrollTop}));
   const app = $('#app');
   const ae = document.activeElement; lastFocus = ae && ae.id ? { id: ae.id, s: ae.selectionStart, e: ae.selectionEnd } : null;
   let main;
@@ -4324,8 +4427,8 @@ function render() {
   else main = renderH2H();
   const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
-  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo() : '');
-  if(campaignScroll!==null){const next=document.getElementById('camp-plist');if(next)next.scrollTop=campaignScroll;}
+  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo() : '');
+  for(const {id,top} of listScrolls){if(top!=null){const next=document.getElementById(id);if(next)next.scrollTop=top;}}
   if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus(); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
 }
 function refreshPlist() {
@@ -4333,6 +4436,104 @@ function refreshPlist() {
   if (S.mode !== 'h2h') { const c = S.champ; el.innerHTML = plistHTML({ sportKey: c.sport, poolId: c.poolId, sel: c.sel, taken: champTaken(), showRatings: c.showRatings, query: c.query, pickAct: 'c-pick' }); }
   else { const d = S.h2h.contest; if (!d) return; const me = mySide(d), sp = SPORTS[d.sport]; const taken = new Map(); for (const p of d.picks) taken.set(p.cid, p.s === me ? 'Your ' + sp.pos.find(x => x.id === p.slot).ab : contestName(d, p.s)); el.innerHTML = plistHTML({ sportKey: d.sport, poolId: d.poolId, sel: S.h2h.sel, taken, showRatings: d.rules.ratings === 'shown', query: S.h2h.query, pickAct: 'h-pick', readOnly: sideForPick(d.picks.length, d) !== me }); }
 }
+
+
+/* Hold a filled position, then drag onto another position to move or swap the roster.
+   Keep this local to editable single-player drafts; multiplayer picks are immutable. */
+let fieldDrag = null;
+let blockFieldClickUntil = 0;
+function editableDraftRoster() {
+  if(S.mode==='h2h')return null;
+  if(S.mode==='champ'&&S.champ.campaignMode) {
+    if(S.campaign.status!=='draft')return null;
+    return {roster:S.campaign.roster,slots:campaignSlots(S.campaign.sport,campaignStage().rule),campaign:true};
+  }
+  if(S.champ.stage!=='draft')return null;
+  return {roster:S.champ.roster,slots:SPORTS[S.champ.sport].pos,campaign:false};
+}
+function swapDraftSlots(from,to) {
+  const draft=editableDraftRoster();
+  if(!draft || from===to || !draft.roster[from] || !draft.slots.some(p=>p.id===from) || !draft.slots.some(p=>p.id===to))return false;
+  const current=draft.roster[from],target=draft.roster[to];
+  draft.roster[to]=current;
+  if(target)draft.roster[from]=target;
+  else delete draft.roster[from];
+  if(draft.campaign) {
+    S.campaign.selected=null;S.campaign.validation='';saveCampaign();
+  } else {
+    S.champ.sel=null;S.champ.handSel=null;saveChamp();
+  }
+  render();
+  return true;
+}
+function clearFieldDrag() {
+  if(!fieldDrag)return;
+  if(fieldDrag.timer)clearTimeout(fieldDrag.timer);
+  fieldDrag.source?.classList.remove('drag-origin');
+  fieldDrag.target?.classList.remove('drag-target');
+  fieldDrag.ghost?.remove();
+  fieldDrag=null;
+}
+document.addEventListener('pointerdown',e=>{
+  if(!e.isPrimary||e.button>0||azGesture)return;
+  const node=e.target.closest('.field-wrap button[data-act="slot"].filled:not([disabled])');
+  const draft=editableDraftRoster();
+  if(!node || !draft || !draft.roster[node.dataset.slot])return;
+  const start={x:e.clientX,y:e.clientY};
+  const gesture={pointerId:e.pointerId,source:node,from:node.dataset.slot,start,point:start,timer:null,active:false,target:null,ghost:null};
+  gesture.timer=setTimeout(()=>{
+    if(fieldDrag!==gesture)return;
+    const character=draft.roster[gesture.from];
+    if(!character)return;
+    gesture.active=true;
+    gesture.source.classList.add('drag-origin');
+    const ghost=document.createElement('div');
+    ghost.className='drag-ghost';ghost.textContent=character.n;
+    document.body.appendChild(ghost);
+    gesture.ghost=ghost;
+    ghost.style.left=gesture.point.x+'px';ghost.style.top=gesture.point.y+'px';
+    if(navigator.vibrate)try{navigator.vibrate(18);}catch{}
+  },400);
+  fieldDrag=gesture;
+});
+document.addEventListener('pointermove',e=>{
+  const d=fieldDrag;
+  if(!d||d.pointerId!==e.pointerId)return;
+  d.point={x:e.clientX,y:e.clientY};
+  if(!d.active) {
+    if(Math.hypot(e.clientX-d.start.x,e.clientY-d.start.y)>11)clearFieldDrag();
+    return;
+  }
+  e.preventDefault();
+  if(d.ghost){d.ghost.style.left=e.clientX+'px';d.ghost.style.top=e.clientY+'px';}
+  const hit=document.elementFromPoint(e.clientX,e.clientY)?.closest('.field-wrap button[data-act="slot"]:not([disabled])');
+  const draft=editableDraftRoster();
+  const target=hit&&draft?.slots.some(p=>p.id===hit.dataset.slot)?hit:null;
+  if(d.target!==target){
+    d.target?.classList.remove('drag-target');
+    d.target=target;
+    d.target?.classList.add('drag-target');
+  }
+},{passive:false});
+document.addEventListener('pointerup',e=>{
+  const d=fieldDrag;
+  if(!d||d.pointerId!==e.pointerId)return;
+  if(!d.active){clearFieldDrag();return;}
+  const hit=document.elementFromPoint(e.clientX,e.clientY)?.closest('.field-wrap button[data-act="slot"]:not([disabled])');
+  const from=d.from,to=hit?.dataset.slot;
+  clearFieldDrag();
+  blockFieldClickUntil=Date.now()+650;
+  if(to&&from!==to)swapDraftSlots(from,to);
+  e.preventDefault();
+});
+document.addEventListener('pointercancel',e=>{
+  if(fieldDrag?.pointerId===e.pointerId)clearFieldDrag();
+});
+document.addEventListener('click',e=>{
+  if(Date.now()<blockFieldClickUntil&&e.target.closest('.field-wrap [data-act="slot"]')){
+    e.preventDefault();e.stopImmediatePropagation();
+  }
+},true);
 
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-act]'); if (!t) return;
@@ -4397,6 +4598,8 @@ document.addEventListener('click', e => {
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
     case 'c-rivals': if (c.rivals !== t.dataset.v) { c.rivals = t.dataset.v; if (c.queue) resetDraft(); } break;
+    case 'hand-info': S.handInfoId = t.dataset.cid; break;
+    case 'hand-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break; S.handInfoId = null; break;
     case 'hand-pick': {
       const cid = t.dataset.cid;
       if (c.sel && !c.roster[c.sel]) placeFromHand(c.sel, cid);
@@ -4478,6 +4681,7 @@ document.addEventListener('input', e => {
   else if (k === 'gen-topic') { S.gen.topic = v; const b = document.querySelector('[data-act="gen-go"]'); if (b) b.disabled = v.trim().length < 2; }
 });
 document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && S.handInfoId){S.handInfoId=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.infoId) { S.campaign.infoId=null; render(); return; }
   if (e.key === 'Escape') { if (S.modal) { S.modal = null; render(); } else if (S.champ.sel || S.h2h.sel || S.champ.handSel) { S.champ.sel = null; S.h2h.sel = null; S.champ.handSel = null; render(); } }
   if (e.key === 'Enter' && e.target.id === 'h-code') joinByCode();

@@ -19,10 +19,27 @@ test('report picker and alphabet scrubber are wired in app handlers',()=>{
  assert.match(html,/daMatchBrowser\(c\.sport,sim,teams,c\.reportMatch\)/);
  assert.match(html,/else if \(k === 'report-match'\)/);
  assert.match(html,/function jumpTalentPoolLetter\(/);
- assert.match(html,/data-input="pick-letter-range"/);
- assert.match(html,/camp-letter-range/);
+ assert.match(html,/data-az-list/);
+ assert.match(html,/data-az-letter/);
+ assert.match(html,/function azTrack\(/);
 });
 test('campaign on-field slots use the campaign picker, not the normal draft',()=>{
  assert.match(html,/if \(S\.mode === 'champ' && c\.campaignMode\)/);
  assert.match(html,/S\.campaign\.selected=t\.dataset\.slot/);
+});
+
+test('dealt hand shows one origin information control per deal card',()=>{
+ assert.match(html,/data-act="hand-info"/);
+ assert.match(html,/data-act="hand-info-close"/);
+ assert.match(html,/renderHandInfo\(\)/);
+});
+test('current character is fixed above the scrollable talent list',()=>{
+ assert.match(html,/function pickerCurrentHTML\(/);
+ assert.match(html,/picker-current/);
+ assert.match(html,/picker-list-shell/);
+});
+test('field swaps use deliberate long press and are not allowed in multiplayer',()=>{
+ assert.match(html,/function swapDraftSlots\(/);
+ assert.match(html,/setTimeout\(\(\)=>\{/);
+ assert.match(html,/if\(S\.mode==='h2h'\)return null/);
 });
