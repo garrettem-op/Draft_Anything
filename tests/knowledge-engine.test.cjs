@@ -16,6 +16,7 @@ function environment(options={}){
   const fetch=async (url,opts={})=>{
     calls.push({url,opts});
     if(opts.method==='POST')return response(options.postStatus||200,options.ruling||{status:'inconclusive',rationale:'More evidence needed',sources:[]});
+    if(String(url).includes('my_reviews'))return response(200,{reviews:options.reviewStatuses||[]});
     return response(options.getStatus||200,{facts:options.facts||[]});
   };
   const auth={getSession:async()=>({data:{session:{access_token:'fake-auth-session'}}}),
@@ -70,4 +71,15 @@ test('server outage retains the claim as a local pending draft',async()=>{
 test('no secret keys are present in browser source',()=>{
   assert.ok(!/OPENAI_API_KEY\s*=|sk-[A-Za-z0-9]{20}/.test(client));
   assert.ok(!/SUPABASE_SERVICE_ROLE_KEY\s*=/.test(client));
+});
+
+test('moderator rejection of a provisional dispute revokes its persisted local override',async()=>{
+  const id='99999999-9999-4999-8999-999999999999';
+  const first=environment({ruling:{status:'accepted_provisional',dispute_id:id,rationale:'Temporary test acceptance',sources:['https://www.nick.com']}});
+  await first.engine.challenge(katara,'healing');
+  assert.equal(first.engine.has(katara,'healing'),true);
+  const second=environment({cache:[...first.cache],reviewStatuses:[{id,status:'rejected'}]});
+  assert.equal(await second.engine.load(),true);
+  assert.equal(second.engine.has(katara,'healing'),false);
+  assert.equal(second.engine.kind(katara,'healing'),null);
 });
