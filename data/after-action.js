@@ -159,12 +159,47 @@ function daGameReport(sport,teamA,teamB,game,seed='') {
     daReport(sport,teamB.score,bPoints,teamB.name,{seed:seed+':b',note:game.line[2],side:winner===game.b?0:1,opponentPoints:aPoints});
 }
 
+/* Explain the actual pre-score calculation, not a reconstructed combat narrative.
+   The base rating already includes coach quality, chemistry, signature lifts and
+   style modifiers. Each later adjustment is the value actually used to decide. */
+function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent',outcome=null) {
+  if(!detail)return '<p class="note">Detailed match adjustments were not saved for this older result.</p>';
+  const fix=n=>Number.isFinite(Number(n))?Number(n):0;
+  const signed=n=>(fix(n)>=0?'+':'')+fix(n).toFixed(2);
+  const num=n=>fix(n).toFixed(2);
+  const A=esc(nameA),B=esc(nameB);
+  const row=(label,key,showSigned=true)=>`<tr><td>${label}</td><td class="num">${showSigned? signed(detail[key]?.[0]):num(detail[key]?.[0])}</td><td class="num">${showSigned? signed(detail[key]?.[1]):num(detail[key]?.[1])}</td></tr>`;
+  const coachInfo=(sc,name)=>{
+    if(!sc)return '';
+    const st=sc.syn?.style,quality=sc.coachFit==null?'':` Coach quality: ${num(sc.coachFit)}/99 (multiplier ×${num(.9+.2*sc.coachFit/99)}).`;
+    if(!st)return `<p class="note"><b>${esc(name)}:</b> No specialized coaching system was assigned.${quality}</p>`;
+    const fit=st.match||(st.pts>.15?'Good fit':st.pts<-.15?'Poor fit':'Neutral');
+    return `<p class="note"><b>${esc(name)}:</b> ${esc(st.name)} — ${esc(st.label)}: <b>${esc(fit)} (${signed(st.pts)} rating)</b>. System-priority attributes average ${num(st.focusAvg)} versus overall roster attributes ${num(st.baseline)}.${quality}</p>`;
+  };
+  const diff=fix(detail.final?.[0])-fix(detail.final?.[1]),baseGap=fix(detail.base?.[0])-fix(detail.base?.[1]);
+  const favourite=baseGap>0.001?nameA:baseGap<-.001?nameB:null;
+  const winner=diff>0?nameA:diff<0?nameB:null;
+  const upset=favourite&&winner&&favourite!==winner;
+  const summary=outcome==='draw'?'The match ended in a draw under the sport\'s draw threshold, even though the adjusted ratings differed.':(upset?'Upset: ':'')+String(winner||'Neither team')+' '+(upset?'overcame a pre-match disadvantage of '+num(Math.abs(baseGap))+' rating points':'finished with the higher effective match rating')+(winner?' (margin '+num(Math.abs(diff))+').':'');
+  return `<section class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">Why this match ended this way</h3><span class="note">Actual simulation adjustments</span></div>
+    <div class="tbl-wrap"><table class="t"><thead><tr><th>Rating stage</th><th>${A}</th><th>${B}</th></tr></thead><tbody>
+    ${row('Team rating · roster + chemistry + coaching','base',false)}
+    ${row('Opponent disruption','chaos')}
+    ${row('Clutch / signature surges','spark')}
+    ${row('Match-day variation','random')}
+    <tr><th>Effective match rating</th><th class="num">${num(detail.final?.[0])}</th><th class="num">${num(detail.final?.[1])}</th></tr>
+    </tbody></table></div>
+    <p class="note" style="margin:10px 0">${esc(summary)} The final score is generated from this adjusted margin and the sport's scoring rules; per-character statistics are allocated afterward.</p>
+    ${coachInfo(scoreA,nameA)}${coachInfo(scoreB,nameB)}
+    </section>`;
+}
+
 function daUserMatches(sim) {
   const games=[];
   (sim?.games||[]).forEach((g,i)=>{if(g.a===0||g.b===0)games.push({...g,label:'Regular season · Match '+(i+1),key:'reg-'+i});});
   (sim?.rounds||[]).forEach((round,ri)=>(round||[]).forEach((g,gi)=>{
     if(g.a!==0&&g.b!==0)return;
-    if(Array.isArray(g.games)&&g.games.length)g.games.forEach((match,mi)=>games.push({a:g.a,b:g.b,w:match.w,line:match.line,label:'Playoffs · Round '+(ri+1)+' · Game '+(mi+1),key:'po-'+ri+'-'+gi+'-'+mi}));
+    if(Array.isArray(g.games)&&g.games.length)g.games.forEach((match,mi)=>games.push({a:g.a,b:g.b,w:match.w,line:match.line,breakdown:match.breakdown,label:'Playoffs · Round '+(ri+1)+' · Game '+(mi+1),key:'po-'+ri+'-'+gi+'-'+mi}));
     else games.push({...g,label:'Playoffs · Round '+(ri+1),key:'po-'+ri+'-'+gi});
   }));
   return games;
@@ -179,7 +214,8 @@ function daMatchBrowser(sport,sim,teams,selected) {
   return `<section class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">Match-by-match box scores</h3><span class="note">${matches.length} outings · including playoffs</span></div>
   <label class="field-label"><span>Select a match</span><select data-input="report-match" id="report-match">${matches.map((g,i)=>`<option value="${i}" ${i===ix?'selected':''}>${esc(g.label)} · vs ${esc(teams[g.a===0?g.b:g.a].name)}</option>`).join('')}</select></label>
   <p class="note">${result} vs ${esc(teams[opp].name)} · final ${current.line[0]}–${current.line[1]}${current.line[2]?' · '+esc(current.line[2]):''}</p>
+  ${daMatchBreakdown(current.breakdown,teams[current.a]?.score,teams[current.b]?.score,teams[current.a]?.name,teams[current.b]?.name,current.w===-1?'draw':null)}
   ${daGameReport(sport,teams[current.a],teams[current.b],current,current.key)}</section>`;
 }
 
-if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches};
+if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches,daMatchBreakdown};
