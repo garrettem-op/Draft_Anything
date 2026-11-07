@@ -152,6 +152,15 @@ const server=http.createServer((req,res)=>{
     const v=S.campaign;
     v.stageOrder[0]=0; // No Powers Allowed: reliably test an eligibility restriction.
     const rule=campaignStage().rule;
+    const used=new Set(Object.values(v.roster).map(c=>c.id));
+    // A previously randomized short-handed stage may have drafted fewer slots.
+    // Fill the full unrestricted stage before testing eligibility rejection.
+    for(const p of campaignSlots(v.sport,rule)){
+      if(v.roster[p.id])continue;
+      const next=getCands('mashup').find(c=>campaignAllowed(c,rule)&&!used.has(c.id));
+      if(!next)throw Error('Cannot complete rejection test roster');
+      v.roster[p.id]=next;used.add(next.id);
+    }
     const slot=campaignSlots(v.sport,rule)[0].id;
     const existing=new Set(Object.values(v.roster).map(c=>c.id));
     const bad=getCands('mashup').find(c=>!campaignAllowed(c,rule)&&!existing.has(c.id));
