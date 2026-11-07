@@ -49,3 +49,14 @@ test('field swaps use deliberate long press and are not allowed in multiplayer',
  assert.match(html,/setTimeout\(\(\)=>\{/);
  assert.match(html,/if\(S\.mode==='h2h'\)return null/);
 });
+
+test('knowledge engine loads before campaign and cannot change numerical challenge rules',()=>{
+ const knowledge=html.indexOf('<script src="data/knowledge-engine.js"></script>');
+ const campaign=html.indexOf('<script src="data/campaign.js"></script>');
+ assert.ok(knowledge>0&&knowledge<campaign,'Knowledge engine must load first');
+ assert.match(html,/function campaignSubmitKnowledgeDispute\(/);
+ assert.match(html,/case 'camp-dispute-open'/);
+ assert.match(html,/case 'camp-dispute-submit'/);
+ assert.match(html,/renderCampaignDispute\(\)/);
+ assert.ok(!html.includes('OPENAI_API_KEY='),'Do not embed provider secrets in the frontend');
+});
