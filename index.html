@@ -562,6 +562,102 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 }
 
 
+
+/* Collectible-card hand: three portrait choices, a staggered tabletop deal. */
+.board.hand .hand-list {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 9px;
+  align-items: stretch; overflow: visible; padding: 6px 12px 12px;
+}
+.board.hand .hand-option { position: relative; display: block; min-width: 0; }
+.board.hand .hand-option .hand-card.trading-card {
+  display: flex; flex-direction: column; gap: 0; width: 100%; min-width: 0;
+  aspect-ratio: 5 / 7; padding: 5px; align-items: stretch; justify-items: stretch;
+  color: #211b13; text-align: left; border: 2px solid #302618; border-radius: 10px;
+  background: linear-gradient(135deg, #f6dfa0 0%, #8b6a34 15%, #f4d38a 43%, #8b6b36 75%, #d5a952 100%);
+  box-shadow: inset 0 0 0 1px #f6e4aa, 0 3px 8px rgba(0,0,0,.24);
+  overflow: hidden; transition: box-shadow .16s ease, filter .16s ease, translate .16s ease;
+  container-type: inline-size;
+}
+.board.hand .hand-card.trading-card:hover { filter: brightness(1.04); translate: 0 -2px; }
+.board.hand .hand-card.trading-card.picked {
+  border-color: var(--accent); background: linear-gradient(135deg, #fff0bd, #b9862b 50%, #ffe4a0);
+  box-shadow: 0 0 0 3px var(--accent), 0 5px 13px rgba(0,0,0,.3);
+}
+.trading-card .tc-name, .trading-card .tc-type {
+  flex: 0 0 auto; color: #252018; background: linear-gradient(115deg, #f6eed3, #e0cf9f 72%, #f7edc8);
+  border: 1px solid #826b44; border-radius: 3px; min-height: 18px; padding: 2px 4px;
+  font-family: Georgia, 'Times New Roman', serif; font-weight: 700;
+}
+.trading-card .tc-name { display: flex; align-items: center; gap: 3px; font-size: clamp(10px, 10cqw, 15px); line-height: 1.1; }
+.trading-card .tc-name span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; }
+.trading-card .tc-name i { flex: none; font: 800 9px var(--f-mono); color: #886b35; font-style: normal; }
+.trading-card .tc-art {
+  min-height: 0; flex: 1 1 auto; display: grid; place-items: center; position: relative; isolation: isolate; overflow: hidden;
+  margin: 3px 0; border: 2px ridge #75633c; border-radius: 2px;
+  background: radial-gradient(ellipse at 48% 30%, #d7c58d 0, #8a9d91 48%, #303d36 100%);
+}
+.trading-card .tc-art::before { content: ''; position: absolute; inset: -25%; z-index: -1; transform: rotate(-23deg);
+  background: repeating-linear-gradient(110deg, transparent 0 16px, rgba(251,232,164,.13) 18px 19px, transparent 20px 36px); }
+.trading-card .tc-art .av { display: block; width: 69%; height: auto; aspect-ratio: 1; padding: 0; border: 0; background: transparent; filter: drop-shadow(0 5px 4px rgba(0,0,0,.35)); }
+.trading-card .tc-art .av svg { display: block; width: 100%; height: 100%; }
+.trading-card .tc-type { font-size: clamp(8px, 7.5cqw, 11px); line-height: 1.15; min-height: 17px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.trading-card .tc-rules { flex: 0 0 auto; display: grid; align-content: center; gap: 3px; padding: 4px 5px; min-height: 42px;
+  background: linear-gradient(135deg, #f4ebd3, #e6d9b4); border: 1px solid #8c7650; border-top: 0;
+  color: #252018; font-family: Georgia, 'Times New Roman', serif; }
+.trading-card .tc-rules b { font-size: clamp(8px, 7.5cqw, 11px); line-height: 1.16; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.trading-card .tc-rules em { font-size: clamp(7px, 7cqw, 10px); line-height: 1.2; opacity: .78; font-style: italic;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.trading-card .tc-foot { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 3px;
+  font: 700 8px var(--f-mono); letter-spacing: .04em; color: #3c2e1e; padding: 3px 2px 0; }
+.board.hand .hand-option .info-button {
+  position: absolute; right: 7px; bottom: 7px; z-index: 2; width: 25px; height: 25px; min-width: 25px;
+  margin: 0; border-radius: 50%; border-color: #69502a; color: #2e2618; background: #f8e7b7;
+  font-size: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.22);
+}
+.board.hand .hand-list.dealing .hand-option {
+  animation: hand-card-arrive .72s cubic-bezier(.17,.84,.22,1) both;
+  animation-delay: calc(var(--deal-order) * 155ms);
+}
+@keyframes hand-card-arrive {
+  0% { opacity: 0; transform: translate3d(-45px,-100px,0) rotate(-20deg) scale(.7); }
+  62% { opacity: 1; transform: translate3d(0,8px,0) rotate(3deg) scale(1.035); }
+  82% { transform: translate3d(0,-3px,0) rotate(-1deg) scale(.995); }
+  100% { opacity: 1; transform: none; }
+}
+@media (max-width: 899px) {
+  html.draft-active .board.hand > .board-side > .hand-panel { max-height: min(43dvh, 315px); }
+  html.draft-active .board.hand .hand-list {
+    display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px;
+    flex: 0 1 auto; overflow-x: visible; overflow-y: auto; padding: 4px 6px 8px;
+  }
+  .board.hand .hand-option { display: block; flex: none; }
+  html.draft-active .board.hand .hand-option .hand-card.trading-card {
+    display: flex; width: 100%; min-width: 0; aspect-ratio: 5/7; padding: 4px; gap: 0;
+  }
+  html.draft-active .board.hand .hand-card.trading-card .tc-art .av { width: 66%; height: auto; }
+  .board.hand .hand-option .info-button { right: 6px; bottom: 6px; width: 22px; height: 22px; min-width: 22px; font-size: 14px; }
+}
+@media (max-width: 899px) and (max-height: 560px) {
+  html.draft-active .board.hand > .board-side > .hand-panel { max-height: min(47dvh, 200px); }
+  .trading-card .tc-rules { min-height: 28px; padding: 2px 4px; }
+  .trading-card .tc-rules em { display: none; }
+  .trading-card .tc-name, .trading-card .tc-type { min-height: 14px; padding-block: 1px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .board.hand .hand-list.dealing .hand-option { animation: none; }
+  .board.hand .hand-card.trading-card { transition: none; }
+}
+
+
+/* Preview-inspired self-contained SVG art for five launch exemplars. */
+.trading-card .tc-illustration { width: 100%; height: 100%; display: grid; place-items: center; }
+.trading-card .tc-illustration svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 3px 3px rgba(0,0,0,.2)); }
+.trading-card .tc-art[data-pool="nba"] { background: radial-gradient(ellipse at 50% 28%, #bda2d9, #302149); }
+.trading-card .tc-art[data-pool="mcu"] { background: radial-gradient(ellipse at 50% 28%, #deb964, #572019); }
+.trading-card .tc-art[data-pool="toons"] { background: radial-gradient(ellipse at 50% 28%, #d7ba87, #546b6f); }
+.trading-card .tc-art[data-pool="muppets"] { background: radial-gradient(ellipse at 50% 28%, #b5d877, #346f4c); }
+.trading-card .tc-art[data-pool="games"] { background: radial-gradient(ellipse at 50% 28%, #dfbb6f, #4d6688); }
+
 /* Campaign rejection: field targets remain editable, but clearly marked invalid. */
 .field-wrap, .field-wrap *, .field-wrap button { -webkit-user-select:none !important; user-select:none !important; -webkit-touch-callout:none !important; }
 .field-wrap .node, .field-wrap .side-node { touch-action:none; }
@@ -3439,6 +3535,7 @@ function nextEmpty(sportKey, roster, after) {
   return null;
 }
 // ----- Dealt Hand -----
+let handDealPending = false; // consumed once by the render of each newly dealt hand
 function handMode() { return S.mode === 'deal'; }
 function rosterFull(sportKey, roster) { return SPORTS[sportKey].pos.every(p => roster[p.id]); }
 function takenIds() {
@@ -3458,6 +3555,7 @@ function dealHand() {
   c.seen = [...new Set([...(c.seen || []), ...hand.map(x => x.id)])];
   c.hand = hand;
   c.handSel = null; c.sel = null;
+  handDealPending = true;
 }
 // A redeal is allowed only if enough unseen candidates remain for every later hand.
 function canRedeal() { const c = S.champ; return c.redeals > 0 && freshCands().length >= HAND_SIZE * userRoundsLeft(); }
@@ -3522,11 +3620,44 @@ function ensureDealtHand() {
     else initHandDraft();
   }
 }
+
+// Lightweight, original vector character portraits from the design preview.
+// Other pool members retain the existing local jersey-token artwork, so a missing
+// portrait never results in a blank or network-dependent card.
+const HAND_CARD_PORTRAITS = {
+  "nba|Shaquille O'Neal": `<svg viewBox="0 0 160 155"><circle cx="119" cy="40" r="23" fill="#bd6e29" stroke="#4e2914" stroke-width="2"/><path d="M97 40h44M119 17v46M103 24q22 17 32 30M135 24q-22 17-32 30" stroke="#512c18" stroke-width="2.5" fill="none"/><ellipse cx="77" cy="45" rx="21" ry="24" fill="#6d3b22"/><path d="M50 77q27-16 54 1l18 70H27z" fill="#4b2e80" stroke="#eacb74" stroke-width="4"/><path d="M59 79h36l-7 30H67z" fill="#e6c580"/><text x="78" y="136" fill="#f0d988" font-size="38" font-weight="bold" text-anchor="middle">34</text><path d="M52 81L25 123M104 80l14-24" stroke="#6d3b22" stroke-width="18" stroke-linecap="round"/><path d="M64 53q13 10 26 0" stroke="#321b15" stroke-width="3" fill="none"/></svg>`,
+  "mcu|Iron Man": `<svg viewBox="0 0 160 155"><path d="M46 46L60 22h41l16 26-8 64-28 24-29-22z" fill="#a32322" stroke="#521313" stroke-width="5"/><path d="M60 42l15-13h17l15 13-7 41H66z" fill="#e5b847" stroke="#7d431b" stroke-width="3"/><path d="M57 75l19 4-9 11-13-9zM104 75l-19 4 9 11 13-9z" fill="#a4ffff" stroke="#f3ffff" stroke-width="2"/><path d="M70 100h22l-11 10z" fill="#9d2620"/><path d="M48 110L27 150h107l-21-40-30 26z" fill="#8d201c" stroke="#efbc41" stroke-width="4"/><circle cx="81" cy="143" r="12" fill="#adfaff" stroke="#eedcaa" stroke-width="5"/></svg>`,
+  "toons|Bugs Bunny": `<svg viewBox="0 0 160 155"><ellipse cx="58" cy="40" rx="15" ry="48" transform="rotate(-12 58 40)" fill="#a8adae" stroke="#4c5354" stroke-width="4"/><ellipse cx="108" cy="40" rx="15" ry="48" transform="rotate(12 108 40)" fill="#a8adae" stroke="#4c5354" stroke-width="4"/><ellipse cx="58" cy="36" rx="6" ry="32" transform="rotate(-12 58 36)" fill="#dc929b"/><ellipse cx="108" cy="36" rx="6" ry="32" transform="rotate(12 108 36)" fill="#dc929b"/><ellipse cx="82" cy="99" rx="48" ry="45" fill="#a7b0b2" stroke="#565d5e" stroke-width="3"/><ellipse cx="70" cy="89" rx="11" ry="19" fill="#fff"/><ellipse cx="94" cy="89" rx="11" ry="19" fill="#fff"/><circle cx="74" cy="93" r="4"/><circle cx="90" cy="93" r="4"/><ellipse cx="82" cy="121" rx="29" ry="20" fill="#eee"/><path d="M74 118l8 9 8-9z" fill="#e58b98"/><path d="M82 128v16" stroke="#555" stroke-width="2"/><path d="M82 140h-12m12 0h12" stroke="#555" stroke-width="2"/><path d="M53 120L20 113M54 127L17 131M109 120l34-7M110 127l33 4" stroke="#eeeeed" stroke-width="2"/></svg>`,
+  "muppets|Kermit the Frog": `<svg viewBox="0 0 160 155"><ellipse cx="81" cy="91" rx="51" ry="39" fill="#5cab42" stroke="#296c28" stroke-width="3"/><ellipse cx="55" cy="60" rx="18" ry="22" fill="#71c14d"/><ellipse cx="108" cy="60" rx="18" ry="22" fill="#71c14d"/><ellipse cx="55" cy="63" rx="11" ry="16" fill="#fff"/><ellipse cx="108" cy="63" rx="11" ry="16" fill="#fff"/><circle cx="58" cy="66" r="5" fill="#252d1b"/><circle cx="105" cy="66" r="5" fill="#252d1b"/><path d="M43 102Q81 134 119 102Q81 116 43 102" fill="#c54a45" stroke="#376c2b" stroke-width="2"/><path d="M40 130l12 7 12-9 12 12 13-12 12 9 12-10 9 28H31z" fill="#79bc50"/></svg>`,
+  "games|Mario": `<svg viewBox="0 0 160 155"><path d="M38 66q-6-51 44-52 45 0 47 52z" fill="#bd2b26" stroke="#66201e" stroke-width="4"/><path d="M27 66q52-18 106 0v15H27z" fill="#d6362c" stroke="#72271d" stroke-width="3"/><circle cx="82" cy="39" r="15" fill="#f8eddb"/><text x="82" y="46" font-size="20" font-weight="bold" fill="#d63428" text-anchor="middle">M</text><ellipse cx="81" cy="98" rx="43" ry="38" fill="#e9ad7c"/><ellipse cx="112" cy="101" rx="21" ry="17" fill="#e8a775"/><path d="M56 112q15-15 27 0 16-15 30 0-18 19-30 4-14 15-27-4" fill="#42281e"/><ellipse cx="66" cy="87" rx="6" ry="11" fill="#fff"/><ellipse cx="96" cy="87" rx="6" ry="11" fill="#fff"/><circle cx="68" cy="88" r="3"/><circle cx="94" cy="88" r="3"/><path d="M44 134h72l15 21H29z" fill="#2763ab"/><circle cx="62" cy="148" r="5" fill="#eccb57"/><circle cx="100" cy="148" r="5" fill="#eccb57"/></svg>`
+};
+function handCardIllustration(x) {
+  const illustration = HAND_CARD_PORTRAITS[x.pool + '|' + x.n];
+  return illustration ? '<span class="tc-illustration" aria-hidden="true">' + illustration + '</span>' : avatar(x);
+}
+
+function handTradingCardHTML(x, selected, i) {
+  const pool = getPool(x.pool);
+  const origin = pool ? pool.short || pool.name : 'Custom pool';
+  const move = x.sig?.name || 'Wildcard contender';
+  return `<div class="hand-option" style="--deal-order:${i}">
+    <button type="button" class="cand hand-card trading-card ${selected ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${selected}" aria-label="Choose ${esc(x.n)} from ${esc(origin)}">
+      <span class="tc-name"><span title="${esc(x.n)}">${esc(x.n)}</span><i>DA</i></span>
+      <span class="tc-art" data-pool="${esc(x.pool)}">${handCardIllustration(x)}</span>
+      <span class="tc-type" title="${esc(origin)}">Legendary · ${esc(origin)}</span>
+      <span class="tc-rules"><b>${esc(move)}</b><em>${esc(x.t || 'A contender from another universe.')}</em></span>
+      <span class="tc-foot"><span>DRAFT ANYTHING</span><span>◆</span></span>
+    </button>
+    <button class="btn info-button" type="button" data-act="hand-info" data-cid="${esc(x.id)}" aria-label="Where is ${esc(x.n)} from?" title="Character origin">ⓘ</button>
+  </div>`;
+}
 function handPanelHTML() {
   const c = S.champ, sp = SPORTS[c.sport];
   const filled = sp.pos.filter(p => c.roster[p.id]).length, full = filled === sp.pos.length;
   if (full) return `<div class="panel hand-panel"><div class="sec"><h3 class="h">Roster set</h3><span class="num muted">${filled}/${sp.pos.length}</span></div><div class="empty-state">Every spot is filled. Simulate the championship when you're ready.</div></div>`;
   if (!c.hand || !c.hand.length) return `<div class="panel hand-panel"><div class="hand-head"><h3 class="h">Your hand</h3></div><div class="empty-state">Your hand could not be restored. <button class="btn small" data-act="hand-restart">Start a fresh draft</button></div></div>`;
+  const animateDeal = handDealPending;
+  handDealPending = false;
   const selCand = c.handSel ? c.hand.find(x => x.id === c.handSel) : null;
   const selPos = c.sel ? sp.pos.find(p => p.id === c.sel) : null;
   const hint = selCand ? `Now tap an open spot for <b>${esc(selCand.n)}</b>.` : selPos ? `Pick someone from your hand for <b>${esc(selPos.nm)}</b>.` : 'Tap a card, then tap an open spot. Picks are final.';
@@ -3534,7 +3665,7 @@ function handPanelHTML() {
     <div class="hand-head"><div><div class="eyebrow">Round ${filled + 1} of ${sp.pos.length} · you pick ${ordinal((c.pickIdx % (c.opps + 1)) + 1)} of ${c.opps + 1}</div><h3 class="h">Your hand</h3></div>
       <button class="btn small" data-act="hand-redeal" ${canRedeal() ? '' : 'disabled'} title="${c.redeals > 0 && !canRedeal() ? 'Not enough unseen candidates left to redeal' : ''}">Redeal · <span class="num">${c.redeals} left</span></button></div>
     ${selPos ? `<div class="needs" style="padding:0 16px 8px" title="What this role leans on most">${needsText(selPos).map(n => `<span>${n}</span>`).join('')}</div>` : ''}
-    <div class="hand-list">${c.hand.map(x => `<div class="hand-option"><button class="cand hand-card ${c.handSel === x.id ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${c.handSel === x.id}">${avatar(x)}<span class="who"><b>${esc(x.n)}</b><small>${esc(x.t)}</small>${sigLine(x)}</span></button><button class="btn info-button" type="button" data-act="hand-info" data-cid="${esc(x.id)}" aria-label="Where is ${esc(x.n)} from?" title="Character origin">ⓘ</button></div>`).join('')}</div>
+    <div class="hand-list ${animateDeal ? 'dealing' : ''}">${c.hand.map((x, i) => handTradingCardHTML(x, c.handSel === x.id, i)).join('')}</div>
     <div class="hand-hint note">${hint}</div>
   </div>`;
 }
