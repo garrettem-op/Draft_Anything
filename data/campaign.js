@@ -22,7 +22,7 @@ const CAMPAIGN_EXTRA = [
 {name:'Tech Titans',rule:'tech',blurb:'Every pick must rely on advanced technology or armor.',rival:'The Engineers'},
 {name:'Ghost Protocol',rule:'stealth',blurb:'Every pick must be known for stealth or invisibility.',rival:'The Shadows'},
 {name:'Blink and Miss',rule:'teleport',blurb:'Every pick must be able to teleport.',rival:'The Jumpers'},
-{name:'The Medics',rule:'healing',blurb:'Every pick must have healing or regenerative abilities.',rival:'The Lifesavers'},
+{name:'The Medics',rule:'healing',blurb:'Self-healing and regeneration count, as does healing other people. Every pick must have at least one of these abilities; healing teammates is NOT required.',rival:'The Lifesavers'},
 {name:'Giant Problems',rule:'giants',blurb:'Every pick must be capable of becoming enormous or already be giant-sized.',rival:'The Colossi'}
 ];
 const CAMPAIGN_TAGS = {
