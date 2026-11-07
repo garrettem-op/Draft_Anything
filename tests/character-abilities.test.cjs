@@ -32,7 +32,7 @@ test('all documented power facts refer to exactly one character in the named uni
     assert.equal(pools[pool]?.filter(n=>n===name).length,1,'Missing or ambiguous roster character '+id);
     assert.ok(facts.length,id+' has no facts');
     for(const entry of facts){
-      assert.ok(CAMPAIGN_TAGS[entry.tag] instanceof Set,'Unknown challenge tag '+entry.tag+' for '+id);
+      assert.equal(typeof CAMPAIGN_TAGS[entry.tag]?.has,'function','Unknown challenge tag '+entry.tag+' for '+id);
       assert.ok(entry.feat?.length>=20,'Missing specific feat for '+id);
       assert.match(entry.source,/^https:\/\/[^\s]+/,'Missing source URL for '+id);
     }
