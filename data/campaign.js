@@ -79,7 +79,7 @@ for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secur
 for (const n of ['Darth Maul','Savage Opress','Charmander','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,validation:'',validationOpen:false};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
@@ -127,10 +127,11 @@ function campaignAllowed(c,rule){
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
 function campaignSportValid(sport){return campaignEligibleStageIds(sport).length>=9;}
-function campaignQualified(){
-  const v=S.campaign,st=campaignStage();
-  return Object.values(v.roster).every(c=>campaignAllowed(c,st.rule));
+function campaignInvalidSlots(){
+  const v=S.campaign,rule=campaignStage().rule;
+  return new Set(Object.entries(v.roster).filter(([,c])=>c&&!campaignAllowed(c,rule)).map(([slot])=>slot));
 }
+function campaignQualified(){return campaignInvalidSlots().size===0;}
 function campaignReady(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),pick=slots.map(p=>v.roster[p.id]).filter(Boolean);
   return pick.length===campaignLimit(v.sport,st.rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id));
@@ -180,9 +181,8 @@ function renderCampaignDraft(){
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}
     <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p></div>
-    ${v.validation?`<div class="panel" role="alert" style="padding:12px 16px;border:1px solid var(--bad);margin-bottom:12px"><b>Lineup rejected</b><p style="margin:4px 0 0">${esc(v.validation)}</p></div>`:''}
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
-    <div class="board"><div>${renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet})}</div><div class="board-side">${picker}</div></div>
+    <div class="board"><div>${renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
   </section>`;
 }
 function campaignOpponent(sport,excluded,target,rng){
@@ -203,10 +203,11 @@ function campaignOpponent(sport,excluded,target,rng){
 function campaignPlay(){
   if(!campaignReady())return toast('Fill all available roster spots first.');
   if(!campaignQualified()){
-    S.campaign.validation='Some picks do not meet this challenge’s restrictions. Reconsider your lineup.';
+    S.campaign.validation='The highlighted characters do not meet this challenge’s requirements.';
+    S.campaign.validationOpen=true;
     return;
   }
-  S.campaign.validation='';
+  S.campaign.validation='';S.campaign.validationOpen=false;
   const v=S.campaign,st=campaignStage(),gameSeed=Date.now()+':'+Math.random(),rng=rngFrom(gameSeed);
   const score=teamScore(v.sport,v.roster),excluded=new Set(Object.values(v.roster).map(c=>c.id));
   // Each opponent is a complete team, generally stronger than your restricted roster.
@@ -229,6 +230,24 @@ function campaignOrigin(c){
   const preferred=groupNames.find(n=>/Sesame Street|Fraggle Rock|The Muppet Show|The Simpsons|Looney Tunes|SpongeBob|Avatar|Kung Fu Panda|Tom and Jerry|Scooby|Peanuts|Mario|Zelda|Sonic|Disney|Pixar|Rick and Morty|Powerpuff|Transformers|Teenage Mutant|Mickey|Ralph|Incredibles|Shrek|Bluey/i.test(n));
   if(preferred)return {universe,work:preferred};
   return {universe,work:c.pool==='mcu'?'Marvel Cinematic Universe':c.pool==='nba'?'National Basketball Association':universe};
+}
+function renderCampaignRejected(){
+  const v=S.campaign;
+  if(!v.validationOpen||!v.validation||v.status!=='draft')return '';
+  const bad=campaignInvalidSlots();
+  if(!bad.size)return '';
+  const names=[...bad].map(id=>v.roster[id]?.n).filter(Boolean);
+  return `<div class="campaign-reject-overlay" data-act="camp-reject-close">
+    <div class="campaign-reject-card" role="alertdialog" aria-modal="true" aria-labelledby="campaign-reject-title" aria-describedby="campaign-reject-description" data-stop="1">
+      <div class="eyebrow" style="color:var(--bad)">Campaign challenge</div>
+      <h2 class="h" id="campaign-reject-title" style="margin:8px 0 12px">Lineup rejected</h2>
+      <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
+      <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
+      <ul class="campaign-reject-names">${names.map(n=>`<li>${esc(n)}</li>`).join('')}</ul>
+      <p class="note">Replace the highlighted characters and submit the lineup again. The talent pool remains unfiltered.</p>
+      <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
+    </div>
+  </div>`;
 }
 function renderCampaignInfo(){
   const id=S.campaign.infoId;
