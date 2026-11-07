@@ -4437,6 +4437,104 @@ function refreshPlist() {
   else { const d = S.h2h.contest; if (!d) return; const me = mySide(d), sp = SPORTS[d.sport]; const taken = new Map(); for (const p of d.picks) taken.set(p.cid, p.s === me ? 'Your ' + sp.pos.find(x => x.id === p.slot).ab : contestName(d, p.s)); el.innerHTML = plistHTML({ sportKey: d.sport, poolId: d.poolId, sel: S.h2h.sel, taken, showRatings: d.rules.ratings === 'shown', query: S.h2h.query, pickAct: 'h-pick', readOnly: sideForPick(d.picks.length, d) !== me }); }
 }
 
+
+/* Hold a filled position, then drag onto another position to move or swap the roster.
+   Keep this local to editable single-player drafts; multiplayer picks are immutable. */
+let fieldDrag = null;
+let blockFieldClickUntil = 0;
+function editableDraftRoster() {
+  if(S.mode==='h2h')return null;
+  if(S.mode==='champ'&&S.champ.campaignMode) {
+    if(S.campaign.status!=='draft')return null;
+    return {roster:S.campaign.roster,slots:campaignSlots(S.campaign.sport,campaignStage().rule),campaign:true};
+  }
+  if(S.champ.stage!=='draft')return null;
+  return {roster:S.champ.roster,slots:SPORTS[S.champ.sport].pos,campaign:false};
+}
+function swapDraftSlots(from,to) {
+  const draft=editableDraftRoster();
+  if(!draft || from===to || !draft.roster[from] || !draft.slots.some(p=>p.id===from) || !draft.slots.some(p=>p.id===to))return false;
+  const current=draft.roster[from],target=draft.roster[to];
+  draft.roster[to]=current;
+  if(target)draft.roster[from]=target;
+  else delete draft.roster[from];
+  if(draft.campaign) {
+    S.campaign.selected=null;S.campaign.validation='';saveCampaign();
+  } else {
+    S.champ.sel=null;S.champ.handSel=null;saveChamp();
+  }
+  render();
+  return true;
+}
+function clearFieldDrag() {
+  if(!fieldDrag)return;
+  if(fieldDrag.timer)clearTimeout(fieldDrag.timer);
+  fieldDrag.source?.classList.remove('drag-origin');
+  fieldDrag.target?.classList.remove('drag-target');
+  fieldDrag.ghost?.remove();
+  fieldDrag=null;
+}
+document.addEventListener('pointerdown',e=>{
+  if(!e.isPrimary||e.button>0||azGesture)return;
+  const node=e.target.closest('.field-wrap button[data-act="slot"].filled:not([disabled])');
+  const draft=editableDraftRoster();
+  if(!node || !draft || !draft.roster[node.dataset.slot])return;
+  const start={x:e.clientX,y:e.clientY};
+  const gesture={pointerId:e.pointerId,source:node,from:node.dataset.slot,start,point:start,timer:null,active:false,target:null,ghost:null};
+  gesture.timer=setTimeout(()=>{
+    if(fieldDrag!==gesture)return;
+    const character=draft.roster[gesture.from];
+    if(!character)return;
+    gesture.active=true;
+    gesture.source.classList.add('drag-origin');
+    const ghost=document.createElement('div');
+    ghost.className='drag-ghost';ghost.textContent=character.n;
+    document.body.appendChild(ghost);
+    gesture.ghost=ghost;
+    ghost.style.left=gesture.point.x+'px';ghost.style.top=gesture.point.y+'px';
+    if(navigator.vibrate)try{navigator.vibrate(18);}catch{}
+  },400);
+  fieldDrag=gesture;
+});
+document.addEventListener('pointermove',e=>{
+  const d=fieldDrag;
+  if(!d||d.pointerId!==e.pointerId)return;
+  d.point={x:e.clientX,y:e.clientY};
+  if(!d.active) {
+    if(Math.hypot(e.clientX-d.start.x,e.clientY-d.start.y)>11)clearFieldDrag();
+    return;
+  }
+  e.preventDefault();
+  if(d.ghost){d.ghost.style.left=e.clientX+'px';d.ghost.style.top=e.clientY+'px';}
+  const hit=document.elementFromPoint(e.clientX,e.clientY)?.closest('.field-wrap button[data-act="slot"]:not([disabled])');
+  const draft=editableDraftRoster();
+  const target=hit&&draft?.slots.some(p=>p.id===hit.dataset.slot)?hit:null;
+  if(d.target!==target){
+    d.target?.classList.remove('drag-target');
+    d.target=target;
+    d.target?.classList.add('drag-target');
+  }
+},{passive:false});
+document.addEventListener('pointerup',e=>{
+  const d=fieldDrag;
+  if(!d||d.pointerId!==e.pointerId)return;
+  if(!d.active){clearFieldDrag();return;}
+  const hit=document.elementFromPoint(e.clientX,e.clientY)?.closest('.field-wrap button[data-act="slot"]:not([disabled])');
+  const from=d.from,to=hit?.dataset.slot;
+  clearFieldDrag();
+  blockFieldClickUntil=Date.now()+650;
+  if(to&&from!==to)swapDraftSlots(from,to);
+  e.preventDefault();
+});
+document.addEventListener('pointercancel',e=>{
+  if(fieldDrag?.pointerId===e.pointerId)clearFieldDrag();
+});
+document.addEventListener('click',e=>{
+  if(Date.now()<blockFieldClickUntil&&e.target.closest('.field-wrap [data-act="slot"]')){
+    e.preventDefault();e.stopImmediatePropagation();
+  }
+},true);
+
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-act]'); if (!t) return;
   if (t.dataset.act === 'close-modal' && e.target.closest('[data-stop]') && !e.target.closest('button[data-act="close-modal"]')) return;
