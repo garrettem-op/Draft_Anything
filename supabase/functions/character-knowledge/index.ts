@@ -134,8 +134,9 @@ async function research(pool:string,name:string,tag:string,claim:string,sourceUr
     const decision=JSON.parse(content);
     if(!['supports','does_not_support','inconclusive'].includes(decision.verdict))throw new Error('Invalid research verdict.');
     const found=new Set(sourceList(data).map(normalized).filter(Boolean));
-    const cited=[...new Set((Array.isArray(decision.source_urls)?decision.source_urls:[])
-      .map(validUrl).filter(Boolean))].filter((url:string)=>found.has(normalized(url)));
+    const proposed: string[]=(Array.isArray(decision.source_urls)?decision.source_urls as unknown[]:[])
+      .map(validUrl).filter((url):url is string=>url!==null);
+    const cited: string[]=[...new Set(proposed)].filter(url=>found.has(normalized(url)));
     const distinctDomains=new Set(cited.map(hostOf));
     const strong=cited.filter((url:string)=>isAuthority(hostOf(url)));
     const confidence=Math.max(0,Math.min(1,Number(decision.confidence)||0));
