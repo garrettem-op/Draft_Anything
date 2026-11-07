@@ -610,7 +610,10 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
   background: repeating-linear-gradient(110deg, transparent 0 16px, rgba(251,232,164,.13) 18px 19px, transparent 20px 36px); }
 .trading-card .tc-art .av { display: block; width: 69%; height: auto; aspect-ratio: 1; padding: 0; border: 0; background: transparent; filter: drop-shadow(0 5px 4px rgba(0,0,0,.35)); }
 .trading-card .tc-art .av svg { display: block; width: 100%; height: 100%; }
-.trading-card .tc-type { font-size: clamp(8px, 7.5cqw, 11px); line-height: 1.15; min-height: 17px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.trading-card .tc-type {
+  font-size: clamp(8px, 7.5cqw, 11px); line-height: 1.12; min-height: 17px;
+  overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: anywhere;
+}
 .trading-card .tc-rules { flex: 0 0 auto; display: grid; align-content: center; gap: 3px; padding: 4px 5px; min-height: 42px;
   background: linear-gradient(135deg, #f4ebd3, #e6d9b4); border: 1px solid #8c7650; border-top: 0;
   color: #252018; font-family: Georgia, 'Times New Roman', serif; }
@@ -678,14 +681,14 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
   box-shadow: inset 0 1px 2px #ffffffaa; color: #594224;
 }
 .trading-card .tc-name > .tc-pool-mark svg { display: block; flex: none; width: 18px; height: 18px; aspect-ratio: 1; }
-.tc-name .tc-pool-nba { background: #db9651; color: #422915; }
-.tc-name .tc-pool-mcu { background: #96332b; color: #fce4a2; }
-.tc-name .tc-pool-toons { background: #f3d681; color: #533e1a; }
-.tc-name .tc-pool-muppets { background: #71aa52; color: #173c21; }
-.tc-name .tc-pool-games { background: #5b87ad; color: #f9eee1; }
-.tc-name .tc-pool-pokemon { background: #d14d42; color: #fff; }
-.tc-name .tc-pool-starwars { background: #273d53; color: #f4e2aa; }
-.tc-name .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
+.trading-card .tc-name > .tc-pool-nba { background: #db9651; color: #422915; }
+.trading-card .tc-name > .tc-pool-mcu { background: #96332b; color: #fce4a2; }
+.trading-card .tc-name > .tc-pool-toons { background: #f3d681; color: #533e1a; }
+.trading-card .tc-name > .tc-pool-muppets { background: #71aa52; color: #173c21; }
+.trading-card .tc-name > .tc-pool-games { background: #5b87ad; color: #f9eee1; }
+.trading-card .tc-name > .tc-pool-pokemon { background: #d14d42; color: #fff; }
+.trading-card .tc-name > .tc-pool-starwars { background: #273d53; color: #f4e2aa; }
+.trading-card .tc-name > .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
 @media (max-width:899px) {
   .trading-card .tc-name > .tc-pool-mark { flex:0 0 18px; width:18px; height:18px; min-width:18px; }
   .trading-card .tc-name > .tc-pool-mark svg { width:15px; height:15px; }
