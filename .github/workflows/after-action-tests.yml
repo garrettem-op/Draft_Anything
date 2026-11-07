@@ -20,3 +20,17 @@ jobs:
           node-version: '22'
       - name: Verify reports and score reconciliation
         run: node --test tests/*.test.cjs
+  mobile-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test runtime
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install chromium --with-deps
+      - name: Verify real mobile Campaign flow
+        run: node tests/browser-smoke.cjs
