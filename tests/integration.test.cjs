@@ -1,0 +1,28 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+test('main browser script remains syntactically valid',()=>{
+ const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+ const main=scripts.sort((a,b)=>b.length-a.length)[0];
+ assert.ok(main.length>50000);
+ assert.doesNotThrow(()=>new Function(main));
+});
+test('report module is loaded after campaign helpers and before main app',()=>{
+ const campaign=html.indexOf('<script src="data/campaign.js"></script>');
+ const reports=html.indexOf('<script src="data/after-action.js"></script>');
+ const main=html.indexOf('const POOLS = {}');
+ assert.ok(campaign>0&&reports>campaign&&main>reports);
+});
+test('report picker and alphabet scrubber are wired in app handlers',()=>{
+ assert.match(html,/daMatchBrowser\(c\.sport,sim,teams,c\.reportMatch\)/);
+ assert.match(html,/else if \(k === 'report-match'\)/);
+ assert.match(html,/function jumpTalentPoolLetter\(/);
+ assert.match(html,/data-input="pick-letter-range"/);
+ assert.match(html,/camp-letter-range/);
+});
+test('campaign on-field slots use the campaign picker, not the normal draft',()=>{
+ assert.match(html,/if \(S\.mode === 'champ' && c\.campaignMode\)/);
+ assert.match(html,/S\.campaign\.selected=t\.dataset\.slot/);
+});

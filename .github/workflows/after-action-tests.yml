@@ -1,0 +1,36 @@
+name: After-action regression tests
+on:
+  push:
+    branches:
+      - feature/per-match-box-scores
+  pull_request:
+    paths:
+      - 'data/after-action.js'
+      - 'data/campaign.js'
+      - 'index.html'
+      - 'tests/**'
+      - '.github/workflows/after-action-tests.yml'
+jobs:
+  box-scores:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify reports and score reconciliation
+        run: node --test tests/*.test.cjs
+  mobile-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test runtime
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install chromium --with-deps
+      - name: Verify real mobile Campaign flow
+        run: node tests/browser-smoke.cjs
