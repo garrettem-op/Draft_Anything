@@ -4356,20 +4356,69 @@ Reply with only a JSON array with one object per candidate, in the same order: {
 
 // ===== Render + events =====
 let lastFocus = null;
-function jumpTalentPoolLetter(listId,labelId,letter) {
-  const list=document.getElementById(listId);
-  if(!list)return;
-  const entries=Array.from(list.querySelectorAll('.cand'));
-  if(!entries.length)return;
-  const nameOf=el=>(el.querySelector('.who b')?.textContent||'').trim().toUpperCase();
-  const target=entries.find(el=>nameOf(el).charAt(0)>=letter)||entries[entries.length-1];
-  const anchor=target.closest('.row')||target;
-  list.scrollTop+=anchor.getBoundingClientRect().top-list.getBoundingClientRect().top;
-  const label=document.getElementById(labelId);if(label)label.textContent=letter;
+function jumpTalentPoolLetter(listId, labelId, letter) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+  const entries = Array.from(list.querySelectorAll('.cand'));
+  if (!entries.length) return;
+  const nameOf = el => (el.querySelector('.who b')?.textContent || '').trim().toUpperCase();
+  const target = entries.find(el => nameOf(el).charAt(0) >= letter) || entries[entries.length - 1];
+  const row = target.closest('.talent-entry') || target.closest('.row') || target;
+  list.scrollTop += row.getBoundingClientRect().top - list.getBoundingClientRect().top;
+  const label = labelId && document.getElementById(labelId);
+  if (label) label.textContent = letter;
+  const index = document.querySelector('[data-az-list="' + listId + '"]');
+  if (index) for (const node of index.querySelectorAll('[data-az-letter]')) {
+    const active = node.dataset.azLetter === letter;
+    node.classList.toggle('active', active);
+    node.setAttribute('aria-pressed', String(active));
+  }
+}
+// The fixed index works like iOS Contacts: slide a finger up/down to jump between initials.
+let azGesture = null;
+function azTrack(clientY) {
+  if (!azGesture) return;
+  const el = azGesture.element, rect = el.getBoundingClientRect();
+  const n = Math.max(0, Math.min(25, Math.floor((clientY - rect.top) / Math.max(1, rect.height) * 26)));
+  const letter = String.fromCharCode(65 + n);
+  if (letter !== azGesture.letter) {
+    azGesture.letter = letter;
+    jumpTalentPoolLetter(azGesture.listId, null, letter);
+  }
+}
+document.addEventListener('pointerdown', e => {
+  const index = e.target.closest('[data-az-list]');
+  if (!index || !e.isPrimary) return;
+  azGesture = {element:index, listId:index.dataset.azList, pointerId:e.pointerId, letter:null};
+  index.setPointerCapture?.(e.pointerId);
+  azTrack(e.clientY);
+  e.preventDefault();
+});
+document.addEventListener('pointermove', e => {
+  if (azGesture && azGesture.pointerId === e.pointerId) azTrack(e.clientY);
+});
+document.addEventListener('pointerup', e => {
+  if (azGesture?.pointerId === e.pointerId) { azTrack(e.clientY); azGesture = null; }
+});
+document.addEventListener('pointercancel', e => {
+  if (azGesture?.pointerId === e.pointerId) azGesture = null;
+});
+document.addEventListener('keydown', e => {
+  const button = e.target.closest('[data-az-letter]');
+  if (button && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    jumpTalentPoolLetter(button.closest('[data-az-list]').dataset.azList, null, button.dataset.azLetter);
+  }
+});
+function renderHandInfo() {
+  if(S.mode!=='deal' || !S.handInfoId) return '';
+  const character = (S.champ.hand||[]).find(c=>c.id===S.handInfoId);
+  if(!character)return '';
+  const origin=campaignOrigin(character);
+  return `<div class="modal-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
 }
 function render() {
-  const oldCampaignList=document.getElementById('camp-plist');
-  const campaignScroll=oldCampaignList?oldCampaignList.scrollTop:null;
+  const listScrolls=['camp-plist','plist'].map(id=>({id,top:document.getElementById(id)?.scrollTop}));
   const app = $('#app');
   const ae = document.activeElement; lastFocus = ae && ae.id ? { id: ae.id, s: ae.selectionStart, e: ae.selectionEnd } : null;
   let main;
@@ -4378,8 +4427,8 @@ function render() {
   else main = renderH2H();
   const draftActive = S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
-  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo() : '');
-  if(campaignScroll!==null){const next=document.getElementById('camp-plist');if(next)next.scrollTop=campaignScroll;}
+  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo() : '');
+  for(const {id,top} of listScrolls){if(top!=null){const next=document.getElementById(id);if(next)next.scrollTop=top;}}
   if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus(); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
 }
 function refreshPlist() {
@@ -4451,6 +4500,8 @@ document.addEventListener('click', e => {
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
     case 'c-rivals': if (c.rivals !== t.dataset.v) { c.rivals = t.dataset.v; if (c.queue) resetDraft(); } break;
+    case 'hand-info': S.handInfoId = t.dataset.cid; break;
+    case 'hand-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break; S.handInfoId = null; break;
     case 'hand-pick': {
       const cid = t.dataset.cid;
       if (c.sel && !c.roster[c.sel]) placeFromHand(c.sel, cid);
@@ -4532,6 +4583,7 @@ document.addEventListener('input', e => {
   else if (k === 'gen-topic') { S.gen.topic = v; const b = document.querySelector('[data-act="gen-go"]'); if (b) b.disabled = v.trim().length < 2; }
 });
 document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && S.handInfoId){S.handInfoId=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.infoId) { S.campaign.infoId=null; render(); return; }
   if (e.key === 'Escape') { if (S.modal) { S.modal = null; render(); } else if (S.champ.sel || S.h2h.sel || S.champ.handSel) { S.champ.sel = null; S.h2h.sel = null; S.champ.handSel = null; render(); } }
   if (e.key === 'Enter' && e.target.id === 'h-code') joinByCode();
