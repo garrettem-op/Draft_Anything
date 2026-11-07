@@ -59,4 +59,4 @@ jobs:
         with:
           deno-version: v2.x
       - name: Type-check AI research function
-        run: deno check --allow-import supabase/functions/character-knowledge/index.ts
+        run: deno check supabase/functions/character-knowledge/index.ts
