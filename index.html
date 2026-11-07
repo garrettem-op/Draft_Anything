@@ -3208,7 +3208,7 @@ function renderField(sportKey, roster, o = {}) {
     const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(shortName(c.n))}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
@@ -3450,11 +3450,18 @@ function handPanelHTML() {
     <div class="hand-head"><div><div class="eyebrow">Round ${filled + 1} of ${sp.pos.length} · you pick ${ordinal((c.pickIdx % (c.opps + 1)) + 1)} of ${c.opps + 1}</div><h3 class="h">Your hand</h3></div>
       <button class="btn small" data-act="hand-redeal" ${canRedeal() ? '' : 'disabled'} title="${c.redeals > 0 && !canRedeal() ? 'Not enough unseen candidates left to redeal' : ''}">Redeal · <span class="num">${c.redeals} left</span></button></div>
     ${selPos ? `<div class="needs" style="padding:0 16px 8px" title="What this role leans on most">${needsText(selPos).map(n => `<span>${n}</span>`).join('')}</div>` : ''}
-    <div class="hand-list">${c.hand.map(x => `<button class="cand hand-card ${c.handSel === x.id ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${c.handSel === x.id}">${avatar(x)}<span class="who"><b>${esc(x.n)}</b><small>${esc(x.t)}</small>${sigLine(x)}</span></button>`).join('')}</div>
+    <div class="hand-list">${c.hand.map(x => `<div class="hand-option"><button class="cand hand-card ${c.handSel === x.id ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${c.handSel === x.id}">${avatar(x)}<span class="who"><b>${esc(x.n)}</b><small>${esc(x.t)}</small>${sigLine(x)}</span></button><button class="btn info-button" type="button" data-act="hand-info" data-cid="${esc(x.id)}" aria-label="Where is ${esc(x.n)} from?" title="Character origin">ⓘ</button></div>`).join('')}</div>
     <div class="hand-hint note">${hint}</div>
   </div>`;
 }
 
+function pickerIndexHTML(listId) {
+  return `<div class="az-index" role="group" aria-label="Jump to a character by first letter" data-az-list="${listId}">${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter=>`<button type="button" class="az-letter" data-az-letter="${letter}" aria-label="Jump to ${letter}">${letter}</button>`).join('')}</div>`;
+}
+function pickerCurrentHTML(candidate, position) {
+  if (!candidate) return '';
+  return `<div class="picker-current" aria-label="Currently assigned character">${avatar(candidate)}<span class="who"><small>Currently at ${esc(position.nm)}</small><b>${esc(candidate.n)}</b></span><span class="note">Selected</span></div>`;
+}
 function pickerHTML(o) {
   // o: { sportKey, poolId, sel, roster, taken:Set, showRatings, query, title, canRemove, closeAct, pickAct, readOnly }
   const sp = SPORTS[o.sportKey];
@@ -3464,7 +3471,8 @@ function pickerHTML(o) {
       <div class="row" style="flex-wrap:nowrap">${o.canRemove ? `<button class="btn small" data-act="c-remove">Remove</button>` : ''}${o.closeAct ? `<button class="btn small" data-act="${o.closeAct}" aria-label="Close picker">Done</button>` : ''}</div></div>
       <div class="needs" title="What this role leans on most">${needsText(pos).map(n => `<span>${n}</span>`).join('')}</div></div>
     <div class="picker-tools"><input type="text" id="pick-q" placeholder="Search ${getCands(o.poolId).length} candidates" value="${esc(o.query || '')}" data-input="pick-q" autocomplete="off"></div>
-    <div class="picker-tools" style="display:flex;align-items:center;gap:8px"><span class="note">A–Z</span><input type="range" min="0" max="25" value="0" step="1" data-input="pick-letter-range" aria-label="Jump to a candidate name by first letter"><b class="num" id="pick-letter-label">A</b></div><div class="plist" id="plist">${plistHTML(o)}</div>`;
+    ${pickerCurrentHTML(o.roster?.[o.sel],pos)}
+    <div class="picker-list-shell"><div class="plist" id="plist">${plistHTML(o)}</div>${pickerIndexHTML('plist')}</div>`;
 }
 function plistHTML(o) {
   const sp = SPORTS[o.sportKey], pos = sp.pos.find(p => p.id === o.sel);
@@ -3489,10 +3497,7 @@ function renderChampDraft() {
   const filled = sp.pos.filter(p => c.roster[p.id]).length, full = filled === sp.pos.length;
   const panel = handMode() ? handPanelHTML() : c.sel
     ? `<div class="panel picker open">${pickerHTML({ sportKey: c.sport, poolId: c.poolId, sel: c.sel, roster: c.roster, taken: champTaken(), showRatings: c.showRatings, query: c.query, canRemove: !!c.roster[c.sel], closeAct: 'c-close', pickAct: 'c-pick' })}</div><div class="sheet-backdrop open" data-act="c-close"></div>`
-    : `<div class="panel"><div class="sec"><h3 class="h">${esc(c.teamName || 'Your team')}</h3><span class="num muted">${filled}/${sp.pos.length}</span></div>
-        <div class="roster-list">${sp.pos.map(p => { const x = c.roster[p.id]; return `<button class="rl ${x ? '' : 'empty'}" data-act="slot" data-slot="${p.id}"><span class="ab">${p.ab}</span><span class="who"><b>${x ? esc(x.n) : 'Open — tap to fill'}</b><small>${esc(p.nm)}</small></span>${x ? avatar(x) : ''}</button>`; }).join('')}</div>
-        <div class="sec" style="border-top:1px solid var(--line);border-bottom:0"><span class="note">${full ? 'Roster locked and loaded.' : 'Tap any spot on the ' + sp.surface.replace('vball', 'court').replace('diamond', 'diamond').replace('pitch', 'pitch') + ' to fill it.'}</span>
-        ${full ? '' : `<button class="linkish" data-act="c-random">Fill the rest at random</button>`}</div></div>`;
+    : `<div class="panel" style="padding:14px"><b>${full?'Roster ready':'Build your lineup on the field'}</b><p class="note" style="margin:7px 0">${filled}/${sp.pos.length} selected. Tap a field position to draft or replace; hold a filled position to drag and swap.</p>${full?'':`<button class="linkish" data-act="c-random">Fill the rest at random</button>`}</div>`;
   return `<div class="board-head"><div class="title"><span class="eyebrow">${handMode() ? 'Dealt Hand' : 'Championship · fan-cast'} · ${esc(sp.name)} · ${esc(pool ? pool.short || pool.name : '')}</span><h2 class="h">${esc(c.teamName || 'Your team')}</h2></div>
       <span class="chip"><span class="num">${filled}/${sp.pos.length}</span> ${handMode() ? 'filled' : 'cast'}</span>${handMode() ? `<span class="chip">${c.opps} rival teams</span>` : ''}
       <button class="btn" data-act="c-setup">Change setup</button>
