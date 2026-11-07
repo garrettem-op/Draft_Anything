@@ -588,8 +588,18 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
   border: 1px solid #826b44; border-radius: 3px; min-height: 18px; padding: 2px 4px;
   font-family: Georgia, 'Times New Roman', serif; font-weight: 700;
 }
-.trading-card .tc-name { display: flex; align-items: center; gap: 3px; font-size: clamp(10px, 10cqw, 15px); line-height: 1.1; }
-.trading-card .tc-name span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; }
+.trading-card .tc-name {
+  display: flex; align-items: center; gap: 3px;
+  font-size: clamp(11px, 12cqw, 16px); line-height: 1.08;
+}
+/* Names are never shortened: use natural wrapping, then size down in JS only
+   when a very long name needs more than two lines. Scope to the text span so
+   the pool icon cannot inherit text wrapping or flexible width. */
+.trading-card .tc-name > .tc-character-name {
+  display: block; flex: 1 1 0%; min-width: 0; width: auto;
+  white-space: normal; overflow-wrap: anywhere; word-break: normal;
+  overflow: visible; text-overflow: clip; line-height: 1.08;
+}
 .trading-card .tc-name i { flex: none; font: 800 9px var(--f-mono); color: #886b35; font-style: normal; }
 .trading-card .tc-art {
   min-height: 0; flex: 1 1 auto; display: grid; place-items: center; position: relative; isolation: isolate; overflow: hidden;
@@ -600,7 +610,10 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
   background: repeating-linear-gradient(110deg, transparent 0 16px, rgba(251,232,164,.13) 18px 19px, transparent 20px 36px); }
 .trading-card .tc-art .av { display: block; width: 69%; height: auto; aspect-ratio: 1; padding: 0; border: 0; background: transparent; filter: drop-shadow(0 5px 4px rgba(0,0,0,.35)); }
 .trading-card .tc-art .av svg { display: block; width: 100%; height: 100%; }
-.trading-card .tc-type { font-size: clamp(8px, 7.5cqw, 11px); line-height: 1.15; min-height: 17px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.trading-card .tc-type {
+  font-size: clamp(8px, 7.5cqw, 11px); line-height: 1.12; min-height: 17px;
+  overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: anywhere;
+}
 .trading-card .tc-rules { flex: 0 0 auto; display: grid; align-content: center; gap: 3px; padding: 4px 5px; min-height: 42px;
   background: linear-gradient(135deg, #f4ebd3, #e6d9b4); border: 1px solid #8c7650; border-top: 0;
   color: #252018; font-family: Georgia, 'Times New Roman', serif; }
@@ -660,21 +673,26 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 
 
 /* Individually recognizable pool emblems instead of the generic DA logo. */
-.tc-name .tc-pool-mark {
-  display: grid; place-items: center; flex: 0 0 23px; width: 23px; height: 23px;
+.trading-card .tc-name > .tc-pool-mark {
+  display: grid; place-items: center;
+  flex: 0 0 23px; width: 23px; height: 23px; min-width: 23px;
+  aspect-ratio: 1; padding: 0; overflow: hidden; line-height: 0;
   border: 1px solid #85683b; border-radius: 50%; background: #f7e8b8;
   box-shadow: inset 0 1px 2px #ffffffaa; color: #594224;
 }
-.tc-name .tc-pool-mark svg { width: 18px; height: 18px; display: block; }
-.tc-name .tc-pool-nba { background: #db9651; color: #422915; }
-.tc-name .tc-pool-mcu { background: #96332b; color: #fce4a2; }
-.tc-name .tc-pool-toons { background: #f3d681; color: #533e1a; }
-.tc-name .tc-pool-muppets { background: #71aa52; color: #173c21; }
-.tc-name .tc-pool-games { background: #5b87ad; color: #f9eee1; }
-.tc-name .tc-pool-pokemon { background: #d14d42; color: #fff; }
-.tc-name .tc-pool-starwars { background: #273d53; color: #f4e2aa; }
-.tc-name .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
-@media (max-width:899px) { .tc-name .tc-pool-mark { flex-basis: 18px; width:18px; height:18px; } .tc-name .tc-pool-mark svg { width:15px; height:15px; } }
+.trading-card .tc-name > .tc-pool-mark svg { display: block; flex: none; width: 18px; height: 18px; aspect-ratio: 1; }
+.trading-card .tc-name > .tc-pool-nba { background: #db9651; color: #422915; }
+.trading-card .tc-name > .tc-pool-mcu { background: #96332b; color: #fce4a2; }
+.trading-card .tc-name > .tc-pool-toons { background: #f3d681; color: #533e1a; }
+.trading-card .tc-name > .tc-pool-muppets { background: #71aa52; color: #173c21; }
+.trading-card .tc-name > .tc-pool-games { background: #5b87ad; color: #f9eee1; }
+.trading-card .tc-name > .tc-pool-pokemon { background: #d14d42; color: #fff; }
+.trading-card .tc-name > .tc-pool-starwars { background: #273d53; color: #f4e2aa; }
+.trading-card .tc-name > .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
+@media (max-width:899px) {
+  .trading-card .tc-name > .tc-pool-mark { flex:0 0 18px; width:18px; height:18px; min-width:18px; }
+  .trading-card .tc-name > .tc-pool-mark svg { width:15px; height:15px; }
+}
 
 
 /* Modal Dealt Hand: animation plays on the popup's portrait cards, then
@@ -3751,7 +3769,7 @@ function handTradingCardHTML(x, selected, i) {
   const move = x.sig?.name || 'Wildcard contender';
   return `<div class="hand-option" style="--deal-order:${i}">
     <button type="button" class="cand hand-card trading-card ${selected ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${selected}" aria-label="Choose ${esc(x.n)} from ${esc(origin)}">
-      <span class="tc-name"><span title="${esc(x.n)}">${esc(x.n)}</span>${handPoolMark(x.pool)}</span>
+      <span class="tc-name"><span class="tc-character-name" title="${esc(x.n)}">${esc(x.n)}</span>${handPoolMark(x.pool)}</span>
       <span class="tc-art" data-pool="${esc(x.pool)}">${handCardIllustration(x)}</span>
       <span class="tc-type" title="${esc(origin)}">Legendary · ${esc(origin)}</span>
       <span class="tc-rules"><b>${esc(move)}</b><em>${esc(x.t || 'A contender from another universe.')}</em></span>
@@ -4726,6 +4744,28 @@ function renderHandInfo() {
   const origin=campaignOrigin(character);
   return `<div class="modal-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
 }
+
+/* Auto-size complete character names, without ellipses or clipping.
+   Most names keep the normal large title; exceptionally long names shrink just
+   enough for two lines, and are still allowed to wrap further rather than hide. */
+function fitHandCardNames() {
+  for (const label of document.querySelectorAll('.trading-card .tc-character-name')) {
+    label.style.fontSize = '';
+    const baseline = parseFloat(getComputedStyle(label).fontSize) || 12;
+    const floor = 8;
+    for (let px = baseline; px >= floor; px -= 0.5) {
+      label.style.fontSize = px + 'px';
+      const lineHeight = parseFloat(getComputedStyle(label).lineHeight) || px * 1.08;
+      const withinTwoLines = label.scrollHeight <= lineHeight * 2 + 1.5;
+      if (withinTwoLines && label.scrollWidth <= label.clientWidth + 1) break;
+    }
+    // No overflow:hidden, line clamp, or ellipsis: even unusual generated names
+    // longer than two lines always remain fully visible.
+    if (parseFloat(label.style.fontSize) < floor) label.style.fontSize = floor + 'px';
+  }
+}
+window.addEventListener('resize', fitHandCardNames);
+
 function render() {
   const scrollX=window.scrollX,scrollY=window.scrollY;
   const tracked=['.app','main','.board-side','.board > div:first-child','#camp-plist','#plist'];
@@ -4739,6 +4779,7 @@ function render() {
   const draftActive = S.mode==='champ' && S.champ.campaignMode ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
+  fitHandCardNames();
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
     const el=document.querySelector(selector);
