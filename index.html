@@ -673,6 +673,17 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .campaign-reject-names { margin:8px 0 12px; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:7px; }
 .campaign-reject-names li { padding:5px 10px; border-radius:7px; background:color-mix(in srgb,var(--bad) 13%,var(--panel)); border:1px solid var(--bad); color:var(--bad); font-weight:700; }
 
+
+/* AI dispute evidence panel. The original rejection stays on the game board. */
+.knowledge-overlay { z-index: 140; }
+.knowledge-dialog { max-width: 540px; }
+.knowledge-dialog .field-label { display: block; margin: 12px 0; }
+.knowledge-dialog .field-label span { display:block; margin-bottom:6px; font-weight:600; }
+.knowledge-dialog textarea,.knowledge-dialog input[type="url"] { display:block; width:100%; margin-top:4px; }
+.knowledge-dialog li { overflow-wrap:anywhere; margin:6px 0; }
+.campaign-reject-names li { display:flex; flex-wrap:wrap; gap:6px; justify-content:space-between; align-items:center; }
+.campaign-reject-names .btn { border-color:var(--bad); background:var(--panel); color:var(--bad); font-size:11px; }
+
 </style>
 </head>
 <body>
@@ -683,6 +694,7 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 <script src="data/toons-profiles.js"></script>
 <script src="data/games-profiles.js"></script>
 <script src="data/character-abilities.js"></script>
+<script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/after-action.js"></script>
 <script>
@@ -4597,7 +4609,7 @@ function render() {
   else main = renderH2H();
   const draftActive = S.mode==='champ' && S.champ.campaignMode ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
-  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected() : '');
+  app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
     const el=document.querySelector(selector);
@@ -4714,6 +4726,31 @@ document.addEventListener('click',e=>{
   }
 },true);
 
+// Preserve gameplay and page position while a dispute is researched asynchronously.
+async function campaignSubmitKnowledgeDispute(){
+  const v=S.campaign,slot=v.disputeSlot;
+  if(!slot||v.disputeBusy)return;
+  const candidate=v.roster[slot],stage=campaignStage(),rule=stage.rule;
+  if(!candidate||!CAMPAIGN_TAGS[rule]||!campaignInvalidSlots().has(slot))return;
+  v.disputeBusy=true;v.disputeError='';v.disputeResult=null;render();
+  try{
+    const result=await KnowledgeEngine.challenge(candidate,rule,v.disputeClaim,v.disputeSource);
+    if(v.disputeSlot!==slot||v.roster[slot]?.id!==candidate.id||campaignStage().rule!==rule)return;
+    v.disputeResult=result;
+    if(KnowledgeEngine.has(candidate,rule) && campaignQualified()){
+      v.validation='';v.validationOpen=false;
+    }
+    saveCampaign();
+  }catch(error){
+    if(v.disputeSlot===slot){
+      v.disputeError=(error?.message||'Live research is unavailable.')+' Your claim is retained locally for later retry.';
+    }
+  }finally{
+    v.disputeBusy=false;
+    render();
+  }
+}
+
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-act]'); if (!t) return;
   if (t.dataset.act === 'close-modal' && e.target.closest('[data-stop]') && !e.target.closest('button[data-act="close-modal"]')) return;
@@ -4748,6 +4785,20 @@ document.addEventListener('click', e => {
     }
     case 'camp-close': S.campaign.selected = null; break;
     case 'camp-reject-close': if(t.closest('[data-stop]')&&!t.matches('button'))break; S.campaign.validationOpen=false; break;
+    case 'camp-dispute-open': {
+      const v=S.campaign,slot=t.dataset.slot;
+      if(!v.roster[slot]||!campaignInvalidSlots().has(slot)||!CAMPAIGN_TAGS[campaignStage().rule])break;
+      v.disputeSlot=slot;v.disputeClaim='';v.disputeSource='';v.disputeBusy=false;v.disputeResult=null;v.disputeError='';v.validationOpen=false;
+      break;
+    }
+    case 'camp-dispute-close': {
+      if(t.closest('[data-stop]')&&!t.matches('button'))break;
+      if(S.campaign.disputeBusy)break;
+      S.campaign.disputeSlot=null;S.campaign.disputeResult=null;S.campaign.disputeError='';
+      break;
+    }
+    case 'camp-dispute-submit': { void campaignSubmitKnowledgeDispute(); return; }
+
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
     case 'camp-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break;S.campaign.infoId=null;break;
@@ -4849,6 +4900,8 @@ document.addEventListener('input', e => {
   const k = e.target.dataset.input; if (!k) return;
   const v = e.target.value;
   if (k === 'camp-team') { S.campaign.teamName=v; saveCampaign(); }
+  else if (k === 'camp-dispute-claim') { S.campaign.disputeClaim=v; }
+  else if (k === 'camp-dispute-source') { S.campaign.disputeSource=v; }
   else if (k === 'camp-query') { S.campaign.query=v; render(); }
   else if (k === 'camp-letter-range' || k === 'pick-letter-range') {const letter=String.fromCharCode(65+Math.max(0,Math.min(25,+v||0)));jumpTalentPoolLetter(k==='camp-letter-range'?'camp-plist':'plist',k==='camp-letter-range'?'camp-letter-label':'pick-letter-label',letter);}
   else if (k === 'report-match') { S.champ.reportMatch=+v; render(); }
@@ -4862,6 +4915,7 @@ document.addEventListener('input', e => {
 });
 document.addEventListener('keydown', e => {
   if(e.key === 'Escape' && S.handInfoId){S.handInfoId=null;render();return;}
+  if (e.key === 'Escape' && S.campaign?.disputeSlot&&!S.campaign.disputeBusy) {S.campaign.disputeSlot=null;S.campaign.disputeResult=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.infoId) { S.campaign.infoId=null; render(); return; }
   if (e.key === 'Escape') { if (S.modal) { S.modal = null; render(); } else if (S.champ.sel || S.h2h.sel || S.champ.handSel) { S.champ.sel = null; S.h2h.sel = null; S.champ.handSel = null; render(); } }
   if (e.key === 'Enter' && e.target.id === 'h-code') joinByCode();
@@ -4869,6 +4923,8 @@ document.addEventListener('keydown', e => {
 });
 
 render();
+// Approved knowledge refreshes asynchronously without blocking gameplay.
+KnowledgeEngine.load().then(ok=>{if(ok)render();});
 (async function initCaps() {
   if (!window.claude || typeof window.claude.use !== 'function') {
     // web version: Head-to-Head runs on Supabase; custom "any topic" pools stay in the Claude version

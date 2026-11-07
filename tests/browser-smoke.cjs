@@ -187,6 +187,41 @@ const server=http.createServer((req,res)=>{
   await page.locator('button[data-act="camp-reject-close"]').click();
   assert.equal(await modal.count(),0,'Rejection dialog did not close');
   assert.ok(await page.locator('.field-wrap button.invalid').count(),'Red field indicators disappeared before correction');
+
+  // A thematic rejection exposes the research appeal without revealing eligibility
+  // before the player submits their lineup.
+  const disputed=await page.evaluate(()=>{
+    const v=S.campaign;
+    v.stageOrder[0]=20; // The Medics, a theme with evidence-based qualification.
+    const slot=campaignSlots(v.sport,campaignStage().rule)[0].id;
+    const nonhealer=getCands('mashup').find(c=>c.n==='Sokka');
+    if(!nonhealer)throw Error('Missing Sokka test fixture');
+    v.roster[slot]=nonhealer;
+    v.validation='The highlighted characters do not meet this challenge.';
+    v.validationOpen=true;
+    render();
+    return {slot,candidate:nonhealer.id};
+  });
+  await page.locator('[role="alertdialog"] [data-act="camp-dispute-open"]').first().click();
+  const disputeDialog=page.locator('[role="dialog"][aria-label="Challenge character eligibility"]');
+  await disputeDialog.waitFor();
+  assert.ok((await disputeDialog.textContent()).includes('AI Character Knowledge Engine'));
+  await page.locator('[data-input="camp-dispute-claim"]').fill('Sokka can treat battle wounds in this alternative storyline');
+  assert.ok((await page.locator('[data-input="camp-dispute-claim"]').inputValue()).includes('Sokka'));
+  // Intercept the external research method to verify game state transitions locally.
+  await page.evaluate(()=>{
+    const previous=KnowledgeEngine.has.bind(KnowledgeEngine);
+    KnowledgeEngine.challenge=async(c,tag)=>{
+      KnowledgeEngine.has=(who,t)=>previous(who,t)||(who.pool===c.pool&&who.n===c.n&&t===tag);
+      return {status:'accepted_provisional',dispute_id:'00000000-0000-4000-8000-000000000001',rationale:'Test verdict only',feat:'Test evidence',sources:['https://www.starwars.com']};
+    };
+  });
+  await page.locator('[data-act="camp-dispute-submit"]').click();
+  await page.locator('text=Provisionally accepted').first().waitFor();
+  await page.locator('.knowledge-dialog [data-act="camp-dispute-close"]').last().click();
+  assert.equal(await page.locator('.field-wrap button.invalid[data-slot="'+disputed.slot+'"]').count(),0,'Successful provisional appeal should clear this particular invalid marker');
+  assert.equal(await page.locator('button[data-act="camp-play"]').isEnabled(),true,'A valid lineup should remain submittable after the appeal');
+
   // Correct the roster using eligible selections only, with the same position.
   await page.evaluate(()=>{
     const v=S.campaign,st=campaignStage(),used=new Set();

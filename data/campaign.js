@@ -79,7 +79,7 @@ for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secur
 for (const n of ['Darth Maul','Savage Opress','Charmander','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,validation:'',validationOpen:false};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
@@ -121,7 +121,7 @@ function campaignAllowed(c,rule){
     case 'strong':return c.a[2]>=87;
     case 'underdog':return c.a.reduce((n,v)=>n+v,0)/c.a.length<=73;
     case 'final':return !campaignUsed().has(c.id);
-    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||!!characterAbilityEvidence(c,rule);return true;
+    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||!!characterAbilityEvidence(c,rule)||(typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule));return true;
 
   }
 }
@@ -236,16 +236,52 @@ function renderCampaignRejected(){
   if(!v.validationOpen||!v.validation||v.status!=='draft')return '';
   const bad=campaignInvalidSlots();
   if(!bad.size)return '';
-  const names=[...bad].map(id=>v.roster[id]?.n).filter(Boolean);
+  const offenders=[...bad].map(id=>({slot:id,c:v.roster[id]})).filter(x=>x.c);
   return `<div class="campaign-reject-overlay" data-act="camp-reject-close">
     <div class="campaign-reject-card" role="alertdialog" aria-modal="true" aria-labelledby="campaign-reject-title" aria-describedby="campaign-reject-description" data-stop="1">
       <div class="eyebrow" style="color:var(--bad)">Campaign challenge</div>
       <h2 class="h" id="campaign-reject-title" style="margin:8px 0 12px">Lineup rejected</h2>
       <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
       <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
-      <ul class="campaign-reject-names">${names.map(n=>`<li>${esc(n)}</li>`).join('')}</ul>
+      <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> ${CAMPAIGN_TAGS[campaignStage().rule]?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:''}</li>`).join('')}</ul>
       <p class="note">Replace the highlighted characters and submit the lineup again. The talent pool remains unfiltered.</p>
       <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
+    </div>
+  </div>`;
+}
+// A dispute concerns one currently rejected character and one thematic challenge.
+// No eligibility evidence is revealed during drafting before the lineup is submitted.
+function renderCampaignDispute(){
+  const v=S.campaign,slot=v.disputeSlot;
+  if(!slot||v.status!=='draft')return '';
+  const c=v.roster[slot],rule=campaignStage().rule;
+  if(!c||!CAMPAIGN_TAGS[rule])return '';
+  const result=v.disputeResult,approved=result?.status==='approved',provisional=result?.status==='accepted_provisional';
+  const allowed=approved||provisional;
+  const sources=(result?.sources||[]).filter(url=>/^https:\/\/[^\s]+$/i.test(url)).slice(0,8);
+  const status=KnowledgeEngine.status();
+  return `<div class="campaign-reject-overlay knowledge-overlay" data-act="camp-dispute-close">
+    <div class="campaign-reject-card knowledge-dialog" role="dialog" aria-modal="true" aria-label="Challenge character eligibility" data-stop="1">
+      <div class="row" style="align-items:center;justify-content:space-between;gap:12px">
+        <div><div class="eyebrow">AI Character Knowledge Engine</div><h2 class="h" style="margin-top:6px">Challenge this ruling</h2></div>
+        <button class="btn small" data-act="camp-dispute-close" ${v.disputeBusy?'disabled':''}>Close</button>
+      </div>
+      <p><b>${esc(c.n)}</b> · ${esc(campaignStage().name)}</p>
+      ${!result?`
+      <p class="note">Describe the ability or feat we missed. You can include a source. The AI will research it; verified findings are queued for permanent review.</p>
+      <label class="field-label"><span>What ability or feat should qualify?</span><textarea data-input="camp-dispute-claim" rows="3" maxlength="700" placeholder="Example: uses healing to treat another character's injuries" ${v.disputeBusy?'disabled':''}>${esc(v.disputeClaim||'')}</textarea></label>
+      <label class="field-label"><span>Optional source URL</span><input type="url" data-input="camp-dispute-source" value="${esc(v.disputeSource||'')}" placeholder="https://..." ${v.disputeBusy?'disabled':''}></label>
+      ${status.state==='unavailable'?'<p class="note">Live review service is not yet connected. You may save your claim locally for later retry.</p>':''}
+      ${v.disputeError?`<p role="alert" class="note" style="color:var(--bad)">${esc(v.disputeError)}</p>`:''}
+      <button class="btn primary" data-act="camp-dispute-submit" ${v.disputeBusy?'disabled':''} style="width:100%;margin-top:10px">${v.disputeBusy?'Researching sources…':'Research this ruling'}</button>
+      `: `
+      <p><b>${allowed?(approved?'Approved knowledge':'Provisionally accepted'):(result.status==='rejected'?'Not supported by research':'More evidence needed')}</b></p>
+      <p>${esc(result.rationale||'No explanation available.')}</p>
+      ${result.feat?`<p class="note"><b>Relevant feat:</b> ${esc(result.feat)}</p>`:''}
+      ${sources.length?`<div><b>Research sources</b><ul>${sources.map((url,i)=>`<li><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Source ${i+1}: ${esc(new URL(url).hostname)}</a></li>`).join('')}</ul></div>`:''}
+      <p class="note">${provisional?'This is accepted for your current game on this device. It is not shared with other players until an administrator verifies and approves it.':approved?'This fact is approved for all players.':'The claim is recorded for review. No eligibility override was granted.'}</p>
+      <button class="btn primary" data-act="camp-dispute-close" style="width:100%">Return to lineup</button>
+      `}
     </div>
   </div>`;
 }
