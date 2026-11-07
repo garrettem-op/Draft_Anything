@@ -199,7 +199,16 @@ Deno.serve(async req=>{
   try{
     const db=dbClient();
     if(req.method==='GET'){
-      if(new URL(req.url).searchParams.get('action')!=='approved')return reply(req,{error:'Unknown query.'},400);
+      const action=new URL(req.url).searchParams.get('action');
+      if(action==='my_reviews'){
+        const user=await userFrom(req);
+        if(!user)return reply(req,{error:'Authentication required.'},401);
+        const own=await db.from('character_disputes').select('id,status').eq('owner_id',user.id)
+          .gte('created_at',new Date(Date.now()-32*864e5).toISOString()).limit(100);
+        if(own.error)throw own.error;
+        return reply(req,{reviews:own.data||[]});
+      }
+      if(action!=='approved')return reply(req,{error:'Unknown query.'},400);
       const {data,error}=await db.from('character_knowledge').select('pool,name,tag,feat,sources,approved_at').eq('status','approved').limit(4000);
       if(error)throw error;
       return reply(req,{facts:data||[]});
