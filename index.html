@@ -4788,7 +4788,8 @@ document.addEventListener('click', e => {
     case 'camp-dispute-open': {
       const v=S.campaign,slot=t.dataset.slot;
       if(!v.roster[slot]||!campaignInvalidSlots().has(slot)||!CAMPAIGN_TAGS[campaignStage().rule])break;
-      v.disputeSlot=slot;v.disputeClaim='';v.disputeSource='';v.disputeBusy=false;v.disputeResult=null;v.disputeError='';v.validationOpen=false;
+      const remembered=KnowledgeEngine.latestDraft(v.roster[slot],campaignStage().rule);
+      v.disputeSlot=slot;v.disputeClaim=remembered?.claim||'';v.disputeSource=remembered?.source_url||'';v.disputeBusy=false;v.disputeResult=null;v.disputeError='';v.validationOpen=false;
       break;
     }
     case 'camp-dispute-close': {

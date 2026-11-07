@@ -90,3 +90,14 @@ test('unconfigured research saves evidence locally without calling paid API',asy
  assert.ok(e.cache.get('da.knowledge.dispute-drafts.v1')?.includes('Waterbending heals injuries'));
  assert.equal(e.calls.filter(c=>c.opts.method==='POST').length,0,'Offline status must not trigger paid API requests');
 });
+
+test('a saved offline dispute is available with its original explanation and source for retry',async()=>{
+ const e=environment({researchReady:false});
+ await assert.rejects(e.engine.challenge(katara,'healing','She healed Aang','https://avatar.fandom.com/wiki/Healing'));
+ const saved=e.engine.latestDraft(katara,'healing');
+ assert.equal(saved?.claim,'She healed Aang');
+ assert.equal(saved?.source_url,'https://avatar.fandom.com/wiki/Healing');
+ const reload=environment({cache:[...e.cache],researchReady:true});
+ assert.equal(reload.engine.latestDraft(katara,'healing')?.claim,'She healed Aang');
+ assert.equal(reload.engine.latestDraft(sameNameOtherPool,'healing'),null);
+});
