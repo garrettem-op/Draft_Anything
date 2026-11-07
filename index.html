@@ -658,6 +658,24 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-art[data-pool="muppets"] { background: radial-gradient(ellipse at 50% 28%, #b5d877, #346f4c); }
 .trading-card .tc-art[data-pool="games"] { background: radial-gradient(ellipse at 50% 28%, #dfbb6f, #4d6688); }
 
+
+/* Individually recognizable pool emblems instead of the generic DA logo. */
+.tc-name .tc-pool-mark {
+  display: grid; place-items: center; flex: 0 0 23px; width: 23px; height: 23px;
+  border: 1px solid #85683b; border-radius: 50%; background: #f7e8b8;
+  box-shadow: inset 0 1px 2px #ffffffaa; color: #594224;
+}
+.tc-name .tc-pool-mark svg { width: 18px; height: 18px; display: block; }
+.tc-name .tc-pool-nba { background: #db9651; color: #422915; }
+.tc-name .tc-pool-mcu { background: #96332b; color: #fce4a2; }
+.tc-name .tc-pool-toons { background: #f3d681; color: #533e1a; }
+.tc-name .tc-pool-muppets { background: #71aa52; color: #173c21; }
+.tc-name .tc-pool-games { background: #5b87ad; color: #f9eee1; }
+.tc-name .tc-pool-pokemon { background: #d14d42; color: #fff; }
+.tc-name .tc-pool-starwars { background: #273d53; color: #f4e2aa; }
+.tc-name .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
+@media (max-width:899px) { .tc-name .tc-pool-mark { flex-basis: 18px; width:18px; height:18px; } .tc-name .tc-pool-mark svg { width:15px; height:15px; } }
+
 /* Campaign rejection: field targets remain editable, but clearly marked invalid. */
 .field-wrap, .field-wrap *, .field-wrap button { -webkit-user-select:none !important; user-select:none !important; -webkit-touch-callout:none !important; }
 .field-wrap .node, .field-wrap .side-node { touch-action:none; }
@@ -3648,13 +3666,30 @@ function handCardIllustration(x) {
   return illustration ? '<span class="tc-illustration" aria-hidden="true">' + illustration + '</span>' : avatar(x);
 }
 
+// Talent-pool identities, used in the top-right corner of every trading card.
+function handPoolMark(poolId) {
+  const glyphs = {
+    nba: '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5v17M5.8 6c6 3 6 9 0 12M18.2 6c-6 3-6 9 0 12"/>',
+    mcu: '<path d="M12 2.5 20 6v6c0 5-3.3 8.1-8 9.5C7.3 20.1 4 17 4 12V6z"/><path d="m12 6 1.7 3.6 3.9.5-2.8 2.7.7 3.9-3.5-1.9-3.5 1.9.7-3.9-2.8-2.7 3.9-.5z"/>',
+    toons: '<path d="M8 11C5 8 4.6 3.3 7 2.5c2.5-.7 3.9 3.4 4.2 6M14 9c.4-3 1.6-7.2 4-6.5 2.6.7 1.8 5.9-1 8.5"/><path d="M5 15c0-4 3.2-6.6 7-6.6s7 2.6 7 6.6-3.2 6.7-7 6.7S5 19 5 15z"/><path d="M9 14h.1m5.8 0h.1M10 18q2 1.4 4 0"/>',
+    muppets: '<path d="M4 14c0-3.3 3.4-5.5 8-5.5s8 2.2 8 5.5-3.2 6.5-8 6.5S4 17.3 4 14z"/><circle cx="8" cy="8" r="2.8"/><circle cx="16" cy="8" r="2.8"/><path d="M8 16q4 3 8 0"/>',
+    games: '<path d="M7.8 8h8.4c2.2 0 3.5 1.2 4.2 3.5l1 4c.7 3-1.5 4.2-3.6 2.5l-2.4-2H8.6l-2.4 2c-2.1 1.7-4.3.5-3.6-2.5l1-4C4.3 9.2 5.6 8 7.8 8z"/><path d="M7 11v5m-2.5-2.5h5"/><circle cx="16.5" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="18.3" cy="14" r=".9" fill="currentColor" stroke="none"/>',
+    pokemon: '<circle cx="12" cy="12" r="9"/><path d="M3.4 12h17.2"/><circle cx="12" cy="12" r="3.1" fill="#f3e7cb"/>',
+    starwars: '<path d="M12 2.5 14 9l7.5 3-7.5 3-2 6.5L10 15l-7.5-3L10 9z"/><circle cx="12" cy="12" r="1.7"/>',
+    mashup: '<path d="m12 2 2.1 7 7.4 3-7.4 2.9L12 22l-2.1-7.1L2.5 12l7.4-3zM19 3l.6 1.6L21 5l-1.4.6L19 7l-.5-1.4L17 5l1.5-.4z"/>'
+  };
+  const kind = Object.hasOwn(glyphs,poolId) ? poolId : 'custom';
+  const shape = glyphs[poolId] || '<circle cx="12" cy="12" r="8.5"/><path d="M3.6 12h16.8M12 3.5c-5 5-5 12 0 17M12 3.5c5 5 5 12 0 17"/>';
+  return '<span class="tc-pool-mark tc-pool-' + kind + '" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + shape + '</svg></span>';
+}
+
 function handTradingCardHTML(x, selected, i) {
   const pool = getPool(x.pool);
   const origin = pool ? pool.short || pool.name : 'Custom pool';
   const move = x.sig?.name || 'Wildcard contender';
   return `<div class="hand-option" style="--deal-order:${i}">
     <button type="button" class="cand hand-card trading-card ${selected ? 'picked' : ''}" data-act="hand-pick" data-cid="${esc(x.id)}" aria-pressed="${selected}" aria-label="Choose ${esc(x.n)} from ${esc(origin)}">
-      <span class="tc-name"><span title="${esc(x.n)}">${esc(x.n)}</span><i>DA</i></span>
+      <span class="tc-name"><span title="${esc(x.n)}">${esc(x.n)}</span>${handPoolMark(x.pool)}</span>
       <span class="tc-art" data-pool="${esc(x.pool)}">${handCardIllustration(x)}</span>
       <span class="tc-type" title="${esc(origin)}">Legendary · ${esc(origin)}</span>
       <span class="tc-rules"><b>${esc(move)}</b><em>${esc(x.t || 'A contender from another universe.')}</em></span>
