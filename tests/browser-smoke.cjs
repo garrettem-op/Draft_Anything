@@ -30,7 +30,14 @@ const server=http.createServer((req,res)=>{
   const scroll=await page.evaluate(()=>{
    const el=document.getElementById('camp-plist');el.scrollTop=470;return el.scrollTop;
   });
-  await page.locator('button[data-act="camp-info"]').first().click();
+  await page.evaluate(()=>{
+   const list=document.getElementById('camp-plist'),rect=list.getBoundingClientRect();
+   const visible=[...list.querySelectorAll('button[data-act="camp-info"]')].find(btn=>{
+    const r=btn.getBoundingClientRect();return r.top>=rect.top&&r.bottom<=rect.bottom;
+   });
+   if(!visible)throw Error('No visible character information button');
+   visible.click();
+  });
   await page.locator('.modal button[data-act="camp-info-close"]').click();
   const after=await page.evaluate(()=>document.getElementById('camp-plist').scrollTop);
   assert.ok(Math.abs(after-scroll)<4,'Info dialog changed talent list scroll position: '+scroll+' -> '+after);
@@ -39,7 +46,14 @@ const server=http.createServer((req,res)=>{
   });
   const label=await page.locator('#camp-letter-label').textContent();
   assert.equal(label,'M','Alphabet scrubber failed');
-  await page.locator('#camp-plist .cand:not([disabled])').first().click();
+  await page.evaluate(()=>{
+   const stage=campaignStage();
+   const eligible=getCands('mashup').find(c=>campaignAllowed(c,stage.rule));
+   if(!eligible)throw Error('No eligible character in '+stage.rule);
+   const btn=[...document.querySelectorAll('#camp-plist button[data-act="camp-pick"]')].find(b=>b.dataset.cid===eligible.id);
+   if(!btn)throw Error('Eligible character not rendered in picker');
+   btn.click();
+  });
   // Fill remaining roster slots with eligible characters, keeping one manual pick.
   await page.evaluate(()=>{
    const v=S.campaign,st=campaignStage(),taken=new Set(Object.values(v.roster).map(x=>x.id));
