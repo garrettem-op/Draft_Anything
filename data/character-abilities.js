@@ -35,6 +35,12 @@ const CHARACTER_ABILITIES = Object.freeze({
   'mcu:Sprite': [
     {tag:'stealth', kind:'invisibility', feat:'Sprite can make herself and others invisible.', source:'https://d23.com/meet-the-characters-of-marvel-studios-eternals/'},
   ],
+  'mcu:Loki': [
+    {tag:'stealth', kind:'magical-concealment', feat:'Loki uses illusion and shapeshifting magic to conceal his identity, disguise himself, and evade recognition.', source:'https://www.marvel.com/characters/loki/on-screen'},
+  ],
+  'mcu:The Watcher': [
+    {tag:'stealth', kind:'undetected-observation', feat:'In What If...? Ultron Won?, the Watcher observes events unseen until Infinity Ultron becomes aware of him and sees him.', source:'https://www.syfy.com/syfy-wire/marvel-what-if-episode-8-ultron-watcher-finale-endgame'},
+  ],
   'mcu:Phastos': [
     {tag:'tech', kind:'technopathy', feat:'Phastos creates and communicates with advanced machinery.', source:'https://d23.com/meet-the-characters-of-marvel-studios-eternals/'},
   ],
