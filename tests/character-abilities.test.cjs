@@ -47,6 +47,26 @@ test('all four challenged healer picks qualify, and more verified healers qualif
     assert.ok(characterAbilityEvidence(candidate,'healing')?.source,id+' missing evidence');
   }
 });
+test('Ghost Protocol allows Loki and The Watcher based on documented concealment',()=>{
+  for(const id of ['mcu:Loki','mcu:The Watcher']){
+    const candidate=list.find(c=>c.id===id);
+    assert.ok(candidate,id+' absent from the mashup pool');
+    assert.ok(campaignAllowed(candidate,'stealth'),id+' wrongly rejected by Ghost Protocol');
+    assert.ok(characterAbilityEvidence(candidate,'stealth')?.source,id+' missing evidence');
+  }
+  const jessica=list.find(c=>c.id==='mcu:Jessica Jones');
+  assert.ok(jessica,'Jessica Jones absent from the mashup pool');
+  assert.equal(campaignAllowed(jessica,'stealth'),false,'Unrelated eligibility must not change');
+});
+test('Ghost Protocol submission does not mark Loki or The Watcher invalid',()=>{
+  // Ghost Protocol is CAMPAIGN_EXTRA[8], after the ten standard stages.
+  state.campaign.stageOrder[0]=10+8;
+  state.campaign.roster={
+    lead:list.find(c=>c.id==='mcu:Loki'),
+    coach:list.find(c=>c.id==='mcu:The Watcher'),
+  };
+  assert.equal(context.eligibilityTest.campaignInvalidSlots().size,0);
+});
 test('healing does not blanket-approve unrelated candidates',()=>{
   for(const id of ['starwars:Han Solo','mcu:Kingpin','toons:Sokka']){
     const candidate=list.find(c=>c.id===id);
