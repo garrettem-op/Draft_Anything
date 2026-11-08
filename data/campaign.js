@@ -40,6 +40,278 @@ healing:'Wolverine|Deadpool|Hulk|She-Hulk|Groot|Mewtwo|Chansey|Blissey|Mercy|Kir
 giants:'Hulk|Ant-Man|Giant-Man|Goliath|Godzilla|King Kong|Bowser|Donkey Kong|Groudon|Wailord|Snorlax|Galactus|The Thing'
 };
 for(const k in CAMPAIGN_TAGS) CAMPAIGN_TAGS[k]=new Set(CAMPAIGN_TAGS[k].split('|'));
+// A commander may meet a themed challenge through demonstrated tactical expertise
+// rather than personal physical traits. Only the actual Commander/Coach slot may
+// use these universe-scoped exceptions. Identity, age, power-ban, size and reuse
+// constraints remain strict; these records are deliberately curated, not inferred
+// from a character's high numerical attributes.
+const CAMPAIGN_COMMANDER_SPECIALTIES = Object.freeze({
+  "nba:Mike D'Antoni": {
+    "fast": {
+      "label": "Seven Seconds or Less",
+      "focus": "spd",
+      "reason": "Coaches a rapid-transition offense built around early attacks."
+    }
+  },
+  "nba:Red Auerbach": {
+    "fast": {
+      "label": "Fast Break",
+      "focus": "spd",
+      "reason": "Uses tempo and outlet passing to get the squad moving."
+    }
+  },
+  "nba:Don Nelson": {
+    "fast": {
+      "label": "Nellie Ball",
+      "focus": "spd",
+      "reason": "Creates an up-tempo, versatile offense."
+    }
+  },
+  "nba:Phil Jackson": {
+    "brain": {
+      "label": "Triangle Offense",
+      "focus": "iq",
+      "reason": "Organizes a read-and-react tactical system."
+    }
+  },
+  "nba:Gregg Popovich": {
+    "brain": {
+      "label": "Ball Movement",
+      "focus": "iq",
+      "reason": "Coaches decision-making, spacing, and collective reads."
+    }
+  },
+  "nba:Rick Carlisle": {
+    "brain": {
+      "label": "Spacing and Reads",
+      "focus": "iq",
+      "reason": "Optimizes team spacing and situational decisions."
+    }
+  },
+  "nba:Pat Riley": {
+    "strong": {
+      "label": "Smash-Mouth Defense",
+      "focus": "str",
+      "reason": "Builds physical, contact-oriented defensive teams."
+    }
+  },
+  "nba:Chuck Daly": {
+    "strong": {
+      "label": "Bad Boys",
+      "focus": "str",
+      "reason": "Coordinates a physical, bruising defensive approach."
+    }
+  },
+  "nba:Tom Thibodeau": {
+    "strong": {
+      "label": "Defense First",
+      "focus": "str",
+      "reason": "Emphasizes physical defending and contested possessions."
+    }
+  },
+  "mcu:Nick Fury": {
+    "stealth": {
+      "label": "Covert Operations",
+      "focus": "ref",
+      "reason": "Coordinates clandestine intelligence and infiltration missions."
+    }
+  },
+  "mcu:Peggy Carter": {
+    "stealth": {
+      "label": "Strategic Tradecraft",
+      "focus": "ref",
+      "reason": "Leads covert field operations and espionage tactics."
+    }
+  },
+  "mcu:Maria Hill": {
+    "stealth": {
+      "label": "SHIELD Coordination",
+      "focus": "ref",
+      "reason": "Directs intelligence-led field teams and covert operations."
+    }
+  },
+  "mcu:Shuri": {
+    "tech": {
+      "label": "Wakandan Engineering",
+      "focus": "tch",
+      "reason": "Supplies advanced Wakandan engineering and tactical systems."
+    }
+  },
+  "mcu:Phastos": {
+    "tech": {
+      "label": "Eternal Inventor",
+      "focus": "tch",
+      "reason": "Designs advanced technology to support a team's capabilities."
+    }
+  },
+  "mcu:Mister Fantastic": {
+    "tech": {
+      "label": "Fantastic Engineering",
+      "focus": "tch",
+      "reason": "Designs equipment and tactical technology for a team."
+    }
+  },
+  "mcu:Professor X": {
+    "psychic": {
+      "label": "Telepathic Coordination",
+      "focus": "iq",
+      "reason": "Coordinates allies through telepathy and mental guidance."
+    }
+  },
+  "mcu:The Ancient One": {
+    "magic": {
+      "label": "Mystic Instruction",
+      "focus": "iq",
+      "reason": "Trains and coordinates sorcerers in advanced magical discipline."
+    }
+  },
+  "mcu:Doctor Strange": {
+    "teleport": {
+      "label": "Portal Coordination",
+      "focus": "agi",
+      "reason": "Coordinates repositioning using magic portals."
+    },
+    "magic": {
+      "label": "Master of the Mystic Arts",
+      "focus": "iq",
+      "reason": "Organizes complex sorcery and magical defenses."
+    }
+  },
+  "mcu:Ajak": {
+    "healing": {
+      "label": "Eternal Healer",
+      "focus": "end",
+      "reason": "Can sustain and heal allies through cosmic energy."
+    }
+  },
+  "mcu:Namor": {
+    "aquatic": {
+      "label": "Talokan Commander",
+      "focus": "end",
+      "reason": "Leads underwater forces and aquatic operations."
+    }
+  },
+  "mcu:Hank Pym": {
+    "giants": {
+      "label": "Size-Shifting Science",
+      "focus": "str",
+      "reason": "Uses Pym particle expertise to coordinate size-changing tactics."
+    }
+  },
+  "toons:Edna Mode": {
+    "tech": {
+      "label": "Super-Suit Engineering",
+      "focus": "tch",
+      "reason": "Designs advanced equipment for super-powered teammates."
+    }
+  },
+  "toons:Professor Utonium": {
+    "tech": {
+      "label": "Powerpuff Engineering",
+      "focus": "tch",
+      "reason": "Uses scientific invention to equip and support a team."
+    }
+  },
+  "toons:Rick Sanchez": {
+    "tech": {
+      "label": "Multiverse Engineering",
+      "focus": "tch",
+      "reason": "Provides advanced inventions and improvisational engineering."
+    }
+  },
+  "toons:Uncle Iroh": {
+    "fire": {
+      "label": "Firebending Master",
+      "focus": "tch",
+      "reason": "Trains others to channel firebending with control."
+    }
+  },
+  "toons:Elsa": {
+    "ice": {
+      "label": "Icecraft",
+      "focus": "tch",
+      "reason": "Can coordinate complex snow and ice structures."
+    }
+  },
+  "games:Dr. Eggman": {
+    "tech": {
+      "label": "Robotics Arsenal",
+      "focus": "tch",
+      "reason": "Builds and directs advanced machines and robots."
+    }
+  },
+  "games:Dr. Light": {
+    "tech": {
+      "label": "Robot Master Engineering",
+      "focus": "tch",
+      "reason": "Develops advanced robotics and support technology."
+    }
+  },
+  "games:Big Boss": {
+    "stealth": {
+      "label": "Special Operations Command",
+      "focus": "ref",
+      "reason": "Directs covert infiltration and special-forces tactics."
+    }
+  },
+  "games:Commander Shepard": {
+    "brain": {
+      "label": "Squad Command",
+      "focus": "iq",
+      "reason": "Coordinates squad tactics under battlefield pressure."
+    }
+  },
+  "starwars:Yoda": {
+    "psychic": {
+      "label": "Jedi Mind Training",
+      "focus": "iq",
+      "reason": "Teaches control of the Force and mental coordination."
+    }
+  },
+  "starwars:Poe Dameron": {
+    "flight": {
+      "label": "Ace Squadron Leader",
+      "focus": "spd",
+      "reason": "Leads high-speed starfighter operations."
+    }
+  },
+  "starwars:Grand Admiral Thrawn": {
+    "brain": {
+      "label": "Strategic Foresight",
+      "focus": "iq",
+      "reason": "Uses analysis and anticipation to direct battle strategy."
+    }
+  },
+  "starwars:Emperor Palpatine": {
+    "electric": {
+      "label": "Force Lightning",
+      "focus": "tch",
+      "reason": "Commands Force lightning and directs Sith attacks."
+    }
+  }
+});
+const CAMPAIGN_FOCUS_INDEX = Object.freeze({spd:0,agi:1,str:2,siz:3,lep:4,end:5,tch:6,acc:7,ref:8,iq:9,clu:10,ldr:11});
+function campaignCommanderSpecialty(c,rule,pos){
+  if(!pos?.coach||!c?.pool||!c?.n)return null;
+  return CAMPAIGN_COMMANDER_SPECIALTIES[c.pool+':'+c.n]?.[rule]||null;
+}
+// Tactical multiplier is calculated from the active players' strength in the
+// relevant attribute. Exactly one commander benefit can apply per lineup.
+function campaignCommanderEffect(sport,roster,rule,baseRating){
+  const slots=SPORTS[sport]?.pos||[];
+  const slot=slots.find(p=>p.coach&&roster[p.id]);
+  const c=slot&&roster[slot.id],specialty=campaignCommanderSpecialty(c,rule,slot);
+  if(!specialty||!Number.isFinite(baseRating))return null;
+  const idx=CAMPAIGN_FOCUS_INDEX[specialty.focus];
+  if(idx===undefined)return null;
+  const active=slots.filter(p=>!p.coach&&!p.bench&&roster[p.id]);
+  if(!active.length)return null;
+  const focusAverage=active.reduce((sum,p)=>sum+(Number(roster[p.id].a?.[idx])||0),0)/active.length;
+  // A bounded 1.5%–4% strategic advantage. No compounding and no raw stat edits.
+  const percent=+(1.5+2.5*Math.max(0,Math.min(99,focusAverage))/99).toFixed(2);
+  return {name:c.n,label:specialty.label,reason:specialty.reason,focus:specialty.focus,
+    focusAverage:+focusAverage.toFixed(1),percent,points:+(baseRating*percent/100).toFixed(3)};
+}
 function campaignStageById(id){
   return id<CAMPAIGN_STAGES.length?CAMPAIGN_STAGES[id]:CAMPAIGN_EXTRA[id-CAMPAIGN_STAGES.length];
 }
@@ -110,7 +382,8 @@ function campaignLimit(sport,rule){
   return rule==='short'||rule==='final'?Math.max(1,Math.ceil(eligible.length*0.6)):eligible.length;
 }
 function campaignUsed(){return new Set(S.campaign.history.flatMap(h=>h.ids||[]));}
-function campaignAllowed(c,rule){
+function campaignAllowed(c,rule,pos=null){
+  if(campaignCommanderSpecialty(c,rule,pos))return true;
   switch(rule){
     case 'fast':return c.a[0]>=90;
     case 'women':return CAMPAIGN_WOMEN.has(c.n);
@@ -129,7 +402,8 @@ function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAl
 function campaignSportValid(sport){return campaignEligibleStageIds(sport).length>=9;}
 function campaignInvalidSlots(){
   const v=S.campaign,rule=campaignStage().rule;
-  return new Set(Object.entries(v.roster).filter(([,c])=>c&&!campaignAllowed(c,rule)).map(([slot])=>slot));
+  const positions=new Map(campaignSlots(v.sport,rule).map(p=>[p.id,p]));
+  return new Set(Object.entries(v.roster).filter(([slot,c])=>c&&!campaignAllowed(c,rule,positions.get(slot))).map(([slot])=>slot));
 }
 function campaignQualified(){return campaignInvalidSlots().size===0;}
 function campaignReady(){
@@ -180,7 +454,7 @@ function renderCampaignDraft(){
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}
-    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p></div>
+    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p><p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission.</p></div>
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
   </section>`;
@@ -210,12 +484,15 @@ function campaignPlay(){
   S.campaign.validation='';S.campaign.validationOpen=false;
   const v=S.campaign,st=campaignStage(),gameSeed=Date.now()+':'+Math.random(),rng=rngFrom(gameSeed);
   const score=teamScore(v.sport,v.roster),excluded=new Set(Object.values(v.roster).map(c=>c.id));
-  // Each opponent is a complete team, generally stronger than your restricted roster.
-  const target=score.rating+1.5+v.step*0.7;
+  const baseRating=score.rating,commander=campaignCommanderEffect(v.sport,v.roster,st.rule,baseRating);
+  if(commander){score.rating=baseRating+commander.points;score.commanderEffect=commander;}
+  // Scale the opponent against the unboosted team so commander choices matter.
+  // Each opponent is a complete team, generally stronger than the base roster.
+  const target=baseRating+1.5+v.step*0.7;
   const opp=campaignOpponent(v.sport,excluded,target,rng);
   const game=playGame(v.sport,score,opp.score,SEASONS[v.sport].sigma*1.1,rng,true);
   const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
-  v.result={win,ourPoints,theirPoints,breakdownHTML:daMatchBreakdown(game.breakdown,score,opp.score,v.teamName,st.rival),report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),opponentReport:daReport(v.sport,opp.score,theirPoints,st.rival,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
+  v.result={win,ourPoints,theirPoints,commander,breakdownHTML:daMatchBreakdown(game.breakdown,score,opp.score,v.teamName,st.rival),report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),opponentReport:daReport(v.sport,opp.score,theirPoints,st.rival,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
 }
 function campaignOrigin(c){
@@ -320,7 +597,7 @@ function renderCampaignResults(){
     <p>${r.win?'You cleared this stage.':'Your completed campaign wins are safe. Rework your lineup or retry this matchup.'}</p>
     <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
   </div>
-  <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p></div>
+  <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p>${r.commander?`<p class="note" style="margin:8px 0 0"><b>Commander strategy:</b> ${esc(r.commander.name)} · ${esc(r.commander.label)} · +${r.commander.percent}% team rating (+${r.commander.points.toFixed(2)}). ${esc(r.commander.reason)}</p>`:''}</div>
   ${r.breakdownHTML||'<p class="note">Detailed match adjustments were not recorded for this older result.</p>'}
   ${r.report||""}<details class="panel" style="padding:14px;margin:12px 0"><summary>Opponent box score</summary>${r.opponentReport||""}</details>
   <div class="cta-row">${r.win?`<button class="btn primary big" data-act="camp-next">${v.step===9?'Claim campaign championship':'Unlock challenge '+(v.step+2)}</button>`:`<button class="btn primary" data-act="camp-retry">Retry this challenge</button><button class="btn" data-act="camp-edit">Edit your lineup</button>`}<button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
