@@ -4717,7 +4717,7 @@ function azTrack(clientY) {
   }
 }
 document.addEventListener('pointerdown', e => {
-  const index = e.target.closest('[data-az-list]');
+  const index = e.target?.closest?.('[data-az-list]');
   if (!index || !e.isPrimary) return;
   azGesture = {element:index, listId:index.dataset.azList, pointerId:e.pointerId, letter:null};
   index.setPointerCapture?.(e.pointerId);
@@ -4734,7 +4734,7 @@ document.addEventListener('pointercancel', e => {
   if (azGesture?.pointerId === e.pointerId) azGesture = null;
 });
 document.addEventListener('keydown', e => {
-  const button = e.target.closest('[data-az-letter]');
+  const button = e.target?.closest?.('[data-az-letter]');
   if (button && (e.key === 'Enter' || e.key === ' ')) {
     e.preventDefault();
     jumpTalentPoolLetter(button.closest('[data-az-list]').dataset.azList, null, button.dataset.azLetter);
@@ -4799,9 +4799,9 @@ function refreshPlist() {
 
 
 // The playing field is a control surface, not selectable text.
-document.addEventListener('selectstart',e=>{if(e.target.closest('.field-wrap'))e.preventDefault();});
-document.addEventListener('dragstart',e=>{if(e.target.closest('.field-wrap'))e.preventDefault();});
-document.addEventListener('contextmenu',e=>{if(e.target.closest('.field-wrap button[data-act="slot"]'))e.preventDefault();});
+document.addEventListener('selectstart',e=>{if(e.target?.closest?.('.field-wrap'))e.preventDefault();});
+document.addEventListener('dragstart',e=>{if(e.target?.closest?.('.field-wrap'))e.preventDefault();});
+document.addEventListener('contextmenu',e=>{if(e.target?.closest?.('.field-wrap button[data-act="slot"]'))e.preventDefault();});
 /* Hold a filled position, then drag onto another position to move or swap the roster.
    Keep this local to editable single-player drafts; multiplayer picks are immutable. */
 let fieldDrag = null;
@@ -4840,7 +4840,7 @@ function clearFieldDrag() {
 }
 document.addEventListener('pointerdown',e=>{
   if(!e.isPrimary||e.button>0||azGesture)return;
-  const node=e.target.closest('.field-wrap button[data-act="slot"].filled:not([disabled])');
+  const node=e.target?.closest?.('.field-wrap button[data-act="slot"].filled:not([disabled])');
   const draft=editableDraftRoster();
   if(!node || !draft || !draft.roster[node.dataset.slot])return;
   const start={x:e.clientX,y:e.clientY};
@@ -4894,7 +4894,7 @@ document.addEventListener('pointercancel',e=>{
   if(fieldDrag?.pointerId===e.pointerId)clearFieldDrag();
 });
 document.addEventListener('click',e=>{
-  if(Date.now()<blockFieldClickUntil&&e.target.closest('.field-wrap [data-act="slot"]')){
+  if(Date.now()<blockFieldClickUntil&&e.target?.closest?.('.field-wrap [data-act="slot"]')){
     e.preventDefault();e.stopImmediatePropagation();
   }
 },true);
@@ -4925,13 +4925,13 @@ async function campaignSubmitKnowledgeDispute(){
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-act]'); if (!t) return;
+  const t = e.target?.closest?.('[data-act]'); if (!t) return;
   // Backdrop actions must only fire for a click directly on the backdrop.
   // Inputs, labels and text inside dialogs bubble up to the backdrop; processing
   // those clicks as "close" used to destroy the dispute form on mobile.
   // Return before the global render() call as well, preserving input focus.
   if (t.matches('.campaign-reject-overlay, .modal-back') && e.target !== t) return;
-  if (t.dataset.act === 'close-modal' && e.target.closest('[data-stop]') && !e.target.closest('button[data-act="close-modal"]')) return;
+  if (t.dataset.act === 'close-modal' && e.target?.closest?.('[data-stop]') && !e.target?.closest?.('button[data-act="close-modal"]')) return;
   const a = t.dataset.act, c = S.champ, h = S.h2h;
   switch (a) {
     case 'mode': S.mode = t.dataset.mode; lsSet('da.mode', S.mode); S.gen.open = false; break;
