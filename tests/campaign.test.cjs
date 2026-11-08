@@ -11,7 +11,7 @@ let catalog=[];
 const SPORTS={basketball:{pos:Array.from({length:5},(_,i)=>({id:'p'+i}))}};
 const {characterAbilityEvidence}=require('../data/character-abilities.js');
 const context={S,SPORTS,getCands:()=>catalog,lsGet,lsSet,characterAbilityEvidence};
-vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignReset};',context);
+vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignReset,campaignInvalidSlots,campaignCommanderSpecialty,campaignCommanderEffect,CAMPAIGN_COMMANDER_SPECIALTIES};',context);
 const api=context.campaignTestApi;
 const names=[...new Set([...api.CAMPAIGN_WOMEN,...api.CAMPAIGN_RED,...api.CAMPAIGN_KIDS,...Object.values(api.CAMPAIGN_TAGS).flatMap(set=>[...set])])];
 catalog=names.map((n,i)=>({id:'id'+i,n,pool:i%3?'mcu':'nba',a:Array(12).fill(i%3?93:70)}));
@@ -68,6 +68,75 @@ test('restarting retains selected sport and team name while rerolling challenges
  assert.equal(S.campaign.step,0);
  assert.equal(S.campaign.stageOrder.length,10);
 });
+
+// Commander exceptions are slot-specific; no character becomes a speedster merely
+// because they run a fast-paced system when assigned as a player or reinforcement.
+test('Mike D\'Antoni qualifies as speed commander, but not as player or bench',()=>{
+ const c={id:'nba:mike-d-antoni',pool:'nba',n:"Mike D'Antoni",a:[52,65,45,55,49,65,75,60,60,90,76,90]};
+ assert.equal(api.campaignAllowed(c,'fast'),false);
+ assert.equal(api.campaignAllowed(c,'fast',{id:'pg'}),false);
+ assert.equal(api.campaignAllowed(c,'fast',{id:'bench',bench:true}),false);
+ assert.equal(api.campaignAllowed(c,'fast',{id:'hc',coach:true}),true);
+ assert.equal(api.campaignAllowed(c,'women',{id:'hc',coach:true}),false);
+ assert.equal(api.campaignAllowed(c,'kids',{id:'hc',coach:true}),false);
+ assert.equal(api.campaignAllowed(c,'mortal',{id:'hc',coach:true}),false);
+});
+test('commander expertise is scoped to an exact universe and matching theme',()=>{
+ const coach={id:'nba:coach',pool:'nba',n:"Mike D'Antoni",a:Array(12).fill(30)};
+ assert.equal(api.campaignCommanderSpecialty(coach,'fast',{coach:true})?.label,'Seven Seconds or Less');
+ assert.equal(api.campaignCommanderSpecialty({...coach,pool:'mcu'},'fast',{coach:true}),null);
+ assert.equal(api.campaignCommanderSpecialty(coach,'strong',{coach:true}),null);
+ assert.equal(api.campaignCommanderSpecialty(coach,'fast',{bench:true}),null);
+ for(const [id,rules] of Object.entries(api.CAMPAIGN_COMMANDER_SPECIALTIES)){
+  for(const rule of Object.keys(rules)){
+   assert.ok(['fast','brain','strong',...Object.keys(api.CAMPAIGN_TAGS)].includes(rule),id+' has unknown rule '+rule);
+   assert.ok(rules[rule].reason?.length>=25,id+' missing specialist reasoning');
+  }
+ }
+});
+test('validation accepts strategic commander but still rejects the same person on the field',()=>{
+ const oldPositions=SPORTS.basketball.pos, oldCampaign=S.campaign;
+ const coach={id:'nba:md',pool:'nba',n:"Mike D'Antoni",a:Array(12).fill(60)};
+ const runner={id:'games:runner',pool:'games',n:'Sonic the Hedgehog',a:[95,...Array(11).fill(85)]};
+ try{
+  SPORTS.basketball.pos=[{id:'pg'},{id:'hc',coach:true}];
+  S.campaign={...oldCampaign,step:0,stageOrder:[0,1,2,3,4,5,6,7,8,9],roster:{pg:runner,hc:coach}};
+  assert.equal(api.campaignInvalidSlots().size,0);
+  S.campaign.roster={pg:coach,hc:runner};
+  assert.ok(api.campaignInvalidSlots().has('pg'),'D\'Antoni must not qualify on the field');
+ }finally{SPORTS.basketball.pos=oldPositions;S.campaign=oldCampaign;}
+});
+test('commander multiplier is capped, cannot stack, and requires a matching active squad',()=>{
+ const old=SPORTS.basketball.pos;
+ const coach={id:'nba:md',pool:'nba',n:"Mike D'Antoni",a:Array(12).fill(60)};
+ const fast={id:'runner',pool:'games',n:'Road Runner',a:[99,...Array(11).fill(80)]};
+ try{
+  SPORTS.basketball.pos=[{id:'pg'},{id:'hc',coach:true},{id:'bench',bench:true}];
+  const roster={pg:fast,hc:coach};
+  const e=api.campaignCommanderEffect('basketball',roster,'fast',80);
+  assert.ok(e&&e.percent<=4&&e.percent>=1.5);
+  assert.ok(e.points>0,'A matching commander must improve real match rating');
+  assert.equal(e.name,"Mike D'Antoni");
+  assert.equal(api.campaignCommanderEffect('basketball',roster,'ice',80),null);
+  assert.equal(api.campaignCommanderEffect('basketball',{pg:fast,bench:coach},'fast',80),null);
+  assert.equal(api.campaignCommanderEffect('basketball',{hc:coach},'fast',80),null);
+  assert.equal(api.campaignCommanderEffect('basketball',{...roster,bench:coach},'fast',80).points,e.points,'Bench cannot stack a bonus');
+ }finally{SPORTS.basketball.pos=old;}
+});
+test('strategic commander catalog references actual roster characters',()=>{
+ const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
+ const byPool={};
+ for(const pool of ['nba','mcu','toons','muppets','games','pokemon','starwars']){
+  const start=html.indexOf('POOLS.'+pool+' =');
+  const entries=html.indexOf('entries: [',start),end=html.indexOf('\n]};',entries);
+  byPool[pool]=[...html.slice(entries,end).matchAll(/^\["([^"]+)"/gm)].map(x=>x[1]);
+ }
+ for(const id of Object.keys(api.CAMPAIGN_COMMANDER_SPECIALTIES)){
+  const sep=id.indexOf(':'),pool=id.slice(0,sep),name=id.slice(sep+1);
+  assert.ok(byPool[pool]?.includes(name),'Missing strategic commander '+id);
+ }
+});
+
 test('eligible challenge count uses actual characters currently in the game',()=>{
  const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
  const ids=['nba','mcu','toons','muppets','games','pokemon','starwars'];
