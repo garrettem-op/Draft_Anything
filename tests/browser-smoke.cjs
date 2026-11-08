@@ -184,6 +184,9 @@ const server=http.createServer((req,res)=>{
   assert.ok(Math.abs(dialogBox.y+dialogBox.height/2-844/2)<110,'Rejected lineup dialog is not centered');
   assert.equal(await page.locator('.field-wrap button.invalid').count(),rejected.invalid.length,'Not all ineligible positions marked red');
   assert.ok(await page.locator('.field-wrap button.invalid[data-slot="'+rejected.slot+'"]').count(),'Ineligible field slot not highlighted');
+  // Clicking the message text is NOT a backdrop click.
+  await modal.locator('#campaign-reject-description').click();
+  assert.equal(await modal.count(),1,'Tap inside rejection modal dismissed it');
   await page.locator('button[data-act="camp-reject-close"]').click();
   assert.equal(await modal.count(),0,'Rejection dialog did not close');
   assert.ok(await page.locator('.field-wrap button.invalid').count(),'Red field indicators disappeared before correction');
@@ -206,8 +209,23 @@ const server=http.createServer((req,res)=>{
   const disputeDialog=page.locator('[role="dialog"][aria-label="Challenge character eligibility"]');
   await disputeDialog.waitFor();
   assert.ok((await disputeDialog.textContent()).includes('AI Character Knowledge Engine'));
-  await page.locator('[data-input="camp-dispute-claim"]').fill('Sokka can treat battle wounds in this alternative storyline');
-  assert.ok((await page.locator('[data-input="camp-dispute-claim"]').inputValue()).includes('Sokka'));
+  // Reproduce the iPhone bug: a real pointer click into the textarea and source
+  // field must neither dismiss nor re-render the dialog and steal input focus.
+  const claim=page.locator('[data-input="camp-dispute-claim"]');
+  const source=page.locator('[data-input="camp-dispute-source"]');
+  await claim.click();
+  assert.equal(await disputeDialog.count(),1,'Tapping inside the textarea closed the popup');
+  assert.equal(await claim.evaluate(el=>document.activeElement===el),true,'The textarea did not receive focus');
+  await page.keyboard.type('Sokka can treat battle wounds in this alternative storyline');
+  assert.ok((await claim.inputValue()).includes('Sokka'));
+  await source.click();
+  assert.equal(await disputeDialog.count(),1,'Tapping inside the source field closed the popup');
+  assert.equal(await source.evaluate(el=>document.activeElement===el),true,'The source field did not receive focus');
+  await page.keyboard.type('https://example.org/character-feat');
+  assert.equal(await source.inputValue(),'https://example.org/character-feat');
+  assert.ok((await claim.inputValue()).includes('Sokka'),'Switching fields reset the written claim');
+  await disputeDialog.locator('.field-label span').first().click();
+  assert.equal(await disputeDialog.count(),1,'Clicking the form label dismissed the dialog');
   // Intercept the external research method to verify game state transitions locally.
   await page.evaluate(()=>{
     const previous=KnowledgeEngine.has.bind(KnowledgeEngine);
