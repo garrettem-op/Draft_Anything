@@ -23,7 +23,8 @@ const CAMPAIGN_EXTRA = [
 {name:'Ghost Protocol',rule:'stealth',blurb:'Every pick must be known for stealth or invisibility.',rival:'The Shadows'},
 {name:'Blink and Miss',rule:'teleport',blurb:'Every pick must be able to teleport.',rival:'The Jumpers'},
 {name:'The Medics',rule:'healing',blurb:'Self-healing and regeneration count, as does healing other people. Every pick must have at least one of these abilities; healing teammates is NOT required.',rival:'The Lifesavers'},
-{name:'Giant Problems',rule:'giants',blurb:'Every pick must be capable of becoming enormous or already be giant-sized.',rival:'The Colossi'}
+{name:'Giant Problems',rule:'giants',blurb:'Every pick must be capable of becoming enormous or already be giant-sized.',rival:'The Colossi'},
+{name:'The Show Must Go On',rule:'muppetforce',blurb:'Every pick must have documented MuppetForce of at least 65. Puppet-stage resilience, props and escalating environmental comedy count; mere puppet appearance does not.',rival:'The Reality Check'}
 ];
 const CAMPAIGN_TAGS = {
 flight:'Iron Man|Thor|Captain Marvel|Vision|Falcon|War Machine|Superman|Goku|Vegeta|Buzz Lightyear|Charizard|Dragonite|Rayquaza|Mewtwo|Storm|Silver Surfer|Ikaris',
@@ -117,6 +118,7 @@ function campaignAllowed(c,rule){
     case 'red':return CAMPAIGN_RED.has(c.n);
     case 'kids':return CAMPAIGN_KIDS.has(c.n);
     case 'mortal':return c.pool==='nba'||CAMPAIGN_MORTAL.has(c.n);
+    case 'muppetforce':{const power=muppetForceOf(c);return !!power&&power.score>=MUPPET_FORCE_RULE.campaignMinimum;}
     case 'brain':return c.a[9]>=87;
     case 'strong':return c.a[2]>=87;
     case 'underdog':return c.a.reduce((n,v)=>n+v,0)/c.a.length<=73;
