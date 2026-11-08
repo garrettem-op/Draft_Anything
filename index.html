@@ -782,6 +782,9 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .campaign-reject-names li { display:flex; flex-wrap:wrap; gap:6px; justify-content:space-between; align-items:center; }
 .campaign-reject-names .btn { border-color:var(--bad); background:var(--panel); color:var(--bad); font-size:11px; }
 
+/* Keep card-origin info above the dealt-hand selection popup (z-index:55). */
+.hand-info-back { z-index: 70; }
+
 </style>
 </head>
 <body>
@@ -4742,7 +4745,7 @@ function renderHandInfo() {
   const character = (S.champ.hand||[]).find(c=>c.id===S.handInfoId);
   if(!character)return '';
   const origin=campaignOrigin(character);
-  return `<div class="modal-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
+  return `<div class="modal-back hand-info-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
 }
 
 /* Auto-size complete character names, without ellipses or clipping.
