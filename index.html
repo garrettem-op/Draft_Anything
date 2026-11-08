@@ -4923,6 +4923,11 @@ async function campaignSubmitKnowledgeDispute(){
 
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-act]'); if (!t) return;
+  // Backdrop actions must only fire for a click directly on the backdrop.
+  // Inputs, labels and text inside dialogs bubble up to the backdrop; processing
+  // those clicks as "close" used to destroy the dispute form on mobile.
+  // Return before the global render() call as well, preserving input focus.
+  if (t.matches('.campaign-reject-overlay, .modal-back') && e.target !== t) return;
   if (t.dataset.act === 'close-modal' && e.target.closest('[data-stop]') && !e.target.closest('button[data-act="close-modal"]')) return;
   const a = t.dataset.act, c = S.champ, h = S.h2h;
   switch (a) {
@@ -4954,7 +4959,7 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-close': S.campaign.selected = null; break;
-    case 'camp-reject-close': if(t.closest('[data-stop]')&&!t.matches('button'))break; S.campaign.validationOpen=false; break;
+    case 'camp-reject-close': S.campaign.validationOpen=false; break;
     case 'camp-dispute-open': {
       const v=S.campaign,slot=t.dataset.slot;
       if(!v.roster[slot]||!campaignInvalidSlots().has(slot)||!CAMPAIGN_TAGS[campaignStage().rule])break;
@@ -4963,7 +4968,6 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-dispute-close': {
-      if(t.closest('[data-stop]')&&!t.matches('button'))break;
       if(S.campaign.disputeBusy)break;
       S.campaign.disputeSlot=null;S.campaign.disputeResult=null;S.campaign.disputeError='';
       break;
@@ -4972,7 +4976,7 @@ document.addEventListener('click', e => {
 
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
-    case 'camp-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break;S.campaign.infoId=null;break;
+    case 'camp-info-close': S.campaign.infoId=null; break;
     case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validationOpen=false;if(campaignQualified())S.campaign.validation='';}break;
     case 'camp-pick': {
       const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
@@ -5001,7 +5005,7 @@ document.addEventListener('click', e => {
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
     case 'c-rivals': if (c.rivals !== t.dataset.v) { c.rivals = t.dataset.v; if (c.queue) resetDraft(); } break;
     case 'hand-info': S.handInfoId = t.dataset.cid; break;
-    case 'hand-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break; S.handInfoId = null; break;
+    case 'hand-info-close': S.handInfoId=null; break;
     case 'hand-pick': {
       // The popup chooses a character only; the player places them on the field.
       const cid = t.dataset.cid;
