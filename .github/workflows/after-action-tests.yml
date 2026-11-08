@@ -26,7 +26,8 @@ jobs:
       - name: Verify reports and score reconciliation
         run: node --test tests/*.test.cjs
   mobile-browser:
-    runs-on: ubuntu-latest
+    # Playwright 1.57 supports Ubuntu 24.04; ubuntu-latest has advanced to 26.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
