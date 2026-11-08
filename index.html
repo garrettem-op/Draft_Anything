@@ -2482,7 +2482,7 @@ function initials(name) { const w = name.replace(/[^\p{L}\p{N} ]/gu, ' ').split(
 
 function bestRoleFor(c, sportKey) {
   let best = null;
-  for (const p of SPORTS[sportKey].pos) { const f = fitScore(c.a, p); if (!best || f > best.fit) best = { pos: p, fit: f }; }
+  for (const p of SPORTS[sportKey].pos) { const f = fitAI(sportKey, c, p); if (!best || f > best.fit) best = { pos: p, fit: f }; }
   return best;
 }
 function slotImp(sportKey, p) {
@@ -3464,7 +3464,7 @@ function poolFaces(id) {
 const rankCache = {};
 function roleRank(poolId, sportKey, pos, cand) {
   const key = poolId + '|' + sportKey + '|' + pos.id;
-  if (!rankCache[key]) rankCache[key] = getCands(poolId).map(c => [c.id, fitScore(c.a, pos)]).sort((a, b) => b[1] - a[1]).map(x => x[0]);
+  if (!rankCache[key]) rankCache[key] = getCands(poolId).map(c => [c.id, fitAI(sportKey, c, pos)]).sort((a, b) => b[1] - a[1]).map(x => x[0]);
   return rankCache[key].indexOf(cand.id) + 1;
 }
 // Restore saved roster ids into candidate objects (for both boards)
