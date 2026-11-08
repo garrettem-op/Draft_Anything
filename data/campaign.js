@@ -260,6 +260,21 @@ function renderCampaignDispute(){
   const allowed=approved||provisional;
   const sources=(result?.sources||[]).filter(url=>/^https:\/\/[^\s]+$/i.test(url)).slice(0,8);
   const status=KnowledgeEngine.status();
+  const examples={
+    healing:'Example: heals injuries or regenerates after taking damage',
+    stealth:'Example: becomes invisible or evades detection in a specific scene',
+    psychic:'Example: reads minds, controls thoughts or projects mental abilities',
+    flight:'Example: flies unaided or moves through the air with supernatural power',
+    magic:'Example: casts a spell or performs a supernatural magical feat',
+    aquatic:'Example: survives or operates effectively underwater',
+    fire:'Example: generates or controls fire in a specific scene',
+    ice:'Example: freezes an opponent or controls ice',
+    electric:'Example: generates or controls electricity',
+    tech:'Example: invents, controls or uses extraordinary technology',
+    teleport:'Example: instantly relocates through a teleportation ability',
+    giants:'Example: grows to a giant size or is canonically enormous'
+  };
+  const placeholder=examples[rule]||'Describe a specific documented ability or feat';
   return `<div class="campaign-reject-overlay knowledge-overlay" data-act="camp-dispute-close">
     <div class="campaign-reject-card knowledge-dialog" role="dialog" aria-modal="true" aria-label="Challenge character eligibility" data-stop="1">
       <div class="row" style="align-items:center;justify-content:space-between;gap:12px">
@@ -269,7 +284,7 @@ function renderCampaignDispute(){
       <p><b>${esc(c.n)}</b> · ${esc(campaignStage().name)}</p>
       ${!result?`
       <p class="note">Describe the ability or feat we missed. You can include a source. The AI will research it; verified findings are queued for permanent review.</p>
-      <label class="field-label"><span>What ability or feat should qualify?</span><textarea data-input="camp-dispute-claim" rows="3" maxlength="700" placeholder="Example: uses healing to treat another character's injuries" ${v.disputeBusy?'disabled':''}>${esc(v.disputeClaim||'')}</textarea></label>
+      <label class="field-label"><span>What ability or feat should qualify?</span><textarea data-input="camp-dispute-claim" rows="3" maxlength="700" placeholder="${esc(placeholder)}" ${v.disputeBusy?'disabled':''}>${esc(v.disputeClaim||'')}</textarea></label>
       <label class="field-label"><span>Optional source URL</span><input type="url" data-input="camp-dispute-source" value="${esc(v.disputeSource||'')}" placeholder="https://..." ${v.disputeBusy?'disabled':''}></label>
       ${!status.researchReady?'<p class="note">Live AI research is not yet activated. Your claim can be saved on this device for later retry, but it cannot be verified or shared until server setup is complete.</p>':''}
       ${v.disputeError?`<p role="alert" class="note" style="color:var(--bad)">${esc(v.disputeError)}</p>`:''}

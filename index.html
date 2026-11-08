@@ -782,6 +782,9 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .campaign-reject-names li { display:flex; flex-wrap:wrap; gap:6px; justify-content:space-between; align-items:center; }
 .campaign-reject-names .btn { border-color:var(--bad); background:var(--panel); color:var(--bad); font-size:11px; }
 
+/* Keep card-origin info above the dealt-hand selection popup (z-index:55). */
+.hand-info-back { z-index: 70; }
+
 </style>
 </head>
 <body>
@@ -4714,7 +4717,7 @@ function azTrack(clientY) {
   }
 }
 document.addEventListener('pointerdown', e => {
-  const index = e.target.closest('[data-az-list]');
+  const index = e.target?.closest?.('[data-az-list]');
   if (!index || !e.isPrimary) return;
   azGesture = {element:index, listId:index.dataset.azList, pointerId:e.pointerId, letter:null};
   index.setPointerCapture?.(e.pointerId);
@@ -4731,7 +4734,7 @@ document.addEventListener('pointercancel', e => {
   if (azGesture?.pointerId === e.pointerId) azGesture = null;
 });
 document.addEventListener('keydown', e => {
-  const button = e.target.closest('[data-az-letter]');
+  const button = e.target?.closest?.('[data-az-letter]');
   if (button && (e.key === 'Enter' || e.key === ' ')) {
     e.preventDefault();
     jumpTalentPoolLetter(button.closest('[data-az-list]').dataset.azList, null, button.dataset.azLetter);
@@ -4742,7 +4745,7 @@ function renderHandInfo() {
   const character = (S.champ.hand||[]).find(c=>c.id===S.handInfoId);
   if(!character)return '';
   const origin=campaignOrigin(character);
-  return `<div class="modal-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
+  return `<div class="modal-back hand-info-back" data-act="hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(character.n)}</h2><button class="btn small" data-act="hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
 }
 
 /* Auto-size complete character names, without ellipses or clipping.
@@ -4796,9 +4799,9 @@ function refreshPlist() {
 
 
 // The playing field is a control surface, not selectable text.
-document.addEventListener('selectstart',e=>{if(e.target.closest('.field-wrap'))e.preventDefault();});
-document.addEventListener('dragstart',e=>{if(e.target.closest('.field-wrap'))e.preventDefault();});
-document.addEventListener('contextmenu',e=>{if(e.target.closest('.field-wrap button[data-act="slot"]'))e.preventDefault();});
+document.addEventListener('selectstart',e=>{if(e.target?.closest?.('.field-wrap'))e.preventDefault();});
+document.addEventListener('dragstart',e=>{if(e.target?.closest?.('.field-wrap'))e.preventDefault();});
+document.addEventListener('contextmenu',e=>{if(e.target?.closest?.('.field-wrap button[data-act="slot"]'))e.preventDefault();});
 /* Hold a filled position, then drag onto another position to move or swap the roster.
    Keep this local to editable single-player drafts; multiplayer picks are immutable. */
 let fieldDrag = null;
@@ -4837,7 +4840,7 @@ function clearFieldDrag() {
 }
 document.addEventListener('pointerdown',e=>{
   if(!e.isPrimary||e.button>0||azGesture)return;
-  const node=e.target.closest('.field-wrap button[data-act="slot"].filled:not([disabled])');
+  const node=e.target?.closest?.('.field-wrap button[data-act="slot"].filled:not([disabled])');
   const draft=editableDraftRoster();
   if(!node || !draft || !draft.roster[node.dataset.slot])return;
   const start={x:e.clientX,y:e.clientY};
@@ -4891,7 +4894,7 @@ document.addEventListener('pointercancel',e=>{
   if(fieldDrag?.pointerId===e.pointerId)clearFieldDrag();
 });
 document.addEventListener('click',e=>{
-  if(Date.now()<blockFieldClickUntil&&e.target.closest('.field-wrap [data-act="slot"]')){
+  if(Date.now()<blockFieldClickUntil&&e.target?.closest?.('.field-wrap [data-act="slot"]')){
     e.preventDefault();e.stopImmediatePropagation();
   }
 },true);
@@ -4922,8 +4925,13 @@ async function campaignSubmitKnowledgeDispute(){
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-act]'); if (!t) return;
-  if (t.dataset.act === 'close-modal' && e.target.closest('[data-stop]') && !e.target.closest('button[data-act="close-modal"]')) return;
+  const t = e.target?.closest?.('[data-act]'); if (!t) return;
+  // Backdrop actions must only fire for a click directly on the backdrop.
+  // Inputs, labels and text inside dialogs bubble up to the backdrop; processing
+  // those clicks as "close" used to destroy the dispute form on mobile.
+  // Return before the global render() call as well, preserving input focus.
+  if (t.matches('.campaign-reject-overlay, .modal-back') && e.target !== t) return;
+  if (t.dataset.act === 'close-modal' && e.target?.closest?.('[data-stop]') && !e.target?.closest?.('button[data-act="close-modal"]')) return;
   const a = t.dataset.act, c = S.champ, h = S.h2h;
   switch (a) {
     case 'mode': S.mode = t.dataset.mode; lsSet('da.mode', S.mode); S.gen.open = false; break;
@@ -4954,7 +4962,7 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-close': S.campaign.selected = null; break;
-    case 'camp-reject-close': if(t.closest('[data-stop]')&&!t.matches('button'))break; S.campaign.validationOpen=false; break;
+    case 'camp-reject-close': S.campaign.validationOpen=false; break;
     case 'camp-dispute-open': {
       const v=S.campaign,slot=t.dataset.slot;
       if(!v.roster[slot]||!campaignInvalidSlots().has(slot)||!CAMPAIGN_TAGS[campaignStage().rule])break;
@@ -4963,7 +4971,6 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-dispute-close': {
-      if(t.closest('[data-stop]')&&!t.matches('button'))break;
       if(S.campaign.disputeBusy)break;
       S.campaign.disputeSlot=null;S.campaign.disputeResult=null;S.campaign.disputeError='';
       break;
@@ -4972,7 +4979,7 @@ document.addEventListener('click', e => {
 
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
-    case 'camp-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break;S.campaign.infoId=null;break;
+    case 'camp-info-close': S.campaign.infoId=null; break;
     case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validationOpen=false;if(campaignQualified())S.campaign.validation='';}break;
     case 'camp-pick': {
       const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
@@ -5001,7 +5008,7 @@ document.addEventListener('click', e => {
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
     case 'c-rivals': if (c.rivals !== t.dataset.v) { c.rivals = t.dataset.v; if (c.queue) resetDraft(); } break;
     case 'hand-info': S.handInfoId = t.dataset.cid; break;
-    case 'hand-info-close': if(t.closest('[data-stop]') && !t.matches('button'))break; S.handInfoId = null; break;
+    case 'hand-info-close': S.handInfoId=null; break;
     case 'hand-pick': {
       // The popup chooses a character only; the player places them on the field.
       const cid = t.dataset.cid;
