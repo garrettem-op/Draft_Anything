@@ -795,6 +795,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/toons-profiles.js"></script>
 <script src="data/games-profiles.js"></script>
 <script src="data/character-abilities.js"></script>
+<script src="data/muppet-force.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/after-action.js"></script>
@@ -3327,9 +3328,9 @@ function expertAdj(sportKey, c, pos, base) {
   return BB_STAT_SHARE * (statFit(s, pos) - base) + BB_EXPERT;
 }
 // fit used for real team strength (knows signature moves) and the one the computer drafts with
-function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return b + expertAdj(sportKey, c, pos, b); }
+function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return b + expertAdj(sportKey, c, pos, b) + muppetForceFit(c, sportKey, pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = b + expertAdj(sportKey, c, pos, b);
+  const b = fitScore(c.a, pos), f = b + expertAdj(sportKey, c, pos, b) + muppetForceFit(c, sportKey, pos);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
@@ -3549,10 +3550,26 @@ function renderModal() {
 }
 
 
-function guideCollection(id) { return (window.DA_CHARACTER_GUIDES && window.DA_CHARACTER_GUIDES[id]) || {}; }
+function guideCollection(id) {
+  if (id === 'muppets') {
+    return Object.fromEntries(getCands('muppets').map(c => {
+      const mf = muppetForceOf(c);
+      return [c.n, {
+        name:c.n,works:['The Muppets character pool'],
+        powers:mf ? ['MuppetForce: puppet-stage physics', ...MUPPET_FORCE_DIMENSIONS.filter(d=>mf.dimensions[d.key]>=75).map(d=>d.label)] : [],
+        feats:mf ? [mf.feat] : [],
+        limits:mf ? [mf.limit, MUPPET_FORCE_RULE.limitation] : ['Puppet appearance alone does not prove superhuman environmental interactions.'],
+        effect:mf ? 'MuppetForce gives a modest context-dependent role-fit advantage, stronger in a brawl than in regulated sports; never changes physical base attributes.' : 'No established MuppetForce gameplay ability.',
+        tier:mf ? 'MuppetForce · '+mf.tier : 'MuppetForce unassessed',
+        muppetForce:mf, status:'Provisional character-specific MuppetForce assessment, not an official canon statistic.',
+      }];
+    }));
+  }
+  return (window.DA_CHARACTER_GUIDES && window.DA_CHARACTER_GUIDES[id]) || {};
+}
 function renderGuideModal() {
   if (S.modal !== 'guide') return '';
-  const enabled = ['mcu','toons','games'].filter(p => Object.keys(guideCollection(p)).length);
+  const enabled = ['mcu','toons','muppets','games'].filter(p => Object.keys(guideCollection(p)).length);
   if (!enabled.includes(S.guidePool)) S.guidePool = enabled[0] || 'mcu';
   const coll = guideCollection(S.guidePool);
   const names = Object.keys(coll);
@@ -3564,7 +3581,7 @@ function renderGuideModal() {
   const bullets = (items, empty) => list(items).length ? '<ul>' + list(items).map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>' : '<p class="muted">'+esc(empty)+'</p>';
   return `<div class="modal-back" data-act="close-modal"><div class="modal guide-modal" role="dialog" aria-modal="true" aria-label="Character research guide" data-stop="1">
     <div class="row" style="justify-content:space-between"><div><span class="eyebrow">Draft Anything research</span><h2 class="h">Character Guide</h2></div><button class="btn small" data-act="close-modal">Close</button></div>
-    <div class="guide-controls">${enabled.map(p=>`<button class="btn small" data-act="guide-pool" data-pool="${p}" aria-pressed="${S.guidePool===p}">${p==='mcu'?'Marvel':'Cartoons'}</button>`).join('')}
+    <div class="guide-controls">${enabled.map(p=>`<button class="btn small" data-act="guide-pool" data-pool="${p}" aria-pressed="${S.guidePool===p}">${p==='mcu'?'Marvel':p==='muppets'?'Muppets':p==='games'?'Games':'Cartoons'}</button>`).join('')}
       <input id="guide-q" aria-label="Find a character" type="search" data-input="guide-q" placeholder="Search ${names.length} characters" value="${esc(S.guideQuery)}">
       <button class="btn small" data-act="guide-reveal">${S.guideScores?'Hide scores':'Reveal scores'}</button>
     </div>
@@ -3576,6 +3593,7 @@ function renderGuideModal() {
         <section><h4>Defeats, limitations &amp; weaknesses</h4>${bullets(profile.limits,'Unverified')}</section>
         <section><h4>Sports translation</h4><p>${esc(profile.effect||'Provisional assessment')}</p></section>
         ${profile.disclaimer?`<p class="note"><b>Continuity:</b> ${esc(profile.disclaimer)}</p>`:''}
+        ${profile.muppetForce?`<section><h4>MuppetForce</h4><p>${esc(MUPPET_FORCE_RULE.description)}</p><p class="note">${S.guideScores?("MuppetForce: "+profile.muppetForce.score+" / 99 · "):""}${esc(profile.muppetForce.tier)} · Independently scored from 12 core attributes</p>${S.guideScores?`<div class="guide-scores">${MUPPET_FORCE_DIMENSIONS.map(d=>`<div class="guide-score"><span>${esc(d.label)}</span><b>${profile.muppetForce.dimensions[d.key]}</b></div>`).join("")}</div>`:""}</section>`:""}
         ${S.guideScores&&profile.scores?`<section><h4>12-attribute research ratings</h4><div class="guide-scores">${ATTRS.map(a=>`<div class="guide-score"><span>${esc(a.n)}</span><b>${profile.scores[a.k]??'—'}</b></div>`).join('')}</div></section>`:''}
         <p class="note">${esc(profile.status||'Research scores are subjective estimates, not official canon statistics.')}</p>
         ${(profile.sources||[]).length?`<section><h4>Reference links</h4>${profile.sources.filter(u=>/^https:\/\//.test(u)).map(u=>`<div class="guide-source"><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(u)}</a></div>`).join('')}</section>`:''}
