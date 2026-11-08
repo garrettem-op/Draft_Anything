@@ -79,7 +79,9 @@ test('Mike D\'Antoni qualifies as speed commander, but not as player or bench',(
  assert.equal(api.campaignAllowed(c,'fast',{id:'hc',coach:true}),true);
  assert.equal(api.campaignAllowed(c,'women',{id:'hc',coach:true}),false);
  assert.equal(api.campaignAllowed(c,'kids',{id:'hc',coach:true}),false);
- assert.equal(api.campaignAllowed(c,'mortal',{id:'hc',coach:true}),false);
+ assert.equal(api.campaignAllowed(c,'mortal',{id:'hc',coach:true}),true,'NBA coaches are already eligible under the existing mortal rule');
+ const superhero={id:'mcu:shuri',pool:'mcu',n:'Shuri',a:Array(12).fill(85)};
+ assert.equal(api.campaignAllowed(superhero,'mortal',{id:'hc',coach:true}),false,'Tech expertise does not waive the non-superpowered restriction');
 });
 test('commander expertise is scoped to an exact universe and matching theme',()=>{
  const coach={id:'nba:coach',pool:'nba',n:"Mike D'Antoni",a:Array(12).fill(30)};
