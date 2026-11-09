@@ -37,8 +37,8 @@ const server=http.createServer((req,res)=>{
   await page.locator('#dg-query').fill(daily.name.slice(0,Math.min(5,daily.name.length)));
   await page.locator('.dg-result[data-cid="'+daily.id+'"]').click();
   assert.equal(await page.locator('.dg-board button[data-i="0"].dg-good').count(),1,'Eligible Daily Grid answer was rejected');
-  const persisted=await page.evaluate(date=>JSON.parse(localStorage.getItem('da.daily-grid.v1.'+date)||'null'),daily.date);
-  assert.equal(persisted.cells[0].id,daily.id,'Daily Grid did not save the pick');
+  const dailySaved=await page.evaluate(date=>JSON.parse(localStorage.getItem('da.daily-grid.v1.'+date)||'null'),daily.date);
+  assert.equal(dailySaved.cells[0].id,daily.id,'Daily Grid did not save the pick');
   await page.locator('.dg-board button[data-i="1"]').click();
   await page.locator('#dg-query').fill(daily.name.slice(0,Math.min(5,daily.name.length)));
   await page.locator('.dg-result[data-cid="'+daily.id+'"]').click();
