@@ -38,6 +38,7 @@ const CAMPAIGN_DESCRIPTION_EXCEPTIONS = Object.freeze({
 // description is too short to mention the real ability. Roster-scoped by pool.
 /* The research guide is already shipped with the game. Consult its powers/feats
    on the same local device, with no network request, only for positive claims.
+   Only the dedicated Powers field can qualify a character (never opponent feats).
    Exclude speculative, negated, alternate-form or 'similar to' statements;
    a profile describing what someone *cannot* do is never supporting evidence. */
 const CAMPAIGN_PROFILE_PATTERNS = Object.freeze({
@@ -48,7 +49,7 @@ const CAMPAIGN_PROFILE_PATTERNS = Object.freeze({
   fire:/\b(?:fire(?:[- ]bending|[- ]breath|[- ]blast|[- ]control)?|flames?|plasma flame|pyrokinesis|combustion|inferno)\b/i,
   ice:/\b(?:ice(?:[- ]bending|[- ]control|[- ]blast)?|freez(?:e|es|ing)|freezing|frost|cryokinesis|snow and ice)\b/i,
   electric:/\b(?:lightning|electri(?:c|city|cal)|thunder(?:bolt)?|electrokinesis)\b/i,
-  tech:/\b(?:powered[- ]armor|advanced (?:technology|tech|armor)|nanotechnology|tech(?:nology)?[- ](?:targeting|weapons|armor)|robot(?:ic)?|android|cyborg|mech(?:anical|anism)?|drones?|gadget(?:s)?|repulsors?|nanotech|mechanical tentacles|artificial intelligence|invent(?:ions?|or)|engineering)\b/i,
+  tech:/\b(?:powered[- ]armor|advanced (?:technology|tech|armor)|nanotechnology|tech(?:nology)?[- ](?:targeting|weapons|armor)|robot(?:ic)?|android|cyborg|mecha|drones?|gadget(?:s)?|repulsors?|nanotech|mechanical tentacles|artificial intelligence|engineering genius|scientific invention|super[- ]suit(?:s)?|combat suit)\b/i,
   stealth:/\b(?:invisib(?:le|ility)|stealth|infiltrat(?:ion|e|or)|espionage|concealment|covert|ninja|assassin stealth)\b/i,
   teleport:/\b(?:teleport(?:ation|s|ing)?|portal(?:s)?|sling ring|instant relocation|warps? (?:through|between))\b/i,
   healing:/\b(?:heals?|healing|healer|regenerat(?:e|es|ion|ing)|self[- ]healing|restor(?:ation|ing) of injuries|resurrect(?:ion|s)?)\b/i,
@@ -59,11 +60,14 @@ function campaignGuideEvidence(candidate,rule,guides){
   if(!candidate?.pool||!candidate?.n)return null;
   const profile=(guides || (typeof window!=='undefined' ? window.DA_CHARACTER_GUIDES : null))?.[candidate.pool]?.[candidate.n];
   if(!profile||!CAMPAIGN_PROFILE_PATTERNS[rule])return null;
-  for(const item of [...(Array.isArray(profile.powers)?profile.powers:[]),...(Array.isArray(profile.feats)?profile.feats:[])]){
+  // Only the explicit Powers field: feats often describe surviving an attack
+  // or witnessing an opponent's ability, which must NOT confer that power.
+  for(const item of (Array.isArray(profile.powers)?profile.powers:[])){
     if(typeof item!=='string')continue;
     for(const clause of item.split(/[;,\n]+/)){
       const v=clause.trim();
       if(!v||CAMPAIGN_PROFILE_UNCERTAIN.test(v))continue;
+      if(rule==='psychic'&&/\b(?:inventions?|technology|robot|device|machine|mechanical)\b/i.test(v))continue;
       if(CAMPAIGN_PROFILE_PATTERNS[rule].test(v)){
         return {tag:rule,kind:'built-in-research-guide',feat:v,pool:candidate.pool,name:candidate.n,
           source:(profile.sources||[]).find(url=>typeof url==='string'&&/^https:\/\//i.test(url))||'built-in-research-guide'};
