@@ -235,7 +235,8 @@ const server=http.createServer((req,res)=>{
     };
   });
   await page.locator('[data-act="camp-dispute-submit"]').click();
-  await page.locator('text=Provisionally accepted').first().waitFor();
+  await page.locator('text=Accepted — eligible in this Campaign').first().waitFor();
+  assert.ok((await page.locator('.knowledge-dialog').textContent()).includes('character is now eligible on this device'),'Appeal failed to communicate that the player can continue');
   await page.locator('.knowledge-dialog [data-act="camp-dispute-close"]').last().click();
   assert.equal(await page.locator('.field-wrap button.invalid[data-slot="'+disputed.slot+'"]').count(),0,'Successful provisional appeal should clear this particular invalid marker');
   assert.equal(await page.locator('button[data-act="camp-play"]').isEnabled(),true,'A valid lineup should remain submittable after the appeal');
