@@ -276,6 +276,14 @@ const CAMPAIGN_COMMANDER_SPECIALTIES = Object.freeze({
       "reason": "Leads high-speed starfighter operations."
     }
   },
+  "starwars:Admiral Ackbar": {
+    "flight": {
+      "label": "Alliance Fleet Tactics",
+      "focus": "iq",
+      "reason": "Personally commands warships in the Battle of Endor and coordinates starfighter operations; this is Commander-only aerial/space combat expertise, not personal flight.",
+      "source": "https://www.starwars.com/databank/admiral-ackbar"
+    }
+  },
   "starwars:Grand Admiral Thrawn": {
     "brain": {
       "label": "Strategic Foresight",
