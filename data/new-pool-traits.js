@@ -5,7 +5,7 @@
 (function(g){
  const raw={
   women:{
-    dc:'Wonder Woman|Mera|Black Canary|Hawkgirl|Zatanna|Big Barda|Vixen|Supergirl (Kara Zor-El)|Power Girl|Starfire|Raven|Batgirl (Barbara Gordon)|Oracle|Batwoman|Cassandra Cain|Catwoman|Harley Quinn|Huntress|Amanda Waller|Cheetah|Circe|Giganta|Poison Ivy|Killer Frost|Death of the Endless|Perpetua',
+    dc:'Wonder Woman|Mera|Black Canary|Hawkgirl|Zatanna|Big Barda|Vixen|Supergirl (Kara Zor-El)|Power Girl|Starfire|Raven|Batgirl (Barbara Gordon)|Batwoman|Cassandra Cain|Catwoman|Harley Quinn|Huntress|Amanda Waller|Cheetah|Circe|Giganta|Poison Ivy|Killer Frost|Death of the Endless|Perpetua',
     lotr:'Arwen Undómiel|Galadriel|Lúthien Tinúviel|Melian|Elwing|Idril Celebrindal|Aredhel|Nienor Níniel|Éowyn|Tar-Míriel|Ungoliant|Varda (Elbereth)|Vairë|Yavanna|Estë|Nienna|Vána|Nessa|Uinen|Arien',
     harrypotter:'Hermione Granger|Minerva McGonagall|Lily Potter|Luna Lovegood|Ginny Weasley|Molly Weasley|Narcissa Malfoy|Bellatrix Lestrange|Dolores Umbridge|Nymphadora Tonks|Tina Goldstein|Queenie Goldstein|Leta Lestrange|Seraphina Picquery|Nagini|Winky|Pomona Sprout|Sybill Trelawney|Madam Poppy Pomfrey|Madam Hooch|Rita Skeeter|Amelia Bones|Cho Chang|Fleur Delacour|Madame Maxime|Lavender Brown|Parvati Patil|Padma Patil|Pansy Parkinson|Rowena Ravenclaw|Helga Hufflepuff|The Grey Lady (Helena Ravenclaw)|Moaning Myrtle'
   },
@@ -14,7 +14,7 @@
     harrypotter:'Harry Potter|Hermione Granger|Ron Weasley|Neville Longbottom|Luna Lovegood|Ginny Weasley|Fred Weasley|George Weasley|Draco Malfoy|Regulus Black|Cho Chang|Cedric Diggory|Seamus Finnigan|Dean Thomas|Lavender Brown|Parvati Patil|Padma Patil|Lee Jordan|Pansy Parkinson|Vincent Crabbe|Gregory Goyle|Oliver Wood'
   },
   mortal:{
-    dc:'Batman|Green Arrow|Black Canary|Nightwing|Robin (Damian Wayne)|Red Robin (Tim Drake)|Red Hood|Batgirl (Barbara Gordon)|Oracle|Batwoman|Cassandra Cain|Catwoman|Harley Quinn|Huntress|Alfred Pennyworth|Lucius Fox|Commissioner James Gordon|Joker|Lex Luthor|Riddler|Penguin|Bane|Ra\'s al Ghul|Talia al Ghul|Scarecrow|Two-Face|Deadshot|Peacemaker|Amanda Waller',
+    dc:'Batman|Green Arrow|Nightwing|Robin (Damian Wayne)|Red Robin (Tim Drake)|Red Hood|Batgirl (Barbara Gordon)|Batwoman|Cassandra Cain|Catwoman|Harley Quinn|Huntress|Alfred Pennyworth|Lucius Fox|Commissioner James Gordon|Joker|Lex Luthor|Riddler|Penguin|Talia al Ghul|Scarecrow|Two-Face|Deadshot|Peacemaker|Amanda Waller',
     lotr:'Frodo Baggins|Samwise Gamgee|Meriadoc Brandybuck|Peregrin Took|Bilbo Baggins|Aragorn|Boromir|Faramir|Denethor II|Théoden|Éowyn|Éomer|Gríma Wormtongue|Gimli|Thorin Oakenshield|Balin|Dwalin|Dáin II Ironfoot|Glóin|Bard the Bowman|Beren Erchamion|Húrin Thalion|Túrin Turambar|Nienor Níniel|Ar-Pharazôn|Elendil|Isildur|Anárion|Amandil',
     harrypotter:'Jacob Kowalski|Argus Filch'
   },
