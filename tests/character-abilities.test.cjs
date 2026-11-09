@@ -38,6 +38,12 @@ test('all documented power facts refer to exactly one character in the named uni
     }
   }
 });
+test('Mew Generation I TM30 Teleport is accepted by Blink and Miss',()=>{
+  const mew=list.find(c=>c.id==='pokemon:Mew');
+  assert.ok(mew,'Mew missing from Pokémon roster');
+  assert.ok(characterAbilityEvidence(mew,'teleport'),'Missing researched move capability');
+  assert.equal(campaignAllowed(mew,'teleport'),true);
+});
 test('all four challenged healer picks qualify, and more verified healers qualify',()=>{
   for(const id of ['toons:Katara','mcu:Ajak','starwars:Grogu','mcu:Abomination',
                    'starwars:Rey','starwars:Kylo Ren','starwars:IG-11']){
