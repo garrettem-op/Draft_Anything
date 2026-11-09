@@ -8,7 +8,7 @@ const CHARACTER_ABILITIES = Object.freeze({
   'games:Ganondorf': [
     {tag:'teleport',kind:'self-teleportation-in-beast-form',
       feat:'During the Twilight Princess final battle, Ganondorf transforms into Dark Beast Ganon, vanishes and reappears through warp portals, including teleporting to avoid Link’s arrows.',
-      source:'https://primagames.com/eguides/the-legend-of-zelda-twilight-princess-hd-eguide/dungeon-9-hyrule-castle/boss-battle-ganondorf'},
+      source:'https://primagames.com/eguides/the-legend-of-zelda-twilight-princess-wii-eguide/walkthrough/walkthrough/dungeon-9-hyrule-castle'},
   ],
 
   'toons:Katara': [
