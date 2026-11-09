@@ -97,6 +97,12 @@ const CHARACTER_ABILITIES = Object.freeze({
   'mcu:Invisible Woman': [
     {tag:'psychic', kind:'force-field-telekinesis', feat:'Sue Storm mentally projects and controls invisible force fields to move, lift, restrain, and throw objects and opponents without physical contact. This qualifies as telekinetic-like manipulation, not telepathy.', source:'https://marvelcinematicuniverse.fandom.com/wiki/Invisible_Woman'},
   ],
+  'starwars:Jar Jar Binks': [
+    {tag:'aquatic',kind:'amphibious-gungan',
+      feat:'Gungans are an amphibious Naboo species able to swim and hold their breath underwater for extended periods. Jar Jar guided the Jedi to his people\'s submerged city Otoh Gunga, and later rallied Gungan forces for the underwater battle of Mon Cala.',
+      source:'https://www.starwars.com/databank/jar-jar-binks',
+      speciesSource:'https://www.starwars.com/databank/gungan/'},
+  ],
   'starwars:Emperor Palpatine': [
     {tag:'psychic', kind:'force-telekinesis', feat:'Darth Sidious employs telekinetic Force powers, including throwing Senate chamber platforms during his duel with Yoda in Revenge of the Sith.', source:'https://www.starwars.com/video/senate-force-duel'},
   ],
