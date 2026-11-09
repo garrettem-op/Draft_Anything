@@ -70,7 +70,7 @@
         if(ai<0||!Number.isInteger(number)||number<1||number>99)throw Error(id+' bad attribute '+character+':'+expr);
         score[ai]=number;
       }
-      return [character,EMOJI[archetype]||'',description,score,taxonomy?taxonomy.split(',').map(x=>x.trim()).filter(Boolean):[]];
+      return [character,EMOJI[archetype]||'',description,score,taxonomy?taxonomy.split(',').map(x=>x.trim()).filter(Boolean):[],archetype];
     });
     g.DA_ADDED_POOLS[id]={id,name,short,blurb,entries};
     return entries.length;
