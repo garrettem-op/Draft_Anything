@@ -51,3 +51,25 @@ test('nonspecific/empty feats do not get approved',async()=>{
   assert.equal(evaluateAbilityEvidence({verdict:'supports',confidence:.98,feat:'',cited:[
     'https://www.nintendo.com/zelda','https://www.gamespot.com/zelda']},official).status,'inconclusive');
 });
+
+test('98%-confidence Mew TM30 Teleport from a vetted specialist learnset qualifies provisionally',async()=>{
+  const {evaluateAbilityEvidence}=await policyPromise;
+  const r=evaluateAbilityEvidence({verdict:'supports',confidence:.98,
+    feat:'Pokémon Red/Blue/Yellow Mew is able to learn and use Teleport using TM30 in Generation I.',
+    cited:['https://pokemondb.net/pokedex/mew/moves/1']},official);
+  assert.equal(r.status,'accepted_provisional');
+});
+test('a random single-site claim at high confidence remains inconclusive',async()=>{
+  const {evaluateAbilityEvidence}=await policyPromise;
+  const r=evaluateAbilityEvidence({verdict:'supports',confidence:.99,
+    feat:'Random fan claims the character can teleport instantly when wearing a special amulet.',
+    cited:['https://randomexample.net/character-blog']},official);
+  assert.equal(r.status,'inconclusive');
+});
+test('specialist single source requires exceptional confidence and a specific feat',async()=>{
+  const {evaluateAbilityEvidence}=await policyPromise;
+  const r=evaluateAbilityEvidence({verdict:'supports',confidence:.81,
+    feat:'Mew learns Teleport with TM30 in Generation I of Pokémon.',
+    cited:['https://pokemondb.net/pokedex/mew/moves/1']},official);
+  assert.equal(r.status,'inconclusive');
+});
