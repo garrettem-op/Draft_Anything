@@ -24,7 +24,7 @@ The figures below are **character–theme matches**, not unique people, and comp
 | Blink and Miss (teleport) | 12 | 6 | 18 |
 | The Medics (healing) | 15 | 8 | 23 |
 | Giant Problems (giants) | 7 | 4 | 11 |
-| **Total** | **128** | **202** | **330** |
+| **Total** | **135** | **202** | **337** |
 
 Counts are derived from source-roster characters and exclude any additional Supabase/user-approval eligibility not recorded in the repository.
 
