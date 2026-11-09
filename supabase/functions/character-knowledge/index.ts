@@ -127,7 +127,18 @@ async function research(pool:string,name:string,tag:string,claim:string,sourceUr
       body:JSON.stringify(payload),signal:controller.signal
     });
     const data=await response.json();
-    if(!response.ok)throw new Error('Research provider error '+response.status+': '+asText(data?.error?.message,180));
+    if(!response.ok){
+      const code=asText(data?.error?.code,100);
+      const type=asText(data?.error?.type,100);
+      const message=asText(data?.error?.message,240);
+      if(response.status===429 && (
+          code==='credit_balance_exhausted' ||
+          type==='insufficient_quota' ||
+          /no credits remaining|credit balance|add credits|billing quota/i.test(message)
+        ))throw new Error('OPENAI_CREDITS_EXHAUSTED');
+      if(response.status===401 || code==='invalid_api_key')throw new Error('OPENAI_API_KEY_INVALID');
+      throw new Error('Research provider error '+response.status+': '+message);
+    }
     const content=(data.output||[]).filter((i:any)=>i.type==='message')
       .flatMap((i:any)=>(i.content||[]).filter((p:any)=>p.type==='output_text').map((p:any)=>p.text)).join('\n');
     if(!content)throw new Error('Research returned no structured ruling.');
@@ -251,7 +262,19 @@ Deno.serve(async req=>{
     return reply(req,{status:ruling.status,dispute_id:record.id,rationale:ruling.rationale,feat:ruling.feat,continuity:ruling.continuity,sources:ruling.sources});
   }catch(e){
     console.error('Character knowledge request failed',e);
-    // Keep provider secrets and internal SQL details private.
+    // Only expose safe error categories; never disclose keys, provider request
+    // contents, private SQL details, or submitted evidence in error responses.
+    const message=e instanceof Error?e.message:String(e);
+    if(message==='OPENAI_CREDITS_EXHAUSTED')
+      return reply(req,{
+        error:'OpenAI API credits are exhausted. Add credits to the OpenAI API organization connected to this game at https://platform.openai.com/settings/organization/billing/. Your claim is saved locally for retry.',
+        code:'api_credits_exhausted'
+      },402);
+    if(message==='OPENAI_API_KEY_INVALID')
+      return reply(req,{
+        error:'The game\'s OpenAI API key was rejected. The administrator needs to replace it in Supabase Edge Functions → Secrets.',
+        code:'api_key_invalid'
+      },503);
     return reply(req,{error:'Research service unavailable or failed. Try again later.'},503);
   }
 });
