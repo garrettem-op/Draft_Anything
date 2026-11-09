@@ -400,10 +400,10 @@ function campaignAllowed(c,rule,pos=null){
   if(campaignCommanderSpecialty(c,rule,pos))return true;
   switch(rule){
     case 'fast':return c.a[0]>=90;
-    case 'women':return CAMPAIGN_WOMEN.has(c.n);
-    case 'red':return CAMPAIGN_RED.has(c.n);
-    case 'kids':return CAMPAIGN_KIDS.has(c.n);
-    case 'mortal':return c.pool==='nba'||CAMPAIGN_MORTAL.has(c.n);
+    case 'women':return CAMPAIGN_WOMEN.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'women'));
+    case 'red':return CAMPAIGN_RED.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'red'));
+    case 'kids':return CAMPAIGN_KIDS.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'kids'));
+    case 'mortal':return c.pool==='nba'||CAMPAIGN_MORTAL.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'mortal'));
     case 'muppetforce':{const power=muppetForceOf(c);return !!power&&power.score>=MUPPET_FORCE_RULE.campaignMinimum;}
     case 'brain':return c.a[9]>=87;
     case 'strong':return c.a[2]>=87;
