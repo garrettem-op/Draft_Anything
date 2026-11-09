@@ -28,7 +28,8 @@ const CAMPAIGN_RULE_TACTICS=Object.freeze({
 // These are named fictional forms, not new independently draftable characters.
 // A form temporarily boosts a subset of its base character's existing stats.
 // Some forms cross from the film incarnation into comic continuity by design.
-const CAMPAIGN_VARIANTS=Object.freeze({
+const CAMPAIGN_VARIANTS=Object.freeze((()=>{
+const base={
   'mcu:Thor':[
     {name:'Rune King Thor',changes:{iq:14,tch:12,clu:9,ldr:7},origin:'Marvel Comics · Rune King Thor'},
     {name:'King Thor',changes:{str:8,end:9,iq:10,ldr:12},origin:'Marvel Comics · King Thor'}
@@ -81,7 +82,25 @@ const CAMPAIGN_VARIANTS=Object.freeze({
     {name:'Mega Mewtwo X',changes:{str:13,tch:11,end:7},origin:'Pokémon · Mega Evolution'},
     {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9},origin:'Pokémon · Mega Evolution'}
   ]
-});
+};
+const groups=[
+  typeof CAMPAIGN_VARIANTS_MARVEL==='undefined'?{}:CAMPAIGN_VARIANTS_MARVEL,
+  typeof CAMPAIGN_VARIANTS_GAMES==='undefined'?{}:CAMPAIGN_VARIANTS_GAMES,
+  typeof CAMPAIGN_VARIANTS_POKEMON==='undefined'?{}:CAMPAIGN_VARIANTS_POKEMON,
+  typeof CAMPAIGN_VARIANTS_OTHERS==='undefined'?{}:CAMPAIGN_VARIANTS_OTHERS
+];
+for(const group of groups)for(const [id,forms] of Object.entries(group)){
+  const original=base[id]||[],seen=new Set(original.map(f=>f.name));
+  for(const form of forms){
+    if(seen.has(form.name))continue;
+    original.push(form);
+    seen.add(form.name);
+  }
+  base[id]=Object.freeze(original);
+}
+for(const [id,forms] of Object.entries(base))if(!Object.isFrozen(forms))base[id]=Object.freeze(forms);
+return base;
+})());
 function campaignStageSeed(v,step=v.step){
   return String(v.seed||'legacy-campaign')+'|'+v.sport+'|'+step+'|'+(v.stageOrder?.[step]??step);
 }
