@@ -4918,6 +4918,7 @@ async function campaignSubmitKnowledgeDispute(){
   }catch(error){
     if(v.disputeSlot===slot){
       v.disputeError=(error?.message||'Live research is unavailable.')+' Your claim is retained locally for later retry.';
+      v.disputeErrorCode=error?.code||'';
     }
   }finally{
     v.disputeBusy=false;
@@ -4968,7 +4969,7 @@ document.addEventListener('click', e => {
       const v=S.campaign,slot=t.dataset.slot;
       if(!v.roster[slot]||!campaignInvalidSlots().has(slot)||!CAMPAIGN_TAGS[campaignStage().rule])break;
       const remembered=KnowledgeEngine.latestDraft(v.roster[slot],campaignStage().rule);
-      v.disputeSlot=slot;v.disputeClaim=remembered?.claim||'';v.disputeSource=remembered?.source_url||'';v.disputeBusy=false;v.disputeResult=null;v.disputeError='';v.validationOpen=false;
+      v.disputeSlot=slot;v.disputeClaim=remembered?.claim||'';v.disputeSource=remembered?.source_url||'';v.disputeBusy=false;v.disputeResult=null;v.disputeError='';v.disputeErrorCode='';v.validationOpen=false;
       break;
     }
     case 'camp-dispute-close': {
