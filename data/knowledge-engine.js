@@ -104,7 +104,7 @@ const KnowledgeEngine = (() => {
       const token=await authenticatedToken();
       const response=await fetch(endpoint(),{method:'POST',headers:{...headers(),Authorization:'Bearer '+token},body:JSON.stringify({action:'dispute',...input})});
       const body=await response.json().catch(()=>({}));
-      if(!response.ok)throw new Error(body.error||('Research failed (HTTP '+response.status+').'));
+      if(!response.ok){const error=new Error(body.error||('Research failed (HTTP '+response.status+').'));error.code=body.code||'';throw error;}
       if(!['approved','accepted_provisional','rejected','inconclusive'].includes(body.status))
         throw new Error('Research service returned an unexpected ruling.');
       draft.status=body.status;draft.disputeId=body.dispute_id||null;draft.rationale=body.rationale||'';
