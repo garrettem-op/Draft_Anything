@@ -87,7 +87,10 @@ const groups=[
   typeof CAMPAIGN_VARIANTS_MARVEL==='undefined'?{}:CAMPAIGN_VARIANTS_MARVEL,
   typeof CAMPAIGN_VARIANTS_GAMES==='undefined'?{}:CAMPAIGN_VARIANTS_GAMES,
   typeof CAMPAIGN_VARIANTS_POKEMON==='undefined'?{}:CAMPAIGN_VARIANTS_POKEMON,
-  typeof CAMPAIGN_VARIANTS_OTHERS==='undefined'?{}:CAMPAIGN_VARIANTS_OTHERS
+  typeof CAMPAIGN_VARIANTS_OTHERS==='undefined'?{}:CAMPAIGN_VARIANTS_OTHERS,
+  typeof CAMPAIGN_VARIANTS_DC==='undefined'?{}:CAMPAIGN_VARIANTS_DC,
+  typeof CAMPAIGN_VARIANTS_LOTR==='undefined'?{}:CAMPAIGN_VARIANTS_LOTR,
+  typeof CAMPAIGN_VARIANTS_HP==='undefined'?{}:CAMPAIGN_VARIANTS_HP
 ];
 for(const group of groups)for(const [id,forms] of Object.entries(group)){
   const original=base[id]||[],seen=new Set(original.map(f=>f.name));
