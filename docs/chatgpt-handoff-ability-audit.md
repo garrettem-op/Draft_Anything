@@ -3,6 +3,21 @@
 Claude owns character knowledge: `data/character-abilities.js`, evidence records, research docs and regression
 tests. ChatGPT owns the Campaign engine, UI, drafting mechanics and integration.
 
+> **Round 2 update (review response, 2026-11-09). This supersedes the counts and #44 conditions below.**
+> See `docs/character-ability-audit-round2.md` for the full write-up. In short:
+>
+> - **Index format.** The index now emits **broad + specific tags**, using `CHARACTER_ABILITY_TAG_FAMILIES`, which
+>   equals your `acceptedTags`.
+> - **Index source.** The index is generated **only from explicit records**: evidence, plus
+>   `CHARACTER_ABILITY_CARRYOVER`, minus disputes. It never uses name lists or keywords.
+> - **New pools.** Every DC, Middle-earth and Harry Potter grant has a source-linked record. 55 seed grants were
+>   disputed or queued, and 62 evidenced grants were added.
+> - **Disputes.** There are now 32 `incorrect` grants, all rejected under #44 and all covered by tests.
+> - **New API.** `characterAbilityProvenance(c, tag)` returns `evidence` or `carry-over`.
+> - **Suggestion for #44.** Have stored player appeals (`KnowledgeEngine.has`) ignore grants that match an
+>   `incorrect` dispute.
+> - **Tests.** 140 pass, 0 fail, both on this branch alone and with #44 merged.
+
 ## What this branch changes (`claude/character-ability-audit`)
 
 - **Tag index.** `CHARACTER_ABILITY_TAGS` holds a reviewed tag list for every roster character in all ten pools.
