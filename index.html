@@ -3539,6 +3539,17 @@ restoreBoard(S.boards.champ, BOARD_KEYS.champ);
 restoreBoard(S.boards.deal, BOARD_KEYS.deal);
 S.campaign = loadCampaign();
 S.daily = DailyGrid.newState();
+let lastDailyDate = DailyGrid.today();
+function checkDailyRollover() {
+  const current=DailyGrid.today();
+  if(current===lastDailyDate)return;
+  const wasViewingToday=S.daily.date===lastDailyDate;
+  lastDailyDate=current;
+  if(wasViewingToday){S.daily.date=current;S.daily.target=null;S.daily.query='';}
+  if(S.mode==='grid')render();
+}
+window.setInterval(checkDailyRollover,60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkDailyRollover();});
 
 // ----- Shared render bits -----
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
@@ -3601,6 +3612,7 @@ function renderModal() {
     <p><b>Signature moves:</b> the most iconic characters carry a named signature move. What it does stays hidden until after the game. Some lift the whole squad, some let a lopsided build play bigger than it is, some rise up in the playoffs, and some knock opponents off balance. The computer drafts don't know about them.</p>
     <p><b>Playoff Boom:</b> some players are boom-or-bust. In any playoff game they can catch fire and take over, or go cold. They're a gamble, and that's the point.</p>
     <p><b>Full pro season:</b> instead of a quick round robin, play a real-length season (82 NBA games, 17 NFL games, 162 MLB games, 82 NHL games with overtime losses, 26 Serie A1 volleyball matches, or 38 soccer matches with draws), then that league's playoff format: series, byes and all. Soccer has no playoffs; the table decides the title.</p>
+    <p><b>Daily Grid:</b> Each day features a shared 3×3 intersection puzzle. Every square combines a character pool on the left with an attribute threshold across the top. Search for a character, use them only once, and make one guess per square. Wrong answers lock their squares. Your progress is stored on this device, and older puzzles are available in the archive.</p>
     <p><b>Championship:</b> fan-cast your lineup with no limits, share it, then play a full pro-length season against teams from every universe. Each opponent comes from a single universe (only Mashup casts face mixed All-Star teams), every universe sends a contender (scaled to the best your own universe could field, so any universe can go perfect), and the rest is a random mix. The goal: the perfect season, undefeated through the regular season and the playoffs. <b>Dealt Hand:</b> its own mode. Each pick deals you ${HAND_SIZE} random candidates you haven't seen yet; you take one and place them in any open spot, with ${REDEALS} redeals per draft. Anyone you pass on is gone from your hands for good, though a rival may still draft them. Rival teams draft alongside you in a snake order. By default they draft like good fans from random hands: usually smart, sometimes wrong. Random rivals are easy; Sharp rivals always take the best fit. <b>Head-to-Head:</b> two people draft from the same pool and the higher rating wins. With upsets off, the better team wins unless a boom player catches fire.</p>
   </div></div>`;
 }
