@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const {MUPPET_FORCE_DIMENSIONS,MUPPET_FORCE_PROFILES,MUPPET_FORCE_RULE,muppetForceOf,muppetForceFit} = require('../data/muppet-force.js');
+const {MUPPET_FORCE_DIMENSIONS,MUPPET_FORCE_PROFILES,MUPPET_FORCE_RULE,muppetForceOf,muppetForceFit,MUPPET_FORCE_WORKS,MUPPET_FORCE_FEATS,muppetForceHistoryOf} = require('../data/muppet-force.js');
 const muppet = n => ({pool:'muppets',n});
 const battler = {};
 test('MuppetForce is a separate five-dimensional capability', () => {
@@ -35,4 +35,31 @@ test('Situational advantage never rewrites original attributes',()=>{
   assert.equal(muppetForceFit(c,'brawl',{coach:true}),0);
   assert.equal(muppetForceFit(c,'brawl',{bench:true}),0);
   assert.equal(muppetForceFit({pool:'nba',n:'Michael Jordan'},'brawl',battler),0);
+});
+
+test('The Muppet filmography marks Treasure Island as initially reviewed, not all films audited',()=>{
+  assert.ok(MUPPET_FORCE_WORKS.length>=9);
+  const movie=MUPPET_FORCE_WORKS.find(x=>x.id==='muppet-treasure-island-1996');
+  assert.equal(movie.year,1996);
+  assert.equal(movie.status,'initial-feats-reviewed');
+  assert.ok(MUPPET_FORCE_WORKS.some(x=>x.status==='research-queued'));
+});
+test('Sourced film events map only to the correct character and fictional-role continuity',()=>{
+  assert.ok(MUPPET_FORCE_FEATS.length>=10);
+  const ids=new Set(MUPPET_FORCE_FEATS.map(f=>f.id));
+  assert.equal(ids.size,MUPPET_FORCE_FEATS.length);
+  const workIds=new Set(MUPPET_FORCE_WORKS.map(w=>w.id));
+  const dimensions=new Set(MUPPET_FORCE_DIMENSIONS.map(d=>d.key));
+  for(const f of MUPPET_FORCE_FEATS){
+    assert.ok(workIds.has(f.workId),f.id);
+    assert.ok(dimensions.has(f.dimension),f.id);
+    assert.ok(Array.isArray(f.sources)&&f.sources.every(s=>s.startsWith('https://')),f.id);
+    assert.ok(['fictional-role','character-portrayal'].includes(f.continuity),f.id);
+  }
+  const g=muppetForceHistoryOf(muppet('Gonzo'));
+  assert.ok(g.some(f=>f.id==='mti-gonzo-torture'));
+  assert.ok(g.some(f=>f.id==='mti-gonzo-starfish'));
+  assert.ok(muppetForceHistoryOf(muppet('Kermit the Frog')).some(f=>f.inference.includes('does not prove surviving a fall')));
+  assert.deepEqual(muppetForceHistoryOf({pool:'toons',n:'Gonzo'}),[]);
+  assert.deepEqual(muppetForceHistoryOf(muppet('Not on the ship')),[]);
 });
