@@ -37,6 +37,7 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 
 ## Disputed grants (engine accepts, audit disagrees or needs a ruling)
 
+- `lotr:Éowyn` **magic** (incorrect): Granted only by the description keyword match on 'Witch-king' in 'Shieldmaiden who confronts the Witch-king'. Éowyn is a mortal warrior of Rohan; she slays the Witch-king with a blade and Merry's barrow-blade, and casts no spells.
 - `mcu:The Thing` **giants** (incorrect): Granted by the CAMPAIGN_TAGS name list. In Fantastic Four: First Steps Ben Grimm is a bulky rock man of roughly human height; no source describes him as giant or able to grow.
 - `toons:Garfield` **stealth** (incorrect): Granted only by the research-guide phrase "cat stealth when motivated", a stereotype rather than a documented feat. Garfield is characterized as lazy and sarcastic, not stealthy.
 - `toons:Popeye` **healing** (incorrect): Granted by the guide phrase "cartoon regeneration". Spinach is consistently a source of strength, not healing or regeneration; no healing feat was found.
@@ -90,6 +91,7 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `muppets:Mr. Snuffleupagus` **giants**: No documented height. Documented size facts: he weighs 1,000 lb (Episode 1606), wears a 65 triple-G shoe, and the costume needs two performers and must be stored hung from the ceiling. Grunge, Mental Floss and Dictionary.com give no height either; Grunge gives a 6-ft minimum for the performer, not the character.
 - `muppets:Big Mean Carl` **giants**: No documented height. ToughPigs calls him 'massive', a 'gigantic messy creature' and a 'giant monster', which are qualitative only.
 - `mcu:The Watcher` **giants**: No documented height. The Wikipedia MCU article gives no size or scale. An earlier pass found the same on the MCU wiki (Uatu). Would need an on-screen scale scene.
+- `lotr:Witch-king of Angmar` **flight**: Not granted yet. He rides a winged fell beast over the Pelennor Fields (The Return of the King), which is an aerial mount under the Skyborne ruling. Needs a sourced feat record before the index lists flight.
 - `games:Donkey Kong` **giants**: No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).
 
 ## Non-NBA characters with no qualifying power after audit

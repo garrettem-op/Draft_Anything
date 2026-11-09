@@ -1300,6 +1300,7 @@ const CHARACTER_ABILITIES = (() => {
    verdict 'incorrect' = audit found no canonical support; excluded from CHARACTER_ABILITY_TAGS.
    verdict 'ruling'    = defensible but depends on a design decision; kept in the index. */
 const CHARACTER_ABILITY_DISPUTES = Object.freeze([
+    {id:"lotr:Éowyn", tag:"magic", verdict:"incorrect", reason:"Granted only by the description keyword match on 'Witch-king' in 'Shieldmaiden who confronts the Witch-king'. Éowyn is a mortal warrior of Rohan; she slays the Witch-king with a blade and Merry's barrow-blade, and casts no spells.", source:"https://tolkiengateway.net/wiki/%C3%89owyn"},
     {id:"mcu:The Thing", tag:"giants", verdict:"incorrect", reason:"Granted by the CAMPAIGN_TAGS name list. In Fantastic Four: First Steps Ben Grimm is a bulky rock man of roughly human height; no source describes him as giant or able to grow.", source:"https://www.marvel.com/movies/the-fantastic-four-first-steps"},
   {id:"toons:Garfield", tag:"stealth", verdict:"incorrect", reason:"Granted only by the research-guide phrase \"cat stealth when motivated\", a stereotype rather than a documented feat. Garfield is characterized as lazy and sarcastic, not stealthy.", source:"https://en.wikipedia.org/wiki/Garfield_(character)"},
   {id:"toons:Popeye", tag:"healing", verdict:"incorrect", reason:"Granted by the guide phrase \"cartoon regeneration\". Spinach is consistently a source of strength, not healing or regeneration; no healing feat was found.", source:"https://popeye.fandom.com/wiki/Popeye"},
@@ -1354,6 +1355,7 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"muppets:Mr. Snuffleupagus", tag:"giants", note:"No documented height. Documented size facts: he weighs 1,000 lb (Episode 1606), wears a 65 triple-G shoe, and the costume needs two performers and must be stored hung from the ceiling. Grunge, Mental Floss and Dictionary.com give no height either; Grunge gives a 6-ft minimum for the performer, not the character.", source:"https://muppet.fandom.com/wiki/Mr._Snuffleupagus"},
   {id:"muppets:Big Mean Carl", tag:"giants", note:"No documented height. ToughPigs calls him 'massive', a 'gigantic messy creature' and a 'giant monster', which are qualitative only.", source:"https://www.toughpigs.com/?p=52374"},
   {id:"mcu:The Watcher", tag:"giants", note:"No documented height. The Wikipedia MCU article gives no size or scale. An earlier pass found the same on the MCU wiki (Uatu). Would need an on-screen scale scene.", source:"https://en.wikipedia.org/wiki/Watcher_(Marvel_Cinematic_Universe)"},
+  {id:"lotr:Witch-king of Angmar", tag:"flight", note:"Not granted yet. He rides a winged fell beast over the Pelennor Fields (The Return of the King), which is an aerial mount under the Skyborne ruling. Needs a sourced feat record before the index lists flight.", source:"https://tolkiengateway.net/wiki/Witch-king_of_Angmar"},
   {id:"games:Donkey Kong", tag:"giants", note:"No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).", source:"https://www.mariowiki.com/Donkey_Kong"},
 ]);
 /* BEGIN GENERATED ABILITY INDEX (node tools/ability-audit.cjs --write-index).
@@ -2358,7 +2360,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Elendil": [],
     "Anárion": [],
     "Théoden": [],
-    "Éowyn": ["magic"],
+    "Éowyn": [],
     "Éomer": [],
     "Gríma Wormtongue": [],
     "Treebeard": ["giants"],

@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
-const {CHARACTER_ABILITIES,characterAbilityEvidence}=require('../data/character-abilities.js');
+const {CHARACTER_ABILITIES,characterAbilityEvidence,characterAbilityTags}=require('../data/character-abilities.js');
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const campaign=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');
 // Parse the actual pool data rather than a hand-built fixture to catch stale spellings.
@@ -23,9 +23,9 @@ const pools=poolRoster();
 const list=Object.entries(pools).flatMap(([pool,names])=>names.map(n=>({pool,n,id:pool+':'+n,a:Array(12).fill(85)})));
 const state={campaign:{history:[],roster:{},step:0,stageOrder:Array.from({length:10},(_,i)=>i),sport:'basketball'}};
 const {campaignOfflineEvidence}=require('../data/campaign-eligibility.js');
-const context={S:state,SPORTS:{basketball:{pos:[{id:'a'}]}},getCands:()=>list,lsGet:(_,v)=>v,lsSet:()=>{},characterAbilityEvidence,campaignOfflineEvidence};
-vm.runInNewContext(campaign+'\nthis.eligibilityTest={campaignAllowed,campaignInvalidSlots,CAMPAIGN_TAGS};',context);
-const {campaignAllowed,CAMPAIGN_TAGS}=context.eligibilityTest;
+const context={S:state,SPORTS:{basketball:{pos:[{id:'a'}]}},getCands:()=>list,lsGet:(_,v)=>v,lsSet:()=>{},characterAbilityEvidence,characterAbilityTags,campaignOfflineEvidence};
+vm.runInNewContext(campaign+'\nthis.eligibilityTest={campaignAllowed,campaignInvalidSlots,THEME_RULES:typeof CAMPAIGN_TAGS!==\'undefined\'?Object.keys(CAMPAIGN_TAGS):CAMPAIGN_EXTRA.filter(s=>s.criteria?.acceptedTags?.length).map(s=>s.rule)};',context);
+const {campaignAllowed,THEME_RULES}=context.eligibilityTest;
 test('all documented power facts refer to exactly one character in the named universe',()=>{
   for(const [id,facts] of Object.entries(CHARACTER_ABILITIES)){
     const p=id.indexOf(':');assert.ok(p>0,'Missing universe in '+id);
@@ -33,7 +33,7 @@ test('all documented power facts refer to exactly one character in the named uni
     assert.equal(pools[pool]?.filter(n=>n===name).length,1,'Missing or ambiguous roster character '+id);
     assert.ok(facts.length,id+' has no facts');
     for(const entry of facts){
-      assert.equal(typeof CAMPAIGN_TAGS[entry.tag]?.has,'function','Unknown challenge tag '+entry.tag+' for '+id);
+      assert.ok(THEME_RULES.includes(entry.tag),'Unknown challenge tag '+entry.tag+' for '+id);
       assert.ok(entry.feat?.length>=20,'Missing specific feat for '+id);
       assert.match(entry.source,/^https:\/\/[^\s]+/,'Missing source URL for '+id);
     }

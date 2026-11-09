@@ -52,23 +52,34 @@ function loadGame() {
     }
   }
   const call = (expr, vars) => { Object.assign(ctx, vars); return vm.runInContext(expr, ctx); };
+  // Two engine generations are supported:
+  //  'legacy-names'  : campaign.js still has CAMPAIGN_TAGS name lists + offline keyword evidence.
+  //  'tag-criteria'  : PR #44 engine. Themes read characterAbilityTags() only, so the reviewed
+  //                    index is authoritative and keyword/description layers no longer grant.
+  const legacy = call("typeof CAMPAIGN_TAGS !== 'undefined'", {});
+  const engine = legacy ? 'legacy-names' : 'tag-criteria';
+  const tagIndex = call('CHARACTER_ABILITY_TAGS', {});
   return {
-    ctx, roster,
+    ctx, roster, engine,
     /** Which evidence layer accepts this candidate for the power, or null. */
     layer(c, tag) {
-      if (call('CAMPAIGN_TAGS[__t].has(__c.n)', { __c: c, __t: tag })) return 'campaign-tag';
+      if (legacy && call('CAMPAIGN_TAGS[__t].has(__c.n)', { __c: c, __t: tag })) return 'campaign-tag';
       const ab = call('characterAbilityEvidence(__c,__t)', { __c: c, __t: tag });
       if (ab) return 'character-abilities';
+      if (!legacy) return tagIndex[c.pool]?.[c.n]?.includes(tag) ? 'reviewed-index' : null;
       const off = call('campaignOfflineEvidence(__c,__t)', { __c: c, __t: tag });
       if (off) return off.kind;
       return null;
     },
     allowed(c, tag) { return call('campaignAllowed(__c,__t)', { __c: c, __t: tag }); },
     abilities: call('CHARACTER_ABILITIES', {}),
-    tagIndex: call('CHARACTER_ABILITY_TAGS', {}),
+    tagIndex,
     disputes: call('CHARACTER_ABILITY_DISPUTES', {}),
     research: call('CHARACTER_ABILITY_RESEARCH_QUEUE', {}),
-    campaignTags: call('CAMPAIGN_TAGS', {})
+    campaignTags: legacy ? call('CAMPAIGN_TAGS', {}) : null,
+    /** Challenge rules that are themed by ability tags, under either engine. */
+    themeRules: legacy ? call('Object.keys(CAMPAIGN_TAGS)', {})
+      : call("CAMPAIGN_EXTRA.filter(s => s.criteria?.acceptedTags?.length).map(s => s.rule)", {})
   };
 }
 

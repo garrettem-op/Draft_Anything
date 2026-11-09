@@ -62,7 +62,13 @@ test('disputes and research-queue entries are well formed and not silently grant
     assert.ok(POWER_TAGS.includes(d.tag), d.id + ' dispute has unknown tag');
     assert.ok(['incorrect', 'ruling'].includes(d.verdict), d.id + ' bad verdict');
     assert.ok(d.reason?.length >= 20, d.id + ' dispute needs a reason');
-    assert.ok(accepts(d.id, d.tag), 'Stale dispute: engine no longer grants ' + d.id + ' ' + d.tag);
+    if (game.engine === 'legacy-names') {
+      // Legacy engine: a dispute documents a grant the name/keyword layers still make.
+      assert.ok(accepts(d.id, d.tag), 'Stale dispute: engine no longer grants ' + d.id + ' ' + d.tag);
+    } else if (d.verdict === 'incorrect') {
+      // Tag-criteria engine (PR #44): the reviewed index is the only source, so disputes are enforced.
+      assert.equal(accepts(d.id, d.tag), false, 'Tag engine still grants disputed ' + d.id + ' ' + d.tag);
+    }
   }
   for (const q of game.research) {
     assert.ok(byId.has(q.id), 'Queued research for unknown character ' + q.id);
@@ -209,10 +215,50 @@ test('owner rulings 2026-11-09 (voice): Pokémon learnable moves, Shepard, Trace
   const move = game.abilities['pokemon:Dodrio'].find(f => f.tag === 'flight');
   assert.match(move.feat, /Fly/);
   assert.match(move.source, /pokemondb\.net\/pokedex\/dodrio\/moves\/1$/);
-  // Vision: no Mind Games despite the Mind Stone. Still granted by the CAMPAIGN_TAGS name list until the
-  // engine honors 'incorrect' disputes, so assert the reviewed index here.
+  // Vision: no Mind Games despite the Mind Stone. The legacy engine still grants it through the
+  // CAMPAIGN_TAGS name list, so assert the reviewed index (the tag engine reads only the index).
   assert.equal(game.tagIndex.mcu.Vision.includes('psychic'), false);
   // Moves never leak into themes with no move mapping.
   assert.equal(accepts('pokemon:Dodrio', 'stealth'), false);
   assert.equal(accepts('pokemon:Dodrio', 'giants'), false);
+});
+
+// ---- Contract with the tag-criteria engine (PR #44) ----
+test('index emits only element-specific tags; no generic element tag can cross-qualify themes', () => {
+  for (const c of game.roster) for (const tag of game.tagIndex[c.pool][c.n]) {
+    assert.doesNotMatch(tag, /^element-/, c.id + ' has a generic element tag');
+  }
+  if (game.engine !== 'tag-criteria') return;
+  const accepted = Object.fromEntries(game.themeRules.map(r => [r, game.ctx.campaignCriteria(r).acceptedTags]));
+  for (const rule of game.themeRules) {
+    assert.ok(accepted[rule].includes(rule), rule + ' must accept its own broad tag');
+    for (const other of POWER_TAGS) if (other !== rule) {
+      assert.equal(accepted[rule].includes(other), false, rule + ' must not accept the ' + other + ' tag');
+    }
+  }
+  for (const el of ['fire', 'ice', 'electric']) for (const other of ['fire', 'ice', 'electric']) if (other !== el) {
+    assert.equal(accepted[el].some(t => t.startsWith(other + '-')), false, el + ' accepts a ' + other + ' sub-tag');
+    assert.equal(accepted[el].some(t => t.startsWith('element-')), false, el + ' accepts a generic element sub-tag');
+  }
+});
+
+test('tag-criteria engine grants exactly the reviewed index: no names, keywords or descriptions', () => {
+  if (game.engine !== 'tag-criteria') return;
+  for (const c of game.roster) for (const rule of game.themeRules) {
+    assert.equal(game.allowed(c, rule), game.tagIndex[c.pool][c.n].includes(rule), c.id + ' ' + rule);
+  }
+});
+
+test('Giant Problems size-change must reach giant size; shrinking alone does not count', () => {
+  for (const id of ['mcu:Ant-Man', 'mcu:Bill Foster', 'dc:Giganta', 'lotr:Beorn']) assert.equal(accepts(id, 'giants'), true, id);
+  for (const id of ['mcu:The Wasp', 'mcu:Janet van Dyne', 'mcu:Hank Pym', 'dc:The Atom (Ray Palmer)']) {
+    assert.equal(accepts(id, 'giants'), false, id + ' only shrinks');
+  }
+});
+
+test('Skyborne: pilots and aerial mounts count, ground riders and passengers do not', () => {
+  for (const id of ['starwars:Poe Dameron', 'mcu:The Thing', 'harrypotter:Madam Hooch', 'harrypotter:Buckbeak']) {
+    assert.equal(accepts(id, 'flight'), true, id);
+  }
+  for (const id of ['lotr:Éomer', 'lotr:Théoden', 'lotr:Gandalf']) assert.equal(accepts(id, 'flight'), false, id);
 });

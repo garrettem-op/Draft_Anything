@@ -9,15 +9,24 @@ const lsGet=(key,fallback)=>localRecords[key]??fallback;
 const lsSet=(key,value)=>{localRecords[key]=JSON.parse(JSON.stringify(value));};
 let catalog=[];
 const SPORTS={basketball:{pos:Array.from({length:5},(_,i)=>({id:'p'+i}))}};
-const {characterAbilityEvidence}=require('../data/character-abilities.js');
+const {characterAbilityEvidence,characterAbilityTags,CHARACTER_ABILITY_TAGS}=require('../data/character-abilities.js');
 // campaign.js consults the offline evidence layer (PR #38) and MuppetForce before rejecting picks.
 const {campaignOfflineEvidence}=require('../data/campaign-eligibility.js');
 const {muppetForceOf,MUPPET_FORCE_RULE}=require('../data/muppet-force.js');
-const context={S,SPORTS,getCands:()=>catalog,lsGet,lsSet,characterAbilityEvidence,campaignOfflineEvidence,muppetForceOf,MUPPET_FORCE_RULE};
-vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignReset,campaignInvalidSlots,campaignWinUses,campaignPickAllowed,campaignCommanderSpecialty,campaignCommanderEffect,CAMPAIGN_COMMANDER_SPECIALTIES};',context);
+const context={S,SPORTS,getCands:()=>catalog,lsGet,lsSet,characterAbilityEvidence,characterAbilityTags,campaignOfflineEvidence,muppetForceOf,MUPPET_FORCE_RULE};
+vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS:typeof CAMPAIGN_TAGS!==\'undefined\'?CAMPAIGN_TAGS:null,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignReset,campaignInvalidSlots,campaignWinUses,campaignPickAllowed,campaignCommanderSpecialty,campaignCommanderEffect,CAMPAIGN_COMMANDER_SPECIALTIES};',context);
 const api=context.campaignTestApi;
-const names=[...new Set([...api.CAMPAIGN_WOMEN,...api.CAMPAIGN_RED,...api.CAMPAIGN_KIDS,...Object.values(api.CAMPAIGN_TAGS).flatMap(set=>[...set])])];
-catalog=names.map((n,i)=>({id:'id'+i,n,pool:i%3?'mcu':'nba',a:Array(12).fill(i%3?93:70)}));
+// Works with both engines: the legacy CAMPAIGN_TAGS name lists, or (PR #44) declarative
+// criteria that read only the reviewed CHARACTER_ABILITY_TAGS index.
+const THEME_RULES=api.CAMPAIGN_TAGS?Object.keys(api.CAMPAIGN_TAGS)
+  :api.CAMPAIGN_EXTRA.filter(s=>s.criteria?.acceptedTags?.length).map(s=>s.rule);
+const themed=api.CAMPAIGN_TAGS?Object.values(api.CAMPAIGN_TAGS).flatMap(set=>[...set]).map(n=>[null,n])
+  :Object.entries(CHARACTER_ABILITY_TAGS).flatMap(([pool,chars])=>Object.entries(chars).filter(([,t])=>t.length).map(([n])=>[pool,n]));
+const seen=new Set(),entries=[];
+for(const [pool,n] of [...[...api.CAMPAIGN_WOMEN,...api.CAMPAIGN_RED,...api.CAMPAIGN_KIDS].map(n=>[null,n]),...themed]){
+ const key=(pool||'')+':'+n;if(seen.has(key))continue;seen.add(key);entries.push([pool,n]);
+}
+catalog=entries.map(([pool,n],i)=>({id:'id'+i,n,pool:pool||(i%3?'mcu':'nba'),a:Array(12).fill(i%3?93:70)}));
 test('thirteen additional thematic cross-pool challenges are defined (12 powers + MuppetForce)',()=>{
  assert.equal(api.CAMPAIGN_EXTRA.length,13);
  assert.equal(new Set(api.CAMPAIGN_EXTRA.map(x=>x.rule)).size,13);
@@ -113,7 +122,7 @@ test('commander expertise is scoped to an exact universe and matching theme',()=
  assert.equal(api.campaignCommanderSpecialty(coach,'fast',{bench:true}),null);
  for(const [id,rules] of Object.entries(api.CAMPAIGN_COMMANDER_SPECIALTIES)){
   for(const rule of Object.keys(rules)){
-   assert.ok(['fast','brain','strong',...Object.keys(api.CAMPAIGN_TAGS)].includes(rule),id+' has unknown rule '+rule);
+   assert.ok(['fast','brain','strong',...THEME_RULES].includes(rule),id+' has unknown rule '+rule);
    assert.ok(rules[rule].reason?.length>=25,id+' missing specialist reasoning');
   }
  }
