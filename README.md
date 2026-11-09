@@ -9,6 +9,14 @@ Draft anyone into any sport: all-time NBA legends, Marvel, cartoons, Muppets, vi
 
 Live at https://garrettem-op.github.io/Draft_Anything/
 
+## Home-screen app icon
+
+Version 1 of the Draft Anything esports crest is the site's favicon and home-screen icon:
+- **iPhone/iPad (Safari):** Open the live site, tap Share → Add to Home Screen → Add.
+- **Android (Chrome):** Open the live site, use the browser menu → Add to Home screen / Install app.
+
+The Apple Touch Icon and browser icons are stored under `icons/`; the project-scoped `manifest.webmanifest` supplies Android/PWA metadata. If the app was saved to a home screen before this change, remove the old shortcut and add it again to refresh the cached icon. No service worker/offline mode is implied by the manifest.
+
 In single-pool **Dealt Hand** drafts, opposing teams receive distinct, location-inspired names from that talent pool (for example, **Gondor Shield**, **Rohan Riders**, and **Shire Folk** for Middle-earth). **Head-to-Head** offers different pool-specific default names for host and guest. Player-entered names are always preserved. **Mashup**, user-created pools, Campaign's mixed roster, and Perfect Season's cross-universe league retain the existing city-and-mascot naming system.
 
 The page is a single `index.html`. Head-to-Head drafts are stored in Supabase (`docs` table with row-level security; edits go through the `doc_update` and `doc_acquire` functions). NBA prime stats come from Basketball-Reference.
