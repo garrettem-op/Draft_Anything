@@ -2488,7 +2488,7 @@ function poolCandidates(pool) {
   const sigs = SIGS[pool.id] || {}, booms = BOOM_SET[pool.id];
   const list = pool.entries.map((e, i) => {
     const enrichment = window.DA_POOL_LORE?.[pool.id]?.[e[0]] || null;
-    const c = { id: pool.id + ':' + candSlug(e[0]), n: e[0], e: e[1] || '', t: (typeof enrichment?.short === 'string' && enrichment.short.trim()) || e[2] || '', a: e[3].map(clampAttr), pool: pool.id, g: mem ? (mem[e[0]] || []).slice() : [], taxonomy: Array.isArray(e[4]) ? e[4].slice() : [] };
+    const c = { id: pool.id + ':' + candSlug(e[0]), n: e[0], e: e[1] || '', t: (typeof enrichment?.short === 'string' && enrichment.short.trim()) || e[2] || '', a: e[3].map(clampAttr), pool: pool.id, g: mem ? (mem[e[0]] || []).slice() : [], taxonomy: Array.isArray(e[4]) ? e[4].slice() : [], archetype: typeof e[5] === 'string' ? e[5] : null };
     if (sigs[e[0]]) c.sig = { name: sigs[e[0]][0], kind: sigs[e[0]][1] };
     if (booms && booms.has(e[0])) c.boom = true;
     return c;
