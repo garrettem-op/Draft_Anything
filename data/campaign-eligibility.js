@@ -58,7 +58,7 @@ const CAMPAIGN_PROFILE_PATTERNS = Object.freeze({
 const CAMPAIGN_PROFILE_UNCERTAIN = /\b(?:uncertain|speculat(?:ive|ion)|variant[- ]dependent|version[- ]dependent|only conditional|not established|no evidence|cannot|can't|unable|not able|does not|lacks?|non[- ](?:magical|supernatural)|telekinetic[- ]style|teleportation[- ]like)\b/i;
 function campaignGuideEvidence(candidate,rule,guides){
   if(!candidate?.pool||!candidate?.n)return null;
-  const profile=(guides || (typeof window!=='undefined' ? window.DA_CHARACTER_GUIDES : null))?.[candidate.pool]?.[candidate.n];
+  const profile=(guides || (typeof window!=='undefined' ? window.DA_CHARACTER_GUIDES : null))?.[candidate.pool]?.[candidate.n] || (typeof window!=='undefined' ? window.DA_POOL_LORE?.[candidate.pool]?.[candidate.n] : null);
   if(!profile||!CAMPAIGN_PROFILE_PATTERNS[rule])return null;
   // Only the explicit Powers field: feats often describe surviving an attack
   // or witnessing an opponent's ability, which must NOT confer that power.
