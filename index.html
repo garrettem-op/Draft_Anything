@@ -4977,6 +4977,13 @@ document.addEventListener('click', e => {
       S.campaign.disputeSlot=null;S.campaign.disputeResult=null;S.campaign.disputeError='';
       break;
     }
+    case 'camp-dispute-revise': {
+      const v=S.campaign;
+      if(v.disputeBusy)break;
+      // Preserve the previous explanation and source, but permit new corroboration.
+      v.disputeResult=null;v.disputeError='';v.disputeErrorCode='';
+      break;
+    }
     case 'camp-dispute-submit': { void campaignSubmitKnowledgeDispute(); return; }
 
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
