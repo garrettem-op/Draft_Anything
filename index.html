@@ -5004,7 +5004,14 @@ document.addEventListener('click', e => {
       v.disputeResult=null;v.disputeError='';v.disputeErrorCode='';
       break;
     }
-    case 'camp-dispute-submit': { void campaignSubmitKnowledgeDispute(); return; }
+    case 'camp-dispute-submit': {
+      // A disputed eligibility ruling can trigger a metered AI call. Make every
+      // paid request an explicit opt-in, even when users press the submit button.
+      // Saving a claim while live research is disabled does not use API credits.
+      if(KnowledgeEngine.status().researchReady &&
+        !window.confirm('This will run paid AI research and consume API credits. Built-in campaign eligibility checks are free. Continue?'))return;
+      void campaignSubmitKnowledgeDispute();return;
+    }
 
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
