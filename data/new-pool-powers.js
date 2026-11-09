@@ -6,7 +6,7 @@
 (function(g){
   const raw={
     flight:{
-      dc:'Superman|Wonder Woman|Green Lantern (Hal Jordan)|Green Lantern (John Stewart)|Martian Manhunter|Shazam|Black Adam|Hawkgirl|Hawkman|Firestorm|Captain Atom|Supergirl (Kara Zor-El)|Power Girl|Starfire|Raven|Cyborg|Booster Gold|Blue Beetle (Jaime Reyes)|Red Tornado|Superboy (Conner Kent)|Jon Kent|Krypto|Darkseid|General Zod|Bizarro|Sinestro|Atrocitus|Saint Walker|Larfleeze|Anti-Monitor|Trigon|The Spectre|Doctor Manhattan|The Flash (Barry Allen)|The Flash (Wally West)',
+      dc:'Superman|Wonder Woman|Green Lantern (Hal Jordan)|Green Lantern (John Stewart)|Martian Manhunter|Shazam|Black Adam|Hawkgirl|Hawkman|Firestorm|Captain Atom|Supergirl (Kara Zor-El)|Power Girl|Starfire|Raven|Cyborg|Booster Gold|Blue Beetle (Jaime Reyes)|Red Tornado|Superboy (Conner Kent)|Jon Kent|Krypto|Darkseid|General Zod|Bizarro|Sinestro|Atrocitus|Saint Walker|Larfleeze|Anti-Monitor|Trigon|The Spectre|Doctor Manhattan',
       lotr:'Eärendil|Elwing|Smaug|Gwaihir|Thorondor|Landroval|Ancalagon the Black|Arien|Tilion',
       harrypotter:'Harry Potter|Ron Weasley|Hermione Granger|Ginny Weasley|Fred Weasley|George Weasley|Draco Malfoy|Cho Chang|Cedric Diggory|Viktor Krum|Oliver Wood|Madam Hooch|Severus Snape|Lord Voldemort|Fawkes|Hedwig|Buckbeak|Thestral|Norbert (Norberta)|Hungarian Horntail|Thunderbird (Frank)'
     },
@@ -26,7 +26,7 @@
       harrypotter:''
     },
     fire:{
-      dc:'Firestorm|Etrigan|Starfire|Shazam|Black Adam',
+      dc:'Firestorm|Etrigan',
       lotr:'Smaug|Glaurung|Ancalagon the Black|Durin\'s Bane|Gothmog (Lord of Balrogs)|Morgoth (Melkor)|Arien|Gandalf',
       harrypotter:'Lord Voldemort|Albus Dumbledore|Hungarian Horntail|Norbert (Norberta)|Fawkes'
     },
@@ -47,7 +47,7 @@
     },
     stealth:{
       dc:'Batman|Nightwing|Robin (Damian Wayne)|Red Robin (Tim Drake)|Red Hood|Batgirl (Barbara Gordon)|Batwoman|Cassandra Cain|Catwoman|Huntress|Ra\'s al Ghul|Talia al Ghul|Deathstroke|Deadshot|Harley Quinn',
-      lotr:'Gollum (Sméagol)|Frodo Baggins|Bilbo Baggins|Meriadoc Brandybuck|Peregrin Took',
+      lotr:'Gollum (Sméagol)|Frodo Baggins|Bilbo Baggins',
       harrypotter:'Harry Potter|Severus Snape|Dobby|Kreacher'
     },
     teleport:{
@@ -61,7 +61,7 @@
       harrypotter:'Madam Poppy Pomfrey|Fawkes|Severus Snape|Albus Dumbledore'
     },
     giants:{
-      dc:'Giganta|Darkseid',
+      dc:'Giganta',
       lotr:'Treebeard|Quickbeam|Smaug|Ancalagon the Black|Glaurung|Durin\'s Bane|Gothmog (Lord of Balrogs)|Ungoliant|Carcharoth|Beorn',
       harrypotter:'Rubeus Hagrid|Madame Maxime|Basilisk|Aragog|Hungarian Horntail|Norbert (Norberta)|Zouwu|Fluffy'
     }
