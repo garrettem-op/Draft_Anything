@@ -8,7 +8,7 @@
     nba: Object.freeze([
       'New York Skyliners', 'Chicago Lakefront', 'Los Angeles Lights',
       'Boston Harbor Guard', 'Miami Breakers', 'Philadelphia Founders',
-      'San Francisco Bay', 'Dallas Lone Stars', 'Houston Orbit',
+      'San Francisco Bay Waves', 'Dallas Lone Stars', 'Houston Orbit',
       'Denver Summit', 'Phoenix Firebirds', 'Detroit Motorworks',
       'Atlanta Flight', 'Cleveland Rock', 'Brooklyn Bridges',
       'Milwaukee Lakefront', 'Toronto North', 'Memphis Blues',
@@ -32,7 +32,7 @@
       'Arendelle Blizzard', 'Pride Rock Royals', 'Elmore Oddballs',
       'Adventure Bay Rescuers', 'Halloween Town Ghouls',
       'Ooo Adventurers', 'Neverland Flyers', 'Zootopia Trailblazers',
-      'The Boiling Isles Owls', "Wakko's Warner Lot", 'Hill Valley Time',
+      'The Boiling Isles Owls', "Wakko's Warner Lot", 'Toontown Sketchers',
       'Ninjago City Ninjas', 'Atlantica Tides', 'Corona Lanterns'
     ]),
     muppets: Object.freeze([
@@ -40,12 +40,12 @@
       'Muppet Theater Players', 'Happiness Hotel House Band',
       'Muppet Labs Experiments', "Kermit's Swamp Croakers",
       "Hooper's Store Neighbors", 'Muppet Studios Headliners',
-      "Bear's Big Blue House", 'The Electric Mayhem',
+      "Bear's Big Blue House", 'Muppet Studios Soundstage',
       'Sesame Street Monsters', 'Fraggle Rock Doozers',
       'Muppet Island Castaways', 'The Muppet Newsroom',
-      "Gonzo's Stunt Troupe", 'Muppet Treasure Island',
+      "Gonzo's Stunt Troupe", 'Treasure Island Castaways',
       'The Happiness Hotel Crew', 'The Muppet Show Balcony',
-      'The Muppet Christmas Carol', 'Sesame Street Countdowns',
+      'Victorian London Carolers', 'Sesame Street Countdowns',
       'The Muppet Theater Orchestra'
     ]),
     games: Object.freeze([
@@ -116,7 +116,7 @@
       'Grimmauld Place Phoenixes', 'Malfoy Manor Serpents',
       'Hogwarts Express Riders', 'Hogsmeade Station Guard',
       'The Burrow Broomsticks', 'Hogwarts Lake Merfolk',
-      'Ministry of Magic Aurors', 'Hogsmeade High Street'
+      'Ministry of Magic Aurors', 'Hogsmeade High Flyers'
     ])
   });
 
