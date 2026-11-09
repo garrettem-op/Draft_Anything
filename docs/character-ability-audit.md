@@ -9,7 +9,7 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
    power ids. An empty list means **audited, no qualifying power**, which is different from unknown.
    `characterAbilityTags(candidate)` returns a character's tags. It returns `[]` for audited non-powered characters
    and `null` for a name outside the roster.
-2. **378 new source-linked evidence records for 241 characters** (`CHARACTER_ABILITY_RECORDS_AUDIT`). Each record holds:
+2. **377 new source-linked evidence records for 240 characters** (`CHARACTER_ABILITY_RECORDS_AUDIT`). Each record holds:
    - the power tag
    - the `kind`, e.g. `pilot` vs `self-flight` vs `glide` vs `mount`, or `gen1-level-up-move`
    - a specific feat
@@ -21,7 +21,7 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
    `campaign.js` is needed.
 3. **16 disputed grants.** These are powers the engine currently accepts. 13 are `incorrect`: the audit found no
    support, or they fail an owner ruling. 3 still need a design decision (`ruling`).
-4. **46 research-queue items.** These are plausible powers that are deliberately **not granted** yet.
+4. **45 research-queue items.** These are plausible powers that are deliberately **not granted** yet.
 5. **Tooling.**
    - `tools/ability-audit.cjs --write-index` regenerates the index.
    - `--report` regenerates `docs/character-ability-coverage.md`, which has full per-pool tables, lists, and the
@@ -41,7 +41,7 @@ disputes (see integration item 1). Until then the engine accepts the same charac
 
 | Theme | Before | After |
 | --- | ---: | ---: |
-| Skyborne (flight) | 87 | 159 |
+| Skyborne (flight) | 87 | 158 |
 | Arcane Assembly (magic) | 15 | 38 |
 | Mind Games (psychic) | 29 | 71 |
 | Under the Sea (aquatic) | 38 | 50 |
@@ -53,7 +53,7 @@ disputes (see integration item 1). Until then the engine accepts the same charac
 | Blink and Miss (teleport) | 18 | 56 |
 | The Medics (healing) | 23 | 37 |
 | Giant Problems (giants) | 11 | 23 |
-| **Character–power pairs** | **337** | **672** |
+| **Character–power pairs** | **337** | **671** |
 
 Ghost Protocol barely grows on purpose. Under the role-word ruling, 7 role-only grants come out (8 counting
 IG-88), and 14 existing grants now rest on a sourced feat instead of a job title.
@@ -127,7 +127,7 @@ non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
   - Out: The Thing (human height), Donkey Kong (no documented height).
   - Queued until a height is found: Sweetums, Mr. Snuffleupagus, Big Mean Carl, The Watcher.
 - **Skyborne:** a documented glide counts. Buzz Lightyear, Frozone, Knuckles, Rayman, Spyro and Steve (Elytra)
-  keep or gain flight.
+  keep or gain flight. Only pilots and flyers count, so gunners are out: Finn and Chopper are not Skyborne.
 - **Ghost Protocol:** a role or job title is not enough; the character needs a stealth or invisibility feat.
   - Verified with a specific scene: Black Widow, Winter Soldier, Nebula, Nakia, Yelena, Sharon Carter, Nick Fury,
     Elektra, all four Turtles, Raiden, Ezio, Altaïr, Ventress, Cassian, Boba Fett, Din Djarin, Fennec Shand.
@@ -141,7 +141,6 @@ non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
 
 ## Still open (small)
 
-- Gunners for Skyborne (Finn accepted; Chopper queued).
 - Rest as healing (Slowbro).
 - TM-only moves other than Teleport (Mew's Softboiled).
 - Player-choice traits (Commander Shepard's biotics).
@@ -150,7 +149,7 @@ non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
 
 ## Unverified or rejected
 
-The research queue (46) is listed in `CHARACTER_ABILITY_RESEARCH_QUEUE` and in the coverage report. The following
+The research queue (45) is listed in `CHARACTER_ABILITY_RESEARCH_QUEUE` and in the coverage report. The following
 were rejected after research and are protected by tests:
 - Ms. Marvel → giants (fists only)
 - Crazy Harry → fire (explosives)

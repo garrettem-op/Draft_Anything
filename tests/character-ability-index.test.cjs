@@ -134,6 +134,8 @@ const MUST_NOT_QUALIFY = [
   ['starwars:Savage Opress', 'magic', 'received Nightsister magick, never cast it'],
   ['starwars:Stormtrooper', 'tech', 'armor-only; awaiting a design ruling'],
   ['games:Lara Croft', 'aquatic', 'ordinary human swimming'],
+  ['starwars:Finn', 'flight', 'owner ruling 2026-11-09: gunners do not count for Skyborne'],
+  ['starwars:Chopper', 'flight', 'owner ruling 2026-11-09: gunners do not count for Skyborne'],
   ['games:Captain Falcon', 'flight', 'the Blue Falcon is a track-bound hover racer'],
   ['mcu:Ms. Marvel', 'giants', 'MCU Kamala only enlarges her fists'],
   ['mcu:Jessica Jones', 'flight', 'jumps; does not fly'],

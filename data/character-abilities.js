@@ -877,9 +877,6 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "starwars:Fennec Shand": [
     {tag:"stealth", kind:"stealth assassination", feat:"In The Book of Boba Fett 'Chapter 7: In the Name of Honor' she slips into the Pykes' guarded hideout and kills nine people in about a minute, showing herself only once on purpose. She then hangs Mayor Mok Shaiz and stabs the Pyke boss in the back. TV Tropes files this under Stealth Expert.", source:"https://tvtropes.org/pmwiki/pmwiki.php/Recap/TheBookOfBobaFettS1E7InTheNameOfHonor", continuity:"The Book of Boba Fett 'Chapter 7: In the Name of Honor'", audit:"2026-11"},
   ],
-  "starwars:Finn": [
-    {tag:"flight", kind:"gunner / ski-speeder pilot", feat:"Mans the guns of the stolen TIE fighter (Poe piloting) and the Falcon's turret against TIEs; pilots a V-4X-D ski speeder against the siege cannon on Crait.", source:"https://starwars.archivum.wiki/article/finn", continuity:"The Force Awakens (2015); The Last Jedi (2017)", audit:"2026-11"},
-  ],
   "starwars:General Grievous": [
     {tag:"flight", kind:"pilot", feat:"Flees the crashed Malevolence in his personal starfighter Soulless One and pursues the Twilight with vulture droids; escapes Bothawui in it.", source:"https://starwars.fandom.com/wiki/Grievous", continuity:"The Clone Wars ('Destroy Malevolence' and others)", audit:"2026-11"},
   ],
@@ -1050,7 +1047,6 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"starwars:Maz Kanata", tag:"psychic", note:"Force-sensitive ('I am no Jedi, but I know the Force') and senses others/changes of fortune, but those sensing claims come from the novelization and Visual Dictionary; no on-screen telekinesis, telepathy or mind trick found. Needs designer ruling on whether Force-sensing counts as empathic.", source:"https://starwars.fandom.com/wiki/Maz_Kanata"},
   {id:"starwars:Mace Windu", tag:"flight", note:"Wookieepedia article (first 100k chars) describes no scene of Windu piloting or flying; he rides gunships and creatures only.", source:"https://starwars.fandom.com/wiki/Mace_Windu"},
   {id:"starwars:Padmé Amidala", tag:"flight", note:"Source says she was fully capable of piloting her star skiff but often delegated to Typho or C-3PO, and does not confirm she flew it to Mustafar. No specific piloting scene confirmed.", source:"https://starwars.archivum.wiki/article/j-type_star_skiff"},
-  {id:"starwars:Chopper", tag:"flight", note:"Mans a Ghost gun turret and flies on autopilot; no scene of him piloting in combat. Decide whether gunners count for Skyborne (Finn was accepted as a TIE/Falcon gunner in actual dogfights).", source:"https://starwars.archivum.wiki/article/the_machine_in_the_ghost"},
   {id:"starwars:Captain Rex", tag:"flight", note:"Wookieepedia/databank pages for Rex could not be fetched; the Y-wing escape with Ahsoka (Clone Wars S7) does not say who flew. No confirmed piloting scene."},
   {id:"starwars:Asajj Ventress", tag:"magic", note:"Canon text shows her receiving Nightsister magick (healing ritual, invisibility ichor enchanted by Talzin) but not casting it herself.", source:"https://starwars.fandom.com/wiki/Asajj_Ventress"},
   {id:"starwars:Fennec Shand", tag:"tech", note:"Her lower abdomen was replaced with cybernetics to save her life (The Book of Boba Fett), but she is not shown relying on them as a capability.", source:"https://starwars.fandom.com/wiki/Fennec_Shand"},
@@ -1881,7 +1877,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Zeb Orrelios": [],
     "Chopper": ["tech"],
     "Poe Dameron": ["flight"],
-    "Finn": ["flight"],
+    "Finn": [],
     "Rose Tico": [],
     "Admiral Holdo": [],
     "Maz Kanata": [],

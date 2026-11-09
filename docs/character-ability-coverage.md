@@ -7,7 +7,7 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 
 | Power | nba | mcu | toons | muppets | games | pokemon | starwars | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| flight | 0 | 34 | 17 | 4 | 37 | 28 | 39 | 159 |
+| flight | 0 | 34 | 17 | 4 | 37 | 28 | 38 | 158 |
 | magic | 0 | 10 | 3 | 4 | 20 | 1 | 0 | 38 |
 | psychic | 0 | 14 | 0 | 2 | 6 | 22 | 27 | 71 |
 | aquatic | 0 | 2 | 9 | 0 | 1 | 35 | 3 | 50 |
@@ -24,14 +24,14 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 
 | Layer | Pairs |
 | --- | ---: |
-| character-abilities | 396 |
+| character-abilities | 395 |
 | campaign-tag | 108 |
 | explicit-roster-description | 62 |
 | built-in-research-guide | 51 |
 | curated-pokemon-type | 37 |
 | curated-flight-or-air-combat | 31 |
 
-`CHARACTER_ABILITIES` holds 405 source-linked records for 253 characters.
+`CHARACTER_ABILITIES` holds 404 source-linked records for 252 characters.
 
 ## Disputed grants (engine accepts, audit disagrees or needs a ruling)
 
@@ -85,7 +85,6 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `starwars:Maz Kanata` **psychic**: Force-sensitive ('I am no Jedi, but I know the Force') and senses others/changes of fortune, but those sensing claims come from the novelization and Visual Dictionary; no on-screen telekinesis, telepathy or mind trick found. Needs designer ruling on whether Force-sensing counts as empathic.
 - `starwars:Mace Windu` **flight**: Wookieepedia article (first 100k chars) describes no scene of Windu piloting or flying; he rides gunships and creatures only.
 - `starwars:Padmé Amidala` **flight**: Source says she was fully capable of piloting her star skiff but often delegated to Typho or C-3PO, and does not confirm she flew it to Mustafar. No specific piloting scene confirmed.
-- `starwars:Chopper` **flight**: Mans a Ghost gun turret and flies on autopilot; no scene of him piloting in combat. Decide whether gunners count for Skyborne (Finn was accepted as a TIE/Falcon gunner in actual dogfights).
 - `starwars:Captain Rex` **flight**: Wookieepedia/databank pages for Rex could not be fetched; the Y-wing escape with Ahsoka (Clone Wars S7) does not say who flew. No confirmed piloting scene.
 - `starwars:Asajj Ventress` **magic**: Canon text shows her receiving Nightsister magick (healing ritual, invisibility ichor enchanted by Talzin) but not casting it herself.
 - `starwars:Fennec Shand` **tech**: Her lower abdomen was replaced with cybernetics to save her life (The Book of Boba Fett), but she is not shown relying on them as a capability.
@@ -110,4 +109,4 @@ An empty entry is a reviewed result, not a guarantee. Most are non-powered by de
 - **muppets** (86): Kermit the Frog, Miss Piggy, Fozzie Bear, Gonzo, Swedish Chef, Rowlf the Dog, Beaker, Statler, Waldorf, Sam Eagle, Pepe the King Prawn, Scooter, Rizzo the Rat, Robin the Frog, Camilla the Chicken, Dr. Teeth, Floyd Pepper, Janice, Zoot, Lips, Lew Zealand, Crazy Harry, Sweetums, Uncle Deadly, Dr. Julius Strangepork, Marvin Suggs, Mahna Mahna, Bobo the Bear, Clifford, Walter, Constantine, Johnny Fiama, Sal Minella, Spa'am, Bean Bunny, Beauregard, Big Mean Carl, Doglion, Seymour, The Newsman, Pops, Hilda, Annie Sue, Mr. Snuffleupagus, Cookie Monster, Elmo, Oscar the Grouch, Bert, Ernie, Zoe, Rosita, Telly Monster, Herry Monster, Prairie Dawn, Baby Bear, Curly Bear, Two-Headed Monster, Guy Smiley, Mr. Johnson, Slimey the Worm, Honkers, Murray Monster, Frazzle, Gladys the Cow, Sherlock Hemlock, Roosevelt Franklin, Barkley, Hoots the Owl, Bernice, Forgetful Jones, Ji-Young, Lefty the Salesman, Grundgetta, Bruno the Trashman, Gobo Fraggle, Wembley Fraggle, Boober Fraggle, Mokey Fraggle, Red Fraggle, Uncle Traveling Matt, Sprocket, Doc, Cotterpin Doozer, Philo and Gunge, Emmet Otter, Ma Otter
 - **games** (29): Ash Ketchum, Professor Oak, Jigglypuff, Captain Falcon, Marth, Amy Rose, Marcus Fenix, Nathan Drake, Sully, Joel Miller, Ellie, Crash Bandicoot, Lara Croft, Garrus Vakarian, Mordin Solus, Pac-Man, Blinky, Ms. Pac-Man, Q*bert, Wreck-It Ralph, Chun-Li, Heihachi Mishima, Tifa Lockhart, Leon S. Kennedy, Jill Valentine, Pyramid Head, Creeper, Isabelle, Tom Nook
 - **pokemon** (57): Bulbasaur, Ivysaur, Venusaur, Caterpie, Metapod, Weedle, Kakuna, Rattata, Raticate, Arbok, Sandshrew, Sandslash, Nidoran♀, Nidorina, Nidoqueen, Nidoran♂, Nidorino, Nidoking, Jigglypuff, Wigglytuff, Oddish, Gloom, Vileplume, Paras, Parasect, Diglett, Dugtrio, Meowth, Persian, Mankey, Primeape, Machop, Machoke, Machamp, Bellsprout, Weepinbell, Victreebel, Geodude, Graveler, Golem, Doduo, Dodrio, Grimer, Muk, Cubone, Marowak, Hitmonlee, Hitmonchan, Lickitung, Rhyhorn, Rhydon, Tangela, Kangaskhan, Pinsir, Tauros, Ditto, Eevee
-- **starwars** (36): Padmé Amidala, Mon Mothma, Bail Organa, Jyn Erso, Chirrut Îmwe, Baze Malbus, Saw Gerrera, Zeb Orrelios, Rose Tico, Admiral Holdo, Maz Kanata, Grand Moff Tarkin, Grand Admiral Thrawn, Director Krennic, Stormtrooper, Captain Phasma, General Hux, Aurra Sing, Bossk, Greedo, Cara Dune, Cobb Vanth, Greef Karga, Kuiil, Migs Mayfeld, Captain Rex, Commander Cody, Hunter, Wrecker, Crosshair, Qi'ra, Tobias Beckett, Dryden Vos, Jabba the Hutt, Wampa, Wicket
+- **starwars** (37): Padmé Amidala, Mon Mothma, Bail Organa, Jyn Erso, Chirrut Îmwe, Baze Malbus, Saw Gerrera, Zeb Orrelios, Finn, Rose Tico, Admiral Holdo, Maz Kanata, Grand Moff Tarkin, Grand Admiral Thrawn, Director Krennic, Stormtrooper, Captain Phasma, General Hux, Aurra Sing, Bossk, Greedo, Cara Dune, Cobb Vanth, Greef Karga, Kuiil, Migs Mayfeld, Captain Rex, Commander Cody, Hunter, Wrecker, Crosshair, Qi'ra, Tobias Beckett, Dryden Vos, Jabba the Hutt, Wampa, Wicket
