@@ -68,6 +68,51 @@ test('Ghost Protocol submission does not mark Loki, The Watcher, or Violet inval
   };
   assert.equal(context.eligibilityTest.campaignInvalidSlots().size,0);
 });
+test('Mind Games approves the three rejected psychic and telekinetic picks',()=>{
+  const entries=[
+    ['mcu:Cassandra Nova','telepathy-and-telekinesis'],
+    ['starwars:Emperor Palpatine','force-telekinesis'],
+    ['mcu:Invisible Woman','force-field-telekinesis'],
+  ];
+  for(const [id,kind] of entries){
+    const candidate=list.find(c=>c.id===id);
+    assert.ok(candidate,id+' absent from the game roster');
+    assert.ok(campaignAllowed(candidate,'psychic'),id+' was incorrectly rejected by Mind Games');
+    const evidence=characterAbilityEvidence(candidate,'psychic');
+    assert.equal(evidence?.kind,kind,id+' missing its precise psychic-power category');
+    assert.ok(evidence?.source?.startsWith('https://'),id+' missing traceable evidence');
+  }
+  // An ability recorded for one themed challenge must not grant unrelated powers.
+  const sue=list.find(c=>c.id==='mcu:Invisible Woman');
+  assert.equal(campaignAllowed(sue,'fire'),false);
+  assert.equal(characterAbilityEvidence({pool:'toons',n:'Invisible Woman'},'psychic'),null);
+});
+test('Mind Games submission accepts all seven characters in the screenshot',()=>{
+  const ids=['pokemon:Mewtwo','pokemon:Alakazam','mcu:Invisible Woman',
+    'mcu:Cassandra Nova','mcu:Jean Grey','starwars:Emperor Palpatine','mcu:Professor X'];
+  // Mind Games is extra index 2, after the ten standard stages.
+  const prevOrder=state.campaign.stageOrder.slice(),prevRoster=state.campaign.roster;
+  try{
+    state.campaign.stageOrder[0]=10+2;
+    state.campaign.roster=Object.fromEntries(ids.map((id,i)=>{
+      const candidate=list.find(c=>c.id===id);
+      assert.ok(candidate,id+' absent from the game roster');
+      return ['slot'+i,candidate];
+    }));
+    assert.deepEqual([...context.eligibilityTest.campaignInvalidSlots()],[],
+      'All seven Mind Games picks should be accepted by submission validation');
+  }finally{
+    state.campaign.stageOrder=prevOrder;
+    state.campaign.roster=prevRoster;
+  }
+});
+test('Mind Games does not blanket-approve non-psychic roster entries',()=>{
+  for(const id of ['mcu:Kingpin','starwars:Han Solo','nba:Mike D\'Antoni']){
+    const candidate=list.find(c=>c.id===id);
+    assert.ok(candidate);
+    assert.equal(campaignAllowed(candidate,'psychic'),false,id+' wrongly received psychic eligibility');
+  }
+});
 test('healing does not blanket-approve unrelated candidates',()=>{
   for(const id of ['starwars:Han Solo','mcu:Kingpin','toons:Sokka']){
     const candidate=list.find(c=>c.id===id);
