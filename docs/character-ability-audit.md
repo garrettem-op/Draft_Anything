@@ -9,7 +9,7 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
    power ids. An empty list means **audited, no qualifying power**, which is different from unknown.
    `characterAbilityTags(candidate)` returns a character's tags. It returns `[]` for audited non-powered characters
    and `null` for a name outside the roster.
-2. **353 new source-linked evidence records for 226 characters** (`CHARACTER_ABILITY_RECORDS_AUDIT`). Each record holds:
+2. **378 new source-linked evidence records for 241 characters** (`CHARACTER_ABILITY_RECORDS_AUDIT`). Each record holds:
    - the power tag
    - the `kind`, e.g. `pilot` vs `self-flight` vs `glide` vs `mount`, or `gen1-level-up-move`
    - a specific feat
@@ -19,9 +19,9 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 
    These records take effect immediately through the existing `characterAbilityEvidence()` hook. No change to
    `campaign.js` is needed.
-3. **14 disputed grants.** These are powers the engine currently accepts but the audit could not support
-   (`incorrect`) or that need a design decision (`ruling`).
-4. **48 research-queue items.** These are plausible powers that are deliberately **not granted** yet.
+3. **16 disputed grants.** These are powers the engine currently accepts. 13 are `incorrect`: the audit found no
+   support, or they fail an owner ruling. 3 still need a design decision (`ruling`).
+4. **46 research-queue items.** These are plausible powers that are deliberately **not granted** yet.
 5. **Tooling.**
    - `tools/ability-audit.cjs --write-index` regenerates the index.
    - `--report` regenerates `docs/character-ability-coverage.md`, which has full per-pool tables, lists, and the
@@ -34,7 +34,10 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 
 Raw research, including rejected claims and researcher notes, is preserved in `research/ABILITY_AUDIT_2026-11.json`.
 
-## Coverage, before → after (characters accepted per theme)
+## Coverage, before → after (characters per theme)
+
+"After" counts the reviewed index. It is what the game will accept once the engine honors the `incorrect`
+disputes (see integration item 1). Until then the engine accepts the same characters plus those 13.
 
 | Theme | Before | After |
 | --- | ---: | ---: |
@@ -42,18 +45,21 @@ Raw research, including rejected claims and researcher notes, is preserved in `r
 | Arcane Assembly (magic) | 15 | 38 |
 | Mind Games (psychic) | 29 | 71 |
 | Under the Sea (aquatic) | 38 | 50 |
-| Inferno (fire) | 18 | 37 |
+| Inferno (fire) | 18 | 40 |
 | Cold Front (ice) | 11 | 24 |
 | Shock Troopers (electric) | 17 | 39 |
-| Tech Titans (tech) | 34 | 95 |
-| Ghost Protocol (stealth) | 36 | 49 |
+| Tech Titans (tech) | 34 | 96 |
+| Ghost Protocol (stealth) | 36 | 39 |
 | Blink and Miss (teleport) | 18 | 56 |
-| The Medics (healing) | 23 | 38 |
-| Giant Problems (giants) | 11 | 22 |
-| **Character–power pairs** | **337** | **678** |
+| The Medics (healing) | 23 | 37 |
+| Giant Problems (giants) | 11 | 23 |
+| **Character–power pairs** | **337** | **672** |
 
-Non-NBA characters with no power at all went from 454 to 316. Most of the remainder are canonically non-powered
-(e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
+Ghost Protocol barely grows on purpose. Under the role-word ruling, 7 role-only grants come out (8 counting
+IG-88), and 14 existing grants now rest on a sourced feat instead of a job title.
+
+Non-NBA characters with no power at all went from 454 to 319. Most of the remainder are canonically
+non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
 
 ## Biggest gaps closed
 
@@ -82,13 +88,21 @@ Non-NBA characters with no power at all went from 454 to 316. Most of the remain
 
 ## Changes ChatGPT needs to make for integration
 
-1. **Honor `incorrect` disputes in the engine.** Today these five are still accepted, because the grants come
-   from the name list, roster-description patterns, or guide text:
+1. **Honor `incorrect` disputes in the engine.** The engine still accepts 13 grants the audit removes. They come
+   from the `CAMPAIGN_TAGS` name list, roster-description patterns, or guide text:
    - The Thing → giants
+   - Donkey Kong → giants
+   - Hawkeye → stealth
+   - Gamora → stealth
+   - Valentina → stealth
+   - Bullseye → stealth
+   - Master Splinter → stealth
+   - Scorpion → stealth
+   - Widowmaker → stealth
+   - Mr. Mime → stealth
+   - IG-88 → stealth
    - Garfield → stealth
    - Popeye → healing
-   - Mr. Mime → stealth (the blurb says "Invisible-wall")
-   - IG-88 → stealth (the blurb says "Assassin droid")
 
    The smallest change is a guard at the top of the `default:` branch in `campaignAllowed`:
    ```js
@@ -96,43 +110,47 @@ Non-NBA characters with no power at all went from 454 to 316. Most of the remain
        CHARACTER_ABILITY_DISPUTES.some(d => d.verdict === 'incorrect' && d.id === c.pool + ':' + c.n && d.tag === rule)) return false;
    ```
    The alternative is to drive themed rules from `characterAbilityTags(c).includes(rule)`, keeping
-   `KnowledgeEngine.has` for approved appeals. `tests/character-ability-index.test.cjs` already asserts that every
-   index tag is honored. Once the engine excludes disputes, the index and the engine will match exactly.
-2. **Optional:** retire or pool-scope the stale names in `CAMPAIGN_TAGS`. 60 of its names are not on the roster,
-   such as Superman, Goku and Batman. Because matching is by name only, any future character with the same name in
-   another pool would inherit the power.
-3. **Generalize the `rule === 'psychic'` guard in `campaignGuideEvidence`.** It already rejects technology clauses.
-   Consider the same treatment for role words such as "ninja" and "assassin" in the stealth description pattern,
-   pending the ruling below.
+   `KnowledgeEngine.has` for approved appeals. The tests already assert that every index tag is honored. Once the
+   guard is in place, the index and the engine will match exactly.
+2. **Stealth description pattern.** Under the owner's ruling, role words (`ninja`, `assassin`, `spy`, `agent`,
+   `operative`) no longer prove stealth. Remove them from the stealth pattern in `campaign-eligibility.js` and from
+   the stealth entries in `CAMPAIGN_TAGS`. Every character with a real stealth feat now has its own evidence
+   record, so nobody legitimate loses eligibility.
+3. **Optional:** retire or pool-scope the 60 `CAMPAIGN_TAGS` names that are not on the roster, such as Superman,
+   Goku and Batman. Because matching is by name only, any future character with the same name in another pool
+   would inherit the power.
 
-## Design rulings needed (not decided by this audit)
+## Owner rulings applied (2026-11-09)
 
-- **Giant Problems size threshold.** Thog (9.5 ft), the Gorgs, Onix and the Rancor clearly qualify. Pending:
-  - Hulk (~8 ft, name-listed)
-  - Smart Hulk (queued)
-  - Donkey Kong (name-listed)
-  - Big Bird (8 ft 2 in, queued)
-  - Gyarados (6.5 m, queued)
-  - Sweetums and Snuffleupagus (queued)
+- **Giant Problems:** about 8 ft or taller counts, but the height must be documented.
+  - In: Hulk, Smart Hulk, Abomination, Big Bird (8 ft 2 in), Gyarados (6.5 m).
+  - Out: The Thing (human height), Donkey Kong (no documented height).
+  - Queued until a height is found: Sweetums, Mr. Snuffleupagus, Big Mean Carl, The Watcher.
+- **Skyborne:** a documented glide counts. Buzz Lightyear, Frozone, Knuckles, Rayman, Spyro and Steve (Elytra)
+  keep or gain flight.
+- **Ghost Protocol:** a role or job title is not enough; the character needs a stealth or invisibility feat.
+  - Verified with a specific scene: Black Widow, Winter Soldier, Nebula, Nakia, Yelena, Sharon Carter, Nick Fury,
+    Elektra, all four Turtles, Raiden, Ezio, Altaïr, Ventress, Cassian, Boba Fett, Din Djarin, Fennec Shand.
+  - Removed: Hawkeye, Gamora, Valentina, Bullseye, Master Splinter, Scorpion, Widowmaker.
+  - Sharon Carter and Din Djarin rest on disguised infiltration rather than staying unseen.
+- **Tech Titans:** advanced or powered armor counts (Iron Man, War Machine); standard-issue armor does not.
+  - Death Trooper is in, because its armor has a sensor suite, a stealth coating and voice scramblers.
+  - Stormtrooper, Captain Phasma and Marcus Fenix stay queued.
+- **Inferno:** Mandalorian wrist flamethrowers count. The Mandalorian, Boba Fett and Jango Fett are in. Bo-Katan
+  and Sabine are queued because no canon scene shows either one using a flamethrower or fire.
 
-  Abomination was accepted as larger than Hulk.
-- **Skyborne edge cases:**
-  - Glide-only flight (Buzz Lightyear, Knuckles, Rayman, Steve's Elytra)
-  - Ice-path skating (Frozone)
-  - Gunners (Finn accepted; Chopper queued)
-- **Ghost Protocol: role only.** "Ninja" or "assassin" with no stealth feat (Scorpion, Widowmaker).
-- **Tech Titans: armor only.** Stormtrooper, Death Trooper, Captain Phasma (queued).
-- **Inferno: weapon flamethrowers.** Jango Fett, Boba Fett, The Mandalorian (queued).
-- **Player-choice traits.** Commander Shepard's biotics depend on the class the player picks (queued).
-- **Edge-case moves:**
-  - Rest as healing (Slowbro, queued)
-  - TM-only moves other than Teleport (Mew's Softboiled, queued)
-  - Thunder Wave as electricity (Dratini line, accepted with limitation)
-- **The Marvels location swap** counts as teleport (accepted, limitation recorded).
+## Still open (small)
+
+- Gunners for Skyborne (Finn accepted; Chopper queued).
+- Rest as healing (Slowbro).
+- TM-only moves other than Teleport (Mew's Softboiled).
+- Player-choice traits (Commander Shepard's biotics).
+- Time-rewind healing (Tracer's Recall).
+- Vision → psychic and Echo → healing (`ruling` disputes).
 
 ## Unverified or rejected
 
-The research queue (48) is listed in `CHARACTER_ABILITY_RESEARCH_QUEUE` and in the coverage report. The following
+The research queue (46) is listed in `CHARACTER_ABILITY_RESEARCH_QUEUE` and in the coverage report. The following
 were rejected after research and are protected by tests:
 - Ms. Marvel → giants (fists only)
 - Crazy Harry → fire (explosives)

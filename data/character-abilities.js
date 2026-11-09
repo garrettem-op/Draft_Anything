@@ -122,6 +122,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "mcu:Ant-Man": [
     {tag:"tech", kind:"powered suit", feat:"Scott Lang wears Hank Pym's Ant-Man Suit: Pym Particles for shrinking, a protective helmet, and an EMP communication device in the helmet that mimics pheromones so he can command ants.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Ant-Man_Suit", continuity:"MCU: Ant-Man (2015) onward", audit:"2026-11"},
   ],
+  "mcu:Black Widow": [
+    {tag:"stealth", kind:"infiltration / disguise", feat:"In Captain America: The Winter Soldier she sneaks aboard the pirate-held Lemurian Star to download S.H.I.E.L.D. files, and later uses a Photostatic Veil disguise to infiltrate the World Security Council. In The Avengers she approaches Loki's cell undetected.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Black_Widow", continuity:"MCU: The Avengers (2012); Captain America: The Winter Soldier (2014)", audit:"2026-11"},
+  ],
   "mcu:Captain Marvel": [
     {tag:"teleport", kind:"location swap", feat:"In The Marvels, Carol Danvers, Monica Rambeau and Kamala Khan become quantum-entangled. Whenever they use their light-based powers at the same time they instantly switch places across space, and they learn to coordinate the swaps as a team.", source:"https://marvelcinematicuniverse.fandom.com/wiki/The_Marvels", continuity:"MCU: The Marvels (2023)", limitation:"Only while entangled with the other two in The Marvels; swaps places rather than free teleport", audit:"2026-11"},
   ],
@@ -131,6 +134,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "mcu:Electro": [
     {tag:"flight", kind:"levitation", feat:"His body becomes pure electrical energy and nearly weightless; in Spider-Man: No Way Home he hovers above the power lines while drawing energy from them on arrival in the forest.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Electro", continuity:"MCU: Spider-Man: No Way Home (2021)", audit:"2026-11"},
+  ],
+  "mcu:Elektra": [
+    {tag:"stealth", kind:"infiltration", feat:"In Daredevil S2E6 'Regrets Only' she brings Matt into a Roxxon black-tie gala. They slip into a restricted area, she opens a hidden vault to steal the ledger, and they escape the guards with a fake drunken make-out.", source:"https://tvtropes.org/pmwiki/pmwiki.php/Recap/Daredevil2015S2E6RegretsOnly", continuity:"Marvel's Daredevil season 2 (Netflix, 2016)", audit:"2026-11"},
   ],
   "mcu:Ghost": [
     {tag:"tech", kind:"documented-feat", feat:"Ava Starr wears a S.H.I.E.L.D.-developed Ghost Suit that lets her switch between intangible and solid states at will and manages her quantum condition in Ant-Man and the Wasp.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Ghost", continuity:"MCU: Ant-Man and the Wasp (2018)", limitation:"Suit stabilises her phasing", audit:"2026-11"},
@@ -171,10 +177,17 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "mcu:Ms. Marvel": [
     {tag:"teleport", kind:"location swap", feat:"In The Marvels, Carol Danvers, Monica Rambeau and Kamala Khan become quantum-entangled. Whenever they use their light-based powers at the same time they instantly switch places across space, and they learn to coordinate the swaps as a team.", source:"https://marvelcinematicuniverse.fandom.com/wiki/The_Marvels", continuity:"MCU: The Marvels (2023)", limitation:"Only while entangled with the other two in The Marvels; swaps places rather than free teleport", audit:"2026-11"},
   ],
+  "mcu:Nakia": [
+    {tag:"stealth", kind:"undercover infiltration", feat:"In Black Panther she goes undercover inside a kidnapped group in Nigeria (the wiki says she 'flawlessly' infiltrated a kidnapping). She also infiltrates Killmonger's farm to steal a Heart-Shaped Herb and leaves the City of the Dead without being noticed.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Nakia", continuity:"MCU: Black Panther (2018)", audit:"2026-11"},
+  ],
   "mcu:Nebula": [
     {tag:"tech", kind:"cyborg", feat:"A cyborg whose body Thanos rebuilt with machinery: a cybernetic left arm (electroshock, grappling hook), a bionic eye, and a synaptic memory drive that replays recordings, a key plot point in Endgame.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Nebula", continuity:"MCU: Guardians of the Galaxy (2014) through Avengers: Endgame (2019)", audit:"2026-11"},
     {tag:"flight", kind:"pilot", feat:"Pilots spacecraft in combat: takes over a Ravager M-Ship to flee the Dark Aster in Guardians of the Galaxy (2014), fights Gamora from an M-Ship in Vol. 2, and crashes a Necrocraft into Thanos on Titan in Infinity War.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Nebula", continuity:"MCU: Guardians of the Galaxy (2014); Vol. 2 (2017); Avengers: Infinity War (2018)", limitation:"Piloting only, not unaided flight", audit:"2026-11"},
     {tag:"electric", kind:"cybernetic electricity", feat:"Her cybernetic left arm generates electricity: it fires electroshock blasts, and she uses it to power a damaged Ravager ship.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Nebula", continuity:"MCU: Guardians of the Galaxy films; Avengers: Endgame", limitation:"Via cybernetic arm", audit:"2026-11"},
+    {tag:"stealth", kind:"infiltration / impersonation", feat:"In Infinity War she sneaks aboard Thanos's ship Sanctuary II to kill him and nearly succeeds before being caught. In Endgame, 2014 Nebula impersonates her future self to slip into 2023.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Nebula", continuity:"MCU: Avengers: Infinity War (2018); Avengers: Endgame (2019)", audit:"2026-11"},
+  ],
+  "mcu:Nick Fury": [
+    {tag:"stealth", kind:"covert infiltration / evasion", feat:"In Captain Marvel he lifts an official's fingerprint with tape to get into the Project Pegasus facility and secretly pages his contact while inside. In The Winter Soldier he escapes the Winter Soldier through a hole cut under his car into the sewers, then fakes his death and hides.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Nick_Fury", continuity:"MCU: Captain Marvel (2019); Captain America: The Winter Soldier (2014)", audit:"2026-11"},
   ],
   "mcu:Obadiah Stane": [
     {tag:"tech", kind:"documented-feat", feat:"Builds and wears the Iron Monger armor, reverse-engineered from Tony's Mark I, and fights Iron Man in it in Los Angeles. It flies until it ices over in the upper atmosphere.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Iron_Monger_Armor", continuity:"MCU: Iron Man (2008)", limitation:"Only in the Iron Monger armor", audit:"2026-11"},
@@ -185,6 +198,12 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "mcu:Sandman": [
     {tag:"giants", kind:"documented-feat", feat:"During the Liberty Island battle in Spider-Man: No Way Home, a gigantic Sandman chases a Spider-Man through the Statue of Liberty scaffolding; he enlarges by absorbing sand.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Sandman", continuity:"MCU: Spider-Man: No Way Home (2021)", limitation:"Giant sand form; needs sand to absorb", audit:"2026-11"},
     {tag:"flight", kind:"self-flight (sandstorm form)", feat:"Can turn into a sandstorm and travel long distances through the air. In No Way Home he draws sand from everywhere to form a massive sandstorm after Electro's blast.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Sandman", continuity:"MCU: Spider-Man: No Way Home (2021)", limitation:"Only in sandstorm form", audit:"2026-11"},
+  ],
+  "mcu:Sharon Carter": [
+    {tag:"stealth", kind:"undercover surveillance", feat:"In The Winter Soldier, on Fury's orders, she lives across the hall from Steve Rogers posing as a nurse named 'Kate' and secretly watches him. In Civil War she secretly gets Captain America's shield and the Falcon gear to Rogers's fugitive team.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Sharon_Carter", continuity:"MCU: Captain America: The Winter Soldier (2014); Captain America: Civil War (2016)", audit:"2026-11"},
+  ],
+  "mcu:Smart Hulk": [
+    {tag:"giants", kind:"documented-feat", feat:"Banner's Smart Hulk form in Avengers: Endgame is the Hulk body with Banner's mind. Avengers-era Hulk is estimated at about 8 ft 5 in, the same scale that earns Hulk his giants tag.", source:"https://www.fortressofsolitude.co.za/how-tall-is-hulk-how-big-does-he-get", continuity:"MCU: Avengers: Endgame (2019); She-Hulk (2022)", limitation:"Hulk-sized (~8 ft), not enormous", audit:"2026-11"},
   ],
   "mcu:Spider-Man": [
     {tag:"tech", kind:"documented-feat", feat:"Wears Stark-built suits; in Avengers: Infinity War Tony Stark gives him the nanotech Iron Spider armor, which deploys from a pod and has four AI-controlled spider-leg pincers, its own oxygen supply and upgraded web-shooters.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Iron_Spider_Armor", continuity:"MCU: Spider-Man: Homecoming (2017); Avengers: Infinity War (2018)", limitation:"Stark-built suits (Homecoming suit, Iron Spider armor)", audit:"2026-11"},
@@ -208,6 +227,10 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "mcu:Winter Soldier": [
     {tag:"tech", kind:"cyborg prosthetic", feat:"Bucky's HYDRA-fitted cybernetic metal arm, described as 'the highest level of weaponized technology', blocks Captain America's shield and crushes steel; Wakanda later gives him a vibranium replacement arm (Infinity War).", source:"https://marvelcinematicuniverse.fandom.com/wiki/Winter_Soldier", continuity:"MCU: Captain America: The Winter Soldier (2014); Civil War (2016); Avengers: Infinity War (2018)", limitation:"Cybernetic prosthetic arm", audit:"2026-11"},
+    {tag:"stealth", kind:"covert assassin", feat:"In The Winter Soldier he is so elusive that spies and assassins treat him as a myth, a 'ghost story'. After the D.C. highway fight he slips away from the scene unnoticed. He also staged the Starks' 1991 killing to look like a car accident.", source:"https://marvel.fandom.com/wiki/James_Barnes_(Earth-199999)", continuity:"MCU: Captain America: The Winter Soldier (2014); Captain America: Civil War (2016)", audit:"2026-11"},
+  ],
+  "mcu:Yelena Belova": [
+    {tag:"stealth", kind:"infiltration", feat:"In Black Widow (2021), after slipping her restraints, she creeps through the Red Room, knocking out guards while she searches for the Red Dust vials. She also gets into Natasha's old Budapest apartment and waits there for her.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Yelena_Belova", continuity:"MCU: Black Widow (2021)", audit:"2026-11"},
   ],
   "mcu:Yondu": [
     {tag:"tech", kind:"documented-feat", feat:"Controls his Yaka Arrow with whistles through a cybernetic controller implanted in his head (it glows red when in use); in Vol. 2 he must get his prototype fin back to escape Taserface's mutiny.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Yondu", continuity:"MCU: Guardians of the Galaxy (2014); Guardians of the Galaxy Vol. 2 (2017)", limitation:"Arrow control requires the head-fin controller", audit:"2026-11"},
@@ -232,6 +255,7 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "toons:Donatello": [
     {tag:"tech", kind:"documented-feat", feat:"The team's inventor: he built the Turtle Van, Turtle Communicators, Turtle Blimp and a working inter-dimensional portal. In 'Turtles Forever' he makes the Trans-dimensional Portal Stick.", source:"https://turtlepedia.fandom.com/wiki/Donatello_(1987_TV_series)", continuity:"Teenage Mutant Ninja Turtles (1987 animated series)", audit:"2026-11"},
+    {tag:"stealth", kind:"ninja infiltration", feat:"Takes part in the Turtles' sneak into an undersea Kraang lab in 'Karai's Vendetta', though his ringing T-Phone nearly gives them away. In the 2003 series ('The Search for Splinter, Part 1') he fools TCRI's security cameras with a pigeon puppet during the break-in.", source:"https://tvtropes.org/pmwiki/pmwiki.php/Recap/TeenageMutantNinjaTurtles2012S1E21KaraisVendetta", continuity:"Teenage Mutant Ninja Turtles (2012 series) S1E21 'Karai's Vendetta'; TMNT (2003) S1E25", audit:"2026-11"},
   ],
   "toons:Elastigirl": [
     {tag:"flight", kind:"pilot", feat:"In The Incredibles she flies a borrowed jet to Nomanisan Island and shoots down missiles before it is hit. In Incredibles 2 she flies a helicopter escorting the ambassador.", source:"https://disney.fandom.com/wiki/Elastigirl", continuity:"Pixar: The Incredibles (2004), Incredibles 2 (2018)", audit:"2026-11"},
@@ -241,6 +265,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "toons:Katara": [
     {tag:"aquatic", kind:"documented-feat", feat:"Waterbending master: she duels Master Pakku and freezes Zuko under the full moon in the Siege of the North, forms water whips against Zuko in the Crystal Catacombs, and learns to pull water from the air from Hama.", source:"https://avatar.fandom.com/wiki/Katara", continuity:"Avatar: The Last Airbender (Nickelodeon, 2005-2008)", audit:"2026-11"},
+  ],
+  "toons:Leonardo": [
+    {tag:"stealth", kind:"ninja infiltration", feat:"'Karai's Vendetta' opens with the Turtles sneaking into an undersea Kraang lab, part of what the recap calls their habit of sneaking into Kraang labs. Leo orders silence inside, and he, Raph and Mikey pedal the Turtle Sub to keep its approach quiet.", source:"https://tvtropes.org/pmwiki/pmwiki.php/Recap/TeenageMutantNinjaTurtles2012S1E21KaraisVendetta", continuity:"Teenage Mutant Ninja Turtles (2012 series) S1E21 'Karai's Vendetta'", audit:"2026-11"},
   ],
   "toons:Marvin the Martian": [
     {tag:"tech", kind:"documented-feat", feat:"Uses the Illudium Q-36 Explosive Space Modulator in his attempts to blow up Earth (called the Uranium PU-36 in 'Haredevil Hare'), and carries a ray gun in nearly every appearance.", source:"https://looneytunes.fandom.com/wiki/Marvin_the_Martian", continuity:"Looney Tunes theatrical shorts (1948-)", audit:"2026-11"},
@@ -306,6 +333,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "muppets:Animal": [
     {tag:"giants", kind:"documented-feat", feat:"In The Muppet Movie's climax, one of Dr. Honeydew's Insta-Grow pills enlarges Animal to giant size and he frightens away Doc Hopper and his henchmen.", source:"https://en.wikipedia.org/wiki/The_Muppet_Movie", continuity:"The Muppet Movie (1979)", limitation:"Requires Insta-Grow pill (temporary)", audit:"2026-11"},
   ],
+  "muppets:Big Bird": [
+    {tag:"giants", kind:"documented-feat", feat:"Canonically 8'2\" tall. In a 1985 Toronto Star interview quoted on Muppet Wiki he calls himself 'a giant golden condor'.", source:"https://muppet.fandom.com/wiki/Big_Bird", continuity:"Sesame Street", audit:"2026-11"},
+  ],
   "muppets:Cantus": [
     {tag:"magic", kind:"documented-feat", feat:"Plays a magic pipe that only makes songs for a Fraggle in touch with their inner song; his playing makes nearby flowers burst into bloom.", source:"https://muppet.fandom.com/wiki/Cantus_the_Minstrel", continuity:"Fraggle Rock (first appearance 'The Minstrels')", audit:"2026-11"},
   ],
@@ -356,6 +386,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "games:Aloy": [
     {tag:"tech", kind:"documented-feat", feat:"She relies on her Focus device and gains the ability to override machines after modifying her spear.", source:"https://horizon.fandom.com/wiki/Aloy", continuity:"Horizon Zero Dawn; Horizon Forbidden West", limitation:"Device-based", audit:"2026-11"},
     {tag:"flight", kind:"mount", feat:"After repairing the override she rides a Sunwing machine into the air.", source:"https://horizon.fandom.com/wiki/Aloy", continuity:"Horizon Forbidden West", audit:"2026-11"},
+  ],
+  "games:Altaïr": [
+    {tag:"stealth", kind:"social stealth gameplay", feat:"Assassin's Creed uses social stealth: Altaïr blends into crowds, hides in haystacks and rooftop gardens to shake guards, and makes low-profile Hidden Blade assassinations after eavesdropping and pickpocketing scouting missions.", source:"https://en.wikipedia.org/wiki/Assassin%27s_Creed_(video_game)", continuity:"Assassin's Creed (2007)", audit:"2026-11"},
   ],
   "games:Alyx Vance": [
     {tag:"tech", kind:"documented-feat", feat:"A skilled hacker with an EMP Tool in Half-Life 2, she uses gravity gloves in Half-Life: Alyx.", source:"https://half-life.fandom.com/wiki/Alyx_Vance", continuity:"Half-Life 2; Half-Life: Alyx", limitation:"Gadgets", audit:"2026-11"},
@@ -435,6 +468,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "games:Duke Nukem": [
     {tag:"flight", kind:"self-flight", feat:"The Jetpack inventory item 'allows Duke to fly'.", source:"https://strategywiki.org/wiki/Duke_Nukem_3D/Items", continuity:"Duke Nukem 3D", limitation:"Requires Jetpack item", audit:"2026-11"},
+  ],
+  "games:Ezio Auditore": [
+    {tag:"stealth", kind:"social stealth gameplay", feat:"Assassin's Creed II is built around Ezio's stealth. He blends into any crowd, hides underwater to break line of sight, distracts guards with tossed coins and hired courtesans or thieves, and makes hidden-blade assassinations.", source:"https://en.wikipedia.org/wiki/Assassin%27s_Creed_II", continuity:"Assassin's Creed II (2009)", audit:"2026-11"},
   ],
   "games:Ezreal": [
     {tag:"teleport", kind:"documented-feat", feat:"Arcane Shift blinks him to a target location and fires a homing magic bolt.", source:"https://wiki.leagueoflegends.com/en-us/Ezreal", continuity:"League of Legends", audit:"2026-11"},
@@ -544,6 +580,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "games:Princess Peach": [
     {tag:"flight", kind:"hover", feat:"She can float in mid-air using her skirt, first in Super Mario Bros. 2; the float returns in Super Smash Bros.", source:"https://www.mariowiki.com/Princess_Peach", continuity:"Super Mario Bros. 2; Super Smash Bros. series", audit:"2026-11"},
     {tag:"healing", kind:"documented-feat", feat:"In Super Mario RPG she uses healing abilities such as Therapy and Group Hug.", source:"https://www.mariowiki.com/Princess_Peach", continuity:"Super Mario RPG", audit:"2026-11"},
+  ],
+  "games:Raiden": [
+    {tag:"stealth", kind:"stealth gameplay", feat:"As the main playable character of Metal Gear Solid 2 ('Tactical Espionage Action'), he sneaks through the Big Shell. He avoids detection by hanging from walkways to slip past guards, distracting them with thrown objects and shooting out their radios.", source:"https://en.wikipedia.org/wiki/Metal_Gear_Solid_2:_Sons_of_Liberty", continuity:"Metal Gear Solid 2: Sons of Liberty (2001)", audit:"2026-11"},
   ],
   "games:Raiden (MK)": [
     {tag:"teleport", kind:"documented-feat", feat:"Raiden vanishes and reappears behind his opponent, turning his body ethereal to teleport.", source:"https://mortalkombat.fandom.com/wiki/Raiden", continuity:"Mortal Kombat series (incl. MK 2011)", audit:"2026-11"},
@@ -685,6 +724,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "pokemon:Golduck": [
     {tag:"psychic", kind:"gen1-level-up-move", feat:"Golduck learns Confusion by level-up at Lv. 39 in Gen I; its Silver Pokédex entry says it may use telekinetic powers when its forehead glows.", source:"https://pokemondb.net/pokedex/golduck/moves/1", continuity:"Pokémon Red/Blue/Yellow (Generation I); Pokédex: Silver/Emerald", audit:"2026-11"},
   ],
+  "pokemon:Gyarados": [
+    {tag:"giants", kind:"size", feat:"Pokédex height 6.5 m (21 ft 4 in); the Red/Blue entry describes it as huge and able to destroy entire cities in a rage.", source:"https://pokemondb.net/pokedex/gyarados", continuity:"Pokédex: Red/Blue", audit:"2026-11"},
+  ],
   "pokemon:Haunter": [
     {tag:"stealth", kind:"pokedex-entry", feat:"Gold Pokédex: it lurks in total darkness, silently stalking its next victim; Red/Blue says it can slip through block walls.", source:"https://pokemondb.net/pokedex/haunter", continuity:"Pokédex: Gold; Red/Blue", audit:"2026-11"},
   ],
@@ -770,6 +812,7 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "starwars:Asajj Ventress": [
     {tag:"psychic", kind:"telekinesis (Force choke)", feat:"Force-chokes ARC trooper Colt on Kamino; lifts Captain Rex with a Force grip at the Teth monastery.", source:"https://starwars.fandom.com/wiki/Force_choke", continuity:"The Clone Wars 'ARC Troopers'; The Clone Wars (2008 film)", audit:"2026-11"},
     {tag:"flight", kind:"pilot", feat:"Flies her fanblade starfighter Banshee into combat at the Battle of Sullust.", source:"https://starwars.fandom.com/wiki/Asajj_Ventress", continuity:"The Clone Wars", audit:"2026-11"},
+    {tag:"stealth", kind:"magick invisibility / infiltration", feat:"In The Clone Wars ('Nightsisters') she and two sisters step into Mother Talzin's enchanted ichor, become nearly invisible, and crawl through the Serenno palace ducts to reach Dooku unseen. Earlier she slips through the Republic cruiser Tranquility's ventilation ducts to plant detonators.", source:"https://starwars.fandom.com/wiki/Asajj_Ventress", continuity:"Star Wars: The Clone Wars", limitation:"Invisibility comes from Talzin's enchanted ichor, not her own power", audit:"2026-11"},
   ],
   "starwars:BB-8": [
     {tag:"tech", kind:"droid", feat:"A new-model astromech droid serving the Resistance.", source:"https://www.starwars.com/databank/bb-8", continuity:"The Force Awakens (2015) onward", audit:"2026-11"},
@@ -782,6 +825,8 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "starwars:Boba Fett": [
     {tag:"tech", kind:"gadgets / jetpack", feat:"Jetpack for aerial travel and combat; wrist gauntlets with fibercord whip, mounted blaster and mini flamethrower.", source:"https://www.starwars.com/databank/boba-fett", continuity:"The Empire Strikes Back; The Mandalorian; The Book of Boba Fett", audit:"2026-11"},
+    {tag:"fire", kind:"weapon flamethrower", feat:"His Mandalorian wrist gauntlet carries a mini flamethrower (StarWars.com databank).", source:"https://www.starwars.com/databank/boba-fett", continuity:"Star Wars canon: Mandalorian armor gauntlets (The Empire Strikes Back; The Book of Boba Fett)", limitation:"Weapon-based (wrist flamethrower); counts under the 2026-11-09 Mandalorian-kit ruling.", audit:"2026-11"},
+    {tag:"stealth", kind:"concealment / infiltration", feat:"In The Empire Strikes Back he hides among the Star Destroyer's dumped waste to secretly track the Millennium Falcon. In The Clone Wars he sneaks aboard the cruiser Endurance disguised as clone cadet 'Lucky' and plants a bomb.", source:"https://www.starwars.com/databank/boba-fett", continuity:"The Empire Strikes Back; The Clone Wars", audit:"2026-11"},
   ],
   "starwars:C-3PO": [
     {tag:"tech", kind:"droid", feat:"Protocol droid fluent in over seven million forms of communication; serves as interpreter on Hoth and at Jabba's palace.", source:"https://www.starwars.com/databank/c-3po", continuity:"Original/sequel trilogies", audit:"2026-11"},
@@ -795,6 +840,7 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "starwars:Cassian Andor": [
     {tag:"flight", kind:"pilot", feat:"Steals a TIE Avenger from an Imperial test facility and flies it out.", source:"https://www.starwars.com/databank/cassian-andor", continuity:"Andor season 2", audit:"2026-11"},
+    {tag:"stealth", kind:"infiltration / disguise", feat:"On Scarif in Rogue One he ambushes three Imperial officers, takes their uniforms and infiltrates the base with Jyn and K-2SO. On Eadu he watches Krennic's meeting unseen from a sniper perch. In Andor he joins the Aldhani heist undercover as 'Clem'.", source:"https://starwars.fandom.com/wiki/Cassian_Jeron_Andor", continuity:"Rogue One (2016); Andor ('Aldhani')", audit:"2026-11"},
   ],
   "starwars:Chopper": [
     {tag:"tech", kind:"droid", feat:"A beat-up astromech droid from the Clone Wars era who repairs the Ghost and mans its guns.", source:"https://www.starwars.com/databank/chopper", continuity:"Star Wars Rebels", audit:"2026-11"},
@@ -812,6 +858,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "starwars:Darth Vader": [
     {tag:"psychic", kind:"telekinesis (Force choke)", feat:"Force-chokes Admiral Motti aboard the Death Star ('I find your lack of faith disturbing'); later chokes Captain Needa and Admiral Ozzel.", source:"https://starwars.fandom.com/wiki/Force_choke", continuity:"A New Hope (1977); The Empire Strikes Back (1980)", audit:"2026-11"},
   ],
+  "starwars:Death Trooper": [
+    {tag:"tech", kind:"advanced armor (sensor suite, stealth coating)", feat:"Death trooper armor goes beyond standard plating. The helmet has a Neuro-Saav macromotion monitor, multi-frequency targeting and acquisition sensors, and image-intensifying pulse emitters that give 'total situational awareness'. The armor also has a reflec polymer coating that warps sensor signals for stealth ops, and voice scramblers that only other death troopers can decode.", source:"https://starwars.fandom.com/wiki/Death_trooper", continuity:"Rogue One (2016) / canon reference", audit:"2026-11"},
+  ],
   "starwars:Droideka": [
     {tag:"tech", kind:"droid + deflector shield", feat:"Destroyer droid that curls into a wheel to roll at speed and encases itself in a personal deflector shield.", source:"https://www.starwars.com/databank/droideka", continuity:"The Phantom Menace (1999)", audit:"2026-11"},
   ],
@@ -824,6 +873,9 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   "starwars:Ezra Bridger": [
     {tag:"psychic", kind:"creature telepathy / telekinesis", feat:"Forms a Force connection with fyrnocks and, tapping the dark side, summons the mother fyrnock to attack the Inquisitor at Fort Anaxes; later connects with the purrgil through the Force; telekinetically hurls Kallus and his troops against a wall.", source:"https://starwars.fandom.com/wiki/Ezra_Bridger", continuity:"Star Wars Rebels ('Gathering Forces', 'The Call')", audit:"2026-11"},
     {tag:"flight", kind:"pilot", feat:"Flies the Phantom with Kanan on a sweep over Geonosis.", source:"https://starwars.fandom.com/wiki/Ezra_Bridger", continuity:"Star Wars Rebels ('Ghosts of Geonosis')", audit:"2026-11"},
+  ],
+  "starwars:Fennec Shand": [
+    {tag:"stealth", kind:"stealth assassination", feat:"In The Book of Boba Fett 'Chapter 7: In the Name of Honor' she slips into the Pykes' guarded hideout and kills nine people in about a minute, showing herself only once on purpose. She then hangs Mayor Mok Shaiz and stabs the Pyke boss in the back. TV Tropes files this under Stealth Expert.", source:"https://tvtropes.org/pmwiki/pmwiki.php/Recap/TheBookOfBobaFettS1E7InTheNameOfHonor", continuity:"The Book of Boba Fett 'Chapter 7: In the Name of Honor'", audit:"2026-11"},
   ],
   "starwars:Finn": [
     {tag:"flight", kind:"gunner / ski-speeder pilot", feat:"Mans the guns of the stolen TIE fighter (Poe piloting) and the Falcon's turret against TIEs; pilots a V-4X-D ski speeder against the siege cannon on Crait.", source:"https://starwars.archivum.wiki/article/finn", continuity:"The Force Awakens (2015); The Last Jedi (2017)", audit:"2026-11"},
@@ -846,6 +898,7 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "starwars:Jango Fett": [
     {tag:"tech", kind:"gadgets / jetpack", feat:"Z-6 jetpack, backpack rocket launcher, retractable wrist blades, snare and flamethrower.", source:"https://www.starwars.com/databank/jango-fett", continuity:"Attack of the Clones (2002)", audit:"2026-11"},
+    {tag:"fire", kind:"weapon flamethrower", feat:"Carries a wrist flamethrower (StarWars.com databank weapons list, Attack of the Clones).", source:"https://www.starwars.com/databank/jango-fett", continuity:"Star Wars: Attack of the Clones (2002)", limitation:"Weapon-based (wrist flamethrower); counts under the 2026-11-09 Mandalorian-kit ruling.", audit:"2026-11"},
   ],
   "starwars:Jar Jar Binks": [
     {tag:"aquatic", kind:"amphibious", feat:"Lives comfortably on land and underwater; leads Qui-Gon and Obi-Wan to the underwater city Otoh Gunga and through Naboo's watery core by bongo; flees underwater on Rodia.", source:"https://starwars.fandom.com/wiki/Jar_Jar_Binks", continuity:"The Phantom Menace (1999); The Clone Wars 'Bombad Jedi'", audit:"2026-11"},
@@ -919,6 +972,8 @@ const CHARACTER_ABILITY_RECORDS_AUDIT = {
   ],
   "starwars:The Mandalorian": [
     {tag:"tech", kind:"gadgets / jetpack", feat:"Relies on gadgets: whistling birds that take out four stormtroopers, a whipcord launcher, wrist flamethrower, tracking fob, thermal-vision helmet, and a jetpack he uses to bring down Gideon's TIE fighter.", source:"https://starwars.fandom.com/wiki/Din_Djarin", continuity:"The Mandalorian Chapters 1-8", audit:"2026-11"},
+    {tag:"fire", kind:"weapon flamethrower", feat:"Uses his vambrace flamethrower on Jawas, a stormtrooper and reptavians (The Mandalorian Chapters 2, 3 and 7).", source:"https://starwars.fandom.com/wiki/Din_Djarin", continuity:"The Mandalorian (2019-)", limitation:"Weapon-based (vambrace flamethrower); counts under the 2026-11-09 Mandalorian-kit ruling.", audit:"2026-11"},
+    {tag:"stealth", kind:"disguised infiltration", feat:"In 'Chapter 15: The Believer' he and Mayfeld hijack an Imperial juggernaut, put on the Imperial uniforms, and drive into the Morak refinery unchallenged, with troopers saluting them. They are exposed only when Din must remove his helmet for a face scan.", source:"https://starwars.fandom.com/wiki/Chapter_15:_The_Believer", continuity:"The Mandalorian S2 'Chapter 15: The Believer'", audit:"2026-11"},
   ],
   "starwars:Watto": [
     {tag:"flight", kind:"self-flight", feat:"Toydarian whose wings let him fly/hover; his wing-flapping is a signature sound in the film.", source:"https://starwars.fandom.com/wiki/Toydarian", continuity:"The Phantom Menace (1999)", audit:"2026-11"},
@@ -948,30 +1003,26 @@ const CHARACTER_ABILITY_DISPUTES = Object.freeze([
   {id:"toons:Garfield", tag:"stealth", verdict:"incorrect", reason:"Granted only by the research-guide phrase \"cat stealth when motivated\", a stereotype rather than a documented feat. Garfield is characterized as lazy and sarcastic, not stealthy.", source:"https://en.wikipedia.org/wiki/Garfield_(character)"},
   {id:"toons:Popeye", tag:"healing", verdict:"incorrect", reason:"Granted by the guide phrase \"cartoon regeneration\". Spinach is consistently a source of strength, not healing or regeneration; no healing feat was found.", source:"https://popeye.fandom.com/wiki/Popeye"},
   {id:"pokemon:Mr. Mime", tag:"stealth", verdict:"incorrect", reason:"Granted because the roster blurb \"Invisible-wall performer\" matched the invisibility pattern. Mr. Mime creates invisible walls; no Pokédex entry says it hides or becomes invisible.", source:"https://pokemondb.net/pokedex/mr-mime"},
-  {id:"mcu:Hulk", tag:"giants", verdict:"ruling", reason:"Granted by name list. MCU Hulk is roughly 8 ft: very large but not enormous. Decide one Giant Problems size threshold and apply it to Hulk, Smart Hulk and Abomination together."},
   {id:"mcu:Vision", tag:"psychic", verdict:"ruling", reason:"Granted by name list. Mind Stone Vision shows no telepathy or telekinesis in the MCU; the only mind-power scene is the Hex Vision (no Mind Stone) freeing Norm in WandaVision episode 5.", source:"https://comicbook.com/tv-shows/news/wandavision-vison-mind-stone-powers-explained-spoilers"},
   {id:"mcu:Echo", tag:"healing", verdict:"ruling", reason:"Granted by the guide phrase \"ancestral healing\". Sources disagree on whether Maya (rather than her mother) heals, and no on-screen healing scene was found.", source:"https://gamesradar.com/marvel-echo-powers-explained"},
-  {id:"toons:Frozone", tag:"flight", verdict:"ruling", reason:"He skates along self-made ice paths through the air; Disney describes limited airborne mobility, not levitation. Keep only if Skyborne counts airborne ice-path skating as aerial combat.", source:"https://disney.fandom.com/wiki/Frozone"},
-  {id:"toons:Buzz Lightyear", tag:"flight", verdict:"ruling", reason:"Toy Story Buzz cannot truly fly: after the rocket launch he glides on his wings (\"falling with style\"). Keep only if Skyborne accepts a documented glide.", source:"https://disney.fandom.com/wiki/Buzz_Lightyear"},
   {id:"pokemon:Magneton", tag:"flight", verdict:"ruling", reason:"Granted by the curated Kanto hover list. No Magneton Pokédex entry mentions floating and it lacks Levitate; support is inherited from Magnemite (anti-gravity hover).", source:"https://pokemondb.net/pokedex/magneton"},
   {id:"starwars:IG-88", tag:"stealth", verdict:"incorrect", reason:"Granted because the roster blurb \"Assassin droid\" matched the assassin pattern. The StarWars.com databank describes a chrome war droid turned bounty hunter; no stealth feat was found.", source:"https://www.starwars.com/databank/ig-88"},
-  {id:"games:Donkey Kong", tag:"giants", verdict:"ruling", reason:"Granted by name list. Super Mario Wiki describes a burly gorilla of roughly 800 lb, never giant-sized, with no growth feat. Apply the same Giant Problems size threshold as Hulk.", source:"https://www.mariowiki.com/Donkey_Kong"},
-  {id:"games:Scorpion", tag:"stealth", verdict:"ruling", reason:"Granted because \"ninja\" is in his roster blurb. No stealth or invisibility feat was found; his documented powers are hellfire and teleportation. Decide whether ninja training alone counts for Ghost Protocol.", source:"https://en.wikipedia.org/wiki/Scorpion_(Mortal_Kombat)"},
-  {id:"games:Widowmaker", tag:"stealth", verdict:"ruling", reason:"Granted because \"assassin\" is in her roster blurb. Overwatch gives her no cloak or stealth ability; only lore training in covert arts. Decide whether an assassin role alone counts.", source:"https://overwatch.fandom.com/wiki/Widowmaker"},
+  {id:"mcu:Hawkeye", tag:"stealth", verdict:"incorrect", reason:"Granted by name list. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. MCU sources show sniper perches and marksmanship, no unseen infiltration.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Clint_Barton"},
+  {id:"mcu:Gamora", tag:"stealth", verdict:"incorrect", reason:"Granted by research-guide text. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Her Orb \"surprise\" theft becomes an open fight; Thanos training her in stealth is backstory, not a feat.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Gamora"},
+  {id:"mcu:Valentina Allegra de Fontaine", tag:"stealth", verdict:"incorrect", reason:"Granted by research-guide text. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. On screen she operates openly; the infiltration feats are comics-only.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Valentina_Allegra_de_Fontaine"},
+  {id:"mcu:Bullseye", tag:"stealth", verdict:"incorrect", reason:"Granted because \"Assassin\" is in his roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Sources show open attacks and marksmanship only.", source:"https://www.marvel.com/articles/tv-shows/meet-agent-poindexter-from-marvel-s-daredevil"},
+  {id:"toons:Master Splinter", tag:"stealth", verdict:"incorrect", reason:"Granted because \"Ninja\" is in his roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Only general \"lives in the shadows\" descriptions were found; restore with a specific scene.", source:"https://tmnt2012series.fandom.com/wiki/Master_Splinter"},
+  {id:"games:Scorpion", tag:"stealth", verdict:"incorrect", reason:"Granted because \"ninja\" is in his roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. His documented powers are hellfire and teleportation (both now evidenced separately).", source:"https://en.wikipedia.org/wiki/Scorpion_(Mortal_Kombat)"},
+  {id:"games:Widowmaker", tag:"stealth", verdict:"incorrect", reason:"Granted because \"assassin\" is in her roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Her kit has no cloak or stealth ability; in lore Sombra handles infiltration.", source:"https://overwatch.fandom.com/wiki/Widowmaker"},
+  {id:"games:Donkey Kong", tag:"giants", verdict:"incorrect", reason:"Granted by name list. Owner ruling 2026-11-09: Giant Problems counts about 8 ft or taller. Only his weight (800 lb, Donkey Kong 64) is documented, never his height; restore if a height of 8 ft or more is found.", source:"https://www.mariowiki.com/Donkey_Kong"},
 ]);
 /* Plausible powers that are NOT granted yet: evidence is missing, version-dependent, or the
    challenge meaning needs a design ruling. Never treat this list as eligibility. */
 const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
-    {id:"mcu:The Watcher", tag:"giants", note:"Wiki (Uatu) and Wikipedia describe no size/giant scale; a fetched episode-8 article applies 'giant' to Ultron, not the Watcher. Would need a specific on-screen scale scene.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Uatu"},
-  {id:"mcu:Smart Hulk", tag:"giants", note:"Same ~8 ft Hulk body. Grant or deny together with Hulk once the Giant Problems size threshold is decided.", source:"https://www.fortressofsolitude.co.za/how-tall-is-hulk-how-big-does-he-get"},
-  {id:"mcu:Smart Hulk", tag:"healing", note:"Counter-evidence: Smart Hulk's arm, injured by the Snap in Endgame, never healed by itself. In She-Hulk ep 1 he needed an inhibitor and then Jen's synthesized blood to 'completely heal his arm'. No positive regeneration scene found for the Smart Hulk form.", source:"https://www.marvel.com/articles/tv-shows/she-hulk-episode-1-recap"},
+    {id:"mcu:Smart Hulk", tag:"healing", note:"Counter-evidence: Smart Hulk's arm, injured by the Snap in Endgame, never healed by itself. In She-Hulk ep 1 he needed an inhibitor and then Jen's synthesized blood to 'completely heal his arm'. No positive regeneration scene found for the Smart Hulk form.", source:"https://www.marvel.com/articles/tv-shows/she-hulk-episode-1-recap"},
   {id:"mcu:Gorr the God Butcher", tag:"healing", note:"Wiki says the Necrosword grants a regenerative healing factor, but I found no specific on-screen healing scene.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Gorr"},
   {id:"mcu:Electro", tag:"teleport", note:"Wiki lists teleportation by dissolving into electricity; no specific scene confirmed.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Electro"},
   {id:"toons:Edna Mode", tag:"tech", note:"She makes the tech for others; no source shows her personally relying on gadgets or armor. Designer is a job title, so this is the owner's call. Leaning no.", source:"https://en.wikipedia.org/wiki/Edna_Mode"},
-  {id:"muppets:Sweetums", tag:"giants", note:"No height is given and no source calls him a giant; he towers above the cast, as Thog (9½ ft, already granted giants) does. Needs an owner size threshold.", source:"https://muppet.fandom.com/wiki/Sweetums"},
-  {id:"muppets:Big Bird", tag:"giants", note:"Canonically 8'2\"; only support is his own joking \"giant golden condor\" line. Needs a designer size threshold for Giant Problems (Thog 9.5 ft and the Gorgs qualify; Hulk is under review).", source:"https://muppet.fandom.com/wiki/Big_Bird"},
-  {id:"muppets:Mr. Snuffleupagus", tag:"giants", note:"Huge, but no source calls him giant. Owner size-threshold call.", source:"https://muppet.fandom.com/wiki/Mr._Snuffleupagus"},
-  {id:"muppets:Big Mean Carl", tag:"giants", note:"The source gives no size and never calls him giant; he wants to grow as big as his 'much bigger brother'. Leaning no.", source:"https://muppet.fandom.com/wiki/Big_Mean_Carl"},
   {id:"muppets:Bernice", tag:"flight", note:"The source never shows her flying (its only flying reference is a different bird). Not confirmed.", source:"https://muppet.fandom.com/wiki/Bernice"},
   {id:"muppets:Hoots the Owl", tag:"flight", note:"Backstory wording only (possibly figurative); no on-screen flight found.", source:"https://muppet.fandom.com/wiki/Hoots_the_Owl"},
   {id:"muppets:Sam Eagle", tag:"flight", note:"No source found showing him fly; Wikipedia mentions no flight, and Muppet Wiki's page would not load. Being a bird is not evidence.", source:"https://en.wikipedia.org/wiki/Sam_Eagle"},
@@ -987,7 +1038,6 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"pokemon:Haunter", tag:"psychic", note:"Hypnotic sleep-induction/dream-eating is weak evidence of psychic power; designer ruling needed.", source:"https://pokemondb.net/pokedex/haunter/moves/1"},
   {id:"pokemon:Gengar", tag:"psychic", note:"Hypnotic sleep-induction/dream-eating is weak evidence of psychic power; designer ruling needed.", source:"https://pokemondb.net/pokedex/gengar/moves/1"},
   {id:"pokemon:Zubat", tag:"stealth", note:"Cave-dwelling/nocturnal is not stealth; no positive evidence found.", source:"https://pokemondb.net/pokedex/zubat"},
-  {id:"pokemon:Gyarados", tag:"giants", note:"Size-threshold question for designer: Onix is 8.8 m and Snorlax (2.1 m, 460 kg) already tagged giants. Dragonair (4.0 m) would be the next consideration.", source:"https://pokemondb.net/pokedex/gyarados"},
   {id:"pokemon:Gengar", tag:"magic", note:"Curse-casting may count as supernatural sorcery; designer ruling (parallel to Ninetales curse).", source:"https://pokemondb.net/pokedex/gengar"},
   {id:"pokemon:Slowpoke", tag:"healing", note:"Passive tail regrowth; designer to decide if this is enough for self-regeneration.", source:"https://pokemondb.net/pokedex/slowpoke"},
   {id:"games:Captain Falcon", tag:"fire", note:"Flames are a Smash attack effect, not a fire-control power; F-Zero canon shows no fire powers. Owner decision needed.", source:"https://www.ssbwiki.com/Captain_Falcon_(SSBU)"},
@@ -998,18 +1048,23 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"games:Jinx", tag:"electric", note:"The page never calls Zap! electric and lists its damage as physical.", source:"https://wiki.leagueoflegends.com/en-us/Jinx"},
   {id:"games:Tracer", tag:"healing", note:"Recall rewinds her to an earlier position and health. Needs a ruling on whether a time rewind counts as self-healing.", source:"https://overwatch.fandom.com/wiki/Tracer"},
   {id:"starwars:Maz Kanata", tag:"psychic", note:"Force-sensitive ('I am no Jedi, but I know the Force') and senses others/changes of fortune, but those sensing claims come from the novelization and Visual Dictionary; no on-screen telekinesis, telepathy or mind trick found. Needs designer ruling on whether Force-sensing counts as empathic.", source:"https://starwars.fandom.com/wiki/Maz_Kanata"},
-  {id:"starwars:Stormtrooper", tag:"tech", note:"armor-only; needs designer ruling"},
-  {id:"starwars:Death Trooper", tag:"tech", note:"armor-only; needs designer ruling"},
-  {id:"starwars:Captain Phasma", tag:"tech", note:"armor-only; needs designer ruling"},
   {id:"starwars:Mace Windu", tag:"flight", note:"Wookieepedia article (first 100k chars) describes no scene of Windu piloting or flying; he rides gunships and creatures only.", source:"https://starwars.fandom.com/wiki/Mace_Windu"},
   {id:"starwars:Padmé Amidala", tag:"flight", note:"Source says she was fully capable of piloting her star skiff but often delegated to Typho or C-3PO, and does not confirm she flew it to Mustafar. No specific piloting scene confirmed.", source:"https://starwars.archivum.wiki/article/j-type_star_skiff"},
   {id:"starwars:Chopper", tag:"flight", note:"Mans a Ghost gun turret and flies on autopilot; no scene of him piloting in combat. Decide whether gunners count for Skyborne (Finn was accepted as a TIE/Falcon gunner in actual dogfights).", source:"https://starwars.archivum.wiki/article/the_machine_in_the_ghost"},
   {id:"starwars:Captain Rex", tag:"flight", note:"Wookieepedia/databank pages for Rex could not be fetched; the Y-wing escape with Ahsoka (Clone Wars S7) does not say who flew. No confirmed piloting scene."},
   {id:"starwars:Asajj Ventress", tag:"magic", note:"Canon text shows her receiving Nightsister magick (healing ritual, invisibility ichor enchanted by Talzin) but not casting it herself.", source:"https://starwars.fandom.com/wiki/Asajj_Ventress"},
-  {id:"starwars:Jango Fett", tag:"fire", note:"weapon flamethrower; needs designer ruling whether this is commanding fire", source:"https://www.starwars.com/databank/jango-fett"},
-  {id:"starwars:Boba Fett", tag:"fire", note:"weapon flamethrower; needs designer ruling whether this is commanding fire", source:"https://www.starwars.com/databank/boba-fett"},
-  {id:"starwars:The Mandalorian", tag:"fire", note:"weapon flamethrower; needs designer ruling whether this is commanding fire", source:"https://starwars.fandom.com/wiki/Din_Djarin"},
   {id:"starwars:Fennec Shand", tag:"tech", note:"Her lower abdomen was replaced with cybernetics to save her life (The Book of Boba Fett), but she is not shown relying on them as a capability.", source:"https://starwars.fandom.com/wiki/Fennec_Shand"},
+  {id:"toons:Master Splinter", tag:"stealth", note:"Only general descriptions were found: the 2012 wiki credits his stealth to speed ('get past his enemies like Dogpound') and says he lived 'in the shadows'. The 2003 Turtlepedia page shows him teaching 'ninjutsu powers of stealth and secrecy' and sensing invisible foes. No specific scene of him sneaking or infiltrating was found. The 1987 and 2012 Turtlepedia Splinter pages could not be fetched. Leaning toward 'role (sensei) only' unless a scene turns up.", source:"https://tmnt2012series.fandom.com/wiki/Master_Splinter"},
+  {id:"starwars:Bo-Katan Kryze", tag:"fire", note:"Not found. Her Wookieepedia arsenal is WESTAR-35 pistols, dart launchers, gauntlet blades and a grappling line, with no flamethrower. The Flamethrower and ZX flame projector articles list Jango, Boba, Gar Saxon, Cad Bane and others but not her (the ZX article names her only as the person fighting Saxon). Her thrown explosives are not described as incendiary. Leaning toward rejected.", source:"https://starwars.fandom.com/wiki/Bo-Katan_Kryze"},
+  {id:"starwars:Sabine Wren", tag:"fire", note:"Not found. Her full Wookieepedia article shows explosives (thermal paint, thermal detonators, smoke grenades, blowing up an AT-DP) but no flamethrower or fire use. The Flamethrower article does not list her. Explosions are not commanding fire, so leaning toward rejected.", source:"https://starwars.fandom.com/wiki/Sabine_Wren"},
+  {id:"starwars:Captain Phasma", tag:"tech", note:"No advanced capabilities documented. Her armor is stormtrooper-style armor forged from salvaged chromium, which reflects radiation and deflects weak bolts but 'served primarily as a symbol'. There are no sensors or powered systems, so it fails the owner's ruling. Leaning toward rejected.", source:"https://starwars.fandom.com/wiki/Phasma"},
+  {id:"starwars:Stormtrooper", tag:"tech", note:"The canon armor does list a HUD, an integrated comlink, motion sensors, vision processing for darkness and smoke, air filtration and a temperature-regulating body glove. But this is standard rank-and-file kit, which the owner ruled a poor fit, and no on-screen reliance was found. Leaning toward rejected.", source:"https://starwars.fandom.com/wiki/Stormtrooper_armor"},
+  {id:"games:Marcus Fenix", tag:"tech", note:"The Gears wiki calls COG armor a 'personal body protection system' with a power pack for ID lights and helmet filters. It lists no strength assist, HUD, sensors or comms, so it is standard-issue armor and fails the armor ruling. Untested alternative: his use of the Hammer of Dawn targeting device (an orbital weapon) might qualify as a signature gadget. This was not researched here.", source:"https://gearsofwar.fandom.com/wiki/COG_Armor"},
+  {id:"muppets:Sweetums", tag:"giants", note:"No documented height. Muppet Wiki only says he 'towers above his human and Muppet co-stars'. The Muppet Key Substack profile and searches for 'feet tall' turned up no measurement.", source:"https://muppet.fandom.com/wiki/Sweetums"},
+  {id:"muppets:Mr. Snuffleupagus", tag:"giants", note:"No documented height. Documented size facts: he weighs 1,000 lb (Episode 1606), wears a 65 triple-G shoe, and the costume needs two performers and must be stored hung from the ceiling. Grunge, Mental Floss and Dictionary.com give no height either; Grunge gives a 6-ft minimum for the performer, not the character.", source:"https://muppet.fandom.com/wiki/Mr._Snuffleupagus"},
+  {id:"muppets:Big Mean Carl", tag:"giants", note:"No documented height. ToughPigs calls him 'massive', a 'gigantic messy creature' and a 'giant monster', which are qualitative only.", source:"https://www.toughpigs.com/?p=52374"},
+  {id:"mcu:The Watcher", tag:"giants", note:"No documented height. The Wikipedia MCU article gives no size or scale. An earlier pass found the same on the MCU wiki (Uatu). Would need an on-screen scale scene.", source:"https://en.wikipedia.org/wiki/Watcher_(Marvel_Cinematic_Universe)"},
+  {id:"games:Donkey Kong", tag:"giants", note:"No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).", source:"https://www.mariowiki.com/Donkey_Kong"},
 ]);
 /* BEGIN GENERATED ABILITY INDEX (node tools/ability-audit.cjs --write-index).
    Every roster character is listed, so [] means "audited: no qualifying power", not "unknown".
@@ -1158,9 +1213,9 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Thor": ["flight", "electric"],
     "Hulk": ["healing", "giants"],
     "Bruce Banner": [],
-    "Smart Hulk": [],
+    "Smart Hulk": ["giants"],
     "Black Widow": ["stealth"],
-    "Hawkeye": ["tech", "stealth"],
+    "Hawkeye": ["tech"],
     "Kate Bishop": ["tech"],
     "Spider-Man": ["tech"],
     "Doctor Strange": ["flight", "magic", "psychic", "teleport"],
@@ -1179,7 +1234,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Howard Stark": ["tech"],
     "Happy Hogan": [],
     "Star-Lord": ["flight", "tech"],
-    "Gamora": ["stealth"],
+    "Gamora": [],
     "Drax": [],
     "Rocket": ["flight", "tech"],
     "Groot": ["healing"],
@@ -1278,7 +1333,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Elektra": ["stealth"],
     "Miek": [],
     "Sentry": ["flight"],
-    "Valentina Allegra de Fontaine": ["stealth"],
+    "Valentina Allegra de Fontaine": [],
     "Bill Foster": ["giants"],
     "Jean Grey": ["psychic"],
     "Doctor Doom": ["magic", "tech"],
@@ -1295,7 +1350,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "The Watcher": ["psychic", "stealth", "teleport"],
     "Captain Carter": [],
     "Erik Selvig": [],
-    "Bullseye": ["stealth"],
+    "Bullseye": [],
   }),
   toons: Object.freeze({
     "Bugs Bunny": [],
@@ -1373,7 +1428,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Raphael": ["stealth"],
     "Michelangelo": ["stealth"],
     "Donatello": ["tech", "stealth"],
-    "Master Splinter": ["stealth"],
+    "Master Splinter": [],
     "Aang": ["flight", "aquatic", "fire", "ice", "giants"],
     "Toph Beifong": [],
     "Zuko": ["fire", "electric"],
@@ -1450,7 +1505,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Pops": [],
     "Hilda": [],
     "Annie Sue": [],
-    "Big Bird": [],
+    "Big Bird": ["giants"],
     "Mr. Snuffleupagus": [],
     "Cookie Monster": [],
     "Elmo": [],
@@ -1512,7 +1567,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Bowser": ["flight", "fire", "giants"],
     "Yoshi": ["flight", "fire"],
     "Toad": ["fire"],
-    "Donkey Kong": ["giants"],
+    "Donkey Kong": [],
     "Diddy Kong": ["flight"],
     "Link": ["flight", "magic", "aquatic", "fire", "ice", "electric", "teleport"],
     "Zelda": ["magic", "psychic", "teleport"],
@@ -1588,7 +1643,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Chun-Li": [],
     "M. Bison": ["flight", "psychic", "teleport"],
     "Guile": ["flight"],
-    "Scorpion": ["fire", "stealth", "teleport"],
+    "Scorpion": ["fire", "teleport"],
     "Sub-Zero": ["ice"],
     "Raiden (MK)": ["flight", "electric", "teleport"],
     "Liu Kang": ["fire"],
@@ -1621,7 +1676,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Thrall": ["magic", "electric", "healing"],
     "Jim Raynor": ["tech"],
     "Sarah Kerrigan": ["psychic", "stealth", "healing"],
-    "Widowmaker": ["stealth"],
+    "Widowmaker": [],
     "Agent 47": ["stealth"],
     "Bayonetta": ["magic"],
   }),
@@ -1755,7 +1810,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Pinsir": [],
     "Tauros": [],
     "Magikarp": ["aquatic"],
-    "Gyarados": ["aquatic"],
+    "Gyarados": ["aquatic", "giants"],
     "Lapras": ["psychic", "aquatic", "ice"],
     "Ditto": [],
     "Eevee": [],
@@ -1842,12 +1897,12 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Director Krennic": [],
     "Moff Gideon": ["flight"],
     "Stormtrooper": [],
-    "Death Trooper": [],
+    "Death Trooper": ["tech"],
     "Captain Phasma": [],
     "General Hux": [],
-    "Boba Fett": ["flight", "tech", "stealth"],
-    "Jango Fett": ["flight", "tech"],
-    "The Mandalorian": ["flight", "tech", "stealth"],
+    "Boba Fett": ["flight", "fire", "tech", "stealth"],
+    "Jango Fett": ["flight", "fire", "tech"],
+    "The Mandalorian": ["flight", "fire", "tech", "stealth"],
     "Bo-Katan Kryze": ["flight", "tech"],
     "Cad Bane": ["flight", "tech"],
     "Fennec Shand": ["stealth"],

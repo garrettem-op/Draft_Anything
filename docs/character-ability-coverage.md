@@ -11,27 +11,27 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 | magic | 0 | 10 | 3 | 4 | 20 | 1 | 0 | 38 |
 | psychic | 0 | 14 | 0 | 2 | 6 | 22 | 27 | 71 |
 | aquatic | 0 | 2 | 9 | 0 | 1 | 35 | 3 | 50 |
-| fire | 0 | 1 | 3 | 0 | 21 | 12 | 0 | 37 |
+| fire | 0 | 1 | 3 | 0 | 21 | 12 | 3 | 40 |
 | ice | 0 | 0 | 5 | 0 | 12 | 7 | 0 | 24 |
 | electric | 0 | 5 | 2 | 0 | 16 | 12 | 4 | 39 |
-| tech | 0 | 34 | 13 | 1 | 26 | 1 | 20 | 95 |
+| tech | 0 | 34 | 13 | 1 | 26 | 1 | 21 | 96 |
 | stealth | 0 | 17 | 7 | 0 | 12 | 7 | 6 | 49 |
 | teleport | 0 | 17 | 2 | 2 | 17 | 18 | 0 | 56 |
 | healing | 0 | 14 | 4 | 0 | 10 | 6 | 4 | 38 |
-| giants | 0 | 8 | 1 | 5 | 5 | 2 | 1 | 22 |
+| giants | 0 | 9 | 1 | 6 | 5 | 3 | 1 | 25 |
 
 ## Evidence layer that grants each accepted character–power pair
 
 | Layer | Pairs |
 | --- | ---: |
-| character-abilities | 375 |
+| character-abilities | 396 |
 | campaign-tag | 108 |
-| explicit-roster-description | 71 |
-| built-in-research-guide | 56 |
+| explicit-roster-description | 62 |
+| built-in-research-guide | 51 |
 | curated-pokemon-type | 37 |
 | curated-flight-or-air-combat | 31 |
 
-`CHARACTER_ABILITIES` holds 380 source-linked records for 238 characters.
+`CHARACTER_ABILITIES` holds 405 source-linked records for 253 characters.
 
 ## Disputed grants (engine accepts, audit disagrees or needs a ruling)
 
@@ -39,29 +39,25 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `toons:Garfield` **stealth** (incorrect): Granted only by the research-guide phrase "cat stealth when motivated", a stereotype rather than a documented feat. Garfield is characterized as lazy and sarcastic, not stealthy.
 - `toons:Popeye` **healing** (incorrect): Granted by the guide phrase "cartoon regeneration". Spinach is consistently a source of strength, not healing or regeneration; no healing feat was found.
 - `pokemon:Mr. Mime` **stealth** (incorrect): Granted because the roster blurb "Invisible-wall performer" matched the invisibility pattern. Mr. Mime creates invisible walls; no Pokédex entry says it hides or becomes invisible.
-- `mcu:Hulk` **giants** (ruling): Granted by name list. MCU Hulk is roughly 8 ft: very large but not enormous. Decide one Giant Problems size threshold and apply it to Hulk, Smart Hulk and Abomination together.
 - `mcu:Vision` **psychic** (ruling): Granted by name list. Mind Stone Vision shows no telepathy or telekinesis in the MCU; the only mind-power scene is the Hex Vision (no Mind Stone) freeing Norm in WandaVision episode 5.
 - `mcu:Echo` **healing** (ruling): Granted by the guide phrase "ancestral healing". Sources disagree on whether Maya (rather than her mother) heals, and no on-screen healing scene was found.
-- `toons:Frozone` **flight** (ruling): He skates along self-made ice paths through the air; Disney describes limited airborne mobility, not levitation. Keep only if Skyborne counts airborne ice-path skating as aerial combat.
-- `toons:Buzz Lightyear` **flight** (ruling): Toy Story Buzz cannot truly fly: after the rocket launch he glides on his wings ("falling with style"). Keep only if Skyborne accepts a documented glide.
 - `pokemon:Magneton` **flight** (ruling): Granted by the curated Kanto hover list. No Magneton Pokédex entry mentions floating and it lacks Levitate; support is inherited from Magnemite (anti-gravity hover).
 - `starwars:IG-88` **stealth** (incorrect): Granted because the roster blurb "Assassin droid" matched the assassin pattern. The StarWars.com databank describes a chrome war droid turned bounty hunter; no stealth feat was found.
-- `games:Donkey Kong` **giants** (ruling): Granted by name list. Super Mario Wiki describes a burly gorilla of roughly 800 lb, never giant-sized, with no growth feat. Apply the same Giant Problems size threshold as Hulk.
-- `games:Scorpion` **stealth** (ruling): Granted because "ninja" is in his roster blurb. No stealth or invisibility feat was found; his documented powers are hellfire and teleportation. Decide whether ninja training alone counts for Ghost Protocol.
-- `games:Widowmaker` **stealth** (ruling): Granted because "assassin" is in her roster blurb. Overwatch gives her no cloak or stealth ability; only lore training in covert arts. Decide whether an assassin role alone counts.
+- `mcu:Hawkeye` **stealth** (incorrect): Granted by name list. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. MCU sources show sniper perches and marksmanship, no unseen infiltration.
+- `mcu:Gamora` **stealth** (incorrect): Granted by research-guide text. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Her Orb "surprise" theft becomes an open fight; Thanos training her in stealth is backstory, not a feat.
+- `mcu:Valentina Allegra de Fontaine` **stealth** (incorrect): Granted by research-guide text. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. On screen she operates openly; the infiltration feats are comics-only.
+- `mcu:Bullseye` **stealth** (incorrect): Granted because "Assassin" is in his roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Sources show open attacks and marksmanship only.
+- `toons:Master Splinter` **stealth** (incorrect): Granted because "Ninja" is in his roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Only general "lives in the shadows" descriptions were found; restore with a specific scene.
+- `games:Scorpion` **stealth** (incorrect): Granted because "ninja" is in his roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. His documented powers are hellfire and teleportation (both now evidenced separately).
+- `games:Widowmaker` **stealth** (incorrect): Granted because "assassin" is in her roster blurb. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Her kit has no cloak or stealth ability; in lore Sombra handles infiltration.
+- `games:Donkey Kong` **giants** (incorrect): Granted by name list. Owner ruling 2026-11-09: Giant Problems counts about 8 ft or taller. Only his weight (800 lb, Donkey Kong 64) is documented, never his height; restore if a height of 8 ft or more is found.
 
 ## Research queue (not granted; needs evidence or a design ruling)
 
-- `mcu:The Watcher` **giants**: Wiki (Uatu) and Wikipedia describe no size/giant scale; a fetched episode-8 article applies 'giant' to Ultron, not the Watcher. Would need a specific on-screen scale scene.
-- `mcu:Smart Hulk` **giants**: Same ~8 ft Hulk body. Grant or deny together with Hulk once the Giant Problems size threshold is decided.
 - `mcu:Smart Hulk` **healing**: Counter-evidence: Smart Hulk's arm, injured by the Snap in Endgame, never healed by itself. In She-Hulk ep 1 he needed an inhibitor and then Jen's synthesized blood to 'completely heal his arm'. No positive regeneration scene found for the Smart Hulk form.
 - `mcu:Gorr the God Butcher` **healing**: Wiki says the Necrosword grants a regenerative healing factor, but I found no specific on-screen healing scene.
 - `mcu:Electro` **teleport**: Wiki lists teleportation by dissolving into electricity; no specific scene confirmed.
 - `toons:Edna Mode` **tech**: She makes the tech for others; no source shows her personally relying on gadgets or armor. Designer is a job title, so this is the owner's call. Leaning no.
-- `muppets:Sweetums` **giants**: No height is given and no source calls him a giant; he towers above the cast, as Thog (9½ ft, already granted giants) does. Needs an owner size threshold.
-- `muppets:Big Bird` **giants**: Canonically 8'2"; only support is his own joking "giant golden condor" line. Needs a designer size threshold for Giant Problems (Thog 9.5 ft and the Gorgs qualify; Hulk is under review).
-- `muppets:Mr. Snuffleupagus` **giants**: Huge, but no source calls him giant. Owner size-threshold call.
-- `muppets:Big Mean Carl` **giants**: The source gives no size and never calls him giant; he wants to grow as big as his 'much bigger brother'. Leaning no.
 - `muppets:Bernice` **flight**: The source never shows her flying (its only flying reference is a different bird). Not confirmed.
 - `muppets:Hoots the Owl` **flight**: Backstory wording only (possibly figurative); no on-screen flight found.
 - `muppets:Sam Eagle` **flight**: No source found showing him fly; Wikipedia mentions no flight, and Muppet Wiki's page would not load. Being a bird is not evidence.
@@ -77,7 +73,6 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `pokemon:Haunter` **psychic**: Hypnotic sleep-induction/dream-eating is weak evidence of psychic power; designer ruling needed.
 - `pokemon:Gengar` **psychic**: Hypnotic sleep-induction/dream-eating is weak evidence of psychic power; designer ruling needed.
 - `pokemon:Zubat` **stealth**: Cave-dwelling/nocturnal is not stealth; no positive evidence found.
-- `pokemon:Gyarados` **giants**: Size-threshold question for designer: Onix is 8.8 m and Snorlax (2.1 m, 460 kg) already tagged giants. Dragonair (4.0 m) would be the next consideration.
 - `pokemon:Gengar` **magic**: Curse-casting may count as supernatural sorcery; designer ruling (parallel to Ninetales curse).
 - `pokemon:Slowpoke` **healing**: Passive tail regrowth; designer to decide if this is enough for self-regeneration.
 - `games:Captain Falcon` **fire**: Flames are a Smash attack effect, not a fire-control power; F-Zero canon shows no fire powers. Owner decision needed.
@@ -88,26 +83,31 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `games:Jinx` **electric**: The page never calls Zap! electric and lists its damage as physical.
 - `games:Tracer` **healing**: Recall rewinds her to an earlier position and health. Needs a ruling on whether a time rewind counts as self-healing.
 - `starwars:Maz Kanata` **psychic**: Force-sensitive ('I am no Jedi, but I know the Force') and senses others/changes of fortune, but those sensing claims come from the novelization and Visual Dictionary; no on-screen telekinesis, telepathy or mind trick found. Needs designer ruling on whether Force-sensing counts as empathic.
-- `starwars:Stormtrooper` **tech**: armor-only; needs designer ruling
-- `starwars:Death Trooper` **tech**: armor-only; needs designer ruling
-- `starwars:Captain Phasma` **tech**: armor-only; needs designer ruling
 - `starwars:Mace Windu` **flight**: Wookieepedia article (first 100k chars) describes no scene of Windu piloting or flying; he rides gunships and creatures only.
 - `starwars:Padmé Amidala` **flight**: Source says she was fully capable of piloting her star skiff but often delegated to Typho or C-3PO, and does not confirm she flew it to Mustafar. No specific piloting scene confirmed.
 - `starwars:Chopper` **flight**: Mans a Ghost gun turret and flies on autopilot; no scene of him piloting in combat. Decide whether gunners count for Skyborne (Finn was accepted as a TIE/Falcon gunner in actual dogfights).
 - `starwars:Captain Rex` **flight**: Wookieepedia/databank pages for Rex could not be fetched; the Y-wing escape with Ahsoka (Clone Wars S7) does not say who flew. No confirmed piloting scene.
 - `starwars:Asajj Ventress` **magic**: Canon text shows her receiving Nightsister magick (healing ritual, invisibility ichor enchanted by Talzin) but not casting it herself.
-- `starwars:Jango Fett` **fire**: weapon flamethrower; needs designer ruling whether this is commanding fire
-- `starwars:Boba Fett` **fire**: weapon flamethrower; needs designer ruling whether this is commanding fire
-- `starwars:The Mandalorian` **fire**: weapon flamethrower; needs designer ruling whether this is commanding fire
 - `starwars:Fennec Shand` **tech**: Her lower abdomen was replaced with cybernetics to save her life (The Book of Boba Fett), but she is not shown relying on them as a capability.
+- `toons:Master Splinter` **stealth**: Only general descriptions were found: the 2012 wiki credits his stealth to speed ('get past his enemies like Dogpound') and says he lived 'in the shadows'. The 2003 Turtlepedia page shows him teaching 'ninjutsu powers of stealth and secrecy' and sensing invisible foes. No specific scene of him sneaking or infiltrating was found. The 1987 and 2012 Turtlepedia Splinter pages could not be fetched. Leaning toward 'role (sensei) only' unless a scene turns up.
+- `starwars:Bo-Katan Kryze` **fire**: Not found. Her Wookieepedia arsenal is WESTAR-35 pistols, dart launchers, gauntlet blades and a grappling line, with no flamethrower. The Flamethrower and ZX flame projector articles list Jango, Boba, Gar Saxon, Cad Bane and others but not her (the ZX article names her only as the person fighting Saxon). Her thrown explosives are not described as incendiary. Leaning toward rejected.
+- `starwars:Sabine Wren` **fire**: Not found. Her full Wookieepedia article shows explosives (thermal paint, thermal detonators, smoke grenades, blowing up an AT-DP) but no flamethrower or fire use. The Flamethrower article does not list her. Explosions are not commanding fire, so leaning toward rejected.
+- `starwars:Captain Phasma` **tech**: No advanced capabilities documented. Her armor is stormtrooper-style armor forged from salvaged chromium, which reflects radiation and deflects weak bolts but 'served primarily as a symbol'. There are no sensors or powered systems, so it fails the owner's ruling. Leaning toward rejected.
+- `starwars:Stormtrooper` **tech**: The canon armor does list a HUD, an integrated comlink, motion sensors, vision processing for darkness and smoke, air filtration and a temperature-regulating body glove. But this is standard rank-and-file kit, which the owner ruled a poor fit, and no on-screen reliance was found. Leaning toward rejected.
+- `games:Marcus Fenix` **tech**: The Gears wiki calls COG armor a 'personal body protection system' with a power pack for ID lights and helmet filters. It lists no strength assist, HUD, sensors or comms, so it is standard-issue armor and fails the armor ruling. Untested alternative: his use of the Hammer of Dawn targeting device (an orbital weapon) might qualify as a signature gadget. This was not researched here.
+- `muppets:Sweetums` **giants**: No documented height. Muppet Wiki only says he 'towers above his human and Muppet co-stars'. The Muppet Key Substack profile and searches for 'feet tall' turned up no measurement.
+- `muppets:Mr. Snuffleupagus` **giants**: No documented height. Documented size facts: he weighs 1,000 lb (Episode 1606), wears a 65 triple-G shoe, and the costume needs two performers and must be stored hung from the ceiling. Grunge, Mental Floss and Dictionary.com give no height either; Grunge gives a 6-ft minimum for the performer, not the character.
+- `muppets:Big Mean Carl` **giants**: No documented height. ToughPigs calls him 'massive', a 'gigantic messy creature' and a 'giant monster', which are qualitative only.
+- `mcu:The Watcher` **giants**: No documented height. The Wikipedia MCU article gives no size or scale. An earlier pass found the same on the MCU wiki (Uatu). Would need an on-screen scale scene.
+- `games:Donkey Kong` **giants**: No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).
 
 ## Non-NBA characters with no qualifying power after audit
 
 An empty entry is a reviewed result, not a guarantee. Most are non-powered by design (e.g. Han Solo outside the cockpit, Kermit).
 
-- **mcu** (44): Captain America, Bruce Banner, Smart Hulk, Happy Hogan, Drax, Taserface, Okoye, Ayo, M'Baku, Sif, Korg, Hercules, Red Skull, Ronan the Accuser, The Collector, Grandmaster, Shang-Chi, Katy, Red Guardian, Taskmaster, John Walker, Zemo, Maria Hill, Phil Coulson, Peggy Carter, Jimmy Woo, Darcy Lewis, MJ, Aunt May, Thena, Makkari, Gilgamesh, Kingo, Sersi, Kingpin, Daredevil, Jessica Jones, Luke Cage, The Punisher, Miek, Mole Man, Stick, Captain Carter, Erik Selvig
+- **mcu** (43): Captain America, Bruce Banner, Happy Hogan, Drax, Taserface, Okoye, Ayo, M'Baku, Sif, Korg, Hercules, Red Skull, Ronan the Accuser, The Collector, Grandmaster, Shang-Chi, Katy, Red Guardian, Taskmaster, John Walker, Zemo, Maria Hill, Phil Coulson, Peggy Carter, Jimmy Woo, Darcy Lewis, MJ, Aunt May, Thena, Makkari, Gilgamesh, Kingo, Sersi, Kingpin, Daredevil, Jessica Jones, Luke Cage, The Punisher, Miek, Mole Man, Stick, Captain Carter, Erik Selvig
 - **toons** (60): Bugs Bunny, Road Runner, Tasmanian Devil, Lola Bunny, Porky Pig, Speedy Gonzales, Sylvester, Foghorn Leghorn, Yosemite Sam, Pepé Le Pew, Elmer Fudd, Michigan J. Frog, Minnie Mouse, Donald Duck, Goofy, Pluto, Phil, Mulan, Simba, Baloo, Tarzan, Woody, Mr. Incredible, Dash, Edna Mode, Sulley, Mike Wazowski, Lightning McQueen, Remy, Shrek, Donkey, Puss in Boots, Po, Master Shifu, Tigress, Homer Simpson, Bart Simpson, Lisa Simpson, Marge Simpson, Fred Flintstone, Barney Rubble, Scooby-Doo, Shaggy, Velma, Fred Jones, Yogi Bear, Bluto, Toph Beifong, Sokka, Johnny Bravo, Courage the Cowardly Dog, Charlie Brown, Lucy van Pelt, Peppermint Patty, Tom, Jerry, Bandit, Bluey, Hank Hill, Bob Belcher
-- **muppets** (87): Kermit the Frog, Miss Piggy, Fozzie Bear, Gonzo, Swedish Chef, Rowlf the Dog, Beaker, Statler, Waldorf, Sam Eagle, Pepe the King Prawn, Scooter, Rizzo the Rat, Robin the Frog, Camilla the Chicken, Dr. Teeth, Floyd Pepper, Janice, Zoot, Lips, Lew Zealand, Crazy Harry, Sweetums, Uncle Deadly, Dr. Julius Strangepork, Marvin Suggs, Mahna Mahna, Bobo the Bear, Clifford, Walter, Constantine, Johnny Fiama, Sal Minella, Spa'am, Bean Bunny, Beauregard, Big Mean Carl, Doglion, Seymour, The Newsman, Pops, Hilda, Annie Sue, Big Bird, Mr. Snuffleupagus, Cookie Monster, Elmo, Oscar the Grouch, Bert, Ernie, Zoe, Rosita, Telly Monster, Herry Monster, Prairie Dawn, Baby Bear, Curly Bear, Two-Headed Monster, Guy Smiley, Mr. Johnson, Slimey the Worm, Honkers, Murray Monster, Frazzle, Gladys the Cow, Sherlock Hemlock, Roosevelt Franklin, Barkley, Hoots the Owl, Bernice, Forgetful Jones, Ji-Young, Lefty the Salesman, Grundgetta, Bruno the Trashman, Gobo Fraggle, Wembley Fraggle, Boober Fraggle, Mokey Fraggle, Red Fraggle, Uncle Traveling Matt, Sprocket, Doc, Cotterpin Doozer, Philo and Gunge, Emmet Otter, Ma Otter
+- **muppets** (86): Kermit the Frog, Miss Piggy, Fozzie Bear, Gonzo, Swedish Chef, Rowlf the Dog, Beaker, Statler, Waldorf, Sam Eagle, Pepe the King Prawn, Scooter, Rizzo the Rat, Robin the Frog, Camilla the Chicken, Dr. Teeth, Floyd Pepper, Janice, Zoot, Lips, Lew Zealand, Crazy Harry, Sweetums, Uncle Deadly, Dr. Julius Strangepork, Marvin Suggs, Mahna Mahna, Bobo the Bear, Clifford, Walter, Constantine, Johnny Fiama, Sal Minella, Spa'am, Bean Bunny, Beauregard, Big Mean Carl, Doglion, Seymour, The Newsman, Pops, Hilda, Annie Sue, Mr. Snuffleupagus, Cookie Monster, Elmo, Oscar the Grouch, Bert, Ernie, Zoe, Rosita, Telly Monster, Herry Monster, Prairie Dawn, Baby Bear, Curly Bear, Two-Headed Monster, Guy Smiley, Mr. Johnson, Slimey the Worm, Honkers, Murray Monster, Frazzle, Gladys the Cow, Sherlock Hemlock, Roosevelt Franklin, Barkley, Hoots the Owl, Bernice, Forgetful Jones, Ji-Young, Lefty the Salesman, Grundgetta, Bruno the Trashman, Gobo Fraggle, Wembley Fraggle, Boober Fraggle, Mokey Fraggle, Red Fraggle, Uncle Traveling Matt, Sprocket, Doc, Cotterpin Doozer, Philo and Gunge, Emmet Otter, Ma Otter
 - **games** (29): Ash Ketchum, Professor Oak, Jigglypuff, Captain Falcon, Marth, Amy Rose, Marcus Fenix, Nathan Drake, Sully, Joel Miller, Ellie, Crash Bandicoot, Lara Croft, Garrus Vakarian, Mordin Solus, Pac-Man, Blinky, Ms. Pac-Man, Q*bert, Wreck-It Ralph, Chun-Li, Heihachi Mishima, Tifa Lockhart, Leon S. Kennedy, Jill Valentine, Pyramid Head, Creeper, Isabelle, Tom Nook
 - **pokemon** (57): Bulbasaur, Ivysaur, Venusaur, Caterpie, Metapod, Weedle, Kakuna, Rattata, Raticate, Arbok, Sandshrew, Sandslash, Nidoran♀, Nidorina, Nidoqueen, Nidoran♂, Nidorino, Nidoking, Jigglypuff, Wigglytuff, Oddish, Gloom, Vileplume, Paras, Parasect, Diglett, Dugtrio, Meowth, Persian, Mankey, Primeape, Machop, Machoke, Machamp, Bellsprout, Weepinbell, Victreebel, Geodude, Graveler, Golem, Doduo, Dodrio, Grimer, Muk, Cubone, Marowak, Hitmonlee, Hitmonchan, Lickitung, Rhyhorn, Rhydon, Tangela, Kangaskhan, Pinsir, Tauros, Ditto, Eevee
-- **starwars** (37): Padmé Amidala, Mon Mothma, Bail Organa, Jyn Erso, Chirrut Îmwe, Baze Malbus, Saw Gerrera, Zeb Orrelios, Rose Tico, Admiral Holdo, Maz Kanata, Grand Moff Tarkin, Grand Admiral Thrawn, Director Krennic, Stormtrooper, Death Trooper, Captain Phasma, General Hux, Aurra Sing, Bossk, Greedo, Cara Dune, Cobb Vanth, Greef Karga, Kuiil, Migs Mayfeld, Captain Rex, Commander Cody, Hunter, Wrecker, Crosshair, Qi'ra, Tobias Beckett, Dryden Vos, Jabba the Hutt, Wampa, Wicket
+- **starwars** (36): Padmé Amidala, Mon Mothma, Bail Organa, Jyn Erso, Chirrut Îmwe, Baze Malbus, Saw Gerrera, Zeb Orrelios, Rose Tico, Admiral Holdo, Maz Kanata, Grand Moff Tarkin, Grand Admiral Thrawn, Director Krennic, Stormtrooper, Captain Phasma, General Hux, Aurra Sing, Bossk, Greedo, Cara Dune, Cobb Vanth, Greef Karga, Kuiil, Migs Mayfeld, Captain Rex, Commander Cody, Hunter, Wrecker, Crosshair, Qi'ra, Tobias Beckett, Dryden Vos, Jabba the Hutt, Wampa, Wicket
