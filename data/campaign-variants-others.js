@@ -117,7 +117,7 @@ const CAMPAIGN_VARIANTS_OTHERS = Object.freeze({
         "clu": -8
       },
       "origin": "Transformers · The Movie (1986)",
-      "source": "https://transformers.hasbro.com/en-us",
+      "source": "https://instructions.hasbro.com/en-sg/instruction/transformers-generations-platinum-edition-armada-of-cyclonus",
       "kind": "reconstruction",
       "feat": "Unicron rebuilds the defeated Megatron as the more heavily armed Galvatron."
     }
