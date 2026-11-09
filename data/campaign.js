@@ -457,10 +457,13 @@ function campaignMatchesCriteria(c,criteria,rule){
     if(!power||power.score<criteria.muppetForceMin)return false;
   }
   if(criteria.neverPreviouslyWon&&campaignUsed().has(c.id))return false;
-  if(criteria.acceptedTags?.length&&!campaignHoldsAcceptedTag(c,criteria.acceptedTags)){
-    // Approval is stored against the stable broad challenge rule.
-    // No live AI, keywords or paid calls are triggered here.
-    if(!(rule&&typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule)))return false;
+  if(Array.isArray(criteria.acceptedTags)){
+    const matches=criteria.acceptedTags.length>0&&campaignHoldsAcceptedTag(c,criteria.acceptedTags);
+    if(!matches){
+      // Approval is stored against the stable broad challenge rule.
+      // No live AI, keywords or paid calls are triggered here.
+      if(!(rule&&typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule)))return false;
+    }
   }
   return true;
 }
