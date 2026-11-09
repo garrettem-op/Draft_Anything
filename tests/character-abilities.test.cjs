@@ -5,6 +5,7 @@ const vm=require('node:vm');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const {CHARACTER_ABILITIES,characterAbilityEvidence}=require('../data/character-abilities.js');
+const {campaignExpansionAllowed}=require('../data/campaign-abilities-expansion.js');
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const campaign=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');
 // Parse the actual pool data rather than a hand-built fixture to catch stale spellings.
@@ -22,7 +23,7 @@ function poolRoster() {
 const pools=poolRoster();
 const list=Object.entries(pools).flatMap(([pool,names])=>names.map(n=>({pool,n,id:pool+':'+n,a:Array(12).fill(85)})));
 const state={campaign:{history:[],roster:{},step:0,stageOrder:Array.from({length:10},(_,i)=>i),sport:'basketball'}};
-const context={S:state,SPORTS:{basketball:{pos:[{id:'a'}]}},getCands:()=>list,lsGet:(_,v)=>v,lsSet:()=>{},characterAbilityEvidence};
+const context={S:state,SPORTS:{basketball:{pos:[{id:'a'}]}},getCands:()=>list,lsGet:(_,v)=>v,lsSet:()=>{},characterAbilityEvidence,campaignExpansionAllowed};
 vm.runInNewContext(campaign+'\nthis.eligibilityTest={campaignAllowed,campaignInvalidSlots,CAMPAIGN_TAGS};',context);
 const {campaignAllowed,CAMPAIGN_TAGS}=context.eligibilityTest;
 test('all documented power facts refer to exactly one character in the named universe',()=>{
