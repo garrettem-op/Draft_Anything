@@ -4,7 +4,17 @@ const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
-const code=fs.readFileSync(path.join(root,'data/campaign-strategy.js'),'utf8');
+const variantFiles=[
+ 'campaign-variants-marvel.js','campaign-variants-games.js',
+ 'campaign-variants-pokemon.js','campaign-variants-others.js',
+ 'campaign-variants-dc.js','campaign-variants-lotr.js','campaign-variants-hp.js'
+];
+const code=[...variantFiles,'campaign-strategy.js'].map(file=>fs.readFileSync(path.join(root,'data',file),'utf8')).join('\n');
+const additionalPools={
+ dc:require('../data/pool-dc.js'),
+ lotr:require('../data/pool-lotr.js'),
+ hp:require('../data/pool-hp.js')
+};
 const P=[...Array.from({length:5},(_,i)=>({id:'p'+i,imp:1})),{id:'bench',bench:true,side:true,imp:0},{id:'coach',coach:true,side:true,imp:0}];
 const SPORTS={brawl:{pos:P}};
 const chars=Array.from({length:110},(_,i)=>{
@@ -96,10 +106,15 @@ test('variant catalog refers to actual unique universe-scoped characters',()=>{
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
  for(const [id,forms] of Object.entries(api.CAMPAIGN_VARIANTS)){
   const [pool,...names]=id.split(':'),name=names.join(':');
-  const start=html.indexOf('POOLS.'+pool+' =');
-  const entries=html.indexOf('entries: [',start),end=html.indexOf('\n]};',entries);
-  assert.ok(start>=0&&end>entries,'Unknown pool '+pool);
-  assert.ok([...html.slice(entries,end).matchAll(/^\["([^"]+)"/gm)].some(x=>x[1]===name),'Unknown variant base '+id);
+  let names=[];
+  if(additionalPools[pool])names=additionalPools[pool].entries.map(e=>e[0]);
+  else{
+    const start=html.indexOf('POOLS.'+pool+' =');
+    const entries=html.indexOf('entries: [',start),end=html.indexOf('\n]};',entries);
+    assert.ok(start>=0&&end>entries,'Unknown pool '+pool);
+    names=[...html.slice(entries,end).matchAll(/^\["([^"]+)"/gm)].map(x=>x[1]);
+  }
+  assert.ok(names.includes(name),'Unknown variant base '+id);
   for(const form of forms){
    assert.ok(form.name&&form.origin&&Object.keys(form.changes).length);
    for(const delta of Object.values(form.changes))assert.ok(Number.isFinite(delta)&&Math.abs(delta)<=15);
@@ -107,6 +122,18 @@ test('variant catalog refers to actual unique universe-scoped characters',()=>{
  }
  for(const name of ['Rune King Thor','White Phoenix of the Crown','House of M Scarlet Witch'])
   assert.ok(Object.values(api.CAMPAIGN_VARIANTS).flat().some(f=>f.name===name),name+' missing');
+});
+test('researched variants contain auditable source details, bounded power changes and diverse pools',()=>{
+ const expanded=['dc','lotr','hp'].map(p=>Object.entries(api.CAMPAIGN_VARIANTS).filter(([id])=>id.startsWith(p+':')));
+ for(const [pool,entries] of ['dc','lotr','hp'].map((p,i)=>[p,expanded[i]])){
+  assert.ok(entries.length>=8,pool+' variant library too sparse');
+  for(const [id,forms] of entries)for(const form of forms){
+   assert.ok(typeof form.feat==='string'&&form.feat.length>40,id+' lacks specific feat');
+   assert.ok(typeof form.kind==='string'&&form.kind.length>3,id+' lacks type');
+   assert.match(form.source,/^https:\/\//,id+' lacks research reference');
+  }
+ }
+ assert.ok(Object.values(api.CAMPAIGN_VARIANTS).flat().length>=160,'Expected extensive variant library');
 });
 test('campaign runtime no longer scales opponents to player rating or changes match seed per retry',()=>{
  const c=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');
