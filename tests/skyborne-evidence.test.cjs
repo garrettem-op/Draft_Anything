@@ -68,3 +68,13 @@ test('No one gets blanket Skyborne eligibility from a numerical Leap score',()=>
   cx.candidate={pool:'nba',n:'Unknown',a:Array(12).fill(99)};
   assert.equal(vm.runInContext("campaignAllowed(candidate,'flight',{coach:false})",cx),false);
 });
+
+test('Anakin has canonical Obi-Wan testimony of elite piloting, not self-flight',()=>{
+  const cx=harness();
+  const evidence=vm.runInContext("characterAbilityEvidence({pool:'starwars',n:'Anakin Skywalker'},'flight')",cx);
+  assert.equal(evidence.kind,'elite-starfighter-pilot');
+  assert.match(evidence.feat,/best star-pilot in the galaxy/);
+  assert.match(evidence.creditedAssessment,/Obi-Wan Kenobi/);
+  assert.match(evidence.dialogueSource,/A-New-Hope/);
+  assert.match(evidence.feat,/not unaided personal flight/);
+});
