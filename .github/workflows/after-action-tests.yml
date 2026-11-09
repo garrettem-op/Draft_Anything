@@ -61,3 +61,29 @@ jobs:
           deno-version: v2.x
       - name: Type-check AI research function
         run: deno check supabase/functions/character-knowledge/index.ts
+
+  public-knowledge-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check public AI research readiness (no API costs)
+        run: |
+          node <<'NODE'
+          const url='https://pbwpyzfgqdcmchfciqeu.supabase.co/functions/v1/character-knowledge?action=approved';
+          async function main(){
+            try {
+              const response=await fetch(url,{signal:AbortSignal.timeout(12000)});
+              let data={};try{data=await response.json();}catch{}
+              console.log('Knowledge API HTTP status:',response.status);
+              console.log('Live research ready:',data.research_ready===true);
+              console.log('Approved knowledge records:',Array.isArray(data.facts)?data.facts.length:'unavailable');
+              if(response.ok&&data.research_ready===true)console.log('HEALTH RESULT: CONFIGURED');
+              else if(response.ok&&data.research_ready===false)console.log('HEALTH RESULT: SECRETS NOT FULLY CONFIGURED');
+              else console.log('HEALTH RESULT: UNVERIFIED OR ERROR');
+            }catch(e){console.log('HEALTH RESULT: UNREACHABLE — '+e.message)}
+          }
+          main();
+          NODE
