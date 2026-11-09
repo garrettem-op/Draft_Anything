@@ -797,6 +797,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/character-abilities.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
+<script src="data/campaign-strategy.js"></script>
 <script src="data/after-action.js"></script>
 <script>
 const POOLS = {};
@@ -4983,7 +4984,7 @@ document.addEventListener('click', e => {
     case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validationOpen=false;if(campaignQualified())S.campaign.validation='';}break;
     case 'camp-pick': {
       const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
-      if (!candidate || !v.selected) break;
+      if (!candidate || !v.selected || campaignWinUses(candidate.id)>=2 || (campaignStage().rule==='final'&&campaignUsed().has(candidate.id))) break;
       if(!v.roster[v.selected]&&Object.keys(v.roster).length>=campaignLimit(v.sport,campaignStage().rule))break;
       if (Object.entries(v.roster).some(([k,p])=>k!==v.selected&&p.id===candidate.id)) break;
       v.roster[v.selected]=candidate;
@@ -4995,9 +4996,15 @@ document.addEventListener('click', e => {
     case 'camp-random': {
       const v=S.campaign,slots=campaignSlots(v.sport,campaignStage().rule);
       const taken=new Set(Object.values(v.roster).map(c=>c.id));
-      const options=shuffled(getCands('mashup').filter(c=>!taken.has(c.id)));
-      for(const p of slots)if(!v.roster[p.id]&&Object.keys(v.roster).length<campaignLimit(v.sport,campaignStage().rule))v.roster[p.id]=options.pop();
+      const options=shuffled(getCands('mashup').filter(c=>!taken.has(c.id)&&campaignWinUses(c.id)<2&&(campaignStage().rule!=='final'||!campaignUsed().has(c.id))));
+      for(const p of slots)if(!v.roster[p.id]&&options.length&&Object.keys(v.roster).length<campaignLimit(v.sport,campaignStage().rule))v.roster[p.id]=options.pop();
       v.selected=null;
+      break;
+    }
+    case 'camp-variant': {
+      const surge=campaignUseVariantSurge(S.campaign);
+      if(surge)toast('Variant Surge: '+surge.name+'! Your one transformation is locked for this challenge.');
+      else toast('Variant Surge unavailable: fill the lineup with at least one eligible alternate-form character.');
       break;
     }
     case 'camp-play': campaignPlay(); if(S.campaign.status==='results')window.scrollTo(0,0); break;

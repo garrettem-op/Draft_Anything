@@ -280,6 +280,47 @@ const server=http.createServer((req,res)=>{
   assert.ok(await page.locator('text=Match-day variation').count(),'The result is missing random variation');
 
   assert.ok(await page.locator('text=Scouting takeaway:').count(),'Scouting summary missing');
+  // An unchanged lineup gets identical scores, enemy roster, and result on retry.
+  const replay=await page.evaluate(()=>{
+    const original=S.campaign.result;
+    const snapshot=r=>({win:r.win,score:[r.ourPoints,r.theirPoints],enemy:r.opponentNames,
+      ratings:[r.ourRating,r.theirRating],tactics:r.tactics});
+    const first=snapshot(original);
+    S.campaign.status='draft';S.campaign.result=null;
+    campaignPlay();
+    return {first,again:snapshot(S.campaign.result)};
+  });
+  assert.deepEqual(replay.again,replay.first,'Retrying the unchanged team rerolled the match or opponent');
+  // The active campaign has a one-shot variant control, which locks its result
+  // and survives a page reload. Use a known legal flight-themed roster.
+  await page.evaluate(()=>{
+    const v=S.campaign,flight=CAMPAIGN_STAGES.length,slots=campaignSlots(v.sport,'flight');
+    v.step=0;v.stageOrder[0]=flight;v.seed='mobile-surge-fixture';v.opponents={};
+    v.surge=null;v.status='draft';v.result=null;v.validation='';
+    const thor=getCands('mashup').find(c=>c.pool==='mcu'&&c.n==='Thor');
+    if(!thor||!campaignAllowed(thor,'flight'))throw Error('Thor should qualify as a flying character');
+    const chosen=new Set([thor.id]);
+    v.roster={};
+    for(const [i,p] of slots.entries()){
+      const c=i===0?thor:getCands('mashup').find(c=>!chosen.has(c.id)&&campaignAllowed(c,'flight'));
+      if(!c)throw Error('Unable to fill flight variant test');
+      chosen.add(c.id);v.roster[p.id]=c;
+    }
+    saveCampaign();render();
+  });
+  const variantButton=page.locator('button[data-act="camp-variant"]');
+  assert.equal(await variantButton.isEnabled(),true,'Variant button not enabled with Thor on legal roster');
+  await variantButton.click();
+  const variant=await page.evaluate(()=>{
+    const v=S.campaign,active=campaignVariantForm(v),preview=campaignVariantRoster(v);
+    return {surge:v.surge,active:!!active,changed:Object.values(preview).some(c=>c.n===v.surge?.name)};
+  });
+  assert.ok(variant.surge&&variant.active&&variant.changed,'Variant generator did not transform an eligible character');
+  assert.equal(await variantButton.isDisabled(),true,'A second variant roll should not be available');
+  await page.reload({waitUntil:'domcontentloaded'});
+  const persisted=await page.evaluate(()=>({surge:S.campaign.surge,stage:S.campaign.step}));
+  assert.equal(JSON.stringify(persisted.surge),JSON.stringify(variant.surge),'Variant result did not persist on reload');
+  assert.equal(persisted.stage,0);
   // The Dealt Hand choices each expose origin info without selecting a card.
   await page.locator('button[data-act="mode"][data-mode="deal"]').click();
   await page.locator('button[data-act="c-start"]').click();

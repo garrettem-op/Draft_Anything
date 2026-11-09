@@ -11,7 +11,7 @@ let catalog=[];
 const SPORTS={basketball:{pos:Array.from({length:5},(_,i)=>({id:'p'+i}))}};
 const {characterAbilityEvidence}=require('../data/character-abilities.js');
 const context={S,SPORTS,getCands:()=>catalog,lsGet,lsSet,characterAbilityEvidence};
-vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignReset,campaignInvalidSlots,campaignCommanderSpecialty,campaignCommanderEffect,CAMPAIGN_COMMANDER_SPECIALTIES};',context);
+vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignReset,campaignInvalidSlots,campaignWinUses,campaignPickAllowed,campaignCommanderSpecialty,campaignCommanderEffect,CAMPAIGN_COMMANDER_SPECIALTIES};',context);
 const api=context.campaignTestApi;
 const names=[...new Set([...api.CAMPAIGN_WOMEN,...api.CAMPAIGN_RED,...api.CAMPAIGN_KIDS,...Object.values(api.CAMPAIGN_TAGS).flatMap(set=>[...set])])];
 catalog=names.map((n,i)=>({id:'id'+i,n,pool:i%3?'mcu':'nba',a:Array(12).fill(i%3?93:70)}));
@@ -42,6 +42,24 @@ test('final gauntlet rejects characters previously used in winning lineups',()=>
  S.campaign.history=[{ids:[catalog[0].id]}];
  assert.equal(api.campaignAllowed(catalog[0],'final'),false);
  assert.equal(api.campaignAllowed(catalog[1],'final'),true);
+});
+
+test('two winning appearances exhaust a character, and final bans any prior win',()=>{
+ const prior=S.campaign;
+ const eligible={id:'pick-1',n:'Proven Speedster',pool:'games',a:[95,...Array(11).fill(80)]};
+ try{
+  S.campaign={...prior,history:[],roster:{},step:0,stageOrder:[0,1,2,3,4,5,6,7,8,9],sport:'basketball'};
+  assert.equal(api.campaignPickAllowed(eligible,'fast',{id:'pg'}),true);
+  S.campaign.history=[{ids:[eligible.id]}];
+  assert.equal(api.campaignWinUses(eligible.id),1);
+  assert.equal(api.campaignPickAllowed(eligible,'fast',{id:'pg'}),true);
+  assert.equal(api.campaignPickAllowed(eligible,'final',{id:'pg'}),false);
+  S.campaign.history.push({ids:[eligible.id]});
+  assert.equal(api.campaignWinUses(eligible.id),2);
+  assert.equal(api.campaignPickAllowed(eligible,'fast',{id:'pg'}),false);
+  S.campaign.roster={p0:eligible};
+  assert.ok(api.campaignInvalidSlots().has('p0'),'A spent character must be highlighted in red');
+ }finally{S.campaign=prior;}
 });
 
 test('new runs rotate through seldom-used challenges instead of repeating the same ten',()=>{
