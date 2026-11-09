@@ -568,7 +568,7 @@ function renderCampaignDispute(){
       <label class="field-label"><span>What ability or feat should qualify?</span><textarea data-input="camp-dispute-claim" rows="3" maxlength="700" placeholder="${esc(placeholder)}" ${v.disputeBusy?'disabled':''}>${esc(v.disputeClaim||'')}</textarea></label>
       <label class="field-label"><span>Optional source URL</span><input type="url" data-input="camp-dispute-source" value="${esc(v.disputeSource||'')}" placeholder="https://..." ${v.disputeBusy?'disabled':''}></label>
       ${!status.researchReady?'<p class="note">Live AI research is not yet activated. Your claim can be saved on this device for later retry, but it cannot be verified or shared until server setup is complete.</p>':''}
-      ${v.disputeError?`<p role="alert" class="note" style="color:var(--bad)">${esc(v.disputeError)}</p>`:''}
+      ${v.disputeError?`<p role="alert" class="note" style="color:var(--bad)">${esc(v.disputeError)}</p>${v.disputeErrorCode==='api_credits_exhausted'?'<p><a href="https://platform.openai.com/settings/organization/billing/" target="_blank" rel="noopener noreferrer">Add OpenAI API credits</a></p>':''}`:''}
       <button class="btn primary" data-act="camp-dispute-submit" ${v.disputeBusy?'disabled':''} style="width:100%;margin-top:10px">${v.disputeBusy?'Researching sources…':!status.researchReady?'Save claim locally (offline)':'Research this ruling'}</button>
       `: `
       <p><b>${allowed?(approved?'Approved knowledge':'Provisionally accepted'):(result.status==='rejected'?'Not supported by research':'More evidence needed')}</b></p>
