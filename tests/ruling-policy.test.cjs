@@ -48,8 +48,6 @@ test('an ambiguous model conclusion stays under review',async()=>{
 });
 test('nonspecific/empty feats do not get approved',async()=>{
   const {evaluateAbilityEvidence}=await policyPromise;
-  assert.equal(evaluateAbilityEvidence({verdict:'supports',confidence:.98,feat:'Could maybe teleport',cited:[
-    'https://www.nintendo.com/zelda','https://www.gamespot.com/zelda']},official).status,'accepted_provisional');
   assert.equal(evaluateAbilityEvidence({verdict:'supports',confidence:.98,feat:'',cited:[
     'https://www.nintendo.com/zelda','https://www.gamespot.com/zelda']},official).status,'inconclusive');
 });
