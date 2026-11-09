@@ -276,6 +276,28 @@ const CAMPAIGN_COMMANDER_SPECIALTIES = Object.freeze({
       "reason": "Leads high-speed starfighter operations."
     }
   },
+  "starwars:Jar Jar Binks": {
+    "aquatic": {
+      "label": "Gungan Aquatic Mobilization",
+      "focus": "ldr",
+      "reason": "Jar Jar was appointed a general in the amphibious Gungan Grand Army and helped mobilize Gungan underwater forces to assist Mon Cala. His role connects the team to aquatic allies; it does not imply water-control powers or exceptional tactical skill.",
+      "source": "https://www.starwars.com/databank/jar-jar-binks"
+    }
+  },
+  "lotr:Gandalf": {
+    "flight": {
+      "label": "Alliance of the Great Eagles",
+      "focus": "ldr",
+      "reason": "Gandalf has a documented relationship with the Great Eagles, who carried him and his companions in aerial rescues. He can coordinate with flying allies without personally having unrestricted flight."
+    }
+  },
+  "harrypotter:Madam Hooch": {
+    "flight": {
+      "label": "Hogwarts Flight Instructor",
+      "focus": "ref",
+      "reason": "Teaches and supervises broomstick flying at Hogwarts, supplying coaching expertise for an aerial team. Teaching broom flight does not imply unaided personal flight."
+    }
+  },
   "starwars:Admiral Ackbar": {
     "flight": {
       "label": "Alliance Fleet Tactics",
