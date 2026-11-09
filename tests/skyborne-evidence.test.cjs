@@ -23,6 +23,7 @@ function harness() {
   });
   const root=path.resolve(__dirname,'..');
   vm.runInContext(fs.readFileSync(path.join(root,'data/character-abilities.js'),'utf8'),context);
+  vm.runInContext(fs.readFileSync(path.join(root,'data/campaign-eligibility.js'),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(root,'data/campaign.js'),'utf8'),context);
   return context;
 }

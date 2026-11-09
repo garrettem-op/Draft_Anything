@@ -409,7 +409,7 @@ function campaignAllowed(c,rule,pos=null){
     case 'strong':return c.a[2]>=87;
     case 'underdog':return c.a.reduce((n,v)=>n+v,0)/c.a.length<=73;
     case 'final':return !campaignUsed().has(c.id);
-    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||!!characterAbilityEvidence(c,rule)||(typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule));return true;
+    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||!!characterAbilityEvidence(c,rule)||!!campaignOfflineEvidence(c,rule)||(typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule));return true;
 
   }
 }
@@ -535,7 +535,7 @@ function renderCampaignRejected(){
       <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
       <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
       <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> ${CAMPAIGN_TAGS[campaignStage().rule]?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:''}</li>`).join('')}</ul>
-      <p class="note">Replace the highlighted characters and submit the lineup again. The talent pool remains unfiltered.</p>
+      <p class="note">These picks were checked locally against the theme list, their descriptions, stored abilities and previously approved knowledge. Submitting a lineup never uses paid AI research. Review unresolved picks or optionally challenge a ruling.</p>
       <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
     </div>
   </div>`;
