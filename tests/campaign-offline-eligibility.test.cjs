@@ -139,8 +139,10 @@ test('Other campaign constraints and Commander-only exceptions stay strict',()=>
   const h=harness();
   assert.equal(h.allows('starwars','Admiral Ackbar','flight',{coach:true}),true);
   assert.equal(h.allows('starwars','Admiral Ackbar','flight',{coach:false}),false);
-  assert.equal(h.allows('pokemon','Dodrio','flight'),false);
-  assert.equal(h.allows('pokemon','Doduo','flight'),false);
+  // Owner ruling 2026-11-09: any Pokémon that can learn Fly in Gen I counts for Skyborne,
+  // so Doduo and Dodrio (HM02 Fly) now qualify. A Flying TYPE alone still grants nothing.
+  assert.equal(h.allows('pokemon','Dodrio','flight'),true);
+  assert.equal(h.allows('pokemon','Doduo','flight'),true);
   assert.equal(h.allows('mcu','The Wasp','women'),true);
   assert.equal(h.allows('mcu','The Wasp','mortal'),false);
   h.ctx.subject={pool:'nba',n:'Made-up Person',t:'Jumps very high',a:Array(12).fill(99)};
