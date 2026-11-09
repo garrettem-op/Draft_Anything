@@ -5,33 +5,35 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 
 ## Accepted characters by pool and power
 
-| Power | nba | mcu | toons | muppets | games | pokemon | starwars | Total |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| flight | 0 | 34 | 17 | 4 | 37 | 28 | 38 | 158 |
-| magic | 0 | 10 | 3 | 4 | 20 | 1 | 0 | 38 |
-| psychic | 0 | 14 | 0 | 2 | 6 | 22 | 27 | 71 |
-| aquatic | 0 | 2 | 9 | 0 | 1 | 35 | 3 | 50 |
-| fire | 0 | 1 | 3 | 0 | 21 | 12 | 3 | 40 |
-| ice | 0 | 0 | 5 | 0 | 12 | 7 | 0 | 24 |
-| electric | 0 | 5 | 2 | 0 | 16 | 12 | 4 | 39 |
-| tech | 0 | 34 | 13 | 1 | 26 | 1 | 21 | 96 |
-| stealth | 0 | 17 | 7 | 0 | 12 | 7 | 6 | 49 |
-| teleport | 0 | 17 | 2 | 2 | 17 | 18 | 0 | 56 |
-| healing | 0 | 14 | 4 | 0 | 10 | 6 | 4 | 38 |
-| giants | 0 | 9 | 1 | 6 | 5 | 3 | 1 | 25 |
+| Power | nba | mcu | toons | muppets | games | pokemon | starwars | dc | lotr | harrypotter | Total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| flight | 0 | 34 | 17 | 4 | 37 | 30 | 38 | 33 | 9 | 21 | 223 |
+| magic | 0 | 10 | 3 | 4 | 20 | 1 | 0 | 18 | 29 | 77 | 162 |
+| psychic | 0 | 14 | 0 | 2 | 7 | 37 | 27 | 5 | 3 | 4 | 99 |
+| aquatic | 0 | 2 | 9 | 0 | 1 | 42 | 3 | 5 | 3 | 0 | 65 |
+| fire | 0 | 1 | 3 | 0 | 21 | 47 | 3 | 2 | 8 | 5 | 90 |
+| ice | 0 | 0 | 5 | 0 | 12 | 60 | 0 | 3 | 0 | 0 | 80 |
+| electric | 0 | 5 | 2 | 0 | 16 | 58 | 4 | 4 | 0 | 0 | 89 |
+| tech | 0 | 34 | 13 | 1 | 26 | 1 | 21 | 16 | 0 | 0 | 112 |
+| stealth | 0 | 17 | 7 | 0 | 12 | 7 | 6 | 15 | 3 | 4 | 71 |
+| teleport | 0 | 17 | 2 | 2 | 17 | 32 | 0 | 7 | 0 | 19 | 96 |
+| healing | 0 | 14 | 4 | 0 | 11 | 8 | 4 | 7 | 6 | 4 | 58 |
+| giants | 0 | 9 | 1 | 6 | 5 | 3 | 1 | 1 | 10 | 8 | 44 |
 
 ## Evidence layer that grants each accepted character–power pair
 
 | Layer | Pairs |
 | --- | ---: |
-| character-abilities | 395 |
-| campaign-tag | 108 |
-| explicit-roster-description | 62 |
-| built-in-research-guide | 51 |
+| character-abilities | 572 |
+| seeded-universe-power | 208 |
+| campaign-tag | 123 |
+| explicit-roster-description | 117 |
+| wizarding-world-magical-role | 51 |
+| built-in-research-guide | 50 |
 | curated-pokemon-type | 37 |
 | curated-flight-or-air-combat | 31 |
 
-`CHARACTER_ABILITIES` holds 404 source-linked records for 252 characters.
+`CHARACTER_ABILITIES` holds 581 source-linked records for 315 characters.
 
 ## Disputed grants (engine accepts, audit disagrees or needs a ruling)
 
@@ -39,8 +41,7 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `toons:Garfield` **stealth** (incorrect): Granted only by the research-guide phrase "cat stealth when motivated", a stereotype rather than a documented feat. Garfield is characterized as lazy and sarcastic, not stealthy.
 - `toons:Popeye` **healing** (incorrect): Granted by the guide phrase "cartoon regeneration". Spinach is consistently a source of strength, not healing or regeneration; no healing feat was found.
 - `pokemon:Mr. Mime` **stealth** (incorrect): Granted because the roster blurb "Invisible-wall performer" matched the invisibility pattern. Mr. Mime creates invisible walls; no Pokédex entry says it hides or becomes invisible.
-- `mcu:Vision` **psychic** (ruling): Granted by name list. Mind Stone Vision shows no telepathy or telekinesis in the MCU; the only mind-power scene is the Hex Vision (no Mind Stone) freeing Norm in WandaVision episode 5.
-- `mcu:Echo` **healing** (ruling): Granted by the guide phrase "ancestral healing". Sources disagree on whether Maya (rather than her mother) heals, and no on-screen healing scene was found.
+- `mcu:Vision` **psychic** (incorrect): Owner ruling 2026-11-09: Vision does not qualify for Mind Games despite the Mind Stone. Granted by name list. Mind Stone Vision shows no telepathy or telekinesis in the MCU; the only mind-power scene is the Hex Vision (no Mind Stone) freeing Norm in WandaVision episode 5.
 - `pokemon:Magneton` **flight** (ruling): Granted by the curated Kanto hover list. No Magneton Pokédex entry mentions floating and it lacks Levitate; support is inherited from Magnemite (anti-gravity hover).
 - `starwars:IG-88` **stealth** (incorrect): Granted because the roster blurb "Assassin droid" matched the assassin pattern. The StarWars.com databank describes a chrome war droid turned bounty hunter; no stealth feat was found.
 - `mcu:Hawkeye` **stealth** (incorrect): Granted by name list. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. MCU sources show sniper perches and marksmanship, no unseen infiltration.
@@ -66,22 +67,14 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `muppets:Uncle Deadly` **magic**: The source describes no supernatural powers (no vanishing, no spells). Lean no.
 - `muppets:Gonzo` **flight**: Both are involuntary or passenger gags, not flight or piloting. Lean no.
 - `muppets:The Count` **magic**: Vampire traits, but no spellcasting or bat-transformation sourced. Lean no for magic (see the psychic proposal below).
-- `pokemon:Starmie` **healing**: Pre-evolution-only move; designer to rule whether carried-over moves count. Starmie's Natural Cure ability cures status only.
-- `pokemon:Mew` **healing**: TM-only healing; per evidence standard only teleport TM cases are auto-verified.
-- `pokemon:Slowbro` **healing**: needs designer ruling (Rest is sleep-based and excluded as healing evidence). No Pokédex healing text found.
-- `pokemon:Gastly` **psychic**: Hypnotic sleep-induction/dream-eating is weak evidence of psychic power; designer ruling needed.
-- `pokemon:Haunter` **psychic**: Hypnotic sleep-induction/dream-eating is weak evidence of psychic power; designer ruling needed.
-- `pokemon:Gengar` **psychic**: Hypnotic sleep-induction/dream-eating is weak evidence of psychic power; designer ruling needed.
 - `pokemon:Zubat` **stealth**: Cave-dwelling/nocturnal is not stealth; no positive evidence found.
 - `pokemon:Gengar` **magic**: Curse-casting may count as supernatural sorcery; designer ruling (parallel to Ninetales curse).
 - `pokemon:Slowpoke` **healing**: Passive tail regrowth; designer to decide if this is enough for self-regeneration.
 - `games:Captain Falcon` **fire**: Flames are a Smash attack effect, not a fire-control power; F-Zero canon shows no fire powers. Owner decision needed.
-- `games:Commander Shepard` **psychic**: Biotic powers depend on the class the player chooses (Adept, Vanguard, Sentinel); Soldier/Engineer/Infiltrator Shepard has none. Needs a ruling on player-choice characters.
 - `games:Dr. Wily` **flight**: The page calls it a teleporting escape pod but does not say it flies or hovers.
 - `games:Heihachi Mishima` **electric**: Tekken 'electric' moves are named techniques with spark effects; no confirmed lightning-control feat found.
 - `games:Calamity Ganon` **flight**: No explicit flight or levitation feat on the page.
 - `games:Jinx` **electric**: The page never calls Zap! electric and lists its damage as physical.
-- `games:Tracer` **healing**: Recall rewinds her to an earlier position and health. Needs a ruling on whether a time rewind counts as self-healing.
 - `starwars:Maz Kanata` **psychic**: Force-sensitive ('I am no Jedi, but I know the Force') and senses others/changes of fortune, but those sensing claims come from the novelization and Visual Dictionary; no on-screen telekinesis, telepathy or mind trick found. Needs designer ruling on whether Force-sensing counts as empathic.
 - `starwars:Mace Windu` **flight**: Wookieepedia article (first 100k chars) describes no scene of Windu piloting or flying; he rides gunships and creatures only.
 - `starwars:Padmé Amidala` **flight**: Source says she was fully capable of piloting her star skiff but often delegated to Typho or C-3PO, and does not confirm she flew it to Mustafar. No specific piloting scene confirmed.
@@ -108,5 +101,8 @@ An empty entry is a reviewed result, not a guarantee. Most are non-powered by de
 - **toons** (60): Bugs Bunny, Road Runner, Tasmanian Devil, Lola Bunny, Porky Pig, Speedy Gonzales, Sylvester, Foghorn Leghorn, Yosemite Sam, Pepé Le Pew, Elmer Fudd, Michigan J. Frog, Minnie Mouse, Donald Duck, Goofy, Pluto, Phil, Mulan, Simba, Baloo, Tarzan, Woody, Mr. Incredible, Dash, Edna Mode, Sulley, Mike Wazowski, Lightning McQueen, Remy, Shrek, Donkey, Puss in Boots, Po, Master Shifu, Tigress, Homer Simpson, Bart Simpson, Lisa Simpson, Marge Simpson, Fred Flintstone, Barney Rubble, Scooby-Doo, Shaggy, Velma, Fred Jones, Yogi Bear, Bluto, Toph Beifong, Sokka, Johnny Bravo, Courage the Cowardly Dog, Charlie Brown, Lucy van Pelt, Peppermint Patty, Tom, Jerry, Bandit, Bluey, Hank Hill, Bob Belcher
 - **muppets** (86): Kermit the Frog, Miss Piggy, Fozzie Bear, Gonzo, Swedish Chef, Rowlf the Dog, Beaker, Statler, Waldorf, Sam Eagle, Pepe the King Prawn, Scooter, Rizzo the Rat, Robin the Frog, Camilla the Chicken, Dr. Teeth, Floyd Pepper, Janice, Zoot, Lips, Lew Zealand, Crazy Harry, Sweetums, Uncle Deadly, Dr. Julius Strangepork, Marvin Suggs, Mahna Mahna, Bobo the Bear, Clifford, Walter, Constantine, Johnny Fiama, Sal Minella, Spa'am, Bean Bunny, Beauregard, Big Mean Carl, Doglion, Seymour, The Newsman, Pops, Hilda, Annie Sue, Mr. Snuffleupagus, Cookie Monster, Elmo, Oscar the Grouch, Bert, Ernie, Zoe, Rosita, Telly Monster, Herry Monster, Prairie Dawn, Baby Bear, Curly Bear, Two-Headed Monster, Guy Smiley, Mr. Johnson, Slimey the Worm, Honkers, Murray Monster, Frazzle, Gladys the Cow, Sherlock Hemlock, Roosevelt Franklin, Barkley, Hoots the Owl, Bernice, Forgetful Jones, Ji-Young, Lefty the Salesman, Grundgetta, Bruno the Trashman, Gobo Fraggle, Wembley Fraggle, Boober Fraggle, Mokey Fraggle, Red Fraggle, Uncle Traveling Matt, Sprocket, Doc, Cotterpin Doozer, Philo and Gunge, Emmet Otter, Ma Otter
 - **games** (29): Ash Ketchum, Professor Oak, Jigglypuff, Captain Falcon, Marth, Amy Rose, Marcus Fenix, Nathan Drake, Sully, Joel Miller, Ellie, Crash Bandicoot, Lara Croft, Garrus Vakarian, Mordin Solus, Pac-Man, Blinky, Ms. Pac-Man, Q*bert, Wreck-It Ralph, Chun-Li, Heihachi Mishima, Tifa Lockhart, Leon S. Kennedy, Jill Valentine, Pyramid Head, Creeper, Isabelle, Tom Nook
-- **pokemon** (57): Bulbasaur, Ivysaur, Venusaur, Caterpie, Metapod, Weedle, Kakuna, Rattata, Raticate, Arbok, Sandshrew, Sandslash, Nidoran♀, Nidorina, Nidoqueen, Nidoran♂, Nidorino, Nidoking, Jigglypuff, Wigglytuff, Oddish, Gloom, Vileplume, Paras, Parasect, Diglett, Dugtrio, Meowth, Persian, Mankey, Primeape, Machop, Machoke, Machamp, Bellsprout, Weepinbell, Victreebel, Geodude, Graveler, Golem, Doduo, Dodrio, Grimer, Muk, Cubone, Marowak, Hitmonlee, Hitmonchan, Lickitung, Rhyhorn, Rhydon, Tangela, Kangaskhan, Pinsir, Tauros, Ditto, Eevee
+- **pokemon** (25): Bulbasaur, Ivysaur, Venusaur, Caterpie, Metapod, Weedle, Kakuna, Arbok, Sandshrew, Sandslash, Oddish, Gloom, Vileplume, Paras, Parasect, Diglett, Dugtrio, Bellsprout, Weepinbell, Victreebel, Hitmonlee, Tangela, Pinsir, Ditto, Eevee
 - **starwars** (37): Padmé Amidala, Mon Mothma, Bail Organa, Jyn Erso, Chirrut Îmwe, Baze Malbus, Saw Gerrera, Zeb Orrelios, Finn, Rose Tico, Admiral Holdo, Maz Kanata, Grand Moff Tarkin, Grand Admiral Thrawn, Director Krennic, Stormtrooper, Captain Phasma, General Hux, Aurra Sing, Bossk, Greedo, Cara Dune, Cobb Vanth, Greef Karga, Kuiil, Migs Mayfeld, Captain Rex, Commander Cody, Hunter, Wrecker, Crosshair, Qi'ra, Tobias Beckett, Dryden Vos, Jabba the Hutt, Wampa, Wicket
+- **dc** (24): The Flash (Barry Allen), The Flash (Wally West), Green Arrow, Black Canary, Plastic Man, Big Barda, Vixen, Beast Boy, Alfred Pennyworth, Commissioner James Gordon, Joker, Reverse-Flash (Eobard Thawne), Zoom (Hunter Zolomon), Cheetah, Ares (DC), Poison Ivy, Riddler, Penguin, Bane, Scarecrow, Killer Croc, Two-Face, Peacemaker, Perpetua
+- **lotr** (67): Samwise Gamgee, Meriadoc Brandybuck, Peregrin Took, Boromir, Faramir, Denethor II, Arwen Undómiel, Celeborn, Legolas, Gimli, Thranduil, Glorfindel, Círdan the Shipwright, Gil-galad, Celebrimbor, Isildur, Elendil, Anárion, Théoden, Éomer, Gríma Wormtongue, Witch-king of Angmar, Khamûl the Easterling, Mouth of Sauron, Shelob, Thorin Oakenshield, Balin, Dwalin, Dáin II Ironfoot, Glóin, Bard the Bowman, Azog, Bolg, Uglúk, Shagrat, Gorbag, Troll Chieftain, Fëanor, Fingolfin, Finwë, Finarfin, Maedhros, Maglor, Celegorm, Caranthir, Curufin, Amrod, Amras, Turgon, Aredhel, Idril Celebrindal, Tuor, Dior Eluchíl, Beren Erchamion, Húrin Thalion, Túrin Turambar, Nienor Níniel, Thingol, Beleg Cúthalion, Mablung, Huan the Hound, Ecthelion of the Fountain, Ar-Pharazôn, Tar-Míriel, Amandil, Tar-Palantir, Tar-Aldarion
+- **harrypotter** (15): Jacob Kowalski, Credence Barebone, Seraphina Picquery, Nagini, Griphook, Argus Filch, The Grey Lady (Helena Ravenclaw), Nearly Headless Nick, Bloody Baron, Moaning Myrtle, Peeves, Dementor, Crookshanks, Niffler, Bowtruckle (Pickett)

@@ -7,10 +7,17 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..');
-const POOL_IDS = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars'];
+const LEGACY_POOL_IDS = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars'];
+// Pools registered by data/new-pool-core.js (DC, Middle-earth, Harry Potter, ...).
+const ADDED_POOL_IDS = ['dc', 'lotr', 'harrypotter'];
+const POOL_IDS = [...LEGACY_POOL_IDS, ...ADDED_POOL_IDS];
 const POWER_TAGS = ['flight', 'magic', 'psychic', 'aquatic', 'fire', 'ice', 'electric',
   'tech', 'stealth', 'teleport', 'healing', 'giants'];
+// Same order as the <script> tags in index.html.
 const DATA_FILES = ['data/mcu-profiles.js', 'data/toons-profiles.js', 'data/games-profiles.js',
+  'data/new-pool-core.js', 'data/pools-dc.js', 'data/pools-middle-earth.js', 'data/pools-harry-potter.js',
+  'data/new-pool-traits.js', 'data/new-pool-powers.js',
+  'data/pool-lore-dc.js', 'data/pool-lore-middle-earth.js', 'data/pool-lore-harry-potter.js',
   'data/character-abilities.js', 'data/campaign-eligibility.js', 'data/campaign.js'];
 
 function read(p) { return fs.readFileSync(path.join(ROOT, p), 'utf8'); }
@@ -25,18 +32,24 @@ function loadGame() {
   });
   for (const f of DATA_FILES) vm.runInContext(read(f), ctx, { filename: f });
   const html = read('index.html');
-  vm.runInContext('var POOLS={};', ctx);
-  for (const id of POOL_IDS) {
+  vm.runInContext('var POOLS=Object.assign({}, window.DA_ADDED_POOLS);', ctx);
+  for (const id of LEGACY_POOL_IDS) {
     const start = html.indexOf('POOLS.' + id + ' =');
     const end = html.indexOf('};', start);
     if (start < 0 || end < start) throw new Error('Missing pool ' + id + ' in index.html');
     vm.runInContext(html.slice(start, end + 2), ctx, { filename: 'index.html/' + id });
   }
   const pools = vm.runInContext('POOLS', ctx);
+  const lore = vm.runInContext('window.DA_POOL_LORE || {}', ctx);
   const roster = [];
-  for (const pool of POOL_IDS) for (const e of pools[pool].entries) {
-    roster.push({ id: pool + ':' + e[0], pool, n: e[0], t: e[2], a: e[3],
-      taxonomy: Array.isArray(e[4]) ? e[4] : [] });
+  for (const pool of POOL_IDS) {
+    if (!pools[pool]) throw new Error('Pool ' + pool + ' did not load');
+    for (const e of pools[pool].entries) {
+      // Mirrors buildCandidates in index.html: lore "short" replaces the roster blurb when present.
+      const short = lore[pool]?.[e[0]]?.short;
+      roster.push({ id: pool + ':' + e[0], pool, n: e[0], t: (typeof short === 'string' && short.trim()) || e[2], a: e[3],
+        taxonomy: Array.isArray(e[4]) ? e[4] : [], archetype: typeof e[5] === 'string' ? e[5] : null });
+    }
   }
   const call = (expr, vars) => { Object.assign(ctx, vars); return vm.runInContext(expr, ctx); };
   return {
@@ -70,4 +83,4 @@ function engineMatrix(game) {
   return out;
 }
 
-module.exports = { ROOT, POOL_IDS, POWER_TAGS, loadGame, engineMatrix, read };
+module.exports = { ROOT, POOL_IDS, LEGACY_POOL_IDS, ADDED_POOL_IDS, POWER_TAGS, loadGame, engineMatrix, read };

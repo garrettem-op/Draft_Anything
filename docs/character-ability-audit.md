@@ -5,11 +5,13 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 ## What changed
 
 1. **Every roster character now has reviewed ability tags.** `CHARACTER_ABILITY_TAGS` in
-   `data/character-abilities.js` lists all 848 characters across the seven pools. Each list holds the 12 Campaign
+   `data/character-abilities.js` lists every character in every pool: the 848 in the original seven pools, plus
+   the DC, Middle-earth and Harry Potter pools from PR #42 (1,173 in total). For the new pools, the index reflects
+   ChatGPT's seeded power data until their lore research lands. Each list holds the 12 Campaign
    power ids. An empty list means **audited, no qualifying power**, which is different from unknown.
    `characterAbilityTags(candidate)` returns a character's tags. It returns `[]` for audited non-powered characters
    and `null` for a name outside the roster.
-2. **377 new source-linked evidence records for 240 characters** (`CHARACTER_ABILITY_RECORDS_AUDIT`). Each record holds:
+2. **554 new source-linked evidence records for 303 characters** (`CHARACTER_ABILITY_RECORDS_AUDIT`). Each record holds:
    - the power tag
    - the `kind`, e.g. `pilot` vs `self-flight` vs `glide` vs `mount`, or `gen1-level-up-move`
    - a specific feat
@@ -19,9 +21,9 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 
    These records take effect immediately through the existing `characterAbilityEvidence()` hook. No change to
    `campaign.js` is needed.
-3. **16 disputed grants.** These are powers the engine currently accepts. 13 are `incorrect`: the audit found no
-   support, or they fail an owner ruling. 3 still need a design decision (`ruling`).
-4. **45 research-queue items.** These are plausible powers that are deliberately **not granted** yet.
+3. **15 disputed grants.** These are powers the engine currently accepts. 14 are `incorrect`: the audit found no
+   support, or they fail an owner ruling. 1 still needs a design decision (`ruling`).
+4. **37 research-queue items.** These are plausible powers that are deliberately **not granted** yet.
 5. **Tooling.**
    - `tools/ability-audit.cjs --write-index` regenerates the index.
    - `--report` regenerates `docs/character-ability-coverage.md`, which has full per-pool tables, lists, and the
@@ -37,28 +39,31 @@ Raw research, including rejected claims and researcher notes, is preserved in `r
 ## Coverage, before → after (characters per theme)
 
 "After" counts the reviewed index. It is what the game will accept once the engine honors the `incorrect`
-disputes (see integration item 1). Until then the engine accepts the same characters plus those 13.
+disputes (see integration item 1). Until then the engine accepts the same characters plus those 14.
 
 | Theme | Before | After |
 | --- | ---: | ---: |
-| Skyborne (flight) | 87 | 158 |
+| Skyborne (flight) | 87 | 160 |
 | Arcane Assembly (magic) | 15 | 38 |
-| Mind Games (psychic) | 29 | 71 |
-| Under the Sea (aquatic) | 38 | 50 |
-| Inferno (fire) | 18 | 40 |
-| Cold Front (ice) | 11 | 24 |
-| Shock Troopers (electric) | 17 | 39 |
+| Mind Games (psychic) | 29 | 86 |
+| Under the Sea (aquatic) | 38 | 57 |
+| Inferno (fire) | 18 | 75 |
+| Cold Front (ice) | 11 | 77 |
+| Shock Troopers (electric) | 17 | 85 |
 | Tech Titans (tech) | 34 | 96 |
 | Ghost Protocol (stealth) | 36 | 39 |
-| Blink and Miss (teleport) | 18 | 56 |
-| The Medics (healing) | 23 | 37 |
+| Blink and Miss (teleport) | 18 | 70 |
+| The Medics (healing) | 23 | 40 |
 | Giant Problems (giants) | 11 | 23 |
-| **Character–power pairs** | **337** | **671** |
+| **Character–power pairs** | **337** | **846** |
 
 Ghost Protocol barely grows on purpose. Under the role-word ruling, 7 role-only grants come out (8 counting
 IG-88), and 14 existing grants now rest on a sourced feat instead of a job title.
 
-Non-NBA characters with no power at all went from 454 to 319. Most of the remainder are canonically
+Counts cover the original seven pools. Most of the jump in fire, ice and electric comes from Pokémon that can learn
+elemental TM moves, under the owner's learnable-move ruling.
+
+Non-NBA characters with no power at all went from 454 to 288. Most of the remainder are canonically
 non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
 
 ## Biggest gaps closed
@@ -88,7 +93,7 @@ non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
 
 ## Changes ChatGPT needs to make for integration
 
-1. **Honor `incorrect` disputes in the engine.** The engine still accepts 13 grants the audit removes. They come
+1. **Honor `incorrect` disputes in the engine.** The engine still accepts 14 grants the audit removes. They come
    from the `CAMPAIGN_TAGS` name list, roster-description patterns, or guide text:
    - The Thing → giants
    - Donkey Kong → giants
@@ -103,6 +108,7 @@ non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
    - IG-88 → stealth
    - Garfield → stealth
    - Popeye → healing
+   - Vision → psychic
 
    The smallest change is a guard at the top of the `default:` branch in `campaignAllowed`:
    ```js
@@ -139,17 +145,45 @@ non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
 - **Inferno:** Mandalorian wrist flamethrowers count. The Mandalorian, Boba Fett and Jango Fett are in. Bo-Katan
   and Sabine are queued because no canon scene shows either one using a flamethrower or fire.
 
+### Owner rulings from the voice review (2026-11-09)
+
+- **Pokémon learnable moves count.** Any move a Pokémon can learn in Generation I, by level-up or TM/HM, earns
+  the matching tag. The data comes from Pokémon Showdown's Gen I learnsets (`@pkmn/dex`), and each record cites the
+  pokemondb Gen I learnset page. The move-to-tag map is in the next section.
+  - Doduo and Dodrio are now Skyborne (HM02 Fly).
+  - Snorlax, Nidoking and others are Under the Sea (HM03 Surf).
+- **Rest is not healing.** Nearly every Pokémon can learn it, so Slowbro stays out.
+- **Commander Shepard counts for Mind Games.** The roster doesn't fix a class, so every canonical option counts.
+- **Tracer counts for The Medics** (Recall restores her health) and keeps teleport (Blink).
+- **Vision does not count for Mind Games.** This is now an `incorrect` dispute.
+- **Echo counts for The Medics.** In the Echo finale she uses her healing power on Wilson Fisk's mind. The effect
+  does not last into Daredevil: Born Again.
+
+### Pokémon move-to-tag map (Gen I)
+
+| Tag | Moves |
+| --- | --- |
+| flight | Fly (HM02) |
+| aquatic | Surf (HM03) |
+| teleport | Teleport (TM30) |
+| healing | Recover, Softboiled (TM41). Not Rest. |
+| psychic | Psychic (TM29), Psybeam, Confusion, Psywave (TM46), Kinesis, Hypnosis, Dream Eater (TM42) |
+| fire | Flamethrower, Fire Blast (TM38), Ember, Fire Punch, Fire Spin |
+| ice | Ice Beam (TM13), Blizzard (TM14), Aurora Beam, Ice Punch |
+| electric | Thunderbolt (TM24), Thunder (TM25), Thunder Shock, Thunder Punch, Thunder Wave (TM45) |
+
+Moves never grant magic, tech, stealth or giants. A Flying or Water *type* alone still grants nothing beyond the
+existing curated type rules.
+
 ## Still open (small)
 
-- Rest as healing (Slowbro).
-- TM-only moves other than Teleport (Mew's Softboiled).
-- Player-choice traits (Commander Shepard's biotics).
-- Time-rewind healing (Tracer's Recall).
-- Vision → psychic and Echo → healing (`ruling` disputes).
+- Magneton → flight (`ruling`). The grant comes from the curated hover list. Magneton has no Pokédex hover
+  entry and cannot learn Fly.
+- Specific sub-tags (see `docs/tag-based-eligibility-plan.md`). This is the next data step.
 
 ## Unverified or rejected
 
-The research queue (45) is listed in `CHARACTER_ABILITY_RESEARCH_QUEUE` and in the coverage report. The following
+The research queue (37) is listed in `CHARACTER_ABILITY_RESEARCH_QUEUE` and in the coverage report. The following
 were rejected after research and are protected by tests:
 - Ms. Marvel → giants (fists only)
 - Crazy Harry → fire (explosives)

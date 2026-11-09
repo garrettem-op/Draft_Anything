@@ -155,6 +155,11 @@ test('strategic commander catalog references actual roster characters',()=>{
   const entries=html.indexOf('entries: [',start),end=html.indexOf('\n]};',entries);
   byPool[pool]=[...html.slice(entries,end).matchAll(/^\["([^"]+)"/gm)].map(x=>x[1]);
  }
+ // Pools registered outside index.html (DC, Middle-earth, Harry Potter; PR #42).
+ const added=vm.createContext({window:{}});
+ for(const f of ['new-pool-core.js','pools-dc.js','pools-middle-earth.js','pools-harry-potter.js'])
+  vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../data',f),'utf8'),added);
+ for(const [pool,data] of Object.entries(added.window.DA_ADDED_POOLS))byPool[pool]=data.entries.map(e=>e[0]);
  for(const id of Object.keys(api.CAMPAIGN_COMMANDER_SPECIALTIES)){
   const sep=id.indexOf(':'),pool=id.slice(0,sep),name=id.slice(sep+1);
   assert.ok(byPool[pool]?.includes(name),'Missing strategic commander '+id);

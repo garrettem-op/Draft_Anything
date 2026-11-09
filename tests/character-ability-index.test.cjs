@@ -3,7 +3,7 @@
    research guides, Pokémon types, curated records). No network, no paid AI. */
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { POWER_TAGS, POOL_IDS, loadGame, engineMatrix } = require('../tools/ability-audit-lib.cjs');
+const { POWER_TAGS, POOL_IDS, LEGACY_POOL_IDS, loadGame, engineMatrix } = require('../tools/ability-audit-lib.cjs');
 const { derivedIndex } = require('../tools/ability-audit.cjs');
 
 const game = loadGame();
@@ -12,15 +12,15 @@ const byId = new Map(game.roster.map(c => [c.id, c]));
 const get = id => { const c = byId.get(id); assert.ok(c, id + ' is not on the roster'); return c; };
 const accepts = (id, tag) => game.allowed(get(id), tag);
 
-test('index lists every one of the 848 roster characters exactly once, and nobody else', () => {
-  assert.equal(game.roster.length, 848);
+test('index lists every roster character in every pool exactly once, and nobody else', () => {
+  assert.equal(game.roster.filter(c => LEGACY_POOL_IDS.includes(c.pool)).length, 848);
   let listed = 0;
   for (const pool of POOL_IDS) {
     const names = Object.keys(game.tagIndex[pool] || {});
     listed += names.length;
     for (const n of names) assert.ok(byId.has(pool + ':' + n), 'Index lists unknown character ' + pool + ':' + n);
   }
-  assert.equal(listed, 848);
+  assert.equal(listed, game.roster.length);
   for (const c of game.roster) assert.ok(Array.isArray(game.tagIndex[c.pool][c.n]), c.id + ' missing from index');
 });
 
@@ -126,7 +126,6 @@ for (const [tag, ids] of Object.entries(MUST_QUALIFY)) {
 const MUST_NOT_QUALIFY = [
   ['games:Marth', 'fire', 'Fire Emblem is a franchise title, not fire powers'],
   ['muppets:Dr. Teeth', 'electric', 'Electric Mayhem is a band name'],
-  ['pokemon:Doduo', 'flight', 'Flying type, but a flightless runner'],
   ['starwars:Han Solo', 'psychic', 'not Force-sensitive'],
   ['starwars:Chirrut Îmwe', 'psychic', 'databank: belief in the Force, no Force abilities'],
   ['starwars:Wampa', 'ice', 'lives on an ice planet; no ice powers'],
@@ -141,6 +140,7 @@ const MUST_NOT_QUALIFY = [
   ['mcu:Jessica Jones', 'flight', 'jumps; does not fly'],
   ['muppets:Crazy Harry', 'fire', 'uses explosives, does not command fire'],
   ['pokemon:Clefairy', 'healing', 'no Recover/Softboiled in its Generation I learnset'],
+  ['pokemon:Slowbro', 'healing', 'owner ruling 2026-11-09: Rest is not healing'],
 ];
 test('false positives stay rejected (titles, names, roles, being hit by a power)', () => {
   for (const [id, tag, why] of MUST_NOT_QUALIFY) assert.equal(accepts(id, tag), false, id + ' ' + tag + ': ' + why);
@@ -195,4 +195,24 @@ test('owner ruling 2026-11-09: Giant Problems is about 8 ft or taller, with a do
   assert.equal(game.tagIndex.mcu['The Thing'].includes('giants'), false);
   assert.equal(game.tagIndex.games['Donkey Kong'].includes('giants'), false);
   for (const id of ['muppets:Sweetums', 'muppets:Mr. Snuffleupagus']) assert.equal(accepts(id, 'giants'), false, id + ' has no documented height yet');
+});
+
+test('owner rulings 2026-11-09 (voice): Pokémon learnable moves, Shepard, Tracer, Echo', () => {
+  // Any move learnable in Gen I (level-up or TM/HM) counts; Rest does not.
+  for (const [id, tag] of [['pokemon:Doduo', 'flight'], ['pokemon:Dodrio', 'flight'], ['pokemon:Snorlax', 'aquatic'],
+    ['pokemon:Mew', 'healing'], ['pokemon:Starmie', 'healing'], ['pokemon:Gengar', 'psychic'], ['pokemon:Arcanine', 'teleport'],
+    ['pokemon:Nidoking', 'ice'], ['pokemon:Gyarados', 'electric'], ['games:Commander Shepard', 'psychic'],
+    ['games:Tracer', 'healing'], ['games:Tracer', 'teleport'], ['mcu:Echo', 'healing']]) {
+    assert.equal(accepts(id, tag), true, id + ' ' + tag);
+    assert.ok(game.tagIndex[get(id).pool][get(id).n].includes(tag), id + ' index ' + tag);
+  }
+  const move = game.abilities['pokemon:Dodrio'].find(f => f.tag === 'flight');
+  assert.match(move.feat, /Fly/);
+  assert.match(move.source, /pokemondb\.net\/pokedex\/dodrio\/moves\/1$/);
+  // Vision: no Mind Games despite the Mind Stone. Still granted by the CAMPAIGN_TAGS name list until the
+  // engine honors 'incorrect' disputes, so assert the reviewed index here.
+  assert.equal(game.tagIndex.mcu.Vision.includes('psychic'), false);
+  // Moves never leak into themes with no move mapping.
+  assert.equal(accepts('pokemon:Dodrio', 'stealth'), false);
+  assert.equal(accepts('pokemon:Dodrio', 'giants'), false);
 });
