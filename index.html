@@ -2472,7 +2472,7 @@ function poolCandidates(pool) {
   const mem = SYN_MEMBERS[pool.id] || null;
   const sigs = SIGS[pool.id] || {}, booms = BOOM_SET[pool.id];
   const list = pool.entries.map((e, i) => {
-    const c = { id: pool.id + ':' + candSlug(e[0]), n: e[0], e: e[1] || '', t: e[2] || '', a: e[3].map(clampAttr), pool: pool.id, g: mem ? (mem[e[0]] || []).slice() : [] };
+    const c = { id: pool.id + ':' + candSlug(e[0]), n: e[0], e: e[1] || '', t: e[2] || '', a: e[3].map(clampAttr), pool: pool.id, g: mem ? (mem[e[0]] || []).slice() : [], taxonomy: Array.isArray(e[4]) ? e[4].slice() : [] };
     if (sigs[e[0]]) c.sig = { name: sigs[e[0]][0], kind: sigs[e[0]][1] };
     if (booms && booms.has(e[0])) c.boom = true;
     return c;
