@@ -128,6 +128,20 @@ function campaignOfflineEvidence(candidate,rule){
       feat:'The roster classifies this Kanto Pokémon under '+pokemonTag+'.',
       source:'built-in-pokemon-type-taxonomy'};
   }
+  if(typeof window!=='undefined'&&window.DA_NEW_POOL_HAS_POWER?.(candidate,rule)){
+    return {tag:rule,kind:'seeded-universe-power',pool:candidate.pool,name:candidate.n,
+      feat:'Curated initial power tag for '+candidate.n+' (individual source review pending)',
+      source:'built-in-new-pool-power-data'};
+  }
+  // Hogwarts roster archetypes refer to known magical roles (students, trained
+  // wizards, Aurors, dark wizards and house-elves). Do not grant magic to Muggles,
+  // Squibs, dragons, ordinary animals or magical creatures from mere presence.
+  if(rule==='magic'&&candidate.pool==='harrypotter'&&
+      /^(?:wizard|wizardStudent|wizardMaster|darkWizard|auror|mage|archmage|elfServant)$/.test(candidate.archetype||'')){
+    return {tag:'magic',kind:'wizarding-world-magical-role',pool:candidate.pool,name:candidate.n,
+      feat:'The character is a witch, wizard or house-elf with documented magical aptitude.',
+      source:'built-in-wizarding-world-roster'};
+  }
   if(rule==='flight'&&CAMPAIGN_OFFLINE_AERIAL[candidate.pool]?.has(candidate.n)){
     return {tag:'flight',kind:'curated-flight-or-air-combat',pool:candidate.pool,name:candidate.n,
       feat:'Known flight, hovering, or aircraft/spacecraft piloting relevant to Skyborne. Vehicle use does not imply unaided flight.',
