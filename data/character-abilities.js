@@ -44,6 +44,15 @@ const CHARACTER_ABILITIES = Object.freeze({
   'mcu:The Watcher': [
     {tag:'stealth', kind:'undetected-observation', feat:'In What If...? Ultron Won?, the Watcher observes events unseen until Infinity Ultron becomes aware of him and sees him.', source:'https://www.syfy.com/syfy-wire/marvel-what-if-episode-8-ultron-watcher-finale-endgame'},
   ],
+  'mcu:Cassandra Nova': [
+    {tag:'psychic', kind:'telepathy-and-telekinesis', feat:'In Deadpool & Wolverine, Cassandra Nova reads and manipulates minds through tactile telepathy and telekinetically controls opponents.', source:'https://www.marvel.com/teams-and-groups/x-men/in-comics'},
+  ],
+  'mcu:Invisible Woman': [
+    {tag:'psychic', kind:'force-field-telekinesis', feat:'Sue Storm mentally projects and controls invisible force fields to move, lift, restrain, and throw objects and opponents without physical contact. This qualifies as telekinetic-like manipulation, not telepathy.', source:'https://marvelcinematicuniverse.fandom.com/wiki/Invisible_Woman'},
+  ],
+  'starwars:Emperor Palpatine': [
+    {tag:'psychic', kind:'force-telekinesis', feat:'Darth Sidious employs telekinetic Force powers, including throwing Senate chamber platforms during his duel with Yoda in Revenge of the Sith.', source:'https://www.starwars.com/video/senate-force-duel'},
+  ],
   'mcu:Phastos': [
     {tag:'tech', kind:'technopathy', feat:'Phastos creates and communicates with advanced machinery.', source:'https://d23.com/meet-the-characters-of-marvel-studios-eternals/'},
   ],
