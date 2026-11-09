@@ -8,6 +8,227 @@
    https://interviews.televisionacademy.com/shows/muppet-show-the
    https://www.tvencyclopedia.org/tv-encyclopedia-11/muppet-show-the
 */
+/* Source ledger: movies establish a body of work, individual scenes establish feats.
+   Research-queued films do NOT confer powers or change numeric ratings.
+   A Muppet playing a fictional role can show puppet performance capabilities, but
+   cannot automatically transfer that role's special weapons or story-specific magic.
+   Scene summaries are derived from linked studio articles and published reviews;
+   interpretations are editorial and explicitly narrower than universal feats. */
+const MUPPET_FORCE_WORKS = Object.freeze([
+  {
+    "id": "muppet-show",
+    "title": "The Muppet Show",
+    "years": "1976–1981",
+    "status": "foundational",
+    "source": "https://interviews.televisionacademy.com/shows/muppet-show-the"
+  },
+  {
+    "id": "muppet-movie-1979",
+    "title": "The Muppet Movie",
+    "year": 1979,
+    "status": "research-queued",
+    "source": "https://movies.disney.com/the-muppet-movie-1979"
+  },
+  {
+    "id": "great-muppet-caper-1981",
+    "title": "The Great Muppet Caper",
+    "year": 1981,
+    "status": "research-queued",
+    "source": "https://muppets.disney.com/"
+  },
+  {
+    "id": "muppets-take-manhattan-1984",
+    "title": "The Muppets Take Manhattan",
+    "year": 1984,
+    "status": "research-queued",
+    "source": "https://muppets.disney.com/"
+  },
+  {
+    "id": "muppet-christmas-carol-1992",
+    "title": "The Muppet Christmas Carol",
+    "year": 1992,
+    "status": "research-queued",
+    "source": "https://muppets.disney.com/"
+  },
+  {
+    "id": "muppet-treasure-island-1996",
+    "title": "Muppet Treasure Island",
+    "year": 1996,
+    "status": "initial-feats-reviewed",
+    "source": "https://d23.com/a-to-z/muppet-treasure-island-film/"
+  },
+  {
+    "id": "muppets-from-space-1999",
+    "title": "Muppets from Space",
+    "year": 1999,
+    "status": "research-queued",
+    "source": "https://muppets.disney.com/"
+  },
+  {
+    "id": "the-muppets-2011",
+    "title": "The Muppets",
+    "year": 2011,
+    "status": "research-queued",
+    "source": "https://muppets.disney.com/"
+  },
+  {
+    "id": "muppets-most-wanted-2014",
+    "title": "Muppets Most Wanted",
+    "year": 2014,
+    "status": "research-queued",
+    "source": "https://muppets.disney.com/"
+  }
+]);
+const MUPPET_FORCE_FEATS = Object.freeze([
+  {
+    "id": "mti-gonzo-torture",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Gonzo",
+    "role": "Gonzo",
+    "dimension": "resilience",
+    "summary": "During pirate interrogation, Gonzo's reaction to the rack becomes enjoyment rather than ordinary intimidation.",
+    "inference": "Supports extraordinary pain tolerance and slapstick adversity, not immunity to injury or all damage.",
+    "continuity": "character-portrayal",
+    "evidence": "reported-scene",
+    "sources": [
+      "https://www.grouchoreviews.com/reviews/6334f8a75fe75d1811c62bb4",
+      "https://muppet.fandom.com/wiki/Masochism"
+    ]
+  },
+  {
+    "id": "mti-gonzo-starfish",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Gonzo",
+    "role": "Gonzo",
+    "dimension": "props",
+    "summary": "Gonzo uses starfish as throwing-star projectiles during the pirate confrontation.",
+    "inference": "A scene-specific example of weaponizing environment objects; does not establish unlimited projectile conjuring.",
+    "continuity": "character-portrayal",
+    "evidence": "reported-scene",
+    "sources": [
+      "https://www.splicedwire.com/96reviews/muppet.html"
+    ]
+  },
+  {
+    "id": "mti-kermit-duel",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Kermit the Frog",
+    "role": "Captain Smollett",
+    "dimension": "props",
+    "summary": "Kermit's Captain Smollett engages in staged sword combat against a human pirate antagonist.",
+    "inference": "Evidence of choreography, reach and prop handling within this film; not automatic master swordsman status in every role.",
+    "continuity": "fictional-role",
+    "evidence": "studio-production",
+    "sources": [
+      "https://d23.com/wda-sailing-for-muppet-y-adventure-on-the-high-seas/"
+    ]
+  },
+  {
+    "id": "mti-misspiggy-martial",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Miss Piggy",
+    "role": "Benjamina Gunn",
+    "dimension": "mayhem",
+    "summary": "Miss Piggy's Benjamina uses her characteristic martial-arts attacks during the pirate battle.",
+    "inference": "Supports recurring striking and aggressive environmental disruption; not a limitless strength multiplier.",
+    "continuity": "fictional-role",
+    "evidence": "studio-production",
+    "sources": [
+      "https://d23.com/wda-sailing-for-muppet-y-adventure-on-the-high-seas/"
+    ]
+  },
+  {
+    "id": "mti-kermit-cliff",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Kermit the Frog",
+    "role": "Captain Smollett",
+    "dimension": "resilience",
+    "summary": "Kermit and Miss Piggy remain conscious and sing while suspended upside down as a rope burns; a rescue prevents the fall.",
+    "inference": "Supports unusual composure and physical performance under peril, but does not prove surviving a fall.",
+    "continuity": "fictional-role",
+    "evidence": "studio-production",
+    "sources": [
+      "https://d23.com/muppet-treasure-island-did-you-know-2/",
+      "https://www.aol.com/articles/muppet-treasure-island-30-oral-125206000.html"
+    ]
+  },
+  {
+    "id": "mti-piggy-cliff",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Miss Piggy",
+    "role": "Benjamina Gunn",
+    "dimension": "resilience",
+    "summary": "Benjamina and Captain Smollett perform a duet upside down over a cliff; they are rescued.",
+    "inference": "Supports resilience and composure while suspended, but neither character is proven fall-proof.",
+    "continuity": "fictional-role",
+    "evidence": "studio-production",
+    "sources": [
+      "https://d23.com/muppet-treasure-island-did-you-know-2/"
+    ]
+  },
+  {
+    "id": "mti-statler-figurehead",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Statler",
+    "role": "Hispaniola figurehead",
+    "dimension": "stage",
+    "summary": "Statler appears as a talking figurehead at the ship's bow.",
+    "inference": "Supports improbable theatrical placement and the ability to heckle across a set; not literal teleportation.",
+    "continuity": "fictional-role",
+    "evidence": "contemporary-review",
+    "sources": [
+      "https://www.washingtonpost.com/archive/lifestyle/1996/02/16/seeworthy-muppets/05904985-76c8-499c-b196-4845fdf15d5f/"
+    ]
+  },
+  {
+    "id": "mti-waldorf-figurehead",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Waldorf",
+    "role": "Hispaniola figurehead",
+    "dimension": "stage",
+    "summary": "Waldorf appears alongside Statler as a talking ship figurehead.",
+    "inference": "Supports theatrical scene integration; not invulnerability or instant travel.",
+    "continuity": "fictional-role",
+    "evidence": "contemporary-review",
+    "sources": [
+      "https://www.washingtonpost.com/archive/lifestyle/1996/02/16/seeworthy-muppets/05904985-76c8-499c-b196-4845fdf15d5f/"
+    ]
+  },
+  {
+    "id": "mti-rizzo-rats",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Rizzo the Rat",
+    "role": "Rizzo",
+    "dimension": "ensemble",
+    "summary": "Rizzo has vacationing rats aboard the Hispaniola who treat a pirate voyage like a cruise.",
+    "inference": "A social and environmental gag that demonstrates ensemble chaos, not physical invulnerability.",
+    "continuity": "character-portrayal",
+    "evidence": "contemporary-review",
+    "sources": [
+      "https://www.spokesman.com/stories/1996/feb/16/sail-the-high-seas-with-the-muppets/",
+      "https://www.washingtonpost.com/archive/lifestyle/1996/02/16/seeworthy-muppets/05904985-76c8-499c-b196-4845fdf15d5f/"
+    ]
+  },
+  {
+    "id": "mti-fozzie-bimbo",
+    "workId": "muppet-treasure-island-1996",
+    "character": "Fozzie Bear",
+    "role": "Squire Trelawney",
+    "dimension": "props",
+    "summary": "Fozzie's Squire Trelawney repeatedly treats his finger as the home of Mr. Bimbo.",
+    "inference": "An absurd role-specific prop/character gag, explicitly not proof of magical creation or a living creature in Fozzie's finger.",
+    "continuity": "fictional-role",
+    "evidence": "contemporary-review",
+    "sources": [
+      "https://www.spokesman.com/stories/1996/feb/16/sail-the-high-seas-with-the-muppets/",
+      "https://muppet.fandom.com/wiki/Mr._Bimbo"
+    ]
+  }
+]);
+function muppetForceHistoryOf(candidate) {
+  if (!candidate || candidate.pool !== 'muppets') return [];
+  return MUPPET_FORCE_FEATS.filter(f => f.character === candidate.n).map(f => ({...f,work:MUPPET_FORCE_WORKS.find(w => w.id === f.workId)}));
+}
 const MUPPET_FORCE_DIMENSIONS = Object.freeze([
   {key:'resilience',label:'Puppet resilience',weight:0.30,description:'Returns from impacts, explosions or distortion beyond an ordinary body'},
   {key:'props',label:'Prop manipulation',weight:0.25,description:'Treats food, furniture, inventions or stage props as extraordinary tools'},
@@ -87,5 +308,5 @@ function muppetForceFit(candidate,sportKey,pos) {
   return Math.min(0.7,0.7*intensity*context);
 }
 if(typeof module!=='undefined' && module.exports){
-  module.exports={MUPPET_FORCE_DIMENSIONS,MUPPET_FORCE_PROFILES,MUPPET_FORCE_RULE,muppetForceOf,muppetForceFit};
+  module.exports={MUPPET_FORCE_WORKS,MUPPET_FORCE_FEATS,MUPPET_FORCE_DIMENSIONS,MUPPET_FORCE_PROFILES,MUPPET_FORCE_RULE,muppetForceHistoryOf,muppetForceOf,muppetForceFit};
 }
