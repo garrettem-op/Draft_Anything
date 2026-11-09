@@ -391,15 +391,15 @@ function campaignAllowed(c,rule,pos=null){
   if(campaignCommanderSpecialty(c,rule,pos))return true;
   switch(rule){
     case 'fast':return c.a[0]>=90;
-    case 'women':return CAMPAIGN_WOMEN.has(c.n);
-    case 'red':return CAMPAIGN_RED.has(c.n);
-    case 'kids':return CAMPAIGN_KIDS.has(c.n);
-    case 'mortal':return c.pool==='nba'||CAMPAIGN_MORTAL.has(c.n);
+    case 'women':return CAMPAIGN_WOMEN.has(c.n)||campaignExpansionAllowed(c,'women');
+    case 'red':return CAMPAIGN_RED.has(c.n)||campaignExpansionAllowed(c,'red');
+    case 'kids':return CAMPAIGN_KIDS.has(c.n)||campaignExpansionAllowed(c,'kids');
+    case 'mortal':return c.pool==='nba'||CAMPAIGN_MORTAL.has(c.n)||campaignExpansionAllowed(c,'mortal');
     case 'brain':return c.a[9]>=87;
     case 'strong':return c.a[2]>=87;
     case 'underdog':return c.a.reduce((n,v)=>n+v,0)/c.a.length<=73;
     case 'final':return !campaignUsed().has(c.id);
-    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||!!characterAbilityEvidence(c,rule)||(typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule));return true;
+    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||campaignExpansionAllowed(c,rule)||!!characterAbilityEvidence(c,rule)||(typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule));return true;
 
   }
 }
