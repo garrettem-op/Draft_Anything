@@ -5,7 +5,7 @@
 // its web-search response, tied to a concrete feat and the named continuity.
 // Two independent sources can support a SINGLE-PLAYER provisional exception even
 // when a primary document is mirrored outside its publisher's official domain.
-export function evaluateAbilityEvidence({verdict,confidence,feat,cited},isOfficial=()=>false){
+export function evaluateAbilityEvidence({verdict,confidence,feat,cited},isOfficial=(_host)=>false){
   const sources=[...new Set((Array.isArray(cited)?cited:[]).filter(u=>{
     try{const x=new URL(u);return x.protocol==='https:'&&!!x.hostname;}catch{return false;}
   }))];
