@@ -23,6 +23,30 @@ const server=http.createServer((req,res)=>{
  page.on('pageerror',error=>errors.push(error.message));
  try{
   await page.goto('http://127.0.0.1:'+server.address().port,{waitUntil:'domcontentloaded',timeout:30000});
+  // Daily Grid: exercise the actual mobile interface, answer validation, and local persistence.
+  await page.locator('button[data-act="mode"][data-mode="grid"]').click();
+  assert.equal(await page.locator('.dg-board button[data-act="grid-cell"]').count(),9,'Daily Grid does not render nine playable squares');
+  const daily=await page.evaluate(()=>{
+    const date=DailyGrid.today(),p=DailyGrid.puzzle(date);
+    const column=p.cols[0],idx=AK.indexOf(column.key);
+    const candidate=getCands(p.rows[0]).find(c=>c.a[idx]>=column.min);
+    if(!candidate)throw Error('Impossible daily-grid intersection');
+    return {date,id:candidate.id,name:candidate.n};
+  });
+  await page.locator('.dg-board button[data-i="0"]').click();
+  await page.locator('#dg-query').fill(daily.name.slice(0,Math.min(5,daily.name.length)));
+  await page.locator('.dg-result[data-cid="'+daily.id+'"]').click();
+  assert.equal(await page.locator('.dg-board button[data-i="0"].dg-good').count(),1,'Eligible Daily Grid answer was rejected');
+  const persisted=await page.evaluate(date=>JSON.parse(localStorage.getItem('da.daily-grid.v1.'+date)||'null'),daily.date);
+  assert.equal(persisted.cells[0].id,daily.id,'Daily Grid did not save the pick');
+  await page.locator('.dg-board button[data-i="1"]').click();
+  await page.locator('#dg-query').fill(daily.name.slice(0,Math.min(5,daily.name.length)));
+  await page.locator('.dg-result[data-cid="'+daily.id+'"]').click();
+  assert.equal(await page.locator('.dg-board button[data-i="1"].dg-empty').count(),1,'A character was used twice');
+  await page.locator('button[data-act="grid-close"]').click();
+  await page.locator('button[data-act="grid-archive"]').click();
+  assert.equal(await page.locator('.dg-archive').count(),1,'Archive failed to open');
+  await page.locator('button[data-act="mode"][data-mode="champ"]').click();
   // The rating explanation reconciles with the exact simulation arithmetic.
   const engineCheck=await page.evaluate(()=>{
     const A={rating:105.3,sig:{chaos:0,spark:[]}},B={rating:106.9,sig:{chaos:0,spark:[]}};
