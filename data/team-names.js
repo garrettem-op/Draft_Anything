@@ -21,7 +21,7 @@
       'Madripoor Shadows', 'Xandar Nova', 'Sakaar Gladiators',
       'Ta Lo Dragons', 'Westview Hex', 'Titan Survivors',
       'New Asgard Valkyries', 'Talokan Tides', 'Lagos Shield',
-      'Vormir Watchers', 'Hell's Kitchen Heroes', 'Stark Tower Iron',
+      'Vormir Watchers', "Hell's Kitchen Heroes", 'Stark Tower Iron',
       'Queens Webslingers', 'Latveria Legion', 'Sanctum Sorcerers',
       'The Raft Wardens'
     ]),
@@ -32,18 +32,18 @@
       'Arendelle Blizzard', 'Pride Rock Royals', 'Elmore Oddballs',
       'Adventure Bay Rescuers', 'Halloween Town Ghouls',
       'Ooo Adventurers', 'Neverland Flyers', 'Zootopia Trailblazers',
-      'The Boiling Isles Owls', 'Wakko's Warner Lot', 'Hill Valley Time',
+      'The Boiling Isles Owls', "Wakko's Warner Lot", 'Hill Valley Time',
       'Ninjago City Ninjas', 'Atlantica Tides', 'Corona Lanterns'
     ]),
     muppets: Object.freeze([
       'Sesame Street Stars', 'Fraggle Rock Miners', 'Grouchland Grumps',
       'Muppet Theater Players', 'Happiness Hotel House Band',
-      'Muppet Labs Experiments', 'Kermit's Swamp Croakers',
-      'Hooper's Store Neighbors', 'Muppet Studios Headliners',
-      'Bear's Big Blue House', 'The Electric Mayhem',
+      'Muppet Labs Experiments', "Kermit's Swamp Croakers",
+      "Hooper's Store Neighbors", 'Muppet Studios Headliners',
+      "Bear's Big Blue House", 'The Electric Mayhem',
       'Sesame Street Monsters', 'Fraggle Rock Doozers',
       'Muppet Island Castaways', 'The Muppet Newsroom',
-      'Gonzo's Stunt Troupe', 'Muppet Treasure Island',
+      "Gonzo's Stunt Troupe", 'Muppet Treasure Island',
       'The Happiness Hotel Crew', 'The Muppet Show Balcony',
       'The Muppet Christmas Carol', 'Sesame Street Countdowns',
       'The Muppet Theater Orchestra'
@@ -102,17 +102,17 @@
       'Númenor Mariners', 'Angband Flames', 'Valinor Stars',
       'Beleriand Blades', 'Minas Tirith Sentinels',
       'Edoras Horsemen', 'Osgiliath Watch', 'Pelargir Mariners',
-      'Fangorn Ents', 'Helm's Deep Defenders',
+      'Fangorn Ents', "Helm's Deep Defenders",
       'Dol Amroth Swans', 'Mirkwood Archers', 'Mithlond Shipwrights'
     ]),
     harrypotter: Object.freeze([
       'Hogwarts Spellcasters', 'Hogsmeade Howlers',
-      'Diagon Alley Duelists', 'Godric's Hollow Guardians',
+      'Diagon Alley Duelists', "Godric's Hollow Guardians",
       'Azkaban Wardens', 'Durmstrang Dragons',
       'Beauxbatons Enchanters', 'Ilvermorny Thunderbirds',
       'Forbidden Forest Centaurs', 'Knockturn Alley Shades',
       'Little Hangleton Serpents', 'Shell Cottage Seabirds',
-      'Ottery St Catchpole Otters', 'King's Cross Porters',
+      'Ottery St Catchpole Otters', "King's Cross Porters",
       'Grimmauld Place Phoenixes', 'Malfoy Manor Serpents',
       'Hogwarts Express Riders', 'Hogsmeade Station Guard',
       'The Burrow Broomsticks', 'Hogwarts Lake Merfolk',
@@ -131,6 +131,7 @@
     const list = POOL_TEAM_NAMES[poolId];
     if (!list) return typeof legacy === 'function' ? legacy(count, rng) : [];
     const needed = Math.max(0, Math.trunc(Number(count) || 0));
+    if (!needed) return [];
     const random = typeof rng === 'function' ? rng : Math.random;
     const names = list.slice();
     // Fisher-Yates: deterministic with the supplied draft RNG.
