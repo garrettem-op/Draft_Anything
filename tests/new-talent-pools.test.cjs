@@ -194,3 +194,29 @@ test('distinct pool emblems, color palettes, and script imports are configured',
   assert.match(html,/lotr: \['#3C6540'/);
   assert.match(html,/harrypotter: \['#604A7C'/);
 });
+
+test('Commanders may qualify through concrete team support, without personal challenge powers',()=>{
+  const h=harness();
+  const evidence=[
+    ['starwars','Jar Jar Binks','aquatic','Gungan Aquatic Mobilization'],
+    ['lotr','Gandalf','flight','Alliance of the Great Eagles'],
+    ['harrypotter','Madam Hooch','flight','Hogwarts Flight Instructor']
+  ];
+  for(const [pool,name,rule,label] of evidence){
+    const c=h.candidate(pool,name);
+    h.cx.subject=c;h.cx.subjectRule=rule;
+    const source=h.evaluate("campaignCommanderSpecialty(subject,subjectRule,{coach:true})");
+    assert.equal(source.label,label);
+    assert.equal(h.allowed(pool,name,rule,{coach:true}),true,pool+':'+name+' should command '+rule);
+    assert.equal(h.evaluate("campaignCommanderSpecialty(subject,subjectRule,{coach:false})"),null);
+  }
+  assert.equal(h.allowed('lotr','Gandalf','flight',{coach:false}),false,
+    'Gandalf can coordinate Great Eagles but must not be granted personal flight');
+  assert.equal(h.allowed('harrypotter','Madam Hooch','flight',{coach:false}),false,
+    'Teaching broom flying is not personal unaided flight');
+  assert.equal(h.allowed('starwars','Jar Jar Binks','aquatic',{coach:false}),true,
+    'Jar Jar also personally qualifies via amphibious Gungan species evidence');
+  assert.equal(h.allowed('starwars','Jar Jar Binks','flight',{coach:true}),false,
+    'A Gungan general is not automatically an aerial commander');
+  assert.equal(h.paid(),0);
+});
