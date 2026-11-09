@@ -12,6 +12,25 @@ The design is inspired by classic Muppet onstage and backstage chaos, recurring 
 
 These are sources for the **overall mechanic**, not verification of every individualized feat. Individual profiles and scores are provisional editorial judgments pending scene-by-scene audits.
 
+## Muppet film history and continuity
+
+The history registry now includes **The Muppet Show** and eight major theatrical Muppet movies. The first film with explicitly indexed feats is **Muppet Treasure Island (1996)**. Other films are recorded as **research-queued**: inclusion in a film library alone never grants a power, bonus, or rating change.
+
+Primary Disney references:
+- [Muppet Treasure Island — film identification and roles](https://d23.com/a-to-z/muppet-treasure-island-film/)
+- [Disney Archives — Muppet Treasure Island fight choreography, Kermit swordplay and Piggy's karate](https://d23.com/wda-sailing-for-muppet-y-adventure-on-the-high-seas/)
+- [D23 — Kermit and Piggy's perilous upside-down duet](https://d23.com/muppet-treasure-island-did-you-know-2/)
+
+Additional scene reporting:
+- [Groucho Reviews — pirate interrogation and Gonzo's reaction](https://www.grouchoreviews.com/reviews/6334f8a75fe75d1811c62bb4)
+- [Splicedwire — Gonzo uses starfish as throwing stars](https://www.splicedwire.com/96reviews/muppet.html)
+- [The Washington Post — Statler and Waldorf as figureheads, rats as cruise passengers](https://www.washingtonpost.com/archive/lifestyle/1996/02/16/seeworthy-muppets/05904985-76c8-499c-b196-4845fdf15d5f/)
+- [1996 newspaper review — Fozzie's finger gag and Rizzo's vacationing rats](https://www.spokesman.com/stories/1996/feb/16/sail-the-high-seas-with-the-muppets/)
+
+**Interpretive rules:** the film shows puppet-stage capabilities beyond an ordinary human production, but theater staging is not a separate power unless supported by the character's repeated story-world actions. Gonzo's enjoyment of an interrogation is **pain tolerance**, not blanket invulnerability. Kermit and Piggy being rescued from a cliff is **not** proof that they could survive a fatal fall. Fozzie's "Mr. Bimbo" finger is a fictional role-specific joke, not an autonomous magical ally. Statler and Waldorf appearing as ship figureheads does not imply independent teleportation.
+
+Every scene entry stores the work, character, fictional role, relevant MuppetForce dimension, reported event, conservative gameplay inference, role-continuity marker, evidence class and HTTPS references. The Character Guide displays these per-character histories with links and limits. The registry is used to justify and audit proposed ratings; **no numerical scores were changed merely by adding one film**. Additional film scenes should be reviewed individually rather than inferred from a movie's inclusion in the bibliography.
+
 ## Five independent dimensions
 
 | Dimension | Weight | Evaluates |
