@@ -73,11 +73,11 @@ const CAMPAIGN_VARIANTS=Object.freeze({
   'games:Bowser':[
     {name:'Fury Bowser',changes:{str:12,siz:13,end:10,clu:-6},origin:"Super Mario 3D World + Bowser's Fury"}
   ],
-  'pokemon:Charizard':[
+  'games:Charizard':[
     {name:'Mega Charizard X',changes:{str:13,tch:8,end:8},origin:'Pokémon · Mega Evolution'},
     {name:'Mega Charizard Y',changes:{acc:13,tch:11,spd:6},origin:'Pokémon · Mega Evolution'}
   ],
-  'pokemon:Mewtwo':[
+  'games:Mewtwo':[
     {name:'Mega Mewtwo X',changes:{str:13,tch:11,end:7},origin:'Pokémon · Mega Evolution'},
     {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9},origin:'Pokémon · Mega Evolution'}
   ]
@@ -92,23 +92,51 @@ function campaignOpponentPool(rule,all){
   if(rule==='short'||rule==='final')return all;
   return all.filter(c=>campaignAllowed(c,rule));
 }
+// The ceiling is calculated from the challenge rules and the entire character
+// catalog, NOT from what the player submitted. For short-handed games, compare
+// against a best-case short-handed roster rather than a full seven-slot team.
+function campaignChallengeCeiling(sport,rule){
+  const sp=SPORTS[sport],all=getCands('mashup'),P=sp.pos.length;
+  const eligible=rule==='short'||rule==='final'?all:all.filter(c=>campaignAllowed(c,rule));
+  const pool=eligible.length>=P?eligible:all;
+  const full=aiStackDraft(sport,pool,1,false)[0]||{};
+  if(rule!=='short'&&rule!=='final')return teamScore(sport,full).rating;
+  const starters=sp.pos.filter(p=>!p.side&&!p.coach&&!p.bench);
+  const count=Math.max(1,Math.ceil(starters.length*0.6));
+  const chosen=starters.slice().sort((a,b)=>{
+    const af=full[a.id]?fitIn(sport,full[a.id],a)*a.imp:0;
+    const bf=full[b.id]?fitIn(sport,full[b.id],b)*b.imp:0;
+    return bf-af;
+  }).slice(0,count);
+  return teamScore(sport,Object.fromEntries(chosen.map(p=>[p.id,full[p.id]]).filter(([,c])=>!!c))).rating;
+}
 function campaignBuildOpponent(v,stage){
-  const sp=SPORTS[v.sport],P=sp.pos.length,all=getCands('mashup');
+  const P=SPORTS[v.sport].pos.length,all=getCands('mashup');
   let pool=campaignOpponentPool(stage.rule,all);
-  if(pool.length<P)pool=all; // A full-strength antagonist for scarce themes.
+  if(pool.length<P)pool=all;
   const rng=rngFrom(campaignStageSeed(v)+':opponent');
-  const ranked=pool.slice().sort((a,b)=>candVal(v.sport,b)-candVal(v.sport,a));
-  // The rank band tightens as the campaign advances, independent of user rating.
-  // A seeded subset within that band changes adversaries across campaign runs.
-  const start=Math.min(Math.max(0,ranked.length-P*2),Math.round((9-v.step)/9*P*1.2));
-  const band=ranked.slice(start,start+Math.max(P*4,P+8));
-  const shortlist=band.filter(()=>rng()>0.18);
-  const choices=shortlist.length>=P?shortlist:band;
-  const roster=aiStackDraft(v.sport,choices,1,false)[0]||aiStackDraft(v.sport,ranked,1,false)[0]||{};
+  const challengeCeiling=campaignChallengeCeiling(v.sport,stage.rule);
+  // Progression is anchored to the BEST POSSIBLE challenge roster in the
+  // catalog, NOT to this player's picks. Short-handed stages get appropriately
+  // weaker, complete opponents instead of unwinnable top-7 superteams.
+  const target=challengeCeiling*(0.88+0.08*Math.max(0,Math.min(9,v.step))/9);
+  const ranked=pool.map(c=>({c,rank:candVal(v.sport,c)+(rng()-0.5)*7}))
+    .sort((a,b)=>a.rank-b.rank).map(x=>x.c);
+  let best=null,lo=P,hi=ranked.length;
+  for(let i=0;i<11&&lo<=hi;i++){
+    const n=Math.max(P,Math.floor((lo+hi)/2));
+    const roster=aiStackDraft(v.sport,ranked.slice(0,n),1,false)[0];
+    if(!roster)break;
+    const rating=teamScore(v.sport,roster).rating;
+    const diff=Math.abs(rating-target);
+    if(!best||diff<best.diff)best={roster,diff};
+    if(rating<target)lo=n+1;else hi=n-1;
+  }
+  const roster=best?.roster||aiStackDraft(v.sport,ranked,1,false)[0]||{};
   const strategies=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
   const tactic=strategies[Math.floor(rng()*strategies.length)]||strategies[0];
   return {roster:Object.fromEntries(Object.entries(roster).map(([slot,c])=>[slot,c.id])),tactic,
-    difficultyBonus:+(v.step*0.35).toFixed(2)};
+    difficultyBonus:+(v.step*0.13).toFixed(2)};
 }
 function campaignLockedOpponent(v,stage){
   if(!v.opponents||typeof v.opponents!=='object')v.opponents={};
@@ -192,6 +220,6 @@ function campaignVariantRoster(v){
 }
 if(typeof module!=='undefined'&&module.exports){
   module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignOpponentPool,campaignBuildOpponent,
-    campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
+    campaignChallengeCeiling,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
     campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster};
 }
