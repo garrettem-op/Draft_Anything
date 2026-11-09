@@ -1,0 +1,128 @@
+# Character ability audit — round 2 (review response for PR #45)
+
+Responds to the 2026-11-09 review of PR #45. Owner: Claude (character data, evidence, tests).
+No engine file changed (`data/campaign.js`, `data/campaign-eligibility.js`, `index.html` untouched).
+
+## 1. Disputed grants corrected
+
+`CHARACTER_ABILITY_DISPUTES` now holds **32 `incorrect` grants** (15 → 32). They are excluded from
+the reviewed index and have no provenance, and under the PR #44 tag criteria every one is rejected. New this round:
+
+- **Older pools:** Snorlax giants (Pokédex height 2.1 m / 6 ft 11 in, under the ~8 ft ruling).
+- **DC:** Firestorm, Captain Atom and Amanda Waller tech; Harley Quinn, Deadshot and Ra's al Ghul stealth
+  (role-only); Ocean Master magic (version-dependent); Doctor Manhattan magic (quantum, not magic).
+- **Middle-earth:** Galadriel healing; Tulkas, Oromë, Nessa, Tilion and Arien magic.
+- **Harry Potter:** Norbert flight and giants (the baseline is a hatchling).
+
+Vision psychic, Éowyn magic and the other round-1 disputes are unchanged and now have explicit
+regression tests under the #44 criteria (`tests/character-ability-index.test.cjs` → "every incorrect
+dispute is rejected under the PR #44 tag criteria").
+
+## 2. The 328 provisional DC / Middle-earth / Harry Potter grants
+
+Every one was re-audited against my PR #46 lore research (book chapters, issue numbers, verified reference pages):
+
+| Outcome | Grants |
+| --- | ---: |
+| Kept, now backed by a source-linked record | 273 |
+| Removed: disputed as `incorrect` (no canonical support) | 16 |
+| Removed: moved to the research queue (plausible, no specific scene yet) | 39 |
+| Added: evidenced grants the seed list missed (e.g. Superman freeze breath, Witch-king's fell beast, Hagrid's motorbike, Dumbledore's cloakless invisibility) | 62 |
+| **New-pool grants now in the index** | **335, all with source-linked records** |
+
+**Remaining unsupported, identified explicitly:**
+
+- **Research queue (not granted):** 39 new-pool items, for example:
+  - Bat-family stealth (Nightwing, Damian, Tim, Red Hood, Barbara, Batwoman, Cassandra, Huntress, Talia, Deathstroke)
+  - Ent/Balrog/Carcharoth giants with no documented size
+  - adult-wizard Apparition with no on-page scene (McGonagall, Sirius, Lupin, Bellatrix, Kingsley, Moody, Tonks, Winky)
+  - Dumbledore Legilimency and healing
+  - Voldemort fire (a film scene)
+  - Swamp Thing, Death of the Endless and Obscurus magic (these need an owner ruling)
+- **Role-based records:** 8 Harry Potter `magic` grants (Fudge, Scrimgeour, Thicknesse, Karkaroff,
+  Pansy, Goyle, Hooch, Madame Maxime) are witches and wizards by canon but have no specific spell scene. They are labelled
+  `kind: "role-based"` and counted separately in the coverage report.
+- **Tar-Palantir** has no verifiable reference page and no tags.
+
+## 3. Specific ability tags
+
+- **Families.** `CHARACTER_ABILITY_TAG_FAMILIES` defines the 33 specific tags agreed in PR #44.
+- **Index format.** The index now writes each broad tag followed by its specific tags, for example
+  `Superman: ["flight","natural-flight","ice","ice-control","healing","self-regeneration"]`.
+- **Contract (tested):**
+  - Every broad tag a character holds has at least one specific tag from its own family.
+  - Every specific tag implies its broad tag.
+  - The families equal #44's `acceptedTags` exactly.
+  - No tag can qualify another theme; for example, freeze breath can never prove fire.
+- **Classification:**
+  - Specific tags come from each record's explicit `tags`, or from its `kind` and feat text.
+  - Classification rules live in `tools/ability-tag-families.cjs`.
+  - About 50 reviewed overrides were added after a manual pass over all 582 older records (e.g. Lapras telepathy, Geralt's Axii as mind control, Plankton as inventor, not robot).
+- **Totals:** 1,179 broad and 1,284 specific tag assignments.
+- **`kind` metadata** stays on every evidence record. `characterAbilityProvenance(c, tag)` exposes it to the engine and UI.
+
+## 4. Coordination with PR #44: eligibility comes from reviewed tags only
+
+- **Index generation.**
+  - `tools/ability-audit.cjs --write-index` now builds the index **only from explicit records**: source-linked
+    evidence plus `CHARACTER_ABILITY_CARRYOVER`, minus disputes.
+  - It no longer runs the Campaign engine, the `CAMPAIGN_TAGS` name lists or description/guide keyword matching.
+  - A test runs the generator with every description blanked and the engine disabled, and gets an identical index.
+- **Carry-overs.**
+  - The 263 older-pool grants that had no evidence record (from name lists, guides, descriptions, Pokémon typing
+    and the curated aerial list) are now explicit, reviewed `CHARACTER_ABILITY_CARRYOVER` records with their origin and basis.
+  - They reproduce the previous index exactly; the only change is Snorlax.
+  - `characterAbilityProvenance()` reports them as `carry-over`, so the UI can tell them apart from source-linked evidence.
+  - They are the next candidates for sourced records.
+- **Engine check.** With #44 merged locally, `data/campaign.js` contains no reference to `CAMPAIGN_TAGS`,
+  keyword/description evidence or the seed power lists. Themed eligibility reads `characterAbilityTags()` only.
+  The existing test "tag-criteria engine grants exactly the reviewed index" passes for all 1,173 characters × 12 themes.
+- **Regeneration under #44.** Running `--write-index` there gives a byte-identical index.
+- **Two other sources remain by design** (they are not character tags):
+  - curated Commander specialties;
+  - locally stored, approved player appeals (`KnowledgeEngine.has`).
+
+  An approved appeal saved before this audit could still re-admit a disputed grant (e.g. Vision psychic).
+  Suggestion for #44: ignore appeals that match an `incorrect` dispute.
+- **Trait challenges** (women, red, kids, non-powered) still use the legacy name lists. Moving them to tags is a separate step.
+
+## 5. Test results
+
+Commands (Node 22.23; no network):
+
+```
+node --test tests/*.test.cjs
+node --test tests/browser-smoke.cjs
+node tests/battle-royale-tank-regression.mjs && node tests/dealt-hand-regression.mjs
+```
+
+| Run | Result |
+| --- | --- |
+| This branch alone (legacy engine) | **140 pass, 0 fail** (138 node:test + 2 .mjs scripts) |
+| This branch with `feat/campaign-tag-criteria-engine` (#44) merged locally | **140 pass, 0 fail** |
+| `node tools/ability-audit.cjs --write-index` under #44 | identical index |
+
+The `character-ability-index` suite covers:
+
+- Pokémon rules: Fly gives flight, Surf gives aquatic, and Rest is never healing.
+- Owner rulings: giants ≈8 ft, stealth needs a feat, armor counts as tech, a glide counts, pilots and aerial mounts count.
+- Commander exceptions: Ackbar, D'Antoni, Gandalf and Madam Hooch as commanders.
+- Every incorrect dispute, and the new-pool corrections.
+
+The Campaign, new-pool and Skyborne suites cover the Commander-only exceptions.
+
+## 6. Unresolved
+
+1. **Factual spot-check of sources.**
+   - All new-pool source URLs were opened and confirmed to exist during the PR #46 research.
+   - This round I started a manual check that the page content supports specific high-impact claims. The pages
+     were Snorlax's height, Dodrio's Fly, Hagrid's height, Treebeard's height, Beorn's giant size, the Witch-king's
+     fell beast, Superman's freeze breath, Madame Maxime's height, Doctor Manhattan's size and teleporting, and
+     the Vision article.
+   - The fetches needed approval that was not available, so that sample is **not done yet**.
+   - Feats cite the books and issues directly; fan-wiki pages are used as reference links, not as the authority.
+2. **Owner rulings needed:**
+   - Swamp Thing, Death of the Endless and Obscurus for Arcane Assembly.
+   - Whether Valar and Maiar "powers" count as magic. They are currently granted as spellcaster, with a limitation note, where a supernatural working is documented.
+3. **Carry-overs:** 263 older-pool grants still lack per-feat sources.
+4. **Merge order with PR #46.** PR #46 (lore files) also touches `tests/character-abilities.test.cjs`. If #45 merges first, #46 needs a trivial rebase.

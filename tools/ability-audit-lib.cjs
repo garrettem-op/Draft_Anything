@@ -76,6 +76,8 @@ function loadGame() {
     tagIndex,
     disputes: call('CHARACTER_ABILITY_DISPUTES', {}),
     research: call('CHARACTER_ABILITY_RESEARCH_QUEUE', {}),
+    carryover: call('CHARACTER_ABILITY_CARRYOVER', {}),
+    families: call('CHARACTER_ABILITY_TAG_FAMILIES', {}),
     campaignTags: legacy ? call('CAMPAIGN_TAGS', {}) : null,
     /** Challenge rules that are themed by ability tags, under either engine. */
     themeRules: legacy ? call('Object.keys(CAMPAIGN_TAGS)', {})
