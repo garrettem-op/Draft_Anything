@@ -785,6 +785,57 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 /* Keep card-origin info above the dealt-hand selection popup (z-index:55). */
 .hand-info-back { z-index: 70; }
 
+
+/* Daily Grid: independent responsive nine-square game board and archive. */
+.dg-shell { width:min(100%,860px); margin:0 auto; display:grid; gap:15px; }
+.dg-head { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; }
+.dg-head .h { font-size:clamp(23px,5vw,32px); }
+.dg-status { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:13px; }
+.dg-status span:last-child { color:var(--muted); }
+.dg-board { display:grid; grid-template-columns:minmax(75px,1.06fr) repeat(3,minmax(0,1fr)); gap:5px; width:100%; }
+.dg-corner { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-family:var(--f-mono); font-size:10px; color:var(--muted); text-align:center; letter-spacing:.05em; }
+.dg-axis { display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:0; min-height:64px; padding:6px; background:var(--panel); border:1px solid var(--line); border-radius:8px; font-weight:800; text-align:center; line-height:1.13; overflow-wrap:anywhere; }
+.dg-axis small { margin-top:5px; font-family:var(--f-mono); color:var(--accent-strong); font-size:11px; }
+.dg-row { font-size:clamp(12px,2.7vw,16px); }
+.dg-col { font-size:clamp(11px,2.6vw,15px); }
+.dg-cell { aspect-ratio:1; min-height:70px; min-width:0; padding:6px; border:2px solid var(--line); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; text-align:center; background:var(--panel2); overflow-wrap:anywhere; }
+.dg-cell strong { font-size:clamp(11px,2.8vw,16px); line-height:1.15; font-weight:800; max-width:100%; }
+.dg-cell small { font-size:11px; color:var(--muted); }
+.dg-cell.dg-empty:hover, .dg-cell.dg-current { border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+.dg-add { font:700 30px/1 var(--f-display); color:var(--muted); }
+.dg-good { background:color-mix(in srgb,var(--good) 13%,var(--panel)); border-color:var(--good); }
+.dg-bad { background:color-mix(in srgb,var(--bad) 12%,var(--panel)); border-color:var(--bad); }
+.dg-indicator { font-size:20px; line-height:1; }
+.dg-good .dg-indicator, .dg-yes { color:var(--good); }
+.dg-bad .dg-indicator, .dg-no { color:var(--bad); }
+.dg-help, .dg-picker { padding:15px; display:grid; gap:10px; }
+.dg-help p { margin:0; line-height:1.55; }
+.dg-picker .field-label { width:100%; }
+.dg-results { max-height:330px; overflow-y:auto; display:grid; gap:3px; border-top:1px solid var(--line); padding-top:7px; }
+.dg-result { text-align:left; min-width:0; display:flex; align-items:center; gap:10px; padding:7px; border:1px solid transparent; border-radius:7px; background:transparent; }
+.dg-result:hover, .dg-result:focus-visible { background:var(--panel2); border-color:var(--line); }
+.dg-result .av { width:38px; height:38px; flex:none; }
+.dg-result-copy { display:flex; flex:1; min-width:0; flex-direction:column; }
+.dg-result-copy b { font-size:14px; }
+.dg-result-copy small, .dg-result>span:last-child { font-size:11px; color:var(--muted); }
+.dg-archive { padding:15px; display:grid; gap:5px; }
+.dg-archive>.row { margin-bottom:8px; }
+.dg-history { background:transparent; border:0; border-bottom:1px solid var(--line); text-align:left; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 6px; }
+.dg-history:hover,.dg-history[aria-pressed="true"] { background:var(--panel2); }
+.dg-history>span:first-child { display:flex; flex-direction:column; }
+.dg-history small, .dg-history>span:last-child { color:var(--muted); font-size:12px; }
+.dg-pages { justify-content:space-between; margin-top:8px; }
+.modes { flex-wrap:wrap; justify-content:center; }
+@media (max-width:520px) {
+  .dg-board { grid-template-columns:minmax(66px,.84fr) repeat(3,minmax(0,1fr)); gap:3px; }
+  .dg-axis { min-height:56px; padding:4px; border-radius:6px; }
+  .dg-cell { padding:3px; min-height:60px; border-radius:6px; }
+  .dg-cell strong { font-size:clamp(10px,2.7vw,12px); }
+  .dg-cell .dg-indicator { font-size:16px; }
+  .dg-head .row { width:100%; justify-content:flex-start; }
+  .modes button { flex:1 1 40%; }
+}
+
 </style>
 </head>
 <body>
@@ -799,6 +850,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/muppet-force.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
+<script src="data/daily-grid.js"></script>
 <script src="data/campaign-strategy.js"></script>
 <script src="data/after-action.js"></script>
 <script>
@@ -3438,7 +3490,7 @@ const S = {
   gen: null,            // pool generation progress
 };
 function saveChamp() {
-  if (S.mode === 'h2h') return;
+  if (S.mode === 'h2h' || S.mode === 'grid') return;
   const c = S.champ;
   lsSet(BOARD_KEYS[S.mode], { campaignMode: !!c.campaignMode, stage: c.stage, sport: c.sport, poolId: c.poolId, opps: c.opps, upsets: c.upsets, rivals: c.rivals, rv2: true, champRivals: c.champRivals, format: c.format, teamName: c.teamName, roster: Object.fromEntries(Object.entries(c.roster).map(([k, v]) => [k, v.id])), style: c.style, hand: (c.hand || []).map(x => x.id), seen: c.seen || [], redeals: c.redeals, queue: c.queue || null, pickIdx: c.pickIdx || 0, draftOpps: c.draftOpps || null, ai: c.ai ? c.ai.map(r => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, v.id]))) : null });
 }
@@ -3486,6 +3538,7 @@ function restoreBoard(st, key) {
 restoreBoard(S.boards.champ, BOARD_KEYS.champ);
 restoreBoard(S.boards.deal, BOARD_KEYS.deal);
 S.campaign = loadCampaign();
+S.daily = DailyGrid.newState();
 
 // ----- Shared render bits -----
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
@@ -3527,6 +3580,7 @@ function renderTop() {
       <button data-act="mode" data-mode="champ" aria-pressed="${S.mode === 'champ'}">Championship</button>
       <button data-act="mode" data-mode="deal" aria-pressed="${S.mode === 'deal'}">Dealt Hand</button>
       <button data-act="mode" data-mode="h2h" aria-pressed="${S.mode === 'h2h'}">Head-to-Head</button>
+       <button data-act="mode" data-mode="grid" aria-pressed="${S.mode === 'grid'}">Daily Grid</button>
     </div>
     <button class="linkish" data-act="open-guide">Character guide</button><button class="linkish" data-act="howto">How scoring works</button>
   </header>`;
@@ -4798,10 +4852,11 @@ function render() {
   const app = $('#app');
   const ae = document.activeElement; lastFocus = ae && ae.id ? { id: ae.id, s: ae.selectionStart, e: ae.selectionEnd } : null;
   let main;
-  if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
+  if (S.mode === 'grid') main = DailyGrid.render(S.daily);
+  else if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = S.mode==='champ' && S.champ.campaignMode ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
+  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
@@ -4958,6 +5013,19 @@ document.addEventListener('click', e => {
   const a = t.dataset.act, c = S.champ, h = S.h2h;
   switch (a) {
     case 'mode': S.mode = t.dataset.mode; lsSet('da.mode', S.mode); S.gen.open = false; break;
+    case 'grid-today': S.daily.date=DailyGrid.today(); S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render(); return;
+    case 'grid-archive': S.daily.archiveOpen=!S.daily.archiveOpen; render(); return;
+    case 'grid-day': if(DailyGrid.validDay(t.dataset.date)){S.daily.date=t.dataset.date; S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render();window.scrollTo(0,0);}return;
+    case 'grid-older': S.daily.archivePage++; render(); return;
+    case 'grid-newer': S.daily.archivePage=Math.max(0,S.daily.archivePage-1); render(); return;
+    case 'grid-cell': S.daily.target=Number(t.dataset.i);S.daily.query='';render();return;
+    case 'grid-close': S.daily.target=null;S.daily.query='';render();return;
+    case 'grid-guess': {
+      const guess=DailyGrid.choose(S.daily,t.dataset.cid);
+      toast(guess.accepted?(guess.result.ok?'Correct!':'Not a match. That square is now locked.'):guess.reason);
+      render();return;
+    }
+    case 'grid-share': copyText(DailyGrid.shareText(S.daily.date)); return;
     case 'howto': S.modal = 'howto'; break;
     case 'open-guide': S.guidePool = getPool(S.mode==='h2h'?(S.h2h.contest?.poolId||S.h2h.form.poolId):S.champ.poolId)?.id === 'toons' && Object.keys(guideCollection('toons')).length?'toons':'mcu'; S.guideQuery = ''; S.modal='guide'; break;
     case 'guide-pool': S.guidePool = t.dataset.pool; S.guideName = ''; S.guideQuery = ''; break;
@@ -5126,7 +5194,8 @@ document.addEventListener('click', e => {
 document.addEventListener('input', e => {
   const k = e.target.dataset.input; if (!k) return;
   const v = e.target.value;
-  if (k === 'camp-team') { S.campaign.teamName=v; saveCampaign(); }
+  if (k === 'grid-query') {S.daily.query=v; render();}
+  else if (k === 'camp-team') { S.campaign.teamName=v; saveCampaign(); }
   else if (k === 'camp-dispute-claim') { S.campaign.disputeClaim=v; }
   else if (k === 'camp-dispute-source') { S.campaign.disputeSource=v; }
   else if (k === 'camp-query') { S.campaign.query=v; render(); }
@@ -5141,6 +5210,7 @@ document.addEventListener('input', e => {
   else if (k === 'gen-topic') { S.gen.topic = v; const b = document.querySelector('[data-act="gen-go"]'); if (b) b.disabled = v.trim().length < 2; }
 });
 document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && S.mode==='grid' && S.daily.target!==null) {S.daily.target=null;S.daily.query='';render();return;}
   if(e.key === 'Escape' && S.handInfoId){S.handInfoId=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.disputeSlot&&!S.campaign.disputeBusy) {S.campaign.disputeSlot=null;S.campaign.disputeResult=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.infoId) { S.campaign.infoId=null; render(); return; }
