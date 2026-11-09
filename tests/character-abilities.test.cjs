@@ -22,7 +22,8 @@ function poolRoster() {
 const pools=poolRoster();
 const list=Object.entries(pools).flatMap(([pool,names])=>names.map(n=>({pool,n,id:pool+':'+n,a:Array(12).fill(85)})));
 const state={campaign:{history:[],roster:{},step:0,stageOrder:Array.from({length:10},(_,i)=>i),sport:'basketball'}};
-const context={S:state,SPORTS:{basketball:{pos:[{id:'a'}]}},getCands:()=>list,lsGet:(_,v)=>v,lsSet:()=>{},characterAbilityEvidence};
+const {campaignOfflineEvidence}=require('../data/campaign-eligibility.js');
+const context={S:state,SPORTS:{basketball:{pos:[{id:'a'}]}},getCands:()=>list,lsGet:(_,v)=>v,lsSet:()=>{},characterAbilityEvidence,campaignOfflineEvidence};
 vm.runInNewContext(campaign+'\nthis.eligibilityTest={campaignAllowed,campaignInvalidSlots,CAMPAIGN_TAGS};',context);
 const {campaignAllowed,CAMPAIGN_TAGS}=context.eligibilityTest;
 test('all documented power facts refer to exactly one character in the named universe',()=>{
