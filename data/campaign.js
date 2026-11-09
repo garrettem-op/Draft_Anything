@@ -276,6 +276,14 @@ const CAMPAIGN_COMMANDER_SPECIALTIES = Object.freeze({
       "reason": "Leads high-speed starfighter operations."
     }
   },
+  "starwars:Admiral Ackbar": {
+    "flight": {
+      "label": "Alliance Fleet Tactics",
+      "focus": "iq",
+      "reason": "Personally commands warships in the Battle of Endor and coordinates starfighter operations; this is Commander-only aerial/space combat expertise, not personal flight.",
+      "source": "https://www.starwars.com/databank/admiral-ackbar"
+    }
+  },
   "starwars:Grand Admiral Thrawn": {
     "brain": {
       "label": "Strategic Foresight",
@@ -554,7 +562,7 @@ function renderCampaignDispute(){
     healing:'Example: heals injuries or regenerates after taking damage',
     stealth:'Example: becomes invisible or evades detection in a specific scene',
     psychic:'Example: reads minds, controls thoughts or projects mental abilities',
-    flight:'Example: flies unaided or moves through the air with supernatural power',
+    flight:'Example: flies, pilots a starfighter in combat, or personally commands an aerial/space battle from a Commander slot',
     magic:'Example: casts a spell or performs a supernatural magical feat',
     aquatic:'Example: survives or operates effectively underwater',
     fire:'Example: generates or controls fire in a specific scene',
@@ -573,12 +581,12 @@ function renderCampaignDispute(){
       </div>
       <p><b>${esc(c.n)}</b> · ${esc(campaignStage().name)}</p>
       ${!result?`
-      <p class="note">Describe the ability or feat we missed. You can include a source. The AI will research it; verified findings are queued for permanent review.</p>
+      <p class="note">This character is not yet covered by built-in evidence. Describe the documented feat and optionally provide a source. Paid AI research is optional; accepted findings are queued for review.</p>
       <label class="field-label"><span>What ability or feat should qualify?</span><textarea data-input="camp-dispute-claim" rows="3" maxlength="700" placeholder="${esc(placeholder)}" ${v.disputeBusy?'disabled':''}>${esc(v.disputeClaim||'')}</textarea></label>
       <label class="field-label"><span>Optional source URL</span><input type="url" data-input="camp-dispute-source" value="${esc(v.disputeSource||'')}" placeholder="https://..." ${v.disputeBusy?'disabled':''}></label>
-      ${!status.researchReady?'<p class="note">Live AI research is not yet activated. Your claim can be saved on this device for later retry, but it cannot be verified or shared until server setup is complete.</p>':''}
+      ${!status.researchReady?'<p class="note">Live AI research is not yet activated. Your claim can be saved on this device for later retry, but it cannot be verified or shared until server setup is complete.</p>':'<p class="note"><b>Credit notice:</b> Researching this ruling calls the paid AI service. It is not required to continue your campaign. You will be asked to confirm before any request is sent.</p>'}
       ${v.disputeError?`<p role="alert" class="note" style="color:var(--bad)">${esc(v.disputeError)}</p>${v.disputeErrorCode==='api_credits_exhausted'?'<p><a href="https://platform.openai.com/settings/organization/billing/" target="_blank" rel="noopener noreferrer">Add OpenAI API credits</a></p>':''}`:''}
-      <button class="btn primary" data-act="camp-dispute-submit" ${v.disputeBusy?'disabled':''} style="width:100%;margin-top:10px">${v.disputeBusy?'Researching sources…':!status.researchReady?'Save claim locally (offline)':'Research this ruling'}</button>
+      <button class="btn primary" data-act="camp-dispute-submit" ${v.disputeBusy?'disabled':''} style="width:100%;margin-top:10px">${v.disputeBusy?'Researching sources…':!status.researchReady?'Save claim locally (offline)':'Run paid AI research'}</button>
       `: `
       <div role="status" style="padding:12px;border:1px solid ${allowed?'var(--good)':'var(--line)'};border-radius:10px;margin-top:14px">
         <b>${approved?'Verified — eligible for everyone':provisional?'Accepted — eligible in this Campaign':result.status==='rejected'?'Not supported — eligibility unchanged':'Pending further review — eligibility unchanged'}</b>

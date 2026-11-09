@@ -5,6 +5,39 @@
    Evidence is deliberately NOT shown in the pre-submission picker, because Campaign
    is intended to test the player's knowledge. */
 const CHARACTER_ABILITIES = Object.freeze({
+  // Skyborne is "known flyer OR aerial combatant", not "natural flight only".
+  // This evidence is bundled and works without any network call or OpenAI credits.
+  'pokemon:Articuno': [
+    {tag:'flight',kind:'natural-winged-flight',
+      feat:'The official Pokédex identifies Articuno as Ice/Flying and describes snow falling when this legendary bird flies.',
+      source:'https://in.portal-pokemon.com/pokedex/0144/'},
+  ],
+  'pokemon:Zapdos': [
+    {tag:'flight',kind:'natural-winged-flight',
+      feat:'The official Pokédex classifies Zapdos as an Electric/Flying legendary bird Pokémon.',
+      source:'https://in.portal-pokemon.com/pokedex/0145/'},
+  ],
+  'pokemon:Moltres': [
+    {tag:'flight',kind:'natural-winged-flight',
+      feat:'The official Pokédex classifies Moltres as a Fire/Flying legendary bird Pokémon.',
+      source:'https://in.portal-pokemon.com/pokedex/0146/'},
+  ],
+  'games:Alduin': [
+    {tag:'flight',kind:'dragon-flight-and-aerial-combat',
+      feat:'In Skyrim, Alduin repeatedly flies, hovers and swoops to attack, and Dragonrend forces him to the ground.',
+      source:'https://primagames.com/eguides/elder-scrolls-v-skyrim-special-edition-eguide/Quests/main-quest-act-ii/alduins-bane'},
+  ],
+  'starwars:Anakin Skywalker': [
+    {tag:'flight',kind:'starfighter-pilot',
+      feat:'Anakin flies starfighters and fights in aerial and space battles, including destroying the Droid Control Ship over Naboo. He is not claimed to fly unaided.',
+      source:'https://www.starwars.com/databank/anakin-skywalker'},
+  ],
+  'mcu:Ego': [
+    {tag:'flight',kind:'energy-avatar-airborne-combat',
+      feat:'In Guardians of the Galaxy Vol. 2, Ego and Peter Quill fly toward one another and clash while using Celestial energy and constructed avatars. This concerns Ego’s MCU avatar, not planetary propulsion.',
+      source:'https://www.sellingyourscreenplay.com/wp-content/uploads/screenplay/scripts/Guardians-of-the-Galaxy-Vol.-2.pdf'},
+  ],
+
   'pokemon:Mew': [
     {tag:'teleport',kind:'learnable-teleport-move',
       feat:'Mew is compatible with TM30 Teleport in Pokémon Red, Blue, and Yellow (Generation I). Teleport moves the user instantaneously out of wild battles or back to the last healing location.',
