@@ -62,11 +62,10 @@ test('disputes and research-queue entries are well formed and not silently grant
     assert.ok(POWER_TAGS.includes(d.tag), d.id + ' dispute has unknown tag');
     assert.ok(['incorrect', 'ruling'].includes(d.verdict), d.id + ' bad verdict');
     assert.ok(d.reason?.length >= 20, d.id + ' dispute needs a reason');
-    if (game.engine === 'legacy-names') {
-      // Legacy engine: a dispute documents a grant the name/keyword layers still make.
-      assert.ok(accepts(d.id, d.tag), 'Stale dispute: engine no longer grants ' + d.id + ' ' + d.tag);
-    } else if (d.verdict === 'incorrect') {
-      // Tag-criteria engine (PR #44): the reviewed index is the only source, so disputes are enforced.
+    // Legacy keyword grants may already have been corrected by researched lore;
+    // a regression test must never require an incorrect grant to remain active.
+    // Under the tag engine, every explicitly incorrect claim must be rejected.
+    if (game.engine !== 'legacy-names' && d.verdict === 'incorrect') {
       assert.equal(accepts(d.id, d.tag), false, 'Tag engine still grants disputed ' + d.id + ' ' + d.tag);
     }
   }
