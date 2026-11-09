@@ -28,9 +28,11 @@ const CHARACTER_ABILITIES = Object.freeze({
       source:'https://primagames.com/eguides/elder-scrolls-v-skyrim-special-edition-eguide/Quests/main-quest-act-ii/alduins-bane'},
   ],
   'starwars:Anakin Skywalker': [
-    {tag:'flight',kind:'starfighter-pilot',
-      feat:'Anakin flies starfighters and fights in aerial and space battles, including destroying the Droid Control Ship over Naboo. He is not claimed to fly unaided.',
-      source:'https://www.starwars.com/databank/anakin-skywalker'},
+    {tag:'flight',kind:'elite-starfighter-pilot',
+      feat:'Obi-Wan Kenobi explicitly calls Anakin "the best star-pilot in the galaxy" when speaking to Luke in A New Hope. Anakin also demonstrates exceptional starfighter combat, including destroying the Trade Federation Droid Control Ship over Naboo. This is skilled vehicle-based aerial and space combat, not unaided personal flight.',
+      source:'https://www.starwars.com/databank/anakin-skywalker',
+      dialogueSource:'https://imsdb.com/scripts/Star-Wars-A-New-Hope.html',
+      creditedAssessment:'Obi-Wan Kenobi, Star Wars: Episode IV - A New Hope (1977)'},
   ],
   'mcu:Ego': [
     {tag:'flight',kind:'energy-avatar-airborne-combat',
