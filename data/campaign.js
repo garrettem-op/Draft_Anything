@@ -462,8 +462,19 @@ function renderCampaignDraft(){
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}
     <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p><p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Characters can appear on only two winning rosters per campaign.</p></div>
+    <div class="panel" style="padding:14px 16px;margin-bottom:14px">
+      <div class="eyebrow">Opponent scouting · Fixed encounter</div><h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
+      <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
+      <p class="note" style="margin:6px 0 0">Opponent roster, strength, and match randomness remain fixed regardless of your picks or retries.</p>
+    </div>
+    <div class="panel" style="padding:14px 16px;margin-bottom:14px">
+      <div class="row" style="justify-content:space-between">
+        <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per challenge: one random eligible roster character transforms into an alternate form. Removing them does not restore the charge.</p></div>
+        <button type="button" class="btn ${v.surge?'':'primary'}" data-act="camp-variant" ${v.surge||!surgeOptions||!valid?'disabled':''}>${v.surge?'Surge spent':'Activate surge'}</button>
+      </div><p class="note" style="margin:8px 0 0">${v.surge?(variant?'Active: '+esc(variant.base.n)+' → '+esc(v.surge.name):'Surge used; transformed character no longer on your roster.'):(surgeOptions?surgeOptions+' eligible character(s) in your lineup.':'No eligible alternate forms in your lineup.')}</p>
+    </div>
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
-    <div class="board"><div>${renderField(v.sport,v.roster,{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
+    <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
   </section>`;
 }
 function campaignPlay(){
@@ -591,6 +602,10 @@ function renderCampaignResults(){
     <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
   </div>
   <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p>${r.commander?`<p class="note" style="margin:8px 0 0"><b>Commander strategy:</b> ${esc(r.commander.name)} · ${esc(r.commander.label)} · +${r.commander.percent}% team rating (+${r.commander.points.toFixed(2)}). ${esc(r.commander.reason)}</p>`:''}</div>
+  ${r.tactics?`<div class="panel" style="padding:14px 16px;margin:12px 0"><h3 style="margin:0 0 8px">Matchup strategy · ${esc(r.tactics.label)}</h3>
+    <p class="note" style="margin:0 0 6px">Counterplay: ${esc(r.tactics.weakness)}. Your tactical adjustment: ${r.tactics.yourPoints>=0?'+':''}${r.tactics.yourPoints.toFixed(2)} · Rival adjustment: +${r.tactics.rivalPoints.toFixed(2)} rating points.</p>
+    ${r.variant?`<p class="note" style="margin:8px 0 0">Variant Surge: <b>${esc(r.variant.base)} → ${esc(r.variant.form)}</b></p>`:''}
+    <p class="note" style="margin:8px 0 0"><b>Opponent lineup:</b> ${esc((r.opponentNames||[]).join(', '))}</p></div>`:''}
   ${r.breakdownHTML||'<p class="note">Detailed match adjustments were not recorded for this older result.</p>'}
   ${r.report||""}<details class="panel" style="padding:14px;margin:12px 0"><summary>Opponent box score</summary>${r.opponentReport||""}</details>
   <div class="cta-row">${r.win?`<button class="btn primary big" data-act="camp-next">${v.step===9?'Claim campaign championship':'Unlock challenge '+(v.step+2)}</button>`:`<button class="btn primary" data-act="camp-retry">Retry this challenge</button><button class="btn" data-act="camp-edit">Edit your lineup</button>`}<button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
