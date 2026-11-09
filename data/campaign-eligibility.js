@@ -58,7 +58,7 @@ const CAMPAIGN_PROFILE_PATTERNS = Object.freeze({
 const CAMPAIGN_PROFILE_UNCERTAIN = /\b(?:uncertain|speculat(?:ive|ion)|variant[- ]dependent|version[- ]dependent|only conditional|not established|no evidence|cannot|can't|unable|not able|does not|lacks?|non[- ](?:magical|supernatural)|telekinetic[- ]style|teleportation[- ]like)\b/i;
 function campaignGuideEvidence(candidate,rule,guides){
   if(!candidate?.pool||!candidate?.n)return null;
-  const profile=(guides || (typeof window!=='undefined' ? window.DA_CHARACTER_GUIDES : null))?.[candidate.pool]?.[candidate.n];
+  const profile=(guides || (typeof window!=='undefined' ? window.DA_CHARACTER_GUIDES : null))?.[candidate.pool]?.[candidate.n] || (typeof window!=='undefined' ? window.DA_POOL_LORE?.[candidate.pool]?.[candidate.n] : null);
   if(!profile||!CAMPAIGN_PROFILE_PATTERNS[rule])return null;
   // Only the explicit Powers field: feats often describe surviving an attack
   // or witnessing an opponent's ability, which must NOT confer that power.
@@ -127,6 +127,20 @@ function campaignOfflineEvidence(candidate,rule){
     return {tag:rule,kind:'curated-pokemon-type',pool:candidate.pool,name:candidate.n,
       feat:'The roster classifies this Kanto Pokémon under '+pokemonTag+'.',
       source:'built-in-pokemon-type-taxonomy'};
+  }
+  if(typeof window!=='undefined'&&window.DA_NEW_POOL_HAS_POWER?.(candidate,rule)){
+    return {tag:rule,kind:'seeded-universe-power',pool:candidate.pool,name:candidate.n,
+      feat:'Curated initial power tag for '+candidate.n+' (individual source review pending)',
+      source:'built-in-new-pool-power-data'};
+  }
+  // Hogwarts roster archetypes refer to known magical roles (students, trained
+  // wizards, Aurors, dark wizards and house-elves). Do not grant magic to Muggles,
+  // Squibs, dragons, ordinary animals or magical creatures from mere presence.
+  if(rule==='magic'&&candidate.pool==='harrypotter'&&
+      /^(?:wizard|wizardStudent|wizardMaster|darkWizard|auror|mage|archmage|elfServant)$/.test(candidate.archetype||'')){
+    return {tag:'magic',kind:'wizarding-world-magical-role',pool:candidate.pool,name:candidate.n,
+      feat:'The character is a witch, wizard or house-elf with documented magical aptitude.',
+      source:'built-in-wizarding-world-roster'};
   }
   if(rule==='flight'&&CAMPAIGN_OFFLINE_AERIAL[candidate.pool]?.has(candidate.n)){
     return {tag:'flight',kind:'curated-flight-or-air-combat',pool:candidate.pool,name:candidate.n,
