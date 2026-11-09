@@ -5028,7 +5028,7 @@ async function campaignSubmitKnowledgeDispute(){
   const v=S.campaign,slot=v.disputeSlot;
   if(!slot||v.disputeBusy)return;
   const candidate=v.roster[slot],stage=campaignStage(),rule=stage.rule;
-  if(!candidate||!CAMPAIGN_TAGS[rule]||!campaignInvalidSlots().has(slot))return;
+  if(!candidate||!campaignHasTheme(rule)||!campaignInvalidSlots().has(slot))return;
   v.disputeBusy=true;v.disputeError='';v.disputeResult=null;render();
   try{
     const result=await KnowledgeEngine.challenge(candidate,rule,v.disputeClaim,v.disputeSource);
@@ -5103,7 +5103,7 @@ document.addEventListener('click', e => {
     case 'camp-reject-close': S.campaign.validationOpen=false; break;
     case 'camp-dispute-open': {
       const v=S.campaign,slot=t.dataset.slot;
-      if(!v.roster[slot]||!campaignInvalidSlots().has(slot)||!CAMPAIGN_TAGS[campaignStage().rule])break;
+      if(!v.roster[slot]||!campaignInvalidSlots().has(slot)||!campaignHasTheme(campaignStage().rule))break;
       const remembered=KnowledgeEngine.latestDraft(v.roster[slot],campaignStage().rule);
       v.disputeSlot=slot;v.disputeClaim=remembered?.claim||'';v.disputeSource=remembered?.source_url||'';v.disputeBusy=false;v.disputeResult=null;v.disputeError='';v.disputeErrorCode='';v.validationOpen=false;
       break;

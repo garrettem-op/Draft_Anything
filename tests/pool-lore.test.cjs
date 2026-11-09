@@ -142,8 +142,9 @@ const APPROVED_THEME_CHANGES={
   "harrypotter:Peeves":"+stealth",
   "harrypotter:Fawkes":"+teleport"
 };
-test('lore changes Campaign theme eligibility only where reviewed and approved',()=>{
+test('lore and Campaign tags honor the 54 researched eligibility rulings',()=>{
   const plain=harness({withLore:false}),rich=harness({withLore:true});
+  const tagsAreAuthoritative=vm.runInContext("typeof campaignHasTheme==='function' && campaignHasTheme('flight')",rich.cx);
   const actual={};
   for(const pool of NEW){
     const before=new Map(plain.cands(pool).map(c=>[c.n,plain.themes(c)]));
@@ -151,9 +152,26 @@ test('lore changes Campaign theme eligibility only where reviewed and approved',
       const a=before.get(c.n),b=rich.themes(c);
       const diff=[...b.filter(r=>!a.includes(r)).map(r=>'+'+r),...a.filter(r=>!b.includes(r)).map(r=>'-'+r)];
       if(diff.length)actual[pool+':'+c.n]=diff.join(' ');
+      if(tagsAreAuthoritative)assert.deepEqual(b,a,pool+':'+c.n+' should not gain powers from card wording');
     }
   }
-  assert.deepEqual(actual,APPROVED_THEME_CHANGES);
+  if(tagsAreAuthoritative){
+    // Description changes have no eligibility side effects: only reviewed tag records decide.
+    assert.deepEqual(actual,{});
+    for(const [id,changes] of Object.entries(APPROVED_THEME_CHANGES)){
+      const i=id.indexOf(':'),pool=id.slice(0,i),name=id.slice(i+1);
+      const c=rich.cands(pool).find(x=>x.n===name);
+      assert.ok(c,'Missing reviewed character '+id);
+      const granted=rich.themes(c);
+      for(const change of changes.split(' ')){
+        if(change.startsWith('+'))assert.ok(granted.includes(change.slice(1)),id+' missing '+change);
+        else assert.ok(!granted.includes(change.slice(1)),id+' still has '+change);
+      }
+    }
+  }else{
+    // Legacy mode: lock the description-driven eligibility delta until tag migration.
+    assert.deepEqual(actual,APPROVED_THEME_CHANGES);
+  }
   assert.equal(plain.paid()+rich.paid(),0);
 });
 

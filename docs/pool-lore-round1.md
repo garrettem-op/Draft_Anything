@@ -4,7 +4,9 @@ Fills the three Claude-owned lore files for every character in the newest pools:
 DC (104), Middle-earth (115) and Harry Potter (106) — **325 entries**, each with
 `short`, `biography`, `powers`, `feats`, `limitations`, `sources`.
 
-No engine, roster, seed or rating files were changed.
+The lore research itself does not change the roster, seed or ratings. The 54 reviewed theme decisions
+were reconciled into `CHARACTER_ABILITY_TAGS` when PR #46 was integrated; PR #44 makes that index
+(the only source of campaign power eligibility), retaining separate approved dispute rulings.
 
 ## Method
 
@@ -12,10 +14,11 @@ No engine, roster, seed or rating files were changed.
   Middle-earth = Tolkien's books; feats cite book and chapter (e.g. *RotK V.6*, *Silm. ch. 19*); film-only material is labelled.
   Harry Potter = the seven novels with chapter refs; *Fantastic Beasts* film events are labelled FB1 / CoG / SoD.
   Students are profiled at school age.
-- **Campaign-safe wording.** The offline eligibility engine scans `short` and every clause of `powers`.
-  Powers list only abilities the character personally has; negations, caveats, mount-assisted and one-off
-  deeds go in `feats`/`limitations` (never scanned). Apparition is written as "teleportation (Apparition)"
-  only where the character is shown Apparating on the page.
+- **Campaign-safe wording.** The legacy offline classifier scanned `short` and every clause of `powers`.
+  The new tag-based engine uses the reviewed `CHARACTER_ABILITY_TAGS` index instead, and profile wording
+  cannot independently change eligibility. Powers still list canonical abilities; negations, caveats,
+  mount-assisted and one-off deeds go in `feats`/`limitations`. Apparition is credited only where the
+  character is shown Apparating on the page.
 - **Sources.** 324 of 325 entries cite a reference page that was fetched and confirmed to exist
   (Wikipedia for DC; lotr.fandom.com / harrypotter.fandom.com, with Wikipedia fallbacks where the fandom
   page blocked the checker). **Tar-Palantir** has no verifiable page yet and ships with `sources: []`.

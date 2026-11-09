@@ -1,46 +1,39 @@
 /* Draft Anything: Championship Campaign. Ten must-win challenges, persisted on this device. */
 const CAMPAIGN_STAGES = [
-  {name:'The Fast Lane',rule:'fast',blurb:'Only speedsters. Every pick must have Speed 90 or higher.',rival:'The Blitz'},
-  {name:'Queens of the Court',rule:'women',blurb:'Women and female characters only. Use your knowledge of character identities to select your team.',rival:'The Queensguard'},
-  {name:'Seeing Red',rule:'red',blurb:'Red-themed characters only: red costumes, red bodies, or a distinctly red design.',rival:'The Crimson Crew'},
-  {name:'The Young Guns',rule:'kids',blurb:'Only children and teenage characters. No adult versions.',rival:'The Veterans'},
-  {name:'No Powers Allowed',rule:'mortal',blurb:'No supernatural powers or superhuman bodies. Human athleticism and skill still count.',rival:'The Supernaturals'},
-  {name:'Big Brain Energy',rule:'brain',blurb:'Every pick must have Game IQ 87 or higher.',rival:'The Masterminds'},
-  {name:'Heavy Hitters',rule:'strong',blurb:'Only characters with Strength 87 or higher.',rival:'The Juggernauts'},
-  {name:'The Underdogs',rule:'underdog',blurb:'Everyone must have an average attribute rating of 73 or lower.',rival:'The Favorites'},
-  {name:'Short-Handed',rule:'short',blurb:'Play with only 60% of your starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Full Strength'},
-  {name:'The Final Gauntlet',rule:'final',blurb:'Again play short-handed, and you cannot reuse ANY character from a previous winning roster.',rival:'The Final Boss'}
+  {name:'The Fast Lane',rule:'fast',criteria:{stats:[{attribute:'spd',op:'gte',value:90}],commanderSpecialty:true},blurb:'Only speedsters. Every pick must have Speed 90 or higher.',rival:'The Blitz'},
+  {name:'Queens of the Court',rule:'women',criteria:{trait:'women'},blurb:'Women and female characters only. Use your knowledge of character identities to select your team.',rival:'The Queensguard'},
+  {name:'Seeing Red',rule:'red',criteria:{trait:'red'},blurb:'Red-themed characters only: red costumes, red bodies, or a distinctly red design.',rival:'The Crimson Crew'},
+  {name:'The Young Guns',rule:'kids',criteria:{trait:'kids'},blurb:'Only children and teenage characters. No adult versions.',rival:'The Veterans'},
+  {name:'No Powers Allowed',rule:'mortal',criteria:{trait:'mortal'},blurb:'No supernatural powers or superhuman bodies. Human athleticism and skill still count.',rival:'The Supernaturals'},
+  {name:'Big Brain Energy',rule:'brain',criteria:{stats:[{attribute:'iq',op:'gte',value:87}],commanderSpecialty:true},blurb:'Every pick must have Game IQ 87 or higher.',rival:'The Masterminds'},
+  {name:'Heavy Hitters',rule:'strong',criteria:{stats:[{attribute:'str',op:'gte',value:87}],commanderSpecialty:true},blurb:'Only characters with Strength 87 or higher.',rival:'The Juggernauts'},
+  {name:'The Underdogs',rule:'underdog',criteria:{stats:[{attribute:'average',op:'lte',value:73}]},blurb:'Everyone must have an average attribute rating of 73 or lower.',rival:'The Favorites'},
+  {name:'Short-Handed',rule:'short',criteria:{lineup:{starterFraction:0.6,startersOnly:true}},blurb:'Play with only 60% of your starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Full Strength'},
+  {name:'The Final Gauntlet',rule:'final',criteria:{lineup:{starterFraction:0.6,startersOnly:true},neverPreviouslyWon:true},blurb:'Again play short-handed, and you cannot reuse ANY character from a previous winning roster.',rival:'The Final Boss'}
 ];
 const CAMPAIGN_EXTRA = [
-{name:'Skyborne',rule:'flight',blurb:'Every pick must be a known flyer or aerial combatant.',rival:'The Air Armada'},
-{name:'Arcane Assembly',rule:'magic',blurb:'Every pick must wield magic or supernatural sorcery.',rival:'The Spellbinders'},
-{name:'Mind Games',rule:'psychic',blurb:'Every pick must have telepathy, telekinesis, or psychic powers.',rival:'The Mind Readers'},
-{name:'Under the Sea',rule:'aquatic',blurb:'Every pick must thrive underwater or have aquatic powers.',rival:'The Deep'},
-{name:'Inferno',rule:'fire',blurb:'Every pick must command fire or flames.',rival:'The Wildfire'},
-{name:'Cold Front',rule:'ice',blurb:'Every pick must command ice or freezing powers.',rival:'The Frostguard'},
-{name:'Shock Troopers',rule:'electric',blurb:'Every pick must wield electricity or lightning.',rival:'The Thunderbolts'},
-{name:'Tech Titans',rule:'tech',blurb:'Every pick must rely on advanced technology or armor.',rival:'The Engineers'},
-{name:'Ghost Protocol',rule:'stealth',blurb:'Every pick must be known for stealth or invisibility.',rival:'The Shadows'},
-{name:'Blink and Miss',rule:'teleport',blurb:'Every pick must be able to teleport.',rival:'The Jumpers'},
-{name:'The Medics',rule:'healing',blurb:'Self-healing and regeneration count, as does healing other people. Every pick must have at least one of these abilities; healing teammates is NOT required.',rival:'The Lifesavers'},
-{name:'Giant Problems',rule:'giants',blurb:'Every pick must be capable of becoming enormous or already be giant-sized.',rival:'The Colossi'},
-{name:'The Show Must Go On',rule:'muppetforce',blurb:'Every pick must have documented MuppetForce of at least 65. Puppet-stage resilience, props and escalating environmental comedy count; mere puppet appearance does not.',rival:'The Reality Check'}
+  {name:'Skyborne',rule:'flight',criteria:{acceptedTags:['flight','natural-flight','powered-flight','glide','pilot','mount'],commanderSpecialty:true},blurb:'Every pick must be a known flyer or aerial combatant.',rival:'The Air Armada'},
+  {name:'Arcane Assembly',rule:'magic',criteria:{acceptedTags:['magic','spellcaster','magic-item'],commanderSpecialty:true},blurb:'Every pick must wield magic or supernatural sorcery.',rival:'The Spellbinders'},
+  {name:'Mind Games',rule:'psychic',criteria:{acceptedTags:['psychic','telepathy','telekinesis','mind-control'],commanderSpecialty:true},blurb:'Every pick must have telepathy, telekinesis, or psychic powers.',rival:'The Mind Readers'},
+  {name:'Under the Sea',rule:'aquatic',criteria:{acceptedTags:['aquatic','water-breathing','swimmer','water-control'],commanderSpecialty:true},blurb:'Every pick must thrive underwater or have aquatic powers.',rival:'The Deep'},
+  {name:'Inferno',rule:'fire',criteria:{acceptedTags:['fire','fire-control','fire-weapon'],commanderSpecialty:true},blurb:'Every pick must command fire or flames.',rival:'The Wildfire'},
+  {name:'Cold Front',rule:'ice',criteria:{acceptedTags:['ice','ice-control','ice-weapon'],commanderSpecialty:true},blurb:'Every pick must command ice or freezing powers.',rival:'The Frostguard'},
+  {name:'Shock Troopers',rule:'electric',criteria:{acceptedTags:['electric','electric-control','electric-weapon'],commanderSpecialty:true},blurb:'Every pick must wield electricity or lightning.',rival:'The Thunderbolts'},
+  {name:'Tech Titans',rule:'tech',criteria:{acceptedTags:['tech','powered-armor','robot-or-ai','cyborg','gadgets','inventor'],commanderSpecialty:true},blurb:'Every pick must rely on advanced technology or armor.',rival:'The Engineers'},
+  {name:'Ghost Protocol',rule:'stealth',criteria:{acceptedTags:['stealth','invisibility','infiltration'],commanderSpecialty:true},blurb:'Every pick must have documented stealth or invisibility feats.',rival:'The Shadows'},
+  {name:'Blink and Miss',rule:'teleport',criteria:{acceptedTags:['teleport','self-teleport','portals','teleports-others'],commanderSpecialty:true},blurb:'Every pick must be able to teleport.',rival:'The Jumpers'},
+  {name:'The Medics',rule:'healing',criteria:{acceptedTags:['healing','self-regeneration','heals-others'],commanderSpecialty:true},blurb:'Self-healing and regeneration count, as does healing other people. Every pick must have at least one of these abilities; healing teammates is NOT required.',rival:'The Lifesavers'},
+  {name:'Giant Problems',rule:'giants',criteria:{acceptedTags:['giants','giant-sized','size-change'],commanderSpecialty:true},blurb:'Every pick must be documented as roughly eight feet tall or capable of giant-sized transformation.',rival:'The Colossi'},
+  {name:'The Show Must Go On',rule:'muppetforce',criteria:{muppetForceMin:65},blurb:'Every pick must have documented MuppetForce of at least 65. Puppet-stage resilience, props and escalating environmental comedy count; mere puppet appearance does not.',rival:'The Reality Check'}
 ];
-const CAMPAIGN_TAGS = {
-flight:'Iron Man|Thor|Captain Marvel|Vision|Falcon|War Machine|Superman|Goku|Vegeta|Buzz Lightyear|Charizard|Dragonite|Rayquaza|Mewtwo|Storm|Silver Surfer|Ikaris',
-magic:'Doctor Strange|Scarlet Witch|Loki|Agatha Harkness|Wong|Doctor Fate|Zatanna|Raven|Elsa|Maleficent|Gandalf|Dumbledore|Harry Potter|Hermione Granger|Zelda',
-psychic:'Jean Grey|Professor X|Mewtwo|Mew|Psyduck|Alakazam|Scarlet Witch|Vision|Martian Manhunter|Raven|Mob|Saiki Kusuo',
-aquatic:'Aquaman|Namor|Ariel|SpongeBob SquarePants|Patrick Star|Squidward Tentacles|Mr. Krabs|Squirtle|Wartortle|Blastoise|Magikarp|Gyarados|Kyogre|Dory|Nemo',
-fire:'Human Torch|Ghost Rider|Charizard|Charmander|Charmeleon|Magmar|Flareon|Moltres|Infernape|Bowser|Zuko|Iroh|Azula|Fire Mario',
-ice:'Elsa|Iceman|Sub-Zero|Articuno|Glaceon|Lapras|Jynx|Frozone|Kyurem|Regice|Mr. Freeze',
-electric:'Thor|Pikachu|Raichu|Jolteon|Zapdos|Electabuzz|Electivire|Magneto|Storm|Palpatine|Darth Sidious|Shazam',
-tech:'Iron Man|War Machine|Ironheart|Batman|Cyborg|Ultron|Vision|Rocket Raccoon|Black Panther|Shuri|Samus Aran|Mega Man|RoboCop|Master Chief|Darth Vader|R2-D2',
-stealth:'Black Widow|Hawkeye|Batman|Solid Snake|Sam Fisher|Invisible Woman|Ghost|Elektra|Ninja|Greninja|The Mandalorian|Boba Fett|Predator',
-teleport:'Nightcrawler|Doctor Strange|Loki|Scarlet Witch|America Chavez|Deadpool|Mewtwo|Abra|Kadabra|Alakazam|Hoopa|Sasuke Uchiha|Minato Namikaze',
-healing:'Wolverine|Deadpool|Hulk|She-Hulk|Groot|Mewtwo|Chansey|Blissey|Mercy|Kiriko|Baymax|Rapunzel|Senzu Bean',
-giants:'Hulk|Ant-Man|Giant-Man|Goliath|Godzilla|King Kong|Bowser|Donkey Kong|Groudon|Wailord|Snorlax|Galactus|The Thing'
-};
-for(const k in CAMPAIGN_TAGS) CAMPAIGN_TAGS[k]=new Set(CAMPAIGN_TAGS[k].split('|'));
+// Challenge data is the sole source of accepted tags and numeric constraints.
+// Broad tags remain accepted while Claude adds granular ability sub-tags.
+// Element-specific sub-tags prevent an ice feat from proving fire powers.
+const CAMPAIGN_RULE_CRITERIA = Object.freeze(Object.fromEntries(
+  [...CAMPAIGN_STAGES,...CAMPAIGN_EXTRA].map(stage=>[stage.rule,stage.criteria])
+));
+function campaignCriteria(rule){return CAMPAIGN_RULE_CRITERIA[rule]||null;}
+function campaignHasTheme(rule){return !!campaignCriteria(rule)?.acceptedTags?.length;}
 // A commander may meet a themed challenge through demonstrated tactical expertise
 // rather than personal physical traits. Only the actual Commander/Coach slot may
 // use these universe-scoped exceptions. Identity, age, power-ban, size and reuse
@@ -407,33 +400,80 @@ function saveCampaign(){
 function campaignStage(){return campaignStages()[Math.min(9,S.campaign.step)];}
 function campaignSlots(sport,rule){
   const slots=SPORTS[sport].pos;
-  if(rule!=='short'&&rule!=='final')return slots;
-  const starters=slots.filter(p=>!p.side&&!p.coach&&!p.bench);
-  return starters;
+  return campaignCriteria(rule)?.lineup?.startersOnly
+    ?slots.filter(p=>!p.side&&!p.coach&&!p.bench):slots;
 }
 function campaignLimit(sport,rule){
   const eligible=campaignSlots(sport,rule);
-  return rule==='short'||rule==='final'?Math.max(1,Math.ceil(eligible.length*0.6)):eligible.length;
+  const fraction=campaignCriteria(rule)?.lineup?.starterFraction;
+  return typeof fraction==='number'
+    ?Math.max(1,Math.ceil(eligible.length*fraction)):eligible.length;
 }
 function campaignUsed(){return new Set(S.campaign.history.flatMap(h=>h.ids||[]));}
 function campaignWinUses(id){return S.campaign.history.reduce((n,h)=>n+(h.ids||[]).filter(x=>x===id).length,0);}
 function campaignPickAllowed(c,rule,pos){return campaignWinUses(c.id)<2&&campaignAllowed(c,rule,pos);}
-function campaignAllowed(c,rule,pos=null){
-  if(campaignCommanderSpecialty(c,rule,pos))return true;
-  switch(rule){
-    case 'fast':return c.a[0]>=90;
-    case 'women':return CAMPAIGN_WOMEN.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'women'));
-    case 'red':return CAMPAIGN_RED.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'red'));
-    case 'kids':return CAMPAIGN_KIDS.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'kids'));
-    case 'mortal':return c.pool==='nba'||CAMPAIGN_MORTAL.has(c.n)||(typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,'mortal'));
-    case 'muppetforce':{const power=muppetForceOf(c);return !!power&&power.score>=MUPPET_FORCE_RULE.campaignMinimum;}
-    case 'brain':return c.a[9]>=87;
-    case 'strong':return c.a[2]>=87;
-    case 'underdog':return c.a.reduce((n,v)=>n+v,0)/c.a.length<=73;
-    case 'final':return !campaignUsed().has(c.id);
-    default:if(CAMPAIGN_TAGS[rule])return CAMPAIGN_TAGS[rule].has(c.n)||!!characterAbilityEvidence(c,rule)||!!campaignOfflineEvidence(c,rule)||(typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule));return true;
-
+// Identity/color/age classifications remain their own legacy trait source.
+// No themed challenge reads a character name, description or research keywords.
+function campaignTraitAllowed(c,trait){
+  const legacy={women:CAMPAIGN_WOMEN,red:CAMPAIGN_RED,kids:CAMPAIGN_KIDS,mortal:CAMPAIGN_MORTAL};
+  if(trait==='mortal'&&c.pool==='nba')return true;
+  return !!legacy[trait]?.has(c.n)||
+    (typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,trait));
+}
+function campaignStatValue(c,attribute){
+  if(!Array.isArray(c?.a)||!c.a.length)return NaN;
+  if(attribute==='average')return c.a.reduce((sum,value)=>sum+Number(value),0)/c.a.length;
+  const idx=CAMPAIGN_FOCUS_INDEX[attribute];
+  return idx===undefined?NaN:Number(c.a[idx]);
+}
+function campaignPassesStats(c,conditions){
+  return conditions.every(({attribute,op,value})=>{
+    const actual=campaignStatValue(c,attribute);
+    if(!Number.isFinite(actual)||!Number.isFinite(value))return false;
+    switch(op){
+      case 'gte':return actual>=value;
+      case 'gt':return actual>value;
+      case 'lte':return actual<=value;
+      case 'lt':return actual<value;
+      case 'eq':return actual===value;
+      default:return false;
+    }
+  });
+}
+function campaignHoldsAcceptedTag(c,acceptedTags){
+  // null means no roster record; [] means reviewed with no qualifying tags.
+  // Both fail closed unless a separate approved player appeal exists.
+  const owned=typeof characterAbilityTags==='function'?characterAbilityTags(c):null;
+  if(Array.isArray(owned))return acceptedTags.some(tag=>owned.includes(tag));
+  if(owned&&typeof owned.has==='function')return acceptedTags.some(tag=>owned.has(tag));
+  return false;
+}
+function campaignMatchesCriteria(c,criteria,rule){
+  if(!c||!criteria)return false;
+  if(criteria.trait&&!campaignTraitAllowed(c,criteria.trait))return false;
+  if(criteria.stats&&!campaignPassesStats(c,criteria.stats))return false;
+  if(criteria.muppetForceMin!==undefined){
+    const power=typeof muppetForceOf==='function'?muppetForceOf(c):null;
+    if(!power||power.score<criteria.muppetForceMin)return false;
   }
+  if(criteria.neverPreviouslyWon&&campaignUsed().has(c.id))return false;
+  if(Array.isArray(criteria.acceptedTags)){
+    const matches=criteria.acceptedTags.length>0&&campaignHoldsAcceptedTag(c,criteria.acceptedTags);
+    if(!matches){
+      // Approval is stored against the stable broad challenge rule.
+      // No live AI, keywords or paid calls are triggered here.
+      if(!(rule&&typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule)))return false;
+    }
+  }
+  return true;
+}
+function campaignAllowed(c,rule,pos=null){
+  const criteria=campaignCriteria(rule);
+  if(!c||!criteria)return false;
+  // Tactical expertise is an explicitly curated Commander/Coach-slot exception.
+  // It cannot waive identity, age, nonpowered or reuse constraints.
+  if(criteria.commanderSpecialty&&campaignCommanderSpecialty(c,rule,pos))return true;
+  return campaignMatchesCriteria(c,criteria,rule);
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
 function campaignSportValid(sport){return campaignEligibleStageIds(sport).length>=9;}
@@ -556,8 +596,8 @@ function renderCampaignRejected(){
       <h2 class="h" id="campaign-reject-title" style="margin:8px 0 12px">Lineup rejected</h2>
       <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
       <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
-      <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> ${CAMPAIGN_TAGS[campaignStage().rule]?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:''}</li>`).join('')}</ul>
-      <p class="note">These picks were checked locally against the theme list, their descriptions, stored abilities and previously approved knowledge. Submitting a lineup never uses paid AI research. Review unresolved picks or optionally challenge a ruling.</p>
+      <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> ${campaignHasTheme(campaignStage().rule)?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:''}</li>`).join('')}</ul>
+      <p class="note">These picks were checked locally against reviewed ability tags, challenge criteria and previously approved appeals. Description keywords and character names do not grant powers. Submitting a lineup never uses paid AI research. Review unresolved picks or optionally challenge a ruling.</p>
       <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
     </div>
   </div>`;
@@ -568,7 +608,7 @@ function renderCampaignDispute(){
   const v=S.campaign,slot=v.disputeSlot;
   if(!slot||v.status!=='draft')return '';
   const c=v.roster[slot],rule=campaignStage().rule;
-  if(!c||!CAMPAIGN_TAGS[rule])return '';
+  if(!c||!campaignHasTheme(rule))return '';
   const result=v.disputeResult,approved=result?.status==='approved',provisional=result?.status==='accepted_provisional';
   const allowed=approved||provisional;
   // The research provider sometimes appends long markdown citations to its prose.
@@ -603,7 +643,7 @@ function renderCampaignDispute(){
       </div>
       <p><b>${esc(c.n)}</b> · ${esc(campaignStage().name)}</p>
       ${!result?`
-      <p class="note">This character is not yet covered by built-in evidence. Describe the documented feat and optionally provide a source. Paid AI research is optional; accepted findings are queued for review.</p>
+      <p class="note">This character does not hold an accepted tag or an approved appeal for this challenge. Describe a documented qualifying feat and optionally provide a source. Paid AI research is optional; accepted findings are queued for review.</p>
       <label class="field-label"><span>What ability or feat should qualify?</span><textarea data-input="camp-dispute-claim" rows="3" maxlength="700" placeholder="${esc(placeholder)}" ${v.disputeBusy?'disabled':''}>${esc(v.disputeClaim||'')}</textarea></label>
       <label class="field-label"><span>Optional source URL</span><input type="url" data-input="camp-dispute-source" value="${esc(v.disputeSource||'')}" placeholder="https://..." ${v.disputeBusy?'disabled':''}></label>
       ${!status.researchReady?'<p class="note">Live AI research is not yet activated. Your claim can be saved on this device for later retry, but it cannot be verified or shared until server setup is complete.</p>':'<p class="note"><b>Credit notice:</b> Researching this ruling calls the paid AI service. It is not required to continue your campaign. You will be asked to confirm before any request is sent.</p>'}
