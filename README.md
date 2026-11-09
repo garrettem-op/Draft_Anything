@@ -9,6 +9,8 @@ Draft anyone into any sport: all-time NBA legends, Marvel, cartoons, Muppets, vi
 
 Live at https://garrettem-op.github.io/Draft_Anything/
 
+In single-pool **Dealt Hand** drafts, opposing teams receive distinct, location-inspired names from that talent pool (for example, **Gondor Shield**, **Rohan Riders**, and **Shire Folk** for Middle-earth). **Head-to-Head** offers different pool-specific default names for host and guest. Player-entered names are always preserved. **Mashup**, user-created pools, Campaign's mixed roster, and Perfect Season's cross-universe league retain the existing city-and-mascot naming system.
+
 The page is a single `index.html`. Head-to-Head drafts are stored in Supabase (`docs` table with row-level security; edits go through the `doc_update` and `doc_acquire` functions). NBA prime stats come from Basketball-Reference.
 
 Daily Grid puzzles are generated deterministically from the date so everyone on the same game version sees the same grid. Attempts, scores, and past-grid history are stored locally in the browser (they do not sync across devices). It uses the built-in character ratings, not paid AI research.
