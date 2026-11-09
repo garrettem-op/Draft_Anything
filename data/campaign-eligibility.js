@@ -50,7 +50,7 @@ const CAMPAIGN_PROFILE_PATTERNS = Object.freeze({
   ice:/\b(?:ice(?:[- ]bending|[- ]control|[- ]blast)?|freez(?:e|es|ing)|freezing|frost|cryokinesis|snow and ice)\b/i,
   electric:/\b(?:lightning|electri(?:c|city|cal)|thunder(?:bolt)?|electrokinesis)\b/i,
   tech:/\b(?:powered[- ]armor|advanced (?:technology|tech|armor)|nanotechnology|tech(?:nology)?[- ](?:targeting|weapons|armor)|robot(?:ic)?|android|cyborg|mecha|drones?|gadget(?:s)?|repulsors?|nanotech|mechanical tentacles|artificial intelligence|engineering genius|scientific invention|super[- ]suit(?:s)?|combat suit)\b/i,
-  stealth:/\b(?:invisib(?:le|ility)|stealth|infiltrat(?:ion|e|or)|espionage|concealment|covert|ninja|assassin stealth)\b/i,
+  stealth:/\b(?:invisib(?:le|ility)|stealth|infiltrat(?:ion|e|or)|espionage|covert|ninja|assassin stealth)\b/i,
   teleport:/\b(?:teleport(?:ation|s|ing)?|portal(?:s)?|sling ring|instant relocation|warps? (?:through|between))\b/i,
   healing:/\b(?:heals?|healing|healer|regenerat(?:e|es|ion|ing)|self[- ]healing|restor(?:ation|ing) of injuries|resurrect(?:ion|s)?)\b/i,
   giants:/\b(?:giant[- ]form|giant[- ]size|grows? (?:to |into )?(?:a )?(?:giant|enormous)|massive size[- ]shift|size[- ]shifting|becom(?:e|es|ing) enormous|enlarg(?:e|ement)|colossal form)\b/i
@@ -76,6 +76,14 @@ function campaignGuideEvidence(candidate,rule,guides){
   }
   return null;
 }
+/* Original-151 Pokémon already carry curated in-game type groups. Those groups
+   are stronger evidence than guessing power from words like "electric" in a title.
+   Do not translate Flying typing directly to self-flight: Doduo/Dodrio and some
+   other Flying types are not actually airborne, so Skyborne uses curated feats. */
+const CAMPAIGN_POKEMON_THEME_TAGS = Object.freeze({
+  fire:'Fire Types',ice:'Ice Types',electric:'Electric Types',
+  aquatic:'Water Types',psychic:'Psychic Types',healing:'Healers'
+});
 const CAMPAIGN_OFFLINE_AERIAL = Object.freeze({
   // The original Kanto roster has many well-known flying or hovering Pokémon
   // whose short character blurbs say nothing about their airborne behavior.
@@ -114,6 +122,12 @@ function campaignOfflineEvidence(candidate,rule){
   if(described)return described;
   const guide=campaignGuideEvidence(candidate,rule);
   if(guide)return guide;
+  const pokemonTag=CAMPAIGN_POKEMON_THEME_TAGS[rule];
+  if(candidate.pool==='pokemon'&&pokemonTag&&Array.isArray(candidate.taxonomy)&&candidate.taxonomy.includes(pokemonTag)){
+    return {tag:rule,kind:'curated-pokemon-type',pool:candidate.pool,name:candidate.n,
+      feat:'The roster classifies this Kanto Pokémon under '+pokemonTag+'.',
+      source:'built-in-pokemon-type-taxonomy'};
+  }
   if(rule==='flight'&&CAMPAIGN_OFFLINE_AERIAL[candidate.pool]?.has(candidate.n)){
     return {tag:'flight',kind:'curated-flight-or-air-combat',pool:candidate.pool,name:candidate.n,
       feat:'Known flight, hovering, or aircraft/spacecraft piloting relevant to Skyborne. Vehicle use does not imply unaided flight.',
@@ -123,6 +137,6 @@ function campaignOfflineEvidence(candidate,rule){
 }
 if(typeof module!=='undefined'&&module.exports)module.exports={
   CAMPAIGN_DESCRIPTION_PATTERNS,CAMPAIGN_DESCRIPTION_EXCEPTIONS,
-  CAMPAIGN_OFFLINE_AERIAL,CAMPAIGN_PROFILE_PATTERNS,
+  CAMPAIGN_OFFLINE_AERIAL,CAMPAIGN_PROFILE_PATTERNS,CAMPAIGN_POKEMON_THEME_TAGS,
   campaignDescriptionEvidence,campaignGuideEvidence,campaignOfflineEvidence
 };
