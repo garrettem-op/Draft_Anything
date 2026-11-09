@@ -15,7 +15,7 @@ const CAMPAIGN_DESCRIPTION_PATTERNS = Object.freeze({
   fire:/\b(?:fire[- ](?:breathing|breather|bending|wielding|pup|puppy)|flame|flames|flame[- ]\w+|tail[- ]flame|lava[- ]spitting|pyrokinetic|inferno)\b/i,
   ice:/\b(?:ice[- ](?:queen|skating|dancer|magic|bending|wielding|blast|control)|frost(?:y|bite|bound)?|freez(?:e|ing)|blizzard)\b/i,
   electric:/\b(?:lightning|electri(?:c|city)(?:[- ](?:whip|mouse|eel|powers?|attacks?|type))?|(?:god of |living |legendary )?thunder(?:[- ](?:god|bird))?|volt(?:age|s)?)\b/i,
-  tech:/\b(?:armor|armored|armour|robot(?:ic)?|android|cyborg|mech(?:anical)?|gadget|engineer|tech[- ]genius|tech genius|inventor (?:and industrialist|in armor)|eternal inventor)\b/i,
+  tech:/\b(?:powered[- ]armor|powered[- ]suit|rescue[- ]armor|custom[- ]armor|armored[- ](?:inventor|engineer|sorcerer)|robot(?:ic)?|android|cyborg|mech(?:anical)?|gadget|engineer|tech[- ]genius|tech genius|inventor (?:and industrialist|in armor)|eternal inventor)\b/i,
   stealth:/\b(?:stealth|invisib(?:le|ility)|spy|spies|ninja|infiltrat(?:e|ion|or)|assassin|covert)\b/i,
   teleport:/\b(?:teleport(?:ation|ing|s)?|portal[- ](?:travel|jump)|warping|warp[- ]travel)\b/i,
   healing:/\b(?:heals?|healer|healing|regenerat(?:e|es|ion|ing)|self[- ]repair)\b/i,
@@ -31,10 +31,47 @@ const CAMPAIGN_DESCRIPTION_EXCEPTIONS = Object.freeze({
   fire:/\b(?:fire emblem|firefighter)\b/i,
   ice:/\b(?:ice beast|snow[- ]white|ice hockey)\b/i,
   stealth:/\b(?:nurse[- ]droid assassin)\b/i,
+  psychic:/\b(?:telekinetic[- ]style|psychic[- ]type)\b/i,
   giants:/\b(?:giant[- ]petaled|giant petals)\b/i
 });
 // Character-specific, directly documented exceptions where the one-line
 // description is too short to mention the real ability. Roster-scoped by pool.
+/* The research guide is already shipped with the game. Consult its powers/feats
+   on the same local device, with no network request, only for positive claims.
+   Exclude speculative, negated, alternate-form or 'similar to' statements;
+   a profile describing what someone *cannot* do is never supporting evidence. */
+const CAMPAIGN_PROFILE_PATTERNS = Object.freeze({
+  flight:/\b(?:flies|flying|flight|fly|aerial|airborne|hover(?:s|ing)?|levitat(?:e|ion)|glider flight|wingsuit|winged[- ]ankle|pilots? (?:a |an )?(?:ship|fighter|starfighter|spacecraft))\b/i,
+  magic:/\b(?:magic|sorcer(?:er|ess|y)|wizard|witch|spell(?:s|cast(?:ing|er)?)?|mystic arts|portal sorcery|enchant(?:ment|ress)?)\b/i,
+  psychic:/\b(?:telepathy|telepathic|telekinesis|telekinetic|psychic|psionic|mind[- ]control|mind[- ]reading|mind manipulation)\b/i,
+  aquatic:/\b(?:underwater|aquatic|water[- ]breathing|water[- ]bending|lives? in (?:the )?(?:sea|ocean)|swim(?:ming)? through water)\b/i,
+  fire:/\b(?:fire(?:[- ]bending|[- ]breath|[- ]blast|[- ]control)?|flames?|plasma flame|pyrokinesis|combustion|inferno)\b/i,
+  ice:/\b(?:ice(?:[- ]bending|[- ]control|[- ]blast)?|freez(?:e|es|ing)|freezing|frost|cryokinesis|snow and ice)\b/i,
+  electric:/\b(?:lightning|electri(?:c|city|cal)|thunder(?:bolt)?|electrokinesis)\b/i,
+  tech:/\b(?:powered[- ]armor|advanced (?:technology|tech|armor)|nanotechnology|tech(?:nology)?[- ](?:targeting|weapons|armor)|robot(?:ic)?|android|cyborg|mech(?:anical|anism)?|drones?|gadget(?:s)?|repulsors?|nanotech|mechanical tentacles|artificial intelligence|invent(?:ions?|or)|engineering)\b/i,
+  stealth:/\b(?:invisib(?:le|ility)|stealth|infiltrat(?:ion|e|or)|espionage|concealment|covert|ninja|assassin stealth)\b/i,
+  teleport:/\b(?:teleport(?:ation|s|ing)?|portal(?:s)?|sling ring|instant relocation|warps? (?:through|between))\b/i,
+  healing:/\b(?:heals?|healing|healer|regenerat(?:e|es|ion|ing)|self[- ]healing|restor(?:ation|ing) of injuries|resurrect(?:ion|s)?)\b/i,
+  giants:/\b(?:giant[- ]form|giant[- ]size|grows? (?:to |into )?(?:a )?(?:giant|enormous)|massive size[- ]shift|size[- ]shifting|becom(?:e|es|ing) enormous|enlarg(?:e|ement)|colossal form)\b/i
+});
+const CAMPAIGN_PROFILE_UNCERTAIN = /\b(?:uncertain|speculat(?:ive|ion)|variant[- ]dependent|version[- ]dependent|only conditional|not established|no evidence|cannot|can't|unable|not able|does not|lacks?|non[- ](?:magical|supernatural)|telekinetic[- ]style|teleportation[- ]like)\b/i;
+function campaignGuideEvidence(candidate,rule,guides){
+  if(!candidate?.pool||!candidate?.n)return null;
+  const profile=(guides || (typeof window!=='undefined' ? window.DA_CHARACTER_GUIDES : null))?.[candidate.pool]?.[candidate.n];
+  if(!profile||!CAMPAIGN_PROFILE_PATTERNS[rule])return null;
+  for(const item of [...(Array.isArray(profile.powers)?profile.powers:[]),...(Array.isArray(profile.feats)?profile.feats:[])]){
+    if(typeof item!=='string')continue;
+    for(const clause of item.split(/[;,\n]+/)){
+      const v=clause.trim();
+      if(!v||CAMPAIGN_PROFILE_UNCERTAIN.test(v))continue;
+      if(CAMPAIGN_PROFILE_PATTERNS[rule].test(v)){
+        return {tag:rule,kind:'built-in-research-guide',feat:v,pool:candidate.pool,name:candidate.n,
+          source:(profile.sources||[]).find(url=>typeof url==='string'&&/^https:\/\//i.test(url))||'built-in-research-guide'};
+      }
+    }
+  }
+  return null;
+}
 const CAMPAIGN_OFFLINE_AERIAL = Object.freeze({
   // The original Kanto roster has many well-known flying or hovering Pokémon
   // whose short character blurbs say nothing about their airborne behavior.
@@ -71,6 +108,8 @@ function campaignOfflineEvidence(candidate,rule){
   if(!candidate||!candidate.pool||!candidate.n)return null;
   const described=campaignDescriptionEvidence(candidate,rule);
   if(described)return described;
+  const guide=campaignGuideEvidence(candidate,rule);
+  if(guide)return guide;
   if(rule==='flight'&&CAMPAIGN_OFFLINE_AERIAL[candidate.pool]?.has(candidate.n)){
     return {tag:'flight',kind:'curated-flight-or-air-combat',pool:candidate.pool,name:candidate.n,
       feat:'Known flight, hovering, or aircraft/spacecraft piloting relevant to Skyborne. Vehicle use does not imply unaided flight.',
@@ -80,5 +119,6 @@ function campaignOfflineEvidence(candidate,rule){
 }
 if(typeof module!=='undefined'&&module.exports)module.exports={
   CAMPAIGN_DESCRIPTION_PATTERNS,CAMPAIGN_DESCRIPTION_EXCEPTIONS,
-  CAMPAIGN_OFFLINE_AERIAL,campaignDescriptionEvidence,campaignOfflineEvidence
+  CAMPAIGN_OFFLINE_AERIAL,CAMPAIGN_PROFILE_PATTERNS,
+  campaignDescriptionEvidence,campaignGuideEvidence,campaignOfflineEvidence
 };
