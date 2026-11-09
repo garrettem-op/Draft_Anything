@@ -5,6 +5,12 @@
    Evidence is deliberately NOT shown in the pre-submission picker, because Campaign
    is intended to test the player's knowledge. */
 const CHARACTER_ABILITIES = Object.freeze({
+  'pokemon:Mew': [
+    {tag:'teleport',kind:'learnable-teleport-move',
+      feat:'Mew is compatible with TM30 Teleport in Pokémon Red, Blue, and Yellow (Generation I). Teleport moves the user instantaneously out of wild battles or back to the last healing location.',
+      source:'https://pokemondb.net/pokedex/mew/moves/1'},
+  ],
+
   'games:Ganondorf': [
     {tag:'teleport',kind:'self-teleportation-in-beast-form',
       feat:'During the Twilight Princess final battle, Ganondorf transforms into Dark Beast Ganon, vanishes and reappears through warp portals, including teleporting to avoid Link’s arrows.',
