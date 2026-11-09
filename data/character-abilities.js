@@ -5,6 +5,12 @@
    Evidence is deliberately NOT shown in the pre-submission picker, because Campaign
    is intended to test the player's knowledge. */
 const CHARACTER_ABILITIES = Object.freeze({
+  'games:Ganondorf': [
+    {tag:'teleport',kind:'self-teleportation-in-beast-form',
+      feat:'During the Twilight Princess final battle, Ganondorf transforms into Dark Beast Ganon, vanishes and reappears through warp portals, including teleporting to avoid Link’s arrows.',
+      source:'https://primagames.com/eguides/the-legend-of-zelda-twilight-princess-hd-eguide/dungeon-9-hyrule-castle/boss-battle-ganondorf'},
+  ],
+
   'toons:Katara': [
     {tag:'healing', kind:'heals-others-and-self', feat:'Waterbending can heal physical injuries; Katara healed Aang and other wounded allies.', source:'https://avatar.fandom.com/wiki/Healing'},
     {tag:'ice', kind:'elemental-control', feat:'Advanced waterbending includes freezing and manipulating ice.', source:'https://avatar.fandom.com/wiki/Waterbending'},
