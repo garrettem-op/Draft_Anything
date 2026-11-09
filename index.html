@@ -364,7 +364,7 @@ details.st-row .roster-mini { padding-top: 10px; }
 
 /* Championship: perfect season */
 .uchip { display: inline-block; vertical-align: 1px; margin-left: 4px; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; color: #fff; background: #5B6670; white-space: nowrap; }
-.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-pokemon { background: #C9561F; } .uchip.u-starwars { background: #1C1C1C; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
+.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-pokemon { background: #C9561F; } .uchip.u-starwars { background: #1C1C1C; } .uchip.u-dc { background: #1f509b; } .uchip.u-lotr { background: #2c694e; } .uchip.u-hp { background: #583b7d; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
 .game .w .uchip, .game .l .uchip { font-size: 9px; }
 .result-hero .meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,.14); overflow: hidden; max-width: 520px; margin: 4px 0 8px; }
 .result-hero .meter i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
@@ -670,6 +670,9 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-art[data-pool="toons"] { background: radial-gradient(ellipse at 50% 28%, #d7ba87, #546b6f); }
 .trading-card .tc-art[data-pool="muppets"] { background: radial-gradient(ellipse at 50% 28%, #b5d877, #346f4c); }
 .trading-card .tc-art[data-pool="games"] { background: radial-gradient(ellipse at 50% 28%, #dfbb6f, #4d6688); }
+.trading-card .tc-art[data-pool="dc"] { background: radial-gradient(ellipse at 50% 28%, #e19a6f, #193c76); }
+.trading-card .tc-art[data-pool="lotr"] { background: radial-gradient(ellipse at 50% 28%, #e4cc80, #295b41); }
+.trading-card .tc-art[data-pool="hp"] { background: radial-gradient(ellipse at 50% 28%, #d7adcf, #453569); }
 
 
 /* Individually recognizable pool emblems instead of the generic DA logo. */
@@ -688,6 +691,9 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-name > .tc-pool-games { background: #5b87ad; color: #f9eee1; }
 .trading-card .tc-name > .tc-pool-pokemon { background: #d14d42; color: #fff; }
 .trading-card .tc-name > .tc-pool-starwars { background: #273d53; color: #f4e2aa; }
+.trading-card .tc-name > .tc-pool-dc { background: #1b4a98; color: #fcebd3; }
+.trading-card .tc-name > .tc-pool-lotr { background: #38684c; color: #e8dbb4; }
+.trading-card .tc-name > .tc-pool-hp { background: #5c407a; color: #f3ddbb; }
 .trading-card .tc-name > .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
 @media (max-width:899px) {
   .trading-card .tc-name > .tc-pool-mark { flex:0 0 18px; width:18px; height:18px; min-width:18px; }
@@ -795,6 +801,9 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/toons-profiles.js"></script>
 <script src="data/games-profiles.js"></script>
 <script src="data/character-abilities.js"></script>
+<script src="data/pool-dc.js"></script>
+<script src="data/pool-lotr.js"></script>
+<script src="data/pool-hp.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/campaign-variants-marvel.js"></script>
@@ -1985,6 +1994,11 @@ POOLS.starwars = { id: 'starwars', name: 'Star Wars', short: 'Star Wars', blurb:
 ["Jar Jar Binks","","Clumsy Gungan hero",[62,84,52,62,86,70,40,30,64,22,60,36],["Gungans","Prequels","Naboo"]],
 ["Watto","","Toydarian junk dealer",[40,62,30,30,60,50,82,40,50,70,40,50],["Prequels"]],
 ]};
+// Additional licensed fictional universes share the normal ratings, chemistry,
+// draft, Campaign, and rivalry engine rather than using a separate game mode.
+POOLS.dc=EXPANSION_DC;
+POOLS.lotr=EXPANSION_LOTR;
+POOLS.hp=EXPANSION_HP;
 
 // Signature moves (iconic characters only) and Playoff Boom.
 // Every signature uses one of four effects; only the name changes. Effects stay hidden in the game.
@@ -3009,7 +3023,7 @@ function sportGlyph(sportKey) {
 // Player tokens: a designed jersey for every candidate. No photos or character art.
 // Pool sets the kit colors; on the field the jersey takes the team color.
 const JERSEY = 'M12 4 L16 4 Q20 8.5 24 4 L28 4 L36.5 10.5 L32.5 17.5 L29 15.5 L29 35.5 Q20 37.5 11 35.5 L11 15.5 L7.5 17.5 L3.5 10.5 Z';
-const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'], pokemon: ['#E0662A', '#1F3A68'], starwars: ['#1C1C1C', '#FFE81F'] };
+const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'], pokemon: ['#E0662A', '#1F3A68'], starwars: ['#1C1C1C', '#FFE81F'], dc: ['#2252A7','#E71F35'], lotr:['#356A48','#C5B45C'], hp:['#553E79','#D9BA67'] };
 const CUSTOM_KIT = ['#0F7C8C', '#F4E9D8'];
 // Real jersey numbers for the NBA pool (the number each is best known for).
 const NBA_NUM = {
@@ -3449,13 +3463,13 @@ function saveChamp() {
 POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 'Every built-in pool at once, on one scale', entries: [] };
 // Pokémon who also appear in the video game pool (Pikachu, Charizard...) show up once in the Mashup.
 function mashupOnly(id) { const seen = new Set(getCands('games').map(c => c.n)); return getCands(id).filter(c => !seen.has(c.n)); }
-const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'mashup'];
+const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'hp', 'mashup'];
 const candCache = {};
 function getPool(id) { return POOLS[id] || S.custom[id] || null; }
 function getCands(id) {
   if (candCache[id]) return candCache[id];
   const p = getPool(id); if (!p) return [];
-  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games'), ...mashupOnly('pokemon'), ...getCands('starwars')] : poolCandidates(p);
+  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games'), ...mashupOnly('pokemon'), ...getCands('starwars'), ...getCands('dc'), ...getCands('lotr'), ...getCands('hp')] : poolCandidates(p);
   return (candCache[id] = list);
 }
 function candById(poolId, cid) { return getCands(poolId).find(c => c.id === cid) || null; }
@@ -3764,6 +3778,9 @@ function handPoolMark(poolId) {
     games: '<path d="M7.8 8h8.4c2.2 0 3.5 1.2 4.2 3.5l1 4c.7 3-1.5 4.2-3.6 2.5l-2.4-2H8.6l-2.4 2c-2.1 1.7-4.3.5-3.6-2.5l1-4C4.3 9.2 5.6 8 7.8 8z"/><path d="M7 11v5m-2.5-2.5h5"/><circle cx="16.5" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="18.3" cy="14" r=".9" fill="currentColor" stroke="none"/>',
     pokemon: '<circle cx="12" cy="12" r="9"/><path d="M3.4 12h17.2"/><circle cx="12" cy="12" r="3.1" fill="#f3e7cb"/>',
     starwars: '<path d="M12 2.5 14 9l7.5 3-7.5 3-2 6.5L10 15l-7.5-3L10 9z"/><circle cx="12" cy="12" r="1.7"/>',
+    dc: '<path d="M4 5.5h16v8.7L12 21l-8-6.8z"/><path d="M7 9h10m-8 4h6"/>',
+    lotr: '<circle cx="12" cy="12" r="9"/><path d="M7 7.5q5 7 10 0M8 16q4-5 8 0"/><circle cx="12" cy="12" r="2"/>',
+    hp: '<path d="M13 2 7 12h5l-2 10 8-12h-5z"/>',
     mashup: '<path d="m12 2 2.1 7 7.4 3-7.4 2.9L12 22l-2.1-7.1L2.5 12l7.4-3zM19 3l.6 1.6L21 5l-1.4.6L19 7l-.5-1.4L17 5l1.5-.4z"/>'
   };
   const kind = Object.hasOwn(glyphs,poolId) ? poolId : 'custom';
@@ -4001,7 +4018,7 @@ function champResultText() {
 // Each opponent comes from ONE universe (NBA, Marvel, Cartoons, Muppets); mixed All-Star
 // teams only show up when you cast from the All-Star Mashup yourself.
 const LEAGUE_SIZE = { basketball: 30, football: 16, soccer: 20, baseball: 30, hockey: 32, volleyball: 14, brawl: 16 };
-const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', pokemon: 'Pokémon', starwars: 'Star Wars', mashup: 'All-Stars' };
+const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', pokemon: 'Pokémon', starwars: 'Star Wars', dc: 'DC Comics', lotr: 'Middle-earth', hp: 'Wizarding World', mashup: 'All-Stars' };
 function universeLabel(id) { return UNIVERSE_LABEL[id] || (S.custom[id] ? (S.custom[id].short || S.custom[id].name) : 'Custom'); }
 
 function shuffleWith(arr, rng) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -4023,7 +4040,7 @@ function buildCrossLeague(sportKey, userPoolId, userRoster, rng) {
   const P = SPORTS[sportKey].pos.length, sig = SEASONS[sportKey].sigma, [ke, klo, khi] = PERFECT_TIERS[sportKey];
   const C = poolCeiling(sportKey, userPoolId);
   const used = new Set(Object.values(userRoster).map(c => c.id));
-  const U = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars'];
+  const U = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'hp'];
   if (userPoolId === 'mashup') U.push('mashup');
   else if (!U.includes(userPoolId) && getPool(userPoolId)) U.push(userPoolId);
   const avail = u => getCands(u).filter(c => !used.has(c.id));
