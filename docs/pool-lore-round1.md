@@ -46,3 +46,12 @@ were reconciled into `CHARACTER_ABILITY_TAGS` when PR #46 was integrated; PR #44
 4. **Ratings:** the `vala` archetype gives every Vala 99 in all twelve attributes, so Vairë the Weaver
    rates the same as Tulkas in a brawl.
 5. **UI:** the Character Guide shows `biography` under the heading "Sports translation".
+
+## Round 2 evidence reconciliation (November 2026)
+
+The 54 Round 1 eligibility deltas above are historical, not authoritative Campaign grants.
+Round 2 (see [character ability audit](character-ability-audit-round2.md)) reviewed every
+new-pool ability against explicit evidence and removed provisional claims where no supported
+feat or qualifying owner ruling was available. The Campaign engine now consumes only reviewed
+ability tags; changing a lore card's prose cannot grant an ability. Confirmed disputes cannot
+be revived by legacy locally approved appeals. Other appeals remain possible.

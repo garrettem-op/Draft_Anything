@@ -32,7 +32,7 @@ Split broad powers into precise tags so future challenges can combine them in in
 | Teleport | self-teleport, portals, teleports-others |
 | Healing | self-regeneration, heals-others |
 | Giants | giant-sized, size-change |
-| Fire / Ice / Electric | element-control, element-weapon |
+| Fire / Ice / Electric | fire-control, fire-weapon; ice-control, ice-weapon; electric-control, electric-weapon (element-specific, per PR #44) |
 
 Broad tags such as flight stay available as groupings of their specific tags, so existing challenges keep working.
 
@@ -67,6 +67,6 @@ Each challenge declares only:
 
 ## Next steps
 
-1. Claude: ~~apply the newest rulings and run the Pokémon learnset pass~~ (done in this branch); next, introduce the specific tags with tests.
+1. Claude: ~~apply the newest rulings and run the Pokémon learnset pass~~; ~~introduce the specific tags with tests~~ (done in round 2: the index emits broad + specific tags, generated from records only). Next: source-linked records for the 263 older-pool carry-overs.
 2. ChatGPT: switch eligibility to the tag check and define challenge criteria in data.
 3. Owner: approve the tag list and propose new challenges built from tag combinations.

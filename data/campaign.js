@@ -460,8 +460,12 @@ function campaignMatchesCriteria(c,criteria,rule){
   if(Array.isArray(criteria.acceptedTags)){
     const matches=criteria.acceptedTags.length>0&&campaignHoldsAcceptedTag(c,criteria.acceptedTags);
     if(!matches){
-      // Approval is stored against the stable broad challenge rule.
-      // No live AI, keywords or paid calls are triggered here.
+      // Never let a saved approval resurrect a power the reviewed audit expressly rejected.
+      // Curated Commander specialties remain a separate exception in campaignAllowed().
+      if(typeof CHARACTER_ABILITY_DISPUTES!=='undefined'&&
+         CHARACTER_ABILITY_DISPUTES.some(d=>d.verdict==='incorrect'&&d.id===c.pool+':'+c.n&&d.tag===rule))return false;
+      // An older approved claim may still supplement missing, non-disputed evidence.
+      // No live AI, keyword matching or paid calls are triggered here.
       if(!(rule&&typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule)))return false;
     }
   }

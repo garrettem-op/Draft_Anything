@@ -17,6 +17,11 @@ function poolRoster() {
     assert.ok(start>=0&&entries>=0&&end>entries,'Missing real pool '+pool);
     byPool[pool]=[...html.slice(entries,end).matchAll(/^\["([^"]+)"/gm)].map(x=>x[1]);
   }
+  // PR #42 pools are registered by data/new-pool-core.js rather than inlined in index.html.
+  const cx=vm.createContext({window:{}});
+  for(const f of ['data/new-pool-core.js','data/pools-dc.js','data/pools-middle-earth.js','data/pools-harry-potter.js'])
+    vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),cx,{filename:f});
+  for(const [pool,def] of Object.entries(cx.window.DA_ADDED_POOLS))byPool[pool]=def.entries.map(e=>e[0]);
   return byPool;
 }
 const pools=poolRoster();
