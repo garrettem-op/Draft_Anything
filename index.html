@@ -3554,14 +3554,15 @@ function guideCollection(id) {
   if (id === 'muppets') {
     return Object.fromEntries(getCands('muppets').map(c => {
       const mf = muppetForceOf(c);
+      const history = muppetForceHistoryOf(c);
       return [c.n, {
-        name:c.n,works:['The Muppets character pool'],
+        name:c.n,works:['The Muppets character pool',...new Set(history.map(f=>f.work?.title).filter(Boolean))],
         powers:mf ? ['MuppetForce: puppet-stage physics', ...MUPPET_FORCE_DIMENSIONS.filter(d=>mf.dimensions[d.key]>=75).map(d=>d.label)] : [],
         feats:mf ? [mf.feat] : [],
         limits:mf ? [mf.limit, MUPPET_FORCE_RULE.limitation] : ['Puppet appearance alone does not prove superhuman environmental interactions.'],
         effect:mf ? 'MuppetForce gives a modest context-dependent role-fit advantage, stronger in a brawl than in regulated sports; never changes physical base attributes.' : 'No established MuppetForce gameplay ability.',
         tier:mf ? 'MuppetForce · '+mf.tier : 'MuppetForce unassessed',
-        muppetForce:mf, status:'Provisional character-specific MuppetForce assessment, not an official canon statistic.',
+        muppetForce:mf,muppetHistory:history,sources:[...new Set(history.flatMap(f=>[f.work?.source,...f.sources].filter(Boolean)))], status:'Provisional character-specific MuppetForce assessment, not an official canon statistic; film-role feats are identified separately.',
       }];
     }));
   }
@@ -3594,6 +3595,7 @@ function renderGuideModal() {
         <section><h4>Sports translation</h4><p>${esc(profile.effect||'Provisional assessment')}</p></section>
         ${profile.disclaimer?`<p class="note"><b>Continuity:</b> ${esc(profile.disclaimer)}</p>`:''}
         ${profile.muppetForce?`<section><h4>MuppetForce</h4><p>${esc(MUPPET_FORCE_RULE.description)}</p><p class="note">${S.guideScores?("MuppetForce: "+profile.muppetForce.score+" / 99 · "):""}${esc(profile.muppetForce.tier)} · Independently scored from 12 core attributes</p>${S.guideScores?`<div class="guide-scores">${MUPPET_FORCE_DIMENSIONS.map(d=>`<div class="guide-score"><span>${esc(d.label)}</span><b>${profile.muppetForce.dimensions[d.key]}</b></div>`).join("")}</div>`:""}</section>`:""}
+        ${profile.muppetHistory?.length?`<section><h4>MuppetForce film history</h4><p class="note">Source-linked Muppet performances; role-specific actions are not automatically permanent powers or rating increases.</p><ul>${profile.muppetHistory.map(f=>`<li><b>${esc(f.work?.title||'Source')} (${esc(f.work?.year||'')})</b> · ${esc(f.role)}<p>${esc(f.summary)}</p><p class="note">Interpretation: ${esc(f.inference)} · ${f.continuity==='fictional-role'?'Fictional film role':'Recurring-character portrayal'}</p>${f.sources.filter(u=>/^https:\/\//.test(u)).map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">Scene source</a>`).join(' · ')}</li>`).join('')}</ul></section>`:''}
         ${S.guideScores&&profile.scores?`<section><h4>12-attribute research ratings</h4><div class="guide-scores">${ATTRS.map(a=>`<div class="guide-score"><span>${esc(a.n)}</span><b>${profile.scores[a.k]??'—'}</b></div>`).join('')}</div></section>`:''}
         <p class="note">${esc(profile.status||'Research scores are subjective estimates, not official canon statistics.')}</p>
         ${(profile.sources||[]).length?`<section><h4>Reference links</h4>${profile.sources.filter(u=>/^https:\/\//.test(u)).map(u=>`<div class="guide-source"><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(u)}</a></div>`).join('')}</section>`:''}
