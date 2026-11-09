@@ -202,7 +202,7 @@ test('owner rulings 2026-11-09 (voice): Pokémon learnable moves, Shepard, Trace
   for (const [id, tag] of [['pokemon:Doduo', 'flight'], ['pokemon:Dodrio', 'flight'], ['pokemon:Snorlax', 'aquatic'],
     ['pokemon:Mew', 'healing'], ['pokemon:Starmie', 'healing'], ['pokemon:Gengar', 'psychic'], ['pokemon:Arcanine', 'teleport'],
     ['pokemon:Nidoking', 'ice'], ['pokemon:Gyarados', 'electric'], ['games:Commander Shepard', 'psychic'],
-    ['games:Tracer', 'healing'], ['games:Tracer', 'teleport'], ['mcu:Echo', 'healing']]) {
+    ['games:Tracer', 'healing'], ['games:Tracer', 'teleport'], ['mcu:Echo', 'healing'], ['pokemon:Magneton', 'flight']]) {
     assert.equal(accepts(id, tag), true, id + ' ' + tag);
     assert.ok(game.tagIndex[get(id).pool][get(id).n].includes(tag), id + ' index ' + tag);
   }

@@ -24,16 +24,16 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 
 | Layer | Pairs |
 | --- | ---: |
-| character-abilities | 572 |
+| character-abilities | 573 |
 | seeded-universe-power | 208 |
 | campaign-tag | 123 |
 | explicit-roster-description | 117 |
 | wizarding-world-magical-role | 51 |
 | built-in-research-guide | 50 |
 | curated-pokemon-type | 37 |
-| curated-flight-or-air-combat | 31 |
+| curated-flight-or-air-combat | 30 |
 
-`CHARACTER_ABILITIES` holds 581 source-linked records for 315 characters.
+`CHARACTER_ABILITIES` holds 582 source-linked records for 315 characters.
 
 ## Disputed grants (engine accepts, audit disagrees or needs a ruling)
 
@@ -42,7 +42,6 @@ Counts are characters the live Campaign engine accepts for each power theme, wit
 - `toons:Popeye` **healing** (incorrect): Granted by the guide phrase "cartoon regeneration". Spinach is consistently a source of strength, not healing or regeneration; no healing feat was found.
 - `pokemon:Mr. Mime` **stealth** (incorrect): Granted because the roster blurb "Invisible-wall performer" matched the invisibility pattern. Mr. Mime creates invisible walls; no Pokédex entry says it hides or becomes invisible.
 - `mcu:Vision` **psychic** (incorrect): Owner ruling 2026-11-09: Vision does not qualify for Mind Games despite the Mind Stone. Granted by name list. Mind Stone Vision shows no telepathy or telekinesis in the MCU; the only mind-power scene is the Hex Vision (no Mind Stone) freeing Norm in WandaVision episode 5.
-- `pokemon:Magneton` **flight** (ruling): Granted by the curated Kanto hover list. No Magneton Pokédex entry mentions floating and it lacks Levitate; support is inherited from Magnemite (anti-gravity hover).
 - `starwars:IG-88` **stealth** (incorrect): Granted because the roster blurb "Assassin droid" matched the assassin pattern. The StarWars.com databank describes a chrome war droid turned bounty hunter; no stealth feat was found.
 - `mcu:Hawkeye` **stealth** (incorrect): Granted by name list. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. MCU sources show sniper perches and marksmanship, no unseen infiltration.
 - `mcu:Gamora` **stealth** (incorrect): Granted by research-guide text. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth or invisibility feat; a role or job title is not enough. Her Orb "surprise" theft becomes an open fight; Thanos training her in stealth is backstory, not a feat.

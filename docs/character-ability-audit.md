@@ -21,8 +21,8 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 
    These records take effect immediately through the existing `characterAbilityEvidence()` hook. No change to
    `campaign.js` is needed.
-3. **15 disputed grants.** These are powers the engine currently accepts. 14 are `incorrect`: the audit found no
-   support, or they fail an owner ruling. 1 still needs a design decision (`ruling`).
+3. **14 disputed grants.** These are powers the engine currently accepts. All 14 are `incorrect`: the audit found
+   no support, or they fail an owner ruling.
 4. **37 research-queue items.** These are plausible powers that are deliberately **not granted** yet.
 5. **Tooling.**
    - `tools/ability-audit.cjs --write-index` regenerates the index.
@@ -155,6 +155,7 @@ non-powered (e.g. Kermit, Han Solo outside the cockpit, Homer Simpson).
 - **Rest is not healing.** Nearly every Pokémon can learn it, so Slowbro stays out.
 - **Commander Shepard counts for Mind Games.** The roster doesn't fix a class, so every canonical option counts.
 - **Tracer counts for The Medics** (Recall restores her health) and keeps teleport (Blink).
+- **Magneton keeps Skyborne.** It hovers like the linked Magnemite it is made of.
 - **Vision does not count for Mind Games.** This is now an `incorrect` dispute.
 - **Echo counts for The Medics.** In the Echo finale she uses her healing power on Wilson Fisk's mind. The effect
   does not last into Daredevil: Born Again.
@@ -177,8 +178,6 @@ existing curated type rules.
 
 ## Still open (small)
 
-- Magneton → flight (`ruling`). The grant comes from the curated hover list. Magneton has no Pokédex hover
-  entry and cannot learn Fly.
 - Specific sub-tags (see `docs/tag-based-eligibility-plan.md`). This is the next data step.
 
 ## Unverified or rejected

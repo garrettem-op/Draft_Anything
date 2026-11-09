@@ -14,7 +14,7 @@ tests. ChatGPT owns the Campaign engine, UI, drafting mechanics and integration.
   - a limitation for power-ups, devices, vehicles or forms
 
   They already work through `characterAbilityEvidence()`.
-- **`CHARACTER_ABILITY_DISPUTES`.** 15 grants the engine accepts today. 14 have verdict `incorrect`; 1 is a `ruling`.
+- **`CHARACTER_ABILITY_DISPUTES`.** 14 grants the engine accepts today, all with verdict `incorrect`.
 - **`CHARACTER_ABILITY_RESEARCH_QUEUE`.** 37 plausible powers that are deliberately not granted.
 - **Tooling.** `node tools/ability-audit.cjs --write-index --report` regenerates the index and
   `docs/character-ability-coverage.md`.
@@ -72,3 +72,4 @@ See `docs/tag-based-eligibility-plan.md`.
 - Tracer counts as healing (Recall) and keeps teleport (Blink).
 - Vision does not count as psychic.
 - Echo counts as healing.
+- Magneton keeps flight (hovers like its linked Magnemite).
