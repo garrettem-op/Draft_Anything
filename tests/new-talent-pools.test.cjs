@@ -212,8 +212,9 @@ test('Commanders may qualify through concrete team support, without personal cha
   }
   assert.equal(h.allowed('lotr','Gandalf','flight',{coach:false}),false,
     'Gandalf can coordinate Great Eagles but must not be granted personal flight');
-  assert.equal(h.allowed('harrypotter','Madam Hooch','flight',{coach:false}),false,
-    'Teaching broom flying is not personal unaided flight');
+  // Owner ruling 2026-11-09: Skyborne is pilots and flyers; a broom flyer qualifies personally.
+  assert.equal(h.allowed('harrypotter','Madam Hooch','flight',{coach:false}),true,
+    'Madam Hooch personally flies a broom (seeded flight tag)');
   assert.equal(h.allowed('starwars','Jar Jar Binks','aquatic',{coach:false}),true,
     'Jar Jar also personally qualifies via amphibious Gungan species evidence');
   assert.equal(h.allowed('starwars','Jar Jar Binks','flight',{coach:true}),false,
