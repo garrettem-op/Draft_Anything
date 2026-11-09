@@ -539,6 +539,13 @@ function renderCampaignDispute(){
   if(!c||!CAMPAIGN_TAGS[rule])return '';
   const result=v.disputeResult,approved=result?.status==='approved',provisional=result?.status==='accepted_provisional';
   const allowed=approved||provisional;
+  // The research provider sometimes appends long markdown citations to its prose.
+  // Render evidence separately from its source links so mobile dialogs remain readable.
+  const readable=value=>String(value||'')
+    .replace(/\(\[[^\]\n]+\]\(https?:\/\/[^\s)]+\)\)/g,'')
+    .replace(/\[[^\]\n]+\]\(https?:\/\/[^\s)]+\)/g,'')
+    .replace(/\(https?:\/\/[^\s)]+\)/g,'')
+    .trim();
   const sources=(result?.sources||[]).filter(url=>/^https:\/\/[^\s]+$/i.test(url)).slice(0,8);
   const status=KnowledgeEngine.status();
   const examples={
@@ -571,12 +578,16 @@ function renderCampaignDispute(){
       ${v.disputeError?`<p role="alert" class="note" style="color:var(--bad)">${esc(v.disputeError)}</p>${v.disputeErrorCode==='api_credits_exhausted'?'<p><a href="https://platform.openai.com/settings/organization/billing/" target="_blank" rel="noopener noreferrer">Add OpenAI API credits</a></p>':''}`:''}
       <button class="btn primary" data-act="camp-dispute-submit" ${v.disputeBusy?'disabled':''} style="width:100%;margin-top:10px">${v.disputeBusy?'Researching sources…':!status.researchReady?'Save claim locally (offline)':'Research this ruling'}</button>
       `: `
-      <p><b>${allowed?(approved?'Approved knowledge':'Provisionally accepted'):(result.status==='rejected'?'Not supported by research':'More evidence needed')}</b></p>
-      <p>${esc(result.rationale||'No explanation available.')}</p>
-      ${result.feat?`<p class="note"><b>Relevant feat:</b> ${esc(result.feat)}</p>`:''}
+      <div role="status" style="padding:12px;border:1px solid ${allowed?'var(--good)':'var(--line)'};border-radius:10px;margin-top:14px">
+        <b>${approved?'Verified — eligible for everyone':provisional?'Accepted — eligible in this Campaign':result.status==='rejected'?'Not supported — eligibility unchanged':'Pending further review — eligibility unchanged'}</b>
+        <p class="note" style="margin:7px 0 0">${esc(result.reason|| (allowed?'You may use this character.':'The finding is in the review queue, but does not yet meet the threshold for provisional acceptance.'))}</p>
+      </div>
+      <p style="overflow-wrap:anywhere">${esc(readable(result.rationale)||'No additional reasoning available.')}</p>
+      ${result.feat?`<p class="note" style="overflow-wrap:anywhere"><b>Demonstrated feat:</b> ${esc(readable(result.feat))}</p>`:''}
       ${sources.length?`<div><b>Research sources</b><ul>${sources.map((url,i)=>`<li><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Source ${i+1}: ${esc(new URL(url).hostname)}</a></li>`).join('')}</ul></div>`:''}
-      <p class="note">${provisional?'This is accepted for your current game on this device. It is not shared with other players until an administrator verifies and approves it.':approved?'This fact is approved for all players.':'The claim is recorded for review. No eligibility override was granted.'}</p>
-      <button class="btn primary" data-act="camp-dispute-close" style="width:100%">Return to lineup</button>
+      <p class="note">${approved?'Permanent knowledge updated: this character now qualifies for every player.':provisional?'Your character is now eligible on this device; return to the field and submit once the rest of the lineup qualifies. The permanent knowledge record remains queued for review.':result.status==='rejected'?'This character is not eligible from the evidence currently provided. You can submit a different feat or replace the character.':'No automatic override was granted. Add better evidence to request a new assessment, or use another character while a reviewer examines this case.'}</p>
+      ${allowed?'':`<button class="btn" data-act="camp-dispute-revise" style="width:100%;margin-bottom:8px">Add evidence and reassess</button>`}
+      <button class="btn primary" data-act="camp-dispute-close" style="width:100%">${allowed?'Return to lineup — character eligible':'Return to lineup'}</button>
       `}
     </div>
   </div>`;
