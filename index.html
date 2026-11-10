@@ -3712,14 +3712,13 @@ function getCands(id) {
   if (candCache[id]) return candCache[id];
   const p = getPool(id); if (!p) return [];
   if (isMashupId(id)) {
-    const sources = mashupSources(id), seenIds = new Set(), seenGameNames = new Set();
+    const sources = mashupSources(id), seenGameNames = new Set();
     if (sources.includes('games')) getCands('games').forEach(c => seenGameNames.add(c.n));
     const candidates = [];
     for (const source of sources) for (const c of getCands(source)) {
       // Pokémon with a Video Games roster entry appear once when both pools are selected.
       if (source === 'pokemon' && seenGameNames.has(c.n)) continue;
-      if (seenIds.has(c.id)) continue;
-      seenIds.add(c.id); candidates.push(c);
+      candidates.push(c);
     }
     return (candCache[id] = candidates);
   }
