@@ -48,38 +48,40 @@ Everyone else is audited with no qualifying power. Jasmine only rides Carpet as 
 
 Identity rulings in `data/campaign.js`, also worth a look: Ariel is in **Young Guns** (she says she is sixteen) and **Seeing Red** (red hair). Sebastian, Mushu and Captain Hook are in Seeing Red; Gaston is left out. **No Powers Allowed** includes Aladdin, Jasmine, Belle, Gaston, Quasimodo, Esmeralda, Frollo, Phoebus, Shan Yu, Anna, Lilo, Captain Hook, Snow White and Cinderella.
 
-## Evidence review (PR #55, 2026-11-10)
+## Evidence review (PR #55, revised 2026-11-10)
 
-The first pass leaned on Wikipedia, Fandom, TV Tropes and Comic Vine. Every Disney record now says how far its feat is confirmed:
+The owner's evidence standard is accuracy, not source type: a specific, well-documented community entry (Wikipedia, Fandom, TV Tropes) is credible evidence, the same as an official source with clear feats. Every Disney record says how well its feat is supported:
 
-- `verified`: the feat itself is confirmed by an official, editorial or dialogue source (`verifiedBy`).
-- `provisional`: only community sources so far. The tag is still granted; these are leads to confirm, not confirmed canon.
+- `corroborated`: a second, independent source agrees on the same feat (`verifiedBy`, on a different site from `source`).
+- `credible`: one source documents the specific feat and scene. Community wikis count.
+- `needs-review`: the scene itself is not yet confirmed. Still granted; worth checking for accuracy.
 - `owner-ruling`: granted or settled by the owner (the six approved powers above, and Peter Pan's flight).
 
-Every verified or provisional record also carries a `scene`: the film and sequence where the feat happens.
+Every record except owner rulings also carries a `scene`: the film and sequence where the feat happens.
 
-| Character | Tag | Status | Confirmed by |
+| Character | Tag | Status | Second source |
 | --- | --- | --- | --- |
-| Genie | magic | verified | IMDb dialogue record: Genie's power turns snake-Jafar into a genie |
-| Genie | flight | provisional | |
-| Aladdin | flight (mount) | provisional | |
-| Jafar | giants | verified | IMDb dialogue record: the giant cobra squeezes Aladdin |
-| Jafar | magic, psychic | provisional | |
-| Jafar | fire | provisional | TV Tropes only. Feat reworded so it no longer reads as confirmed. |
-| Ariel | aquatic | verified | Disney+ (mermaid living under the sea) |
-| Ursula | aquatic (incl. water control) | verified | Dialogue record of the trident finale; D23 for identity |
-| Ursula | magic, giants | provisional | D23 confirms "sea witch" (identity only) |
-| King Triton | aquatic | verified | D23 ("ruler of the seas") |
-| King Triton | magic (trident) | provisional | |
-| Sebastian | aquatic | verified | D23 (Triton's crab court composer) |
-| Mushu | fire | provisional | |
-| Hades | fire | verified | NBC Los Angeles (his head flame shows his temper) |
-| Hades | teleport | provisional | |
-| Maleficent | magic, giants, fire, teleport | verified | TCM film synopsis: the christening curse, vanishing in a burst of fire, the dragon's fiery breath |
-| Peter Pan | flight | owner-ruling | Settled |
+| Genie | magic | corroborated | IMDb dialogue record: Genie's power turns snake-Jafar into a genie |
+| Genie | flight | credible | |
+| Aladdin | flight (mount) | credible | |
+| Jafar | giants | corroborated | IMDb dialogue record: the giant cobra squeezes Aladdin |
+| Jafar | magic, psychic | credible | |
+| Jafar | fire | needs-review | Plot summaries confirm the sorcerer wish but not a fire attack; only TV Tropes names it. |
+| Ariel | aquatic | corroborated | Disney+ (mermaid living under the sea) |
+| Ursula | aquatic (incl. water control) | corroborated | Dialogue record of the trident finale; D23 for identity |
+| Ursula | magic, giants | credible | |
+| King Triton | aquatic | corroborated | D23 ("ruler of the seas") |
+| King Triton | magic (trident) | credible | |
+| Sebastian | aquatic | corroborated | D23 (Triton's crab court composer) |
+| Mushu | fire | credible | |
+| Hades | fire | corroborated | NBC Los Angeles (his head flame shows his temper) |
+| Hades | teleport | credible | |
+| Maleficent | magic, giants, fire | corroborated | TCM film synopsis: the christening curse, the dragon's fiery breath |
+| Maleficent | teleport | credible | TCM synopsis only (vanishing in a burst of fire); no second site yet |
+| Peter Pan | flight | owner-ruling | Settled: Skyborne |
 | Genie giants and teleport, Hades magic, Lumière, Beast, Esmeralda | | owner-ruling | Approved 2026-11-10 |
 
-Maleficent's teleport no longer cites Comic Vine. D23 Disney A to Z entries are one-line identity notes, so they confirm what a character is (sea witch, crab, ruler of the seas) but not a specific feat.
+D23 Disney A to Z entries are one-line identity notes, so they confirm what a character is (sea witch, crab, ruler of the seas) but not a specific feat.
 
 ## Form and item gates (owner decision needed)
 
