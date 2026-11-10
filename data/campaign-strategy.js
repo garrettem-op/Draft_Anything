@@ -30,26 +30,26 @@ const CAMPAIGN_RULE_TACTICS=Object.freeze({
 // Some forms cross from the film incarnation into comic continuity by design.
 const BASE_CAMPAIGN_VARIANTS=Object.freeze({
   'mcu:Thor':[
-    {name:'Rune King Thor',changes:{iq:14,tch:12,clu:9,ldr:7},origin:'Marvel Comics · Rune King Thor'},
+    {name:'Rune King Thor',changes:{iq:14,tch:12,clu:9,ldr:7},ratingBonus:3,origin:'Marvel Comics · Rune King Thor'},
     {name:'King Thor',changes:{str:8,end:9,iq:10,ldr:12},origin:'Marvel Comics · King Thor'}
   ],
   'mcu:Jean Grey':[
-    {name:'White Phoenix of the Crown',changes:{iq:12,tch:13,ref:12,clu:12},origin:'Marvel Comics · White Phoenix'},
+    {name:'White Phoenix of the Crown',changes:{iq:12,tch:13,ref:12,clu:12},ratingBonus:3.5,origin:'Marvel Comics · White Phoenix'},
     {name:'Dark Phoenix',changes:{str:10,tch:13,clu:-5,spd:8},origin:'Marvel Comics · Dark Phoenix'}
   ],
   'mcu:Scarlet Witch':[
-    {name:'House of M Scarlet Witch',changes:{tch:14,iq:12,ref:11,clu:5},origin:'Marvel Comics · House of M'},
+    {name:'House of M Scarlet Witch',changes:{tch:14,iq:12,ref:11,clu:5},ratingBonus:3,origin:'Marvel Comics · House of M'},
     {name:'Darkhold Scarlet Witch',changes:{tch:11,str:9,clu:-5,iq:8},origin:'Marvel Studios · Multiverse of Madness'}
   ],
   'mcu:Hulk':[
-    {name:'World Breaker Hulk',changes:{str:13,end:13,siz:8,clu:-8},origin:'Marvel Comics · World Breaker'},
+    {name:'World Breaker Hulk',changes:{str:13,end:13,siz:8,clu:-8},ratingBonus:2,origin:'Marvel Comics · World Breaker'},
     {name:'Immortal Hulk',changes:{end:14,str:10,ref:7},origin:'Marvel Comics · Immortal Hulk'}
   ],
   'mcu:Iron Man':[
     {name:'Bleeding Edge Iron Man',changes:{tch:12,ref:10,agi:9,iq:8},origin:'Marvel Comics · Bleeding Edge armor'}
   ],
   'mcu:Loki':[
-    {name:'God of Stories Loki',changes:{iq:13,tch:12,ref:10,clu:9},origin:'Marvel Comics · God of Stories'}
+    {name:'God of Stories Loki',changes:{iq:13,tch:12,ref:10,clu:9},ratingBonus:2.5,origin:'Marvel Comics · God of Stories'}
   ],
   'mcu:Doctor Strange':[
     {name:'Black Priest Doctor Strange',changes:{tch:13,iq:11,ref:8},origin:'Marvel Comics · Black Priests'}
