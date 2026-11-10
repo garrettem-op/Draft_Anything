@@ -596,14 +596,14 @@ function toonForceMultiplier(candidate,sportKey,pos){
   if(sportKey==='brawl'){
     const combat=(0.25*d.resilience+0.24*d.environment+0.20*d.comedy+
       0.19*d.body+0.12*d.fourthWall)/99;
-    return +(1+0.43*(tf.score/99)+0.22*combat).toFixed(5);
+    return +(1+0.32*(tf.score/99)+0.14*combat).toFixed(5);
   }
   // Space Jam establishes *sports* uses, not an unlimited exemption from
   // every rule. Basketball receives the strongest sporting translation,
   // while other sports receive smaller analogous cartoon-physics benefits.
   const sportSkill=(0.62*d.sports+0.22*d.comedy+0.16*d.body)/99;
   const sportScale=sportKey==='basketball'?1:0.84;
-  return +(1+(0.34*(tf.score/99)+0.20*sportSkill)*sportScale).toFixed(5);
+  return +(1+(0.28*(tf.score/99)+0.17*sportSkill)*sportScale).toFixed(5);
 }
 function toonForceBattleEvent(team,sportKey,rng){
   if(!team||!Array.isArray(team.rows))return null;
