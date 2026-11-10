@@ -127,15 +127,42 @@ function daBoxScore(sport,score,points,seed='',options={}) {
     case 'volleyball': {
       const estimatedPoints=daVolleyballPoints(total,options.note,options.side||0);
       summary.teamRallyPoints=estimatedPoints;
+      // Men's NCAA/VNL scoring is volume driven: most attacks run through the
+      // opposite/outside hitters, with a match-specific feature attacker. Balanced
+      // distributions remain possible, but are not the default.
+      const pinRoles=['oh1','oh2','opp'],pins=active.filter(r=>pinRoles.includes(r.position));
+      const roleAttack={oh1:1.55,oh2:1.32,opp:1.68,mb1:.52,mb2:.52,s:.10};
+      const focusRoll=daHash(seed+':vb:focus'),balanced=focusRoll<.18;
+      const focusWeights=pins.map(r=>(roleAttack[r.position]||1)*Math.pow(Math.max(25,r.fit)/70,.8));
+      const focusTotal=focusWeights.reduce((sum,w)=>sum+w,0);
+      let focusIndex=-1,needle=daHash(seed+':vb:featured')*focusTotal;
+      for(let i=0;i<focusWeights.length;i++){needle-=focusWeights[i];if(needle<=0){focusIndex=i;break;}}
+      if(focusIndex<0&&pins.length)focusIndex=pins.length-1;
+      const featuredId=pins[focusIndex]?.id;
+      const featureMultiplier=balanced?1.06:(focusRoll>.92?2.55:1.65+daHash(seed+':vb:usage')*.48);
+      const attackWeight=r=>{
+        const base=roleAttack[r.position]||.1;
+        const ability=Math.pow(Math.max(25,r.fit)/70,.85);
+        const nightly=.78+.44*daHash(seed+':vb:attack:'+r.position+':'+r.id);
+        return Math.max(.01,base*ability*nightly*(r.id===featuredId?featureMultiplier:1));
+      };
+      summary.attackFeatured=balanced?null:featuredId;
+      summary.attackBalanced=balanced;
       // Strict position eligibility: liberos only DIG/AST/ACE; middles only KILLS/BLK/ACE.
-      // Disallowed stat rows are never allocated, even when another role has no data.
-      metric('KILLS',Math.round(estimatedPoints*.51),only(['oh1','oh2','mb1','mb2','opp','s']),r=>val(r,'str')+val(r,'lep')+({oh1:65,opp:60,oh2:50,mb1:38,mb2:38}[r.position]||0),'kills');
-      metric('AST',Math.round(estimatedPoints*.46),only(['s','lib','oh1','oh2','opp']),r=>val(r,'acc')+val(r,'iq')+({s:120,lib:30}[r.position]||0),'assists');
-      metric('DIG',Math.round(estimatedPoints*.54),only(['lib','s','oh1','oh2','opp']),r=>val(r,'ref')+val(r,'agi')+({lib:120,oh2:45,oh1:25}[r.position]||0),'digs');
-      metric('BLK',Math.round(estimatedPoints*.075),only(['mb1','mb2','opp','oh1','oh2','s']),r=>val(r,'siz')+val(r,'lep')+({mb1:95,mb2:95,opp:40}[r.position]||0),'blocks');
-      metric('ACE',Math.round(estimatedPoints*.05),null,r=>val(r,'acc')+val(r,'str'),'aces');
-      // Player points are offensive/scoring contributions, not all team rally points:
-      // kills + blocks + service aces. Digs and assists do not score points.
+      metric('KILLS',Math.round(estimatedPoints*.51),only(['oh1','oh2','mb1','mb2','opp','s']),attackWeight,'kills');
+      metric('AST',Math.round(estimatedPoints*.46),only(['s','lib','oh1','oh2','opp']),
+        r=>(val(r,'acc')+val(r,'iq'))*({s:9,lib:.36,oh1:.22,oh2:.22,opp:.18}[r.position]||.1),'assists');
+      metric('DIG',Math.round(estimatedPoints*.54),only(['lib','s','oh1','oh2','opp']),
+        r=>(val(r,'ref')+val(r,'agi'))*({lib:2.9,s:.85,oh1:1.25,oh2:1.55,opp:.62}[r.position]||1),'digs');
+      metric('BLK',Math.round(estimatedPoints*.075),only(['mb1','mb2','opp','oh1','oh2','s']),
+        r=>(val(r,'siz')+val(r,'lep'))*({mb1:3.2,mb2:3.2,opp:1.15,oh1:.55,oh2:.55,s:.25}[r.position]||1),'blocks');
+      // Serving aces are sporadic and may be concentrated on one hot server.
+      const serverIndex=Math.floor(daHash(seed+':vb:server')*active.length);
+      const serverId=active[serverIndex]?.id;
+      metric('ACE',Math.round(estimatedPoints*.05),null,
+        r=>(val(r,'acc')+val(r,'str'))*(r.id===serverId?2.25:1)*(.65+.7*daHash(seed+':vb:serve:'+r.id)),'aces');
+      // Individual scoring points exclude opposition errors and do not include
+      // digs or assists. Sum of player PTS = team kills + blocks + aces.
       for(const r of active){
         const stat=k=>r.stats.find(([name])=>name===k)?.[1]||0;
         r.stats.unshift(['PTS',stat('KILLS')+stat('BLK')+stat('ACE')]);
