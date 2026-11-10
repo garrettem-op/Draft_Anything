@@ -126,3 +126,32 @@ The Campaign, new-pool and Skyborne suites cover the Commander-only exceptions.
    - Whether Valar and Maiar "powers" count as magic. They are currently granted as spellcaster, with a limitation note, where a supernatural working is documented.
 3. **Carry-overs:** 263 older-pool grants still lack per-feat sources.
 4. **Merge order with PR #46.** PR #46 (lore files) also touches `tests/character-abilities.test.cjs`. If #45 merges first, #46 needs a trivial rebase.
+
+## Round 3 (2026-11-10): disputed areas — DC stealth, then flight and giants
+
+Owner chose to source the disputed areas first. Round 3 resolves the 17 research-queue items Round 2 removed
+"pending a specific scene". Every cited page was opened and the feat confirmed on it. Records are in
+`CHARACTER_ABILITY_RECORDS_ROUND3` (`audit: "2026-11-r3"`).
+
+**Granted (8)**
+
+| Character | Tag | Scene | Continuity |
+|---|---|---|---|
+| Nightwing | stealth | Undercover in Spyral as Agent 37 (Grayson #1–4) | DC comics (New 52) |
+| Red Hood | stealth | Breaks into Titans Tower (Teen Titans v3 #29); hides at Duela's funeral (Countdown) | DC comics |
+| Batwoman | stealth | Infiltrates Arkham Tower as "Dr. Lisa Frow" (Urban Legends #8–9) | DC comics |
+| Cassandra Cain | stealth | Infiltrates a hired-killers tournament to rescue Red Robin (Red Robin #25) | DC comics |
+| Huntress | stealth | Undercover inside Arkham Tower (Detective Comics #1049) | DC comics |
+| Talia al Ghul | stealth | On the Wayne Enterprises board as Miranda Tate (The Dark Knight Rises) | Nolan films only |
+| Trigon | flight | Innate flight among his demonic powers (power statement, no single issue) | DC comics |
+| Durin's Bane | giants | At least 20 ft tall in Moria | Jackson films only (book: "not huge") |
+
+**Still queued (9), notes updated:** Robin (Damian) and Red Robin stealth (candidate scenes, no page naming
+the issue); Deathstroke stealth (only group ambushes or Terra's infiltration); Darkseid flight (infobox only);
+Quickbeam and Carcharoth giants (no size); Gothmog giants (the "12 ft" figure is about Glorfindel's Balrog).
+
+**Owner rulings requested**
+- Batgirl (Barbara Gordon) stealth: breaks into JSA headquarters (Batgirl: Year One) but is caught. Does a
+  discovered break-in count?
+- Hermione flight: rides her own Thestral to London (OotP ch. 33) without fighting from it. Do solo riders count?
+- Gothmog giants: may a species-level Balrog size ("double an Elf's stature") stand in for a named Balrog?

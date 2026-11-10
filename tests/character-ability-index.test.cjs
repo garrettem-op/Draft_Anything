@@ -377,9 +377,12 @@ test('every incorrect dispute is rejected under the PR #44 tag criteria (Vision 
 test('new pools: owner rulings and corrected seeds', () => {
   const yes = [['lotr:Witch-king of Angmar', 'flight'], ['lotr:Khamûl the Easterling', 'flight'], ['harrypotter:Madam Hooch', 'flight'],
     ['harrypotter:Rubeus Hagrid', 'flight'], ['harrypotter:Rubeus Hagrid', 'giants'], ['dc:Superman', 'ice'], ['dc:Beast Boy', 'giants'],
-    ['dc:Batman', 'stealth'], ['lotr:Gollum (Sméagol)', 'aquatic'], ['harrypotter:Peter Pettigrew', 'stealth'], ['dc:Giganta', 'giants']];
+    ['dc:Batman', 'stealth'], ['lotr:Gollum (Sméagol)', 'aquatic'], ['harrypotter:Peter Pettigrew', 'stealth'], ['dc:Giganta', 'giants'],
+    // Round 3: queue items resolved with a specific sourced scene.
+    ['dc:Nightwing', 'stealth'], ['dc:Red Hood', 'stealth'], ['dc:Batwoman', 'stealth'], ['dc:Cassandra Cain', 'stealth'],
+    ['dc:Huntress', 'stealth'], ['dc:Talia al Ghul', 'stealth'], ['dc:Trigon', 'flight'], ['lotr:Durin\'s Bane', 'giants']];
   const no = [['lotr:Gandalf', 'flight'], ['lotr:Éomer', 'flight'], ['dc:Firestorm', 'tech'], ['dc:Amanda Waller', 'tech'],
-    ['dc:Deadshot', 'stealth'], ['dc:Nightwing', 'stealth'], ['lotr:Durin\'s Bane', 'giants'], ['harrypotter:Hermione Granger', 'flight'],
+    ['dc:Deadshot', 'stealth'], ['dc:Deathstroke', 'stealth'], ['dc:Darkseid', 'flight'], ['harrypotter:Hermione Granger', 'flight'],
     ['harrypotter:Jacob Kowalski', 'magic'], ['harrypotter:Argus Filch', 'magic'], ['dc:The Atom (Ray Palmer)', 'giants']];
   for (const [id, r] of yes) assert.equal(qualifiesUnderPR44(id, r), true, id + ' ' + r);
   for (const [id, r] of no) assert.equal(qualifiesUnderPR44(id, r), false, id + ' ' + r);

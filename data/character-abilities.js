@@ -2308,9 +2308,38 @@ const CHARACTER_ABILITY_CARRYOVER = Object.freeze([
   Object.freeze({"id": "starwars:The Mandalorian", "tag": "flight", "tags": ["powered-flight", "pilot"], "origin": "curated-aerial", "basis": "Curated aerial record: pilots starfighters and other spacecraft", "source": "https://www.starw"}),
   Object.freeze({"id": "starwars:Bo-Katan Kryze", "tag": "flight", "tags": ["powered-flight"], "origin": "curated-aerial", "basis": "Curated aerial record: pilots starfighters and other spacecraft", "source": "https://www.starw"}),
 ]);
+/* ---- 2026-11 round 3 (Claude): disputed areas (DC stealth, new-pool flight and giants).
+   Resolves research-queue items that round 2 removed pending a specific scene. Each source page was
+   opened and the feat confirmed on it. */
+const CHARACTER_ABILITY_RECORDS_ROUND3 = {
+  "dc:Nightwing": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Goes undercover inside the spy agency Spyral as Agent 37 on Batman's orders (Grayson #1–4, 2014).", "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)", "continuity": "DC mainline comics (New 52)", "audit": "2026-11-r3"}
+  ],
+  "dc:Red Hood": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Breaks into Titans Tower to confront Tim Drake (Teen Titans vol. 3 #29) and, at Duela Dent's funeral in Countdown, stays hidden until every Titan but Donna Troy has left.", "source": "https://en.wikipedia.org/wiki/Jason_Todd", "continuity": "DC mainline comics (pre-Flashpoint)", "audit": "2026-11-r3"}
+  ],
+  "dc:Batwoman": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Infiltrates Arkham Tower under the alias Dr. Lisa Frow (\"Shadows of the Bat\", Batman: Urban Legends #8–9, 2021).", "source": "https://en.wikipedia.org/wiki/Batwoman_(Kate_Kane)", "continuity": "DC mainline comics (Infinite Frontier)", "audit": "2026-11-r3"}
+  ],
+  "dc:Cassandra Cain": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Infiltrates a tournament for hired killers and rescues the captured Red Robin (Red Robin #25, 2011).", "source": "https://en.wikipedia.org/wiki/Cassandra_Cain", "continuity": "DC mainline comics (pre-Flashpoint)", "audit": "2026-11-r3"}
+  ],
+  "dc:Huntress": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Goes undercover inside Arkham Tower to investigate it (Detective Comics #1049, \"The Tower, Part 3\", March 2022).", "source": "https://dcuguide.com/Detective_Comics_1049", "continuity": "DC mainline comics (Infinite Frontier)", "audit": "2026-11-r3"}
+  ],
+  "dc:Talia al Ghul": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Sits on the Wayne Enterprises board as Miranda Tate while secretly loyal to the League of Shadows, until she reveals herself as Talia (The Dark Knight Rises, 2012).", "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate", "continuity": "The Dark Knight trilogy (Nolan films)", "limitation": "Film continuity; no comics stealth scene confirmed yet", "audit": "2026-11-r3"}
+  ],
+  "dc:Trigon": [
+    {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "His innate demonic powers include flight, alongside energy blasts and teleportation.", "source": "https://en.wikipedia.org/wiki/Trigon_(comics)", "continuity": "DC mainline comics", "limitation": "Power-level statement; no single issue pinned", "audit": "2026-11-r3"}
+  ],
+  "lotr:Durin's Bane": [
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings films (Jackson)", "limitation": "Film only: Tolkien's text calls it taller than a man but not huge", "audit": "2026-11-r3"}
+  ]
+};
 const CHARACTER_ABILITIES = (() => {
   const merged = {};
-  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS]) {
+  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS, CHARACTER_ABILITY_RECORDS_ROUND3]) {
     for (const [id, facts] of Object.entries(block)) {
       const list = merged[id] || (merged[id] = []);
       // The first record for a tag is authoritative; audit records only add missing tags.
@@ -2398,31 +2427,23 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"muppets:Big Mean Carl", tag:"giants", note:"No documented height. ToughPigs calls him 'massive', a 'gigantic messy creature' and a 'giant monster', which are qualitative only.", source:"https://www.toughpigs.com/?p=52374"},
   {id:"mcu:The Watcher", tag:"giants", note:"No documented height. The Wikipedia MCU article gives no size or scale. An earlier pass found the same on the MCU wiki (Uatu). Would need an on-screen scale scene.", source:"https://en.wikipedia.org/wiki/Watcher_(Marvel_Cinematic_Universe)"},
   {id:"games:Donkey Kong", tag:"giants", note:"No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).", source:"https://www.mariowiki.com/Donkey_Kong"},
-  {id:"dc:Nightwing", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene; the role of acrobat/detective is not enough under the owner's ruling.", source:"https://en.wikipedia.org/wiki/Dick_Grayson", audit:"2026-11-r2"},
-  {id:"dc:Robin (Damian Wayne)", tag:"stealth", note:"Assassin training is backstory; a specific unseen-infiltration scene is needed.", source:"https://en.wikipedia.org/wiki/Damian_Wayne", audit:"2026-11-r2"},
-  {id:"dc:Red Robin (Tim Drake)", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Tim_Drake", audit:"2026-11-r2"},
-  {id:"dc:Red Hood", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Jason_Todd", audit:"2026-11-r2"},
-  {id:"dc:Batgirl (Barbara Gordon)", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Barbara_Gordon", audit:"2026-11-r2"},
-  {id:"dc:Batwoman", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene (Elegy has candidates).", source:"https://en.wikipedia.org/wiki/Kate_Kane", audit:"2026-11-r2"},
-  {id:"dc:Cassandra Cain", tag:"stealth", note:"Likely qualifies, but a specific scene of moving unseen is needed.", source:"https://en.wikipedia.org/wiki/Cassandra_Cain", audit:"2026-11-r2"},
-  {id:"dc:Huntress", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Helena_Bertinelli", audit:"2026-11-r2"},
-  {id:"dc:Talia al Ghul", tag:"stealth", note:"Seed-list grant removed pending a specific infiltration scene.", source:"https://en.wikipedia.org/wiki/Talia_al_Ghul", audit:"2026-11-r2"},
-  {id:"dc:Deathstroke", tag:"stealth", note:"In The Judas Contract the infiltrator is Terra, not Slade; a personal stealth scene is needed.", source:"https://en.wikipedia.org/wiki/Deathstroke", audit:"2026-11-r2"},
+  {id:"dc:Robin (Damian Wayne)", tag:"stealth", note:"Round 3: Wikipedia says he evades a Titans/Bat-family search after quitting Teen Titans (2020), but names no issue; dc.com Teen Titans #46 confirms only that he left. Needs that evasion scene confirmed on a page naming the issue (Teen Titans 2016 #45–47 or Annual #2).", source:"https://en.wikipedia.org/wiki/Damian_Wayne"},
+  {id:"dc:Red Robin (Tim Drake)", tag:"stealth", note:"Round 3: no named stealth scene on Wikipedia; the Arkhamverse wiki lists only a generic Stealth ability. Candidate: the 'Alvin Draper' undercover identity in Robin vol. 2, needs a page describing the story.", source:"https://en.wikipedia.org/wiki/Tim_Drake"},
+  {id:"dc:Batgirl (Barbara Gordon)", tag:"stealth", note:"Round 3, borderline: Batgirl: Year One (2003) has her hack into and break into JSA headquarters, but Wildcat catches her. Grant only if a break-in that is later discovered counts; otherwise needs a scene where she gets in undetected.", source:"https://dc.fandom.com/wiki/Batgirl:_Year_One"},
+  {id:"dc:Deathstroke", tag:"stealth", note:"Round 3: Wikipedia's infiltration scenes are Terra's (Judas Contract) or Rose's; Infinite Crisis #1 has a Secret Society group ambush from a hidden warehouse (not a personal stealth feat). Young Justice ambushes never say he went unseen. Needs a scene of Slade himself infiltrating undetected.", source:"https://en.wikipedia.org/wiki/Deathstroke"},
   {id:"dc:Swamp Thing", tag:"magic", note:"Seed-list grant removed: he is an elemental of the Green, not a sorcerer. Needs an owner ruling on whether elemental beings count for Arcane Assembly.", source:"https://en.wikipedia.org/wiki/Swamp_Thing", audit:"2026-11-r2"},
-  {id:"dc:Darkseid", tag:"flight", note:"Seed-list grant removed pending a documented flight or levitation scene.", source:"https://en.wikipedia.org/wiki/Darkseid", audit:"2026-11-r2"},
-  {id:"dc:Trigon", tag:"flight", note:"Seed-list grant removed pending a documented flight scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
+  {id:"dc:Darkseid", tag:"flight", note:"Round 3: only the Wikipedia infobox lists Flight; no article text, DC Database (Prime Earth) or dc.com page describes him flying or levitating. His documented movement is teleportation and Boom Tubes.", source:"https://en.wikipedia.org/wiki/Darkseid"},
   {id:"dc:Trigon", tag:"psychic", note:"Seed-list grant removed pending a documented telepathy scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
   {id:"dc:Trigon", tag:"teleport", note:"Seed-list grant removed pending a documented teleport or portal scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
   {id:"dc:The Spectre", tag:"healing", note:"Seed-list grant removed pending a documented healing scene.", source:"https://en.wikipedia.org/wiki/Spectre_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Death of the Endless", tag:"magic", note:"Needs an owner ruling: Death is a personification, not a spellcaster.", source:"https://en.wikipedia.org/wiki/Death_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Doctor Fate", tag:"psychic", note:"Telepathy appears in some eras; a specific scene is needed.", source:"https://en.wikipedia.org/wiki/Doctor_Fate", audit:"2026-11-r2"},
-  {id:"lotr:Quickbeam", tag:"giants", note:"Ents are huge, but Tolkien gives a height only for Treebeard (14 ft); the owner's ruling needs a documented size.", source:"https://lotr.fandom.com/wiki/Bregalad", audit:"2026-11-r2"},
-  {id:"lotr:Durin's Bane", tag:"giants", note:"Tolkien describes it only as man-shaped 'yet greater' (FotR II.5); no documented size.", source:"https://lotr.fandom.com/wiki/Durin%27s_Bane", audit:"2026-11-r2"},
-  {id:"lotr:Gothmog (Lord of Balrogs)", tag:"giants", note:"No documented size for Balrogs in the text.", source:"https://lotr.fandom.com/wiki/Gothmog_(Balrog)", audit:"2026-11-r2"},
-  {id:"lotr:Carcharoth", tag:"giants", note:"Called the mightiest wolf, but no documented size.", source:"https://lotr.fandom.com/wiki/Carcharoth", audit:"2026-11-r2"},
+  {id:"lotr:Quickbeam", tag:"giants", note:"Round 3: Tolkien Gateway gives only 'Tall'; no page states a height or size comparison for Quickbeam. Treebeard's 14 ft does not carry over.", source:"https://tolkiengateway.net/wiki/Quickbeam"},
+  {id:"lotr:Gothmog (Lord of Balrogs)", tag:"giants", note:"Round 3: Wikipedia's '12 feet' Balrog figure comes from Lost Tales ('double his stature') about the Balrog Glorfindel fights, not Gothmog. No Gothmog-specific size found. Open ruling: whether a species-level Balrog size counts.", source:"https://en.wikipedia.org/wiki/Balrog"},
+  {id:"lotr:Carcharoth", tag:"giants", note:"Round 3: sources say only 'grew to great size' and 'huge'; no measurement or fixing comparison.", source:"https://lotr.fandom.com/wiki/Carcharoth"},
   {id:"lotr:Melian", tag:"psychic", note:"Seed-list grant removed pending a telepathy scene; her documented powers are enchantment and foresight.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
   {id:"lotr:Melian", tag:"healing", note:"Seed-list grant removed pending a healing scene.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
-  {id:"harrypotter:Hermione Granger", tag:"flight", note:"Seed-list grant removed: she rides the Gringotts dragon and Thestrals as a passenger; no scene of her flying a broom herself was confirmed.", source:"https://harrypotter.fandom.com/wiki/Hermione_Granger", audit:"2026-11-r2"},
+  {id:"harrypotter:Hermione Granger", tag:"flight", note:"Round 3: a passenger in every confirmed flight (Buckbeak PoA ch. 21, Thestral with Kingsley DH ch. 4, Gringotts dragon DH ch. 26). Open ruling: in OotP ch. 33 she rides her own Thestral to London but does not fight from it. Grant as mount only if solo riders count.", source:"https://harrypotter.fandom.com/wiki/Hermione_Granger"},
   {id:"harrypotter:Albus Dumbledore", tag:"psychic", note:"Seed-list grant removed pending a specific on-page Legilimency scene; Wizarding World materials call him a skilled Legilimens.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
   {id:"harrypotter:Albus Dumbledore", tag:"healing", note:"Seed-list grant removed pending a scene of Dumbledore healing someone.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
   {id:"harrypotter:Lord Voldemort", tag:"fire", note:"The fire-serpent duel is a film scene; book support for Voldemort commanding fire was not confirmed.", source:"https://harrypotter.fandom.com/wiki/Tom_Riddle", audit:"2026-11-r2"},
@@ -3362,16 +3383,16 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Starfire": ["flight", "natural-flight"],
     "Raven": ["flight", "natural-flight", "magic", "spellcaster", "psychic", "telepathy", "teleport", "self-teleport", "healing", "heals-others"],
     "Beast Boy": ["flight", "natural-flight", "aquatic", "water-breathing", "swimmer", "giants", "size-change"],
-    "Nightwing": [],
+    "Nightwing": ["stealth", "infiltration"],
     "Robin (Damian Wayne)": [],
     "Red Robin (Tim Drake)": [],
-    "Red Hood": [],
+    "Red Hood": ["stealth", "infiltration"],
     "Batgirl (Barbara Gordon)": [],
-    "Batwoman": [],
-    "Cassandra Cain": [],
+    "Batwoman": ["stealth", "infiltration"],
+    "Cassandra Cain": ["stealth", "infiltration"],
     "Catwoman": ["stealth", "infiltration"],
     "Harley Quinn": [],
-    "Huntress": [],
+    "Huntress": ["stealth", "infiltration"],
     "Alfred Pennyworth": [],
     "Lucius Fox": ["tech", "inventor"],
     "Commissioner James Gordon": [],
@@ -3402,7 +3423,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Penguin": [],
     "Bane": [],
     "Ra's al Ghul": [],
-    "Talia al Ghul": [],
+    "Talia al Ghul": ["stealth", "infiltration"],
     "Scarecrow": [],
     "Clayface": ["healing", "self-regeneration"],
     "Killer Croc": ["aquatic", "swimmer", "healing", "self-regeneration"],
@@ -3415,7 +3436,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Krypto": ["flight", "natural-flight"],
     "Lobo": ["healing", "self-regeneration"],
     "Etrigan": ["magic", "spellcaster", "fire", "fire-control"],
-    "Trigon": ["magic", "spellcaster"],
+    "Trigon": ["flight", "natural-flight", "magic", "spellcaster"],
     "Anti-Monitor": ["flight", "natural-flight"],
     "The Spectre": ["flight", "natural-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Mister Mxyzptlk": ["magic", "spellcaster", "teleport", "self-teleport"],
@@ -3470,7 +3491,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Khamûl the Easterling": ["flight", "mount", "stealth", "invisibility"],
     "Mouth of Sauron": ["magic", "spellcaster"],
     "Shelob": [],
-    "Durin's Bane": ["fire", "fire-control"],
+    "Durin's Bane": ["fire", "fire-control", "giants", "giant-sized"],
     "Smaug": ["flight", "natural-flight", "fire", "fire-control", "giants", "giant-sized"],
     "Gwaihir": ["flight", "natural-flight"],
     "Thorondor": ["flight", "natural-flight"],
