@@ -904,6 +904,26 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
   .da-player-table .da-role { font-size:10px; }
 }
 
+
+/* Head-to-head: one court, opponent pick rail, and on-character Variant Surge */
+.h2h-court-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,230px);gap:14px;align-items:start;margin:16px 0}
+.h2h-main-court{min-width:0}
+.h2h-opponent-rail{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+.h2h-rail-toggle{display:flex;width:100%;flex-direction:column;align-items:flex-start;gap:5px;padding:12px;border:0;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.h2h-rail-toggle span{font-size:12px;color:var(--muted);text-decoration:underline}
+.h2h-rail-picks{display:grid;gap:0;padding:4px 10px}
+.h2h-rail-pick{display:flex;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:13px;overflow-wrap:anywhere}
+.h2h-rail-pick:last-child{border:0}
+.h2h-rail-position{color:var(--muted);min-width:28px;font:600 11px var(--f-mono)}
+.variant-ready{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important;cursor:pointer!important}
+@keyframes h2h-variant-pulse{0%,100%{filter:drop-shadow(0 0 2px var(--accent))}50%{filter:drop-shadow(0 0 13px var(--accent));transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.variant-ready{animation:none!important;outline:3px solid var(--accent)}}
+.h2h-ready-actions{display:flex;justify-content:flex-end;margin:14px 0}
+.h2h-variant-shade{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:18px}
+.h2h-variant-dialog{background:var(--panel);color:var(--ink);border-radius:16px;padding:24px;width:min(100%,360px);box-shadow:var(--shadow)}
+.h2h-variant-dialog h3{font:800 28px var(--f-display);margin:0 0 12px}
+.h2h-variant-dialog p{margin:0 0 20px}
+@media(max-width:700px){.h2h-court-layout{grid-template-columns:minmax(0,1fr) 122px;gap:8px}.h2h-rail-pick{font-size:11px;gap:4px}.h2h-rail-picks{padding:4px 6px}.h2h-rail-toggle{padding:8px;font-size:12px}.h2h-rail-position{min-width:20px;font-size:10px}}
 </style>
 </head>
 <body>
@@ -3723,18 +3743,20 @@ function renderField(sportKey, roster, o = {}) {
   const team = o.team === 'opp' ? 'var(--opp)' : 'var(--you)';
   const node = p => {
     const c = roster[p.id];
-    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
-    const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
+    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const variantPick = !!(c && o.variantSlots?.has(p.id));
+    const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
-    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
-    const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
+    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const variantPick = !!(c && o.variantSlots?.has(p.id));
+    const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
+    return `<button class="${cls}" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
     <div class="field ${sportKey === 'hockey' ? 'light' : ''}" style="aspect-ratio:${sp.aspect};--field-ratio:${sp.aspect}">${surfaceSVG(sportKey)}${sp.pos.filter(p => !p.side).map(node).join('')}</div>
@@ -4780,27 +4802,38 @@ function renderRoom() {
   const left = d.deadline ? Math.max(0, Math.ceil((d.deadline - Date.now()) / 1000)) : null;
   const clock = `<div class="clock"><div><div class="pickno">Pick ${k + 1} of ${totalPicks(d)}${forced ? ' · ' + sp.pos.find(p => p.id === forced).nm + ' round' : ''}</div><div class="who ${myTurn ? 'me' : ''}">${myTurn ? 'You’re on the clock' : esc(contestName(d, onSide)) + ' on the clock'}</div></div>${left != null ? `<div class="time num ${left <= 10 ? 'low' : ''}" id="clock-time">${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}</div>` : `<div class="time num" style="font-size:14px;opacity:.7">No clock</div>`}</div>`;
   const sel = S.h2h.sel;
-  const picker = sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : `<div class="panel"><div class="sec"><h3 class="h">Draft log</h3><span class="note">${k} picks</span></div><div class="log">${d.picks.length ? [...d.picks].reverse().map((p, i) => { const c = candById(d.poolId, p.cid); const pos = sp.pos.find(x => x.id === p.slot); return `<div><span class="k">${k - i}</span><span class="pos-dot" style="background:${p.s === me ? 'var(--you)' : 'var(--opp)'}"></span><span><b>${esc(c ? c.n : '?')}</b> <span class="muted">${pos.ab} · ${esc(contestName(d, p.s))}${p.auto ? ' · auto' : ''}</span></span></div>`; }).join('') : '<div class="muted">No picks yet.</div>'}</div>
-      <div class="sec" style="border-top:1px solid var(--line);border-bottom:0"><span class="note">${myTurn ? 'Tap an open spot on your ' + (sp.surface === 'vball' ? 'court' : sp.surface) + ' to pick.' : 'Tap any spot to scout candidates while you wait.'}</span></div></div>`;
-  return head(`<span class="chip" style="color:var(--you)"><span class="dot"></span>${esc(me ? contestName(d, me) : contestName(d, 'host'))}</span><span class="chip" style="color:var(--opp)"><span class="dot"></span>${esc(contestName(d, me ? oppSide : 'guest'))}</span>`) + clock +
-    `<div class="board h2h"><div><div class="mini-head"><b>${me ? 'Your team' : esc(contestName(d, 'host'))}</b><span class="num muted">${Object.keys(myR).length}/${sp.pos.length}</span></div>${renderField(d.sport, myR, { sel, interactive: !!me, forced: myTurn ? forced : null, lockFilled: true })}</div>
-     <div><div class="mini-head"><b>${esc(contestName(d, oppSide))}</b><span class="num muted">${Object.keys(oppR).length}/${sp.pos.length}</span></div>${renderField(d.sport, oppR, { team: 'opp', interactive: false })}</div>
-     <div>${picker}</div></div>`;
+  const picker = sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : '';
+  return head('') + clock + renderH2HCourt(d,me||'host',false,sel,myTurn?forced:null) + picker;
+}
+function renderH2HCourt(d,side,powers=false,sel=null,forced=null){
+  const sp=SPORTS[d.sport],opp=side==='host'?'guest':'host',showOpp=!!S.h2h.viewOpp;
+  const myR=powers?h2hRoster(d,side):rosterOf(d,side);
+  const oppR=powers?h2hRoster(d,opp):rosterOf(d,opp);
+  const shown=showOpp?opp:side,roster=showOpp?oppR:myR;
+  const canSurge=powers&&!showOpp&&!!mySide(d)&&!d.powerReady?.[side]&&!d.surges?.[side];
+  const eligible=canSurge?new Set(variantSurgeCandidates({sport:d.sport,roster:myR,surge:null}).map(c=>c.id)):new Set();
+  const eligibleSlots=new Set(Object.entries(myR).filter(([,c])=>eligible.has(c?.id)).map(([slot])=>slot));
+  const picks=Object.entries(showOpp?myR:oppR);
+  return `<div class="h2h-court-layout">
+    <div class="h2h-main-court"><div class="mini-head"><b>${showOpp?esc(contestName(d,opp)): 'Your team'}</b><span class="num muted">${Object.keys(roster).length}/${sp.pos.length}</span></div>
+      ${renderField(d.sport,roster,{sel:showOpp?null:sel,interactive:!powers&&!showOpp,forced:!showOpp?forced:null,lockFilled:!powers,team:showOpp?'opp':undefined,variantSlots:eligibleSlots})}</div>
+    <aside class="h2h-opponent-rail">
+      <button class="h2h-rail-toggle" type="button" data-act="h-toggle-court" aria-pressed="${showOpp}">
+        <b>${showOpp?'Your picks':esc(contestName(d,opp))}</b><span>${showOpp?'View your court':'View opponent court'} ↔</span>
+      </button>
+      <div class="h2h-rail-picks">${sp.pos.filter(p=>picks.some(([slot])=>slot===p.id)).map(p=>{const c=(showOpp?myR:oppR)[p.id];return `<div class="h2h-rail-pick"><span class="h2h-rail-position">${esc(p.ab)}</span><span>${esc(c?.n||'')}</span></div>`;}).join('')||'<span class="note">No picks yet</span>'}</div>
+    </aside>
+  </div>`;
 }
 function renderH2HPowers(d){
-  const me=mySide(d),opp=me==='guest'?'host':'guest';
-  const myR=rosterOf(d,me||'host'),theirR=rosterOf(d,opp);
-  const ready=!!(me&&d.powerReady?.[me]);
-  const v={sport:d.sport,roster:myR,surge:me?d.surges?.[me]||null:null,variantTarget:S.h2h.variantTarget};
-  const status=me?(ready?'Your abilities are locked. Waiting for opponent.':'Activate your optional Surge, then lock your lineup to begin the match.'):'Players are locking their abilities.';
+  const me=mySide(d)||'host',ready=!!d.powerReady?.[me];
+  const canChoose=!!mySide(d)&&!ready&&!d.surges?.[me];
+  const slots=variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,me),surge:d.surges?.[me]||null});
+  const target=S.h2h.variantTarget,selected=slots.find(c=>c.id===target);
   return `<section>
-    <div class="panel" style="padding:16px;margin-bottom:14px"><h2 class="h">Final ability lock-in</h2><p class="note">${status} Each team can use Variant Surge once, or skip it. The match starts only after both players lock.</p>
-      <div class="row"><span class="chip">Host: ${d.powerReady?.host?'Locked':'Choosing'}</span><span class="chip">Guest: ${d.powerReady?.guest?'Locked':'Choosing'}</span></div>
-    </div>
-    ${me&&!ready?renderVariantSurgePanel(v,'h-variant','h-variant-target',true,'match'):me&&ready?'<div class="panel" style="padding:14px;margin-bottom:14px"><b>Your lineup is locked.</b></div>':''}
-    ${me&&!ready?'<div class="cta-row"><button class="btn primary" data-act="h-ready">Lock lineup & start match</button><span class="note">You can skip the Surge.</span></div>':''}
-    <div class="board h2h"><div><div class="mini-head"><b>${esc(contestName(d,me||'host'))}</b></div>${renderField(d.sport,h2hRoster(d,me||'host'),{interactive:false})}</div>
-    <div><div class="mini-head"><b>${esc(contestName(d,opp))}</b></div>${renderField(d.sport,h2hRoster(d,opp),{team:'opp',interactive:false})}</div></div>
+    ${renderH2HCourt(d,me,true)}
+    ${!ready&&mySide(d)?`<div class="h2h-ready-actions"><button class="btn primary" data-act="h-ready">${d.surges?.[me]?'Ready':'Skip Surge · Ready'}</button></div>`:''}
+    ${canChoose&&selected?`<div class="h2h-variant-shade" data-act="h-variant-cancel"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p>Use Variant Surge on <b>${esc(selected.n)}</b>?</p><div class="row"><button class="btn" data-act="h-variant-cancel">Cancel</button><button class="btn primary" data-act="h-variant-confirm">Use Variant Surge</button></div></div></div>`:''}
   </section>`;
 }
 function renderH2HResult(d) {
@@ -5423,6 +5456,16 @@ document.addEventListener('click', e => {
     case 'h-close': h.sel = null; break;
     case 'h-pick': if (h.sel) makePick(h.sel, t.dataset.cid); return;
     case 'h-copy-invite': copyText(t.dataset.text); return;
+    case 'h-toggle-court': h.viewOpp=!h.viewOpp; break;
+    case 'h-variant-open': {
+      const d=h.contest,side=d&&mySide(d);
+      if(!d||d.status!=='powers'||!side||d.powerReady?.[side]||d.surges?.[side])break;
+      const c=rosterOf(d,side)[t.dataset.slot];
+      if(c&&variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,side),surge:null}).some(v=>v.id===c.id))h.variantTarget=c.id;
+      break;
+    }
+    case 'h-variant-cancel': h.variantTarget=null; break;
+    case 'h-variant-confirm': h.variantTarget&&void useH2HVariant().then(()=>{h.variantTarget=null;render();}); return;
     case 'h-variant': void useH2HVariant(); return;
     case 'h-ready': void lockH2HAbilities(); return;
     case 'h-rematch': rematch(); return;
