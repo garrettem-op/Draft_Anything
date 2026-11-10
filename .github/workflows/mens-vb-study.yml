@@ -5,10 +5,14 @@ on:
       - chatgpt/mens-vb-50-box-score-study
     paths:
       - scripts/mens_vb_box_score_study.py
+      - tests/volleyball-score-audit.test.js
+      - data/after-action.js
       - .github/workflows/mens-vb-study.yml
   pull_request:
     paths:
       - scripts/mens_vb_box_score_study.py
+      - tests/volleyball-score-audit.test.js
+      - data/after-action.js
       - .github/workflows/mens-vb-study.yml
   workflow_dispatch:
 permissions:
@@ -26,6 +30,8 @@ jobs:
         run: pip install requests beautifulsoup4
       - name: Extract and validate 50 original box scores
         run: python scripts/mens_vb_box_score_study.py
+      - name: Verify simulator against empirical distribution
+        run: node tests/volleyball-score-audit.test.js
       - name: Upload source audit and extracted data
         if: always()
         uses: actions/upload-artifact@v4
