@@ -29,6 +29,7 @@ test('large multi-continuity expansion references actual roster identities and s
        assert.ok(Number.isInteger(delta)&&Math.abs(delta)<=15&&delta!==0,id+' bad delta '+delta);
      }
      if(f.source)assert.match(f.source,/^https:\/\/\S+$/,id+' invalid source URL');
+     if(f.ratingBonus!==undefined)assert.ok(Number.isFinite(f.ratingBonus)&&f.ratingBonus>0&&f.ratingBonus<=5,id+' invalid cosmic boost');
    }
  }
 });
