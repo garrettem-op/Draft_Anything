@@ -57,7 +57,21 @@ function daBoxScore(sport,score,points,seed='',options={}) {
   function only(ids){return r=>ids.includes(r.position);}
   const total=Math.max(0,Math.round(Number(points)||0));
   const summary={sport,teamPoints:total};
-  switch(sport) {
+  // New Battle Royale bouts store the actual simulated exchanges. Individual
+  // damage and mitigation are sourced from those exchanges, never from KOs.
+  if(sport==='brawl'&&Array.isArray(options.combatSide?.fighters)){
+    const logs=new Map(options.combatSide.fighters.map(f=>[f.id,f]));
+    active.forEach(r=>{
+      const log=logs.get(r.id)||{};
+      r.stats.push(['DMG',Math.max(0,Math.round(log.dmg||0))]);
+      r.stats.push(['KOs',Math.max(0,Math.round(log.kos||0))]);
+      if(r.position.startsWith('tk')){
+        r.stats.push(['ABS',Math.max(0,Math.round(log.abs||0))]);
+        r.stats.push(['MIT',Math.max(0,Math.round(log.mit||0))]);
+      }
+    });
+    summary.combatLogged=true;
+  } else switch(sport) {
     case 'basketball': {
       const offense=r=>((val(r,'acc')*1.6+val(r,'tch')+val(r,'clu'))/3.6)*({pg:1.12,sg:1.40,sf:1.20,pf:.98,c:1.03}[r.position]||1);
       metric('PTS',total,null,offense,'pts');
@@ -90,9 +104,8 @@ function daBoxScore(sport,score,points,seed='',options={}) {
     case 'brawl': {
       const tank=only(['tk1','tk2']),dps=only(['d1','d2','d3']);
       metric('KOs',total,null,r=>(r.position.startsWith('d')?2.4:1)*val(r,'str'),'kos');
-      metric('DMG',total*210+350,null,r=>val(r,'str')+val(r,'acc')+val(r,'spd')+({d1:145,d2:145,d3:145,tk1:20,tk2:20}[r.position]||0),'dmg');
-      metric('ABS',Math.round(430+Math.max(0,Number(options.opponentPoints)||0)*85),tank,r=>val(r,'end')+val(r,'siz')+val(r,'str'),'abs');
-      metric('MIT',Math.round(110+total*18),tank,r=>val(r,'end')+val(r,'ref'),'mit');
+      // Historical results without a combat log can show estimated KOs only.
+      // Do not fabricate damage, absorption or mitigation from the final score.
       break;
     }
     case 'soccer':case 'hockey': {
@@ -155,14 +168,14 @@ function daGameReport(sport,teamA,teamB,game,seed='') {
   const winner=game.w;
   const aPoints=winner===-1?game.line[0]:winner===game.a?game.line[0]:game.line[1];
   const bPoints=winner===-1?game.line[1]:winner===game.b?game.line[0]:game.line[1];
-  return daReport(sport,teamA.score,aPoints,teamA.name,{seed:seed+':a',note:game.line[2],side:winner===game.a?0:1,opponentPoints:bPoints})+
-    daReport(sport,teamB.score,bPoints,teamB.name,{seed:seed+':b',note:game.line[2],side:winner===game.b?0:1,opponentPoints:aPoints});
+  return daReport(sport,teamA.score,aPoints,teamA.name,{seed:seed+':a',note:game.line[2],side:winner===game.a?0:1,opponentPoints:bPoints,combatSide:game.combat?.sides?.[0]})+
+    daReport(sport,teamB.score,bPoints,teamB.name,{seed:seed+':b',note:game.line[2],side:winner===game.b?0:1,opponentPoints:aPoints,combatSide:game.combat?.sides?.[1]});
 }
 
 /* Explain the actual pre-score calculation, not a reconstructed combat narrative.
    The base rating already includes coach quality, chemistry, signature lifts and
    style modifiers. Each later adjustment is the value actually used to decide. */
-function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent',outcome=null) {
+function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent',outcome=null,combat=null) {
   if(!detail)return '<p class="note">Detailed match adjustments were not saved for this older result.</p>';
   const fix=n=>Number.isFinite(Number(n))?Number(n):0;
   const signed=n=>(fix(n)>=0?'+':'')+fix(n).toFixed(2);
@@ -180,7 +193,9 @@ function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent
   const favourite=baseGap>0.001?nameA:baseGap<-.001?nameB:null;
   const winner=diff>0?nameA:diff<0?nameB:null;
   const upset=favourite&&winner&&favourite!==winner;
-  const summary=outcome==='draw'?'The match ended in a draw under the sport\'s draw threshold, even though the adjusted ratings differed.':(upset?'Upset: ':'')+String(winner||'Neither team')+' '+(upset?'overcame a pre-match disadvantage of '+num(Math.abs(baseGap))+' rating points':'finished with the higher effective match rating')+(winner?' (margin '+num(Math.abs(diff))+').':'');
+  const summary=combat
+    ?`${combat.winner===0?nameA:nameB} knocked out all ${combat.sides?.[1-combat.winner]?.fighters?.length||5} opposing fighters in ${combat.rounds} simulated combat rounds. ${nameA} dealt ${fix(combat.sides?.[0]?.damage)} damage; ${nameB} dealt ${fix(combat.sides?.[1]?.damage)}. A higher effective rating helps but does not guarantee victory.`
+    :outcome==='draw'?'The match ended in a draw under the sport\'s draw threshold, even though the adjusted ratings differed.':(upset?'Upset: ':'')+String(winner||'Neither team')+' '+(upset?'overcame a pre-match disadvantage of '+num(Math.abs(baseGap))+' rating points':'finished with the higher effective match rating')+(winner?' (margin '+num(Math.abs(diff))+').':'');
   return `<section class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">Why this match ended this way</h3><span class="note">Actual simulation adjustments</span></div>
     <div class="tbl-wrap"><table class="t"><thead><tr><th>Rating stage</th><th>${A}</th><th>${B}</th></tr></thead><tbody>
     ${row('Team rating · roster + chemistry + coaching','base',false)}
@@ -191,7 +206,7 @@ function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent
     ${row('Match-day variation','random')}
     <tr><th>Effective match rating</th><th class="num">${num(detail.final?.[0])}</th><th class="num">${num(detail.final?.[1])}</th></tr>
     </tbody></table></div>
-    <p class="note" style="margin:10px 0">${esc(summary)} The final score is generated from this adjusted margin and the sport's scoring rules; per-character statistics are allocated afterward.</p>
+    <p class="note" style="margin:10px 0">${esc(summary)} ${combat?'Damage, defenses and knockouts come directly from simulated hits.':'The score uses the sport\'s scoring rules; other per-character statistics are modeled estimates.'}</p>
     ${Array.isArray(detail.toonEvents)&&detail.toonEvents.length?`<div class="note" style="margin:10px 0"><b>ToonForce moments (triggered in this match):</b><ul>${detail.toonEvents.map(e=>`<li>${esc(e.side===0?nameA:nameB)} · ${esc(e.character)} ${esc(e.note)} (+${num(e.points)} rating). Situational gag, not blanket immunity.</li>`).join("")}</ul></div>`:""}
     ${Array.isArray(detail.variantEvents)&&detail.variantEvents.length?`<div class="note" style="margin:10px 0"><b>Variant abilities in this matchup:</b><ul>${detail.variantEvents.map(e=>`<li>${esc(e.side===0?nameA:nameB)} · ${esc(e.character)} used ${esc(e.move)} (+${num(e.points)} rating)${e.defended?.length?' · resisted: '+esc(e.defended.join(', ')):''}${e.exposed?.length?' · vulnerability: '+esc(e.exposed.join(', ')):''}. ${esc(e.limit||'')}</li>`).join("")}</ul></div>`:""}
     ${coachInfo(scoreA,nameA)}${coachInfo(scoreB,nameB)}
@@ -203,7 +218,7 @@ function daUserMatches(sim) {
   (sim?.games||[]).forEach((g,i)=>{if(g.a===0||g.b===0)games.push({...g,label:'Regular season · Match '+(i+1),key:'reg-'+i});});
   (sim?.rounds||[]).forEach((round,ri)=>(round||[]).forEach((g,gi)=>{
     if(g.a!==0&&g.b!==0)return;
-    if(Array.isArray(g.games)&&g.games.length)g.games.forEach((match,mi)=>games.push({a:g.a,b:g.b,w:match.w,line:match.line,breakdown:match.breakdown,label:'Playoffs · Round '+(ri+1)+' · Game '+(mi+1),key:'po-'+ri+'-'+gi+'-'+mi}));
+    if(Array.isArray(g.games)&&g.games.length)g.games.forEach((match,mi)=>games.push({a:g.a,b:g.b,w:match.w,line:match.line,breakdown:match.breakdown,combat:match.combat,label:'Playoffs · Round '+(ri+1)+' · Game '+(mi+1),key:'po-'+ri+'-'+gi+'-'+mi}));
     else games.push({...g,label:'Playoffs · Round '+(ri+1),key:'po-'+ri+'-'+gi});
   }));
   return games;
@@ -219,6 +234,7 @@ function daLineupMetric(row,sport) {
   const primary=daMetricKey(sport);
   if(!row)return null;
   const base=row.stats.find(x=>x[0]===primary);
+  if(sport==='brawl'&&base)return base;
   if(sport==='football'&&(!base||!base[1])) {
     const priority=['Pass YDS','Rush YDS','Rec YDS','TACK','SACK','INT'];
     return priority.map(k=>row.stats.find(x=>x[0]===k)).find(x=>x&&x[1])||base||row.stats[0]||null;
@@ -232,9 +248,9 @@ function daPointsFor(game,teamIndex) {
 }
 function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName='Your team',rightName='Opponent',seed='',options={}) {
   if(!leftScore?.rows||!rightScore?.rows)return '';
-  const left=daBoxScore(sport,leftScore,leftPoints,seed+':left',{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints});
-  const right=daBoxScore(sport,rightScore,rightPoints,seed+':right',{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints});
-  const primary=daMetricKey(sport);
+  const left=daBoxScore(sport,leftScore,leftPoints,seed+':left',{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints,combatSide:options.combat?.sides?.[0]});
+  const right=daBoxScore(sport,rightScore,rightPoints,seed+':right',{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints,combatSide:options.combat?.sides?.[1]});
+  const primary=sport==='brawl'&&!options.combat?'KOs':daMetricKey(sport);
   const total=(rows,key)=>rows.reduce((sum,row)=>sum+(row.stats.find(x=>x[0]===key)?.[1]||0),0);
   const leftTotal=total(left,primary),rightTotal=total(right,primary),denom=Math.max(1,leftTotal+rightTotal);
   const lPct=Math.round(100*leftTotal/denom);
@@ -260,7 +276,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
   ];
   const narrative=versions[Math.floor(daHash(seed||leftName+rightName)*versions.length)] +
     (leader&&leadMetric?` ${esc(leader.name)} led the ${esc(winner==='right'?rightName:leftName)} projections with ${leadMetric[1]} ${esc(leadMetric[0])}.`:'') +
-    ' Player contributions are simulated estimates, not recorded play-by-play.';
+    (sport==='brawl'&&options.combat?' These gameplay contributions came from the simulated combat exchanges, not canonical fight footage.':' Player contributions are simulated estimates, not recorded play-by-play.');
   const extra=options.breakdown?`<details class="da-inner-details"><summary>How the match was calculated</summary>${options.breakdown}</details>`:'';
   const story=options.summaryHTML||'';
   return `<section class="panel da-result" aria-label="Match statistics comparison">
@@ -269,7 +285,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
       <div><span class="da-team-name">${esc(rightName)}</span><strong class="num">${rightPoints}</strong><small>${esc(primary)}: <b class="num">${rightTotal}</b></small></div>
     </div>
     <div class="da-sharebar" role="img" aria-label="${esc(primary)} estimate: ${leftTotal} for ${esc(leftName)} and ${rightTotal} for ${esc(rightName)}"><span style="width:${lPct}%"></span></div>
-    <p class="da-estimate">Player contributions are simulated estimates.</p>
+    <p class="da-estimate">${sport==='brawl'?(options.combat?'Damage, absorption, mitigation and KOs come from simulated attacks; DMG includes any excess on a finishing blow. These are gameplay values, not canonical feats.':'Legacy match: no combat exchange log was recorded. KOs are estimated; damage statistics are unavailable.'):'Player contributions are simulated estimates.'}</p>
     <details class="da-toggle da-detail-toggle">
       <summary>View Detailed Stats</summary>
       <div class="tbl-wrap"><table class="t da-player-table"><thead><tr><th scope="col">${esc(leftName)}</th><th scope="col">Role</th><th scope="col">${esc(rightName)}</th></tr></thead><tbody>${pairs}</tbody></table></div>
@@ -287,12 +303,13 @@ function daMatchBrowser(sport,sim,teams,selected,summaryHTML='') {
   const sideA=game.w===-1?(game.a===0?0:1):(game.w===0?0:1);
   const sideB=game.w===-1?(game.a===opp?0:1):(game.w===opp?0:1);
   const firstIndex=game.a===0?0:1;
-  const factors=daMatchBreakdown(game.breakdown,teams[game.a]?.score,teams[game.b]?.score,teams[game.a]?.name,teams[game.b]?.name,game.w===-1?'draw':null);
+  const factors=daMatchBreakdown(game.breakdown,teams[game.a]?.score,teams[game.b]?.score,teams[game.a]?.name,teams[game.b]?.name,game.w===-1?'draw':null,game.combat);
+  const orderedCombat=game.combat&&(game.a===0?game.combat:{...game.combat,sides:[...game.combat.sides].reverse(),winner:1-game.combat.winner});
   const recap=ix===matches.length-1?summaryHTML:'';
   return `<section class="da-match-browser">
     <label class="field-label"><span>Match</span><select data-input="report-match" id="report-match">${matches.map((g,i)=>`<option value="${i}" ${i===ix?'selected':''}>${esc(g.label)} · ${esc(teams[g.a===0?g.b:g.a].name)}</option>`).join('')}</select></label>
     <p class="da-match-outcome"><b>${game.w===-1?'Draw':game.w===0?'Win':'Loss'}</b> vs ${esc(right.name)} · <span class="num">${aPts}–${bPts}</span></p>
-    ${daComparison(sport,left.score,right.score,aPts,bPts,left.name,right.name,game.key,{note:game.line[2],leftSide:sideA,rightSide:sideB,breakdown:factors,summaryHTML:recap})}
+    ${daComparison(sport,left.score,right.score,aPts,bPts,left.name,right.name,game.key,{note:game.line[2],leftSide:sideA,rightSide:sideB,breakdown:factors,combat:orderedCombat,summaryHTML:recap})}
   </section>`;
 }
 

@@ -75,15 +75,36 @@ test('a match uses one side-by-side roster-stat chart with summary and detail co
  assert.match(html,/simulated estimates/i);
  assert.ok(!html.includes('Scouting takeaway:'));
 });
-test('comparison keeps distinct sport stats and exact score accounting',()=>{
+test('new brawl comparison uses combat damage, not KOs converted to damage',()=>{
  const A=team(['tk1','tk2','d1','d2','d3']);
  const B=team(['tk1','tk2','d1','d2','d3']);
- const html=daComparison('brawl',A,B,7,5,'Us','Them','fixture-brawl');
+ const side=(damages,kos)=>({
+   fighters:damages.map((d,i)=>({id:'c'+i,dmg:d,kos:kos[i],abs:40+i*10,mit:10+i*5}))
+ });
+ const combat={version:1,winner:1,rounds:11,sides:[
+   side([40,80,95,120,65],[1,0,0,1,1]),
+   side([80,50,125,210,155],[1,0,1,2,1])
+ ]};
+ const html=daComparison('brawl',A,B,3,5,'Us','Them','fixture-brawl',{combat});
  assert.match(html,/DMG/);
+ assert.match(html,/simulated combat exchanges/);
+ assert.match(html,/400/);
+ assert.match(html,/620/);
  assert.match(html,/da-sharebar/);
  assert.match(html,/How the match was calculated|Read Summary/);
- const b=daBoxScore('brawl',A,7,'fixture-brawl:left',{opponentPoints:5});
+ const b=daBoxScore('brawl',A,3,'fixture-brawl:left',{combatSide:combat.sides[0]});
  assert.equal(daLineupMetric(b[2],'brawl')[0],'DMG');
+ assert.equal(count(b,'DMG'),400);
+ assert.equal(count(b,'KOs'),3);
+ assert.equal(count(b,'ABS'),90);
+});
+test('legacy brawl reports do not invent damage from knockout counts',()=>{
+ const A=team(['tk1','tk2','d1','d2','d3']);
+ const html=daComparison('brawl',A,A,0,5,'Us','Them','legacy-brawl');
+ assert.match(html,/Legacy match/);
+ assert.doesNotMatch(html,/DMG: <b/);
+ const b=daBoxScore('brawl',A,0,'legacy-brawl');
+ assert.equal(count(b,'DMG'),0);
 });
 test('score attribution keeps the opponent score in either winner ordering',()=>{
  assert.equal(daPointsFor({a:0,b:3,w:3,line:[120,110]},0),110);

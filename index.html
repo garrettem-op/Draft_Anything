@@ -927,6 +927,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/muppet-force.js"></script>
 <script src="data/toon-force.js"></script>
 <script src="data/brawl-exceptional-power.js"></script>
+<script src="data/brawl-combat.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/team-names.js"></script>
@@ -2836,8 +2837,17 @@ function playGame(sportKey, A, B, sigma, rng, playoff = false) {
   let randomDelta = sigma ? gauss(rng)*sigma : 0;
   let m = g.ra - g.rb + randomDelta;
   if (m === 0) { const tiebreak = rng() < 0.5 ? -0.01 : 0.01; randomDelta += tiebreak; m=tiebreak; }
-  const w=m>0?0:1;
-  return { winner:w, margin:Math.abs(m),line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),ev:g.ev,toonEvents:g.toonEvents,breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
+  // Ratings adjust combat effectiveness, but only modeled hits and depletion cause KOs.
+  const hasFighters=T=>Array.isArray(T?.rows)&&T.rows.some(r=>r.cand&&!r.pos.coach&&!r.pos.bench);
+  const combat=sportKey==='brawl'&&hasFighters(A)&&hasFighters(B)
+    ?window.DA_BRAWL_COMBAT.resolveBrawlCombat(A,B,
+      [g.ra+randomDelta/2,g.rb-randomDelta/2],rng)
+    :null;
+  const w=combat?combat.winner:(m>0?0:1);
+  return { winner:w,margin:Math.abs(m),
+    line:combat?combat.line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),
+    combat,ev:g.ev,toonEvents:g.toonEvents,
+    breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
 }
 
 // Sport-flavored final score for a game won by `margin` rating points. Returns [winnerScore, loserScore, note]
@@ -2908,7 +2918,7 @@ function simChampionship(sportKey, teams, sigma, rng) {
     const [W, L] = g.winner === 0 ? [i, j] : [j, i];
     rec[W].w++; rec[L].l++;
     rec[W].pf += g.line[0]; rec[W].pa += g.line[1]; rec[L].pf += g.line[1]; rec[L].pa += g.line[0];
-    games.push({ a:i,b:j,w:W,line:g.line,m:g.margin,breakdown:g.breakdown });
+    games.push({ a:i,b:j,w:W,line:g.line,m:g.margin,breakdown:g.breakdown,combat:g.combat });
   }
   const standings = teams.map((t, i) => ({ i, ...rec[i] }))
     .sort((x, y) => y.w - x.w || (y.pf - y.pa) - (x.pf - x.pa) || teams[y.i].score.rating - teams[x.i].score.rating);
@@ -2918,7 +2928,7 @@ function simChampionship(sportKey, teams, sigma, rng) {
   let round = pairs.map(([a, b]) => [seeds[a], seeds[b]]);
   const rounds = [];
   while (true) {
-    const res = round.map(([a, b]) => { const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true); return { a, b, w: g.winner === 0 ? a : b, line: g.line, m: g.margin, bo: 1, breakdown:g.breakdown, ev: g.ev.map(e => ({ ...e, team: e.side === 0 ? a : b, g: 1 })) }; });
+    const res = round.map(([a, b]) => { const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true); return { a, b, w: g.winner === 0 ? a : b, line: g.line, m: g.margin, bo: 1, breakdown:g.breakdown, combat:g.combat, ev: g.ev.map(e => ({ ...e, team: e.side === 0 ? a : b, g: 1 })) }; });
     rounds.push(res);
     if (res.length === 1) break;
     const next = [];
@@ -3003,7 +3013,7 @@ function playSeries(sportKey, teams, a, b, bo, sigma, rng) {
   const need = Math.ceil(bo / 2); let wa = 0, wb = 0, last = null; const games = [], ev = [];
   while (wa < need && wb < need) {
     const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true);
-    games.push({ w:g.winner===0?a:b,line:g.line,breakdown:g.breakdown });
+    games.push({ w:g.winner===0?a:b,line:g.line,breakdown:g.breakdown,combat:g.combat });
     for (const e of g.ev) ev.push({ ...e, team: e.side === 0 ? a : b, g: games.length });
     if (g.winner === 0) wa++; else wb++;
     last = g;
@@ -3016,6 +3026,15 @@ function simSeason(sportKey, teams, rng) {
   const rec = teams.map(() => ({ w: 0, l: 0, d: 0, otl: 0, pf: 0, pa: 0 }));
   const games = [];
   for (const [a, b] of seasonSchedule(n, S.games)) {
+    if (sportKey==='brawl') {
+      const g=playGame(sportKey,teams[a].score,teams[b].score,sigma,rng);
+      const W=g.winner===0?a:b,L=W===a?b:a;
+      rec[W].w++;rec[L].l++;
+      rec[W].pf+=g.line[0];rec[W].pa+=g.line[1];
+      rec[L].pf+=g.line[1];rec[L].pa+=g.line[0];
+      games.push({a,b,w:W,line:g.line,m:g.margin,breakdown:g.breakdown,combat:g.combat});
+      continue;
+    }
     const g = gameRatings(teams[a].score, teams[b].score, false, rng, sportKey);
     const variation=gauss(rng)*sigma;
     const m = g.ra - g.rb + variation;
@@ -3744,7 +3763,7 @@ function renderModal() {
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
     <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>Draft picks remain unranked.</b> You can inspect the optional Character Guide for research and explicitly reveal the numeric attributes if you want spoilers.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
-    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front. For each Tank, size, strength and stamina form one physical-resilience rating; if all three are above 90, their average earns a 3% bonus (up to 99). If the lowest is at least 10 points below the average of the other two, use the average of those two with a 3% deduction. Otherwise use the average of all three. Physical resilience counts 95%, reflexes count 5%, and leadership does not affect Tank fit. The Commander handles team leadership. Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
+    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front. For each Tank, size, strength and stamina form one physical-resilience rating; if all three are above 90, their average earns a 3% bonus (up to 99). If the lowest is at least 10 points below the average of the other two, use the average of those two with a 3% deduction. Otherwise use the average of all three. Physical resilience counts 95%, reflexes count 5%, and leadership does not affect Tank fit. The Commander handles team leadership. Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts from simulated attacks: offense, accuracy, durability, protection and mitigated damage determine which fighters fall. Adjusted team ratings influence exchanges but do not determine KOs directly. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
@@ -4797,13 +4816,14 @@ function renderH2HResult(d) {
 
   const yours=g.winner===(me==='host'?0:1)?g.line[0]:g.line[1];
   const theirs=g.winner===(opp==='host'?0:1)?g.line[0]:g.line[1];
-  const breakdown=daMatchBreakdown(g.breakdown,sc[me],sc[opp],contestName(d,me),contestName(d,opp));
+  const combat=g.combat&&(me==='host'?g.combat:{...g.combat,sides:[...g.combat.sides].reverse(),winner:1-g.combat.winner});
+  const breakdown=daMatchBreakdown(g.breakdown,A,B,contestName(d,'host'),contestName(d,'guest'),null,g.combat);
   const summary=recapPanel(h2hRecap(d.sport,sc[me],sc[opp],contestName(d,me),contestName(d,opp),spectator?winSide==='host':iWon,g.line,UPSET_SIGMA[d.rules.upsets]||0,getCands(d.poolId),d.id,(g.ev||[]).map(e=>({...e,team:(e.side===0)===(me==='host')?0:1}))));
   return `<section class="da-results-screen">
     <div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${esc(sp.name)} · Head-to-Head</span><div class="big">${title}</div></div>
     <div class="cta-row">${mySide(d)?'<button class="btn primary" data-act="h-rematch">Rematch</button>':''}<button class="btn" data-act="h-lobby">Back to lobby</button></div>
     ${sc[me].muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${sc[me].muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${sc[me].muppetTeam.performers} Muppet(s) increased team rating by ${sc[me].muppetTeam.points.toFixed(2)} points beyond their personal role-fit multipliers.</p></div>`:''}
-    ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,breakdown,summaryHTML:summary})}
+    ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,combat,breakdown,summaryHTML:summary})}
   </section>`;
 }
 async function rematch() {
