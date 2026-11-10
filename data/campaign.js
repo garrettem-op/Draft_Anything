@@ -620,7 +620,7 @@ function campaignPlay(){
     const report=daComparison(v.sport,score,oppScore,ourPoints,theirPoints,v.teamName||'Your team',name,gameSeed,{
       note:game.line[2],leftSide:win?0:1,rightSide:win?1:0,breakdown:breakdownHTML,summaryHTML:summary
     });
-    return {win,name,ourPoints,theirPoints,commander,tactics,
+    return {win,name,ourPoints,theirPoints,commander,tactics,muppetTeam:score.muppetTeam,
       opponentNames:Object.values(opp.roster).map(c=>c.n),
       breakdownHTML,report,reportVersion:2,opponentReport:'',
       note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+oppScore.rating.toFixed(1)};
@@ -753,6 +753,7 @@ function renderCampaignResults(){
       <div class="big">${r.win?'<em>You win</em>':'You lose'}</div>
       ${r.finalRounds?.length?`<p>${r.finalRounds.filter(x=>x.win).length} of ${r.finalRounds.length} opponents defeated</p>`:''}
     </div>
+    ${r.muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${r.muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${r.muppetTeam.performers} Muppet teammate(s) added +${r.muppetTeam.points.toFixed(2)} rating points. This bonus applies to the team, while individual MuppetForce multiplies position fit.</p></div>`:''}
     <div class="cta-row">
       ${r.win?`<button class="btn primary" data-act="camp-next">${v.step===9?'Claim championship':'Next challenge'}</button>`:`<button class="btn primary" data-act="camp-retry">Try again</button><button class="btn" data-act="camp-edit">Edit lineup</button>`}
       <button class="btn" data-act="camp-setup">Campaign overview</button>

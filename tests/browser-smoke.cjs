@@ -23,6 +23,46 @@ const server=http.createServer((req,res)=>{
  page.on('pageerror',error=>errors.push(error.message));
  try{
   await page.goto('http://127.0.0.1:'+server.address().port,{waitUntil:'domcontentloaded',timeout:30000});
+  // MuppetForce now affects all 101 roster Muppets as a MULTIPLIER of
+  // their conventional position fit, plus a capped ensemble team benefit.
+  // ToonForce uses the same individual model without the Muppet team aura.
+  const forces=await page.evaluate(()=>{
+    const muppets=getCands('muppets'),gonzo=muppets.find(c=>c.n==='Gonzo');
+    const bugs=getCands('toons').find(c=>c.n==='Bugs Bunny');
+    const jordan=getCands('nba').find(c=>c.n==='Michael Jordan');
+    const position=SPORTS.basketball.pos.find(p=>p.id==='sf');
+    const normal=fitFor(gonzo,position)+expertAdj('basketball',gonzo,position,fitFor(gonzo,position));
+    const normalBugs=fitFor(bugs,position)+expertAdj('basketball',bugs,position,fitFor(bugs,position));
+    const fit=fitIn('basketball',gonzo,position);
+    const toonfit=fitIn('basketball',bugs,position);
+    const baselineAttrs=gonzo.a.slice();
+    const filled={};
+    SPORTS.basketball.pos.forEach(p=>{
+      filled[p.id]=getCands('nba').find(c=>c.n==='Michael Jordan');
+    });
+    filled.pg=gonzo;filled.sg=bugs;
+    const result=teamScore('basketball',filled);
+    const ref=result.playerScore*result.mult+result.syn.total+result.sig.lift+(result.variety?.pts||0);
+    const baseline=teamScore('basketball',Object.fromEntries(
+      Object.keys(filled).map(k=>[k,jordan])));
+    const aiGonzo=fitAI('basketball',gonzo,position);
+    const bobble=toonForceOf({pool:'toons',n:'Aang'});
+    return {n:muppets.length,missing:muppets.filter(c=>!muppetForceOf(c)).map(c=>c.n),
+      fit,normal,mult:muppetForceMultiplier(gonzo,'basketball',position),
+      toonfit,normalBugs,tf:toonForceMultiplier(bugs,'basketball',position),
+      aiGonzo,team:result.muppetTeam,total:result.rating,reconstructed:ref+result.muppetTeam.points,
+      noMuppet:baseline.muppetTeam,notToonForce:bobble,unchanged:gonzo.a.every((a,i)=>a===baselineAttrs[i])};
+  });
+  assert.equal(forces.n,101);
+  assert.deepEqual(forces.missing,[],'Every Muppet must have a rated force profile');
+  assert.ok(Math.abs(forces.fit-forces.normal*forces.mult)<1e-7,'Muppet force not multiplicative');
+  assert.ok(Math.abs(forces.toonfit-forces.normalBugs*forces.tf)<1e-7,'Toon force not multiplicative');
+  assert.ok(forces.aiGonzo>forces.normal,'AI draft does not see Muppet multiplier');
+  assert.ok(forces.team.points>0&&forces.team.percent<=8,'Mixed team not receiving capped Muppet camaraderie');
+  assert.ok(Math.abs(forces.total-forces.reconstructed)<1e-7,'Final team rating is missing camaraderie');
+  assert.equal(forces.noMuppet.points,0,'Non-Muppet roster received MuppetForce');
+  assert.equal(forces.notToonForce,null,'ToonForce is not universal to every cartoon');
+  assert.equal(forces.unchanged,true,'Force must not mutate traditional stats');
   // Daily Grid: exercise the actual mobile interface, answer validation, and local persistence.
   await page.locator('button[data-act="mode"][data-mode="grid"]').click();
   assert.equal(await page.locator('.dg-board button[data-act="grid-cell"]').count(),9,'Daily Grid does not render nine playable squares');
