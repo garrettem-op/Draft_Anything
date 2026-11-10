@@ -2312,7 +2312,10 @@ const CHARACTER_ABILITY_CARRYOVER = Object.freeze([
    Resolves research-queue items that round 2 removed pending a specific scene. Each source page was
    opened and the feat confirmed on it. PR #56 review: each record names its scene; stealth records say
    whether the feat is an undercover identity or moving unseen (stealthMode); Trigon flight went back to
-   the queue (no pinned scene). */
+   the queue (no pinned scene).
+   Gameplay limitation (PR #56 follow-up review): continuityScope and stealthMode are informational metadata.
+   No engine code reads them, so Durin's Bane counts for Giants in every draft (book-oriented Middle-earth
+   included) and undercover-only stealth grants count for Ghost Protocol. See docs/character-ability-audit-round2.md. */
 const CHARACTER_ABILITY_RECORDS_ROUND3 = {
   "dc:Nightwing": [
     {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Batman sends him undercover to investigate the spy agency Spyral, where he is designated Agent 37 and reports to Batman in secret code (Grayson #1–4, 2014).", "scene": "Grayson #1–4 (2014): joins Spyral as Agent 37 while secretly reporting to Batman", "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)", "continuity": "DC mainline comics (New 52)", "limitation": "Undercover identity, not a scene of moving unseen", "audit": "2026-11-r3"}
@@ -2333,7 +2336,7 @@ const CHARACTER_ABILITY_RECORDS_ROUND3 = {
     {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Sits on the Wayne Enterprises board as Miranda Tate while secretly loyal to the League of Shadows, until she reveals herself as Talia (The Dark Knight Rises, 2012).", "scene": "The Dark Knight Rises (2012): poses as board member Miranda Tate; reveals herself after Batman beats Bane", "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate", "continuity": "The Dark Knight trilogy (Nolan films)", "limitation": "Film continuity; undercover identity, not a scene of moving unseen; no comics stealth scene confirmed yet", "audit": "2026-11-r3"}
   ],
   "lotr:Durin's Bane": [
-    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "scene": "The Fellowship of the Ring (2001 film): the Bridge of Khazad-dûm", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings films (Jackson)", "continuityScope": "film-only", "limitation": "Film only: Tolkien's text calls it taller than a man but not huge", "conflict": "Mixed continuity: the Jackson film shows a 20 ft Balrog; Tolkien's text gives no size and does not support a giant reading. The grant is for the film version only.", "audit": "2026-11-r3"}
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "scene": "The Fellowship of the Ring (2001 film): the Bridge of Khazad-dûm", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings films (Jackson)", "continuityScope": "film-only", "limitation": "Film only: Tolkien's text calls it taller than a man but not huge", "conflict": "Mixed continuity: the Jackson film shows a 20 ft Balrog; Tolkien's text gives no size and does not support a giant reading. The grant is meant for the film version only, but continuityScope is metadata the Campaign engine does not read yet, so the giants tag applies in every draft.", "audit": "2026-11-r3"}
   ]
 };
 const CHARACTER_ABILITIES = (() => {

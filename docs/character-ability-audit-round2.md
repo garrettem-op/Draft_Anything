@@ -174,3 +174,36 @@ A test names all ten, so a regenerated index cannot quietly regrant one.
   discovered break-in count?
 - Hermione flight: rides her own Thestral to London (OotP ch. 33) without fighting from it. Do solo riders count?
 - Gothmog giants: may a species-level Balrog size ("double an Elf's stature") stand in for a named Balrog?
+
+### Gameplay limitations: metadata the engine does not enforce (PR #56 follow-up review)
+
+`continuityScope` and `stealthMode` describe the evidence. **They do not filter eligibility.** No engine file
+(`data/campaign.js`, `data/campaign-eligibility.js`, `index.html`) reads either field. A test checks this. If the engine
+starts reading a field, the test's "applies everywhere" checks for that field switch off.
+
+- **Durin's Bane, `continuityScope: "film-only"`:** the broad `giants` tag grants Giants eligibility in **every**
+  draft that uses the pooled character. That includes book-oriented Middle-earth contexts, where Tolkien gives no
+  size. The record's `conflict` note now says the limit is not enforced. It no longer says the grant "is for the film
+  version only".
+- **Undercover stealth, `stealthMode: "undercover"`:** Nightwing, Batwoman, Huntress and Talia still count for Ghost
+  Protocol, as the Nakia, Sharon Carter and Cassian Andor precedent allows. The owner ruling is still pending and
+  nothing was revoked.
+- **For the Campaign engine owner (ChatGPT), if enforcement is wanted:** read `continuityScope` from
+  `characterAbilityProvenance(character, tag).record`. Then either skip the grant when the draft's continuity
+  differs, or show the record's `limitation` on the eligibility card. For `stealthMode`, apply whatever the owner
+  rules for undercover feats. The data already carries both fields, so neither change needs new data.
+
+### Merge sequence (#55, then #56, then #57)
+
+A local simulation of that order (2026-11-10, not pushed):
+- **#56 after #55:** conflicts in `data/character-abilities.js` and the generated `docs/character-ability-coverage.md`.
+  Both PRs add a record block before `CHARACTER_ABILITIES` and append it to the same merge list. To resolve, keep
+  both blocks, list `CHARACTER_ABILITY_RECORDS_DISNEY, CHARACTER_ABILITY_RECORDS_ROUND3`, then run
+  `node tools/ability-audit.cjs --report`. `--write-index` produces no further change.
+- **#57 on top:** merges cleanly. Three follow-ups are needed before its checks pass:
+  1. Classify `dcuguide.com` (DCU Guide, a fan-run chronology database) as `community`.
+  2. Update `PINNED_INDEX_DIGEST` to the post-#56 index. That is a deliberate grant change from Round 3.
+  3. Run `node tools/ability-source-audit.cjs --write`.
+
+  With those three, 213/213 tests pass, `--check` is clean, the browser smoke test passes, and the audit rates
+  Durin's Bane `investigate` (conflict).

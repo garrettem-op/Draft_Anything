@@ -419,6 +419,26 @@ test('round 3: Durin\'s Bane giants is a film-only grant and provenance keeps th
   }
 });
 
+test('round 3: continuityScope and stealthMode are informational until engine code reads them', () => {
+  // PR #56 follow-up review: neither field filters eligibility. While no engine file reads a field, the
+  // grant still applies everywhere, and the record must say so instead of implying the limit is enforced.
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const engine = ['data/campaign.js', 'data/campaign-eligibility.js', 'index.html']
+    .map(f => path.join(__dirname, '..', f)).filter(f => fs.existsSync(f))
+    .map(f => fs.readFileSync(f, 'utf8')).join('\n');
+  if (!engine.includes('continuityScope')) {
+    const bane = abilityApi.characterAbilityProvenance({ pool: 'lotr', n: "Durin's Bane" }, 'giants');
+    assert.match(bane.record.conflict, /not read|not enforced/i, 'record must not claim the film-only limit is enforced');
+    assert.ok(tagsOf("lotr:Durin's Bane").includes('giants'), 'unenforced scope: the giants grant applies in every draft');
+  }
+  if (!engine.includes('stealthMode')) {
+    for (const id of ['dc:Nightwing', 'dc:Batwoman', 'dc:Huntress', 'dc:Talia al Ghul']) {
+      assert.ok(tagsOf(id).includes('stealth'), id + ': undercover-only stealth still counts (owner ruling pending)');
+    }
+  }
+});
+
 test('round 3: stealth grants name their scene and say undercover or unseen', () => {
   const ids = ['dc:Nightwing', 'dc:Red Hood', 'dc:Batwoman', 'dc:Cassandra Cain', 'dc:Huntress', 'dc:Talia al Ghul'];
   const mode = {};
