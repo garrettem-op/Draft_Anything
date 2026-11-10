@@ -133,24 +133,43 @@ Owner chose to source the disputed areas first. Round 3 resolves the 17 research
 "pending a specific scene". Every cited page was opened and the feat confirmed on it. Records are in
 `CHARACTER_ABILITY_RECORDS_ROUND3` (`audit: "2026-11-r3"`).
 
-**Granted (8)**
+**Granted (7)** (Trigon flight was granted in the first push and went back to the queue after review)
 
-| Character | Tag | Scene | Continuity |
-|---|---|---|---|
-| Nightwing | stealth | Undercover in Spyral as Agent 37 (Grayson #1–4) | DC comics (New 52) |
-| Red Hood | stealth | Breaks into Titans Tower (Teen Titans v3 #29); hides at Duela's funeral (Countdown) | DC comics |
-| Batwoman | stealth | Infiltrates Arkham Tower as "Dr. Lisa Frow" (Urban Legends #8–9) | DC comics |
-| Cassandra Cain | stealth | Infiltrates a hired-killers tournament to rescue Red Robin (Red Robin #25) | DC comics |
-| Huntress | stealth | Undercover inside Arkham Tower (Detective Comics #1049) | DC comics |
-| Talia al Ghul | stealth | On the Wayne Enterprises board as Miranda Tate (The Dark Knight Rises) | Nolan films only |
-| Trigon | flight | Innate flight among his demonic powers (power statement, no single issue) | DC comics |
-| Durin's Bane | giants | At least 20 ft tall in Moria | Jackson films only (book: "not huge") |
+| Character | Tag | Scene | Mode | Continuity |
+|---|---|---|---|---|
+| Nightwing | stealth | Undercover in Spyral as Agent 37, reporting to Batman in secret (Grayson #1–4) | undercover | DC comics (New 52) |
+| Red Hood | stealth | Hides at Duela Dent's funeral until the Titans leave (Countdown #43, "The Funeral"); breaks into Titans Tower (Teen Titans v3 #29) | undetected | DC comics |
+| Batwoman | stealth | Inside Arkham Tower as psychiatrist "Dr. Lisa Frow" ("Shadows of the Bat") | undercover | DC comics |
+| Cassandra Cain | stealth | Infiltrates a hired-killers tournament and frees Red Robin (Red Robin #25) | unspecified | DC comics |
+| Huntress | stealth | Undercover in Arkham Tower as a patient (Detective Comics #1049) | undercover | DC comics |
+| Talia al Ghul | stealth | On the Wayne Enterprises board as Miranda Tate (The Dark Knight Rises) | undercover | Nolan films only |
+| Durin's Bane | giants | At least 20 ft tall on the Bridge of Khazad-dûm | | Jackson films only (book: "not huge") |
 
-**Still queued (9), notes updated:** Robin (Damian) and Red Robin stealth (candidate scenes, no page naming
-the issue); Deathstroke stealth (only group ambushes or Terra's infiltration); Darkseid flight (infobox only);
-Quickbeam and Carcharoth giants (no size); Gothmog giants (the "12 ft" figure is about Glorfindel's Balrog).
+**Still queued (10), notes updated:** Robin (Damian) and Red Robin stealth (candidate scenes, no page naming
+the issue); Deathstroke stealth (only group ambushes or Terra's infiltration); Batgirl stealth (see below);
+Darkseid flight (infobox only); Trigon flight (power summary only, no issue); Quickbeam and Carcharoth giants
+(no size); Gothmog giants (the "12 ft" figure is about Glorfindel's Balrog); Hermione flight (see below).
+A test names all ten, so a regenerated index cannot quietly regrant one.
+
+### PR #56 review follow-up (2026-11-10)
+
+- **Trigon flight:** no issue, story or episode was found where he flies; Wikipedia lists flight only in a
+  power summary. Back in the research queue and out of the tag index.
+- **Durin's Bane:** the record carries `continuityScope: "film-only"` and a `conflict` note (film 20 ft, book
+  gives no size), so the PR #57 source audit will rate it `investigate`. A test checks the limit survives
+  `characterAbilityProvenance` and does not widen to Tolkien's books.
+- **Stealth:** every record now has a `scene` and a `stealthMode`. Only Red Hood has a scene of staying
+  unseen; Nightwing, Batwoman, Huntress and Talia hold undercover identities; Cassandra's method is not
+  stated. Sources stay as they were (Wikipedia, DCU Guide, a fan wiki): under the owner's 2026-11-10 standard
+  they are credible when the claim is specific. Issue-number disagreements are recorded in `citationNote`
+  (Batwoman: Urban Legends #8–9 vs Detective Comics #1048; Red Hood's funeral: Countdown #43 vs #51).
+- Undercover identities count today by precedent (Nakia, Sharon Carter and Cassian Andor hold stealth for
+  undercover work), so no grant changed. Whether undercover-only feats should count for Ghost Protocol is
+  listed below for the owner.
 
 **Owner rulings requested**
+- Undercover identity vs moving unseen: should undercover-only feats (Nightwing, Batwoman, Huntress, Talia)
+  keep counting for Ghost Protocol? Current precedent says yes.
 - Batgirl (Barbara Gordon) stealth: breaks into JSA headquarters (Batgirl: Year One) but is caught. Does a
   discovered break-in count?
 - Hermione flight: rides her own Thestral to London (OotP ch. 33) without fighting from it. Do solo riders count?

@@ -2310,31 +2310,30 @@ const CHARACTER_ABILITY_CARRYOVER = Object.freeze([
 ]);
 /* ---- 2026-11 round 3 (Claude): disputed areas (DC stealth, new-pool flight and giants).
    Resolves research-queue items that round 2 removed pending a specific scene. Each source page was
-   opened and the feat confirmed on it. */
+   opened and the feat confirmed on it. PR #56 review: each record names its scene; stealth records say
+   whether the feat is an undercover identity or moving unseen (stealthMode); Trigon flight went back to
+   the queue (no pinned scene). */
 const CHARACTER_ABILITY_RECORDS_ROUND3 = {
   "dc:Nightwing": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Goes undercover inside the spy agency Spyral as Agent 37 on Batman's orders (Grayson #1–4, 2014).", "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)", "continuity": "DC mainline comics (New 52)", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Batman sends him undercover to investigate the spy agency Spyral, where he is designated Agent 37 and reports to Batman in secret code (Grayson #1–4, 2014).", "scene": "Grayson #1–4 (2014): joins Spyral as Agent 37 while secretly reporting to Batman", "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)", "continuity": "DC mainline comics (New 52)", "limitation": "Undercover identity, not a scene of moving unseen", "audit": "2026-11-r3"}
   ],
   "dc:Red Hood": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Breaks into Titans Tower to confront Tim Drake (Teen Titans vol. 3 #29) and, at Duela Dent's funeral in Countdown, stays hidden until every Titan but Donna Troy has left.", "source": "https://en.wikipedia.org/wiki/Jason_Todd", "continuity": "DC mainline comics (pre-Flashpoint)", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undetected", "feat": "Breaks into Titans Tower to confront Tim Drake (Teen Titans vol. 3 #29, December 2005) and, at Duela Dent's funeral, hides until every Titan but Donna Troy has left (Countdown).", "scene": "Countdown #43, \"The Funeral\" (September 2007): stays hidden at Duela Dent's funeral; Teen Titans vol. 3 #29: the Titans Tower break-in", "source": "https://en.wikipedia.org/wiki/Jason_Todd", "sceneSource": "https://dcuguide.com/Red_Hood_(Jason_Todd)_Chronology", "continuity": "DC mainline comics (pre-Flashpoint)", "citationNote": "Wikipedia's footnote for the funeral sentence cites Countdown #51; DCU Guide's Red Hood chronology lists the funeral as Countdown #43", "audit": "2026-11-r3"}
   ],
   "dc:Batwoman": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Infiltrates Arkham Tower under the alias Dr. Lisa Frow (\"Shadows of the Bat\", Batman: Urban Legends #8–9, 2021).", "source": "https://en.wikipedia.org/wiki/Batwoman_(Kate_Kane)", "continuity": "DC mainline comics (Infinite Frontier)", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Infiltrates Arkham Tower, hired on as psychiatrist Dr. Lisa Frow (\"Shadows of the Bat\").", "scene": "\"Shadows of the Bat\" (2021–22): works inside Arkham Tower under the alias Dr. Lisa Frow", "source": "https://en.wikipedia.org/wiki/Batwoman_(Kate_Kane)", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "citationNote": "Same feat, different issue: the Kate Kane article cites Batman: Urban Legends #8–9; the Shadows of the Bat article places it in Detective Comics #1048", "audit": "2026-11-r3"}
   ],
   "dc:Cassandra Cain": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Infiltrates a tournament for hired killers and rescues the captured Red Robin (Red Robin #25, 2011).", "source": "https://en.wikipedia.org/wiki/Cassandra_Cain", "continuity": "DC mainline comics (pre-Flashpoint)", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "unspecified", "feat": "Infiltrates a tournament for hired killers and rescues the captured Red Robin, then fakes his death so he can escape (Red Robin #25, July 2011).", "scene": "Red Robin #25 (July 2011): gets inside the assassination tournament and frees Tim Drake", "source": "https://en.wikipedia.org/wiki/Cassandra_Cain", "continuity": "DC mainline comics (pre-Flashpoint)", "limitation": "Sources say she infiltrates but not whether by disguise or unseen; DC's solicitation casts her as a tournament fighter", "audit": "2026-11-r3"}
   ],
   "dc:Huntress": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Goes undercover inside Arkham Tower to investigate it (Detective Comics #1049, \"The Tower, Part 3\", March 2022).", "source": "https://dcuguide.com/Detective_Comics_1049", "continuity": "DC mainline comics (Infinite Frontier)", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Goes undercover inside Arkham Tower to investigate it, checking in as a patient (Detective Comics #1049, \"The Tower, Part 3\", March 2022).", "scene": "Detective Comics #1049, \"The Tower, Part 3\" (March 2022): undercover in Arkham Tower as a patient", "source": "https://dcuguide.com/Detective_Comics_1049", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "audit": "2026-11-r3"}
   ],
   "dc:Talia al Ghul": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Sits on the Wayne Enterprises board as Miranda Tate while secretly loyal to the League of Shadows, until she reveals herself as Talia (The Dark Knight Rises, 2012).", "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate", "continuity": "The Dark Knight trilogy (Nolan films)", "limitation": "Film continuity; no comics stealth scene confirmed yet", "audit": "2026-11-r3"}
-  ],
-  "dc:Trigon": [
-    {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "His innate demonic powers include flight, alongside energy blasts and teleportation.", "source": "https://en.wikipedia.org/wiki/Trigon_(comics)", "continuity": "DC mainline comics", "limitation": "Power-level statement; no single issue pinned", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Sits on the Wayne Enterprises board as Miranda Tate while secretly loyal to the League of Shadows, until she reveals herself as Talia (The Dark Knight Rises, 2012).", "scene": "The Dark Knight Rises (2012): poses as board member Miranda Tate; reveals herself after Batman beats Bane", "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate", "continuity": "The Dark Knight trilogy (Nolan films)", "limitation": "Film continuity; undercover identity, not a scene of moving unseen; no comics stealth scene confirmed yet", "audit": "2026-11-r3"}
   ],
   "lotr:Durin's Bane": [
-    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings films (Jackson)", "limitation": "Film only: Tolkien's text calls it taller than a man but not huge", "audit": "2026-11-r3"}
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "scene": "The Fellowship of the Ring (2001 film): the Bridge of Khazad-dûm", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings films (Jackson)", "continuityScope": "film-only", "limitation": "Film only: Tolkien's text calls it taller than a man but not huge", "conflict": "Mixed continuity: the Jackson film shows a 20 ft Balrog; Tolkien's text gives no size and does not support a giant reading. The grant is for the film version only.", "audit": "2026-11-r3"}
   ]
 };
 const CHARACTER_ABILITIES = (() => {
@@ -2433,6 +2432,7 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"dc:Deathstroke", tag:"stealth", note:"Round 3: Wikipedia's infiltration scenes are Terra's (Judas Contract) or Rose's; Infinite Crisis #1 has a Secret Society group ambush from a hidden warehouse (not a personal stealth feat). Young Justice ambushes never say he went unseen. Needs a scene of Slade himself infiltrating undetected.", source:"https://en.wikipedia.org/wiki/Deathstroke"},
   {id:"dc:Swamp Thing", tag:"magic", note:"Seed-list grant removed: he is an elemental of the Green, not a sorcerer. Needs an owner ruling on whether elemental beings count for Arcane Assembly.", source:"https://en.wikipedia.org/wiki/Swamp_Thing", audit:"2026-11-r2"},
   {id:"dc:Darkseid", tag:"flight", note:"Round 3: only the Wikipedia infobox lists Flight; no article text, DC Database (Prime Earth) or dc.com page describes him flying or levitating. His documented movement is teleportation and Boom Tubes.", source:"https://en.wikipedia.org/wiki/Darkseid"},
+  {id:"dc:Trigon", tag:"flight", note:"Round 3, re-queued after PR #56 review: Wikipedia lists flight only in a power summary ('can fly, generate energy blasts, teleport') and names no issue, story or episode. Needs a scene where Trigon himself flies or levitates.", source:"https://en.wikipedia.org/wiki/Trigon_(comics)"},
   {id:"dc:Trigon", tag:"psychic", note:"Seed-list grant removed pending a documented telepathy scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
   {id:"dc:Trigon", tag:"teleport", note:"Seed-list grant removed pending a documented teleport or portal scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
   {id:"dc:The Spectre", tag:"healing", note:"Seed-list grant removed pending a documented healing scene.", source:"https://en.wikipedia.org/wiki/Spectre_(DC_Comics)", audit:"2026-11-r2"},
@@ -3436,7 +3436,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Krypto": ["flight", "natural-flight"],
     "Lobo": ["healing", "self-regeneration"],
     "Etrigan": ["magic", "spellcaster", "fire", "fire-control"],
-    "Trigon": ["flight", "natural-flight", "magic", "spellcaster"],
+    "Trigon": ["magic", "spellcaster"],
     "Anti-Monitor": ["flight", "natural-flight"],
     "The Spectre": ["flight", "natural-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Mister Mxyzptlk": ["magic", "spellcaster", "teleport", "self-teleport"],

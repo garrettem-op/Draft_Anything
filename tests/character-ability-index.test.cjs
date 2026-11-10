@@ -380,7 +380,7 @@ test('new pools: owner rulings and corrected seeds', () => {
     ['dc:Batman', 'stealth'], ['lotr:Gollum (Sméagol)', 'aquatic'], ['harrypotter:Peter Pettigrew', 'stealth'], ['dc:Giganta', 'giants'],
     // Round 3: queue items resolved with a specific sourced scene.
     ['dc:Nightwing', 'stealth'], ['dc:Red Hood', 'stealth'], ['dc:Batwoman', 'stealth'], ['dc:Cassandra Cain', 'stealth'],
-    ['dc:Huntress', 'stealth'], ['dc:Talia al Ghul', 'stealth'], ['dc:Trigon', 'flight'], ['lotr:Durin\'s Bane', 'giants']];
+    ['dc:Huntress', 'stealth'], ['dc:Talia al Ghul', 'stealth'], ['lotr:Durin\'s Bane', 'giants']];
   const no = [['lotr:Gandalf', 'flight'], ['lotr:Éomer', 'flight'], ['dc:Firestorm', 'tech'], ['dc:Amanda Waller', 'tech'],
     ['dc:Deadshot', 'stealth'], ['dc:Deathstroke', 'stealth'], ['dc:Darkseid', 'flight'], ['harrypotter:Hermione Granger', 'flight'],
     ['harrypotter:Jacob Kowalski', 'magic'], ['harrypotter:Argus Filch', 'magic'], ['dc:The Atom (Ray Palmer)', 'giants']];
@@ -389,6 +389,50 @@ test('new pools: owner rulings and corrected seeds', () => {
   for (const q of game.research.filter(q => ['dc', 'lotr', 'harrypotter'].includes(q.id.split(':')[0]))) {
     assert.equal(qualifiesUnderPR44(q.id, q.tag), false, q.id + ' ' + q.tag + ' is queued, not granted');
   }
+});
+
+/* PR #56 review (2026-11-10). */
+test('round 3: the ten still-queued cases stay queued and ungranted', () => {
+  // Explicit list, so a regenerated index or a trimmed queue cannot quietly regrant one of them.
+  const QUEUED = [['dc:Robin (Damian Wayne)', 'stealth'], ['dc:Red Robin (Tim Drake)', 'stealth'],
+    ['dc:Batgirl (Barbara Gordon)', 'stealth'], ['dc:Deathstroke', 'stealth'], ['dc:Darkseid', 'flight'],
+    ['dc:Trigon', 'flight'], ['lotr:Quickbeam', 'giants'], ['lotr:Carcharoth', 'giants'],
+    ['lotr:Gothmog (Lord of Balrogs)', 'giants'], ['harrypotter:Hermione Granger', 'flight']];
+  for (const [id, rule] of QUEUED) {
+    assert.ok(abilityApi.CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === id && q.tag === rule), id + ' ' + rule + ' must stay in the research queue');
+    assert.equal(qualifiesUnderPR44(id, rule), false, id + ' ' + rule + ' is queued, not granted');
+    for (const t of PR44_ACCEPTED[rule]) assert.ok(!tagsOf(id).includes(t), id + ' must not carry ' + t);
+    assert.ok(!(abilityApi.CHARACTER_ABILITIES[id] || []).some(r => r.tag === rule), id + ' ' + rule + ' has no evidence record');
+  }
+});
+
+test('round 3: Durin\'s Bane giants is a film-only grant and provenance keeps that limit', () => {
+  const bane = { pool: 'lotr', n: "Durin's Bane" };
+  for (const tag of ['giants', 'giant-sized']) {
+    const p = abilityApi.characterAbilityProvenance(bane, tag);
+    assert.equal(p?.basis, 'evidence', tag);
+    assert.equal(p.record.continuityScope, 'film-only', tag);
+    assert.match(p.record.continuity, /films \(Jackson\)/, tag);
+    assert.doesNotMatch(p.record.continuity, /Tolkien|book|Silmarillion|legendarium/i, tag + ' must not widen to the books');
+    assert.match(p.record.limitation, /^Film only/, tag);
+    assert.ok(p.record.conflict, 'book and film disagree, so the record carries a conflict note');
+  }
+});
+
+test('round 3: stealth grants name their scene and say undercover or unseen', () => {
+  const ids = ['dc:Nightwing', 'dc:Red Hood', 'dc:Batwoman', 'dc:Cassandra Cain', 'dc:Huntress', 'dc:Talia al Ghul'];
+  const mode = {};
+  for (const id of ids) {
+    const r = abilityApi.CHARACTER_ABILITIES[id].find(x => x.tag === 'stealth' && x.audit === '2026-11-r3');
+    assert.ok(r, id);
+    assert.ok(r.scene && r.scene.length >= 20, id + ' needs a scene');
+    assert.ok(['undercover', 'undetected', 'unspecified'].includes(r.stealthMode), id + ' stealthMode');
+    if (r.stealthMode === 'undercover') assert.match(r.limitation || '', /undercover identity/i, id);
+    mode[id] = r.stealthMode;
+  }
+  assert.equal(mode['dc:Red Hood'], 'undetected');
+  assert.equal(mode['dc:Nightwing'], 'undercover');
+  assert.equal(mode['dc:Talia al Ghul'], 'undercover');
 });
 
 test('Pokémon rules: Gen I Fly earns flight, Surf earns aquatic, Rest is never healing', () => {

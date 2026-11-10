@@ -8,7 +8,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 
 | Tag | nba | mcu | toons | muppets | games | pokemon | starwars | dc | lotr | harrypotter | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| flight | 0 | 34 | 17 | 4 | 37 | 30 | 38 | 37 | 11 | 25 | 233 |
+| flight | 0 | 34 | 17 | 4 | 37 | 30 | 38 | 36 | 11 | 25 | 232 |
 | magic | 0 | 10 | 3 | 4 | 20 | 1 | 0 | 15 | 25 | 77 | 155 |
 | psychic | 0 | 13 | 0 | 2 | 7 | 37 | 27 | 5 | 3 | 3 | 97 |
 | aquatic | 0 | 2 | 9 | 0 | 1 | 42 | 3 | 7 | 4 | 0 | 68 |
@@ -25,7 +25,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 
 | Broad | Specific tag | Characters |
 | --- | --- | ---: |
-| flight | natural-flight | 108 |
+| flight | natural-flight | 107 |
 | flight | powered-flight | 59 |
 | flight | glide | 9 |
 | flight | pilot | 58 |
@@ -70,13 +70,13 @@ name lists or description keywords. Counts are characters holding each broad tag
 | games | 157 | 0 | 25 | 182 |
 | pokemon | 226 | 0 | 98 | 324 |
 | starwars | 84 | 0 | 22 | 106 |
-| dc | 130 | 0 | 0 | 130 |
+| dc | 129 | 0 | 0 | 129 |
 | lotr | 69 | 0 | 0 | 69 |
 | harrypotter | 136 | 8 | 0 | 144 |
 
 Carry-over origins: name-list 94, research-guide 46, roster-description 56, curated-aerial 30, pokemon-type 37.
 
-`CHARACTER_ABILITIES` holds 925 source-linked records for 528 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
+`CHARACTER_ABILITIES` holds 924 source-linked records for 528 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
 
 ## Disputed grants (verdict incorrect: excluded from the index)
 
@@ -158,6 +158,7 @@ Carry-over origins: name-list 94, research-guide 46, roster-description 56, cura
 - `dc:Deathstroke` **stealth**: Round 3: Wikipedia's infiltration scenes are Terra's (Judas Contract) or Rose's; Infinite Crisis #1 has a Secret Society group ambush from a hidden warehouse (not a personal stealth feat). Young Justice ambushes never say he went unseen. Needs a scene of Slade himself infiltrating undetected.
 - `dc:Swamp Thing` **magic**: Seed-list grant removed: he is an elemental of the Green, not a sorcerer. Needs an owner ruling on whether elemental beings count for Arcane Assembly.
 - `dc:Darkseid` **flight**: Round 3: only the Wikipedia infobox lists Flight; no article text, DC Database (Prime Earth) or dc.com page describes him flying or levitating. His documented movement is teleportation and Boom Tubes.
+- `dc:Trigon` **flight**: Round 3, re-queued after PR #56 review: Wikipedia lists flight only in a power summary ('can fly, generate energy blasts, teleport') and names no issue, story or episode. Needs a scene where Trigon himself flies or levitates.
 - `dc:Trigon` **psychic**: Seed-list grant removed pending a documented telepathy scene.
 - `dc:Trigon` **teleport**: Seed-list grant removed pending a documented teleport or portal scene.
 - `dc:The Spectre` **healing**: Seed-list grant removed pending a documented healing scene.
