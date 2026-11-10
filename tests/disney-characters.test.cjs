@@ -107,3 +107,44 @@ test('Genie is the only addition with ToonForce', () => {
   assert.ok(toonForceOf(sample('Genie'))?.score >= 90);
   for (const n of ADDED.filter(n => n !== 'Genie')) assert.equal(toonForceOf(sample(n)), null, n);
 });
+
+/* PR #55 review (2026-11-10): evidence strength and form/item gating. */
+const { CHARACTER_ABILITIES } = require('../data/character-abilities.js');
+// Community-edited sources: discovery leads, never verification on their own.
+const COMMUNITY = /(^|\.)(wikipedia\.org|fandom\.com|tvtropes\.org|comicvine\.gamespot\.com)$/;
+const host = u => new URL(u).hostname.replace(/^www\./, '');
+const disneyRecords = () => ADDED.flatMap(n => (CHARACTER_ABILITIES['toons:' + n] || []).map(r => [n, r]));
+
+test('every Disney power record is labelled verified, provisional or owner-ruling, with a scene', () => {
+  const records = disneyRecords();
+  assert.ok(records.length >= 22);
+  for (const [n, r] of records) {
+    assert.ok(['verified', 'provisional', 'owner-ruling'].includes(r.verification), n + ' ' + r.tag + ' needs a verification label');
+    if (r.verification !== 'owner-ruling') assert.ok(r.scene?.length >= 20, n + ' ' + r.tag + ' needs an identifiable scene reference');
+  }
+});
+
+test('"verified" Disney records rest on an official, editorial or dialogue source, not a wiki', () => {
+  for (const [n, r] of disneyRecords().filter(([, r]) => r.verification === 'verified')) {
+    for (const u of [].concat(r.verifiedBy || [])) assert.match(u, /^https:\/\/\S+$/, n + ' ' + r.tag);
+    assert.ok([].concat(r.verifiedBy || []).some(u => !COMMUNITY.test(host(u))), n + ' ' + r.tag + ' is labelled verified on community sources only');
+  }
+  // Records the review called out by name.
+  const rec = (n, tag) => CHARACTER_ABILITIES['toons:' + n].find(r => r.tag === tag);
+  assert.equal(rec('Jafar', 'fire').verification, 'provisional', 'Jafar fire still rests on TV Tropes alone');
+  assert.ok(!COMMUNITY.test(host(rec('Maleficent', 'teleport').source)), 'Maleficent teleport no longer cites Comic Vine');
+  assert.equal(rec('Peter Pan', 'flight').verification, 'owner-ruling', "Peter Pan's flight is owner-settled");
+});
+
+test('form- and item-dependent Disney powers record their gate', () => {
+  const gate = (n, tag) => CHARACTER_ABILITIES['toons:' + n].find(r => r.tag === tag)?.formGate?.type;
+  assert.equal(gate('Jafar', 'giants'), 'wish-form');
+  assert.equal(gate('Jafar', 'fire'), 'wish-form');
+  assert.equal(gate('Jafar', 'psychic'), 'owned-item');
+  assert.equal(gate('Ursula', 'giants'), 'stolen-item');
+  assert.deepEqual(CHARACTER_ABILITIES['toons:Ursula'].find(r => r.tag === 'aquatic').formGate.appliesTo, ['water-control']);
+  assert.equal(gate('King Triton', 'magic'), 'owned-item');
+  assert.equal(gate('Maleficent', 'giants'), 'self-transformation');
+  const TYPES = ['owned-item', 'stolen-item', 'wish-form', 'self-transformation'];
+  for (const [n, r] of disneyRecords()) if (r.formGate) assert.ok(TYPES.includes(r.formGate.type) && r.formGate.note, n + ' ' + r.tag);
+});

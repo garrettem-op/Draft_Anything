@@ -48,6 +48,55 @@ Everyone else is audited with no qualifying power. Jasmine only rides Carpet as 
 
 Identity rulings in `data/campaign.js`, also worth a look: Ariel is in **Young Guns** (she says she is sixteen) and **Seeing Red** (red hair). Sebastian, Mushu and Captain Hook are in Seeing Red; Gaston is left out. **No Powers Allowed** includes Aladdin, Jasmine, Belle, Gaston, Quasimodo, Esmeralda, Frollo, Phoebus, Shan Yu, Anna, Lilo, Captain Hook, Snow White and Cinderella.
 
+## Evidence review (PR #55, 2026-11-10)
+
+The first pass leaned on Wikipedia, Fandom, TV Tropes and Comic Vine. Every Disney record now says how far its feat is confirmed:
+
+- `verified`: the feat itself is confirmed by an official, editorial or dialogue source (`verifiedBy`).
+- `provisional`: only community sources so far. The tag is still granted; these are leads to confirm, not confirmed canon.
+- `owner-ruling`: granted or settled by the owner (the six approved powers above, and Peter Pan's flight).
+
+Every verified or provisional record also carries a `scene`: the film and sequence where the feat happens.
+
+| Character | Tag | Status | Confirmed by |
+| --- | --- | --- | --- |
+| Genie | magic | verified | IMDb dialogue record: Genie's power turns snake-Jafar into a genie |
+| Genie | flight | provisional | |
+| Aladdin | flight (mount) | provisional | |
+| Jafar | giants | verified | IMDb dialogue record: the giant cobra squeezes Aladdin |
+| Jafar | magic, psychic | provisional | |
+| Jafar | fire | provisional | TV Tropes only. Feat reworded so it no longer reads as confirmed. |
+| Ariel | aquatic | verified | Disney+ (mermaid living under the sea) |
+| Ursula | aquatic (incl. water control) | verified | Dialogue record of the trident finale; D23 for identity |
+| Ursula | magic, giants | provisional | D23 confirms "sea witch" (identity only) |
+| King Triton | aquatic | verified | D23 ("ruler of the seas") |
+| King Triton | magic (trident) | provisional | |
+| Sebastian | aquatic | verified | D23 (Triton's crab court composer) |
+| Mushu | fire | provisional | |
+| Hades | fire | verified | NBC Los Angeles (his head flame shows his temper) |
+| Hades | teleport | provisional | |
+| Maleficent | magic, giants, fire, teleport | verified | TCM film synopsis: the christening curse, vanishing in a burst of fire, the dragon's fiery breath |
+| Peter Pan | flight | owner-ruling | Settled |
+| Genie giants and teleport, Hades magic, Lumière, Beast, Esmeralda | | owner-ruling | Approved 2026-11-10 |
+
+Maleficent's teleport no longer cites Comic Vine. D23 Disney A to Z entries are one-line identity notes, so they confirm what a character is (sea witch, crab, ruler of the seas) but not a specific feat.
+
+## Form and item gates (owner decision needed)
+
+Campaign reads only `CHARACTER_ABILITY_TAGS`, so a tag counts for the base character every time. `limitation` and the new `formGate` field are information only; nothing enforces them. That is the existing practice across the roster (for example Ganondorf's teleport in Beast form and Mario's power-ups). The Disney records now label each dependency:
+
+| Gate | Records |
+| --- | --- |
+| `owned-item`: an item he always carries | Jafar magic and psychic (cobra staff), King Triton magic (trident) |
+| `wish-form`: a form granted by Genie | Jafar giants (cobra) and fire (sorcerer) |
+| `stolen-item`: needs Triton's trident | Ursula giants, Ursula water control (her water-breathing and swimming are her own) |
+| `self-transformation`: her own magic | Maleficent giants and fire (dragon) |
+
+Options for the owner:
+1. Keep all of them (current behavior).
+2. Base identity only: wish forms and stolen items move to the research queue until Campaign variants (Genie Jafar, Giant Ursula) carry them. Jafar loses giants and fire; Ursula loses giants.
+3. Gate in the engine using `formGate`. This is ChatGPT's area.
+
 ## ToonForce
 
 Genie only: score 95, facets comedy 96, resilience 84, body 99, props/environment 95, fourth wall 90, sports 62 (no sports feats, so the sports facet is low). Everyone else stays at ×1.00. He has no Battle Royale exceptional-power entry; his biggest feats need a master's wish.
