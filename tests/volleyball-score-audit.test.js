@@ -55,4 +55,4 @@ assert(Math.abs(twoSim-research.quartiles.top_two_share['50'])<.07,'top-two conc
 assert(Math.abs(balanced-research.balanced_rate)<.12,'balanced match frequency diverged');
 assert(Math.abs(dominant-research.dominant_rate)<.12,'dominant match frequency diverged');
 console.log(JSON.stringify({research:{median,p25,p75,p90,balanced:research.balanced_rate,dominant:research.dominant_rate},sim:{medianSim,p25Sim,p75Sim,p90Sim,twoSim,balanced,dominant}},null,2));
-console.log('Passed men's volleyball scoring calibration regression.');
+console.log("Passed men's volleyball scoring calibration regression.");
