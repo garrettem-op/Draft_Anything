@@ -1223,9 +1223,11 @@ function teamScore(sportKey, roster) {
   const syn = synergyOf(sportKey, roster);
   const sig = sigOf(rows);
   const variety = sp.fight ? brawlVariety(rows) : null;
-  const baseRating=playerScore*mult+syn.total+sig.lift+(variety?variety.pts:0);
+  // Alternate forms use the same rating pipeline in every draft mode.
+  const variantBonus=rows.reduce((sum,r)=>sum+(Number(r.cand?.variantRatingBonus)||0),0);
+  const baseRating=playerScore*mult+syn.total+sig.lift+(variety?variety.pts:0)+variantBonus;
   const muppetTeam=muppetForceTeamwork(roster,sp.pos,baseRating);
-  return { rating:baseRating+muppetTeam.points, playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety, muppetTeam };
+  return { rating:baseRating+muppetTeam.points, playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety, muppetTeam, variantBonus };
 }
 
 function grade(f) {
@@ -3562,7 +3564,7 @@ async function copyText(txt) { try { await navigator.clipboard.writeText(txt); t
 const HAND_SIZE = 3, REDEALS = 3, RESERVE_HAND = 6;
 // Balanced Dealt Hand rivals judge their hands with human-sized mistakes (sharp = perfect judgment).
 const RIVAL_NOISE = { sharp: 0, balanced: 20 };
-const BOARD_DEFAULTS = { campaignMode: false, stage: 'setup', sport: 'basketball', poolId: 'nba', opps: 7, upsets: 'off', showRatings: false, teamName: '', roster: {}, sel: null, query: '', result: null, style: 'open', hand: [], redeals: 3, handSel: null, seen: [], rivals: 'balanced', champRivals: 'stack', format: 'quick' };
+const BOARD_DEFAULTS = { campaignMode: false, stage: 'setup', sport: 'basketball', poolId: 'nba', opps: 7, upsets: 'off', showRatings: false, teamName: '', roster: {}, sel: null, query: '', result: null, style: 'open', hand: [], redeals: 3, handSel: null, seen: [], rivals: 'balanced', champRivals: 'stack', format: 'quick', surge: null, variantTarget: null, variantSeed: null };
 const BOARD_KEYS = { champ: 'da.champ', deal: 'da.deal' };
 function loadBoard(mode) {
   const saved = lsGet(BOARD_KEYS[mode], {});
@@ -3570,6 +3572,8 @@ function loadBoard(mode) {
   st.style = mode === 'deal' ? 'hand' : 'open';
   if (mode === 'deal' && !saved.rv2 && !saved.queue) st.rivals = 'balanced'; // new default rival setting
   st.rv2 = true;
+  if (!st.variantSeed) st.variantSeed=Date.now().toString(36)+':'+Math.random().toString(36).slice(2);
+  if (!st.surge?.id || !st.surge?.name) st.surge=null;
   if (mode === 'champ' && saved.style === 'hand') { st.roster = {}; st.stage = 'setup'; } // Dealt Hand drafts moved to their own mode
   st.stage = st.stage === 'results' ? 'draft' : st.stage; // results are not persisted
   st.result = null; st.sel = null; st.handSel = null;
@@ -3591,7 +3595,7 @@ const S = {
 function saveChamp() {
   if (S.mode === 'h2h' || S.mode === 'grid') return;
   const c = S.champ;
-  lsSet(BOARD_KEYS[S.mode], { campaignMode: !!c.campaignMode, stage: c.stage, sport: c.sport, poolId: c.poolId, opps: c.opps, upsets: c.upsets, rivals: c.rivals, rv2: true, champRivals: c.champRivals, format: c.format, teamName: c.teamName, roster: Object.fromEntries(Object.entries(c.roster).map(([k, v]) => [k, v.id])), style: c.style, hand: (c.hand || []).map(x => x.id), seen: c.seen || [], redeals: c.redeals, queue: c.queue || null, pickIdx: c.pickIdx || 0, draftOpps: c.draftOpps || null, ai: c.ai ? c.ai.map(r => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, v.id]))) : null });
+  lsSet(BOARD_KEYS[S.mode], { campaignMode: !!c.campaignMode, stage: c.stage, sport: c.sport, poolId: c.poolId, opps: c.opps, upsets: c.upsets, rivals: c.rivals, rv2: true, champRivals: c.champRivals, format: c.format, teamName: c.teamName, roster: Object.fromEntries(Object.entries(c.roster).map(([k, v]) => [k, v.id])), surge: c.surge || null, variantTarget: c.variantTarget || null, variantSeed: c.variantSeed, style: c.style, hand: (c.hand || []).map(x => x.id), seen: c.seen || [], redeals: c.redeals, queue: c.queue || null, pickIdx: c.pickIdx || 0, draftOpps: c.draftOpps || null, ai: c.ai ? c.ai.map(r => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, v.id]))) : null });
 }
 
 // ----- Pools -----
@@ -3632,7 +3636,7 @@ function restoreBoard(st, key) {
   if (st.hand.length < (lsGet(key, {}).hand || []).length) lost = true;
   // drafts saved before the roster grew (e.g. the Bench Spark slot) can't resume
   if (Array.isArray(st.queue) && SPORTS[st.sport] && st.queue.length !== ((st.draftOpps || 0) + 1) * SPORTS[st.sport].pos.length) lost = true;
-  if (!okPool || lost) { st.roster = {}; st.hand = []; st.redeals = REDEALS; st.queue = null; st.ai = null; st.pickIdx = 0; st.seen = []; st.draftOpps = null; }
+  if (!okPool || lost) { st.roster = {}; st.hand = []; st.redeals = REDEALS; st.queue = null; st.ai = null; st.pickIdx = 0; st.seen = []; st.draftOpps = null; st.surge=null; st.variantTarget=null; }
 }
 restoreBoard(S.boards.champ, BOARD_KEYS.champ);
 restoreBoard(S.boards.deal, BOARD_KEYS.deal);
@@ -3653,6 +3657,20 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkDaily
 // ----- Shared render bits -----
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
 function sigLine(c) { return c.sig ? `<small class="sig">Signature move · ${esc(c.sig.name)}</small>` : ''; }
+// One shared controls component for Perfect Season, Campaign, Dealt Hand and H2H.
+function renderVariantSurgePanel(v,action,input,ready,label='draft') {
+  const choices=variantSurgeCandidates(v),selected=choices.find(c=>c.id===v.variantTarget)||choices[0];
+  if(!v.surge&&selected)v.variantTarget=selected.id;
+  const active=variantForm(v);
+  return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
+    <div class="row" style="justify-content:space-between">
+      <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per ${esc(label)}: transform ONE drafted character into a random documented alternate form. Removing the character never refunds the charge.</p></div>
+      <button type="button" class="btn ${v.surge?'':'primary'}" data-act="${action}" ${v.surge||!choices.length||!ready?'disabled':''}>${v.surge?'Surge spent':'Activate surge'}</button>
+    </div>
+    ${!v.surge&&choices.length?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="${input}" id="${input}">${choices.map(c=>`<option value="${esc(c.id)}" ${selected?.id===c.id?'selected':''}>${esc(c.n)} · ${variantOptions(c).length} possible forms</option>`).join('')}</select></label>`:''}
+    <p class="note" style="margin:8px 0 0">${v.surge?(active?'Active: '+esc(active.base.n)+' → '+esc(active.form.name)+' · '+esc(active.form.origin):'Surge spent; transformed character no longer on roster.'):(choices.length?choices.length+' eligible character(s) on your roster.'+(ready?' A random form will be selected from the chosen character’s catalog.':' Complete the lineup to activate.'):'No eligible alternate-form characters drafted yet.')}</p>
+  </div>`;
+}
 function shortName(n) { if (n.length <= 12) return n; const w = n.split(' '); return w[w.length - 1].length > 2 ? w[w.length - 1] : w.slice(-2).join(' '); }
 function needsText(pos) { if (pos.tank) return ['Physical resilience', 'Reflexes']; if (pos.styles) return pos.styles.map(st => st.name); const t = pos.keys.map(i => ATTRS[i].n); return pos.dh ? ['Contact', 'Power'] : pos.bats ? [...t, '+ bats'] : t; }
 function bars(c, pos) { return `<span class="bars" title="Attribute profile; highlighted bars are this role's key traits">${c.a.map((v, i) => `<i class="${pos.keys.includes(i) ? 'k' : ''}" style="height:${Math.max(2, v / 99 * 22)}px" title="${ATTRS[i].n} ${v}"></i>`).join('')}</span>`; }
@@ -3883,7 +3901,7 @@ function dealHand() {
 }
 // A redeal is allowed only if enough unseen candidates remain for every later hand.
 function canRedeal() { const c = S.champ; return c.redeals > 0 && freshCands().length >= HAND_SIZE * userRoundsLeft(); }
-function resetDraft() { const c = S.champ; c.roster = {}; c.hand = []; c.seen = []; c.handSel = null; c.sel = null; c.redeals = REDEALS; c.result = null; c.queue = null; c.ai = null; c.pickIdx = 0; c.draftOpps = null; }
+function resetDraft() { const c = S.champ; c.roster = {}; c.hand = []; c.seen = []; c.handSel = null; c.sel = null; c.redeals = REDEALS; c.result = null; c.queue = null; c.ai = null; c.pickIdx = 0; c.draftOpps = null; c.surge=null; c.variantTarget=null; c.variantSeed=Date.now().toString(36)+':'+Math.random().toString(36).slice(2); }
 // Live snake draft: you and the rival teams take turns, each pick from a dealt hand. Queue entry 0 = you, k = rival k.
 function initHandDraft() {
   const c = S.champ, T = c.opps + 1, P = SPORTS[c.sport].pos.length;
@@ -4093,7 +4111,8 @@ function renderChampDraft() {
       <span class="chip"><span class="num">${filled}/${sp.pos.length}</span> ${handMode() ? 'filled' : 'cast'}</span>${handMode() ? `<span class="chip">${c.opps} rival teams</span>${selectedHandCharacter ? `<button class="btn primary hand-reselect-btn" data-act="hand-reselect">↶ Change character</button>` : ""}` : ""}
       <button class="btn" data-act="c-setup">Change setup</button>
       ${handMode() ? `<button class="btn primary" data-act="c-sim" ${full ? '' : 'disabled'}>Simulate championship</button>` : `<button class="btn" data-act="c-share" ${full ? '' : 'disabled'}>Share lineup</button><button class="btn primary" data-act="c-sim" ${full ? '' : 'disabled'}>Play the season</button>`}</div>
-    <div class="board ${handMode() ? 'hand' : ''}"><div>${renderField(c.sport, c.roster, { sel: c.sel, interactive: true, lockFilled: handMode(), targets: handMode() && !!c.handSel })}</div><div class="board-side">${panel}</div></div>`;
+    ${renderVariantSurgePanel(c,'c-variant','c-variant-target',full,handMode()?'draft':'season')}
+    <div class="board ${handMode() ? 'hand' : ''}"><div>${renderField(c.sport, variantRoster(c), { sel: c.sel, interactive: true, lockFilled: handMode(), targets: handMode() && !!c.handSel })}</div><div class="board-side">${panel}</div></div>`;
 }
 
 // ----- Championship: simulate + results -----
@@ -4110,7 +4129,7 @@ function runChampionship() {
     : c.champRivals === 'even' ? aiDraft(c.sport, remaining, c.opps, rng) : aiStackDraft(c.sport, remaining, c.opps);
   const mineName = (c.teamName || '').trim() || suggestedTeamName(c.poolId);
   const names = poolRivalTeamNames(c.poolId, c.opps, rng, mineName);
-  const teams = [{ name: mineName, roster: c.roster, user: true }, ...ai.map((r, i) => ({ name: names[i], roster: r }))];
+  const teams = [{ name: mineName, roster: variantRoster(c), user: true }, ...ai.map((r, i) => ({ name: names[i], roster: r }))];
   for (const t of teams) t.score = teamScore(c.sport, t.roster);
   const season = c.format === 'season';
   const sim = season ? simSeason(c.sport, teams, rng) : simChampionship(c.sport, teams, UPSET_SIGMA[c.upsets], rng);
@@ -4272,7 +4291,7 @@ function runPerfectSeason() {
   const rng = rngFrom(Date.now() + ':' + Math.random());
   const opp = buildCrossLeague(c.sport, c.poolId, c.roster, rng);
   const names = aiTeamNames(opp.length, rng);
-  const teams = [{ name: c.teamName || 'Your team', roster: c.roster, user: true, u: c.poolId }, ...opp.map((t, i) => ({ name: names[i], roster: t.roster, u: t.u, elite: t.elite }))];
+  const teams = [{ name: c.teamName || 'Your team', roster: variantRoster(c), user: true, u: c.poolId }, ...opp.map((t, i) => ({ name: names[i], roster: t.roster, u: t.u, elite: t.elite }))];
   for (const t of teams) t.score = teamScore(c.sport, t.roster);
   const sim = simSeason(c.sport, teams, rng);
   const pi = perfectInfo(sim);
@@ -4428,7 +4447,7 @@ async function shareLineup() {
   const c = S.champ, R = c.result;
   const badge = R && R.perfect ? (R.perfect.perfect ? 'PERFECT SEASON' : `${R.perfect.regW}–${R.perfect.regGames - R.perfect.regW}${R.sim.champ === 0 ? ' · CHAMPS' : ''}`) : '';
   let blob;
-  try { blob = await lineupCardBlob({ sport: c.sport, poolId: c.poolId, roster: c.roster, teamName: c.teamName, badge }); } catch (e) { toast('Could not draw the lineup image.'); return; }
+  try { blob = await lineupCardBlob({ sport: c.sport, poolId: c.poolId, roster: variantRoster(c), teamName: c.teamName, badge }); } catch (e) { toast('Could not draw the lineup image.'); return; }
   if (!blob) { toast('Could not draw the lineup image.'); return; }
   const fname = ((c.teamName || 'my-team').replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '-').toLowerCase() || 'my-team') + '-lineup.png';
   const dl = window.claude && typeof window.claude.use === 'function' ? await window.claude.use('downloads').catch(() => null) : null;
@@ -4453,7 +4472,7 @@ function renderShareModal() {
 }
 
 // ===== Head-to-head: shared contests in the artifact's db =====
-S.h2h = Object.assign({ stage: 'lobby', cid: null, sel: null, query: '', joinCode: '', busy: false, err: '', contests: [], contest: null },
+S.h2h = Object.assign({ stage: 'lobby', cid: null, sel: null, query: '', variantTarget: null, joinCode: '', busy: false, err: '', contests: [], contest: null },
   { form: Object.assign({ sport: 'basketball', poolId: 'nba', teamName: '', timer: 60, order: 'snake', first: 'coin', style: 'free', upsets: 'off' }, lsGet('da.h2hform', {})) });
 const TAB_ID = Math.random().toString(36).slice(2, 8);
 let unsubRoom = null;
@@ -4468,6 +4487,7 @@ function sideForPick(k, d) {
 function forcedSlot(k, d) { return d.rules.style === 'position' ? (SPORTS[d.sport].pos[Math.floor(k / 2)] || {}).id || null : null; }
 function totalPicks(d) { return SPORTS[d.sport].pos.length * 2; }
 function rosterOf(d, side) { const r = {}; for (const p of d.picks || []) if (p.s === side) { const c = candById(d.poolId, p.cid); if (c) r[p.slot] = c; } return r; }
+function h2hRoster(d,side) {return variantRoster({sport:d.sport,roster:rosterOf(d,side),surge:d.surges?.[side]||null});}
 function mySide(d) { const u = S.cap.uid; return !d || !u ? null : d.host === u ? 'host' : d.guest === u ? 'guest' : null; }
 function contestName(d, side) { return (d.names && d.names[side]) || suggestedTeamName(d.poolId, side === 'host' ? 0 : 1, side === 'host' ? 'Home team' : 'Away team'); }
 function timerLabel(t) { return !t ? 'No clock' : t < 60 ? t + 's per pick' : (t / 60) + ' min per pick'; }
@@ -4496,7 +4516,7 @@ function subscribePools() {
 }
 function openRoom(id) {
   if (unsubRoom) { unsubRoom(); unsubRoom = null; }
-  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
+  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.variantTarget=null; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
   unsubRoom = S.cap.db.doc('contests/' + id).onSnapshot(snap => {
     const prev = S.h2h.contest;
     S.h2h.contest = snap.exists ? { id: snap.id, ...snap.data() } : null;
@@ -4531,7 +4551,7 @@ async function createContest() {
   S.h2h.busy = true; S.h2h.err = ''; render();
   const now = Date.now();
   const doc = { code: makeCode(), sport: f.sport, poolId: f.poolId, poolName: getPool(f.poolId).name, rules: { timer: f.timer, order: f.order, first: f.first, style: f.style, upsets: f.upsets },
-    status: 'waiting', host: S.cap.uid, guest: null, names: { host: ((f.teamName || '').trim() || suggestedTeamName(f.poolId, 0, 'Home team')).slice(0, 32), guest: '' }, firstSide: null, picks: [], deadline: 0, createdAt: now, updatedAt: now };
+    status: 'waiting', host: S.cap.uid, guest: null, names: { host: ((f.teamName || '').trim() || suggestedTeamName(f.poolId, 0, 'Home team')).slice(0, 32), guest: '' }, firstSide: null, picks: [], surges: {}, powerReady: {}, deadline: 0, createdAt: now, updatedAt: now };
   try { const ref = await db.collection('contests').add(doc); S.h2h.busy = false; openRoom(ref.id); }
   catch (e) { S.h2h.busy = false; S.h2h.err = dbErr(e); render(); }
 }
@@ -4598,13 +4618,44 @@ async function makePick(slot, cid, auto = false, expectK = null) {
       if (d.picks.some(p => p.s === side && p.slot === slot)) throw { code: 'filled' };
       const picks = [...d.picks, { s: side, slot, cid, at: Date.now(), auto: !!auto }];
       const done = picks.length === totalPicks(d), now = Date.now();
-      await ref.update({ picks, status: done ? 'complete' : 'drafting', deadline: done || !d.rules.timer ? 0 : now + d.rules.timer * 1000, updatedAt: now });
+      await ref.update({ picks, status: done ? 'powers' : 'drafting', deadline: done || !d.rules.timer ? 0 : now + d.rules.timer * 1000, updatedAt: now });
     });
     S.h2h.sel = null; S.h2h.query = '';
   } catch (e) {
     const m = { turn: 'It’s not your pick yet.', gone: 'Just taken by your opponent. Pick someone else.', filled: 'You already filled that spot.', forced: 'This round fills a specific position.' }[e.code];
     if (m) toast(m); else if (e.code !== 'stale') toast(dbErr(e));
   } finally { picking = false; }
+}
+// Both H2H players can choose one documented alternate form and lock abilities
+// before scoring. This prevents a final pick from bypassing the Surge option.
+async function useH2HVariant() {
+  const side=mySide(S.h2h.contest),id=S.h2h.cid;
+  if(!side||!id)return;
+  const ref=S.cap.db.doc('contests/'+id);
+  try{
+    await withLease(ref,async()=>{
+      const d=(await ref.get()).data();
+      if(!d||d.status!=='powers'||d.powerReady?.[side])throw {code:'stale'};
+      const v={sport:d.sport,roster:rosterOf(d,side),surge:d.surges?.[side]||null};
+      const target=S.h2h.variantTarget||variantSurgeCandidates(v)[0]?.id;
+      const surge=useVariantSurge(v,target,'h2h|'+id+'|'+side);
+      if(!surge)throw {code:'no_variant'};
+      await ref.update({surges:{...(d.surges||{}),[side]:surge},updatedAt:Date.now()});
+    });
+  }catch(e){toast(e.code==='no_variant'?'Variant Surge already used or no eligible character selected.':dbErr(e));}
+}
+async function lockH2HAbilities(){
+  const side=mySide(S.h2h.contest),id=S.h2h.cid;
+  if(!side||!id)return;
+  const ref=S.cap.db.doc('contests/'+id);
+  try{
+    await withLease(ref,async()=>{
+      const d=(await ref.get()).data();
+      if(!d||d.status!=='powers'||d.powerReady?.[side])throw {code:'stale'};
+      const ready={...(d.powerReady||{}),[side]:true};
+      await ref.update({powerReady:ready,status:ready.host&&ready.guest?'complete':'powers',updatedAt:Date.now()});
+    });
+  }catch(e){if(e.code!=='stale')toast(dbErr(e));}
 }
 // Clock: updates the countdown and auto-picks when time runs out
 setInterval(() => {
@@ -4634,7 +4685,7 @@ function renderLobby() {
   const mine = live.filter(c => c.host === uid || c.guest === uid);
   const open = live.filter(c => c.status === 'waiting' && c.host !== uid && Date.now() - (c.createdAt || 0) < 7 * 864e5);
   const enough = getCands(f.poolId).length >= SPORTS[f.sport].pos.length * 2;
-  const row = (c, btn) => `<div class="contest"><div><b>${esc(contestName(c, 'host'))}${c.guest ? ' vs ' + esc(contestName(c, 'guest')) : ''}</b><br><small>${esc(SPORTS[c.sport]?.name || '')} · ${esc(c.poolName || '')} · <span class="code">${esc(c.code)}</span> · ${c.status === 'waiting' ? 'waiting for opponent' : c.status === 'drafting' ? 'drafting, pick ' + ((c.picks || []).length + 1) : 'final'}</small></div>${btn}</div>`;
+  const row = (c, btn) => `<div class="contest"><div><b>${esc(contestName(c, 'host'))}${c.guest ? ' vs ' + esc(contestName(c, 'guest')) : ''}</b><br><small>${esc(SPORTS[c.sport]?.name || '')} · ${esc(c.poolName || '')} · <span class="code">${esc(c.code)}</span> · ${c.status === 'waiting' ? 'waiting for opponent' : c.status === 'drafting' ? 'drafting, pick ' + ((c.picks || []).length + 1) : c.status === 'powers' ? 'abilities lock-in' : 'final'}</small></div>${btn}</div>`;
   return `<section class="lobby">
     <div class="stack">
       <div class="step-head"><span class="n">1</span><h2 class="h">Create a contest</h2></div>
@@ -4677,6 +4728,7 @@ function renderRoom() {
       <span class="note">Waiting for an opponent…</span></div>`;
   }
   if (d.status === 'complete') return head('') + renderH2HResult(d);
+  if (d.status === 'powers') return head('') + renderH2HPowers(d);
   // drafting
   const k = d.picks.length, onSide = sideForPick(k, d), myTurn = onSide === me, forced = forcedSlot(k, d);
   if (myTurn && forced) S.h2h.sel = forced;
@@ -4692,9 +4744,25 @@ function renderRoom() {
      <div><div class="mini-head"><b>${esc(contestName(d, oppSide))}</b><span class="num muted">${Object.keys(oppR).length}/${sp.pos.length}</span></div>${renderField(d.sport, oppR, { team: 'opp', interactive: false })}</div>
      <div>${picker}</div></div>`;
 }
+function renderH2HPowers(d){
+  const me=mySide(d),opp=me==='guest'?'host':'guest';
+  const myR=rosterOf(d,me||'host'),theirR=rosterOf(d,opp);
+  const ready=!!(me&&d.powerReady?.[me]);
+  const v={sport:d.sport,roster:myR,surge:me?d.surges?.[me]||null:null,variantTarget:S.h2h.variantTarget};
+  const status=me?(ready?'Your abilities are locked. Waiting for opponent.':'Activate your optional Surge, then lock your lineup to begin the match.'):'Players are locking their abilities.';
+  return `<section>
+    <div class="panel" style="padding:16px;margin-bottom:14px"><h2 class="h">Final ability lock-in</h2><p class="note">${status} Each team can use Variant Surge once, or skip it. The match starts only after both players lock.</p>
+      <div class="row"><span class="chip">Host: ${d.powerReady?.host?'Locked':'Choosing'}</span><span class="chip">Guest: ${d.powerReady?.guest?'Locked':'Choosing'}</span></div>
+    </div>
+    ${me&&!ready?renderVariantSurgePanel(v,'h-variant','h-variant-target',true,'match'):me&&ready?'<div class="panel" style="padding:14px;margin-bottom:14px"><b>Your lineup is locked.</b></div>':''}
+    ${me&&!ready?'<div class="cta-row"><button class="btn primary" data-act="h-ready">Lock lineup & start match</button><span class="note">You can skip the Surge.</span></div>':''}
+    <div class="board h2h"><div><div class="mini-head"><b>${esc(contestName(d,me||'host'))}</b></div>${renderField(d.sport,h2hRoster(d,me||'host'),{interactive:false})}</div>
+    <div><div class="mini-head"><b>${esc(contestName(d,opp))}</b></div>${renderField(d.sport,h2hRoster(d,opp),{team:'opp',interactive:false})}</div></div>
+  </section>`;
+}
 function renderH2HResult(d) {
   const sp = SPORTS[d.sport], me = mySide(d) || 'host', opp = me === 'host' ? 'guest' : 'host';
-  const A = teamScore(d.sport, rosterOf(d, 'host')), B = teamScore(d.sport, rosterOf(d, 'guest'));
+  const A = teamScore(d.sport, h2hRoster(d, 'host')), B = teamScore(d.sport, h2hRoster(d, 'guest'));
   const g = simH2H(d.sport, A, B, d.rules.upsets, d.id);
   const winSide = g.winner === 0 ? 'host' : 'guest', loseSide = winSide === 'host' ? 'guest' : 'host';
   const sc = { host: A, guest: B };
@@ -4975,7 +5043,7 @@ function render() {
   else if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
+  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && ['drafting','powers'].includes(S.h2h.contest?.status);
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
@@ -5282,6 +5350,13 @@ document.addEventListener('click', e => {
     case 'c-pick': { const cand = candById(c.poolId, t.dataset.cid); if (!cand || !c.sel) break; c.roster[c.sel] = cand; c.query = ''; c.sel = window.innerWidth < 900 ? null : nextEmpty(c.sport, c.roster, c.sel); break; }
     case 'c-remove': delete c.roster[c.sel]; break;
     case 'c-random': { const have = new Set(Object.values(c.roster).map(x => x.id)); const pool = getCands(c.poolId).filter(x => !have.has(x.id)).sort(() => Math.random() - 0.5); for (const p of SPORTS[c.sport].pos) if (!c.roster[p.id]) c.roster[p.id] = pool.pop(); c.sel = null; break; }
+    case 'c-variant': {
+      if(!rosterFull(c.sport,c.roster)) {toast('Complete the lineup before activating Variant Surge.');break;}
+      const surge=useVariantSurge(c,c.variantTarget,'board|'+c.variantSeed);
+      if(surge)toast('Variant Surge: '+surge.name+'! Transformation locked for this draft.');
+      else toast('Variant Surge unavailable for the selected character.');
+      break;
+    }
     case 'c-sim': case 'c-rerun': runChampionship(); window.scrollTo(0, 0); break;
     case 'c-edit': c.stage = 'draft'; c.result = null; break;
     case 'c-copy': copyText(champResultText()); return;
@@ -5304,6 +5379,8 @@ document.addEventListener('click', e => {
     case 'h-close': h.sel = null; break;
     case 'h-pick': if (h.sel) makePick(h.sel, t.dataset.cid); return;
     case 'h-copy-invite': copyText(t.dataset.text); return;
+    case 'h-variant': void useH2HVariant(); return;
+    case 'h-ready': void lockH2HAbilities(); return;
     case 'h-rematch': rematch(); return;
   }
   saveChamp();
@@ -5316,6 +5393,8 @@ document.addEventListener('input', e => {
   if (k === 'grid-query') {S.daily.query=v; render();}
   else if (k === 'camp-team') { S.campaign.teamName=v; saveCampaign(); }
   else if (k === 'camp-variant-target') { S.campaign.variantTarget=v; render(); }
+  else if (k === 'c-variant-target') { S.champ.variantTarget=v; saveChamp(); render(); }
+  else if (k === 'h-variant-target') { S.h2h.variantTarget=v; render(); }
   else if (k === 'camp-dispute-claim') { S.campaign.disputeClaim=v; }
   else if (k === 'camp-dispute-source') { S.campaign.disputeSource=v; }
   else if (k === 'camp-query') { S.campaign.query=v; render(); }
