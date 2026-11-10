@@ -573,25 +573,52 @@ function renderCampaignDraft(){
   </section>`;
 }
 function campaignPlay(){
-  if(!campaignReady())return toast(campaignStage().criteria?.minDistinctPools?'Fill the roster and represent at least '+campaignStage().criteria.minDistinctPools+' different talent pools.':'Fill all available roster spots first.');
+  const v=S.campaign,st=campaignStage();
+  if(!campaignReady())return toast(st.criteria?.minDistinctPools?'Fill the roster and represent at least '+st.criteria.minDistinctPools+' different talent pools.':'Fill all available roster spots first.');
   if(!campaignQualified()){
-    S.campaign.validation='The highlighted characters do not meet this challenge’s requirements.';
-    S.campaign.validationOpen=true;
+    v.validation='The highlighted characters do not meet this challenge’s requirements.';
+    v.validationOpen=true;
     return;
   }
-  S.campaign.validation='';S.campaign.validationOpen=false;
-  const v=S.campaign,st=campaignStage(),gameSeed=campaignStageSeed(v)+':match',rng=rngFrom(gameSeed);
-  const activeRoster=campaignVariantRoster(v),score=teamScore(v.sport,activeRoster);
-  const opp=campaignLockedOpponent(v,st);
-  const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
-  if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
-  const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
-  score.rating+=tactics.yourPoints;
-  opp.score.rating+=tactics.rivalPoints;
-  // Encounter and RNG are fixed for the stage: no reroll through retry.
-  const game=playGame(v.sport,score,opp.score,SEASONS[v.sport].sigma*1.1,rng,true);
-  const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
-  v.result={win,ourPoints,theirPoints,commander,tactics,variant:campaignVariantForm(v)?{base:campaignVariantForm(v).base.n,form:campaignVariantForm(v).form.name}:null,opponentNames:Object.values(opp.roster).map(c=>c.n),breakdownHTML:daMatchBreakdown(game.breakdown,score,opp.score,v.teamName,st.rival),report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),opponentReport:daReport(v.sport,opp.score,theirPoints,st.rival,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
+  v.validation='';v.validationOpen=false;
+  const activeRoster=campaignVariantRoster(v);
+  const first=campaignLockedOpponent(v,st);
+  const encounters=[{name:st.rival,opponent:first}];
+  if(st.criteria?.encounters===2)encounters.push({
+    name:'The Nexus Champion',opponent:campaignFinalBossOpponent(v,st,first)
+  });
+  const variant=campaignVariantForm(v);
+  const rounds=encounters.map(({name,opponent:opp},index)=>{
+    // Each fight has independently seeded results and tactical scores. The
+    // same roster and one-use Variant Surge play BOTH fights in the finale.
+    const gameSeed=campaignStageSeed(v)+':match'+(index?':boss-'+index:'');
+    const score=teamScore(v.sport,activeRoster);
+    const oppScore={...opp.score};
+    const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
+    if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
+    const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
+    score.rating+=tactics.yourPoints;
+    oppScore.rating+=tactics.rivalPoints;
+    const game=playGame(v.sport,score,oppScore,SEASONS[v.sport].sigma*1.1,rngFrom(gameSeed),true);
+    const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
+    return {win,name,ourPoints,theirPoints,commander,tactics,
+      opponentNames:Object.values(opp.roster).map(c=>c.n),
+      breakdownHTML:daMatchBreakdown(game.breakdown,score,oppScore,v.teamName,name),
+      report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),
+      opponentReport:daReport(v.sport,oppScore,theirPoints,name,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),
+      note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+oppScore.rating.toFixed(1)};
+  });
+  const success=rounds.every(round=>round.win);
+  const deciding=rounds.find(round=>!round.win)||rounds[rounds.length-1];
+  v.result={...deciding,win:success,opponent:deciding.name,
+    finalRounds:rounds.length>1?rounds.map(round=>({
+      name:round.name,win:round.win,ourPoints:round.ourPoints,
+      theirPoints:round.theirPoints,ourRating:round.ourRating,
+      theirRating:round.theirRating
+    })):null,
+    variant:variant?{base:variant.base.n,form:variant.form.name}:null,
+    names:Object.values(v.roster).map(c=>c.n),
+    ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
 }
 function campaignOrigin(c){
@@ -707,6 +734,11 @@ function renderCampaignResults(){
     <p>${r.win?'You cleared this stage.':'Your wins remain saved. Rework your lineup to change the outcome; an unchanged lineup produces the same result.'}</p>
     <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
   </div>
+  ${r.finalRounds?.length?`<div class="panel" style="padding:16px;margin-top:14px"><h3 class="h">Multiverse Siege · Two bosses</h3>
+    <p class="note">Your full-strength alliance must defeat BOTH opponents to claim the campaign crown. Each fight is fixed for this challenge.</p>
+    <div style="display:grid;gap:8px;margin-top:10px">${r.finalRounds.map((round,i)=>`<div class="row" style="justify-content:space-between;gap:10px"><b>${i+1}. ${esc(round.name)}</b><span class="num">${esc(round.ourPoints)}–${esc(round.theirPoints)} · ${round.win?'Victory':'Defeat'}</span></div>`).join('')}</div>
+    <p class="note" style="margin:10px 0 0">${r.win?'Both bosses defeated. The campaign crown is yours.':'At least one boss still stands. Edit your alliance and try both fights again.'}</p>
+  </div>`:''}
   <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p>${r.commander?`<p class="note" style="margin:8px 0 0"><b>Commander strategy:</b> ${esc(r.commander.name)} · ${esc(r.commander.label)} · +${r.commander.percent}% team rating (+${r.commander.points.toFixed(2)}). ${esc(r.commander.reason)}</p>`:''}</div>
   ${r.tactics?`<div class="panel" style="padding:14px 16px;margin:12px 0"><h3 style="margin:0 0 8px">Matchup strategy · ${esc(r.tactics.label)}</h3>
     <p class="note" style="margin:0 0 6px">Counterplay: ${esc(r.tactics.weakness)}. Your tactical adjustment: ${r.tactics.yourPoints>=0?'+':''}${r.tactics.yourPoints.toFixed(2)} · Rival adjustment: +${r.tactics.rivalPoints.toFixed(2)} rating points.</p>
