@@ -3679,6 +3679,8 @@ function saveChamp() {
 
 // ----- Pools -----
 POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 'Every built-in pool at once, on one scale', entries: [] };
+// Legacy helper retained for existing pool/lore test harnesses.
+function mashupOnly(id) { const seen = new Set(getCands('games').map(c => c.n)); return getCands(id).filter(c => !seen.has(c.n)); }
 // Mashup selections are encoded in the pool ID so saved drafts and multiplayer
 // contests preserve the exact same universe subset across devices.
 const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'harrypotter', 'mashup'];
