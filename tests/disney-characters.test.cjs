@@ -152,3 +152,15 @@ test('form- and item-dependent Disney powers record their gate', () => {
   const TYPES = ['owned-item', 'stolen-item', 'wish-form', 'self-transformation'];
   for (const [n, r] of disneyRecords()) if (r.formGate) assert.ok(TYPES.includes(r.formGate.type) && r.formGate.note, n + ' ' + r.tag);
 });
+
+/* Owner ruling (Garrett, 2026-11-10): Peter Pan is flight-eligible for Skyborne. Settled; not a pixie-dust condition. */
+test('Peter Pan stays Skyborne-eligible under the owner ruling', () => {
+  assert.equal(accepts('Peter Pan', 'flight'), true, 'Skyborne uses the flight rule');
+  const tags = CHARACTER_ABILITY_TAGS.toons['Peter Pan'];
+  assert.ok(tags.includes('flight') && tags.includes('natural-flight'), 'reviewed index grants his own flight');
+  const r = CHARACTER_ABILITIES['toons:Peter Pan'].find(x => x.tag === 'flight');
+  assert.equal(r.verification, 'owner-ruling');
+  assert.match(r.ruling, /owner-settled/);
+  assert.equal(r.formGate, undefined, 'pixie dust is not recorded as a form or item gate');
+  assert.ok(!CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === 'toons:Peter Pan'), 'not reopened in the research queue');
+});
