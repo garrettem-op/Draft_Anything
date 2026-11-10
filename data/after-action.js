@@ -134,6 +134,12 @@ function daBoxScore(sport,score,points,seed='',options={}) {
       metric('DIG',Math.round(estimatedPoints*.54),only(['lib','s','oh1','oh2','opp']),r=>val(r,'ref')+val(r,'agi')+({lib:120,oh2:45,oh1:25}[r.position]||0),'digs');
       metric('BLK',Math.round(estimatedPoints*.075),only(['mb1','mb2','opp','oh1','oh2','s']),r=>val(r,'siz')+val(r,'lep')+({mb1:95,mb2:95,opp:40}[r.position]||0),'blocks');
       metric('ACE',Math.round(estimatedPoints*.05),null,r=>val(r,'acc')+val(r,'str'),'aces');
+      // Player points are offensive/scoring contributions, not all team rally points:
+      // kills + blocks + service aces. Digs and assists do not score points.
+      for(const r of active){
+        const stat=k=>r.stats.find(([name])=>name===k)?.[1]||0;
+        r.stats.unshift(['PTS',stat('KILLS')+stat('BLK')+stat('ACE')]);
+      }
       break;
     }
     default:metric('Scoring',total,null,r=>r.fit,'scoring');
@@ -153,7 +159,7 @@ function daReport(sport,score,points,title='',options={}) {
   const top=[...active].sort((a,b)=>b.delta-a.delta)[0];
   const low=[...active].sort((a,b)=>a.delta-b.delta)[0];
   const weakest=[...active].sort((a,b)=>a.fit-b.fit)[0];
-  const primary=({basketball:'PTS',football:'TD',brawl:'DMG',soccer:'G',hockey:'G',baseball:'R',volleyball:'KILLS'})[sport]||'Scoring';
+  const primary=({basketball:'PTS',football:'TD',brawl:'DMG',soccer:'G',hockey:'G',baseball:'R',volleyball:'PTS'})[sport]||'Scoring';
   const getMetric=r=>r.stats.find(x=>x[0]===primary)?.[1]||0;
   const leader=[...active].sort((a,b)=>getMetric(b)-getMetric(a))[0];
   const scouting=leader&&weakest?`<p class="note"><b>Scouting takeaway:</b> ${esc(leader.name)} led the roster in projected ${esc(primary)} (${getMetric(leader)}). Lowest positional fit: ${esc(weakest.name)} (${weakest.fit}) at ${esc(weakest.role)}; consider that slot first when evaluating possible upgrades. These are model estimates, not evidence of actual poor play.</p>`:'';
