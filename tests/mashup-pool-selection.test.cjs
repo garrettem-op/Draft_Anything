@@ -18,7 +18,7 @@ test('mashup starts with all pools and filters selected universes deterministica
  assert.equal(mashupPoolId(ids),'mashup');
  const custom=mashupPoolId(['mcu','nba','mcu','not-a-pool']);
  assert.equal(custom,'mashup:nba,mcu');
- assert.deepEqual(getCands(custom).map(c=>c.id),['nba:alpha','mcu:alpha']);
+ assert.deepEqual(Array.from(getCands(custom),c=>c.id),['nba:alpha','mcu:alpha']);
  assert.equal(getPool(custom).name,'All-Star Mashup · 2 pools');
  assert.equal(isMashupId(custom),true);
 });
