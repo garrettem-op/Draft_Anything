@@ -3760,18 +3760,62 @@ function characterAbilityEvidence(candidate, tag) {
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
   return (CHARACTER_ABILITIES[candidate.pool + ':' + candidate.n] || []).find(x => x.tag === broad) || null;
 }
-/* Why a character holds a tag (broad or specific): {basis:'evidence', record} for a source-linked record,
-   {basis:'carry-over', record} for a reviewed pre-audit grant without a source-linked feat, or null when
+/* Source strength (roster-wide source audit, 2026-11-10). Every host cited by an evidence record is
+   classified once. Community-edited sites (wikis, Fandom, TV Tropes, Comic Vine) are discovery leads, not
+   confirmation. Data only: nothing here changes eligibility or the tag index. */
+const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
+  // official: the rights holder or its licensed publications
+  'starwars.com':'official', 'marvel.com':'official', 'd23.com':'official', 'disneyplus.com':'official',
+  'pixar.com':'official', 'in.portal-pokemon.com':'official', 'primagames.com':'official',
+  // game-data: values reproduced mechanically from the games (learnsets, Pokédex text)
+  'pokemondb.net':'game-data',
+  // dialogue: screenplays and transcribed dialogue of the work itself
+  'imsdb.com':'dialogue', 'sellingyourscreenplay.com':'dialogue', 'imdb.com':'dialogue', 'moviemistakes.com':'dialogue',
+  // editorial: professionally edited press, film reference and academic publications
+  'syfy.com':'editorial', 'thewrap.com':'editorial', 'themarysue.com':'editorial', 'tcm.com':'editorial',
+  'nbclosangeles.com':'editorial', 'journals.le.ac.uk':'editorial',
+  // community: open-edit wikis, fan sites and guide aggregators
+  'en.wikipedia.org':'community', 'tvtropes.org':'community', 'comicvine.gamespot.com':'community',
+  'mariowiki.com':'community', 'zeldawiki.wiki':'community', 'strategywiki.org':'community', 'wikirby.com':'community',
+  'ssbwiki.com':'community', 'halopedia.org':'community', 'theportalwiki.com':'community',
+  'wiki.leagueoflegends.com':'community', 'en.uesp.net':'community', 'warcraft.wiki.gg':'community',
+  'wikibound.info':'community', 'looneytuneswiki.com':'community', 'doomwiki.org':'community', 'raymanpc.com':'community',
+  'starwars.archivum.wiki':'community', 'thewitcher3.wiki.fextralife.com':'community', 'game8.co':'community',
+  'gamerguides.com':'community', 'comicbasics.com':'community', 'fortressofsolitude.co.za':'community',
+  'autoassembly.org.uk':'community',
+});
+const CHARACTER_ABILITY_CONFIRMING_TIERS = Object.freeze(['official', 'game-data', 'dialogue', 'editorial']);
+/* Tier for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
+function characterAbilitySourceTier(url) {
+  let host;
+  try { host = new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  if (CHARACTER_ABILITY_SOURCE_TIERS[host]) return CHARACTER_ABILITY_SOURCE_TIERS[host];
+  return /(^|\.)fandom\.com$/.test(host) ? 'community' : null;
+}
+/* How far a record's feat is confirmed:
+   'verified'       the feat itself was checked against a confirming source (explicit, e.g. the Disney review);
+   'owner-ruling'   granted or settled by the owner;
+   'official-cited' cites an official, game-data, dialogue or editorial source (not re-checked by the source audit);
+   'provisional'    community sources only: a lead, not confirmed canon. The tag is still granted. */
+function characterAbilityVerification(record) {
+  if (!record) return null;
+  if (record.verification) return record.verification;
+  const urls = ['source', 'verifiedBy', 'dialogueSource', 'speciesSource'].flatMap(k => [].concat(record[k] || []));
+  return urls.some(u => CHARACTER_ABILITY_CONFIRMING_TIERS.includes(characterAbilitySourceTier(u))) ? 'official-cited' : 'provisional';
+}
+/* Why a character holds a tag (broad or specific): {basis:'evidence', record, verification} for a source-linked
+   record, {basis:'carry-over', record, verification:'unsourced'} for a reviewed pre-audit grant without a
+   source-linked feat, or null when
    the reviewed index does not grant it (including every disputed grant). */
 function characterAbilityProvenance(candidate, tag) {
   const tags = characterAbilityTags(candidate);
   if (!tags || !tags.includes(tag)) return null;
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
   const record = characterAbilityEvidence(candidate, broad);
-  if (record) return { basis: 'evidence', record };
+  if (record) return { basis: 'evidence', record, verification: characterAbilityVerification(record) };
   const id = candidate.pool + ':' + candidate.n;
   const carried = CHARACTER_ABILITY_CARRYOVER.find(x => x.id === id && x.tag === broad);
-  return carried ? { basis: 'carry-over', record: carried } : null;
+  return carried ? { basis: 'carry-over', record: carried, verification: 'unsourced' } : null;
 }
 /* Reviewed power tags for a roster character, e.g. ['flight','tech']. Returns null for a
    character outside the audited roster (unknown), and [] for audited non-powered characters. */
@@ -3783,5 +3827,6 @@ function characterAbilityTags(candidate) {
 if (typeof module !== 'undefined' && module.exports) module.exports = {
   CHARACTER_ABILITIES, CHARACTER_ABILITY_DISPUTES, CHARACTER_ABILITY_RESEARCH_QUEUE,
   CHARACTER_ABILITY_TAGS, CHARACTER_ABILITY_TAG_FAMILIES, CHARACTER_ABILITY_BROAD_TAG, CHARACTER_ABILITY_CARRYOVER,
-  characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance
+  characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance,
+  CHARACTER_ABILITY_SOURCE_TIERS, CHARACTER_ABILITY_CONFIRMING_TIERS, characterAbilitySourceTier, characterAbilityVerification
 };

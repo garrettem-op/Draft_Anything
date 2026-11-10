@@ -36,6 +36,8 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 
 Raw research, including rejected claims and researcher notes, is preserved in `research/ABILITY_AUDIT_2026-11.json`.
 
+**Source strength (2026-11-10):** `docs/character-ability-source-audit.md` rates the evidence behind every grant in every pool as verified, owner-ruling, official-cited, provisional (community sources only) or unsourced. It also lists every grant that depends on a form, power-up or item. Regenerate with `node tools/ability-source-audit.cjs --write`.
+
 ## Coverage, before → after (characters per theme)
 
 "After" counts the reviewed index. It is what the game will accept once the engine honors the `incorrect`
