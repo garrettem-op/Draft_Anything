@@ -203,39 +203,38 @@ function campaignTacticalMatch(sport,yourRoster,rivalRoster,tacticKey){
     varietyPoints:+variety.toFixed(2),rivalVarietyPoints:+rivalVariety.toFixed(2),
     yourPoints:+(counter+variety).toFixed(2),rivalPoints:+(pressure+rivalVariety).toFixed(2)};
 }
-function campaignVariantOptions(candidate){
-  return candidate?CAMPAIGN_VARIANTS[candidate.pool+':'+candidate.n]||[]:[];
+// Shared character-power engine. Draft formats determine availability; effects are universal.
+function variantOptions(candidate){
+  return candidate?CAMPAIGN_VARIANTS[candidate.pool+':'+(candidate.variantBase||candidate.n)]||[]:[];
 }
-function campaignSurgeCandidates(v){
+function variantSurgeCandidates(v){
   const sp=SPORTS[v.sport];
-  return sp.pos.filter(p=>!p.coach&&v.roster[p.id]&&campaignVariantOptions(v.roster[p.id]).length)
+  return sp.pos.filter(p=>!p.coach&&v.roster[p.id]&&variantOptions(v.roster[p.id]).length)
     .map(p=>v.roster[p.id]);
 }
-function campaignUseVariantSurge(v,targetId=null){
-  if(v.surge||v.status!=='draft')return null;
-  const options=campaignSurgeCandidates(v);
+function useVariantSurge(v,targetId=null,seed='shared-variant'){
+  if(v.surge||(v.status&&v.status!=='draft'))return null;
+  const options=variantSurgeCandidates(v);
   if(!options.length)return null;
-  // Users can target a specific drafted character. A deterministic form is
-  // then drawn from their documented variants; never silently fall back to
-  // someone else when the requested target is not eligible.
-  const rng=rngFrom(campaignStageSeed(v)+':variant-surge');
+  const rng=rngFrom(seed+':variant-surge');
   const target=targetId?options.find(c=>c.id===targetId):options[Math.floor(rng()*options.length)];
   if(!target)return null;
-  const forms=campaignVariantOptions(target);
-  const formRng=targetId?rngFrom(campaignStageSeed(v)+':variant-form:'+target.id):rng;
+  const forms=variantOptions(target);
+  const formRng=targetId?rngFrom(seed+':variant-form:'+target.id):rng;
   const form=forms[Math.floor(formRng()*forms.length)];
+  if(!form)return null;
   v.surge={id:target.id,name:form.name};
   return v.surge;
 }
-function campaignVariantForm(v){
+function variantForm(v){
   if(!v.surge)return null;
   const base=Object.values(v.roster).find(c=>c?.id===v.surge.id);
   if(!base)return null;
-  const form=campaignVariantOptions(base).find(f=>f.name===v.surge.name);
+  const form=variantOptions(base).find(f=>f.name===v.surge.name);
   return form?{base,form}:null;
 }
-function campaignVariantRoster(v){
-  const transform=campaignVariantForm(v);
+function variantRoster(v){
+  const transform=variantForm(v);
   if(!transform)return v.roster;
   const roster={...v.roster};
   for(const [slot,c] of Object.entries(roster)){
@@ -245,12 +244,21 @@ function campaignVariantRoster(v){
       const i=CAMPAIGN_ATTR_INDEX[k];
       if(i!==undefined)attrs[i]=Math.max(1,Math.min(99,attrs[i]+delta));
     }
-    roster[slot]={...c,n:transform.form.name,a:attrs,variantBase:c.n};
+    // Preserve base identity, signatures, boom flags, synergy and ability tags.
+    // The transformed stats and any documented cosmic bonus are one-use effects.
+    roster[slot]={...c,n:transform.form.name,a:attrs,variantBase:c.n,
+      variantRatingBonus:Math.max(0,Math.min(5,Number(transform.form.ratingBonus)||0))};
   }
   return roster;
 }
+// Historical Campaign entrypoints are adapters over the same power engine.
+function campaignVariantOptions(c){return variantOptions(c);}
+function campaignSurgeCandidates(v){return variantSurgeCandidates(v);}
+function campaignUseVariantSurge(v,targetId=null){return useVariantSurge(v,targetId,campaignStageSeed(v));}
+function campaignVariantForm(v){return variantForm(v);}
+function campaignVariantRoster(v){return variantRoster(v);}
 if(typeof module!=='undefined'&&module.exports){
   module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignOpponentPool,campaignBuildOpponent,
     campaignChallengeCeiling,campaignFinalBossOpponent,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
-    campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster};
+    campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster,variantOptions,variantSurgeCandidates,useVariantSurge,variantForm,variantRoster};
 }
