@@ -86,7 +86,7 @@ test('special cosmic forms contribute their bonus exactly once through universal
   const actualBonus=variant.rating-base.rating;
   assert.equal(actualBonus,active.a.a[0]-thor.a[0]+3);
   assert.equal(variant.variantBonus,3);
-  assert.match(html,/score\.rating\+=tactics\.yourPoints;/);
+  assert.match(campaign,/score\.rating\+=tactics\.yourPoints;/);
   assert.doesNotMatch(campaign,/score\.rating\+=tactics\.yourPoints\+variantBonus/,
     'Campaign may not add the same variant bonus twice');
 });
