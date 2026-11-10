@@ -607,7 +607,7 @@ function campaignPlay(){
     const breakdownHTML=daMatchBreakdown(game.breakdown,score,oppScore,v.teamName,name);
     const summary=`<p>${esc(tactics?.label||'')}${tactics?.weakness?` · ${esc(tactics.weakness)}`:''}
       ${commander?` · Commander ${esc(commander.name)} contributed a ${commander.percent}% rating lift.`:''}
-      ${variant?` · Variant Surge: ${esc(variant.base.n)} → ${esc(variant.form.name)}.`:''}</p>`;
+      ${variant?` · Variant Surge: ${esc(variant.base.n)} → ${esc(variant.form.name)}${activeRoster&&Object.values(activeRoster).find(c=>c.id===variant.base.id)?.variantAbilities?.move?' · '+esc(Object.values(activeRoster).find(c=>c.id===variant.base.id).variantAbilities.move):''}.`:''}</p>`;
     const report=daComparison(v.sport,score,oppScore,ourPoints,theirPoints,v.teamName||'Your team',name,gameSeed,{
       note:game.line[2],leftSide:win?0:1,rightSide:win?1:0,breakdown:breakdownHTML,summaryHTML:summary
     });
