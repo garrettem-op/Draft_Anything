@@ -127,10 +127,12 @@ function daBoxScore(sport,score,points,seed='',options={}) {
     case 'volleyball': {
       const estimatedPoints=daVolleyballPoints(total,options.note,options.side||0);
       summary.teamRallyPoints=estimatedPoints;
-      metric('KILLS',Math.round(estimatedPoints*.51),r=>['oh1','oh2','mb1','mb2','opp','s'].includes(r.position),r=>val(r,'str')+val(r,'lep')+({oh1:65,opp:60,oh2:50,mb1:38,mb2:38}[r.position]||0),'kills');
-      metric('AST',Math.round(estimatedPoints*.46),only(['s']),r=>val(r,'acc')+val(r,'iq'),'assists');
-      metric('DIG',Math.round(estimatedPoints*.54),null,r=>val(r,'ref')+val(r,'agi')+({lib:120,oh2:45,oh1:25}[r.position]||0),'digs');
-      metric('BLK',Math.round(estimatedPoints*.075),null,r=>val(r,'siz')+val(r,'lep')+({mb1:95,mb2:95,opp:40}[r.position]||0),'blocks');
+      // Strict position eligibility: liberos only DIG/AST/ACE; middles only KILLS/BLK/ACE.
+      // Disallowed stat rows are never allocated, even when another role has no data.
+      metric('KILLS',Math.round(estimatedPoints*.51),only(['oh1','oh2','mb1','mb2','opp','s']),r=>val(r,'str')+val(r,'lep')+({oh1:65,opp:60,oh2:50,mb1:38,mb2:38}[r.position]||0),'kills');
+      metric('AST',Math.round(estimatedPoints*.46),only(['s','lib','oh1','oh2','opp']),r=>val(r,'acc')+val(r,'iq')+({s:120,lib:30}[r.position]||0),'assists');
+      metric('DIG',Math.round(estimatedPoints*.54),only(['lib','s','oh1','oh2','opp']),r=>val(r,'ref')+val(r,'agi')+({lib:120,oh2:45,oh1:25}[r.position]||0),'digs');
+      metric('BLK',Math.round(estimatedPoints*.075),only(['mb1','mb2','opp','oh1','oh2','s']),r=>val(r,'siz')+val(r,'lep')+({mb1:95,mb2:95,opp:40}[r.position]||0),'blocks');
       metric('ACE',Math.round(estimatedPoints*.05),null,r=>val(r,'acc')+val(r,'str'),'aces');
       break;
     }
