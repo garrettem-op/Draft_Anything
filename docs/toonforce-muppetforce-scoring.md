@@ -4,7 +4,7 @@ Both are **meta-abilities applied after** the 12 traditional character attribute
 
 ## ToonForce: individually powerful cartoon physics
 
-ToonForce is the stronger individual force, particularly in Battle Royale. A curated character must have documented, recurring cartoon-physics behavior; simply being drawn or having conventional superpowers is insufficient. The 42 existing ToonForce characters are now assessed in six **separate editorial dimensions**:
+ToonForce is the stronger individual force, particularly in Battle Royale. A curated character must have documented, recurring cartoon-physics behavior; simply being drawn or having conventional superpowers is insufficient. The 43 ToonForce characters (the original 42 plus Genie, added with the Disney batch) are assessed in six **separate editorial dimensions**:
 
 1. **Rule of Funny (comedy)** — scene reversal and comedic initiative, not control of the author
 2. **Gag resilience** — recovery after explosions, flattening or impossible falls, not universal immortality

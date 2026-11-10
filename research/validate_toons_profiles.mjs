@@ -7,14 +7,19 @@ const start=html.indexOf('POOLS.toons ='),end=html.indexOf('POOLS.muppets =',sta
 assert(start>=0&&end>start,'Cartoons pool region not found');
 const regex=/\["([^"]+)","([^"]*)","([^"]*)",\[([0-9,\s]+)\]\]/g;
 const shipped=[...html.slice(start,end).matchAll(regex)].map(m=>({name:m[1],score:m[4].split(',').map(Number)}));
-assert.equal(shipped.length,104,'Expected 104 cartoon entries');
-const paths=[1,2,3].map(i=>'research/TOONS_PROFILES_BATCH_0'+i+'.json');
+// The roster size is read from index.html; every shipped character needs exactly one research profile.
+const N=shipped.length;
+assert(N>=100,'Cartoons pool unexpectedly small: '+N);
+const paths=fs.readdirSync('research').filter(f=>/^TOONS_PROFILES_BATCH_\d+\.json$/.test(f)).sort().map(f=>'research/'+f);
 const all=paths.flatMap(p=>JSON.parse(fs.readFileSync(p,'utf8')).characters);
-assert.equal(all.length,104,'Research profile count');
-assert.equal(new Set(all.map(x=>x.name)).size,104,'Duplicate names');
+assert.equal(all.length,N,'Research profile count');
+assert.equal(new Set(all.map(x=>x.name)).size,N,'Duplicate names');
 const keys=['spd','agi','str','siz','lep','end','tch','acc','ref','iq','clu','ldr'];
-const consolidated=JSON.parse(fs.readFileSync('research/TOONS_ALL_104_PROFILES.json','utf8'));
-assert.equal(consolidated.characters.length,104,'Consolidated catalog count');
+const consolidated=JSON.parse(fs.readFileSync('research/TOONS_ALL_PROFILES.json','utf8'));
+assert.equal(consolidated.characters.length,N,'Consolidated catalog count');
+assert.equal(consolidated.character_count,N,'Consolidated character_count');
+// Characters moved to another pool (e.g. Wreck-It Ralph to Video Games) are kept for history only.
+for(const r of consolidated.reclassified||[])assert(!shipped.some(x=>x.name===r.name),'Reclassified character still shipped: '+r.name);
 for(let i=0;i<shipped.length;i++){
  const {name,score}=shipped[i], p=all.find(x=>x.name===name), d=consolidated.characters[i];
  assert(p,'Profile missing '+name);
@@ -40,5 +45,5 @@ for(const p of all){
  assert.deepEqual(keys.map(k=>g.scores[k]),keys.map(k=>p.scores[k]),'Guide score mismatch '+p.name);
 }
 assert(html.includes('<script src="data/toons-profiles.js"></script>'),'Cartoon guide not loaded');
-console.log('PASS: 104 unique cartoon characters, 12 scores, app rank data, consolidated research, and optional Guide synced.');
+console.log('PASS: '+N+' unique cartoon characters, 12 scores, app rank data, consolidated research, and optional Guide synced.');
 console.log('NOTE: This checks structure and consistency, not the historical truth of every described animation feat.');

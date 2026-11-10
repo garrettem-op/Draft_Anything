@@ -2308,9 +2308,59 @@ const CHARACTER_ABILITY_CARRYOVER = Object.freeze([
   Object.freeze({"id": "starwars:The Mandalorian", "tag": "flight", "tags": ["powered-flight", "pilot"], "origin": "curated-aerial", "basis": "Curated aerial record: pilots starfighters and other spacecraft", "source": "https://www.starw"}),
   Object.freeze({"id": "starwars:Bo-Katan Kryze", "tag": "flight", "tags": ["powered-flight"], "origin": "curated-aerial", "basis": "Curated aerial record: pilots starfighters and other spacecraft", "source": "https://www.starw"}),
 ]);
+/* ---- 2026-11 (Claude): Disney characters added to the Cartoons pool.
+   Source-linked records for the 31 Disney additions. Characters with no qualifying power (Belle,
+   Gaston, Quasimodo, Mufasa, Anna, Snow White and others) have no record, so the generated index
+   lists them as []. Uncertain cases sit in CHARACTER_ABILITY_RESEARCH_QUEUE instead of here. */
+const CHARACTER_ABILITY_RECORDS_DISNEY = {
+  "toons:Aladdin": [
+    {"tag": "flight", "tags": ["mount"], "kind": "mount", "feat": "Rides the Magic Carpet out of the collapsing, lava-filled Cave of Wonders, flies Jasmine around the world, and after Jafar exiles him to a frozen wasteland rides it back to Agrabah to fight Jafar for the lamp.", "source": "https://en.wikipedia.org/wiki/Aladdin_(1992_Disney_film)", "continuity": "Disney's Aladdin (1992)", "limitation": "Needs Carpet; no flight of his own", "audit": "2026-11-disney"},
+  ],
+  "toons:Genie": [
+    {"tag": "magic", "tags": ["spellcaster"], "kind": "spellcaster", "feat": "Grants wishes: makes Aladdin a prince, pulls him out of the sea after Jafar's guards throw him in shackled, and turns Jafar into the world's most powerful sorcerer and then a genie. Shapeshifts at will throughout the film.", "source": "https://en.wikipedia.org/wiki/Genie_(Disney)", "continuity": "Disney's Aladdin (1992)", "limitation": "Cannot kill, make anyone fall in love or bring back the dead; must obey whoever holds the lamp", "audit": "2026-11-disney"},
+    {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Floats and flies unaided as a jinn; even after being freed, and so weakened, he keeps his shapeshifting, flight and conjuration.", "source": "https://en.wikipedia.org/wiki/Genie_(Disney)", "continuity": "Disney's Aladdin films (1992-1996)", "audit": "2026-11-disney"},
+  ],
+  "toons:Jafar": [
+    {"tag": "magic", "tags": ["spellcaster", "magic-item"], "kind": "spellcaster", "feat": "Grand vizier and sorcerer who works magic through his cobra staff; after his second wish he becomes the most powerful sorcerer in the world, sending Aladdin to a frozen wasteland and overpowering Jasmine, Abu and Carpet.", "source": "https://en.wikipedia.org/wiki/Jafar_(Aladdin)", "continuity": "Disney's Aladdin (1992)", "limitation": "Full sorcery came from a wish", "audit": "2026-11-disney"},
+    {"tag": "psychic", "tags": ["mind-control"], "kind": "mind-control", "feat": "Uses the hypnotic power of his cobra-headed staff to manipulate the Sultan into obeying him, until Aladdin smashes the staff.", "source": "https://en.wikipedia.org/wiki/Jafar_(Aladdin)", "continuity": "Disney's Aladdin (1992)", "limitation": "Works through the staff", "audit": "2026-11-disney"},
+    {"tag": "giants", "tags": ["size-change"], "kind": "size-change", "feat": "In the climax he transforms himself into a giant cobra to crush Aladdin.", "source": "https://en.wikipedia.org/wiki/Jafar_(Aladdin)", "continuity": "Disney's Aladdin (1992)", "audit": "2026-11-disney"},
+    {"tag": "fire", "tags": ["fire-control"], "kind": "fire-control", "feat": "As the most powerful sorcerer in the world he breathes fire at Aladdin during the final battle.", "source": "https://tvtropes.org/pmwiki/pmwiki.php/Characters/AladdinAntagonists", "continuity": "Disney's Aladdin (1992)", "audit": "2026-11-disney"},
+  ],
+  "toons:Ariel": [
+    {"tag": "aquatic", "tags": ["water-breathing", "swimmer"], "kind": "mermaid", "feat": "A mermaid princess of undersea Atlantica; when Prince Eric's ship burns in a storm she swims his unconscious body to shore.", "source": "https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)", "continuity": "Disney's The Little Mermaid (1989)", "audit": "2026-11-disney"},
+  ],
+  "toons:Ursula": [
+    {"tag": "magic", "tags": ["spellcaster"], "kind": "spellcaster", "feat": "Sea witch who turns Ariel human through a magical contract, pulls her voice into a shell, disguises herself as Vanessa, and turns her victims into polyps.", "source": "https://disneyvillains.fandom.com/wiki/Ursula", "continuity": "Disney's The Little Mermaid (1989)", "audit": "2026-11-disney"},
+    {"tag": "aquatic", "tags": ["water-breathing", "swimmer", "water-control"], "kind": "sea-witch", "feat": "Lives in an undersea lair; with Triton's trident she raises a storm and a whirlpool that pulls sunken ships to the surface.", "source": "https://disneyvillains.fandom.com/wiki/Ursula", "continuity": "Disney's The Little Mermaid (1989)", "limitation": "Water control only with the stolen trident", "audit": "2026-11-disney"},
+    {"tag": "giants", "tags": ["size-change"], "kind": "size-change", "feat": "Enraged at losing Flotsam and Jetsam, she uses the trident to grow to monstrous size and tower over Ariel and Eric.", "source": "https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)", "continuity": "Disney's The Little Mermaid (1989)", "limitation": "Needs the stolen trident", "audit": "2026-11-disney"},
+  ],
+  "toons:King Triton": [
+    {"tag": "aquatic", "tags": ["water-breathing", "swimmer"], "kind": "merman", "feat": "Merman king who rules the undersea kingdom of Atlantica.", "source": "https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)", "continuity": "Disney's The Little Mermaid (1989)", "audit": "2026-11-disney"},
+    {"tag": "magic", "tags": ["magic-item"], "kind": "magic-item", "feat": "Blasts apart Ariel's grotto of human treasures with his trident, and later uses it to turn her into a human.", "source": "https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)", "continuity": "Disney's The Little Mermaid (1989)", "limitation": "Power lives in the trident; he gives it up to save Ariel", "audit": "2026-11-disney"},
+  ],
+  "toons:Sebastian": [
+    {"tag": "aquatic", "tags": ["water-breathing", "swimmer"], "kind": "sea-creature", "feat": "A crab who serves as Triton's court composer in undersea Atlantica and swims after Ariel as her chaperone.", "source": "https://disney.fandom.com/wiki/Sebastian", "continuity": "Disney's The Little Mermaid (1989)", "limitation": "Slower swimmer than Ariel and Flounder", "audit": "2026-11-disney"},
+  ],
+  "toons:Mushu": [
+    {"tag": "fire", "tags": ["fire-control"], "kind": "fire-breath", "feat": "Breathes fire, weakly at first, but well enough by mid-film to stop Shan Yu's falcon from warning the Huns; later fires the skyrocket that kills Shan Yu.", "source": "https://en.wikipedia.org/wiki/Mushu", "continuity": "Disney's Mulan (1998)", "limitation": "Small flame; the Great Ancestor doubts he is a real dragon", "audit": "2026-11-disney"},
+  ],
+  "toons:Hades": [
+    {"tag": "fire", "tags": ["fire-control"], "kind": "fire-body", "feat": "His hair is living flame and he bursts into flames when angry.", "source": "https://disney.fandom.com/wiki/Hades", "continuity": "Disney's Hercules (1997)", "limitation": "Pegasus can blow his hair out", "audit": "2026-11-disney"},
+    {"tag": "teleport", "tags": ["self-teleport"], "kind": "self-teleport", "feat": "Vanishes and reappears in smoke with a snap of his fingers.", "source": "https://disney.fandom.com/wiki/Hades", "continuity": "Disney's Hercules (1997)", "audit": "2026-11-disney"},
+  ],
+  "toons:Peter Pan": [
+    {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies into the Darlings' nursery, teaches the children to fly with Tinker Bell's pixie dust, and after beating Hook flies the pirate ship to London.", "source": "https://en.wikipedia.org/wiki/Peter_Pan_(1953_film)", "continuity": "Disney's Peter Pan (1953)", "limitation": "Relies on pixie dust", "audit": "2026-11-disney"},
+  ],
+  "toons:Maleficent": [
+    {"tag": "magic", "tags": ["spellcaster"], "kind": "spellcaster", "feat": "Dark fairy who curses the infant Aurora to prick her finger on a spindle, and casts through a staff topped with a glowing orb.", "source": "https://en.wikipedia.org/wiki/Maleficent", "continuity": "Disney's Sleeping Beauty (1959)", "audit": "2026-11-disney"},
+    {"tag": "giants", "tags": ["size-change"], "kind": "size-change", "feat": "Transforms into a huge dragon in front of King Stefan's castle to stop Prince Phillip.", "source": "https://en.wikipedia.org/wiki/Maleficent", "continuity": "Disney's Sleeping Beauty (1959)", "limitation": "Slain by the Sword of Truth in dragon form", "audit": "2026-11-disney"},
+    {"tag": "fire", "tags": ["fire-control"], "kind": "fire-breath", "feat": "In dragon form she breathes fire at Prince Phillip during the climax.", "source": "https://en.wikipedia.org/wiki/Maleficent", "continuity": "Disney's Sleeping Beauty (1959)", "limitation": "Dragon form only", "audit": "2026-11-disney"},
+    {"tag": "teleport", "tags": ["self-teleport"], "kind": "self-teleport", "feat": "Appears and vanishes in bursts of green flame, turning herself into a ball of green magic that fades away.", "source": "https://comicvine.gamespot.com/maleficent/4005-33980/", "continuity": "Disney's Sleeping Beauty (1959)", "audit": "2026-11-disney"},
+  ],
+};
 const CHARACTER_ABILITIES = (() => {
   const merged = {};
-  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS]) {
+  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS, CHARACTER_ABILITY_RECORDS_DISNEY]) {
     for (const [id, facts] of Object.entries(block)) {
       const list = merged[id] || (merged[id] = []);
       // The first record for a tag is authoritative; audit records only add missing tags.
@@ -2437,6 +2487,12 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"harrypotter:Winky", tag:"magic", note:"House-elves use magic, but no specific spell by Winky was confirmed.", source:"https://en.wikipedia.org/wiki/List_of_Harry_Potter_characters", audit:"2026-11-r2"},
   {id:"harrypotter:Obscurus", tag:"magic", note:"An Obscurus is raw dark magic, not a spellcaster or item. Needs an owner ruling.", source:"https://harrypotter.fandom.com/wiki/Obscurus", audit:"2026-11-r2"},
   {id:"harrypotter:Fawkes", tag:"fire", note:"A phoenix bursts into flame and travels in fire, but no scene of Fawkes directing fire at anything was confirmed.", source:"https://harrypotter.fandom.com/wiki/Fawkes", audit:"2026-11-r2"},
+  {id:"toons:Genie", tag:"giants", note:"Grows and shrinks in sight gags, but no source confirming a size-change feat in Aladdin (1992) was found. Shapeshifting alone is not giants.", source:"https://en.wikipedia.org/wiki/Genie_(Disney)", audit:"2026-11-disney"},
+  {id:"toons:Genie", tag:"teleport", note:"Wikis describe him crossing space and time, but no specific self-teleport scene was confirmed. Jafar's exile of Aladdin was a wish, not Genie's own move.", source:"https://en.wikipedia.org/wiki/Genie_(Disney)", audit:"2026-11-disney"},
+  {id:"toons:Lumière", tag:"fire", note:"His candle flames are part of his body, but no scene of him using them as a weapon in the 1991 castle battle was confirmed; LeFou nearly melts him instead.", source:"https://tvtropes.org/pmwiki/pmwiki.php/Awesome/BeautyAndTheBeast", audit:"2026-11-disney"},
+  {id:"toons:Beast", tag:"giants", note:"Clearly large, but no source gives a height of about 8 ft or more (the giants ruling). Leaning no.", source:"https://en.wikipedia.org/wiki/Beauty_and_the_Beast_(1991_film)", audit:"2026-11-disney"},
+  {id:"toons:Esmeralda", tag:"stealth", note:"Escapes the Feast of Fools and Notre Dame with stage tricks and disguise. Owner call whether a performer's vanishing act counts as a stealth feat. Leaning no.", source:"https://en.wikipedia.org/wiki/The_Hunchback_of_Notre_Dame_(1996_film)", audit:"2026-11-disney"},
+  {id:"toons:Hades", tag:"magic", note:"A god with fire and teleportation, but not shown casting spells or using a magic item. Owner call whether divine power counts as magic.", source:"https://disney.fandom.com/wiki/Hades", audit:"2026-11-disney"},
 ]);
 /* Specific ability tags agreed with the Campaign engine (PR #44). Each family's broad tag is kept in
    the index for compatibility, and every broad tag a character holds comes with at least one specific
@@ -2776,6 +2832,37 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Maui": ["flight", "natural-flight", "magic", "magic-item"],
     "Elsa": ["magic", "spellcaster", "ice", "ice-control"],
     "Stitch": ["flight", "pilot", "tech", "gadgets"],
+    "Aladdin": ["flight", "mount"],
+    "Jasmine": [],
+    "Genie": ["flight", "natural-flight", "magic", "spellcaster"],
+    "Jafar": ["magic", "spellcaster", "magic-item", "psychic", "mind-control", "fire", "fire-control", "giants", "size-change"],
+    "Ariel": ["aquatic", "water-breathing", "swimmer"],
+    "Ursula": ["magic", "spellcaster", "aquatic", "water-breathing", "swimmer", "water-control", "giants", "size-change"],
+    "King Triton": ["magic", "magic-item", "aquatic", "water-breathing", "swimmer"],
+    "Sebastian": ["aquatic", "water-breathing", "swimmer"],
+    "Belle": [],
+    "Beast": [],
+    "Gaston": [],
+    "Lumière": [],
+    "Quasimodo": [],
+    "Esmeralda": [],
+    "Frollo": [],
+    "Phoebus": [],
+    "Scar": [],
+    "Mufasa": [],
+    "Timon": [],
+    "Pumbaa": [],
+    "Mushu": ["fire", "fire-control"],
+    "Shan Yu": [],
+    "Hades": ["fire", "fire-control", "teleport", "self-teleport"],
+    "Anna": [],
+    "Olaf": [],
+    "Lilo": [],
+    "Peter Pan": ["flight", "natural-flight"],
+    "Captain Hook": [],
+    "Maleficent": ["magic", "spellcaster", "fire", "fire-control", "teleport", "self-teleport", "giants", "size-change"],
+    "Snow White": [],
+    "Cinderella": [],
     "Buzz Lightyear": ["flight", "glide"],
     "Woody": [],
     "Mr. Incredible": [],
