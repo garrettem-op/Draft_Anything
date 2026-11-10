@@ -32,7 +32,7 @@ const CAMPAIGN_EXTRA = [
   {name:'Wizards & Wanderers',rule:'fantasy-lands',criteria:{poolIds:['lotr','harrypotter']},blurb:'Choose ONLY from Middle-earth and the Wizarding World. No outsiders.',rival:'The Dark Tower'},
   {name:'Galactic Alliance',rule:'space-opera',criteria:{poolIds:['starwars','mcu']},blurb:'Star Wars and MCU characters only. Space-faring legends must work together.',rival:'The Galactic Fleet'},
   {name:'Pixels & Poké Balls',rule:'arcade-monsters',criteria:{poolIds:['games','pokemon']},blurb:'Video game characters and Pokémon only. Build your ultimate digital crossover.',rival:'The Final Level'},
-  {name:'Tolkien's Trials',rule:'middle-earth-only',criteria:{poolIds:['lotr']},blurb:'All picks must come from Middle-earth. No imported heroes.',rival:'The Dark Lord'},
+  {name:"Tolkien's Trials",rule:'middle-earth-only',criteria:{poolIds:['lotr']},blurb:'All picks must come from Middle-earth. No imported heroes.',rival:'The Dark Lord'},
   {name:'Hogwarts Cup',rule:'wizarding-only',criteria:{poolIds:['harrypotter']},blurb:'All picks must come from the Harry Potter / Wizarding World pool.',rival:'The Death Eaters'},
   {name:'Animated Avengers',rule:'animated-party',criteria:{poolIds:['toons','muppets','games']},blurb:'Cartoons, Muppets and video games only — no direct Marvel or DC pool picks.',rival:'The Saturday Squad'},
   {name:'Legends & Monsters',rule:'mythical-three',criteria:{poolIds:['lotr','harrypotter','pokemon']},blurb:'Choose from Tolkien, Harry Potter or Pokémon. Three fantastical worlds, one team.',rival:'The Ancient Beasts'},
