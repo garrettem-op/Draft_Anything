@@ -506,8 +506,11 @@ function campaignQualified(){return campaignInvalidSlots().size===0;}
 function campaignReady(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),pick=slots.map(p=>v.roster[p.id]).filter(Boolean);
   const minimum=st.criteria?.minDistinctPools||0;
+  // Benches and coaches must not satisfy the alliance on behalf of the
+  // characters actually fighting in the final encounter.
+  const starters=slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id]);
   return pick.length===campaignLimit(v.sport,st.rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id))&&
-    new Set(pick.map(c=>c.pool)).size>=minimum;
+    new Set(starters.map(c=>c.pool)).size>=minimum;
 }
 function campaignProgress(){
   const v=S.campaign,done=v.status==='complete'?10:v.step;
@@ -545,7 +548,7 @@ function renderCampaignDraft(){
   const surgeChoice=surgeCharacters.find(c=>c.id===v.variantTarget)||surgeCharacters[0];
   if(!v.surge&&surgeChoice)v.variantTarget=surgeChoice.id;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
-  const distinctPools=new Set(Object.values(v.roster).filter(Boolean).map(c=>c.pool)).size,minPools=st.criteria?.minDistinctPools||0;
+  const distinctPools=new Set(slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
   const pool=getPool('mashup'),q=v.query.toLowerCase().trim();
   const matches=all.filter(c=>!q||c.n.toLowerCase().includes(q)||c.t.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n));
