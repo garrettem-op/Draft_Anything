@@ -932,6 +932,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/team-names.js"></script>
 <script src="data/daily-grid.js"></script>
 <script src="data/campaign-variant-expansion.js"></script>
+<script src="data/variant-abilities.js"></script>
 <script src="data/campaign-strategy.js"></script>
 <script src="data/after-action.js"></script>
 <script>
@@ -2240,8 +2241,16 @@ function gameRatings(A, B, playoff, rng, sportKey=null) {
     toon[side]+=moment.points;
     toonEvents.push({...moment,side});
   }
-  ra+=toon[0];rb+=toon[1];
-  return { ra, rb, ev, toon, toonEvents };
+  // The same documented alternate-form effects apply in every mode. Compared
+  // with a flat bonus, resistance and vulnerabilities make the opposing roster
+  // matter. All effects are deterministic and bounded; no paid AI/API calls.
+  const powerApi=window.DA_VARIANT_ABILITY_API;
+  const formA=sportKey&&powerApi?powerApi.variantBattleImpact(A,B,sportKey):{points:0,events:[]};
+  const formB=sportKey&&powerApi?powerApi.variantBattleImpact(B,A,sportKey):{points:0,events:[]};
+  const variant=[formA.points,formB.points];
+  const variantEvents=[...formA.events.map(e=>({...e,side:0})),...formB.events.map(e=>({...e,side:1}))];
+  ra+=toon[0]+variant[0];rb+=toon[1]+variant[1];
+  return { ra, rb, ev, toon, toonEvents, variant, variantEvents };
 }
 
 // ===== Battle Royale: fighting styles and the variety bonus =====
@@ -2816,11 +2825,11 @@ const UPSET_SIGMA = { off: 0, low: 2.5, high: 6 };
 function matchRatingBreakdown(A,B,g,randomDelta) {
   const base=[A.rating,B.rating];
   const chaos=[-((B.sig&&B.sig.chaos)||0),-((A.sig&&A.sig.chaos)||0)];
-  const toon=g.toon||[0,0];
-  const spark=[g.ra-base[0]-chaos[0]-toon[0],g.rb-base[1]-chaos[1]-toon[1]];
+  const toon=g.toon||[0,0],variant=g.variant||[0,0];
+  const spark=[g.ra-base[0]-chaos[0]-toon[0]-variant[0],g.rb-base[1]-chaos[1]-toon[1]-variant[1]];
   const random=[randomDelta/2,-randomDelta/2];
-  const final=[base[0]+chaos[0]+spark[0]+toon[0]+random[0],base[1]+chaos[1]+spark[1]+toon[1]+random[1]];
-  return {base,chaos,spark,toon,toonEvents:g.toonEvents||[],random,final};
+  const final=[base[0]+chaos[0]+spark[0]+toon[0]+variant[0]+random[0],base[1]+chaos[1]+spark[1]+toon[1]+variant[1]+random[1]];
+  return {base,chaos,spark,toon,toonEvents:g.toonEvents||[],variant,variantEvents:g.variantEvents||[],random,final};
 }
 function playGame(sportKey, A, B, sigma, rng, playoff = false) {
   const g = gameRatings(A, B, playoff, rng, sportKey);
@@ -3007,7 +3016,7 @@ function simSeason(sportKey, teams, rng) {
   const rec = teams.map(() => ({ w: 0, l: 0, d: 0, otl: 0, pf: 0, pa: 0 }));
   const games = [];
   for (const [a, b] of seasonSchedule(n, S.games)) {
-    const g = gameRatings(teams[a].score, teams[b].score, false, rng);
+    const g = gameRatings(teams[a].score, teams[b].score, false, rng, sportKey);
     const variation=gauss(rng)*sigma;
     const m = g.ra - g.rb + variation;
     const breakdown=matchRatingBreakdown(teams[a].score,teams[b].score,g,variation);
@@ -3674,6 +3683,7 @@ function renderVariantSurgePanel(v,action,input,ready,label='draft') {
   const choices=variantSurgeCandidates(v),selected=choices.find(c=>c.id===v.variantTarget)||choices[0];
   if(!v.surge&&selected)v.variantTarget=selected.id;
   const active=variantForm(v);
+  const ability=active?window.DA_VARIANT_ABILITY_API?.variantAbilityProfile(active.base,active.form):null;
   return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
     <div class="row" style="justify-content:space-between">
       <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per ${esc(label)}: transform ONE drafted character into a random documented alternate form. Removing the character never refunds the charge.</p></div>
@@ -3681,6 +3691,7 @@ function renderVariantSurgePanel(v,action,input,ready,label='draft') {
     </div>
     ${!v.surge&&choices.length?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="${input}" id="${input}">${choices.map(c=>`<option value="${esc(c.id)}" ${selected?.id===c.id?'selected':''}>${esc(c.n)} · ${variantOptions(c).length} possible forms</option>`).join('')}</select></label>`:''}
     <p class="note" style="margin:8px 0 0">${v.surge?(active?'Active: '+esc(active.base.n)+' → '+esc(active.form.name)+' · '+esc(active.form.origin):'Surge spent; transformed character no longer on roster.'):(choices.length?choices.length+' eligible character(s) on your roster.'+(ready?' A random form will be selected from the chosen character’s catalog.':' Complete the lineup to activate.'):'No eligible alternate-form characters drafted yet.')}</p>
+    ${ability?`<div class="note" style="margin-top:10px"><b>Unique move: ${esc(ability.move)}</b> · Power domains: ${esc(ability.domains.join(', '))}.<div>Defenses: ${esc(ability.guards.join(', ')||'none documented')}${ability.weakTo.length?' · Vulnerable to: '+esc(ability.weakTo.join(', ')):''}.</div><div>Limit: ${esc(ability.limit)}</div><div>Matchups matter: countering powers reduce the surge's added impact.</div></div>`:active?'<p class="note">This form currently changes attributes only; its special ability profile awaits review.</p>':''}
   </div>`;
 }
 function shortName(n) { if (n.length <= 12) return n; const w = n.split(' '); return w[w.length - 1].length > 2 ? w[w.length - 1] : w.slice(-2).join(' '); }
@@ -3739,6 +3750,7 @@ function renderModal() {
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
     <p><b>Bench Spark:</b> every team carries one bench player who lives on intangibles: Stamina, Leadership and Clutch. A great one lifts the whole squad, a little less than a great coach does.</p>
     <p><b>Signature moves:</b> the most iconic characters carry a named signature move. What it does stays hidden until after the game. Some lift the whole squad, some let a lopsided build play bigger than it is, some rise up in the playoffs, and some knock opponents off balance. The computer drafts don't know about them.</p>
+    <p><b>Variant Surge:</b> A documented alternate form replaces the character's signature move, retains their identity, changes attributes and may grant form-specific powers and resistances. Countering forms reduce the added combat impact; every power has a listed limitation. Unreviewed forms still only change stats. The same rules apply across Championship, Campaign, Dealt Hand and Head-to-Head.</p>
     <p><b>Playoff Boom:</b> some players are boom-or-bust. In any playoff game they can catch fire and take over, or go cold. They're a gamble, and that's the point.</p>
     <p><b>Full pro season:</b> instead of a quick round robin, play a real-length season (82 NBA games, 17 NFL games, 162 MLB games, 82 NHL games with overtime losses, 26 Serie A1 volleyball matches, or 38 soccer matches with draws), then that league's playoff format: series, byes and all. Soccer has no playoffs; the table decides the title.</p>
     <p><b>Daily Grid:</b> Each day features a shared 3×3 intersection puzzle. Every square combines a character pool on the left with an attribute threshold across the top. Search for a character, use them only once, and make one guess per square. Wrong answers lock their squares. Your progress is stored on this device, and older puzzles are available in the archive.</p>
