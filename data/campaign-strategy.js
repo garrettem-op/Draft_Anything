@@ -163,6 +163,20 @@ function campaignLockedOpponent(v,stage){
   score.rating+=Number(o.difficultyBonus)||0;
   return {roster,score,tactic:o.tactic,difficultyBonus:o.difficultyBonus||0};
 }
+// The final Siege fields TWO opponents for a single submitted full-strength
+// lineup. Both are seeded independently, stable across retries and unaffected
+// by the player's lineup. This does not consume the Variant Surge twice.
+function campaignFinalBossOpponent(v,stage,firstBoss){
+  const alt={...v,seed:String(v.seed||'legacy-campaign')+'|second-siege-boss'};
+  const generated=campaignBuildOpponent(alt,stage);
+  const roster=Object.fromEntries(Object.entries(generated.roster).map(([slot,id])=>[slot,candById('mashup',id)]).filter(([,c])=>!!c));
+  const score=teamScore(v.sport,roster);
+  score.rating+=(Number(generated.difficultyBonus)||0)+0.5;
+  const possible=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
+  const tactic=generated.tactic===firstBoss?.tactic
+    ?(possible.find(s=>s!==firstBoss.tactic)||'precision'):generated.tactic;
+  return {roster,score,tactic,difficultyBonus:generated.difficultyBonus||0};
+}
 function campaignActiveAverage(sport,roster,attr){
   const ix=CAMPAIGN_ATTR_INDEX[attr];
   const players=(SPORTS[sport]?.pos||[]).filter(p=>!p.coach&&!p.bench&&roster[p.id]);
@@ -232,6 +246,6 @@ function campaignVariantRoster(v){
 }
 if(typeof module!=='undefined'&&module.exports){
   module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignOpponentPool,campaignBuildOpponent,
-    campaignChallengeCeiling,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
+    campaignChallengeCeiling,campaignFinalBossOpponent,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
     campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster};
 }
