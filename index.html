@@ -5179,7 +5179,7 @@ document.addEventListener('click', e => {
       break;
     }
     case 'camp-variant': {
-      const surge=campaignUseVariantSurge(S.campaign);
+      const surge=campaignUseVariantSurge(S.campaign,S.campaign.variantTarget);
       if(surge)toast('Variant Surge: '+surge.name+'! Your one transformation is locked for this challenge.');
       else toast('Variant Surge unavailable: fill the lineup with at least one eligible alternate-form character.');
       break;
@@ -5269,6 +5269,7 @@ document.addEventListener('input', e => {
   const v = e.target.value;
   if (k === 'grid-query') {S.daily.query=v; render();}
   else if (k === 'camp-team') { S.campaign.teamName=v; saveCampaign(); }
+  else if (k === 'camp-variant-target') { S.campaign.variantTarget=v; render(); }
   else if (k === 'camp-dispute-claim') { S.campaign.disputeClaim=v; }
   else if (k === 'camp-dispute-source') { S.campaign.disputeSource=v; }
   else if (k === 'camp-query') { S.campaign.query=v; render(); }
