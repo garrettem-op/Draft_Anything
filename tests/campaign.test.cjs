@@ -14,7 +14,7 @@ const {characterAbilityEvidence,characterAbilityTags,CHARACTER_ABILITY_TAGS}=req
 const {campaignOfflineEvidence}=require('../data/campaign-eligibility.js');
 const {muppetForceOf,MUPPET_FORCE_RULE}=require('../data/muppet-force.js');
 const context={S,SPORTS,getCands:()=>catalog,lsGet,lsSet,characterAbilityEvidence,characterAbilityTags,campaignOfflineEvidence,muppetForceOf,MUPPET_FORCE_RULE};
-vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS:typeof CAMPAIGN_TAGS!==\'undefined\'?CAMPAIGN_TAGS:null,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignReset,campaignInvalidSlots,campaignWinUses,campaignPickAllowed,campaignCommanderSpecialty,campaignCommanderEffect,CAMPAIGN_COMMANDER_SPECIALTIES};',context);
+vm.runInNewContext(code+'\nthis.campaignTestApi={CAMPAIGN_STAGES,CAMPAIGN_EXTRA,CAMPAIGN_TAGS:typeof CAMPAIGN_TAGS!==\'undefined\'?CAMPAIGN_TAGS:null,CAMPAIGN_WOMEN,CAMPAIGN_RED,CAMPAIGN_KIDS,campaignStages,campaignNewOrder,campaignSportValid,campaignAllowed,campaignEligibleStageIds,campaignLimit,campaignReady,campaignReset,campaignInvalidSlots,campaignWinUses,campaignPickAllowed,campaignCommanderSpecialty,campaignCommanderEffect,CAMPAIGN_COMMANDER_SPECIALTIES};',context);
 const api=context.campaignTestApi;
 // Works with both engines: the legacy CAMPAIGN_TAGS name lists, or (PR #44) declarative
 // criteria that read only the reviewed CHARACTER_ABILITY_TAGS index.
@@ -27,9 +27,9 @@ for(const [pool,n] of [...[...api.CAMPAIGN_WOMEN,...api.CAMPAIGN_RED,...api.CAMP
  const key=(pool||'')+':'+n;if(seen.has(key))continue;seen.add(key);entries.push([pool,n]);
 }
 catalog=entries.map(([pool,n],i)=>({id:'id'+i,n,pool:pool||(i%3?'mcu':'nba'),a:Array(12).fill(i%3?93:70)}));
-test('thirteen additional thematic cross-pool challenges are defined (12 powers + MuppetForce)',()=>{
- assert.equal(api.CAMPAIGN_EXTRA.length,13);
- assert.equal(new Set(api.CAMPAIGN_EXTRA.map(x=>x.rule)).size,13);
+test('twenty-four additional ability and universe-based challenges are defined',()=>{
+ assert.equal(api.CAMPAIGN_EXTRA.length,24);
+ assert.equal(new Set(api.CAMPAIGN_EXTRA.map(x=>x.rule)).size,24);
  assert.ok(api.CAMPAIGN_EXTRA.some(x=>x.rule==='muppetforce'));
 });
 test('random order has ten unique stages with final gauntlet last',()=>{
@@ -38,6 +38,7 @@ test('random order has ten unique stages with final gauntlet last',()=>{
   assert.equal(order.length,10);
   assert.equal(new Set(order).size,10);
   assert.equal(order[9],9);
+  assert.notEqual(order[8],8,'Short-Handed may not immediately precede the full-team finale');
   S.campaign.stageOrder=order;
   assert.equal(api.campaignStages().length,10);
  }
@@ -50,6 +51,35 @@ test('new campaigns only select challenges with sufficient eligible characters',
   const amount=catalog.filter(c=>api.campaignAllowed(c,stage.rule)).length;
   assert.ok(amount>=5,stage.rule+' has '+amount);
  }
+});
+test('talent-pool themes check candidate.pool only, not character names or keyword descriptions',()=>{
+ const c=(pool,name='Test Champion')=>({id:pool+':test',pool,n:name,t:'Legendary superhero in disguise',a:Array(12).fill(90)});
+ for(const pool of ['toons','muppets'])assert.equal(api.campaignAllowed(c(pool),'toons-muppets'),true,pool+' should qualify');
+ for(const pool of ['mcu','dc','nba','pokemon'])assert.equal(api.campaignAllowed(c(pool),'toons-muppets'),false,pool+' must not qualify');
+ for(const pool of ['lotr','harrypotter'])assert.equal(api.campaignAllowed(c(pool),'fantasy-lands'),true);
+ assert.equal(api.campaignAllowed(c('mcu'),'fantasy-lands'),false);
+ assert.equal(api.campaignAllowed(c('toons'),'wizarding-only'),false);
+ assert.equal(api.campaignAllowed(c('harrypotter'),'wizarding-only'),true);
+ assert.equal(api.campaignAllowed(c('nba'),'marvel-dc'),false);
+ assert.equal(api.campaignAllowed(c('dc'),'marvel-dc'),true);
+});
+test('finale uses full team, forbids past winners, and requires three different talent pools',()=>{
+ const old=S.campaign;
+ const make=(pool,i)=>({id:pool+':hero'+i,pool,n:'Hero '+i,a:Array(12).fill(80)});
+ try{
+   const same=Array.from({length:5},(_,i)=>make('mcu',i));
+   S.campaign={...old,status:'draft',sport:'basketball',step:9,stageOrder:[0,1,2,3,4,5,6,7,8,9],
+     history:[],roster:Object.fromEntries(same.map((c,i)=>['p'+i,c]))};
+   assert.equal(api.CAMPAIGN_STAGES[9].name,'The Multiverse Siege');
+   assert.equal(api.CAMPAIGN_STAGES[9].criteria.encounters,2);
+   assert.equal(api.campaignLimit('basketball','final'),5,'Finale must not be another 3-on-5');
+   assert.equal(api.campaignReady(),false,'Single-pool full lineup is not a multiverse alliance');
+   const mixed=[make('dc',0),make('lotr',1),make('mcu',2),make('mcu',3),make('mcu',4)];
+   S.campaign.roster=Object.fromEntries(mixed.map((c,i)=>['p'+i,c]));
+   assert.equal(api.campaignReady(),true,'Three distinct talent pools satisfy the alliance');
+   S.campaign.history=[{ids:[mixed[0].id]}];
+   assert.equal(api.campaignAllowed(mixed[0],'final'),false,'Prior winning characters remain ineligible');
+ }finally{S.campaign=old;}
 });
 test('final gauntlet rejects characters previously used in winning lineups',()=>{
  S.campaign.history=[{ids:[catalog[0].id]}];
