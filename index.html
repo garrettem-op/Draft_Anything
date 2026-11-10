@@ -712,6 +712,10 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 }
 
 
+/* Head-to-Head dealt-hand actions remain visible above the court. */
+.h2h-hand-selection{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:8px 0;font-size:13px}
+.h2h-deal-back .deal-popup{max-height:min(90dvh,800px);overflow-y:auto}
+@media(max-width:700px){.h2h-hand-selection{font-size:12px}.h2h-deal-back .deal-popup{max-height:94dvh}}
 /* Modal Dealt Hand: animation plays on the popup's portrait cards, then
    the dialog disappears so the field can receive the selected character. */
 .deal-popup-back {
@@ -4555,13 +4559,47 @@ function sideForPick(k, d) {
 }
 function forcedSlot(k, d) { return d.rules.style === 'position' ? (SPORTS[d.sport].pos[Math.floor(k / 2)] || {}).id || null : null; }
 function totalPicks(d) { return SPORTS[d.sport].pos.length * 2; }
+function h2hDealtHand(d,k=d.picks.length) {
+  if(d.rules?.style!=='hand')return [];
+  // Each pick's offer is derived from the same shuffled, contest-seeded deck.
+  // Both players see identical choices for that pick; refreshes cannot reroll.
+  const taken=new Set((d.picks||[]).map(p=>p.cid));
+  const deck=getCands(d.poolId).slice(),rng=rngFrom('h2h-hand|'+d.code+'|'+d.poolId);
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  const current=deck.slice(k*HAND_SIZE,(k+1)*HAND_SIZE).filter(c=>!taken.has(c.id));
+  if(current.length===HAND_SIZE)return current;
+  // Small pools may exhaust the unused deck before all 2x roster picks.
+  // Recycle *unpicked* candidates only, never drafted characters.
+  const seen=new Set(current.map(c=>c.id));
+  const remaining=deck.filter(c=>!taken.has(c.id)&&!seen.has(c.id));
+  const fallbackRng=rngFrom('h2h-hand-fallback|'+d.code+'|'+k);
+  for(let i=remaining.length-1;i>0;i--){const j=Math.floor(fallbackRng()*(i+1));[remaining[i],remaining[j]]=[remaining[j],remaining[i]];}
+  return current.concat(remaining.slice(0,HAND_SIZE-current.length));
+}
+function renderH2HHandPopup(d,me,k){
+  if(d.rules?.style!=='hand'||sideForPick(k,d)!==me||S.h2h.handPick)return '';
+  const cards=h2hDealtHand(d,k);
+  if(!cards.length)return '';
+  return `<div class="modal-back deal-popup-back h2h-deal-back">
+    <div class="modal board hand deal-popup" role="dialog" aria-modal="true" aria-label="Head-to-Head three-card hand">
+      <div class="deal-popup-heading"><div class="eyebrow">Head-to-Head · Dealt Hand · Pick ${k+1}</div>
+        <h2 class="h">Choose your character</h2>
+        <p>Select one of three cards, then place that character on an open court position. Your opponent gets their own three-card hand.</p></div>
+      <div class="hand-list dealing">${cards.map((c,i)=>handTradingCardHTML(c,false,i)
+        .replace('data-act="hand-pick"','data-act="h-hand-select"')
+        .replace('data-act="hand-info"','data-act="h-hand-info"')).join('')}</div>
+      <div class="deal-popup-actions"><span class="note">One of three · No redeals · Pick becomes final when placed</span></div>
+    </div>
+  </div>`;
+}
+
 function rosterOf(d, side) { const r = {}; for (const p of d.picks || []) if (p.s === side) { const c = candById(d.poolId, p.cid); if (c) r[p.slot] = c; } return r; }
 function h2hRoster(d,side) {return variantRoster({sport:d.sport,roster:rosterOf(d,side),surge:d.surges?.[side]||null});}
 function mySide(d) { const u = S.cap.uid; return !d || !u ? null : d.host === u ? 'host' : d.guest === u ? 'guest' : null; }
 function contestName(d, side) { return (d.names && d.names[side]) || suggestedTeamName(d.poolId, side === 'host' ? 0 : 1, side === 'host' ? 'Home team' : 'Away team'); }
 function timerLabel(t) { return !t ? 'No clock' : t < 60 ? t + 's per pick' : (t / 60) + ' min per pick'; }
 function rulesSummary(r) {
-  return [timerLabel(r.timer), r.order === 'snake' ? 'Snake order' : 'Alternating order', r.style === 'position' ? 'Position by position' : 'Any open spot', r.upsets === 'off' ? 'No upsets' : r.upsets === 'low' ? 'Occasional upsets' : 'Chaos upsets'].join(' · ');
+  return [timerLabel(r.timer), r.order === 'snake' ? 'Snake order' : 'Alternating order', r.style === 'hand' ? 'Dealt Hand · 3 cards' : r.style === 'position' ? 'Position by position' : 'Any open spot', r.upsets === 'off' ? 'No upsets' : r.upsets === 'low' ? 'Occasional upsets' : 'Chaos upsets'].join(' · ');
 }
 
 // ----- db wiring -----
@@ -4585,17 +4623,17 @@ function subscribePools() {
 }
 function openRoom(id) {
   if (unsubRoom) { unsubRoom(); unsubRoom = null; }
-  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.variantTarget=null; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
+  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.handPick=null; S.h2h.handInfoId=null; S.h2h.variantTarget=null; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
   unsubRoom = S.cap.db.doc('contests/' + id).onSnapshot(snap => {
     const prev = S.h2h.contest;
     S.h2h.contest = snap.exists ? { id: snap.id, ...snap.data() } : null;
     const d = S.h2h.contest;
-    if (d && prev && (prev.picks || []).length !== (d.picks || []).length) { S.h2h.sel = null; }
+    if (d && prev && (prev.picks || []).length !== (d.picks || []).length) { S.h2h.sel = null; S.h2h.handPick=null; S.h2h.handInfoId=null; }
     if (S.mode === 'h2h' && S.h2h.stage === 'room') render();
   }, () => { });
   render();
 }
-function leaveRoom() { if (unsubRoom) { unsubRoom(); unsubRoom = null; } S.h2h.stage = 'lobby'; S.h2h.cid = null; S.h2h.contest = null; render(); }
+function leaveRoom() { if (unsubRoom) { unsubRoom(); unsubRoom = null; } S.h2h.stage = 'lobby'; S.h2h.cid = null; S.h2h.contest = null; S.h2h.handPick=null; S.h2h.handInfoId=null; render(); }
 
 async function withLease(ref, fn) {
   // Short lease so the next player is never locked out for long; it lapses on its own.
@@ -4661,7 +4699,7 @@ async function cancelContest() {
 function autoChoice(d, side) {
   const k = d.picks.length, sp = SPORTS[d.sport], roster = rosterOf(d, side);
   const taken = new Set(d.picks.map(p => p.cid));
-  const avail = getCands(d.poolId).filter(c => !taken.has(c.id));
+  const avail = (d.rules.style === 'hand' ? h2hDealtHand(d,k) : getCands(d.poolId)).filter(c => !taken.has(c.id));
   const forced = forcedSlot(k, d);
   const slots = forced ? [sp.pos.find(p => p.id === forced)] : sp.pos.filter(p => !roster[p.id]).sort((a, b) => slotImp(d.sport, b) - slotImp(d.sport, a)).slice(0, 1);
   const pos = slots[0]; let best = null;
@@ -4683,15 +4721,17 @@ async function makePick(slot, cid, auto = false, expectK = null) {
       if (auto) { const ch = autoChoice(d, side); if (!ch) throw { code: 'stale' }; slot = ch.slot; cid = ch.cid; }
       const forced = forcedSlot(k, d);
       if (forced && slot !== forced) throw { code: 'forced' };
+      if (d.rules.style==='hand' && !h2hDealtHand(d,k).some(c=>c.id===cid)) throw {code:'invalid_hand'};
+      if (!SPORTS[d.sport].pos.some(p=>p.id===slot)) throw {code:'filled'};
       if (d.picks.some(p => p.cid === cid)) throw { code: 'gone' };
       if (d.picks.some(p => p.s === side && p.slot === slot)) throw { code: 'filled' };
       const picks = [...d.picks, { s: side, slot, cid, at: Date.now(), auto: !!auto }];
       const done = picks.length === totalPicks(d), now = Date.now();
       await ref.update({ picks, status: done ? 'powers' : 'drafting', deadline: done || !d.rules.timer ? 0 : now + d.rules.timer * 1000, updatedAt: now });
     });
-    S.h2h.sel = null; S.h2h.query = '';
+    S.h2h.sel = null; S.h2h.query = ''; S.h2h.handPick=null;
   } catch (e) {
-    const m = { turn: 'It’s not your pick yet.', gone: 'Just taken by your opponent. Pick someone else.', filled: 'You already filled that spot.', forced: 'This round fills a specific position.' }[e.code];
+    const m = { turn: 'It’s not your pick yet.', gone: 'Just taken by your opponent. Pick someone else.', filled: 'You already filled that spot.', forced: 'This round fills a specific position.', invalid_hand: 'This character is not in the current three-card hand.' }[e.code];
     if (m) toast(m); else if (e.code !== 'stale') toast(dbErr(e));
   } finally { picking = false; }
 }
@@ -4765,7 +4805,7 @@ function renderLobby() {
         ${segRow('Pick clock', 'timer', [[0, 'None'], [30, '30s'], [60, '60s'], [90, '90s'], [120, '2 min']])}
         ${segRow('Draft order', 'order', [['snake', 'Snake'], ['alt', 'Alternating']])}
         ${segRow('First pick', 'first', [['host', 'Me'], ['guest', 'Opponent'], ['coin', 'Coin flip']])}
-        ${segRow('Pick style', 'style', [['free', 'Any open spot'], ['position', 'Position by position']])}
+        ${segRow('Pick style', 'style', [['free', 'Any open spot'], ['position', 'Position by position'], ['hand', 'Dealt Hand · 3 cards']])}
         ${segRow('Upsets', 'upsets', [['off', 'Off'], ['low', 'Occasional'], ['high', 'Chaos']])}
       </div>
       <div class="cta-row"><button class="btn primary big" data-act="h-create" ${S.h2h.busy || !enough ? 'disabled' : ''}>Create contest</button><span class="note">You get a 5-letter code to send your opponent.</span></div>
@@ -4805,9 +4845,16 @@ function renderRoom() {
   const taken = new Map(); for (const p of d.picks) taken.set(p.cid, p.s === me ? 'Your ' + sp.pos.find(x => x.id === p.slot).ab : contestName(d, p.s));
   const left = d.deadline ? Math.max(0, Math.ceil((d.deadline - Date.now()) / 1000)) : null;
   const clock = `<div class="clock"><div><div class="pickno">Pick ${k + 1} of ${totalPicks(d)}${forced ? ' · ' + sp.pos.find(p => p.id === forced).nm + ' round' : ''}</div><div class="who ${myTurn ? 'me' : ''}">${myTurn ? 'You’re on the clock' : esc(contestName(d, onSide)) + ' on the clock'}</div></div>${left != null ? `<div class="time num ${left <= 10 ? 'low' : ''}" id="clock-time">${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}</div>` : `<div class="time num" style="font-size:14px;opacity:.7">No clock</div>`}</div>`;
-  const sel = S.h2h.sel;
-  const picker = sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : '';
-  return head('') + clock + renderH2HCourt(d,me||'host',false,sel,myTurn?forced:null) + picker;
+  const handMode=d.rules.style==='hand';
+  const handCharacter=handMode&&myTurn?h2hDealtHand(d,k).find(c=>c.id===S.h2h.handPick):null;
+  if(handMode&&!handCharacter)S.h2h.handPick=null;
+  const sel = handMode?null:S.h2h.sel;
+  const picker = !handMode&&sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : '';
+  const handBar=handMode ? `<div class="h2h-hand-selection">${handCharacter
+    ? `<span><b>Selected:</b> ${esc(handCharacter.n)} · Tap an empty position to place</span><button class="btn small" data-act="h-hand-reselect">Reselect card</button>`
+    : `<span>${myTurn?'Choose one of your three cards to continue':'Opponent is choosing from their hand'}</span>`}</div>` : '';
+  return head('') + clock + handBar + renderH2HCourt(d,me||'host',false,sel,myTurn?forced:null) + picker
+    + (handMode?renderH2HHandPopup(d,me,k):'');
 }
 function renderH2HCourt(d,side,powers=false,sel=null,forced=null){
   const sp=SPORTS[d.sport],opp=side==='host'?'guest':'host',showOpp=!!S.h2h.viewOpp;
@@ -5085,6 +5132,12 @@ document.addEventListener('keydown', e => {
   }
 });
 function renderHandInfo() {
+  if(S.mode==='h2h'&&S.h2h.handInfoId){
+    const d=S.h2h.contest,c=d&&h2hDealtHand(d).find(x=>x.id===S.h2h.handInfoId);
+    if(!c)return '';
+    const origin=campaignOrigin(c);
+    return `<div class="modal-back hand-info-back" data-act="h-hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(c.n)}</h2><button class="btn small" data-act="h-hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
+  }
   if(S.mode!=='deal' || !S.handInfoId) return '';
   const character = (S.champ.hand||[]).find(c=>c.id===S.handInfoId);
   if(!character)return '';
@@ -5469,6 +5522,11 @@ document.addEventListener('click', e => {
         placeFromHand(slot, c.handSel);
       }
       else if (S.mode === 'champ') { c.sel = t.dataset.slot; c.query = ''; }
+      else if(h.contest?.rules?.style==='hand'){
+        const d=h.contest,slot=t.dataset.slot,side=mySide(d),k=d.picks.length;
+        if(d.status==='drafting'&&side===sideForPick(k,d)&&h.handPick&&!rosterOf(d,side)[slot])
+          {makePick(slot,h.handPick,false,k);return;}
+      }
       else { h.sel = t.dataset.slot; h.query = ''; }
       break;
     case 'c-close': c.sel = null; break;
@@ -5503,6 +5561,16 @@ document.addEventListener('click', e => {
     case 'h-cancel': cancelContest(); return;
     case 'h-close': h.sel = null; break;
     case 'h-pick': if (h.sel) makePick(h.sel, t.dataset.cid); return;
+    case 'h-hand-select': {
+      const d=h.contest,k=d?.picks?.length||0;
+      if(d?.status==='drafting'&&d.rules?.style==='hand'&&sideForPick(k,d)===mySide(d)&&h2hDealtHand(d,k).some(c=>c.id===t.dataset.cid)) {
+        h.handPick=t.dataset.cid;h.handInfoId=null;h.viewOpp=false;
+      }
+      break;
+    }
+    case 'h-hand-reselect': h.handPick=null;h.handInfoId=null;break;
+    case 'h-hand-info': h.handInfoId=t.dataset.cid;break;
+    case 'h-hand-info-close': h.handInfoId=null;break;
     case 'h-copy-invite': copyText(t.dataset.text); return;
     case 'h-toggle-court': h.viewOpp=!h.viewOpp; break;
     case 'h-variant-open': {
