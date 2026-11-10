@@ -28,7 +28,7 @@
       attack,armor,fit,maxHp,hp:maxHp,
       accuracy:a('acc'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
-      dmg:0,abs:0,mit:0,kos:0,attacks:0,hits:0
+      dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0
     };
   }
   function defense(f) {
@@ -86,7 +86,9 @@
         const incoming=Math.max(1,raw-prevented);
         const dealt=Math.min(target.hp,incoming);
         target.hp-=dealt;
-        f.dmg+=dealt;
+        // DMG includes finishing-blow excess; ABS counts actual HP lost.
+        f.dmg+=incoming;
+        f.overkill+=incoming-dealt;
         target.abs+=dealt;
         target.mit+=prevented;
         if(target.hp===0)f.kos++;
@@ -105,7 +107,7 @@
         survivors:list.filter(f=>f.hp>0).length,
         fighters:list.map(f=>({
           id:f.id,name:f.name,position:f.position,
-          dmg:f.dmg,abs:f.abs,mit:f.mit,kos:f.kos,
+          dmg:f.dmg,abs:f.abs,mit:f.mit,overkill:f.overkill,kos:f.kos,
           attacks:f.attacks,hits:f.hits,hp:f.hp,maxHp:f.maxHp
         }))
       };
@@ -118,7 +120,7 @@
     return {
       version:1,winner,rounds:round,attacks,
       line:[sides[winner].kos,sides[loser].kos,
-        sides[loser].kos===0?'flawless':sides[loser].kos===4?'last one standing':''],
+        sides[loser].kos===0?'flawless':sides[winner].survivors===1?'last one standing':''],
       sides
     };
   }
