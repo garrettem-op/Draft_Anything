@@ -13,7 +13,10 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 UA={'User-Agent':'Mozilla/5.0 (compatible; DraftAnythingResearch/1.0)'}
-NCAA='https://longbeachstate.com/sports/mens-volleyball/schedule/2025'
+NCAA=[
+ 'https://longbeachstate.com/sports/mens-volleyball/schedule/2025',
+ 'https://pepperdinewaves.com/sports/mens-volleyball/schedule/2025'
+]
 VNL='https://voleinfo.com/matches/mens-volleyball-nations-league-2025-match-{}'
 OUT=Path('data/research')
 def txt(el):return re.sub(r'\s+',' ',el.get_text(' ',strip=True)).strip()
@@ -125,19 +128,27 @@ def quantiles(v):
 def run():
     OUT.mkdir(parents=True,exist_ok=True)
     errors=[];matches=[];seen=set()
-    session=get(NCAA)
-    urls=[]
-    for a in session.select('a[href]'):
-        if not re.search(r'box\s*score',txt(a),re.I):continue
-        url=urljoin(NCAA,a['href'])
-        if '/stats/2025/' in url and url not in urls:urls.append(url)
-    rng=random.Random(20251110);rng.shuffle(urls)
-    for url in urls:
-        if sum(x['competition']=='NCAA 2025' for x in matches)>=25:break
-        try:
-            m=validate(ncaa(get(url),url))
-            if m['url'] not in seen:matches.append(m);seen.add(m['url'])
-        except Exception as exc:errors.append(dict(url=url,error=str(exc)))
+    rng=random.Random(20251110)
+    # Two different NCAA programs avoid oversampling only one national finalist.
+    for source,quota in zip(NCAA,[12,13]):
+        session=get(source)
+        urls=[]
+        for anchor in session.select('a[href]'):
+            if not re.search(r'box\s*score',txt(anchor),re.I):continue
+            url=urljoin(source,anchor['href'])
+            if '/stats/2025/' not in url or url in urls:continue
+            # Exclude direct LBSU/Pepperdine meetings to avoid counting one match twice.
+            if ('longbeachstate.com' in source and 'pepperdine' in url.lower()) or (
+                'pepperdinewaves.com' in source and 'long-beach' in url.lower()):continue
+            urls.append(url)
+        rng.shuffle(urls)
+        accepted=0
+        for url in urls:
+            if accepted>=quota:break
+            try:
+                m=validate(ncaa(get(url),url))
+                if m['url'] not in seen:matches.append(m);seen.add(m['url']);accepted+=1
+            except Exception as exc:errors.append(dict(url=url,error=str(exc)))
     ids=list(range(1,121));rng.shuffle(ids)
     for index in ids:
         if sum(x['competition']=='VNL 2025' for x in matches)>=25:break
