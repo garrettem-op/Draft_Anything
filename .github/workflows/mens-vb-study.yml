@@ -6,6 +6,10 @@ on:
     paths:
       - scripts/mens_vb_box_score_study.py
       - .github/workflows/mens-vb-study.yml
+  pull_request:
+    paths:
+      - scripts/mens_vb_box_score_study.py
+      - .github/workflows/mens-vb-study.yml
   workflow_dispatch:
 permissions:
   contents: write
@@ -30,7 +34,7 @@ jobs:
           path: data/research/mens-vb-*
           if-no-files-found: warn
       - name: Commit validated study data back to research branch
-        if: success()
+        if: success() && github.event_name == 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
