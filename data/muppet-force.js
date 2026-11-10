@@ -397,9 +397,11 @@ function muppetForceTeamwork(roster,positions,baseRating) {
     ensembleStrength+=influence*(force.dimensions.ensemble/99);
   }
   if(!performers||teammates<2)return {percent:0,points:0,performers,teammates};
-  // 1 Muppet typically contributes 2–3%, a whole ensemble up to 8%.
-  // Square-root diminishing returns prevents stacking large-roster bonuses.
-  const percent=+Math.min(8,2.8*Math.sqrt(ensembleStrength)).toFixed(3);
+  // MuppetForce has less SOLO combat impact than ToonForce, but camaraderie
+  // becomes a true equalizer as the number of Muppets on a team rises.
+  // One Muppet typically adds ~3-4%, three ~10-12%, five ~15-18%.
+  // Power-law returns prevent exponential stacks; absolute cap 22%.
+  const percent=+Math.min(22,4.8*Math.pow(ensembleStrength,0.90)).toFixed(3);
   return {percent,points:+(baseRating*percent/100).toFixed(4),performers,teammates};
 }
 if(typeof module!=='undefined' && module.exports){
