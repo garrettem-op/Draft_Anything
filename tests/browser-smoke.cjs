@@ -73,6 +73,21 @@ const server=http.createServer((req,res)=>{
       id:c.id,pool:c.pool,name:c.n,rating:Math.max(...pos.map(p=>fitIn('brawl',c,p)))
     })).sort((a,b)=>b.rating-a.rating);
     const index=rank.findIndex(r=>r.id===bugs.id);
+    const baseline=getCands('mashup').map(c=>({
+      id:c.id,name:c.n,pool:c.pool,
+      raw:Math.max(...pos.map(p=>fitIn('brawl',c,p)/characterForceMultiplier('brawl',c,p))),
+      toon:toonForceOf(c)?.score||0,muppet:muppetForceOf(c)?.score||0
+    }));
+    const scenarios=[];
+    for(const t of [.10,.14,.18,.22,.26,.30,.34,.38])
+      for(const m of [.06,.10,.14,.18]){
+        const ranking=baseline.map(c=>({...c,value:c.raw*(1+t*c.toon/99+m*c.muppet/99)}))
+          .sort((a,b)=>b.value-a.value);
+        const rankIdx=ranking.findIndex(x=>x.id===bugs.id);
+        scenarios.push({toon:t,muppet:m,bugsRank:rankIdx+1,bugsRating:+ranking[rankIdx].value.toFixed(2),
+          top5:ranking.slice(0,5).map(c=>c.name)});
+      }
+
     const candidate=(c)=>({rating:100,rows:[{cand:c,pos:pos.find(p=>p.id==='d1'),w:0.22}],
       sig:{chaos:0,spark:[]},muppetTeam:{points:0}});
     const defender={rating:105,rows:[],sig:{chaos:0,spark:[]}};
@@ -83,7 +98,7 @@ const server=http.createServer((req,res)=>{
     const spaceJam=toonForceOf(bugs).dimensions.sports;
     const ensemble=SPORTS.brawl.pos.filter(p=>!p.bench&&!p.coach);
     const calc=n=>{const roster=Object.fromEntries(ensemble.map((p,i)=>[p.id,i<n?teammates[i]:getCands('nba')[0]]));return muppetForceTeamwork(roster,ensemble,90);};
-    return {count:rank.length,rank:index+1,bugs:rank[index],top25:rank.slice(0,25),
+    return {count:rank.length,rank:index+1,bugs:rank[index],top25:rank.slice(0,25),rawTop15:baseline.slice().sort((a,b)=>b.raw-a.raw).slice(0,15),scenarios,
       physics:{bugs:toonForceMultiplier(bugs,'brawl',pos[0]),daffy:toonForceMultiplier(daffy,'brawl',pos[0]),
         wile:toonForceMultiplier(wile,'brawl',pos[0]),spaceJam},
       triggered:!!trace,traceCheck:check,toonMoment:trace?.toonEvents?.[0]||null,
