@@ -2838,7 +2838,8 @@ function playGame(sportKey, A, B, sigma, rng, playoff = false) {
   let m = g.ra - g.rb + randomDelta;
   if (m === 0) { const tiebreak = rng() < 0.5 ? -0.01 : 0.01; randomDelta += tiebreak; m=tiebreak; }
   // Ratings adjust combat effectiveness, but only modeled hits and depletion cause KOs.
-  const combat=sportKey==='brawl'
+  const hasFighters=T=>Array.isArray(T?.rows)&&T.rows.some(r=>r.cand&&!r.pos.coach&&!r.pos.bench);
+  const combat=sportKey==='brawl'&&hasFighters(A)&&hasFighters(B)
     ?window.DA_BRAWL_COMBAT.resolveBrawlCombat(A,B,
       [g.ra+randomDelta/2,g.rb-randomDelta/2],rng)
     :null;
