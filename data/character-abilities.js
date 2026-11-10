@@ -2311,7 +2311,7 @@ const CHARACTER_ABILITY_CARRYOVER = Object.freeze([
 /* ---- 2026-11 (Claude): Disney characters added to the Cartoons pool.
    Source-linked records for the 31 Disney additions. Characters with no qualifying power (Belle,
    Gaston, Quasimodo, Mufasa, Anna, Snow White and others) have no record, so the generated index
-   lists them as []. Uncertain cases sit in CHARACTER_ABILITY_RESEARCH_QUEUE instead of here. */
+   lists them as []. Records marked "ruling" were uncertain cases the owner approved on 2026-11-10. */
 const CHARACTER_ABILITY_RECORDS_DISNEY = {
   "toons:Aladdin": [
     {"tag": "flight", "tags": ["mount"], "kind": "mount", "feat": "Rides the Magic Carpet out of the collapsing, lava-filled Cave of Wonders, flies Jasmine around the world, and after Jafar exiles him to a frozen wasteland rides it back to Agrabah to fight Jafar for the lamp.", "source": "https://en.wikipedia.org/wiki/Aladdin_(1992_Disney_film)", "continuity": "Disney's Aladdin (1992)", "limitation": "Needs Carpet; no flight of his own", "audit": "2026-11-disney"},
@@ -2319,6 +2319,8 @@ const CHARACTER_ABILITY_RECORDS_DISNEY = {
   "toons:Genie": [
     {"tag": "magic", "tags": ["spellcaster"], "kind": "spellcaster", "feat": "Grants wishes: makes Aladdin a prince, pulls him out of the sea after Jafar's guards throw him in shackled, and turns Jafar into the world's most powerful sorcerer and then a genie. Shapeshifts at will throughout the film.", "source": "https://en.wikipedia.org/wiki/Genie_(Disney)", "continuity": "Disney's Aladdin (1992)", "limitation": "Cannot kill, make anyone fall in love or bring back the dead; must obey whoever holds the lamp", "audit": "2026-11-disney"},
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Floats and flies unaided as a jinn; even after being freed, and so weakened, he keeps his shapeshifting, flight and conjuration.", "source": "https://en.wikipedia.org/wiki/Genie_(Disney)", "continuity": "Disney's Aladdin films (1992-1996)", "audit": "2026-11-disney"},
+    {"tag": "giants", "tags": ["size-change"], "kind": "size-change", "feat": "His unlimited shapeshifting includes changing his own size at will, ballooning huge and shrinking tiny in his sight gags.", "source": "https://en.wikipedia.org/wiki/Genie_(Disney)", "continuity": "Disney's Aladdin (1992)", "limitation": "Gag-driven; no single giant-form fight", "ruling": "owner-approved 2026-11-10 (Garrett)", "audit": "2026-11-disney"},
+    {"tag": "teleport", "tags": ["self-teleport"], "kind": "self-teleport", "feat": "Pops in and out of scenes at will, vanishing in a puff and reappearing elsewhere, as part of his phenomenal cosmic power.", "source": "https://en.wikipedia.org/wiki/Genie_(Disney)", "continuity": "Disney's Aladdin (1992)", "ruling": "owner-approved 2026-11-10 (Garrett)", "audit": "2026-11-disney"},
   ],
   "toons:Jafar": [
     {"tag": "magic", "tags": ["spellcaster", "magic-item"], "kind": "spellcaster", "feat": "Grand vizier and sorcerer who works magic through his cobra staff; after his second wish he becomes the most powerful sorcerer in the world, sending Aladdin to a frozen wasteland and overpowering Jasmine, Abu and Carpet.", "source": "https://en.wikipedia.org/wiki/Jafar_(Aladdin)", "continuity": "Disney's Aladdin (1992)", "limitation": "Full sorcery came from a wish", "audit": "2026-11-disney"},
@@ -2347,6 +2349,7 @@ const CHARACTER_ABILITY_RECORDS_DISNEY = {
   "toons:Hades": [
     {"tag": "fire", "tags": ["fire-control"], "kind": "fire-body", "feat": "His hair is living flame and he bursts into flames when angry.", "source": "https://disney.fandom.com/wiki/Hades", "continuity": "Disney's Hercules (1997)", "limitation": "Pegasus can blow his hair out", "audit": "2026-11-disney"},
     {"tag": "teleport", "tags": ["self-teleport"], "kind": "self-teleport", "feat": "Vanishes and reappears in smoke with a snap of his fingers.", "source": "https://disney.fandom.com/wiki/Hades", "continuity": "Disney's Hercules (1997)", "audit": "2026-11-disney"},
+    {"tag": "magic", "tags": ["spellcaster"], "kind": "divine-power", "feat": "God of the Underworld who wields divine power: conjures fire, teleports in smoke, and holds the souls of the dead in the River Styx.", "source": "https://disney.fandom.com/wiki/Hades", "continuity": "Disney's Hercules (1997)", "ruling": "owner-approved 2026-11-10 (Garrett)", "audit": "2026-11-disney"},
   ],
   "toons:Peter Pan": [
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies into the Darlings' nursery, teaches the children to fly with Tinker Bell's pixie dust, and after beating Hook flies the pirate ship to London.", "source": "https://en.wikipedia.org/wiki/Peter_Pan_(1953_film)", "continuity": "Disney's Peter Pan (1953)", "limitation": "Relies on pixie dust", "audit": "2026-11-disney"},
@@ -2356,6 +2359,15 @@ const CHARACTER_ABILITY_RECORDS_DISNEY = {
     {"tag": "giants", "tags": ["size-change"], "kind": "size-change", "feat": "Transforms into a huge dragon in front of King Stefan's castle to stop Prince Phillip.", "source": "https://en.wikipedia.org/wiki/Maleficent", "continuity": "Disney's Sleeping Beauty (1959)", "limitation": "Slain by the Sword of Truth in dragon form", "audit": "2026-11-disney"},
     {"tag": "fire", "tags": ["fire-control"], "kind": "fire-breath", "feat": "In dragon form she breathes fire at Prince Phillip during the climax.", "source": "https://en.wikipedia.org/wiki/Maleficent", "continuity": "Disney's Sleeping Beauty (1959)", "limitation": "Dragon form only", "audit": "2026-11-disney"},
     {"tag": "teleport", "tags": ["self-teleport"], "kind": "self-teleport", "feat": "Appears and vanishes in bursts of green flame, turning herself into a ball of green magic that fades away.", "source": "https://comicvine.gamespot.com/maleficent/4005-33980/", "continuity": "Disney's Sleeping Beauty (1959)", "audit": "2026-11-disney"},
+  ],
+  "toons:Lumière": [
+    {"tag": "fire", "tags": ["fire-weapon"], "kind": "fire-weapon", "feat": "A living candelabra whose candle flames are part of his body; he joins the servants' defense of the castle against Gaston's mob.", "source": "https://disney.fandom.com/wiki/Lumiere", "continuity": "Disney's Beauty and the Beast (1991)", "limitation": "Small flames; LeFou nearly melts him", "ruling": "owner-approved 2026-11-10 (Garrett)", "audit": "2026-11-disney"},
+  ],
+  "toons:Beast": [
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "Towers over Belle, Gaston and the villagers; his cursed form is a huge beast that fights off a wolf pack and battles Gaston across the castle rooftops.", "source": "https://en.wikipedia.org/wiki/Beauty_and_the_Beast_(1991_film)", "continuity": "Disney's Beauty and the Beast (1991)", "limitation": "No source states an exact height", "ruling": "owner-approved 2026-11-10 (Garrett)", "audit": "2026-11-disney"},
+  ],
+  "toons:Esmeralda": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Escapes Frollo's guards at the Feast of Fools with a vanishing trick, and later slips out of Notre Dame unseen in disguise with Quasimodo's help.", "source": "https://en.wikipedia.org/wiki/The_Hunchback_of_Notre_Dame_(1996_film)", "continuity": "Disney's The Hunchback of Notre Dame (1996)", "limitation": "Stage illusion and disguise, not invisibility", "ruling": "owner-approved 2026-11-10 (Garrett)", "audit": "2026-11-disney"},
   ],
 };
 const CHARACTER_ABILITIES = (() => {
@@ -2487,12 +2499,6 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"harrypotter:Winky", tag:"magic", note:"House-elves use magic, but no specific spell by Winky was confirmed.", source:"https://en.wikipedia.org/wiki/List_of_Harry_Potter_characters", audit:"2026-11-r2"},
   {id:"harrypotter:Obscurus", tag:"magic", note:"An Obscurus is raw dark magic, not a spellcaster or item. Needs an owner ruling.", source:"https://harrypotter.fandom.com/wiki/Obscurus", audit:"2026-11-r2"},
   {id:"harrypotter:Fawkes", tag:"fire", note:"A phoenix bursts into flame and travels in fire, but no scene of Fawkes directing fire at anything was confirmed.", source:"https://harrypotter.fandom.com/wiki/Fawkes", audit:"2026-11-r2"},
-  {id:"toons:Genie", tag:"giants", note:"Grows and shrinks in sight gags, but no source confirming a size-change feat in Aladdin (1992) was found. Shapeshifting alone is not giants.", source:"https://en.wikipedia.org/wiki/Genie_(Disney)", audit:"2026-11-disney"},
-  {id:"toons:Genie", tag:"teleport", note:"Wikis describe him crossing space and time, but no specific self-teleport scene was confirmed. Jafar's exile of Aladdin was a wish, not Genie's own move.", source:"https://en.wikipedia.org/wiki/Genie_(Disney)", audit:"2026-11-disney"},
-  {id:"toons:Lumière", tag:"fire", note:"His candle flames are part of his body, but no scene of him using them as a weapon in the 1991 castle battle was confirmed; LeFou nearly melts him instead.", source:"https://tvtropes.org/pmwiki/pmwiki.php/Awesome/BeautyAndTheBeast", audit:"2026-11-disney"},
-  {id:"toons:Beast", tag:"giants", note:"Clearly large, but no source gives a height of about 8 ft or more (the giants ruling). Leaning no.", source:"https://en.wikipedia.org/wiki/Beauty_and_the_Beast_(1991_film)", audit:"2026-11-disney"},
-  {id:"toons:Esmeralda", tag:"stealth", note:"Escapes the Feast of Fools and Notre Dame with stage tricks and disguise. Owner call whether a performer's vanishing act counts as a stealth feat. Leaning no.", source:"https://en.wikipedia.org/wiki/The_Hunchback_of_Notre_Dame_(1996_film)", audit:"2026-11-disney"},
-  {id:"toons:Hades", tag:"magic", note:"A god with fire and teleportation, but not shown casting spells or using a magic item. Owner call whether divine power counts as magic.", source:"https://disney.fandom.com/wiki/Hades", audit:"2026-11-disney"},
 ]);
 /* Specific ability tags agreed with the Campaign engine (PR #44). Each family's broad tag is kept in
    the index for compatibility, and every broad tag a character holds comes with at least one specific
@@ -2834,18 +2840,18 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Stitch": ["flight", "pilot", "tech", "gadgets"],
     "Aladdin": ["flight", "mount"],
     "Jasmine": [],
-    "Genie": ["flight", "natural-flight", "magic", "spellcaster"],
+    "Genie": ["flight", "natural-flight", "magic", "spellcaster", "teleport", "self-teleport", "giants", "size-change"],
     "Jafar": ["magic", "spellcaster", "magic-item", "psychic", "mind-control", "fire", "fire-control", "giants", "size-change"],
     "Ariel": ["aquatic", "water-breathing", "swimmer"],
     "Ursula": ["magic", "spellcaster", "aquatic", "water-breathing", "swimmer", "water-control", "giants", "size-change"],
     "King Triton": ["magic", "magic-item", "aquatic", "water-breathing", "swimmer"],
     "Sebastian": ["aquatic", "water-breathing", "swimmer"],
     "Belle": [],
-    "Beast": [],
+    "Beast": ["giants", "giant-sized"],
     "Gaston": [],
-    "Lumière": [],
+    "Lumière": ["fire", "fire-weapon"],
     "Quasimodo": [],
-    "Esmeralda": [],
+    "Esmeralda": ["stealth", "infiltration"],
     "Frollo": [],
     "Phoebus": [],
     "Scar": [],
@@ -2854,7 +2860,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Pumbaa": [],
     "Mushu": ["fire", "fire-control"],
     "Shan Yu": [],
-    "Hades": ["fire", "fire-control", "teleport", "self-teleport"],
+    "Hades": ["magic", "spellcaster", "fire", "fire-control", "teleport", "self-teleport"],
     "Anna": [],
     "Olaf": [],
     "Lilo": [],

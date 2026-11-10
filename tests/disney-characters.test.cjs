@@ -70,23 +70,23 @@ test('documented Disney powers qualify for their Campaign challenges', () => {
     ['Ariel', 'aquatic'], ['Ursula', 'aquatic'], ['Ursula', 'giants'], ['Ursula', 'magic'],
     ['King Triton', 'aquatic'], ['King Triton', 'magic'], ['Sebastian', 'aquatic'],
     ['Mushu', 'fire'], ['Hades', 'fire'], ['Hades', 'teleport'],
-    ['Maleficent', 'magic'], ['Maleficent', 'giants'], ['Maleficent', 'fire'], ['Maleficent', 'teleport']]) {
+    ['Maleficent', 'magic'], ['Maleficent', 'giants'], ['Maleficent', 'fire'], ['Maleficent', 'teleport'],
+    // Owner rulings, 2026-11-10.
+    ['Genie', 'giants'], ['Genie', 'teleport'], ['Lumière', 'fire'], ['Beast', 'giants'], ['Esmeralda', 'stealth'], ['Hades', 'magic']]) {
     assert.equal(accepts(n, rule), true, n + ' should qualify for ' + rule);
   }
   assert.ok(CHARACTER_ABILITY_TAGS.toons.Aladdin.includes('mount'), 'Aladdin flies by riding Carpet');
   assert.ok(CHARACTER_ABILITY_TAGS.toons['King Triton'].includes('magic-item'), "Triton's power lives in his trident");
 });
 
-test('passengers, job titles and unconfirmed powers do not qualify', () => {
-  // Jasmine only rides Carpet as a passenger; Gaston is a hunter, not a giant; uncertain powers wait in the queue.
-  for (const [n, rule] of [['Jasmine', 'flight'], ['Belle', 'magic'], ['Beast', 'giants'], ['Lumière', 'fire'],
-    ['Genie', 'giants'], ['Genie', 'teleport'], ['Esmeralda', 'stealth'], ['Gaston', 'giants'], ['Olaf', 'ice'],
-    ['Anna', 'ice'], ['Cinderella', 'magic'], ['Captain Hook', 'flight']]) {
+test('passengers and job titles do not qualify', () => {
+  // Jasmine only rides Carpet as a passenger; Gaston is a hunter, not a giant.
+  for (const [n, rule] of [['Jasmine', 'flight'], ['Belle', 'magic'], ['Gaston', 'giants'], ['Olaf', 'ice'],
+    ['Anna', 'ice'], ['Cinderella', 'magic'], ['Captain Hook', 'flight'], ['Quasimodo', 'giants']]) {
     assert.equal(accepts(n, rule), false, n + ' must not qualify for ' + rule);
   }
-  for (const [n, tag] of [['Genie', 'giants'], ['Genie', 'teleport'], ['Lumière', 'fire'], ['Beast', 'giants'], ['Esmeralda', 'stealth']]) {
-    assert.ok(CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === 'toons:' + n && q.tag === tag), n + '/' + tag + ' should be queued for research');
-  }
+  // Approved rulings leave the research queue.
+  assert.equal(CHARACTER_ABILITY_RESEARCH_QUEUE.filter(q => ADDED.includes(q.id.replace(/^toons:/, ''))).length, 0);
 });
 
 test('identity challenges use the stated canon', () => {

@@ -29,25 +29,22 @@ Calibrated against the existing Disney entries (Hercules, Mulan, Simba, Maui, El
 | Character | Tags |
 | --- | --- |
 | Aladdin | flight (mount: rides Carpet) |
-| Genie | flight (natural), magic (spellcaster) |
+| Genie | flight (natural), magic (spellcaster), giants (size-change)\*, teleport (self)\* |
 | Jafar | magic, psychic (mind-control via staff), giants (size-change, cobra), fire |
 | Ariel, Sebastian | aquatic |
 | Ursula | magic, aquatic (incl. water-control with the trident), giants (size-change) |
 | King Triton | aquatic, magic (magic-item: trident) |
 | Mushu | fire |
-| Hades | fire, teleport (self) |
+| Hades | fire, teleport (self), magic (spellcaster)\* |
 | Peter Pan | flight (natural, pixie dust) |
 | Maleficent | magic, giants (dragon), fire, teleport (self) |
+| Lumière | fire (fire-weapon)\* |
+| Beast | giants (giant-sized)\* |
+| Esmeralda | stealth (infiltration)\* |
+
+\* Owner rulings, 2026-11-10: Garrett approved all six powers that were first held back (records carry a `ruling` field).
 
 Everyone else is audited with no qualifying power. Jasmine only rides Carpet as a passenger, so she is not Skyborne (same rule as passengers on the Eagles).
-
-## Owner calls (in `CHARACTER_ABILITY_RESEARCH_QUEUE`, not granted)
-
-- **Genie giants / teleport**: plausible from sight gags but no confirmed scene.
-- **Lumière fire**: no confirmed scene of him using his flames as a weapon.
-- **Beast giants**: big, but no source puts him at about 8 ft or taller.
-- **Esmeralda stealth**: escapes by stage tricks and disguise. Leaning no.
-- **Hades magic**: a god, but not shown casting spells.
 
 Identity rulings in `data/campaign.js`, also worth a look: Ariel is in **Young Guns** (she says she is sixteen) and **Seeing Red** (red hair). Sebastian, Mushu and Captain Hook are in Seeing Red; Gaston is left out. **No Powers Allowed** includes Aladdin, Jasmine, Belle, Gaston, Quasimodo, Esmeralda, Frollo, Phoebus, Shan Yu, Anna, Lilo, Captain Hook, Snow White and Cinderella.
 
