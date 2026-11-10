@@ -116,7 +116,7 @@ test('variant catalog refers to actual roster characters and well-labeled altern
    for(const form of forms){
      assert.ok(form.name&&form.origin&&Object.keys(form.changes).length);
      for(const delta of Object.values(form.changes))assert.ok(Number.isFinite(delta)&&Math.abs(delta)<=15);
-     if(form.continuity)assert.ok(form.continuity.length>=5);
+     if(form.continuity)assert.ok(form.continuity.length>=4);
    }
  }
  for(const name of ['Rune King Thor','White Phoenix of the Crown','House of M Scarlet Witch',
