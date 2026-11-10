@@ -758,6 +758,7 @@ function renderCampaignResults(){
       <button class="btn" data-act="camp-setup">Campaign overview</button>
     </div>
     ${r.finalRounds?.length?`<div class="da-rounds">
+        <div class="eyebrow">Multiverse Siege · Two bosses</div>
         ${r.finalRounds.map((round,i)=>`<details class="panel da-aux"><summary>${i+1}. ${esc(round.name)} · ${round.win?'Win':'Loss'} · <span class="num">${round.ourPoints}–${round.theirPoints}</span></summary>
            ${round.report||archived(r.report)}
         </details>`).join('')}
