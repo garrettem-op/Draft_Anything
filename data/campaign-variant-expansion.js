@@ -59,16 +59,6 @@
       "origin": "Secret Empire (2017) · Kobik-altered Hydra Steve Rogers",
       "continuity": "Earth-616 cosmic-cube alteration",
       "source": "https://www.marvel.com/comics/discover/964/secret-empire"
-    },
-    {
-      "name": "Captain America with Mjolnir",
-      "changes": {
-        "str": 14,
-        "end": 9,
-        "tch": 11
-      },
-      "origin": "Avengers: Endgame (2019) · Worthy Steve Rogers",
-      "continuity": "Marvel Cinematic Universe"
     }
   ],
   "mcu:Thor": [
@@ -81,16 +71,6 @@
       },
       "origin": "Thor (2020) #1–6 · Galactus's herald",
       "continuity": "Earth-616"
-    },
-    {
-      "name": "Old King Thor",
-      "changes": {
-        "end": 14,
-        "ldr": 12,
-        "iq": 10
-      },
-      "origin": "Thor: God of Thunder (2012) · distant-future All-Father",
-      "continuity": "Alternate future"
     },
     {
       "name": "Necrosword Thor",
@@ -135,18 +115,6 @@
       },
       "origin": "Hulk (2021–23) · Titan form",
       "continuity": "Earth-616"
-    }
-  ],
-  "mcu:Smart Hulk": [
-    {
-      "name": "Professor Hulk (Merged Personality)",
-      "changes": {
-        "iq": 10,
-        "str": 6,
-        "clu": 8
-      },
-      "origin": "Incredible Hulk (1991) #377 · merged Hulk persona",
-      "continuity": "Marvel Comics; separate from MCU Smart Hulk"
     }
   ],
   "mcu:Spider-Man": [
@@ -348,8 +316,7 @@
         "clu": 8
       },
       "origin": "The Infinity Gauntlet (1991) · six Gems",
-      "continuity": "Earth-616",
-      "source": "https://www.marvel.com/articles/comics/secret-wars-official-marvel-guide"
+      "continuity": "Earth-616"
     },
     {
       "name": "King Thanos",
@@ -597,14 +564,24 @@
   ],
   "mcu:Moon Knight": [
     {
-      "name": "Khonshu's Avatar Unbound",
+      "name": "Mr. Knight",
       "changes": {
-        "tch": 11,
-        "str": 9,
-        "end": 9
+        "iq": 10,
+        "tch": 10,
+        "clu": 8
       },
-      "origin": "Moon Knight (2022) / Moon Knight comics · Khonshu empowerment",
-      "continuity": "Comics or screen-specific empowerment"
+      "origin": "Moon Knight (2014) #1 · Marc Spector's Mr. Knight persona",
+      "continuity": "Marvel Comics"
+    },
+    {
+      "name": "Jake Lockley (Moon Knight)",
+      "changes": {
+        "ref": 10,
+        "iq": 8,
+        "clu": 7
+      },
+      "origin": "Moon Knight (2022) · third alter Jake Lockley",
+      "continuity": "Marvel Cinematic Universe; alter/persona"
     }
   ],
   "dc:Batman": [
@@ -1046,18 +1023,6 @@
       },
       "origin": "Deathstroke (2014) · Godkiller sword",
       "continuity": "New 52; weapon-dependent"
-    }
-  ],
-  "dc:Doctor Manhattan": [
-    {
-      "name": "Mars-Reconstruction Manhattan",
-      "changes": {
-        "iq": 11,
-        "tch": 11,
-        "end": 12
-      },
-      "origin": "Watchmen (1986) · reconstructed body on Mars",
-      "continuity": "Watchmen continuity"
     }
   ],
   "games:Mario": [
@@ -1514,16 +1479,6 @@
       },
       "origin": "Bayonetta 3 (2022) · Demon Masquerade",
       "continuity": "PlatinumGames"
-    },
-    {
-      "name": "Witch Time Unleashed",
-      "changes": {
-        "ref": 13,
-        "clu": 8,
-        "spd": 10
-      },
-      "origin": "Bayonetta series · Witch Time",
-      "continuity": "PlatinumGames; temporary ability state"
     }
   ],
   "games:Arthas Menethil": [
@@ -1582,18 +1537,6 @@
       },
       "origin": "Overwatch (2016) · Primal Rage ultimate",
       "continuity": "Blizzard"
-    }
-  ],
-  "games:Cloud Strife": [
-    {
-      "name": "Omnislash Limit Break Cloud",
-      "changes": {
-        "acc": 14,
-        "spd": 10,
-        "tch": 12
-      },
-      "origin": "Final Fantasy VII (1997) · Omnislash limit break",
-      "continuity": "Square Enix; temporary attack state"
     }
   ],
   "games:Mewtwo": [
