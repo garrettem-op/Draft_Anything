@@ -28,28 +28,28 @@ const CAMPAIGN_RULE_TACTICS=Object.freeze({
 // These are named fictional forms, not new independently draftable characters.
 // A form temporarily boosts a subset of its base character's existing stats.
 // Some forms cross from the film incarnation into comic continuity by design.
-const CAMPAIGN_VARIANTS=Object.freeze({
+const BASE_CAMPAIGN_VARIANTS=Object.freeze({
   'mcu:Thor':[
-    {name:'Rune King Thor',changes:{iq:14,tch:12,clu:9,ldr:7},origin:'Marvel Comics · Rune King Thor'},
+    {name:'Rune King Thor',changes:{iq:14,tch:12,clu:9,ldr:7},ratingBonus:3,origin:'Marvel Comics · Rune King Thor'},
     {name:'King Thor',changes:{str:8,end:9,iq:10,ldr:12},origin:'Marvel Comics · King Thor'}
   ],
   'mcu:Jean Grey':[
-    {name:'White Phoenix of the Crown',changes:{iq:12,tch:13,ref:12,clu:12},origin:'Marvel Comics · White Phoenix'},
+    {name:'White Phoenix of the Crown',changes:{iq:12,tch:13,ref:12,clu:12},ratingBonus:3.5,origin:'Marvel Comics · White Phoenix'},
     {name:'Dark Phoenix',changes:{str:10,tch:13,clu:-5,spd:8},origin:'Marvel Comics · Dark Phoenix'}
   ],
   'mcu:Scarlet Witch':[
-    {name:'House of M Scarlet Witch',changes:{tch:14,iq:12,ref:11,clu:5},origin:'Marvel Comics · House of M'},
+    {name:'House of M Scarlet Witch',changes:{tch:14,iq:12,ref:11,clu:5},ratingBonus:3,origin:'Marvel Comics · House of M'},
     {name:'Darkhold Scarlet Witch',changes:{tch:11,str:9,clu:-5,iq:8},origin:'Marvel Studios · Multiverse of Madness'}
   ],
   'mcu:Hulk':[
-    {name:'World Breaker Hulk',changes:{str:13,end:13,siz:8,clu:-8},origin:'Marvel Comics · World Breaker'},
+    {name:'World Breaker Hulk',changes:{str:13,end:13,siz:8,clu:-8},ratingBonus:2,origin:'Marvel Comics · World Breaker'},
     {name:'Immortal Hulk',changes:{end:14,str:10,ref:7},origin:'Marvel Comics · Immortal Hulk'}
   ],
   'mcu:Iron Man':[
     {name:'Bleeding Edge Iron Man',changes:{tch:12,ref:10,agi:9,iq:8},origin:'Marvel Comics · Bleeding Edge armor'}
   ],
   'mcu:Loki':[
-    {name:'God of Stories Loki',changes:{iq:13,tch:12,ref:10,clu:9},origin:'Marvel Comics · God of Stories'}
+    {name:'God of Stories Loki',changes:{iq:13,tch:12,ref:10,clu:9},ratingBonus:2.5,origin:'Marvel Comics · God of Stories'}
   ],
   'mcu:Doctor Strange':[
     {name:'Black Priest Doctor Strange',changes:{tch:13,iq:11,ref:8},origin:'Marvel Comics · Black Priests'}
@@ -82,6 +82,18 @@ const CAMPAIGN_VARIANTS=Object.freeze({
     {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9},origin:'Pokémon · Mega Evolution'}
   ]
 });
+// The large form catalog lives in its own evidence-labelled data module. Keep
+// the original variants and append additional forms for the same characters.
+// Node tests can require the module; the browser loads it before this script.
+const EXTRA_CAMPAIGN_VARIANTS=(typeof window!=='undefined'&&window.DA_CAMPAIGN_VARIANT_EXPANSION)||
+  (typeof require==='function'?require('./campaign-variant-expansion.js'):{});
+const CAMPAIGN_VARIANTS=Object.freeze(Object.fromEntries(
+  [...new Set([...Object.keys(BASE_CAMPAIGN_VARIANTS),...Object.keys(EXTRA_CAMPAIGN_VARIANTS)])]
+    .map(key=>[key,Object.freeze([
+      ...(BASE_CAMPAIGN_VARIANTS[key]||[]),
+      ...(EXTRA_CAMPAIGN_VARIANTS[key]||[])
+    ])])
+));
 function campaignStageSeed(v,step=v.step){
   return String(v.seed||'legacy-campaign')+'|'+v.sport+'|'+step+'|'+(v.stageOrder?.[step]??step);
 }
@@ -151,6 +163,20 @@ function campaignLockedOpponent(v,stage){
   score.rating+=Number(o.difficultyBonus)||0;
   return {roster,score,tactic:o.tactic,difficultyBonus:o.difficultyBonus||0};
 }
+// The final Siege fields TWO opponents for a single submitted full-strength
+// lineup. Both are seeded independently, stable across retries and unaffected
+// by the player's lineup. This does not consume the Variant Surge twice.
+function campaignFinalBossOpponent(v,stage,firstBoss){
+  const alt={...v,seed:String(v.seed||'legacy-campaign')+'|second-siege-boss'};
+  const generated=campaignBuildOpponent(alt,stage);
+  const roster=Object.fromEntries(Object.entries(generated.roster).map(([slot,id])=>[slot,candById('mashup',id)]).filter(([,c])=>!!c));
+  const score=teamScore(v.sport,roster);
+  score.rating+=(Number(generated.difficultyBonus)||0)+0.5;
+  const possible=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
+  const tactic=generated.tactic===firstBoss?.tactic
+    ?(possible.find(s=>s!==firstBoss.tactic)||'precision'):generated.tactic;
+  return {roster,score,tactic,difficultyBonus:generated.difficultyBonus||0};
+}
 function campaignActiveAverage(sport,roster,attr){
   const ix=CAMPAIGN_ATTR_INDEX[attr];
   const players=(SPORTS[sport]?.pos||[]).filter(p=>!p.coach&&!p.bench&&roster[p.id]);
@@ -185,14 +211,19 @@ function campaignSurgeCandidates(v){
   return sp.pos.filter(p=>!p.coach&&v.roster[p.id]&&campaignVariantOptions(v.roster[p.id]).length)
     .map(p=>v.roster[p.id]);
 }
-function campaignUseVariantSurge(v){
+function campaignUseVariantSurge(v,targetId=null){
   if(v.surge||v.status!=='draft')return null;
   const options=campaignSurgeCandidates(v);
   if(!options.length)return null;
+  // Users can target a specific drafted character. A deterministic form is
+  // then drawn from their documented variants; never silently fall back to
+  // someone else when the requested target is not eligible.
   const rng=rngFrom(campaignStageSeed(v)+':variant-surge');
-  const target=options[Math.floor(rng()*options.length)];
+  const target=targetId?options.find(c=>c.id===targetId):options[Math.floor(rng()*options.length)];
+  if(!target)return null;
   const forms=campaignVariantOptions(target);
-  const form=forms[Math.floor(rng()*forms.length)];
+  const formRng=targetId?rngFrom(campaignStageSeed(v)+':variant-form:'+target.id):rng;
+  const form=forms[Math.floor(formRng()*forms.length)];
   v.surge={id:target.id,name:form.name};
   return v.surge;
 }
@@ -220,6 +251,6 @@ function campaignVariantRoster(v){
 }
 if(typeof module!=='undefined'&&module.exports){
   module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignOpponentPool,campaignBuildOpponent,
-    campaignChallengeCeiling,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
+    campaignChallengeCeiling,campaignFinalBossOpponent,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
     campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster};
 }

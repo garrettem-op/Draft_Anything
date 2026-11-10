@@ -5,6 +5,7 @@ const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
 const code=fs.readFileSync(path.join(root,'data/campaign-strategy.js'),'utf8');
+const expansion=require('../data/campaign-variant-expansion.js');
 const P=[...Array.from({length:5},(_,i)=>({id:'p'+i,imp:1})),{id:'bench',bench:true,side:true,imp:0},{id:'coach',coach:true,side:true,imp:0}];
 const SPORTS={brawl:{pos:P}};
 const chars=Array.from({length:110},(_,i)=>{
@@ -30,12 +31,13 @@ function ai(sport,pool,n){
 }
 const saved=[];
 const context={
+ window:{DA_CAMPAIGN_VARIANT_EXPANSION:expansion},
  SPORTS,getCands:()=>chars,candById:(pool,id)=>chars.find(c=>c.id===id),
  aiStackDraft:ai,candVal:(sport,c)=>c.a[0],fitIn:(sport,c,p)=>c.a[0],
  teamScore:rate,rngFrom:seeded,saveCampaign:()=>saved.push(true),
  CAMPAIGN_KIDS:new Set(),campaignAllowed:(c,rule)=>rule==='fast'?c.a[0]>=90:true
 };
-vm.runInNewContext(code+'\nthis.strategyApi={campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS};',context);
+vm.runInNewContext(code+'\nthis.strategyApi={campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS};',context);
 const api=context.strategyApi;
 function stage(seed='campaign-A',step=0,rule='fast'){
  return {seed,step,sport:'brawl',stageOrder:[0,1,2,3,4,5,6,7,8,9],roster:{},opponents:{},surge:null,status:'draft',rule};
@@ -92,21 +94,45 @@ test('Variant Surge picks a documented form once and does not alter base charact
  replay.roster={p0:thor,p1:jean,p2:chars[72],p3:chars[73],p4:chars[74]};
  assert.equal(JSON.stringify(api.campaignUseVariantSurge(replay)),JSON.stringify(surge),'Stage-seeded variant must be reproducible');
 });
-test('variant catalog refers to actual unique universe-scoped characters',()=>{
+test('variant catalog refers to actual roster characters and well-labeled alternate forms',()=>{
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
- for(const [id,forms] of Object.entries(api.CAMPAIGN_VARIANTS)){
-  const [pool,...names]=id.split(':'),name=names.join(':');
-  const start=html.indexOf('POOLS.'+pool+' =');
-  const entries=html.indexOf('entries: [',start),end=html.indexOf('\n]};',entries);
-  assert.ok(start>=0&&end>entries,'Unknown pool '+pool);
-  assert.ok([...html.slice(entries,end).matchAll(/^\["([^"]+)"/gm)].some(x=>x[1]===name),'Unknown variant base '+id);
-  for(const form of forms){
-   assert.ok(form.name&&form.origin&&Object.keys(form.changes).length);
-   for(const delta of Object.values(form.changes))assert.ok(Number.isFinite(delta)&&Math.abs(delta)<=15);
-  }
+ const roster=new Set();
+ for(const pool of ['nba','mcu','toons','muppets','games','pokemon','starwars']){
+   const start=html.indexOf('POOLS.'+pool+' =');
+   const entries=html.indexOf('entries: [',start),end=html.indexOf('\n]};',entries);
+   assert.ok(start>=0&&end>entries,'Unknown pool '+pool);
+   for(const m of html.slice(entries,end).matchAll(/^\["([^"]+)"/gm))roster.add(pool+':'+m[1]);
  }
- for(const name of ['Rune King Thor','White Phoenix of the Crown','House of M Scarlet Witch'])
-  assert.ok(Object.values(api.CAMPAIGN_VARIANTS).flat().some(f=>f.name===name),name+' missing');
+ const newer=vm.createContext({window:{}});
+ for(const file of ['new-pool-core.js','pools-dc.js','pools-middle-earth.js','pools-harry-potter.js']){
+   vm.runInContext(fs.readFileSync(path.join(root,'data',file),'utf8'),newer,{filename:file});
+ }
+ for(const [pool,p] of Object.entries(newer.window.DA_ADDED_POOLS)){
+   for(const entry of p.entries)roster.add(pool+':'+entry[0]);
+ }
+ for(const [id,forms] of Object.entries(api.CAMPAIGN_VARIANTS)){
+   assert.ok(roster.has(id),'Unknown variant base '+id);
+   assert.equal(new Set(forms.map(f=>f.name)).size,forms.length,id+' duplicate forms');
+   for(const form of forms){
+     assert.ok(form.name&&form.origin&&Object.keys(form.changes).length);
+     for(const delta of Object.values(form.changes))assert.ok(Number.isFinite(delta)&&Math.abs(delta)<=15);
+     if(form.continuity)assert.ok(form.continuity.length>=4);
+   }
+ }
+ for(const name of ['Rune King Thor','White Phoenix of the Crown','House of M Scarlet Witch',
+   'God Emperor Doom','Hydra Supreme (Steve Rogers)','Infinity Ultron','The Darkest Knight'])
+   assert.ok(Object.values(api.CAMPAIGN_VARIANTS).flat().some(f=>f.name===name),name+' missing');
+ assert.ok(Object.keys(api.CAMPAIGN_VARIANTS).length>=130,'Expanded catalog still too small');
+});
+test('finale draws a second stable boss with different roster and strategy',()=>{
+ const v=stage('final-boss-seed',9,'final'),ch={rule:'final'};
+ const first=api.campaignLockedOpponent(v,ch);
+ const second=api.campaignFinalBossOpponent(v,ch,first);
+ const repeated=api.campaignFinalBossOpponent(v,ch,first);
+ assert.equal(JSON.stringify(second.roster),JSON.stringify(repeated.roster));
+ assert.notEqual(JSON.stringify(second.roster),JSON.stringify(first.roster),'Second boss must be a different team');
+ assert.notEqual(second.tactic,first.tactic,'Second boss should require different tactical counterplay');
+ assert.equal(second.score.rating,repeated.score.rating);
 });
 test('campaign runtime no longer scales opponents to player rating or changes match seed per retry',()=>{
  const c=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');

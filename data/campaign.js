@@ -9,7 +9,7 @@ const CAMPAIGN_STAGES = [
   {name:'Heavy Hitters',rule:'strong',criteria:{stats:[{attribute:'str',op:'gte',value:87}],commanderSpecialty:true},blurb:'Only characters with Strength 87 or higher.',rival:'The Juggernauts'},
   {name:'The Underdogs',rule:'underdog',criteria:{stats:[{attribute:'average',op:'lte',value:73}]},blurb:'Everyone must have an average attribute rating of 73 or lower.',rival:'The Favorites'},
   {name:'Short-Handed',rule:'short',criteria:{lineup:{starterFraction:0.6,startersOnly:true}},blurb:'Play with only 60% of your starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Full Strength'},
-  {name:'The Final Gauntlet',rule:'final',criteria:{lineup:{starterFraction:0.6,startersOnly:true},neverPreviouslyWon:true},blurb:'Again play short-handed, and you cannot reuse ANY character from a previous winning roster.',rival:'The Final Boss'}
+  {name:'The Multiverse Siege',rule:'final',criteria:{neverPreviouslyWon:true,minDistinctPools:3,encounters:2},blurb:'FINAL BATTLE: Build a full-strength alliance from at least THREE talent pools. No character from a previously WON challenge is allowed. Your same lineup must defeat TWO independently seeded bosses in a row.',rival:'The Final Boss'}
 ];
 const CAMPAIGN_EXTRA = [
   {name:'Skyborne',rule:'flight',criteria:{acceptedTags:['flight','natural-flight','powered-flight','glide','pilot','mount'],commanderSpecialty:true},blurb:'Every pick must be a known flyer or aerial combatant.',rival:'The Air Armada'},
@@ -24,7 +24,20 @@ const CAMPAIGN_EXTRA = [
   {name:'Blink and Miss',rule:'teleport',criteria:{acceptedTags:['teleport','self-teleport','portals','teleports-others'],commanderSpecialty:true},blurb:'Every pick must be able to teleport.',rival:'The Jumpers'},
   {name:'The Medics',rule:'healing',criteria:{acceptedTags:['healing','self-regeneration','heals-others'],commanderSpecialty:true},blurb:'Self-healing and regeneration count, as does healing other people. Every pick must have at least one of these abilities; healing teammates is NOT required.',rival:'The Lifesavers'},
   {name:'Giant Problems',rule:'giants',criteria:{acceptedTags:['giants','giant-sized','size-change'],commanderSpecialty:true},blurb:'Every pick must be documented as roughly eight feet tall or capable of giant-sized transformation.',rival:'The Colossi'},
-  {name:'The Show Must Go On',rule:'muppetforce',criteria:{muppetForceMin:65},blurb:'Every pick must have documented MuppetForce of at least 65. Puppet-stage resilience, props and escalating environmental comedy count; mere puppet appearance does not.',rival:'The Reality Check'}
+  {name:'The Show Must Go On',rule:'muppetforce',criteria:{muppetForceMin:65},blurb:'Every pick must have documented MuppetForce of at least 65. Puppet-stage resilience, props and escalating environmental comedy count; mere puppet appearance does not.',rival:'The Reality Check'},
+  // Source-world restrictions are declarative, unlike roster names. The candidate
+  // list stays unfiltered: players must recognize which universes qualify.
+  {name:'Saturday Morning Showdown',rule:'toons-muppets',criteria:{poolIds:['toons','muppets']},blurb:'Only cartoon and Muppet characters. No DC or Marvel superheroes. Build a team from Saturday-morning legends.',rival:'The Cartoon Network'},
+  {name:'Caped Crossover',rule:'marvel-dc',criteria:{poolIds:['mcu','dc']},blurb:'Only Marvel or DC characters. Rival heroes and villains can team up.',rival:'The Crossover'},
+  {name:'Wizards & Wanderers',rule:'fantasy-lands',criteria:{poolIds:['lotr','harrypotter']},blurb:'Choose ONLY from Middle-earth and the Wizarding World. No outsiders.',rival:'The Dark Tower'},
+  {name:'Galactic Alliance',rule:'space-opera',criteria:{poolIds:['starwars','mcu']},blurb:'Star Wars and MCU characters only. Space-faring legends must work together.',rival:'The Galactic Fleet'},
+  {name:'Pixels & Poké Balls',rule:'arcade-monsters',criteria:{poolIds:['games','pokemon']},blurb:'Video game characters and Pokémon only. Build your ultimate digital crossover.',rival:'The Final Level'},
+  {name:"Tolkien's Trials",rule:'middle-earth-only',criteria:{poolIds:['lotr']},blurb:'All picks must come from Middle-earth. No imported heroes.',rival:'The Dark Lord'},
+  {name:'Hogwarts Cup',rule:'wizarding-only',criteria:{poolIds:['harrypotter']},blurb:'All picks must come from the Harry Potter / Wizarding World pool.',rival:'The Death Eaters'},
+  {name:'Animated Avengers',rule:'animated-party',criteria:{poolIds:['toons','muppets','games']},blurb:'Cartoons, Muppets and video games only — no direct Marvel or DC pool picks.',rival:'The Saturday Squad'},
+  {name:'Legends & Monsters',rule:'mythical-three',criteria:{poolIds:['lotr','harrypotter','pokemon']},blurb:'Choose from Tolkien, Harry Potter or Pokémon. Three fantastical worlds, one team.',rival:'The Ancient Beasts'},
+  {name:'Triple Crossover',rule:'triple-threat',criteria:{minDistinctPools:3},blurb:'Your lineup must represent at least THREE different talent pools. No single universe can carry the whole team.',rival:'The Multiverse'},
+  {name:'Brains Before Brawn',rule:'brains-not-brawn',criteria:{stats:[{attribute:'iq',op:'gte',value:85},{attribute:'str',op:'lte',value:85}]},blurb:'Game IQ 85 or better, but Strength 85 or lower. Win with the mind, not raw power.',rival:'The Think Tank'}
 ];
 // Challenge data is the sole source of accepted tags and numeric constraints.
 // Broad tags remain accepted while Claude adds granular ability sub-tags.
@@ -364,6 +377,8 @@ function campaignNewOrder(sport='basketball'){
   lsSet('da.campaign.rotation.v1',history);
   // Shuffle the selected stages so stage number is not dictated by their usage count.
   for(let i=picked.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[picked[i],picked[j]]=[picked[j],picked[i]];}
+  // Avoid a short-handed penultimate before the full-team grand finale.
+  if(campaignStageById(picked[8]).rule==='short') [picked[8],picked[7]]=[picked[7],picked[8]];
   return [...picked,last];
 }
 const CAMPAIGN_WOMEN=new Set('Black Widow|Scarlet Witch|Captain Marvel|Gamora|Nebula|Mantis|The Wasp|Janet van Dyne|Kate Bishop|Okoye|Ayo|Shuri|Nakia|Ironheart|Valkyrie|Hela|Sif|Pepper Potts|Ms. Marvel|She-Hulk|Yelena Belova|Taskmaster|Sharon Carter|Agatha Harkness|Maria Hill|Peggy Carter|Darcy Lewis|Ghost|MJ|Aunt May|Thena|Makkari|Ajak|Sersi|Sprite|Monica Rambeau|America Chavez|Echo|Jessica Jones|Elektra|Jean Grey|Invisible Woman|Silver Surfer|Captain Carter|Lola Bunny|Minnie Mouse|Daisy Duck|Elsa|Moana|Mulan|Violet|Elastigirl|Sandy Cheeks|Lisa Simpson|Marge Simpson|Velma|Lucy van Pelt|Peppermint Patty|Blossom|Bubbles|Buttercup|Katara|Toph Beifong|Tigress|Bluey|Anna|Vanellope von Schweetz|Princess Peach|Princess Daisy|Rosalina|Samus Aran|Zelda|Princess Zelda|Lara Croft|Chun-Li|Sonya Blade|Kitana|Mileena|Bayonetta|Jill Valentine|Ada Wong|Ellie|Aloy'.split('|'));
@@ -375,7 +390,7 @@ for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secur
 for (const n of ['Darth Maul','Savage Opress','Charmander','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},surge:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},surge:null,variantTarget:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
@@ -389,7 +404,7 @@ function loadCampaign(){
   if(!v.opponents||typeof v.opponents!=='object')v.opponents={};
   if(v.surge&&(!v.surge.id||!v.surge.name))v.surge=null;
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
-  v.selected=null;v.query='';v.infoId=null;
+  v.selected=null;v.query='';v.infoId=null;v.variantTarget=null;
   if(v.status==='results'&&!v.result)v.status='draft';
   return v;
 }
@@ -450,6 +465,7 @@ function campaignHoldsAcceptedTag(c,acceptedTags){
 }
 function campaignMatchesCriteria(c,criteria,rule){
   if(!c||!criteria)return false;
+  if(Array.isArray(criteria.poolIds)&&!criteria.poolIds.includes(c.pool))return false;
   if(criteria.trait&&!campaignTraitAllowed(c,criteria.trait))return false;
   if(criteria.stats&&!campaignPassesStats(c,criteria.stats))return false;
   if(criteria.muppetForceMin!==undefined){
@@ -489,7 +505,12 @@ function campaignInvalidSlots(){
 function campaignQualified(){return campaignInvalidSlots().size===0;}
 function campaignReady(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),pick=slots.map(p=>v.roster[p.id]).filter(Boolean);
-  return pick.length===campaignLimit(v.sport,st.rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id));
+  const minimum=st.criteria?.minDistinctPools||0;
+  // Benches and coaches must not satisfy the alliance on behalf of the
+  // characters actually fighting in the final encounter.
+  const starters=slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id]);
+  return pick.length===campaignLimit(v.sport,st.rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id))&&
+    new Set(starters.map(c=>c.pool)).size>=minimum;
 }
 function campaignProgress(){
   const v=S.campaign,done=v.status==='complete'?10:v.step;
@@ -497,7 +518,7 @@ function campaignProgress(){
     const eligible=campaignEligibleStageIds(v.sport).length;
     return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
       <div class="row" style="justify-content:space-between;align-items:center"><b>Challenge rotation</b><span class="num">${eligible+1} available</span></div>
-      <p class="note" style="margin:8px 0 0">When you begin, 9 challenges will be selected from the ${eligible} eligible themes, prioritizing those you have not played recently. The Final Gauntlet is always level 10. Your lineup is saved for the duration of the campaign.</p>
+      <p class="note" style="margin:8px 0 0">When you begin, 9 challenges will be selected from the ${eligible} eligible themes, prioritizing those you have not played recently. The Multiverse Siege finale is always level 10. Your lineup is saved for the duration of the campaign.</p>
     </div>`;
   }
   return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
@@ -509,7 +530,7 @@ function campaignProgress(){
 function renderCampaignSetup(){
   const v=S.campaign,existing=v.step>0||v.status!=='setup';
   return `<section class="setup">
-    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Every new campaign draws nine themed challenges from the eligible pool, prioritizing ones you have not seen recently, then finishes with the Final Gauntlet. Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. Opponents are fixed independently of your lineup, and retrying an unchanged team has the same outcome. Each character may appear in two winning rosters total; the Final Gauntlet bans all previously winning picks. Completed wins remain saved on this device.</span></div>
+    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Every new campaign draws nine themed challenges from the eligible pool, prioritizing ones you have not seen recently, then finishes with the two-boss Multiverse Siege. Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. Opponents are fixed independently of your lineup, and retrying an unchanged team has the same outcome. Each character may appear in two winning rosters total; the finale bans previously winning picks and requires a new alliance across multiple worlds. Completed wins remain saved on this device.</span></div>
     <div class="panel rules" style="margin-bottom:16px"><div class="field-label"><span>Championship mode</span><div class="seg"><button data-act="c-kind" data-v="classic">Perfect Season</button><button data-act="c-kind" data-v="campaign" aria-pressed="true">Campaign · 10 challenges</button></div></div></div>
     ${campaignProgress()}
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>
@@ -523,12 +544,15 @@ function renderCampaignSetup(){
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignLockedOpponent(v,st);
   const tactic=CAMPAIGN_TACTICS[opponent.tactic]||CAMPAIGN_TACTICS.assault;
-  const variant=campaignVariantForm(v),surgeOptions=campaignSurgeCandidates(v).length;
+  const variant=campaignVariantForm(v),surgeCharacters=campaignSurgeCandidates(v),surgeOptions=surgeCharacters.length;
+  const surgeChoice=surgeCharacters.find(c=>c.id===v.variantTarget)||surgeCharacters[0];
+  if(!v.surge&&surgeChoice)v.variantTarget=surgeChoice.id;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
+  const distinctPools=new Set(slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
   const pool=getPool('mashup'),q=v.query.toLowerCase().trim();
   const matches=all.filter(c=>!q||c.n.toLowerCase().includes(q)||c.t.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n));
-  const previouslyUsed=st.rule==='final'?campaignUsed():new Set();
+  const previouslyUsed=st.criteria?.neverPreviouslyWon?campaignUsed():new Set();
   const picker=pos?`<div class="panel picker open">
     <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><div class="row"><button class="btn small" data-act="camp-remove" ${v.roster[pos.id]?"":"disabled"}>Remove</button><button class="btn small" data-act="camp-close">Done</button></div></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
     <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search all ${all.length} characters" autocomplete="off"></div>
@@ -537,7 +561,7 @@ function renderCampaignDraft(){
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}
-    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p><p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Characters can appear on only two winning rosters per campaign.</p></div>
+    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p>${minPools?`<p class="note" style="margin:8px 0 0"><b>Universe alliance: ${distinctPools}/${minPools} pools represented.</b> Mix characters from different talent pools.</p>`:''}<p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Characters can appear on only two winning rosters per campaign.</p></div>
     <div class="panel" style="padding:14px 16px;margin-bottom:14px">
       <div class="eyebrow">Opponent scouting · Fixed encounter</div><h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
       <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
@@ -545,34 +569,67 @@ function renderCampaignDraft(){
     </div>
     <div class="panel" style="padding:14px 16px;margin-bottom:14px">
       <div class="row" style="justify-content:space-between">
-        <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per challenge: one random eligible roster character transforms into an alternate form. Removing them does not restore the charge.</p></div>
+        <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per challenge: choose ONE drafted character to receive a random documented alternate form. Different characters may have several possible forms. Removing them does not restore the charge.</p></div>
         <button type="button" class="btn ${v.surge?'':'primary'}" data-act="camp-variant" ${v.surge||!surgeOptions||!valid?'disabled':''}>${v.surge?'Surge spent':'Activate surge'}</button>
-      </div><p class="note" style="margin:8px 0 0">${v.surge?(variant?'Active: '+esc(variant.base.n)+' → '+esc(v.surge.name):'Surge used; transformed character no longer on your roster.'):(surgeOptions?surgeOptions+' eligible character(s) in your lineup.':'No eligible alternate forms in your lineup.')}</p>
+      </div>
+      ${!v.surge&&surgeOptions?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="camp-variant-target" id="camp-variant-target">${surgeCharacters.map(c=>`<option value="${esc(c.id)}" ${surgeChoice?.id===c.id?'selected':''}>${esc(c.n)} · ${campaignVariantOptions(c).length} possible forms</option>`).join('')}</select></label>`:''}
+      <p class="note" style="margin:8px 0 0">${v.surge?(variant?'Active: '+esc(variant.base.n)+' → '+esc(v.surge.name)+' · '+esc(variant.form.origin):'Surge used; transformed character no longer on your roster.'):(surgeOptions?surgeOptions+' eligible character(s) in your lineup.'+(valid?' Random form selected for the character above.':' Complete a valid lineup to activate.'):'No eligible alternate forms in your lineup.')}</p>
     </div>
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
   </section>`;
 }
 function campaignPlay(){
-  if(!campaignReady())return toast('Fill all available roster spots first.');
+  const v=S.campaign,st=campaignStage();
+  if(!campaignReady())return toast(st.criteria?.minDistinctPools?'Fill the roster and represent at least '+st.criteria.minDistinctPools+' different talent pools.':'Fill all available roster spots first.');
   if(!campaignQualified()){
-    S.campaign.validation='The highlighted characters do not meet this challenge’s requirements.';
-    S.campaign.validationOpen=true;
+    v.validation='The highlighted characters do not meet this challenge’s requirements.';
+    v.validationOpen=true;
     return;
   }
-  S.campaign.validation='';S.campaign.validationOpen=false;
-  const v=S.campaign,st=campaignStage(),gameSeed=campaignStageSeed(v)+':match',rng=rngFrom(gameSeed);
-  const activeRoster=campaignVariantRoster(v),score=teamScore(v.sport,activeRoster);
-  const opp=campaignLockedOpponent(v,st);
-  const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
-  if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
-  const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
-  score.rating+=tactics.yourPoints;
-  opp.score.rating+=tactics.rivalPoints;
-  // Encounter and RNG are fixed for the stage: no reroll through retry.
-  const game=playGame(v.sport,score,opp.score,SEASONS[v.sport].sigma*1.1,rng,true);
-  const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
-  v.result={win,ourPoints,theirPoints,commander,tactics,variant:campaignVariantForm(v)?{base:campaignVariantForm(v).base.n,form:campaignVariantForm(v).form.name}:null,opponentNames:Object.values(opp.roster).map(c=>c.n),breakdownHTML:daMatchBreakdown(game.breakdown,score,opp.score,v.teamName,st.rival),report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),opponentReport:daReport(v.sport,opp.score,theirPoints,st.rival,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+opp.score.rating.toFixed(1),opponent:st.rival,names:Object.values(v.roster).map(c=>c.n),ids:Object.values(v.roster).map(c=>c.id)};
+  v.validation='';v.validationOpen=false;
+  const activeRoster=campaignVariantRoster(v);
+  const first=campaignLockedOpponent(v,st);
+  const encounters=[{name:st.rival,opponent:first}];
+  if(st.criteria?.encounters===2)encounters.push({
+    name:'The Nexus Champion',opponent:campaignFinalBossOpponent(v,st,first)
+  });
+  const variant=campaignVariantForm(v);
+  // A few documented reality-warping forms would otherwise barely improve
+  // already-capped 99-point character attributes. Keep their extra impact
+  // explicitly bounded, transparent, and applied once per encounter.
+  const variantBonus=variant?Math.max(0,Math.min(5,Number(variant.form.ratingBonus)||0)):0;
+  const rounds=encounters.map(({name,opponent:opp},index)=>{
+    // Each fight has independently seeded results and tactical scores. The
+    // same roster and one-use Variant Surge play BOTH fights in the finale.
+    const gameSeed=campaignStageSeed(v)+':match'+(index?':boss-'+index:'');
+    const score=teamScore(v.sport,activeRoster);
+    const oppScore={...opp.score};
+    const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
+    if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
+    const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
+    score.rating+=tactics.yourPoints+variantBonus;
+    oppScore.rating+=tactics.rivalPoints;
+    const game=playGame(v.sport,score,oppScore,SEASONS[v.sport].sigma*1.1,rngFrom(gameSeed),true);
+    const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
+    return {win,name,ourPoints,theirPoints,commander,tactics,
+      opponentNames:Object.values(opp.roster).map(c=>c.n),
+      breakdownHTML:daMatchBreakdown(game.breakdown,score,oppScore,v.teamName,name),
+      report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),
+      opponentReport:daReport(v.sport,oppScore,theirPoints,name,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),
+      note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+oppScore.rating.toFixed(1)};
+  });
+  const success=rounds.every(round=>round.win);
+  const deciding=rounds.find(round=>!round.win)||rounds[rounds.length-1];
+  v.result={...deciding,win:success,opponent:deciding.name,
+    finalRounds:rounds.length>1?rounds.map(round=>({
+      name:round.name,win:round.win,ourPoints:round.ourPoints,
+      theirPoints:round.theirPoints,ourRating:round.ourRating,
+      theirRating:round.theirRating
+    })):null,
+    variant:variant?{base:variant.base.n,form:variant.form.name,ratingBonus:variantBonus}:null,
+    names:Object.values(v.roster).map(c=>c.n),
+    ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
 }
 function campaignOrigin(c){
@@ -688,10 +745,15 @@ function renderCampaignResults(){
     <p>${r.win?'You cleared this stage.':'Your wins remain saved. Rework your lineup to change the outcome; an unchanged lineup produces the same result.'}</p>
     <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
   </div>
+  ${r.finalRounds?.length?`<div class="panel" style="padding:16px;margin-top:14px"><h3 class="h">Multiverse Siege · Two bosses</h3>
+    <p class="note">Your full-strength alliance must defeat BOTH opponents to claim the campaign crown. Each fight is fixed for this challenge.</p>
+    <div style="display:grid;gap:8px;margin-top:10px">${r.finalRounds.map((round,i)=>`<div class="row" style="justify-content:space-between;gap:10px"><b>${i+1}. ${esc(round.name)}</b><span class="num">${esc(round.ourPoints)}–${esc(round.theirPoints)} · ${round.win?'Victory':'Defeat'}</span></div>`).join('')}</div>
+    <p class="note" style="margin:10px 0 0">${r.win?'Both bosses defeated. The campaign crown is yours.':'At least one boss still stands. Edit your alliance and try both fights again.'}</p>
+  </div>`:''}
   <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p>${r.commander?`<p class="note" style="margin:8px 0 0"><b>Commander strategy:</b> ${esc(r.commander.name)} · ${esc(r.commander.label)} · +${r.commander.percent}% team rating (+${r.commander.points.toFixed(2)}). ${esc(r.commander.reason)}</p>`:''}</div>
   ${r.tactics?`<div class="panel" style="padding:14px 16px;margin:12px 0"><h3 style="margin:0 0 8px">Matchup strategy · ${esc(r.tactics.label)}</h3>
     <p class="note" style="margin:0 0 6px">Counterplay: ${esc(r.tactics.weakness)}. Your tactical adjustment: ${r.tactics.yourPoints>=0?'+':''}${r.tactics.yourPoints.toFixed(2)} · Rival adjustment: +${r.tactics.rivalPoints.toFixed(2)} rating points.</p>
-    ${r.variant?`<p class="note" style="margin:8px 0 0">Variant Surge: <b>${esc(r.variant.base)} → ${esc(r.variant.form)}</b></p>`:''}
+    ${r.variant?`<p class="note" style="margin:8px 0 0">Variant Surge: <b>${esc(r.variant.base)} → ${esc(r.variant.form)}</b>${r.variant.ratingBonus?' · +'+r.variant.ratingBonus+' team-rating points for a cosmic-tier form':''}</p>`:''}
     <p class="note" style="margin:8px 0 0"><b>Opponent lineup:</b> ${esc((r.opponentNames||[]).join(', '))}</p></div>`:''}
   ${r.breakdownHTML||'<p class="note">Detailed match adjustments were not recorded for this older result.</p>'}
   ${r.report||""}<details class="panel" style="padding:14px;margin:12px 0"><summary>Opponent box score</summary>${r.opponentReport||""}</details>
@@ -713,7 +775,7 @@ function campaignAdvance(){
   if(v.status!=='results'||!v.result?.win)return;
   v.history.push({name:campaignStage().name,names:v.result.names,ids:v.result.ids,report:v.result.report,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
   v.step++;
-  v.roster={};v.selected=null;v.query='';v.result=null;v.surge=null;
+  v.roster={};v.selected=null;v.query='';v.result=null;v.surge=null;v.variantTarget=null;
   v.status=v.step>=campaignStages().length?'complete':'draft';
   saveCampaign();
 }
