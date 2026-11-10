@@ -2235,7 +2235,7 @@ function gameRatings(A, B, playoff, rng, sportKey=null) {
   // At most one bounded spotlight event per side per match.
   const toon=[0,0],toonEvents=[];
   if(sportKey)for(const [team,side]of [[A,0],[B,1]]){
-    const moment=toonForceBattleEvent(team,sportKey,rng);
+    const moment=toonForceBattleEvent(team,sportKey,rng,side===0?B:A);
     if(!moment)continue;
     toon[side]+=moment.points;
     toonEvents.push({...moment,side});
