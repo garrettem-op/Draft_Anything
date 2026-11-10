@@ -36,7 +36,7 @@
     const m=f.muppet?.dimensions;
     // Repeated cartoon impact survival helps defense, but is NOT invulnerability.
     const toonBlock=t?Math.min(20,5+13*(Number(t.resilience)||0)/99+2*(Number(t.body)||0)/99):0;
-    const muppetBlock=m?Math.min(8,3+5*(Number(m.recovery||m.impactRecovery)||0)/99):0;
+    const muppetBlock=m?Math.min(8,3+5*(Number(m.resilience)||0)/99):0;
     return 6+.18*f.armor+.052*f.fit+toonBlock+muppetBlock;
   }
   function pickTarget(targets,rng) {
