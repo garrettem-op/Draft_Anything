@@ -186,10 +186,12 @@ function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent
     ${row('Team rating · roster + chemistry + coaching','base',false)}
     ${row('Opponent disruption','chaos')}
     ${row('Clutch / signature surges','spark')}
+    ${detail.toon?row('ToonForce · situational comic physics','toon'):''}
     ${row('Match-day variation','random')}
     <tr><th>Effective match rating</th><th class="num">${num(detail.final?.[0])}</th><th class="num">${num(detail.final?.[1])}</th></tr>
     </tbody></table></div>
     <p class="note" style="margin:10px 0">${esc(summary)} The final score is generated from this adjusted margin and the sport's scoring rules; per-character statistics are allocated afterward.</p>
+    ${Array.isArray(detail.toonEvents)&&detail.toonEvents.length?`<div class="note" style="margin:10px 0"><b>ToonForce moments (triggered in this match):</b><ul>${detail.toonEvents.map(e=>`<li>${esc(e.side===0?nameA:nameB)} · ${esc(e.character)} ${esc(e.note)} (+${num(e.points)} rating). Situational gag, not blanket immunity.</li>`).join("")}</ul></div>`:""}
     ${coachInfo(scoreA,nameA)}${coachInfo(scoreB,nameB)}
     </section>`;
 }
