@@ -925,6 +925,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/character-abilities.js"></script>
 <script src="data/campaign-eligibility.js"></script>
 <script src="data/muppet-force.js"></script>
+<script src="data/toon-force.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/team-names.js"></script>
@@ -1139,8 +1140,8 @@ const BAT_POS = { id: 'bat', w: BAT_W, floorKeys: BAT_FLOOR };
 // lineup weights scaled so the whole order counts as much as all the gloves and the pitcher together
 { const sp = SPORTS.baseball, def = sp.pos.reduce((a, p) => a + (p.coach || p.bench ? 0 : p.imp), 0), ow = BAT_ORDER_W.reduce((a, b) => a + b, 0);
   sp.lineupW = BAT_ORDER_W.map(w => w * def / ow); sp.lwAvg = def / BAT_ORDER_W.length; }
-function batFit(c) { return fitFor(c, BAT_POS); }
-function batFitAI(c) { return fitScore(c.a, BAT_POS); }
+function batFit(c) { return fitFor(c, BAT_POS) * characterForceMultiplier('baseball',c,BAT_POS); }
+function batFitAI(c) { return fitScore(c.a, BAT_POS) * characterForceMultiplier('baseball',c,BAT_POS); }
 
 // ===== Scoring =====
 // Fit: 75% weighted average of the position's attributes + 25% the weakest of its 3 key traits,
@@ -1222,7 +1223,9 @@ function teamScore(sportKey, roster) {
   const syn = synergyOf(sportKey, roster);
   const sig = sigOf(rows);
   const variety = sp.fight ? brawlVariety(rows) : null;
-  return { rating: playerScore * mult + syn.total + sig.lift + (variety ? variety.pts : 0), playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety };
+  const baseRating=playerScore*mult+syn.total+sig.lift+(variety?variety.pts:0);
+  const muppetTeam=muppetForceTeamwork(roster,sp.pos,baseRating);
+  return { rating:baseRating+muppetTeam.points, playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety, muppetTeam };
 }
 
 function grade(f) {
@@ -2696,7 +2699,8 @@ function assignMax(w) {
 function aiTeamValue(sportKey, roster) {
   const sp = SPORTS[sportKey]; let num = 0, den = 0, cf = 30, bf = 30;
   for (const q of sp.pos) { const c = roster[q.id]; const f = c ? fitAI(sportKey, c, q) : 0; if (q.coach) { if (c) cf = f; } else if (q.bench) { if (c) bf = f; } else { num += q.imp * f; den += q.imp; } }
-  return num / den * coachMult(cf) * benchMult(bf) + synergyOf(sportKey, roster).total;
+  const baseRating=num/den*coachMult(cf)*benchMult(bf)+synergyOf(sportKey,roster).total;
+  return baseRating+muppetForceTeamwork(roster,sp.pos,baseRating).points;
 }
 function aiStackDraft(sportKey, available, nTeams, polish = true) {
   const sp = SPORTS[sportKey], P = sp.pos, imps = P.map(q => slotImp(sportKey, q));
@@ -3472,9 +3476,14 @@ function expertAdj(sportKey, c, pos, base) {
   return BB_STAT_SHARE * (statFit(s, pos) - base) + BB_EXPERT;
 }
 // fit used for real team strength (knows signature moves) and the one the computer drafts with
-function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return b + expertAdj(sportKey, c, pos, b) + muppetForceFit(c, sportKey, pos); }
+// Both fantasy physics types multiply the SAME 12-attribute position fit.
+// They are universe-scoped and mutually exclusive, so they cannot stack.
+function characterForceMultiplier(sportKey,c,pos){
+  return muppetForceMultiplier(c,sportKey,pos)*toonForceMultiplier(c,sportKey,pos);
+}
+function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = b + expertAdj(sportKey, c, pos, b) + muppetForceFit(c, sportKey, pos);
+  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
@@ -3718,10 +3727,18 @@ function guideCollection(id) {
         powers:mf ? ['MuppetForce: puppet-stage physics', ...MUPPET_FORCE_DIMENSIONS.filter(d=>mf.dimensions[d.key]>=75).map(d=>d.label)] : [],
         feats:mf ? [mf.feat] : [],
         limits:mf ? [mf.limit, MUPPET_FORCE_RULE.limitation] : ['Puppet appearance alone does not prove superhuman environmental interactions.'],
-        effect:mf ? 'MuppetForce gives a modest context-dependent role-fit advantage, stronger in a brawl than in regulated sports; never changes physical base attributes.' : 'No established MuppetForce gameplay ability.',
+        effect:mf ? 'MuppetForce multiplies normal position fit by ×'+muppetForceMultiplier(c,'basketball',{})+' in regulated sports or ×'+muppetForceMultiplier(c,'brawl',{})+' in Battle Royale. It does not change attributes or position requirements. Muppets also grant a shared, capped 0–8% team camaraderie bonus.' : 'No established MuppetForce gameplay ability.',
         tier:mf ? 'MuppetForce · '+mf.tier : 'MuppetForce unassessed',
         muppetForce:mf,muppetHistory:history,sources:[...new Set(history.flatMap(f=>[f.work?.source,...f.sources].filter(Boolean)))], status:'Provisional character-specific MuppetForce assessment, not an official canon statistic; film-role feats are identified separately.',
       }];
+    }));
+  }
+  if (id==='toons') {
+    const original=(window.DA_CHARACTER_GUIDES&&window.DA_CHARACTER_GUIDES.toons)||{};
+    return Object.fromEntries(Object.entries(original).map(([name,profile])=>{
+      const force=toonForceOf({pool:'toons',n:name});
+      return [name,{...profile,toonForce:force,
+        effect:force?(profile.effect||'')+' ToonForce multiplies this character\'s normal role fit by ×'+toonForceMultiplier({pool:'toons',n:name},'basketball',{})+' in regulated sports and ×'+toonForceMultiplier({pool:'toons',n:name},'brawl',{})+' in Battle Royale; no team-wide aura.':profile.effect}];
     }));
   }
   if (['dc','lotr','harrypotter'].includes(id)) {
@@ -3767,7 +3784,8 @@ function renderGuideModal() {
         <section><h4>Defeats, limitations &amp; weaknesses</h4>${bullets(profile.limits,'Unverified')}</section>
         <section><h4>Sports translation</h4><p>${esc(profile.effect||'Provisional assessment')}</p></section>
         ${profile.disclaimer?`<p class="note"><b>Continuity:</b> ${esc(profile.disclaimer)}</p>`:''}
-        ${profile.muppetForce?`<section><h4>MuppetForce</h4><p>${esc(MUPPET_FORCE_RULE.description)}</p><p class="note">${S.guideScores?("MuppetForce: "+profile.muppetForce.score+" / 99 · "):""}${esc(profile.muppetForce.tier)} · Independently scored from 12 core attributes</p>${S.guideScores?`<div class="guide-scores">${MUPPET_FORCE_DIMENSIONS.map(d=>`<div class="guide-score"><span>${esc(d.label)}</span><b>${profile.muppetForce.dimensions[d.key]}</b></div>`).join("")}</div>`:""}</section>`:""}
+        ${profile.muppetForce?`<section><h4>MuppetForce</h4><p>${esc(MUPPET_FORCE_RULE.description)}</p><p class="note">${S.guideScores?("MuppetForce: "+profile.muppetForce.score+" / 99 · "):""}${esc(profile.muppetForce.tier)} · Multiplier on conventional position fit (not an extra attribute line) · Regulated ×${muppetForceMultiplier({pool:'muppets',n:profile.name},'basketball',{})} · Battle Royale ×${muppetForceMultiplier({pool:'muppets',n:profile.name},'brawl',{})} · Up to +8% ensemble teamwork</p>${S.guideScores?`<div class="guide-scores">${MUPPET_FORCE_DIMENSIONS.map(d=>`<div class="guide-score"><span>${esc(d.label)}</span><b>${profile.muppetForce.dimensions[d.key]}</b></div>`).join("")}</div>`:""}</section>`:""}
+        ${profile.toonForce?`<section><h4>ToonForce</h4><p class="note">${S.guideScores?'ToonForce '+profile.toonForce.score+' / 99 · ':''}${esc(profile.toonForce.tier)} · Normal position fit multiplier · Regulated ×${toonForceMultiplier({pool:'toons',n:profile.name},'basketball',{})} · Battle Royale ×${toonForceMultiplier({pool:'toons',n:profile.name},'brawl',{})}. No team-wide aura.</p><p>${esc(profile.toonForce.feat)}</p><p class="note">Limit: ${esc(profile.toonForce.limit)}</p></section>`:''}
         ${profile.muppetHistory?.length?`<section><h4>MuppetForce film history</h4><p class="note">Source-linked Muppet performances; role-specific actions are not automatically permanent powers or rating increases.</p><ul>${profile.muppetHistory.map(f=>`<li><b>${esc(f.work?.title||'Source')} (${esc(f.work?.year||'')})</b> · ${esc(f.role)}<p>${esc(f.summary)}</p><p class="note">Interpretation: ${esc(f.inference)} · ${f.continuity==='fictional-role'?'Fictional film role':'Recurring-character portrayal'}</p>${f.sources.filter(u=>/^https:\/\//.test(u)).map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">Scene source</a>`).join(' · ')}</li>`).join('')}</ul></section>`:''}
         ${S.guideScores&&profile.scores?`<section><h4>12-attribute research ratings</h4><div class="guide-scores">${ATTRS.map(a=>`<div class="guide-score"><span>${esc(a.n)}</span><b>${profile.scores[a.k]??'—'}</b></div>`).join('')}</div></section>`:''}
         <p class="note">${esc(profile.status||'Research scores are subjective estimates, not official canon statistics.')}</p>
@@ -4160,6 +4178,7 @@ function renderChampResults() {
     <div class="cta-row"><button class="btn primary" data-act="c-rerun">Play again</button>
       ${handMode()?'<button class="btn" data-act="c-newdeal">New draft</button>':'<button class="btn" data-act="c-edit">Edit lineup</button>'}
       <button class="btn" data-act="c-copy">Share result</button></div>
+    ${me.score.muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${me.score.muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${me.score.muppetTeam.performers} Muppet teammate(s) generated +${me.score.muppetTeam.points.toFixed(2)} rating points for the entire squad. Individual MuppetForce bonuses are already reflected in position fit.</p></div>`:''}
     ${daMatchBrowser(c.sport,sim,teams,c.reportMatch,recapPanel(c.result.recap))}
     <details class="panel da-aux"><summary>League details</summary><div class="da-aux-content">
       ${rounds.length?`<div><h3 class="h">Playoffs</h3><div class="bracket">${bracket}</div></div>`:''}
