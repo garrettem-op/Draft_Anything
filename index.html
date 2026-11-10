@@ -926,6 +926,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/campaign-eligibility.js"></script>
 <script src="data/muppet-force.js"></script>
 <script src="data/toon-force.js"></script>
+<script src="data/brawl-exceptional-power.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/team-names.js"></script>
@@ -3494,9 +3495,9 @@ function expertAdj(sportKey, c, pos, base) {
 function characterForceMultiplier(sportKey,c,pos){
   return muppetForceMultiplier(c,sportKey,pos)*toonForceMultiplier(c,sportKey,pos);
 }
-function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos); }
+function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos);
+  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
