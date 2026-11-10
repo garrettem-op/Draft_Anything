@@ -390,7 +390,7 @@ for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secur
 for (const n of ['Darth Maul','Savage Opress','Charmander','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},surge:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},surge:null,variantTarget:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
@@ -404,7 +404,7 @@ function loadCampaign(){
   if(!v.opponents||typeof v.opponents!=='object')v.opponents={};
   if(v.surge&&(!v.surge.id||!v.surge.name))v.surge=null;
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
-  v.selected=null;v.query='';v.infoId=null;
+  v.selected=null;v.query='';v.infoId=null;v.variantTarget=null;
   if(v.status==='results'&&!v.result)v.status='draft';
   return v;
 }
@@ -541,7 +541,9 @@ function renderCampaignSetup(){
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignLockedOpponent(v,st);
   const tactic=CAMPAIGN_TACTICS[opponent.tactic]||CAMPAIGN_TACTICS.assault;
-  const variant=campaignVariantForm(v),surgeOptions=campaignSurgeCandidates(v).length;
+  const variant=campaignVariantForm(v),surgeCharacters=campaignSurgeCandidates(v),surgeOptions=surgeCharacters.length;
+  const surgeChoice=surgeCharacters.find(c=>c.id===v.variantTarget)||surgeCharacters[0];
+  if(!v.surge&&surgeChoice)v.variantTarget=surgeChoice.id;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
   const distinctPools=new Set(Object.values(v.roster).filter(Boolean).map(c=>c.pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
@@ -564,9 +566,11 @@ function renderCampaignDraft(){
     </div>
     <div class="panel" style="padding:14px 16px;margin-bottom:14px">
       <div class="row" style="justify-content:space-between">
-        <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per challenge: one random eligible roster character transforms into an alternate form. Removing them does not restore the charge.</p></div>
+        <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per challenge: choose ONE drafted character to receive a random documented alternate form. Different characters may have several possible forms. Removing them does not restore the charge.</p></div>
         <button type="button" class="btn ${v.surge?'':'primary'}" data-act="camp-variant" ${v.surge||!surgeOptions||!valid?'disabled':''}>${v.surge?'Surge spent':'Activate surge'}</button>
-      </div><p class="note" style="margin:8px 0 0">${v.surge?(variant?'Active: '+esc(variant.base.n)+' → '+esc(v.surge.name):'Surge used; transformed character no longer on your roster.'):(surgeOptions?surgeOptions+' eligible character(s) in your lineup.':'No eligible alternate forms in your lineup.')}</p>
+      </div>
+      ${!v.surge&&surgeOptions?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="camp-variant-target" id="camp-variant-target">${surgeCharacters.map(c=>`<option value="${esc(c.id)}" ${surgeChoice?.id===c.id?'selected':''}>${esc(c.n)} · ${campaignVariantOptions(c).length} possible forms</option>`).join('')}</select></label>`:''}
+      <p class="note" style="margin:8px 0 0">${v.surge?(variant?'Active: '+esc(variant.base.n)+' → '+esc(v.surge.name)+' · '+esc(variant.form.origin):'Surge used; transformed character no longer on your roster.'):(surgeOptions?surgeOptions+' eligible character(s) in your lineup.'+(valid?' Random form selected for the character above.':' Complete a valid lineup to activate.'):'No eligible alternate forms in your lineup.')}</p>
     </div>
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
@@ -764,7 +768,7 @@ function campaignAdvance(){
   if(v.status!=='results'||!v.result?.win)return;
   v.history.push({name:campaignStage().name,names:v.result.names,ids:v.result.ids,report:v.result.report,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
   v.step++;
-  v.roster={};v.selected=null;v.query='';v.result=null;v.surge=null;
+  v.roster={};v.selected=null;v.query='';v.result=null;v.surge=null;v.variantTarget=null;
   v.status=v.step>=campaignStages().length?'complete':'draft';
   saveCampaign();
 }
