@@ -164,6 +164,21 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .side-node .lbl small { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
 .side-node .gr { margin-left: auto; font-family: var(--f-mono); font-size: 12px; font-weight: 600; }
 
+/* Selectable All-Star Mashup universe builder */
+.mashup-config{margin:12px 0 16px;padding:14px 16px;display:grid;gap:12px;min-width:0}
+.mashup-config .sec{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.mashup-config .sec .h{margin:0}
+.mashup-tools{display:flex;gap:8px;flex-wrap:wrap}
+.mashup-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px}
+.mashup-option{display:flex;align-items:center;gap:9px;padding:11px 9px;text-align:left;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;cursor:pointer;min-width:0}
+.mashup-option[aria-pressed="true"]{border-color:var(--accent-strong);background:var(--panel2);box-shadow:inset 0 0 0 1px var(--accent-strong)}
+.mashup-option>span:last-child{display:grid;gap:2px;min-width:0}
+.mashup-option b{font-size:13px;line-height:1.2}
+.mashup-option small{font-size:11px;color:var(--muted)}
+.mashup-check{border:1px solid var(--line);border-radius:5px;width:24px;height:24px;flex:none;display:grid;place-items:center;font-weight:800}
+.mashup-option[aria-pressed="true"] .mashup-check{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.mashup-status{font-weight:600}
+
 /* Picker panel */
 .picker { display: grid; grid-template-rows: auto auto minmax(0, 1fr); max-height: min(78vh, 760px); min-height: 360px; overflow: hidden; }
 .picker-head { padding: 14px 16px 10px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
@@ -3664,16 +3679,50 @@ function saveChamp() {
 
 // ----- Pools -----
 POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 'Every built-in pool at once, on one scale', entries: [] };
-// Pokémon who also appear in the video game pool (Pikachu, Charizard...) show up once in the Mashup.
+// Legacy helper retained for existing pool/lore test harnesses.
 function mashupOnly(id) { const seen = new Set(getCands('games').map(c => c.n)); return getCands(id).filter(c => !seen.has(c.n)); }
+// Mashup selections are encoded in the pool ID so saved drafts and multiplayer
+// contests preserve the exact same universe subset across devices.
 const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'harrypotter', 'mashup'];
+const MASHUP_SOURCES = BUILTIN.filter(id => id !== 'mashup');
+function isMashupId(id) { return id === 'mashup' || (typeof id === 'string' && id.startsWith('mashup:')); }
+function mashupSources(id) {
+  if (id === 'mashup') return MASHUP_SOURCES.slice();
+  if (!isMashupId(id)) return [];
+  const chosen = new Set(id.slice('mashup:'.length).split(','));
+  return MASHUP_SOURCES.filter(source => chosen.has(source));
+}
+function mashupPoolId(sources) {
+  const chosen = new Set(sources);
+  const ids = MASHUP_SOURCES.filter(id => chosen.has(id));
+  return ids.length === MASHUP_SOURCES.length ? 'mashup' : 'mashup:' + ids.join(',');
+}
 const candCache = {};
-function getPool(id) { return POOLS[id] || S.custom[id] || null; }
+function getPool(id) {
+  if (isMashupId(id)) {
+    const sources = mashupSources(id);
+    return id === 'mashup' ? POOLS.mashup : {
+      ...POOLS.mashup, id, name: 'All-Star Mashup · ' + sources.length + ' pools',
+      blurb: sources.length ? sources.map(k => POOLS[k]?.short || POOLS[k]?.name || k).join(' + ') : 'Choose at least one talent pool'
+    };
+  }
+  return POOLS[id] || S.custom[id] || null;
+}
 function getCands(id) {
   if (candCache[id]) return candCache[id];
   const p = getPool(id); if (!p) return [];
-  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games'), ...mashupOnly('pokemon'), ...getCands('starwars'), ...getCands('dc'), ...getCands('lotr'), ...getCands('harrypotter')] : poolCandidates(p);
-  return (candCache[id] = list);
+  if (isMashupId(id)) {
+    const sources = mashupSources(id), seenGameNames = new Set();
+    if (sources.includes('games')) getCands('games').forEach(c => seenGameNames.add(c.n));
+    const candidates = [];
+    for (const source of sources) for (const c of getCands(source)) {
+      // Pokémon with a Video Games roster entry appear once when both pools are selected.
+      if (source === 'pokemon' && seenGameNames.has(c.n)) continue;
+      candidates.push(c);
+    }
+    return (candCache[id] = candidates);
+  }
+  return (candCache[id] = poolCandidates(p));
 }
 function candById(poolId, cid) { return getCands(poolId).find(c => c.id === cid) || null; }
 function poolFaces(id) {
@@ -3690,7 +3739,7 @@ function roleRank(poolId, sportKey, pos, cand) {
 }
 // Restore saved roster ids into candidate objects (for both boards)
 function restoreBoard(st, key) {
-  const okPool = BUILTIN.includes(st.poolId);
+  const okPool = BUILTIN.includes(st.poolId) || isMashupId(st.poolId);
   let lost = false; const out = {};
   for (const [k, v] of Object.entries(st.roster || {})) { const c = typeof v === 'string' && okPool ? candById(st.poolId, v) : null; if (c) out[k] = c; else lost = true; }
   st.roster = out;
@@ -3897,10 +3946,22 @@ function poolPicker(cur, act, sportKey) {
   const cards = ids.map(id => {
     const p = getPool(id), n = getCands(id).length;
     const small = n < need * 2;
-    return `<button class="pool" data-act="${act}" data-pool="${id}" aria-pressed="${cur === id}" ${small ? 'disabled title="Too few candidates for this sport"' : ''}>
+    return `<button class="pool" data-act="${act}" data-pool="${id}" aria-pressed="${id === 'mashup' ? isMashupId(cur) : cur === id}" ${small ? 'disabled title="Too few candidates for this sport"' : ''}>
       <b>${esc(p.name)}</b><span>${esc(p.blurb || '')}${p.topic ? '' : ''}</span><span class="num">${n} candidates${S.custom[id] ? ' · made with Claude' : ''}</span>${poolFaces(id) ? `<span class="faces" aria-hidden="true">${poolFaces(id)}</span>` : ''}</button>`;
   }).join('');
-  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Harry Potter, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${renderGen()}`;
+  const mashupSelector = isMashupId(cur) ? (() => {
+    const selected = mashupSources(cur), selectedSet = new Set(selected);
+    const scope = act === 'h-pool' ? 'h' : 'c';
+    return `<div class="panel mashup-config" role="group" aria-label="Choose Mashup talent pools">
+      <div class="sec"><div><h3 class="h">Customize your Mashup</h3><span class="note">Choose which universes can appear in your draft and its opponents.</span></div>
+      <span class="num">${selected.length}/${MASHUP_SOURCES.length} selected</span></div>
+      <div class="mashup-tools"><button class="btn small" data-act="mashup-all" data-scope="${scope}">Select all</button>
+        <button class="btn small" data-act="mashup-clear" data-scope="${scope}">Clear all</button></div>
+      <div class="mashup-options">${MASHUP_SOURCES.map(id => `<button class="mashup-option" type="button" data-act="mashup-toggle" data-scope="${scope}" data-pool="${id}" aria-pressed="${selectedSet.has(id)}"><span class="mashup-check">${selectedSet.has(id) ? '✓' : '＋'}</span><span><b>${esc(POOLS[id].name)}</b><small>${getCands(id).length} characters</small></span></button>`).join('')}</div>
+      <div class="note mashup-status">${getCands(cur).length} characters available${!selected.length ? ' · Select at least one pool to continue' : ''}</div>
+    </div>`;
+  })() : '';
+  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Harry Potter, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${mashupSelector}${renderGen()}`;
 }
 function champLimits() {
   const c = S.champ, n = getCands(c.poolId).length;
@@ -4313,8 +4374,8 @@ function buildCrossLeague(sportKey, userPoolId, userRoster, rng) {
   const P = SPORTS[sportKey].pos.length, sig = SEASONS[sportKey].sigma, [ke, klo, khi] = PERFECT_TIERS[sportKey];
   const C = poolCeiling(sportKey, userPoolId);
   const used = new Set(Object.values(userRoster).map(c => c.id));
-  const U = BUILTIN.filter(id => id !== 'mashup');
-  if (userPoolId === 'mashup') U.push('mashup');
+  const U = isMashupId(userPoolId) ? mashupSources(userPoolId) : BUILTIN.filter(id => id !== 'mashup');
+  if (isMashupId(userPoolId)) U.push(userPoolId);
   else if (!U.includes(userPoolId) && getPool(userPoolId)) U.push(userPoolId);
   const avail = u => getCands(u).filter(c => !used.has(c.id));
   // A team from one universe aimed at a strength target: the best lineup that universe can make from
@@ -5428,6 +5489,21 @@ document.addEventListener('click', e => {
     case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
+    case 'mashup-toggle': case 'mashup-all': case 'mashup-clear': {
+      const isH2H=t.dataset.scope==='h', current=isH2H?h.form.poolId:c.poolId;
+      if (!isMashupId(current)) break;
+      const currentSources=mashupSources(current);
+      const chosen=a==='mashup-all' ? MASHUP_SOURCES.slice() :
+        a==='mashup-clear' ? [] :
+        currentSources.includes(t.dataset.pool)
+          ? currentSources.filter(id=>id!==t.dataset.pool)
+          : [...currentSources,t.dataset.pool];
+      const next=mashupPoolId(chosen);
+      if (next===current) break;
+      if (isH2H) { h.form.poolId=next; lsSet('da.h2hform',h.form); }
+      else { c.poolId=next; resetDraft(); }
+      break;
+    }
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
     case 'c-rivals': if (c.rivals !== t.dataset.v) { c.rivals = t.dataset.v; if (c.queue) resetDraft(); } break;
     case 'hand-info': S.handInfoId = t.dataset.cid; break;
