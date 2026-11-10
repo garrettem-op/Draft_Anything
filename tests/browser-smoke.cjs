@@ -91,6 +91,11 @@ const server=http.createServer((req,res)=>{
     const candidate=(c)=>({rating:100,rows:[{cand:c,pos:pos.find(p=>p.id==='d1'),w:0.22}],
       sig:{chaos:0,spark:[]},muppetTeam:{points:0}});
     const defender={rating:105,rows:[],sig:{chaos:0,spark:[]}};
+    const ironMan=getCands('mcu').find(c=>c.n==='Iron Man');
+    const armedDefender={...defender,rows:[{cand:ironMan,pos:{id:'d1'},w:0.22}]};
+    const rocket=Array.from({length:30},(_,i)=>playGame('brawl',candidate(daffy),armedDefender,5,rngFrom('daffy-vs-iron-man-'+i),true))
+      .find(g=>g.toonEvents?.some(e=>e.character==='Daffy Duck'&&e.facet==='resilience'));
+
     const triggered=Array.from({length:30},(_,i)=>playGame('brawl',candidate(daffy),defender,5,rngFrom('toon-vs-rocket-'+i),true))
       .find(g=>g.breakdown.toon?.[0]>0);
     const trace=triggered?.breakdown;
@@ -102,11 +107,14 @@ const server=http.createServer((req,res)=>{
       physics:{bugs:toonForceMultiplier(bugs,'brawl',pos[0]),daffy:toonForceMultiplier(daffy,'brawl',pos[0]),
         wile:toonForceMultiplier(wile,'brawl',pos[0]),spaceJam},
       triggered:!!trace,traceCheck:check,toonMoment:trace?.toonEvents?.[0]||null,
+      ironManRocket:rocket?.toonEvents?.find(e=>e.character==='Daffy Duck')||null,
       crew:[1,2,3,4,5].map(calc)};
   });
   console.log('TOON_RANK_AUDIT '+JSON.stringify(toonAudit));
   assert.ok(toonAudit.bugs.rating>100,'Bugs should have a meaningful battle reality-warping impact');
+  assert.ok(toonAudit.rank>=15&&toonAudit.rank<=22,'Bugs should be an elite top-15-to-20-ish character, not the strongest in the roster');
   assert.ok(toonAudit.triggered,'Daffy should sometimes survive/escape with a situational ToonForce event');
+  assert.equal(toonAudit.ironManRocket?.facet,'resilience','A blast from Iron Man should trigger Daffy-style comic recovery when ToonForce activates');
   assert.ok(Math.abs(toonAudit.traceCheck)<1e-6,'The conditional gag must reconcile exactly with scoring');
   assert.ok(toonAudit.crew.every((r,i)=>i===0||r.percent>=toonAudit.crew[i-1].percent),
     'Additional Muppets should strengthen their team, not diminish ensemble impact');
