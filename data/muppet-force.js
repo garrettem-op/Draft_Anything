@@ -370,7 +370,7 @@ function muppetForceMultiplier(candidate,sportKey,pos) {
     0.15*d.stage+0.10*d.ensemble)/99;
   const intensity=0.55*(mf.score/99)+0.45*support;
   // Brawl embraces wild puppet-stage physics; regulated sports cap the effect.
-  const maxLift=sportKey==='brawl'?0.52:0.36;
+  const maxLift=sportKey==='brawl'?0.30:0.22;
   return +(1+maxLift*intensity).toFixed(5);
 }
 // Legacy method name retained for callers; now returns a MULTIPLIER, not an
