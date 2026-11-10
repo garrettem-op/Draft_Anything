@@ -96,7 +96,7 @@ test('signatures are retained and visible during selection across free, campaign
   assert.match(campaign,/\$\{sigLine\(c\)\}/,'Campaign picker contains signatures');
   assert.match(html,/const move = x\.sig\?\.name \|\| 'Wildcard contender'/,
     'Dealt Hand card exposes signatures');
-  assert.match(html,/function gameRatings\(A, B, playoff, rng\)/,'common match ratings');
+  assert.match(html,/function gameRatings\(A, B, playoff, rng, sportKey=null\)/,'common match ratings, including contextual ToonForce events');
   assert.match(html,/const sig = sigOf\(rows\)/,'common team scoring');
 });
 test('H2H saves both players’ Surge choices and does not skip the ability-lock step',()=>{
