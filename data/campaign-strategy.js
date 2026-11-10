@@ -28,7 +28,7 @@ const CAMPAIGN_RULE_TACTICS=Object.freeze({
 // These are named fictional forms, not new independently draftable characters.
 // A form temporarily boosts a subset of its base character's existing stats.
 // Some forms cross from the film incarnation into comic continuity by design.
-const CAMPAIGN_VARIANTS=Object.freeze({
+const BASE_CAMPAIGN_VARIANTS=Object.freeze({
   'mcu:Thor':[
     {name:'Rune King Thor',changes:{iq:14,tch:12,clu:9,ldr:7},origin:'Marvel Comics · Rune King Thor'},
     {name:'King Thor',changes:{str:8,end:9,iq:10,ldr:12},origin:'Marvel Comics · King Thor'}
@@ -82,6 +82,18 @@ const CAMPAIGN_VARIANTS=Object.freeze({
     {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9},origin:'Pokémon · Mega Evolution'}
   ]
 });
+// The large form catalog lives in its own evidence-labelled data module. Keep
+// the original variants and append additional forms for the same characters.
+// Node tests can require the module; the browser loads it before this script.
+const EXTRA_CAMPAIGN_VARIANTS=(typeof window!=='undefined'&&window.DA_CAMPAIGN_VARIANT_EXPANSION)||
+  (typeof require==='function'?require('./campaign-variant-expansion.js'):{});
+const CAMPAIGN_VARIANTS=Object.freeze(Object.fromEntries(
+  [...new Set([...Object.keys(BASE_CAMPAIGN_VARIANTS),...Object.keys(EXTRA_CAMPAIGN_VARIANTS)])]
+    .map(key=>[key,Object.freeze([
+      ...(BASE_CAMPAIGN_VARIANTS[key]||[]),
+      ...(EXTRA_CAMPAIGN_VARIANTS[key]||[])
+    ])])
+));
 function campaignStageSeed(v,step=v.step){
   return String(v.seed||'legacy-campaign')+'|'+v.sport+'|'+step+'|'+(v.stageOrder?.[step]??step);
 }
