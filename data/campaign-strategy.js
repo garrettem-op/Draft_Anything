@@ -211,14 +211,19 @@ function campaignSurgeCandidates(v){
   return sp.pos.filter(p=>!p.coach&&v.roster[p.id]&&campaignVariantOptions(v.roster[p.id]).length)
     .map(p=>v.roster[p.id]);
 }
-function campaignUseVariantSurge(v){
+function campaignUseVariantSurge(v,targetId=null){
   if(v.surge||v.status!=='draft')return null;
   const options=campaignSurgeCandidates(v);
   if(!options.length)return null;
+  // Users can target a specific drafted character. A deterministic form is
+  // then drawn from their documented variants; never silently fall back to
+  // someone else when the requested target is not eligible.
   const rng=rngFrom(campaignStageSeed(v)+':variant-surge');
-  const target=options[Math.floor(rng()*options.length)];
+  const target=targetId?options.find(c=>c.id===targetId):options[Math.floor(rng()*options.length)];
+  if(!target)return null;
   const forms=campaignVariantOptions(target);
-  const form=forms[Math.floor(rng()*forms.length)];
+  const formRng=targetId?rngFrom(campaignStageSeed(v)+':variant-form:'+target.id):rng;
+  const form=forms[Math.floor(formRng()*forms.length)];
   v.surge={id:target.id,name:form.name};
   return v.surge;
 }
