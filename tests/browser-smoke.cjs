@@ -353,9 +353,10 @@ const server=http.createServer((req,res)=>{
     v.step=0;v.stageOrder[0]=CAMPAIGN_STAGES.length-1;
     v.seed='multiverse-siege-mobile-fixture';v.opponents={};
     v.history=[];v.status='draft';v.surge=null;v.variantTarget=null;v.result=null;
-    const ids=['dc:Batman','mcu:Doctor Doom','games:Mario','mcu:Thor',
-      'lotr:Gandalf','dc:Superman','mcu:Ultron','toons:Bugs Bunny'];
-    const characters=ids.map(id=>getCands('mashup').find(c=>c.id===id));
+    const rosterNames=[['dc','Batman'],['mcu','Doctor Doom'],['games','Mario'],['mcu','Thor'],
+      ['lotr','Gandalf'],['dc','Superman'],['mcu','Ultron'],['toons','Bugs Bunny']];
+    // Live candidate IDs are slugged. Research uses pool:display-name keys.
+    const characters=rosterNames.map(([pool,name])=>getCands('mashup').find(c=>c.pool===pool&&c.n===name));
     if(characters.some(c=>!c))throw Error('Missing a Variant Surge mobile fixture');
     v.roster=Object.fromEntries(SPORTS[v.sport].pos.map((slot,i)=>[slot.id,characters[i]]));
     if(!campaignReady())throw Error('Three-universe final lineup is not ready');
@@ -365,10 +366,11 @@ const server=http.createServer((req,res)=>{
   await variantTarget.waitFor();
   assert.equal(await page.locator('button[data-act="camp-variant"]').isEnabled(),true,
     'Variant Surge should activate with Batman, Doom and other documented forms');
-  await variantTarget.selectOption('mcu:Doctor Doom');
+  const doomId=await page.evaluate(()=>getCands('mashup').find(c=>c.pool==='mcu'&&c.n==='Doctor Doom').id);
+  await variantTarget.selectOption(doomId);
   await page.locator('button[data-act="camp-variant"]').click();
   const targeted=await page.evaluate(()=>S.campaign.surge);
-  assert.equal(targeted.id,'mcu:Doctor Doom','User-targeted Doom should receive the variant');
+  assert.equal(targeted.id,doomId,'User-targeted Doom should receive the variant');
   await page.locator('button[data-act="camp-play"]').click();
   const finalInfo=await page.evaluate(()=>({
     win:S.campaign.result?.win,rounds:S.campaign.result?.finalRounds,
