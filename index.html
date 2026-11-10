@@ -924,6 +924,23 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .h2h-variant-dialog h3{font:800 28px var(--f-display);margin:0 0 12px}
 .h2h-variant-dialog p{margin:0 0 20px}
 @media(max-width:700px){.h2h-court-layout{grid-template-columns:minmax(0,1fr) 122px;gap:8px}.h2h-rail-pick{font-size:11px;gap:4px}.h2h-rail-picks{padding:4px 6px}.h2h-rail-toggle{padding:8px;font-size:12px}.h2h-rail-position{min-width:20px;font-size:10px}}
+
+/* H2H's court + opponent rail replaced .board.h2h; explicitly size it for the fixed
+   draft viewport. Allow local court scrolling instead of clipping sideline slots. */
+html.draft-active .h2h-court-layout{flex:1 1 auto;min-height:0;overflow:hidden}
+html.draft-active .h2h-main-court{display:flex;flex-direction:column;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 2px 6px}
+html.draft-active .h2h-main-court .mini-head{flex:0 0 auto}
+html.draft-active .h2h-main-court .field-wrap{flex:0 0 auto;min-height:0;width:100%}
+html.draft-active .h2h-main-court .field-wrap>.field{flex:0 0 auto;width:min(100%,35dvh);height:auto;max-height:none}
+html.draft-active .h2h-main-court .sideline{flex:0 0 auto;align-self:stretch}
+html.draft-active .h2h-opponent-rail{min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.h2h-main-court .side-node{min-height:42px}
+@media(max-width:700px){
+  .h2h-main-court .sideline{display:flex;flex-direction:column;gap:5px}
+  .h2h-main-court .side-node{flex:0 0 auto;width:100%;min-height:42px;box-sizing:border-box}
+  html.draft-active .h2h-main-court .field-wrap>.field{width:min(100%,32dvh)}
+}
+
 </style>
 </head>
 <body>
@@ -3760,7 +3777,7 @@ function renderField(sportKey, roster, o = {}) {
   };
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
     <div class="field ${sportKey === 'hockey' ? 'light' : ''}" style="aspect-ratio:${sp.aspect};--field-ratio:${sp.aspect}">${surfaceSVG(sportKey)}${sp.pos.filter(p => !p.side).map(node).join('')}</div>
-    <div class="sideline">${sp.pos.filter(p => p.side).map(side).join('')}</div>
+    <div class="sideline">${sp.pos.filter(p => p.side).sort((a,b)=>o.coachFirst?(Number(!!b.coach)-Number(!!a.coach)):0).map(side).join('')}</div>
   </div>`;
 }
 
@@ -4816,7 +4833,7 @@ function renderH2HCourt(d,side,powers=false,sel=null,forced=null){
   const picks=Object.entries(showOpp?myR:oppR);
   return `<div class="h2h-court-layout">
     <div class="h2h-main-court"><div class="mini-head"><b>${showOpp?esc(contestName(d,opp)): 'Your team'}</b><span class="num muted">${Object.keys(roster).length}/${sp.pos.length}</span></div>
-      ${renderField(d.sport,roster,{sel:showOpp?null:sel,interactive:!powers&&!showOpp,forced:!showOpp?forced:null,lockFilled:!powers,team:showOpp?'opp':undefined,variantSlots:eligibleSlots})}</div>
+      ${renderField(d.sport,roster,{sel:showOpp?null:sel,interactive:!powers&&!showOpp,forced:!showOpp?forced:null,lockFilled:!powers,team:showOpp?'opp':undefined,variantSlots:eligibleSlots,coachFirst:d.sport==='volleyball'})}</div>
     <aside class="h2h-opponent-rail">
       <button class="h2h-rail-toggle" type="button" data-act="h-toggle-court" aria-pressed="${showOpp}">
         <b>${showOpp?'Your picks':esc(contestName(d,opp))}</b><span>${showOpp?'View your court':'View opponent court'} ↔</span>
