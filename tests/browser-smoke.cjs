@@ -298,13 +298,20 @@ const server=http.createServer((req,res)=>{
   });
   assert.equal(selected,false,'Selecting field text was not prevented');
   await page.locator('button[data-act="camp-play"]').click();
-  await page.locator('text=Simulated box score').first().waitFor({timeout:12000});
-  assert.ok(await page.locator('text=Opponent box score').count(),'Opponent report unavailable');
-  await page.getByRole('heading',{name:'Why this match ended this way'}).first().waitFor();
-  assert.ok(await page.locator('text=Effective match rating').count(),'The result is missing effective rating detail');
-  assert.ok(await page.locator('text=Match-day variation').count(),'The result is missing random variation');
-
-  assert.ok(await page.locator('text=Scouting takeaway:').count(),'Scouting summary missing');
+  await page.locator('.da-result').first().waitFor({timeout:12000});
+  assert.equal(await page.locator('.da-player-table').count(),1,'Match must have one roster/stat comparison');
+  assert.equal(await page.locator('.da-detail-toggle[open]').count(),0,'Detailed stats should start collapsed');
+  assert.ok(await page.locator('.da-totals .da-team-name').count()===2,'Missing side-by-side teams');
+  assert.equal(await page.locator('text=Opponent box score').count(),0,'Old duplicate opponent report is still shown');
+  await page.locator('.da-detail-toggle > summary').click();
+  assert.equal(await page.locator('.da-detail-toggle[open]').count(),1,'View Detailed Stats did not open');
+  assert.ok(await page.locator('.da-player-table .da-player').count()>1,'Missing player-by-player contributions');
+  await page.locator('.da-inner-details > summary').click();
+  assert.ok(await page.locator('text=Effective match rating').count(),'Match calculation hidden or missing');
+  assert.ok(await page.locator('text=Match-day variation').count(),'Match variation detail missing');
+  await page.locator('.da-summary-toggle > summary').click();
+  assert.equal(await page.locator('.da-summary-toggle[open]').count(),1,'Read Summary did not open');
+  assert.ok(await page.locator('.da-story').isVisible(),'Summary did not become visible');
   // An unchanged lineup gets identical scores, enemy roster, and result on retry.
   const replay=await page.evaluate(()=>{
     const original=S.campaign.result;

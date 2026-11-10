@@ -22,7 +22,7 @@ test('report module is loaded after campaign helpers and before main app',()=>{
  assert.ok(campaign>0&&reports>campaign&&main>reports);
 });
 test('report picker and alphabet scrubber are wired in app handlers',()=>{
- assert.match(html,/daMatchBrowser\(c\.sport,sim,teams,c\.reportMatch\)/);
+ assert.match(html,/daMatchBrowser\(c\.sport,sim,teams,c\.reportMatch,/);
  assert.match(html,/else if \(k === 'report-match'\)/);
  assert.match(html,/function jumpTalentPoolLetter\(/);
  assert.match(html,/data-az-list/);

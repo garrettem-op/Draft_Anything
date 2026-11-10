@@ -205,17 +205,92 @@ function daUserMatches(sim) {
   return games;
 }
 
-function daMatchBrowser(sport,sim,teams,selected) {
+
+/* One comparison for both teams; match totals and simulated contributions are
+   never a second roster. All character numbers are model estimates. */
+function daMetricKey(sport) {
+  return ({basketball:'PTS',football:'TD',brawl:'DMG',soccer:'G',hockey:'G',baseball:'R',volleyball:'KILLS'})[sport]||'Scoring';
+}
+function daLineupMetric(row,sport) {
+  const primary=daMetricKey(sport);
+  if(!row)return null;
+  const base=row.stats.find(x=>x[0]===primary);
+  if(sport==='football'&&(!base||!base[1])) {
+    const priority=['Pass YDS','Rush YDS','Rec YDS','TACK','SACK','INT'];
+    return priority.map(k=>row.stats.find(x=>x[0]===k)).find(x=>x&&x[1])||base||row.stats[0]||null;
+  }
+  if((!base||!base[1])&&row.stats.length)return row.stats.find(x=>x[1])||row.stats[0];
+  return base||null;
+}
+function daPointsFor(game,teamIndex) {
+  if(!game||!Array.isArray(game.line))return 0;
+  return Number(game.line[game.w===-1?(teamIndex===game.a?0:1):(game.w===teamIndex?0:1)])||0;
+}
+function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName='Your team',rightName='Opponent',seed='',options={}) {
+  if(!leftScore?.rows||!rightScore?.rows)return '';
+  const left=daBoxScore(sport,leftScore,leftPoints,seed+':left',{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints});
+  const right=daBoxScore(sport,rightScore,rightPoints,seed+':right',{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints});
+  const primary=daMetricKey(sport);
+  const total=(rows,key)=>rows.reduce((sum,row)=>sum+(row.stats.find(x=>x[0]===key)?.[1]||0),0);
+  const leftTotal=total(left,primary),rightTotal=total(right,primary),denom=Math.max(1,leftTotal+rightTotal);
+  const lPct=Math.round(100*leftTotal/denom);
+  const cell=(r)=>{
+    if(!r)return '<span class="muted">—</span>';
+    const main=daLineupMetric(r,sport);
+    return `<div class="da-player"><span class="da-name">${esc(r.name)}</span><span class="da-primary">${main?`<b class="num">${main[1]}</b> <small>${esc(main[0])}</small>`:'—'}</span>
+      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span></div>`;
+  };
+  const pairs=Array.from({length:Math.max(left.length,right.length)},(_,i)=>{
+    const a=left[i],b=right[i],role=a?.role||b?.role||'';
+    return `<tr><td class="da-side">${cell(a)}</td><th scope="row" class="da-role">${esc(role)}</th><td class="da-side">${cell(b)}</td></tr>`;
+  }).join('');
+  const active=rows=>rows.filter(r=>!['hc','mgr','cmd','bn'].includes(r.position));
+  const leading=rows=>active(rows).slice().sort((a,b)=>(daLineupMetric(b,sport)?.[1]||0)-(daLineupMetric(a,sport)?.[1]||0))[0];
+  const winner=leftPoints===rightPoints?'draw':leftPoints>rightPoints?'left':'right';
+  const leader=leading(winner==='right'?right:left);
+  const leadMetric=leader&&daLineupMetric(leader,sport);
+  const versions=[
+    `${esc(leftName)} and ${esc(rightName)} finished ${leftPoints}–${rightPoints}.`,
+    `The final score was ${leftPoints}–${rightPoints}, ${winner==='draw'?'with neither team ahead':winner==='left'?esc(leftName)+' on top':esc(rightName)+' on top'}.`,
+    `${winner==='draw'?'Neither side separated itself':esc(winner==='left'?leftName:rightName)+' finished ahead'} in a ${leftPoints}–${rightPoints} matchup.`
+  ];
+  const narrative=versions[Math.floor(daHash(seed||leftName+rightName)*versions.length)] +
+    (leader&&leadMetric?` ${esc(leader.name)} led the ${esc(winner==='right'?rightName:leftName)} projections with ${leadMetric[1]} ${esc(leadMetric[0])}.`:'') +
+    ' Player contributions are simulated estimates, not recorded play-by-play.';
+  const extra=options.breakdown?`<details class="da-inner-details"><summary>How the match was calculated</summary>${options.breakdown}</details>`:'';
+  const story=options.summaryHTML||'';
+  return `<section class="panel da-result" aria-label="Match statistics comparison">
+    <div class="da-totals" role="group" aria-label="Team comparison">
+      <div><span class="da-team-name">${esc(leftName)}</span><strong class="num">${leftPoints}</strong><small>${esc(primary)}: <b class="num">${leftTotal}</b></small></div>
+      <div><span class="da-team-name">${esc(rightName)}</span><strong class="num">${rightPoints}</strong><small>${esc(primary)}: <b class="num">${rightTotal}</b></small></div>
+    </div>
+    <div class="da-sharebar" role="img" aria-label="${esc(primary)} estimate: ${leftTotal} for ${esc(leftName)} and ${rightTotal} for ${esc(rightName)}"><span style="width:${lPct}%"></span></div>
+    <p class="da-estimate">Player contributions are simulated estimates.</p>
+    <details class="da-toggle da-detail-toggle">
+      <summary>View Detailed Stats</summary>
+      <div class="tbl-wrap"><table class="t da-player-table"><thead><tr><th scope="col">${esc(leftName)}</th><th scope="col">Role</th><th scope="col">${esc(rightName)}</th></tr></thead><tbody>${pairs}</tbody></table></div>
+      ${extra}
+    </details>
+    <details class="da-toggle da-summary-toggle"><summary>Read Summary</summary><div class="da-story"><p>${narrative}</p>${story}</div></details>
+  </section>`;
+}
+function daMatchBrowser(sport,sim,teams,selected,summaryHTML='') {
   const matches=daUserMatches(sim);
   if(!matches.length)return '<div class="panel" style="padding:14px">No matches available for this team.</div>';
   const ix=selected==null||selected===''?matches.length-1:Math.min(matches.length-1,Math.max(0,Math.floor(Number(selected)||0)));
-  const current=matches[ix],opp=current.a===0?current.b:current.a;
-  const result=current.w===-1?'Draw':current.w===0?'Win':'Loss';
-  return `<section class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">Match-by-match box scores</h3><span class="note">${matches.length} outings · including playoffs</span></div>
-  <label class="field-label"><span>Select a match</span><select data-input="report-match" id="report-match">${matches.map((g,i)=>`<option value="${i}" ${i===ix?'selected':''}>${esc(g.label)} · vs ${esc(teams[g.a===0?g.b:g.a].name)}</option>`).join('')}</select></label>
-  <p class="note">${result} vs ${esc(teams[opp].name)} · final ${current.line[0]}–${current.line[1]}${current.line[2]?' · '+esc(current.line[2]):''}</p>
-  ${daMatchBreakdown(current.breakdown,teams[current.a]?.score,teams[current.b]?.score,teams[current.a]?.name,teams[current.b]?.name,current.w===-1?'draw':null)}
-  ${daGameReport(sport,teams[current.a],teams[current.b],current,current.key)}</section>`;
+  const game=matches[ix],opp=game.a===0?game.b:game.a,left=teams[0],right=teams[opp];
+  const aPts=daPointsFor(game,0),bPts=daPointsFor(game,opp);
+  const sideA=game.w===-1?(game.a===0?0:1):(game.w===0?0:1);
+  const sideB=game.w===-1?(game.a===opp?0:1):(game.w===opp?0:1);
+  const firstIndex=game.a===0?0:1;
+  const factors=daMatchBreakdown(game.breakdown,teams[game.a]?.score,teams[game.b]?.score,teams[game.a]?.name,teams[game.b]?.name,game.w===-1?'draw':null);
+  const recap=ix===matches.length-1?summaryHTML:'';
+  return `<section class="da-match-browser">
+    <label class="field-label"><span>Match</span><select data-input="report-match" id="report-match">${matches.map((g,i)=>`<option value="${i}" ${i===ix?'selected':''}>${esc(g.label)} · ${esc(teams[g.a===0?g.b:g.a].name)}</option>`).join('')}</select></label>
+    <p class="da-match-outcome"><b>${game.w===-1?'Draw':game.w===0?'Win':'Loss'}</b> vs ${esc(right.name)} · <span class="num">${aPts}–${bPts}</span></p>
+    ${daComparison(sport,left.score,right.score,aPts,bPts,left.name,right.name,game.key,{note:game.line[2],leftSide:sideA,rightSide:sideB,breakdown:factors,summaryHTML:recap})}
+  </section>`;
 }
 
-if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches,daMatchBreakdown};
+
+if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches,daMatchBreakdown,daComparison,daMetricKey,daLineupMetric,daPointsFor,daMatchBrowser};

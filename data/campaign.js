@@ -612,11 +612,17 @@ function campaignPlay(){
     oppScore.rating+=tactics.rivalPoints;
     const game=playGame(v.sport,score,oppScore,SEASONS[v.sport].sigma*1.1,rngFrom(gameSeed),true);
     const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
+
+    const breakdownHTML=daMatchBreakdown(game.breakdown,score,oppScore,v.teamName,name);
+    const summary=`<p>${esc(tactics?.label||'')}${tactics?.weakness?` · ${esc(tactics.weakness)}`:''}
+      ${commander?` · Commander ${esc(commander.name)} contributed a ${commander.percent}% rating lift.`:''}
+      ${variant?` · Variant Surge: ${esc(variant.base.n)} → ${esc(variant.form.name)}.`:''}</p>`;
+    const report=daComparison(v.sport,score,oppScore,ourPoints,theirPoints,v.teamName||'Your team',name,gameSeed,{
+      note:game.line[2],leftSide:win?0:1,rightSide:win?1:0,breakdown:breakdownHTML,summaryHTML:summary
+    });
     return {win,name,ourPoints,theirPoints,commander,tactics,
       opponentNames:Object.values(opp.roster).map(c=>c.n),
-      breakdownHTML:daMatchBreakdown(game.breakdown,score,oppScore,v.teamName,name),
-      report:daReport(v.sport,score,ourPoints,v.teamName,{seed:gameSeed,note:game.line[2],side:win?0:1,opponentPoints:theirPoints}),
-      opponentReport:daReport(v.sport,oppScore,theirPoints,name,{seed:gameSeed+':rival',note:game.line[2],side:win?1:0,opponentPoints:ourPoints}),
+      breakdownHTML,report,reportVersion:2,opponentReport:'',
       note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+oppScore.rating.toFixed(1)};
   });
   const success=rounds.every(round=>round.win);
@@ -625,7 +631,7 @@ function campaignPlay(){
     finalRounds:rounds.length>1?rounds.map(round=>({
       name:round.name,win:round.win,ourPoints:round.ourPoints,
       theirPoints:round.theirPoints,ourRating:round.ourRating,
-      theirRating:round.theirRating
+      theirRating:round.theirRating,report:round.report,reportVersion:round.reportVersion
     })):null,
     variant:variant?{base:variant.base.n,form:variant.form.name,ratingBonus:variantBonus}:null,
     names:Object.values(v.roster).map(c=>c.n),
@@ -658,7 +664,7 @@ function renderCampaignRejected(){
       <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
       <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
       <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> ${campaignHasTheme(campaignStage().rule)?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:''}</li>`).join('')}</ul>
-      <p class="note">These picks were checked locally against reviewed ability tags, challenge criteria and previously approved appeals. Description keywords and character names do not grant powers. Submitting a lineup never uses paid AI research. Review unresolved picks or optionally challenge a ruling.</p>
+      <p class="note">Replace the highlighted picks, or challenge a ruling with evidence.</p>
       <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
     </div>
   </div>`;
@@ -736,34 +742,42 @@ function renderCampaignInfo(){
     <p class="note">Where this character is from</p><p><b>${esc(o.work)}</b></p><p class="muted">Talent pool: ${esc(o.universe)}</p>
   </div></div>`;
 }
+
 function renderCampaignResults(){
   const v=S.campaign,r=v.result,st=campaignStage();
   if(!r){v.status='draft';return renderCampaignDraft();}
-  return `<section>${campaignProgress()}<div class="result-hero ${r.win?'perfect':''}">
-    <span class="eyebrow" style="color:inherit">Challenge ${v.step+1} / 10 · ${esc(st.name)}</span>
-    <div class="big">${r.win?'<em>Challenge won</em>':'Challenge lost'}</div>
-    <p>${r.win?'You cleared this stage.':'Your wins remain saved. Rework your lineup to change the outcome; an unchanged lineup produces the same result.'}</p>
-    <div class="scorebug"><div style="background:var(--you);color:#fff">${esc(v.teamName||'Your team')} <span class="s">${r.ourPoints}</span></div><div style="background:var(--opp);color:#fff">${esc(r.opponent)} <span class="s">${r.theirPoints}</span></div></div>
-  </div>
-  ${r.finalRounds?.length?`<div class="panel" style="padding:16px;margin-top:14px"><h3 class="h">Multiverse Siege · Two bosses</h3>
-    <p class="note">Your full-strength alliance must defeat BOTH opponents to claim the campaign crown. Each fight is fixed for this challenge.</p>
-    <div style="display:grid;gap:8px;margin-top:10px">${r.finalRounds.map((round,i)=>`<div class="row" style="justify-content:space-between;gap:10px"><b>${i+1}. ${esc(round.name)}</b><span class="num">${esc(round.ourPoints)}–${esc(round.theirPoints)} · ${round.win?'Victory':'Defeat'}</span></div>`).join('')}</div>
-    <p class="note" style="margin:10px 0 0">${r.win?'Both bosses defeated. The campaign crown is yours.':'At least one boss still stands. Edit your alliance and try both fights again.'}</p>
-  </div>`:''}
-  <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p>${r.commander?`<p class="note" style="margin:8px 0 0"><b>Commander strategy:</b> ${esc(r.commander.name)} · ${esc(r.commander.label)} · +${r.commander.percent}% team rating (+${r.commander.points.toFixed(2)}). ${esc(r.commander.reason)}</p>`:''}</div>
-  ${r.tactics?`<div class="panel" style="padding:14px 16px;margin:12px 0"><h3 style="margin:0 0 8px">Matchup strategy · ${esc(r.tactics.label)}</h3>
-    <p class="note" style="margin:0 0 6px">Counterplay: ${esc(r.tactics.weakness)}. Your tactical adjustment: ${r.tactics.yourPoints>=0?'+':''}${r.tactics.yourPoints.toFixed(2)} · Rival adjustment: +${r.tactics.rivalPoints.toFixed(2)} rating points.</p>
-    ${r.variant?`<p class="note" style="margin:8px 0 0">Variant Surge: <b>${esc(r.variant.base)} → ${esc(r.variant.form)}</b>${r.variant.ratingBonus?' · +'+r.variant.ratingBonus+' team-rating points for a cosmic-tier form':''}</p>`:''}
-    <p class="note" style="margin:8px 0 0"><b>Opponent lineup:</b> ${esc((r.opponentNames||[]).join(', '))}</p></div>`:''}
-  ${r.breakdownHTML||'<p class="note">Detailed match adjustments were not recorded for this older result.</p>'}
-  ${r.report||""}<details class="panel" style="padding:14px;margin:12px 0"><summary>Opponent box score</summary>${r.opponentReport||""}</details>
-  <div class="cta-row">${r.win?`<button class="btn primary big" data-act="camp-next">${v.step===9?'Claim campaign championship':'Unlock challenge '+(v.step+2)}</button>`:`<button class="btn primary" data-act="camp-retry">Retry this challenge</button><button class="btn" data-act="camp-edit">Edit your lineup</button>`}<button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
+  const archived=report=>`<details class="panel da-aux"><summary>View archived stats</summary>${report||''}${r.opponentReport||''}${r.breakdownHTML||''}</details>`;
+  return `<section class="da-results-screen">
+    <div class="result-hero ${r.win?'perfect':''}">
+      <span class="eyebrow" style="color:inherit">Campaign · Challenge ${v.step+1} / 10 · ${esc(st.name)}</span>
+      <div class="big">${r.win?'<em>You win</em>':'You lose'}</div>
+      ${r.finalRounds?.length?`<p>${r.finalRounds.filter(x=>x.win).length} of ${r.finalRounds.length} opponents defeated</p>`:''}
+    </div>
+    <div class="cta-row">
+      ${r.win?`<button class="btn primary" data-act="camp-next">${v.step===9?'Claim championship':'Next challenge'}</button>`:`<button class="btn primary" data-act="camp-retry">Try again</button><button class="btn" data-act="camp-edit">Edit lineup</button>`}
+      <button class="btn" data-act="camp-setup">Campaign overview</button>
+    </div>
+    ${r.finalRounds?.length?`<div class="da-rounds">
+        ${r.finalRounds.map((round,i)=>`<details class="panel da-aux"><summary>${i+1}. ${esc(round.name)} · ${round.win?'Win':'Loss'} · <span class="num">${round.ourPoints}–${round.theirPoints}</span></summary>
+           ${round.report||archived(r.report)}
+        </details>`).join('')}
+      </div>`:r.reportVersion===2?r.report:archived(r.report)}
+  </section>`;
 }
+
 function renderCampaignComplete(){
   const v=S.campaign;
-  return `<section>${campaignProgress()}<div class="result-hero perfect"><span class="eyebrow" style="color:inherit">10 / 10 challenges won</span><div class="big"><em>Campaign Champion</em></div><p>${esc(v.teamName)} completed all ten restricted-roster matchups. Every stage has been cleared.</p></div>
-    <div class="panel" style="padding:16px;margin-top:14px"><h2 class="h">Your ten victories</h2><div class="roster-list">${v.history.map((x,i)=>`<details class="panel" style="padding:12px;margin:8px 0"><summary><b>${i+1}. ${esc(x.name)}</b> · ${esc(x.score||'')} · ${(x.names||[]).length} characters</summary><p class="note">${esc((x.names||[]).join(', '))}</p>${x.breakdownHTML||''}${x.report||'<p class="note">No archived report for this older challenge.</p>'}</details>`).join('')}</div></div>
-    <div class="cta-row"><button class="btn primary" data-act="camp-reset">Start a new campaign</button><button class="btn" data-act="camp-setup">Campaign overview</button></div></section>`;
+  return `<section class="da-results-screen"><div class="result-hero perfect">
+      <span class="eyebrow" style="color:inherit">10 / 10 challenges won</span><div class="big"><em>Campaign Champion</em></div>
+    </div>
+    <div class="cta-row"><button class="btn primary" data-act="camp-reset">Start again</button><button class="btn" data-act="camp-setup">Campaign overview</button></div>
+    <details class="panel da-aux"><summary>Review ten victories</summary><div class="da-aux-content">
+      ${v.history.map((round,i)=>`<details class="panel da-aux"><summary>${i+1}. ${esc(round.name)} · ${esc(round.score||'')}</summary>
+        ${round.finalRounds?.length?round.finalRounds.map((fight,k)=>`<details class="panel da-aux"><summary>${k+1}. ${esc(fight.name)} · ${fight.win?'Win':'Loss'}</summary>${fight.report||''}</details>`).join(''):round.report||'<p class="note">No saved report for this challenge.</p>'}
+        ${!round.finalRounds?.length&&!round.report?.includes('da-result')?round.breakdownHTML||'':''}
+        </details>`).join('')}
+    </div></details>
+  </section>`;
 }
 function renderCampaign(){
   const status=S.campaign.status;
@@ -773,7 +787,7 @@ function campaignReset(){const {sport,teamName}=S.campaign;S.campaign={...campai
 function campaignAdvance(){
   const v=S.campaign;
   if(v.status!=='results'||!v.result?.win)return;
-  v.history.push({name:campaignStage().name,names:v.result.names,ids:v.result.ids,report:v.result.report,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
+  v.history.push({name:campaignStage().name,report:v.result.report,finalRounds:v.result.finalRounds,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
   v.step++;
   v.roster={};v.selected=null;v.query='';v.result=null;v.surge=null;v.variantTarget=null;
   v.status=v.step>=campaignStages().length?'complete':'draft';
