@@ -4815,13 +4815,14 @@ function renderH2HResult(d) {
 
   const yours=g.winner===(me==='host'?0:1)?g.line[0]:g.line[1];
   const theirs=g.winner===(opp==='host'?0:1)?g.line[0]:g.line[1];
-  const breakdown=daMatchBreakdown(g.breakdown,sc[me],sc[opp],contestName(d,me),contestName(d,opp));
+  const combat=g.combat&&(me==='host'?g.combat:{...g.combat,sides:[...g.combat.sides].reverse(),winner:1-g.combat.winner});
+  const breakdown=daMatchBreakdown(g.breakdown,A,B,contestName(d,'host'),contestName(d,'guest'),null,g.combat);
   const summary=recapPanel(h2hRecap(d.sport,sc[me],sc[opp],contestName(d,me),contestName(d,opp),spectator?winSide==='host':iWon,g.line,UPSET_SIGMA[d.rules.upsets]||0,getCands(d.poolId),d.id,(g.ev||[]).map(e=>({...e,team:(e.side===0)===(me==='host')?0:1}))));
   return `<section class="da-results-screen">
     <div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${esc(sp.name)} · Head-to-Head</span><div class="big">${title}</div></div>
     <div class="cta-row">${mySide(d)?'<button class="btn primary" data-act="h-rematch">Rematch</button>':''}<button class="btn" data-act="h-lobby">Back to lobby</button></div>
     ${sc[me].muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${sc[me].muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${sc[me].muppetTeam.performers} Muppet(s) increased team rating by ${sc[me].muppetTeam.points.toFixed(2)} points beyond their personal role-fit multipliers.</p></div>`:''}
-    ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,breakdown,summaryHTML:summary})}
+    ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,combat,breakdown,summaryHTML:summary})}
   </section>`;
 }
 async function rematch() {
