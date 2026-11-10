@@ -15,7 +15,7 @@ const BRAWL_EXCEPTIONAL_POWER=Object.freeze({
   "dc:Mister Mxyzptlk": [
     55,
     "Superman comics: fifth-dimensional reality transformations and spatial manipulation.",
-    "https://www.dc.com/characters",
+    "https://www.dc.com/blog/2024/05/02/invasion-of-the-imps-five-magical-pranksters-from-the-fifth-dimension",
     "Trickable under the backwards-name banishment rule."
   ],
   "dc:Lucifer Morningstar": [
@@ -27,7 +27,7 @@ const BRAWL_EXCEPTIONAL_POWER=Object.freeze({
   "dc:Doctor Manhattan": [
     51,
     "Watchmen / Doomsday Clock: disintegrates and reconstitutes matter; temporal awareness.",
-    "https://www.dc.com/characters",
+    "https://www.dc.com/blog/2024/08/28/we-may-have-been-entirely-wrong-about-why-doctor-manhattan-goes-to-mars",
     "Nondeterministic human decisions and prior story limits apply."
   ],
   "dc:The Spectre": [
@@ -39,7 +39,7 @@ const BRAWL_EXCEPTIONAL_POWER=Object.freeze({
   "dc:Darkseid": [
     42,
     "DC Fourth World: Omega Effect and tremendous godlike destructive force.",
-    "https://www.dc.com/characters",
+    "https://www.dc.com/characters/darkseid",
     "Avatars and true form are not interchangeable."
   ],
   "dc:Dream of the Endless": [
@@ -51,7 +51,7 @@ const BRAWL_EXCEPTIONAL_POWER=Object.freeze({
   "dc:Death of the Endless": [
     45,
     "The Sandman: personification of death and endpoint of mortal existence.",
-    "https://www.dc.com/characters",
+    "https://www.dc.com/blog/2022/08/26/the-sandman-deaths-among-us",
     "Usually a metaphysical function, not an offensive brawler."
   ],
   "mcu:Franklin Richards": [
