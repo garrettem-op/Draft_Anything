@@ -935,6 +935,8 @@ html.draft-active .h2h-main-court .field-wrap>.field{flex:0 0 auto;width:min(100
 html.draft-active .h2h-main-court .sideline{flex:0 0 auto;align-self:stretch}
 html.draft-active .h2h-opponent-rail{min-height:0;overflow-y:auto;overscroll-behavior:contain}
 .h2h-main-court .side-node{min-height:42px}
+.h2h-main-court .h2h-coach-first{width:100%;flex:0 0 auto}
+.h2h-main-court .h2h-coach-first .side-node{border:2px solid var(--accent);background:var(--panel2)}
 @media(max-width:700px){
   .h2h-main-court .sideline{display:flex;flex-direction:column;gap:5px}
   .h2h-main-court .side-node{flex:0 0 auto;width:100%;min-height:42px;box-sizing:border-box}
@@ -3775,9 +3777,11 @@ function renderField(sportKey, roster, o = {}) {
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
     return `<button class="${cls}" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
+  const sides=sp.pos.filter(p=>p.side);
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
+    ${o.coachFirst?`<div class="sideline h2h-coach-first">${sides.filter(p=>p.coach).map(side).join('')}</div>`:''}
     <div class="field ${sportKey === 'hockey' ? 'light' : ''}" style="aspect-ratio:${sp.aspect};--field-ratio:${sp.aspect}">${surfaceSVG(sportKey)}${sp.pos.filter(p => !p.side).map(node).join('')}</div>
-    <div class="sideline">${sp.pos.filter(p => p.side).sort((a,b)=>o.coachFirst?(Number(!!b.coach)-Number(!!a.coach)):0).map(side).join('')}</div>
+    <div class="sideline">${sides.filter(p=>!o.coachFirst||!p.coach).map(side).join('')}</div>
   </div>`;
 }
 
