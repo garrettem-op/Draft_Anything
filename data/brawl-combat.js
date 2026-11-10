@@ -79,7 +79,7 @@
         if(rng()>hitChance)continue;
         f.hits++;
         const raw=Math.max(1,Math.round(
-          f.attack*(f.tank?.88:1.16)*support[f.side]*
+          f.attack*(f.tank?0.88:1.16)*support[f.side]*
           (.83+.34*rng())*fatigue
         ));
         const prevented=Math.min(raw-1,Math.round(defense(target)*(.88+.24*rng())));
