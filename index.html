@@ -5113,7 +5113,50 @@ function fitHandCardNames() {
 }
 window.addEventListener('resize', fitHandCardNames);
 
+// Head-to-Head result accordion state survives room snapshots and DOM rerenders.
+function h2hResultAccordionKey(){
+  const d=S.h2h.contest;
+  return S.mode==='h2h'&&S.h2h.stage==='room'&&d?.status==='complete'
+    ? String(S.h2h.cid||d.id||'') : null;
+}
+const H2H_RESULT_ACCORDIONS={stats:'.da-detail-toggle',summary:'.da-summary-toggle',calculation:'.da-inner-details'};
+function captureH2HAccordions(key){
+  if(!key)return;
+  if(S.h2h.resultAccordionKey!==key){
+    S.h2h.resultAccordionKey=key;
+    S.h2h.resultAccordions={stats:false,summary:false,calculation:false};
+    return;
+  }
+  const root=document.querySelector('.da-results-screen');
+  if(!root)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    const el=root.querySelector(selector);
+    if(el)S.h2h.resultAccordions[name]=el.open;
+  }
+}
+function restoreH2HAccordions(key){
+  if(!key||S.h2h.resultAccordionKey!==key)return;
+  const root=document.querySelector('.da-results-screen');
+  if(!root)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    const el=root.querySelector(selector);
+    if(el)el.open=!!S.h2h.resultAccordions[name];
+  }
+}
+// Record native toggle events too; on mobile they can occur close to an incoming snapshot.
+document.addEventListener('toggle',e=>{
+  const el=e.target;
+  const key=h2hResultAccordionKey();
+  if(!key||!el?.isConnected||!el.matches?.('details'))return;
+  if(!el.closest('.da-results-screen')||S.h2h.resultAccordionKey!==key)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    if(el.matches(selector))S.h2h.resultAccordions[name]=el.open;
+  }
+},true);
 function render() {
+  const accordionKey=h2hResultAccordionKey();
+  if(accordionKey)captureH2HAccordions(accordionKey);
+  else {S.h2h.resultAccordionKey=null;S.h2h.resultAccordions=null;}
   const scrollX=window.scrollX,scrollY=window.scrollY;
   const tracked=['.app','main','.board-side','.board > div:first-child','#camp-plist','#plist'];
   const scrollState=tracked.map(selector=>({selector,top:document.querySelector(selector)?.scrollTop,left:document.querySelector(selector)?.scrollLeft}));
@@ -5128,6 +5171,7 @@ function render() {
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
+  restoreH2HAccordions(accordionKey);
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
     const el=document.querySelector(selector);
