@@ -595,6 +595,10 @@ function campaignPlay(){
     name:'The Nexus Champion',opponent:campaignFinalBossOpponent(v,st,first)
   });
   const variant=campaignVariantForm(v);
+  // A few documented reality-warping forms would otherwise barely improve
+  // already-capped 99-point character attributes. Keep their extra impact
+  // explicitly bounded, transparent, and applied once per encounter.
+  const variantBonus=variant?Math.max(0,Math.min(5,Number(variant.form.ratingBonus)||0)):0;
   const rounds=encounters.map(({name,opponent:opp},index)=>{
     // Each fight has independently seeded results and tactical scores. The
     // same roster and one-use Variant Surge play BOTH fights in the finale.
@@ -604,7 +608,7 @@ function campaignPlay(){
     const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
     if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
     const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
-    score.rating+=tactics.yourPoints;
+    score.rating+=tactics.yourPoints+variantBonus;
     oppScore.rating+=tactics.rivalPoints;
     const game=playGame(v.sport,score,oppScore,SEASONS[v.sport].sigma*1.1,rngFrom(gameSeed),true);
     const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
@@ -623,7 +627,7 @@ function campaignPlay(){
       theirPoints:round.theirPoints,ourRating:round.ourRating,
       theirRating:round.theirRating
     })):null,
-    variant:variant?{base:variant.base.n,form:variant.form.name}:null,
+    variant:variant?{base:variant.base.n,form:variant.form.name,ratingBonus:variantBonus}:null,
     names:Object.values(v.roster).map(c=>c.n),
     ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
@@ -749,7 +753,7 @@ function renderCampaignResults(){
   <div class="panel" style="padding:16px;margin-top:14px"><p style="margin:0">Your team rating: <b class="num">${r.ourRating}</b> · Rival rating: <b class="num">${r.theirRating}</b></p><p class="note" style="margin:8px 0 0">Roster: ${esc(r.names.join(', '))}</p>${r.commander?`<p class="note" style="margin:8px 0 0"><b>Commander strategy:</b> ${esc(r.commander.name)} · ${esc(r.commander.label)} · +${r.commander.percent}% team rating (+${r.commander.points.toFixed(2)}). ${esc(r.commander.reason)}</p>`:''}</div>
   ${r.tactics?`<div class="panel" style="padding:14px 16px;margin:12px 0"><h3 style="margin:0 0 8px">Matchup strategy · ${esc(r.tactics.label)}</h3>
     <p class="note" style="margin:0 0 6px">Counterplay: ${esc(r.tactics.weakness)}. Your tactical adjustment: ${r.tactics.yourPoints>=0?'+':''}${r.tactics.yourPoints.toFixed(2)} · Rival adjustment: +${r.tactics.rivalPoints.toFixed(2)} rating points.</p>
-    ${r.variant?`<p class="note" style="margin:8px 0 0">Variant Surge: <b>${esc(r.variant.base)} → ${esc(r.variant.form)}</b></p>`:''}
+    ${r.variant?`<p class="note" style="margin:8px 0 0">Variant Surge: <b>${esc(r.variant.base)} → ${esc(r.variant.form)}</b>${r.variant.ratingBonus?' · +'+r.variant.ratingBonus+' team-rating points for a cosmic-tier form':''}</p>`:''}
     <p class="note" style="margin:8px 0 0"><b>Opponent lineup:</b> ${esc((r.opponentNames||[]).join(', '))}</p></div>`:''}
   ${r.breakdownHTML||'<p class="note">Detailed match adjustments were not recorded for this older result.</p>'}
   ${r.report||""}<details class="panel" style="padding:14px;margin:12px 0"><summary>Opponent box score</summary>${r.opponentReport||""}</details>
