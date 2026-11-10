@@ -544,9 +544,6 @@ function renderCampaignSetup(){
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignLockedOpponent(v,st);
   const tactic=CAMPAIGN_TACTICS[opponent.tactic]||CAMPAIGN_TACTICS.assault;
-  const variant=campaignVariantForm(v),surgeCharacters=campaignSurgeCandidates(v),surgeOptions=surgeCharacters.length;
-  const surgeChoice=surgeCharacters.find(c=>c.id===v.variantTarget)||surgeCharacters[0];
-  if(!v.surge&&surgeChoice)v.variantTarget=surgeChoice.id;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
   const distinctPools=new Set(slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
@@ -557,7 +554,7 @@ function renderCampaignDraft(){
     <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><div class="row"><button class="btn small" data-act="camp-remove" ${v.roster[pos.id]?"":"disabled"}>Remove</button><button class="btn small" data-act="camp-close">Done</button></div></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
     <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search all ${all.length} characters" autocomplete="off"></div>
     ${v.roster[pos.id]?`<div class="picker-current">${avatar(v.roster[pos.id])}<span class="who"><small>Currently at ${esc(pos.nm)}</small><b>${esc(v.roster[pos.id].n)}</b></span><span class="note">Selected</span></div>`:''}
-    <div class="picker-list-shell"><div class="plist" id="camp-plist">${matches.length?matches.map(c=>`<div class="talent-entry"><button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${previouslyUsed.has(c.id)||campaignWinUses(c.id)>=2||taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small></span>${previouslyUsed.has(c.id)?'<span class="meta muted">Previously used</span>':campaignWinUses(c.id)>=2?'<span class="meta muted">2 / 2 uses spent</span>':taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn info-button" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`).join(''):'<div class="empty-state">No characters match your search.</div>'}</div>${pickerIndexHTML('camp-plist')}</div>
+    <div class="picker-list-shell"><div class="plist" id="camp-plist">${matches.length?matches.map(c=>`<div class="talent-entry"><button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${previouslyUsed.has(c.id)||campaignWinUses(c.id)>=2||taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small>${sigLine(c)}</span>${previouslyUsed.has(c.id)?'<span class="meta muted">Previously used</span>':campaignWinUses(c.id)>=2?'<span class="meta muted">2 / 2 uses spent</span>':taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn info-button" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`).join(''):'<div class="empty-state">No characters match your search.</div>'}</div>${pickerIndexHTML('camp-plist')}</div>
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}
@@ -567,14 +564,7 @@ function renderCampaignDraft(){
       <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
       <p class="note" style="margin:6px 0 0">Opponent roster, strength, and match randomness remain fixed regardless of your picks or retries.</p>
     </div>
-    <div class="panel" style="padding:14px 16px;margin-bottom:14px">
-      <div class="row" style="justify-content:space-between">
-        <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per challenge: choose ONE drafted character to receive a random documented alternate form. Different characters may have several possible forms. Removing them does not restore the charge.</p></div>
-        <button type="button" class="btn ${v.surge?'':'primary'}" data-act="camp-variant" ${v.surge||!surgeOptions||!valid?'disabled':''}>${v.surge?'Surge spent':'Activate surge'}</button>
-      </div>
-      ${!v.surge&&surgeOptions?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="camp-variant-target" id="camp-variant-target">${surgeCharacters.map(c=>`<option value="${esc(c.id)}" ${surgeChoice?.id===c.id?'selected':''}>${esc(c.n)} · ${campaignVariantOptions(c).length} possible forms</option>`).join('')}</select></label>`:''}
-      <p class="note" style="margin:8px 0 0">${v.surge?(variant?'Active: '+esc(variant.base.n)+' → '+esc(v.surge.name)+' · '+esc(variant.form.origin):'Surge used; transformed character no longer on your roster.'):(surgeOptions?surgeOptions+' eligible character(s) in your lineup.'+(valid?' Random form selected for the character above.':' Complete a valid lineup to activate.'):'No eligible alternate forms in your lineup.')}</p>
-    </div>
+    ${renderVariantSurgePanel(v,'camp-variant','camp-variant-target',valid,'challenge')}
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
   </section>`;
@@ -608,7 +598,8 @@ function campaignPlay(){
     const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
     if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
     const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
-    score.rating+=tactics.yourPoints+variantBonus;
+    // Shared teamScore applies the transformed attributes and cosmic bonus once.
+    score.rating+=tactics.yourPoints;
     oppScore.rating+=tactics.rivalPoints;
     const game=playGame(v.sport,score,oppScore,SEASONS[v.sport].sigma*1.1,rngFrom(gameSeed),true);
     const win=game.winner===0,ourPoints=win?game.line[0]:game.line[1],theirPoints=win?game.line[1]:game.line[0];
