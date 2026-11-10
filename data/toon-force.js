@@ -605,7 +605,7 @@ function toonForceMultiplier(candidate,sportKey,pos){
   const sportScale=sportKey==='basketball'?1:0.84;
   return +(1+(0.28*(tf.score/99)+0.17*sportSkill)*sportScale).toFixed(5);
 }
-function toonForceBattleEvent(team,sportKey,rng){
+function toonForceBattleEvent(team,sportKey,rng,opposingTeam=null){
   if(!team||!Array.isArray(team.rows))return null;
   const heroes=team.rows.filter(r=>r.cand&&!r.pos.coach&&!r.pos.bench&&toonForceOf(r.cand));
   if(!heroes.length)return null;
@@ -615,7 +615,14 @@ function toonForceBattleEvent(team,sportKey,rng){
   const row=heroes[0],toon=toonForceOf(row.cand),d=toon.dimensions;
   const isBrawl=sportKey==='brawl';
   const facets=isBrawl?['resilience','body','environment','comedy','fourthWall']:['sports','comedy','body'];
-  const pick=facets.reduce((a,b)=>d[b]>d[a]?b:a,facets[0]);
+  // Ranged or explosive threats (e.g. Iron Man's weapons) specifically
+  // test a cartoon's demonstrated recovery, not their comic initiative.
+  // This is never guaranteed: the trigger check below still applies.
+  const rangedThreat=isBrawl&&Array.isArray(opposingTeam?.rows)&&
+    opposingTeam.rows.some(r=>r.cand&&!r.pos?.coach&&!r.pos?.bench&&
+      typeof fightStyles==='function'&&fightStyles(r.cand).some(s=>s==='R'||s==='X'));
+  const pick=rangedThreat&&d.resilience>=80
+    ?'resilience':facets.reduce((a,b)=>d[b]>d[a]?b:a,facets[0]);
   const agency=(d.comedy+d.environment)/198;
   const chance=Math.min(isBrawl?0.56:0.30,(isBrawl?0.16:0.08)+(isBrawl?0.35:0.19)*(toon.score/99)*(0.6+0.4*agency));
   if(rng()>=chance)return null;
@@ -623,7 +630,7 @@ function toonForceBattleEvent(team,sportKey,rng){
   const power=isBrawl
     ?Math.min(5,0.8+3.9*(d[pick]/99)*spread)
     :Math.min(2.2,0.4+1.6*(d.sports/99)*spread);
-  const note=isBrawl?TOON_FORCE_BRAWL_EVENTS[pick]:TOON_FORCE_SPORT_EVENTS[sportKey]||'uses an unlikely cartoon-physics moment';
+  const note=isBrawl?(rangedThreat&&pick==='resilience'?'takes a ranged blast and bounces back through cartoon physics':TOON_FORCE_BRAWL_EVENTS[pick]):TOON_FORCE_SPORT_EVENTS[sportKey]||'uses an unlikely cartoon-physics moment';
   return {character:row.cand.n,facet:pick,points:+power.toFixed(3),note,
     source:toon.feat,continuity:'Cartoon-physics gag; conditional, not guaranteed'};
 }
