@@ -918,7 +918,11 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .variant-ready{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important;cursor:pointer!important}
 @keyframes h2h-variant-pulse{0%,100%{filter:drop-shadow(0 0 2px var(--accent))}50%{filter:drop-shadow(0 0 13px var(--accent));transform:translateY(-3px)}}
 @media(prefers-reduced-motion:reduce){.variant-ready{animation:none!important;outline:3px solid var(--accent)}}
-.h2h-ready-actions{display:flex;justify-content:flex-end;margin:14px 0}
+.h2h-ready-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap}
+.h2h-ability-phase{min-width:0}
+.h2h-ability-phase .h2h-ready-actions .btn{flex:0 0 auto}
+@media(max-width:700px){.h2h-ability-phase .h2h-ready-actions{position:sticky;top:0;z-index:12;background:var(--bg);padding:8px 0}.h2h-ability-phase .h2h-ready-actions .btn{flex:1 1 100%}}
+
 .h2h-variant-shade{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:18px}
 .h2h-variant-dialog{background:var(--panel);color:var(--ink);border-radius:16px;padding:24px;width:min(100%,360px);box-shadow:var(--shadow)}
 .h2h-variant-dialog h3{font:800 28px var(--f-display);margin:0 0 12px}
@@ -4830,9 +4834,9 @@ function renderH2HPowers(d){
   const canChoose=!!mySide(d)&&!ready&&!d.surges?.[me];
   const slots=variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,me),surge:d.surges?.[me]||null});
   const target=S.h2h.variantTarget,selected=slots.find(c=>c.id===target);
-  return `<section>
+  return `<section class="h2h-ability-phase">
+    ${mySide(d)?`<div class="h2h-ready-actions"><span class="note">${ready?'Ready · waiting for opponent':d.surges?.[me]?'Variant used · confirm to play':'Optional Variant Surge'}</span>${!ready?`<button class="btn primary" data-act="h-ready">${d.surges?.[me]?'Finalize & view results':'Skip Surge · Finalize'}</button>`:''}</div>`:''}
     ${renderH2HCourt(d,me,true)}
-    ${!ready&&mySide(d)?`<div class="h2h-ready-actions"><button class="btn primary" data-act="h-ready">${d.surges?.[me]?'Ready':'Skip Surge · Ready'}</button></div>`:''}
     ${canChoose&&selected?`<div class="h2h-variant-shade" data-act="h-variant-cancel"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p>Use Variant Surge on <b>${esc(selected.n)}</b>?</p><div class="row"><button class="btn" data-act="h-variant-cancel">Cancel</button><button class="btn primary" data-act="h-variant-confirm">Use Variant Surge</button></div></div></div>`:''}
   </section>`;
 }
@@ -5120,7 +5124,7 @@ function render() {
   else if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && ['drafting','powers'].includes(S.h2h.contest?.status);
+  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
