@@ -3762,9 +3762,12 @@ function characterAbilityEvidence(candidate, tag) {
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
   return (CHARACTER_ABILITIES[candidate.pool + ':' + candidate.n] || []).find(x => x.tag === broad) || null;
 }
-/* Source strength (roster-wide source audit, 2026-11-10). Every host cited by an evidence record is
-   classified once. Community-edited sites (wikis, Fandom, TV Tropes, Comic Vine) are discovery leads, not
-   confirmation. Data only: nothing here changes eligibility or the tag index. */
+/* Evidence standard (owner, 2026-11-10): the question is whether a grant is accurate, not who published the
+   source. A specific, well-documented community entry (Wikipedia, Fandom, TV Tropes, Comic Vine) is credible
+   evidence, the same as an official source with clear feats. Data only: nothing here changes eligibility.
+
+   Source type is descriptive. Every cited host is classified once so the audit can report what kinds of
+   source the roster rests on, and so a typo'd or unknown host is caught. It never lowers a rating. */
 const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
   // official: the rights holder or its licensed publications
   'starwars.com':'official', 'marvel.com':'official', 'd23.com':'official', 'disneyplus.com':'official',
@@ -3786,24 +3789,56 @@ const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
   'gamerguides.com':'community', 'comicbasics.com':'community', 'fortressofsolitude.co.za':'community',
   'autoassembly.org.uk':'community',
 });
-const CHARACTER_ABILITY_CONFIRMING_TIERS = Object.freeze(['official', 'game-data', 'dialogue', 'editorial']);
-/* Tier for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
+const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
+/* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
 function characterAbilitySourceTier(url) {
   let host;
   try { host = new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
   if (CHARACTER_ABILITY_SOURCE_TIERS[host]) return CHARACTER_ABILITY_SOURCE_TIERS[host];
   return /(^|\.)fandom\.com$/.test(host) ? 'community' : null;
 }
-/* How far a record's feat is confirmed:
-   'verified'       the feat itself was checked against a confirming source (explicit, e.g. the Disney review);
-   'owner-ruling'   granted or settled by the owner;
-   'official-cited' cites an official, game-data, dialogue or editorial source (not re-checked by the source audit);
-   'provisional'    community sources only: a lead, not confirmed canon. The tag is still granted. */
+/* Feat-evidence URLs. officialSource is left out on purpose: it confirms who a character is, not a feat. */
+const CHARACTER_ABILITY_FEAT_URL_FIELDS = Object.freeze(['source', 'verifiedBy', 'dialogueSource', 'speciesSource']);
+function characterAbilityFeatUrls(record) {
+  return CHARACTER_ABILITY_FEAT_URL_FIELDS.flatMap(k => [].concat(record?.[k] || []));
+}
+/* Independent sources: distinct sites among the feat URLs. Two pages on one site count once; separate
+   Fandom wikis are separate communities and count separately. */
+function characterAbilityIndependentSources(record) {
+  const hosts = new Set();
+  for (const u of characterAbilityFeatUrls(record)) {
+    try { hosts.add(new URL(u).hostname.replace(/^www\./, '')); } catch { /* unparseable: not a source */ }
+  }
+  return hosts.size;
+}
+/* Does the record document a specific feat? Yes when it names a scene, cites dialogue or a second source,
+   points at an instance (a work, year, chapter, issue, episode or quoted title), or gives a substantive
+   description of at least eight words. A bare one-line assertion ("Levitates and flies.") is not enough:
+   that is the "entry without supporting details" the standard sends to review. */
+const CHARACTER_ABILITY_FEAT_CITATION = /\([^)]*\d[^)]*\)|\([^)]*[A-Z][^)]*\)|#\d|\b(ch|chapter|ep|episode|season|issue|vol|book)\.?\s*\d|['\u2018"\u201c][A-Z][^'\u2019"\u201d]{2,}['\u2019"\u201d]|\b(in|at|during) (the )?[A-Z][\w'\u2019-]+/;
+function characterAbilityFeatIsSpecific(record) {
+  if (!record) return false;
+  if (record.scene || record.dialogueSource || record.verifiedBy) return true;
+  const feat = String(record.feat || '').trim();
+  return CHARACTER_ABILITY_FEAT_CITATION.test(feat) || feat.split(/\s+/).length >= 8;
+}
+/* How well a record supports its grant. Every status below is still granted unless the reviewed index says
+   otherwise; the label says what, if anything, is worth checking.
+   'owner-ruling'  granted or settled by the owner. Final.
+   'investigate'   accounts contradict each other or continuities are mixed (record.conflict explains how).
+   'corroborated'  two or more independent sources document the feat.
+   'credible'      one source, of any type, documents a specific feat.
+   'needs-review'  the record has no supporting detail, or its scene is not yet confirmed.
+   An explicit record.verification from a hand review wins over the derived label, except that a recorded
+   conflict always surfaces as 'investigate' unless the owner has ruled. */
+const CHARACTER_ABILITY_STATUSES = Object.freeze(['owner-ruling', 'corroborated', 'credible', 'needs-review', 'investigate']);
 function characterAbilityVerification(record) {
   if (!record) return null;
+  if (record.verification === 'owner-ruling') return 'owner-ruling';
+  if (record.conflict) return 'investigate';
   if (record.verification) return record.verification;
-  const urls = ['source', 'verifiedBy', 'dialogueSource', 'speciesSource'].flatMap(k => [].concat(record[k] || []));
-  return urls.some(u => CHARACTER_ABILITY_CONFIRMING_TIERS.includes(characterAbilitySourceTier(u))) ? 'official-cited' : 'provisional';
+  if (!characterAbilityFeatIsSpecific(record)) return 'needs-review';
+  return characterAbilityIndependentSources(record) >= 2 ? 'corroborated' : 'credible';
 }
 /* Why a character holds a tag (broad or specific): {basis:'evidence', record, verification} for a source-linked
    record, {basis:'carry-over', record, verification:'unsourced'} for a reviewed pre-audit grant without a
@@ -3830,5 +3865,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = {
   CHARACTER_ABILITIES, CHARACTER_ABILITY_DISPUTES, CHARACTER_ABILITY_RESEARCH_QUEUE,
   CHARACTER_ABILITY_TAGS, CHARACTER_ABILITY_TAG_FAMILIES, CHARACTER_ABILITY_BROAD_TAG, CHARACTER_ABILITY_CARRYOVER,
   characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance,
-  CHARACTER_ABILITY_SOURCE_TIERS, CHARACTER_ABILITY_CONFIRMING_TIERS, characterAbilitySourceTier, characterAbilityVerification
+  CHARACTER_ABILITY_SOURCE_TIERS, CHARACTER_ABILITY_SOURCE_TYPES, CHARACTER_ABILITY_STATUSES, CHARACTER_ABILITY_FEAT_URL_FIELDS,
+  characterAbilitySourceTier, characterAbilityFeatUrls, characterAbilityIndependentSources, characterAbilityFeatIsSpecific,
+  characterAbilityVerification
 };
