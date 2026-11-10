@@ -159,7 +159,8 @@
         "clu": -7
       },
       "origin": "What If...? (2021), episode 4 · absorbed magical beings",
-      "continuity": "Marvel Studios What If...?"
+      "continuity": "Marvel Studios What If...?",
+      "ratingBonus": 2.5
     },
     {
       "name": "God of Magic Strange",
@@ -202,7 +203,8 @@
       },
       "origin": "Secret Wars (2015) #9 · T'Challa wields the Gauntlet",
       "continuity": "Battleworld",
-      "source": "https://www.marvel.com/articles/comics/secret-wars-official-marvel-guide"
+      "source": "https://www.marvel.com/articles/comics/secret-wars-official-marvel-guide",
+      "ratingBonus": 3.5
     },
     {
       "name": "Intergalactic Emperor T'Challa",
@@ -282,7 +284,8 @@
         "ldr": 11
       },
       "origin": "Loki (2023), season 2 finale · holds the branching timelines",
-      "continuity": "Marvel Cinematic Universe"
+      "continuity": "Marvel Cinematic Universe",
+      "ratingBonus": 3.5
     }
   ],
   "mcu:Odin": [
@@ -316,7 +319,8 @@
         "clu": 8
       },
       "origin": "The Infinity Gauntlet (1991) · six Gems",
-      "continuity": "Earth-616"
+      "continuity": "Earth-616",
+      "ratingBonus": 3.5
     },
     {
       "name": "King Thanos",
@@ -336,7 +340,8 @@
         "iq": 14
       },
       "origin": "Marvel: The End (2003) · Heart of the Universe",
-      "continuity": "Alternate continuity"
+      "continuity": "Alternate continuity",
+      "ratingBonus": 4.5
     }
   ],
   "mcu:Ultron": [
@@ -348,7 +353,8 @@
         "end": 14
       },
       "origin": "What If...? (2021), episodes 8–9 · Infinity Stones",
-      "continuity": "Marvel Studios What If...?"
+      "continuity": "Marvel Studios What If...?",
+      "ratingBonus": 4
     },
     {
       "name": "Phalanx Ultron",
@@ -381,7 +387,8 @@
       },
       "origin": "Secret Wars (2015) · stolen Beyonders power / Battleworld",
       "continuity": "Earth-616 / Battleworld",
-      "source": "https://www.marvel.com/articles/comics/secret-wars-official-marvel-guide"
+      "source": "https://www.marvel.com/articles/comics/secret-wars-official-marvel-guide",
+      "ratingBonus": 4.5
     },
     {
       "name": "Sorcerer Supreme Doctor Doom",
@@ -392,7 +399,8 @@
       },
       "origin": "Blood Hunt (2024) / One World Under Doom (2025)",
       "continuity": "Earth-616",
-      "source": "https://www.marvel.com/comics/guides/2493/one-world-under-doom"
+      "source": "https://www.marvel.com/comics/guides/2493/one-world-under-doom",
+      "ratingBonus": 2.5
     },
     {
       "name": "Infamous Iron Man (Victor von Doom)",
@@ -423,7 +431,8 @@
       },
       "origin": "Secret Wars (1984) #10–12 · siphoned Beyonder's power",
       "continuity": "Earth-616, temporary",
-      "source": "https://www.marvel.com/articles/comics/secret-wars-official-marvel-guide"
+      "source": "https://www.marvel.com/articles/comics/secret-wars-official-marvel-guide",
+      "ratingBonus": 4
     }
   ],
   "mcu:Wolverine": [
@@ -455,7 +464,8 @@
         "end": 11
       },
       "origin": "Thor (2018) · far-future Wolverine wielding Phoenix",
-      "continuity": "Alternate future"
+      "continuity": "Alternate future",
+      "ratingBonus": 2.5
     },
     {
       "name": "Weapon X Wolverine",
@@ -603,7 +613,8 @@
         "end": 14
       },
       "origin": "Dark Nights: Death Metal (2020) · Manhattan-powered Batman Who Laughs",
-      "continuity": "Dark Multiverse"
+      "continuity": "Dark Multiverse",
+      "ratingBonus": 4.5
     },
     {
       "name": "Red Death Batman",
@@ -613,7 +624,8 @@
         "clu": -11
       },
       "origin": "Dark Nights: Metal (2017) · Bruce Wayne merged with the Flash",
-      "continuity": "Earth -52"
+      "continuity": "Earth -52",
+      "ratingBonus": 2
     },
     {
       "name": "Dawnbreaker Batman",
@@ -623,7 +635,8 @@
         "clu": -12
       },
       "origin": "Dark Nights: Metal (2017) · Green Lantern Bruce Wayne",
-      "continuity": "Earth -32"
+      "continuity": "Earth -32",
+      "ratingBonus": 2
     },
     {
       "name": "Murder Machine Batman",
@@ -675,7 +688,8 @@
         "end": 14
       },
       "origin": "DC One Million (1998) · Kal-El after millennia in the sun",
-      "continuity": "Future DC"
+      "continuity": "Future DC",
+      "ratingBonus": 3.5
     },
     {
       "name": "Kingdom Come Superman",
@@ -792,7 +806,8 @@
         "iq": 13
       },
       "origin": "Flash Forward (2019–20) · Manhattan's power",
-      "continuity": "DC Rebirth"
+      "continuity": "DC Rebirth",
+      "ratingBonus": 3
     }
   ],
   "dc:Green Lantern (Hal Jordan)": [
@@ -814,7 +829,8 @@
         "clu": 7
       },
       "origin": "Day of Judgment (1999) / The Spectre (2001) · divine host",
-      "continuity": "DC Comics"
+      "continuity": "DC Comics",
+      "ratingBonus": 3
     },
     {
       "name": "White Lantern Hal Jordan",
@@ -918,7 +934,8 @@
         "clu": -13
       },
       "origin": "Superman: Emperor Joker (2000) · Mxyzptlk's reality-warping powers",
-      "continuity": "Post-Crisis"
+      "continuity": "Post-Crisis",
+      "ratingBonus": 3.5
     }
   ],
   "dc:Lex Luthor": [
@@ -1300,7 +1317,8 @@
         "end": 13
       },
       "origin": "Sonic 3 & Knuckles (1994) · Super Emeralds",
-      "continuity": "Sega"
+      "continuity": "Sega",
+      "ratingBonus": 2.5
     },
     {
       "name": "Darkspine Sonic",
@@ -2120,7 +2138,8 @@
         "iq": 12
       },
       "origin": "The Silmarillion / Unfinished Tales · Maia of Valinor",
-      "continuity": "Pre-Istari; unconstrained spirit depiction"
+      "continuity": "Pre-Istari; unconstrained spirit depiction",
+      "ratingBonus": 2
     }
   ],
   "lotr:Sauron": [
