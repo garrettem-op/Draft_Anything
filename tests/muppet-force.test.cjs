@@ -94,7 +94,15 @@ test('Muppet camaraderie improves other roster members without infinite bonus st
   assert.equal(mixed.teammates,2);
   const group=muppetForceTeamwork({pg:gonzo,sf:kermit,hc:kermit,bench:gonzo},[pg,sf,hc,bench],75);
   assert.ok(group.percent>mixed.percent,'More Muppet members increase camaraderie');
-  assert.ok(group.percent<=8&&group.points<=6);
+  const positionIds=['p1','p2','p3','p4','p5'];
+  const positions=positionIds.map(id=>({id}));
+  const groupAt=n=>muppetForceTeamwork(Object.fromEntries(positionIds.map((id,i)=>[
+    id,i<n?(i%2?gonzo:kermit):normal])),positions,75);
+  const curve=[1,2,3,4,5].map(groupAt);
+  assert.ok(curve.every((v,i)=>i===0||v.percent>curve[i-1].percent),'Each added Muppet must improve group synergy');
+  assert.ok(curve[4].percent>=13,'A full Muppet ensemble should materially help its entire roster');
+  assert.ok(curve.every(v=>v.percent<=22),'No unbounded stacking');
+  assert.ok(group.percent<=22&&group.points<=16.5);
   assert.deepEqual(gonzo.a,Array(12).fill(60),'Team aura must not change raw stats');
   assert.equal(muppetForceTeamwork({pg:normal,sf:normal},[pg,sf],75).points,0);
 });

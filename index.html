@@ -926,6 +926,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/campaign-eligibility.js"></script>
 <script src="data/muppet-force.js"></script>
 <script src="data/toon-force.js"></script>
+<script src="data/brawl-exceptional-power.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/team-names.js"></script>
@@ -2217,7 +2218,7 @@ function sigOf(rows) {
 }
 
 // Ratings for one game. Chaos applies every game; clutch and boom only in the playoffs.
-function gameRatings(A, B, playoff, rng) {
+function gameRatings(A, B, playoff, rng, sportKey=null) {
   let ra = A.rating - ((B.sig && B.sig.chaos) || 0), rb = B.rating - ((A.sig && A.sig.chaos) || 0);
   const ev = [];
   if (playoff) for (const [T, side] of [[A, 0], [B, 1]]) for (const x of (T.sig && T.sig.spark) || []) {
@@ -2230,7 +2231,17 @@ function gameRatings(A, B, playoff, rng) {
     }
     if (side === 0) ra += d; else rb += d;
   }
-  return { ra, rb, ev };
+  // ToonForce is a context-dependent stunt, never guaranteed invulnerability.
+  // At most one bounded spotlight event per side per match.
+  const toon=[0,0],toonEvents=[];
+  if(sportKey)for(const [team,side]of [[A,0],[B,1]]){
+    const moment=toonForceBattleEvent(team,sportKey,rng,side===0?B:A);
+    if(!moment)continue;
+    toon[side]+=moment.points;
+    toonEvents.push({...moment,side});
+  }
+  ra+=toon[0];rb+=toon[1];
+  return { ra, rb, ev, toon, toonEvents };
 }
 
 // ===== Battle Royale: fighting styles and the variety bonus =====
@@ -2805,18 +2816,19 @@ const UPSET_SIGMA = { off: 0, low: 2.5, high: 6 };
 function matchRatingBreakdown(A,B,g,randomDelta) {
   const base=[A.rating,B.rating];
   const chaos=[-((B.sig&&B.sig.chaos)||0),-((A.sig&&A.sig.chaos)||0)];
-  const spark=[g.ra-base[0]-chaos[0],g.rb-base[1]-chaos[1]];
+  const toon=g.toon||[0,0];
+  const spark=[g.ra-base[0]-chaos[0]-toon[0],g.rb-base[1]-chaos[1]-toon[1]];
   const random=[randomDelta/2,-randomDelta/2];
-  const final=[base[0]+chaos[0]+spark[0]+random[0],base[1]+chaos[1]+spark[1]+random[1]];
-  return {base,chaos,spark,random,final};
+  const final=[base[0]+chaos[0]+spark[0]+toon[0]+random[0],base[1]+chaos[1]+spark[1]+toon[1]+random[1]];
+  return {base,chaos,spark,toon,toonEvents:g.toonEvents||[],random,final};
 }
 function playGame(sportKey, A, B, sigma, rng, playoff = false) {
-  const g = gameRatings(A, B, playoff, rng);
+  const g = gameRatings(A, B, playoff, rng, sportKey);
   let randomDelta = sigma ? gauss(rng)*sigma : 0;
   let m = g.ra - g.rb + randomDelta;
   if (m === 0) { const tiebreak = rng() < 0.5 ? -0.01 : 0.01; randomDelta += tiebreak; m=tiebreak; }
   const w=m>0?0:1;
-  return { winner:w, margin:Math.abs(m),line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),ev:g.ev,breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
+  return { winner:w, margin:Math.abs(m),line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),ev:g.ev,toonEvents:g.toonEvents,breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
 }
 
 // Sport-flavored final score for a game won by `margin` rating points. Returns [winnerScore, loserScore, note]
@@ -3483,9 +3495,9 @@ function expertAdj(sportKey, c, pos, base) {
 function characterForceMultiplier(sportKey,c,pos){
   return muppetForceMultiplier(c,sportKey,pos)*toonForceMultiplier(c,sportKey,pos);
 }
-function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos); }
+function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos);
+  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
@@ -3745,7 +3757,7 @@ function guideCollection(id) {
         powers:mf ? ['MuppetForce: puppet-stage physics', ...MUPPET_FORCE_DIMENSIONS.filter(d=>mf.dimensions[d.key]>=75).map(d=>d.label)] : [],
         feats:mf ? [mf.feat] : [],
         limits:mf ? [mf.limit, MUPPET_FORCE_RULE.limitation] : ['Puppet appearance alone does not prove superhuman environmental interactions.'],
-        effect:mf ? 'MuppetForce multiplies normal position fit by ×'+muppetForceMultiplier(c,'basketball',{})+' in regulated sports or ×'+muppetForceMultiplier(c,'brawl',{})+' in Battle Royale. It does not change attributes or position requirements. Muppets also grant a shared, capped 0–8% team camaraderie bonus.' : 'No established MuppetForce gameplay ability.',
+        effect:mf ? 'MuppetForce multiplies normal position fit by ×'+muppetForceMultiplier(c,'basketball',{})+' in regulated sports or ×'+muppetForceMultiplier(c,'brawl',{})+' in Battle Royale. It does not change attributes or position requirements. Muppets also grant a shared, capped 0–22% team camaraderie bonus.' : 'No established MuppetForce gameplay ability.',
         tier:mf ? 'MuppetForce · '+mf.tier : 'MuppetForce unassessed',
         muppetForce:mf,muppetHistory:history,sources:[...new Set(history.flatMap(f=>[f.work?.source,...f.sources].filter(Boolean)))], status:'Provisional character-specific MuppetForce assessment, not an official canon statistic; film-role feats are identified separately.',
       }];
@@ -3802,8 +3814,8 @@ function renderGuideModal() {
         <section><h4>Defeats, limitations &amp; weaknesses</h4>${bullets(profile.limits,'Unverified')}</section>
         <section><h4>Sports translation</h4><p>${esc(profile.effect||'Provisional assessment')}</p></section>
         ${profile.disclaimer?`<p class="note"><b>Continuity:</b> ${esc(profile.disclaimer)}</p>`:''}
-        ${profile.muppetForce?`<section><h4>MuppetForce</h4><p>${esc(MUPPET_FORCE_RULE.description)}</p><p class="note">${S.guideScores?("MuppetForce: "+profile.muppetForce.score+" / 99 · "):""}${esc(profile.muppetForce.tier)} · Multiplier on conventional position fit (not an extra attribute line) · Regulated ×${muppetForceMultiplier({pool:'muppets',n:profile.name},'basketball',{})} · Battle Royale ×${muppetForceMultiplier({pool:'muppets',n:profile.name},'brawl',{})} · Up to +8% ensemble teamwork</p>${S.guideScores?`<div class="guide-scores">${MUPPET_FORCE_DIMENSIONS.map(d=>`<div class="guide-score"><span>${esc(d.label)}</span><b>${profile.muppetForce.dimensions[d.key]}</b></div>`).join("")}</div>`:""}</section>`:""}
-        ${profile.toonForce?`<section><h4>ToonForce</h4><p class="note">${S.guideScores?'ToonForce '+profile.toonForce.score+' / 99 · ':''}${esc(profile.toonForce.tier)} · Normal position fit multiplier · Regulated ×${toonForceMultiplier({pool:'toons',n:profile.name},'basketball',{})} · Battle Royale ×${toonForceMultiplier({pool:'toons',n:profile.name},'brawl',{})}. No team-wide aura.</p><p>${esc(profile.toonForce.feat)}</p><p class="note">Limit: ${esc(profile.toonForce.limit)}</p></section>`:''}
+        ${profile.muppetForce?`<section><h4>MuppetForce</h4><p>${esc(MUPPET_FORCE_RULE.description)}</p><p class="note">${S.guideScores?("MuppetForce: "+profile.muppetForce.score+" / 99 · "):""}${esc(profile.muppetForce.tier)} · Multiplier on conventional position fit (not an extra attribute line) · Regulated ×${muppetForceMultiplier({pool:'muppets',n:profile.name},'basketball',{})} · Battle Royale ×${muppetForceMultiplier({pool:'muppets',n:profile.name},'brawl',{})} · Up to +22% ensemble teamwork</p>${S.guideScores?`<div class="guide-scores">${MUPPET_FORCE_DIMENSIONS.map(d=>`<div class="guide-score"><span>${esc(d.label)}</span><b>${profile.muppetForce.dimensions[d.key]}</b></div>`).join("")}</div>`:""}</section>`:""}
+        ${profile.toonForce?`<section><h4>ToonForce</h4><p class="note">${S.guideScores?'ToonForce '+profile.toonForce.score+' / 99 · ':''}${esc(profile.toonForce.tier)} · Normal position fit multiplier · Regulated ×${toonForceMultiplier({pool:'toons',n:profile.name},'basketball',{})} · Battle Royale ×${toonForceMultiplier({pool:'toons',n:profile.name},'brawl',{})}. No team-wide aura.</p><p class="note">ToonForce dimensions (editorial gameplay estimates):</p>${S.guideScores?`<div class="guide-scores">${TOON_FORCE_FACET_KEYS.map(k=>`<div class="guide-score"><span>${esc(({comedy:"Rule of Funny",resilience:"Gag resilience",body:"Body control",environment:"Props / environment",fourthWall:"Fourth wall",sports:"Sports translation"})[k])}</span><b>${profile.toonForce.dimensions[k]}</b></div>`).join("")}</div>`:""}<p>${esc(profile.toonForce.feat)}</p><p class="note">Limit: ${esc(profile.toonForce.limit)}. Conditional gag effects can trigger in a match, but never mean immunity to all attacks.</p></section>`:''}
         ${profile.muppetHistory?.length?`<section><h4>MuppetForce film history</h4><p class="note">Source-linked Muppet performances; role-specific actions are not automatically permanent powers or rating increases.</p><ul>${profile.muppetHistory.map(f=>`<li><b>${esc(f.work?.title||'Source')} (${esc(f.work?.year||'')})</b> · ${esc(f.role)}<p>${esc(f.summary)}</p><p class="note">Interpretation: ${esc(f.inference)} · ${f.continuity==='fictional-role'?'Fictional film role':'Recurring-character portrayal'}</p>${f.sources.filter(u=>/^https:\/\//.test(u)).map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">Scene source</a>`).join(' · ')}</li>`).join('')}</ul></section>`:''}
         ${S.guideScores&&profile.scores?`<section><h4>12-attribute research ratings</h4><div class="guide-scores">${ATTRS.map(a=>`<div class="guide-score"><span>${esc(a.n)}</span><b>${profile.scores[a.k]??'—'}</b></div>`).join('')}</div></section>`:''}
         <p class="note">${esc(profile.status||'Research scores are subjective estimates, not official canon statistics.')}</p>

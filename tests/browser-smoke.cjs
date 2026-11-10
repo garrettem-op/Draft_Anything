@@ -58,11 +58,67 @@ const server=http.createServer((req,res)=>{
   assert.ok(Math.abs(forces.fit-forces.normal*forces.mult)<1e-7,'Muppet force not multiplicative');
   assert.ok(Math.abs(forces.toonfit-forces.normalBugs*forces.tf)<1e-7,'Toon force not multiplicative');
   assert.ok(forces.aiGonzo>forces.normal,'AI draft does not see Muppet multiplier');
-  assert.ok(forces.team.points>0&&forces.team.percent<=8,'Mixed team not receiving capped Muppet camaraderie');
+  assert.ok(forces.team.points>0&&forces.team.percent<=22,'Mixed team not receiving capped Muppet camaraderie');
   assert.ok(Math.abs(forces.total-forces.reconstructed)<1e-7,'Final team rating is missing camaraderie');
   assert.equal(forces.noMuppet.points,0,'Non-Muppet roster received MuppetForce');
   assert.equal(forces.notToonForce,null,'ToonForce is not universal to every cartoon');
   assert.equal(forces.unchanged,true,'Force must not mutate traditional stats');
+  const toonAudit=await page.evaluate(()=>{
+    const bugs=getCands('toons').find(c=>c.n==='Bugs Bunny');
+    const daffy=getCands('toons').find(c=>c.n==='Daffy Duck');
+    const wile=getCands('toons').find(c=>c.n==='Wile E. Coyote');
+    const teammates=getCands('muppets');
+    const pos=SPORTS.brawl.pos.filter(p=>!p.coach&&!p.bench);
+    const rank=getCands('mashup').map(c=>({
+      id:c.id,pool:c.pool,name:c.n,rating:Math.max(...pos.map(p=>fitIn('brawl',c,p)))
+    })).sort((a,b)=>b.rating-a.rating);
+    const index=rank.findIndex(r=>r.id===bugs.id);
+    const baseline=getCands('mashup').map(c=>({
+      id:c.id,name:c.n,pool:c.pool,
+      raw:Math.max(...pos.map(p=>fitIn('brawl',c,p)/characterForceMultiplier('brawl',c,p))),
+      toon:toonForceOf(c)?.score||0,muppet:muppetForceOf(c)?.score||0
+    }));
+    const scenarios=[];
+    for(const t of [.10,.14,.18,.22,.26,.30,.34,.38])
+      for(const m of [.06,.10,.14,.18]){
+        const ranking=baseline.map(c=>({...c,value:c.raw*(1+t*c.toon/99+m*c.muppet/99)}))
+          .sort((a,b)=>b.value-a.value);
+        const rankIdx=ranking.findIndex(x=>x.id===bugs.id);
+        scenarios.push({toon:t,muppet:m,bugsRank:rankIdx+1,bugsRating:+ranking[rankIdx].value.toFixed(2),
+          top5:ranking.slice(0,5).map(c=>c.name)});
+      }
+
+    const candidate=(c)=>({rating:100,rows:[{cand:c,pos:pos.find(p=>p.id==='d1'),w:0.22}],
+      sig:{chaos:0,spark:[]},muppetTeam:{points:0}});
+    const defender={rating:105,rows:[],sig:{chaos:0,spark:[]}};
+    const ironMan=getCands('mcu').find(c=>c.n==='Iron Man');
+    const armedDefender={...defender,rows:[{cand:ironMan,pos:{id:'d1'},w:0.22}]};
+    const rocket=Array.from({length:30},(_,i)=>playGame('brawl',candidate(daffy),armedDefender,5,rngFrom('daffy-vs-iron-man-'+i),true))
+      .find(g=>g.toonEvents?.some(e=>e.character==='Daffy Duck'&&e.facet==='resilience'));
+
+    const triggered=Array.from({length:30},(_,i)=>playGame('brawl',candidate(daffy),defender,5,rngFrom('toon-vs-rocket-'+i),true))
+      .find(g=>g.breakdown.toon?.[0]>0);
+    const trace=triggered?.breakdown;
+    const check=trace?trace.base[0]+trace.chaos[0]+trace.spark[0]+trace.toon[0]+trace.random[0]-trace.final[0]:null;
+    const spaceJam=toonForceOf(bugs).dimensions.sports;
+    const ensemble=SPORTS.brawl.pos.filter(p=>!p.bench&&!p.coach);
+    const calc=n=>{const roster=Object.fromEntries(ensemble.map((p,i)=>[p.id,i<n?teammates[i]:getCands('nba')[0]]));return muppetForceTeamwork(roster,ensemble,90);};
+    return {count:rank.length,rank:index+1,bugs:rank[index],top25:rank.slice(0,25),rawTop15:baseline.slice().sort((a,b)=>b.raw-a.raw).slice(0,15),scenarios,
+      physics:{bugs:toonForceMultiplier(bugs,'brawl',pos[0]),daffy:toonForceMultiplier(daffy,'brawl',pos[0]),
+        wile:toonForceMultiplier(wile,'brawl',pos[0]),spaceJam},
+      triggered:!!trace,traceCheck:check,toonMoment:trace?.toonEvents?.[0]||null,
+      ironManRocket:rocket?.toonEvents?.find(e=>e.character==='Daffy Duck')||null,
+      crew:[1,2,3,4,5].map(calc)};
+  });
+  console.log('TOON_RANK_AUDIT '+JSON.stringify(toonAudit));
+  assert.ok(toonAudit.bugs.rating>100,'Bugs should have a meaningful battle reality-warping impact');
+  assert.ok(toonAudit.rank>=15&&toonAudit.rank<=22,'Bugs should be an elite top-15-to-20-ish character, not the strongest in the roster');
+  assert.ok(toonAudit.triggered,'Daffy should sometimes survive/escape with a situational ToonForce event');
+  assert.equal(toonAudit.ironManRocket?.facet,'resilience','A blast from Iron Man should trigger Daffy-style comic recovery when ToonForce activates');
+  assert.ok(Math.abs(toonAudit.traceCheck)<1e-6,'The conditional gag must reconcile exactly with scoring');
+  assert.ok(toonAudit.crew.every((r,i)=>i===0||r.percent>=toonAudit.crew[i-1].percent),
+    'Additional Muppets should strengthen their team, not diminish ensemble impact');
+  assert.ok(toonAudit.crew[4].percent<=22,'Ensemble cannot stack infinitely');
   // Daily Grid: exercise the actual mobile interface, answer validation, and local persistence.
   await page.locator('button[data-act="mode"][data-mode="grid"]').click();
   assert.equal(await page.locator('.dg-board button[data-act="grid-cell"]').count(),9,'Daily Grid does not render nine playable squares');

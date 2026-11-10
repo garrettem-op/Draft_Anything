@@ -1,44 +1,69 @@
-# ToonForce & MuppetForce: roster balancing (November 2026)
+# ToonForce and MuppetForce: game-balance specification (Nov 2026)
 
-Both force systems operate **after the 12-attribute position-fit formula**. They are neither a thirteenth player stat nor a substitute for a required attribute, a canonical feat, or a campaign ability tag.
+Both are **meta-abilities applied after** the 12 traditional character attributes and positional suitability. Neither changes Strength, Size, Speed, Game IQ, etc., nor proves eligibility for evidence-based Campaign challenges.
 
-## Position fit
+## ToonForce: individually powerful cartoon physics
 
-For a candidate in a particular sport/position:
+ToonForce is the stronger individual force, particularly in Battle Royale. A curated character must have documented, recurring cartoon-physics behavior; simply being drawn or having conventional superpowers is insufficient. The 42 existing ToonForce characters are now assessed in six **separate editorial dimensions**:
 
-1. Compute the existing role fit from speed, agility, strength, size, leaping, endurance, technique, accuracy, reflexes, game IQ, clutch, leadership; the weighted average / weakest-key-trait penalty / Tank formula remain unchanged.
-2. Apply existing basketball expertise and signature exemptions as before.
-3. Multiply the resulting fit by a **universe-scoped force multiplier**:
-   - **MuppetForce:** for *every* one of the 101 official Muppet pool characters, a documented, character-specific score (0–99) weights puppet impact recovery, prop manipulation, stage improvisation, mayhem and ensemble interaction. The multiplier is `1 + maxLift * (0.55 * score/99 + 0.45 * weightedDimensions/99)`. `maxLift` is 0.36 in regulated sports and 0.52 in Battle Royale. Coaches and bench spots get no personal force multiplier.
-   - **ToonForce:** only for 42 individually curated cartoon characters with established reality-defying slapstick. The multiplier is `1 + maxLift * score/99`, with `maxLift=0.26` in regulated sports and `0.42` in Battle Royale. Ordinary cartoon heroes like Aang are not granted ToonForce by mere animation or by a superpower they already possess.
-   - Other talent pools are `×1.00`; different force types never stack on the same candidate.
-4. For **baseball**, the batter-specific fit receives the same multiplier as fielding. AI predictions and player score calculations use the same helper functions. Traditional stats themselves are never mutated; a 50 center-fit Muppet with ×1.30 has **65 effective center fit**, not 65 strength or 65 size.
+1. **Rule of Funny (comedy)** — scene reversal and comedic initiative, not control of the author
+2. **Gag resilience** — recovery after explosions, flattening or impossible falls, not universal immortality
+3. **Body control** — elastic deformation, cartoon reshaping and impact avoidance
+4. **Props/environment** — improbable props, environmental staging and sight-gag spatial manipulation
+5. **Fourth-wall awareness** — interaction with the medium or audience (separate from control over reality)
+6. **Sports translation** — actual or well-grounded sport-relevant performance (not automatically basketball skills for every cartoon)
 
-This is game-balance modeling, not an assertion of canonical numerical superhero power. Numbers and caps can be tuned against live match distributions.
+The existing subjective 0–99 ToonForce score and per-character limitation remain in place. The new facet ratings are **original gameplay estimates** supported by the named source work in each profile, not canonical values.
 
-## Team camaraderie — unique to MuppetForce
+### Individual multiplier
 
-Muppets also contribute an additional **single capped team-rating boost**, even on mixed-universe squads.
+All 12 attributes are scored with their existing position weight/floor rules, then ToonForce adjusts the *resulting position fit*. ToonForce and MuppetForce cannot stack on one character.
 
-- Every Muppet starter contributes its ensemble dimension / 99 to a shared cohesion pool. Muppet coaches contribute 60% and Muppet bench members 35% of this amount.
-- With two or more filled roster positions, total team bonus percent is **min(8%, 2.8% × √cohesion)**.
-- The bonus is applied **once** to the team rating **after** standard player-fit, coach, bench, existing team chemistry, signature and fight-variety adjustments. It raises the performance of the *whole team*, including non-Muppet partners.
-- It never changes raw character attributes, grants eligibility for a themed challenge, or stacks a separate boost for every teammate. A one-character roster receives no camaraderie. Multiple Muppets have diminishing returns, capped at +8%.
-- ToonForce applies only to the individual cartoon character and gives **no team-wide aura**. This differentiates solo cartoon physics from Muppet ensemble camaraderie.
+- **Battle Royale:** `×[1 + 0.32×(score/99) + 0.14×(weighted combat facets/99)]`. Combat facets weight recovery, environment, Rule of Funny, body control and fourth-wall awareness. Maximum theoretical lift **×1.46**, well above MuppetForce's **×1.30** individual limit.
+- **Basketball:** `×[1 + 0.28×(score/99) + 0.17×(weighted sport facets/99)]`, theoretical maximum **×1.45**. Basketball gets special consideration because the *Space Jam* films depict Looney Tunes using cartoon physics against enhanced players.
+- **Other sports:** the basketball formula's bonus is multiplied by **0.84**, for a maximum theoretical **×1.378**. The same idea transfers to the relevant sport (elastic catch, improbable save or dribble), but never assumes the character is a real professional athlete or can violate every rule of competition.
+- Coach and bench slots get **no individual ToonForce multiplier**. ToonForce does not grant a shared team aura.
 
-## Coverage & display
+### Conditional ToonForce match events
 
-- **101/101** Muppet roster entries now have individualized force ratings and stated limits. Some lower-scoring Muppets still fall short of the separate `MuppetForce ≥65` Campaign challenge threshold; having a force rating does **not** mean qualifying for every special challenge.
-- **42/103** cartoon characters have curated ToonForce profiles. Other cartoons remain at ×1.00 until supported research warrants more.
-- The Character Guide shows both force ratings and role multipliers. Championship/Dealt Hand, Campaign, and Head-to-Head results identify earned **MuppetForce camaraderie** points explicitly.
-- The AI draft polishing function and final scoring functions use the same camaraderie formula; both forced character-level multipliers are used in AI position fit.
+A general multiplier alone cannot explain why Daffy shrugs off an explosive hit or Wile E. Coyote gets up after an anvil drop. Matches now have at most **one conditional ToonForce spotlight event per team** (for combat and sports). It is *not guaranteed*, is seeded with the game's match RNG, and uses the character's specific capabilities.
 
-## Regression coverage
+- **Battle Royale:** approximately 16–56% trigger chance, depending on the character's Cartoon Physics rating, comedic initiative and situation. On success, one gag grants up to **+5.0 match-rating points**; use resilience or body control to model a cartoon escape from injury, or environment/Rule of Funny for an opportunistic trick.
+- **Sports:** approximately 8–30% trigger chance, granting up to **+2.2 match-rating points**. Basketball descriptions use a cartoon rebound/rim gag; analogous events are available for the other sports.
+- The matching character's active role matters. A non-canonical cape, fan meme, or an external animator controlling the scene does not grant permanent self-controlled reality rewriting.
+- Events are transparently displayed in match explanation rows and have explicit per-match names and magnitude. They are not blanket immunity to Iron Man, Doctor Doom, Scarlet Witch or any other character.
 
-`tests/muppet-force.test.cjs`: roster exhaustiveness, rating bounds, per-position multipliers, no attribute mutation, crew diminishing returns and AI/game wiring.
+These events represent the *unusual survival and tactical advantage* of cartoon characters rather than modifying permanent core stats.
 
-`tests/toon-force.test.cjs`: curated-only cartoon powers, same multiplicative mechanism, no cross-pool leakage and no toon team aura.
+**Primary contextual references:** [Warner Bros. official Space Jam: A New Legacy site](https://ownnow.spacejam.com/) and [original Space Jam behind-the-scenes site](https://www.spacejam.com/1996/cmp/behind/behind.html). Neither source canonically quantifies a numeric ToonForce power level.
 
-`tests/browser-smoke.cjs`: live 101/101 profile coverage, role-fit arithmetic, AI/real scoring, ToonForce behavior and the team-wide bonus's reconciliation to simulated team rating.
+## MuppetForce: individually weaker, collectively stronger
 
-Source-work descriptions are provisional interpretations, not official numerical power data; feats in fictional roles are not automatically inherited in other continuities.
+- Every one of the **101 official Muppets** retains its differentiated force rating and dimensions (impact recovery, props, stage improvisation, mayhem, ensemble interaction).
+- Individual role multiplier remains up to **×1.22** in regulated sports / **×1.30** in Battle Royale, both lower than the strongest ToonForce user.
+- MuppetForce has an additional, distinct **team-wide camaraderie effect**, including *other characters from different talent pools*. This raises the **entire team's composite rating**, not just Muppet attributes or individual contributions.
+- The new percent formula is `min(22%, 4.8% × (weighted Muppet ensemble strength)^0.90)`. Muppet starters have weight 1, coaches 0.6 and bench 0.35. A second teammate must be present; no solo bonus.
+- The team bonus scales as more Muppets join: roughly **+3–4%** for one, **+10–12%** for three, and **+15–18%** for five, depending on their teamwork ratings, hard-capped at **22%**.
+- The team bonus is added **once after** role fits, coaching, existing chemistry, signature moves and variety. Diminishing returns and a hard cap prevent unlimited stacking.
+
+In pure Muppet drafts this can help close the gap with other talent pools. In mixed-roster drafts it rewards placing a Muppet beside heroes and athletes, including entirely non-Muppet teammates. No character acquires canonical MuppetForce powers from this aura; this is a performance/chemistry abstraction.
+
+## World-scale combat power and fair ToonForce rankings
+
+An audit of 1,169 roster identities discovered a **pre-existing comparison problem**: ordinary battle-position fit is capped by the 99-point conventional attribute system, and the earlier naïve ×1.65 ToonForce turned the top-ranked combatants almost entirely into cartoons and Muppets. Meanwhile, genuine cosmic reality-shapers were compressed to the same conventional 99-point ceiling.
+
+The Battle Royale engine now has a **separate, feat-specific exceptional-power bonus** in `data/brawl-exceptional-power.js`, covering a small number of documented cosmic or realm-scale characters and powerful *named variants*. It is **not** a blanket 'magic', 'psychic', or 'superhero' multiplier. Each entry includes the source work, source URL and limitation; examples include Anti-Monitor, Doctor Manhattan, the Spectre, Scarlet Witch, Franklin Richards, the Valar, and transformed God Emperor Doom / Rune King Thor.
+
+- **Battle Royale only:** affected eligible starting positions gain a fixed editorial 40–64-point ability adjustment in addition to conventional fit (the roster's normal 12 stats are unchanged).
+- **Not available in ordinary sports or coach/bench slots.** Baseline Doctor Doom is not God Emperor Doom, and no ToonForce user receives exceptional-power bonus without separate evidence.
+- The new ToonForce combat multiplier has been moderated to a theoretical **×1.46**, still above MuppetForce's individual theoretical ×1.30, and conditional cartoon survival and environmental events remain independent. The Muppet team's entire cumulative aura now has the larger balancing role.
+- This is a **game-specific, provisional tier balance**, not objective cosmology across incompatible canons. Character identities, continuities and feat transferability remain subject to source review.
+
+Do not interpret a 'best-position Battle Royale' audit as an eternal official strongest-character list: it omits tactical matchups, team chemistry, contextual gags, and exceptional variants not selected. The audit exists to prevent exaggerated cartoon multipliers from automatically eclipsing the game's most powerful characters.
+
+## Verification
+
+- `tests/toon-force.test.cjs` validates individual six-facet ratings, bigger multiplier, bounded random events, lack of automatic invulnerability, and sports continuity.
+- `tests/muppet-force.test.cjs` verifies exhaustive Muppet ratings and monotonic 1–5 Muppet ensemble scaling.
+- `tests/browser-smoke.cjs` checks live player fit, simulated scores, actual ToonForce events with full arithmetic reconciliation, and a **Bugs Bunny single-character Battle Royale ranking audit** against the entire drafted base roster.
+- Numeric ratings and exact balance are game-design estimates and should be revisited against actual match statistics. No user-facing claim of canonical omnipotence follows from any numeric value.
