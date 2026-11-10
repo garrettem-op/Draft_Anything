@@ -3802,43 +3802,82 @@ const CHARACTER_ABILITY_FEAT_URL_FIELDS = Object.freeze(['source', 'verifiedBy',
 function characterAbilityFeatUrls(record) {
   return CHARACTER_ABILITY_FEAT_URL_FIELDS.flatMap(k => [].concat(record?.[k] || []));
 }
-/* Independent sources: distinct sites among the feat URLs. Two pages on one site count once; separate
-   Fandom wikis are separate communities and count separately. */
-function characterAbilityIndependentSources(record) {
-  const hosts = new Set();
-  for (const u of characterAbilityFeatUrls(record)) {
-    try { hosts.add(new URL(u).hostname.replace(/^www\./, '')); } catch { /* unparseable: not a source */ }
-  }
-  return hosts.size;
+/* Sites and owners. Distinct hostnames show only that two websites were cited, not that they report
+   independently or agree. For corroboration we also fold sites that share one editorial voice into one owner:
+   the Disney-owned official sites, and GameSpot with its Comic Vine wiki. Separate Fandom wikis are separate
+   volunteer communities and stay distinct. */
+const CHARACTER_ABILITY_SOURCE_OWNERS = Object.freeze({
+  'disney.com':'disney', 'd23.com':'disney', 'disneyplus.com':'disney', 'starwars.com':'disney', 'marvel.com':'disney',
+  'pixar.com':'disney', 'comicvine.gamespot.com':'gamespot', 'gamespot.com':'gamespot',
+});
+function characterAbilitySourceOwner(url) {
+  let host;
+  try { host = new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  return CHARACTER_ABILITY_SOURCE_OWNERS[host] || host;
 }
-/* Does the record document a specific feat? Yes when it names a scene, cites dialogue or a second source,
-   points at an instance (a work, year, chapter, issue, episode or quoted title), or gives a substantive
-   description of at least eight words. A bare one-line assertion ("Levitates and flies.") is not enough:
-   that is the "entry without supporting details" the standard sends to review. */
-const CHARACTER_ABILITY_FEAT_CITATION = /\([^)]*\d[^)]*\)|\([^)]*[A-Z][^)]*\)|#\d|\b(ch|chapter|ep|episode|season|issue|vol|book)\.?\s*\d|['\u2018"\u201c][A-Z][^'\u2019"\u201d]{2,}['\u2019"\u201d]|\b(in|at|during) (the )?[A-Z][\w'\u2019-]+/;
+function characterAbilityIndependentSources(record) {
+  return new Set(characterAbilityFeatUrls(record).map(characterAbilitySourceOwner).filter(Boolean)).size;
+}
+/* Corroboration is a reviewed marker, never inferred from a URL count: a reviewer recorded the scene (record.scene)
+   and a verifiedBy source, from a different owner than the main source, that was checked to describe that same feat. */
+function characterAbilityHasReviewedAgreement(record) {
+  if (!record?.verifiedBy || String(record.scene || '').length < 20) return false;
+  const main = characterAbilitySourceOwner(record.source);
+  return [].concat(record.verifiedBy).some(u => { const o = characterAbilitySourceOwner(u); return o && o !== main; });
+}
+/* Traceability: does the record point at where the feat happens? Yes when it names a scene, cites an occurrence in the
+   feat (a work, year, chapter, issue, episode or quoted title), or its continuity names a specific work or run rather
+   than an umbrella ("DC mainline comics", "Sonic series", or none) and the feat is more than a bare label. Word count
+   alone and the mere presence of a URL field never count. This is automated documentation triage, not a fact-check: it says the claim can be checked, not that it
+   has been. */
+const CHARACTER_ABILITY_FEAT_CITATION = /\([^)]*\d[^)]*\)|\([^)]*[A-Z][^)]*\)|#\d|\b(ch|chapter|ep|episode|season|issue|vol|book)\.?\s*\d|['‘"“][A-Z][^'’"”]{2,}['’"”]|\b([Ii]n|[Aa]t|[Dd]uring) (the )?[A-Z][\w'’-]+/;
+function characterAbilityUmbrellaContinuity(continuity) {
+  const c = String(continuity ?? '').trim();
+  if (!c || c === 'undefined') return true;
+  if (/\d{4}|season|vol\./i.test(c)) return false;
+  return /mainline|\bseries\b|^films and series$|trilogies|^milestone|^sesame street$|novels$|^the sandman and lucifer/i.test(c);
+}
 function characterAbilityFeatIsSpecific(record) {
   if (!record) return false;
-  if (record.scene || record.dialogueSource || record.verifiedBy) return true;
+  if (String(record.scene || '').length >= 20) return true;
   const feat = String(record.feat || '').trim();
-  return CHARACTER_ABILITY_FEAT_CITATION.test(feat) || feat.split(/\s+/).length >= 8;
+  if (CHARACTER_ABILITY_FEAT_CITATION.test(feat)) return true;
+  // A specific work or run makes the claim traceable only if the feat says something: a bare label such as
+  // "Levitates and flies." stays untraceable wherever it is set. (Length is a floor here, never enough alone.)
+  return !characterAbilityUmbrellaContinuity(record.continuity) && feat.split(/\s+/).length >= 5;
 }
 /* How well a record supports its grant. Every status below is still granted unless the reviewed index says
-   otherwise; the label says what, if anything, is worth checking.
+   otherwise; the label says what has been checked and what, if anything, is worth checking.
    'owner-ruling'  granted or settled by the owner. Final.
-   'investigate'   accounts contradict each other or continuities are mixed (record.conflict explains how).
-   'corroborated'  two or more independent sources document the feat.
-   'credible'      one source, of any type, documents a specific feat.
-   'needs-review'  the record has no supporting detail, or its scene is not yet confirmed.
-   An explicit record.verification from a hand review wins over the derived label, except that a recorded
-   conflict always surfaces as 'investigate' unless the owner has ruled. */
+   'investigate'   accounts contradict, continuities are mixed, or the interpretation is disputed (record.conflict).
+   'corroborated'  a reviewer confirmed that an independent second source describes the same feat (reviewed marker).
+   'credible'      documentation is complete: a traceable, specific claim from a source of any type. Automated triage
+                   unless a reviewer set the label; it is not a statement that the feat was fact-checked.
+   'needs-review'  an actual gap: no traceable occurrence, or a reviewer could not confirm the scene.
+   An explicit record.verification from a hand review wins over the derived label, except that a recorded conflict
+   always surfaces as 'investigate' unless the owner has ruled, and 'corroborated' must carry the reviewed marker. */
 const CHARACTER_ABILITY_STATUSES = Object.freeze(['owner-ruling', 'corroborated', 'credible', 'needs-review', 'investigate']);
 function characterAbilityVerification(record) {
   if (!record) return null;
   if (record.verification === 'owner-ruling') return 'owner-ruling';
   if (record.conflict) return 'investigate';
+  if (record.verification === 'corroborated') return characterAbilityHasReviewedAgreement(record) ? 'corroborated' : 'credible';
   if (record.verification) return record.verification;
-  if (!characterAbilityFeatIsSpecific(record)) return 'needs-review';
-  return characterAbilityIndependentSources(record) >= 2 ? 'corroborated' : 'credible';
+  if (characterAbilityHasReviewedAgreement(record)) return 'corroborated';
+  return characterAbilityFeatIsSpecific(record) ? 'credible' : 'needs-review';
+}
+/* Who checked it: 'owner', 'review' (a person set the label), or 'automated' (derived by the rules above only). */
+function characterAbilityCheckedBy(record) {
+  if (!record) return null;
+  if (record.verification === 'owner-ruling') return 'owner';
+  return record.verification ? 'review' : 'automated';
+}
+/* Why a grant needs a look, in the owner's terms. null when nothing is outstanding. */
+function characterAbilityReviewReason(record) {
+  const v = characterAbilityVerification(record);
+  if (v === 'investigate') return 'conflict';
+  if (v !== 'needs-review') return null;
+  return record.verification === 'needs-review' ? 'unconfirmed-scene' : 'untraceable';
 }
 /* Why a character holds a tag (broad or specific): {basis:'evidence', record, verification} for a source-linked
    record, {basis:'carry-over', record, verification:'unsourced'} for a reviewed pre-audit grant without a
@@ -3866,6 +3905,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = {
   CHARACTER_ABILITY_TAGS, CHARACTER_ABILITY_TAG_FAMILIES, CHARACTER_ABILITY_BROAD_TAG, CHARACTER_ABILITY_CARRYOVER,
   characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance,
   CHARACTER_ABILITY_SOURCE_TIERS, CHARACTER_ABILITY_SOURCE_TYPES, CHARACTER_ABILITY_STATUSES, CHARACTER_ABILITY_FEAT_URL_FIELDS,
-  characterAbilitySourceTier, characterAbilityFeatUrls, characterAbilityIndependentSources, characterAbilityFeatIsSpecific,
-  characterAbilityVerification
+  CHARACTER_ABILITY_SOURCE_OWNERS, characterAbilitySourceTier, characterAbilitySourceOwner, characterAbilityFeatUrls,
+  characterAbilityIndependentSources, characterAbilityHasReviewedAgreement, characterAbilityUmbrellaContinuity,
+  characterAbilityFeatIsSpecific, characterAbilityVerification, characterAbilityCheckedBy, characterAbilityReviewReason
 };

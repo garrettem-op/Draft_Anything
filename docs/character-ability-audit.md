@@ -36,7 +36,7 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 
 Raw research, including rejected claims and researcher notes, is preserved in `research/ABILITY_AUDIT_2026-11.json`.
 
-**Evidence audit (2026-11-10, owner's evidence standard):** `docs/character-ability-source-audit.md` rates every grant in every pool by accuracy, not source type: owner-ruling, corroborated (independent sources agree), credible (a specific, documented feat, community wikis included), needs-review (no supporting detail, or an unconfirmed scene), investigate (contradictions or mixed continuities) or unsourced (carry-over without a link). Community-sourced does not mean unreliable. It also lists every grant whose eligibility depends on a form, power-up or item. Regenerate with `node tools/ability-source-audit.cjs --write`.
+**Evidence audit (2026-11-10, owner's evidence standard and PR #57 review):** `docs/character-ability-source-audit.md` rates every grant in every pool by evidence quality, not source type, and says who checked it (owner, reviewer, or automated triage). `credible` means a traceable, specific claim is on record, not that it was fact-checked; `corroborated` needs a reviewed agreement marker; `needs-review` names an actual gap; `investigate` covers contradictions. Form, power-up and item dependencies are a separate worklist with stable IDs and proposed handling; nothing is stripped. Regenerate with `node tools/ability-source-audit.cjs --write`; `--check` fails on drift.
 
 ## Coverage, before → after (characters per theme)
 
