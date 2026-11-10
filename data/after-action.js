@@ -194,7 +194,7 @@ function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent
   const winner=diff>0?nameA:diff<0?nameB:null;
   const upset=favourite&&winner&&favourite!==winner;
   const summary=combat
-    ?`${combat.winner===0?nameA:nameB} knocked out all five opposing fighters in ${combat.rounds} simulated combat rounds. ${nameA} dealt ${fix(combat.sides?.[0]?.damage)} damage; ${nameB} dealt ${fix(combat.sides?.[1]?.damage)}. A higher effective rating helps but does not guarantee victory.`
+    ?`${combat.winner===0?nameA:nameB} knocked out all ${combat.sides?.[1-combat.winner]?.fighters?.length||5} opposing fighters in ${combat.rounds} simulated combat rounds. ${nameA} dealt ${fix(combat.sides?.[0]?.damage)} damage; ${nameB} dealt ${fix(combat.sides?.[1]?.damage)}. A higher effective rating helps but does not guarantee victory.`
     :outcome==='draw'?'The match ended in a draw under the sport\'s draw threshold, even though the adjusted ratings differed.':(upset?'Upset: ':'')+String(winner||'Neither team')+' '+(upset?'overcame a pre-match disadvantage of '+num(Math.abs(baseGap))+' rating points':'finished with the higher effective match rating')+(winner?' (margin '+num(Math.abs(diff))+').':'');
   return `<section class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">Why this match ended this way</h3><span class="note">Actual simulation adjustments</span></div>
     <div class="tbl-wrap"><table class="t"><thead><tr><th>Rating stage</th><th>${A}</th><th>${B}</th></tr></thead><tbody>
@@ -234,6 +234,7 @@ function daLineupMetric(row,sport) {
   const primary=daMetricKey(sport);
   if(!row)return null;
   const base=row.stats.find(x=>x[0]===primary);
+  if(sport==='brawl'&&base)return base;
   if(sport==='football'&&(!base||!base[1])) {
     const priority=['Pass YDS','Rush YDS','Rec YDS','TACK','SACK','INT'];
     return priority.map(k=>row.stats.find(x=>x[0]===k)).find(x=>x&&x[1])||base||row.stats[0]||null;
@@ -275,7 +276,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
   ];
   const narrative=versions[Math.floor(daHash(seed||leftName+rightName)*versions.length)] +
     (leader&&leadMetric?` ${esc(leader.name)} led the ${esc(winner==='right'?rightName:leftName)} projections with ${leadMetric[1]} ${esc(leadMetric[0])}.`:'') +
-    ' Player contributions are simulated estimates, not recorded play-by-play.';
+    (sport==='brawl'&&options.combat?' These gameplay contributions came from the simulated combat exchanges, not canonical fight footage.':' Player contributions are simulated estimates, not recorded play-by-play.');
   const extra=options.breakdown?`<details class="da-inner-details"><summary>How the match was calculated</summary>${options.breakdown}</details>`:'';
   const story=options.summaryHTML||'';
   return `<section class="panel da-result" aria-label="Match statistics comparison">
@@ -284,7 +285,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
       <div><span class="da-team-name">${esc(rightName)}</span><strong class="num">${rightPoints}</strong><small>${esc(primary)}: <b class="num">${rightTotal}</b></small></div>
     </div>
     <div class="da-sharebar" role="img" aria-label="${esc(primary)} estimate: ${leftTotal} for ${esc(leftName)} and ${rightTotal} for ${esc(rightName)}"><span style="width:${lPct}%"></span></div>
-    <p class="da-estimate">${sport==='brawl'?(options.combat?'Damage, absorption, mitigation and KOs come from simulated combat exchanges; these are gameplay values, not canonical feats.':'Legacy match: no combat exchange log was recorded. KOs are estimated; damage statistics are unavailable.'):'Player contributions are simulated estimates.'}</p>
+    <p class="da-estimate">${sport==='brawl'?(options.combat?'Damage, absorption, mitigation and KOs come from simulated attacks; DMG includes any excess on a finishing blow. These are gameplay values, not canonical feats.':'Legacy match: no combat exchange log was recorded. KOs are estimated; damage statistics are unavailable.'):'Player contributions are simulated estimates.'}</p>
     <details class="da-toggle da-detail-toggle">
       <summary>View Detailed Stats</summary>
       <div class="tbl-wrap"><table class="t da-player-table"><thead><tr><th scope="col">${esc(leftName)}</th><th scope="col">Role</th><th scope="col">${esc(rightName)}</th></tr></thead><tbody>${pairs}</tbody></table></div>
