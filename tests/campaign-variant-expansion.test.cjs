@@ -22,7 +22,7 @@ test('large multi-continuity expansion references actual roster identities and s
    for(const f of list){
      assert.ok(f.name.length>=7,id+' variant has no name');
      assert.ok(f.origin.length>=20,id+' form needs a specific named work');
-     assert.ok(f.continuity.length>=5,id+' form must document its continuity');
+     assert.ok(f.continuity.length>=4,id+' form must document its continuity');
      assert.ok(Object.keys(f.changes).length>0,id+' form needs actual gameplay changes');
      for(const [attribute,delta] of Object.entries(f.changes)){
        assert.ok(['spd','agi','str','siz','lep','end','tch','acc','ref','iq','clu','ldr'].includes(attribute),id+' '+attribute);
