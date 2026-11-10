@@ -5110,6 +5110,26 @@ function fitHandCardNames() {
 window.addEventListener('resize', fitHandCardNames);
 
 function render() {
+  // Realtime room snapshots may render while the user reads match details.
+  // Preserve native <details> expansion across DOM replacements within the same result.
+  const resultKey=S.mode==='h2h'&&S.h2h.stage==='room'&&S.h2h.contest?.status==='complete'
+    ? String(S.h2h.cid||S.h2h.contest?.id||'') : null;
+  if(resultKey){
+    const existing=document.querySelector('.da-results-screen');
+    if(existing&&S.h2h.detailsResultKey===resultKey){
+      S.h2h.detailsOpen={
+        stats:!!existing.querySelector('.da-detail-toggle')?.open,
+        summary:!!existing.querySelector('.da-summary-toggle')?.open,
+        calculation:!!existing.querySelector('.da-inner-details')?.open
+      };
+    } else if(S.h2h.detailsResultKey!==resultKey){
+      S.h2h.detailsOpen={stats:false,summary:false,calculation:false};
+    }
+    S.h2h.detailsResultKey=resultKey;
+  }else{
+    S.h2h.detailsResultKey=null;
+    S.h2h.detailsOpen=null;
+  }
   const scrollX=window.scrollX,scrollY=window.scrollY;
   const tracked=['.app','main','.board-side','.board > div:first-child','#camp-plist','#plist'];
   const scrollState=tracked.map(selector=>({selector,top:document.querySelector(selector)?.scrollTop,left:document.querySelector(selector)?.scrollLeft}));
@@ -5124,6 +5144,12 @@ function render() {
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
+  if(resultKey&&S.h2h.detailsResultKey===resultKey&&S.h2h.detailsOpen){
+    for(const [name,selector] of Object.entries({stats:'.da-detail-toggle',summary:'.da-summary-toggle',calculation:'.da-inner-details'})){
+      const el=app.querySelector('.da-results-screen '+selector);
+      if(el)el.open=!!S.h2h.detailsOpen[name];
+    }
+  }
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
     const el=document.querySelector(selector);
