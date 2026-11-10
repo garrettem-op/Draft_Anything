@@ -41,8 +41,8 @@ test('simulated attacks, not team rating margins, account for actual KOs and dam
    assert.equal(side.survivors,side.fighters.filter(f=>f.hp>0).length);
    assert.ok(side.fighters.every(f=>f.kos>=0&&f.hp>=0&&f.hp<=f.maxHp));
  }
- assert.equal(result.sides[0].damage,result.sides[1].absorbed);
- assert.equal(result.sides[1].damage,result.sides[0].absorbed);
+ assert.equal(result.sides[0].damage-result.sides[1].absorbed,total(result.sides[0].fighters,'overkill'));
+ assert.equal(result.sides[1].damage-result.sides[0].absorbed,total(result.sides[1].fighters,'overkill'));
  assert.equal(result.sides[0].kos,5);
  assert.equal(result.line[1],result.sides[1].kos);
  assert.equal(result.sides[1].survivors,0);
