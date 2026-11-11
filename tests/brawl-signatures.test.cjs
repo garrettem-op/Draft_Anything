@@ -35,7 +35,9 @@ function summarize(a,b,count=100){
     aWin:runs.filter(r=>r.winner===0).length};
 }
 test('curated powers and reviewed variants are strictly scoped to their identity',()=>{
-  assert.equal(brawlAbilityOf(joker),null);
+  assert.equal(brawlAbilityOf(joker).move,'Joker toxin');
+  assert.equal(brawlAbilityOf(joker).tier,1);
+  assert.ok(/^https:\/\//.test(brawlAbilityOf(joker).source));
   assert.equal(brawlAbilityOf(darkseid).move,'Omega Beams');
   assert.equal(brawlAbilityOf(warlock).domain,'cosmic');
   const hell=brawlAbilityOf(hellbat);
