@@ -95,9 +95,10 @@ the direct database for every public vote.
 
 ### Collaboration and review ownership
 
-Claude owns per-character/variant research, evidence, abilities and negative
-review justifications. ChatGPT owns challenge rules, audit ledger integration,
-combat engine, UI, regression testing and eventual Gauntlet integration.
+ChatGPT currently owns Phase 1 individual character/variant research, evidence,
+negative decisions, Campaign engine, integration and regression testing. Claude
+can optionally resume independent research later, but completion does not rely
+on Claude usage or availability.
 Batch changes by talent pool; don't make a separate PR for each character.
 New roster additions and new Campaign challenges must automatically fail
 coverage checks until included in the research ledger.
