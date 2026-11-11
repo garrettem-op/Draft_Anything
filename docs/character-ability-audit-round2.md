@@ -133,7 +133,8 @@ Owner chose to source the disputed areas first. Round 3 resolves the 17 research
 "pending a specific scene". Every cited page was opened and the feat confirmed on it. Records are in
 `CHARACTER_ABILITY_RECORDS_ROUND3` (`audit: "2026-11-r3"`).
 
-**Granted (7)** (Trigon flight was granted in the first push and went back to the queue after review)
+**Granted (10)** (Trigon flight was granted in the first push and went back to the queue after review; the last
+three rows and the Durin's Bane scope come from the owner's 2026-11-11 rulings)
 
 | Character | Tag | Scene | Mode | Continuity |
 |---|---|---|---|---|
@@ -143,13 +144,15 @@ Owner chose to source the disputed areas first. Round 3 resolves the 17 research
 | Cassandra Cain | stealth | Infiltrates a hired-killers tournament and frees Red Robin (Red Robin #25) | unspecified | DC comics |
 | Huntress | stealth | Undercover in Arkham Tower as a patient (Detective Comics #1049) | undercover | DC comics |
 | Talia al Ghul | stealth | On the Wayne Enterprises board as Miranda Tate (The Dark Knight Rises) | undercover | Nolan films only |
-| Durin's Bane | giants | At least 20 ft tall on the Bridge of Khazad-dûm | | Jackson films only (book: "not huge") |
+| Durin's Bane | giants | At least 20 ft tall on the Bridge of Khazad-dûm | | All continuities (owner ruling) |
+| Batgirl (Barbara Gordon) | stealth | Hacks into, then breaks into, JSA headquarters; Wildcat catches her (Batgirl: Year One) | discovered | DC comics |
+| Hermione Granger | flight (mount) | Rides her own Thestral to London (OotP ch. 33) | | Harry Potter novels |
+| Gothmog | giants | Species-level Balrog size, "double his stature" against an Elf (Lost Tales) | | Tolkien legendarium |
 
-**Still queued (10), notes updated:** Robin (Damian) and Red Robin stealth (candidate scenes, no page naming
-the issue); Deathstroke stealth (only group ambushes or Terra's infiltration); Batgirl stealth (see below);
-Darkseid flight (infobox only); Trigon flight (power summary only, no issue); Quickbeam and Carcharoth giants
-(no size); Gothmog giants (the "12 ft" figure is about Glorfindel's Balrog); Hermione flight (see below).
-A test names all ten, so a regenerated index cannot quietly regrant one.
+**Still queued (7), notes updated:** Robin (Damian) and Red Robin stealth (candidate scenes, no page naming
+the issue); Deathstroke stealth (only group ambushes or Terra's infiltration); Darkseid flight (infobox only);
+Trigon flight (power summary only, no issue); Quickbeam and Carcharoth giants (no size).
+A test names all seven, so a regenerated index cannot quietly regrant one.
 
 ### PR #56 review follow-up (2026-11-10)
 
@@ -167,31 +170,19 @@ A test names all ten, so a regenerated index cannot quietly regrant one.
   undercover work), so no grant changed. Whether undercover-only feats should count for Ghost Protocol is
   listed below for the owner.
 
-**Owner rulings requested**
-- Undercover identity vs moving unseen: should undercover-only feats (Nightwing, Batwoman, Huntress, Talia)
-  keep counting for Ghost Protocol? Current precedent says yes.
-- Batgirl (Barbara Gordon) stealth: breaks into JSA headquarters (Batgirl: Year One) but is caught. Does a
-  discovered break-in count?
-- Hermione flight: rides her own Thestral to London (OotP ch. 33) without fighting from it. Do solo riders count?
-- Gothmog giants: may a species-level Balrog size ("double an Elf's stature") stand in for a named Balrog?
+**Owner rulings, 2026-11-11 (Garrett).** These answer the questions this review raised. Each affected record
+carries `ruling` and `verification: "owner-ruling"`, and a test pins them.
+- **Undercover identities count for Ghost Protocol** (Nightwing, Batwoman, Huntress, Talia). No grant changed.
+  `stealthMode` stays as descriptive metadata.
+- **Durin's Bane is a giant in every continuity.** The film-only scope (`continuityScope`) and the `conflict` note
+  are removed. The book/film size difference is kept in `citationNote` for transparency. Because the owner has
+  ruled, the PR #57 audit rates it `owner-ruling`, not `investigate`. Nothing is left for the engine to enforce.
+- **A discovered break-in counts:** Batgirl (Barbara Gordon) gains stealth.
+- **Solo riders of a flying mount count:** Hermione gains flight as a `mount`, not as a flyer of her own.
+- **A species-level Balrog size counts for a named Balrog:** Gothmog gains giants.
 
-### Gameplay limitations: metadata the engine does not enforce (PR #56 follow-up review)
-
-`continuityScope` and `stealthMode` describe the evidence. **They do not filter eligibility.** No engine file
-(`data/campaign.js`, `data/campaign-eligibility.js`, `index.html`) reads either field. A test checks this. If the engine
-starts reading a field, the test's "applies everywhere" checks for that field switch off.
-
-- **Durin's Bane, `continuityScope: "film-only"`:** the broad `giants` tag grants Giants eligibility in **every**
-  draft that uses the pooled character. That includes book-oriented Middle-earth contexts, where Tolkien gives no
-  size. The record's `conflict` note now says the limit is not enforced. It no longer says the grant "is for the film
-  version only".
-- **Undercover stealth, `stealthMode: "undercover"`:** Nightwing, Batwoman, Huntress and Talia still count for Ghost
-  Protocol, as the Nakia, Sharon Carter and Cassian Andor precedent allows. The owner ruling is still pending and
-  nothing was revoked.
-- **For the Campaign engine owner (ChatGPT), if enforcement is wanted:** read `continuityScope` from
-  `characterAbilityProvenance(character, tag).record`. Then either skip the grant when the draft's continuity
-  differs, or show the record's `limitation` on the eligibility card. For `stealthMode`, apply whatever the owner
-  rules for undercover feats. The data already carries both fields, so neither change needs new data.
+The earlier "Gameplay limitations" note (film-only and undercover metadata not enforced) is superseded by these
+rulings and was removed.
 
 ### Merge sequence (#55, then #56, then #57)
 
@@ -202,8 +193,9 @@ A local simulation of that order (2026-11-10, not pushed):
   `node tools/ability-audit.cjs --report`. `--write-index` produces no further change.
 - **#57 on top:** merges cleanly. Three follow-ups are needed before its checks pass:
   1. Classify `dcuguide.com` (DCU Guide, a fan-run chronology database) as `community`.
-  2. Update `PINNED_INDEX_DIGEST` to the post-#56 index. That is a deliberate grant change from Round 3.
+  2. Update `PINNED_INDEX_DIGEST` to the post-#56 index. That is a deliberate grant change from Round 3 and the
+     2026-11-11 rulings.
   3. Run `node tools/ability-source-audit.cjs --write`.
 
-  With those three, 213/213 tests pass, `--check` is clean, the browser smoke test passes, and the audit rates
-  Durin's Bane `investigate` (conflict).
+  In the 2026-11-10 simulation (before the 2026-11-11 rulings), those three fixes made 213/213 tests pass, made
+  `--check` clean and let the browser smoke test pass. The digest value changes again with the new grants.

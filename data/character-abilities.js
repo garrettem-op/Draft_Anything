@@ -2313,30 +2313,40 @@ const CHARACTER_ABILITY_CARRYOVER = Object.freeze([
    opened and the feat confirmed on it. PR #56 review: each record names its scene; stealth records say
    whether the feat is an undercover identity or moving unseen (stealthMode); Trigon flight went back to
    the queue (no pinned scene).
-   Gameplay limitation (PR #56 follow-up review): continuityScope and stealthMode are informational metadata.
-   No engine code reads them, so Durin's Bane counts for Giants in every draft (book-oriented Middle-earth
-   included) and undercover-only stealth grants count for Ghost Protocol. See docs/character-ability-audit-round2.md. */
+   Owner rulings 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol; Durin's Bane is a
+   giant in every continuity (no film-only limit); a discovered break-in counts (Batgirl); solo riders of a
+   flying mount count (Hermione); a species-level Balrog size counts for a named Balrog (Gothmog).
+   stealthMode stays as descriptive metadata; no engine code reads it. */
 const CHARACTER_ABILITY_RECORDS_ROUND3 = {
   "dc:Nightwing": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Batman sends him undercover to investigate the spy agency Spyral, where he is designated Agent 37 and reports to Batman in secret code (Grayson #1–4, 2014).", "scene": "Grayson #1–4 (2014): joins Spyral as Agent 37 while secretly reporting to Batman", "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)", "continuity": "DC mainline comics (New 52)", "limitation": "Undercover identity, not a scene of moving unseen", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Batman sends him undercover to investigate the spy agency Spyral, where he is designated Agent 37 and reports to Batman in secret code (Grayson #1–4, 2014).", "scene": "Grayson #1–4 (2014): joins Spyral as Agent 37 while secretly reporting to Batman", "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)", "continuity": "DC mainline comics (New 52)", "limitation": "Undercover identity, not a scene of moving unseen", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
   ],
   "dc:Red Hood": [
     {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undetected", "feat": "Breaks into Titans Tower to confront Tim Drake (Teen Titans vol. 3 #29, December 2005) and, at Duela Dent's funeral, hides until every Titan but Donna Troy has left (Countdown).", "scene": "Countdown #43, \"The Funeral\" (September 2007): stays hidden at Duela Dent's funeral; Teen Titans vol. 3 #29: the Titans Tower break-in", "source": "https://en.wikipedia.org/wiki/Jason_Todd", "sceneSource": "https://dcuguide.com/Red_Hood_(Jason_Todd)_Chronology", "continuity": "DC mainline comics (pre-Flashpoint)", "citationNote": "Wikipedia's footnote for the funeral sentence cites Countdown #51; DCU Guide's Red Hood chronology lists the funeral as Countdown #43", "audit": "2026-11-r3"}
   ],
   "dc:Batwoman": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Infiltrates Arkham Tower, hired on as psychiatrist Dr. Lisa Frow (\"Shadows of the Bat\").", "scene": "\"Shadows of the Bat\" (2021–22): works inside Arkham Tower under the alias Dr. Lisa Frow", "source": "https://en.wikipedia.org/wiki/Batwoman_(Kate_Kane)", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "citationNote": "Same feat, different issue: the Kate Kane article cites Batman: Urban Legends #8–9; the Shadows of the Bat article places it in Detective Comics #1048", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Infiltrates Arkham Tower, hired on as psychiatrist Dr. Lisa Frow (\"Shadows of the Bat\").", "scene": "\"Shadows of the Bat\" (2021–22): works inside Arkham Tower under the alias Dr. Lisa Frow", "source": "https://en.wikipedia.org/wiki/Batwoman_(Kate_Kane)", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "citationNote": "Same feat, different issue: the Kate Kane article cites Batman: Urban Legends #8–9; the Shadows of the Bat article places it in Detective Comics #1048", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
   ],
   "dc:Cassandra Cain": [
     {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "unspecified", "feat": "Infiltrates a tournament for hired killers and rescues the captured Red Robin, then fakes his death so he can escape (Red Robin #25, July 2011).", "scene": "Red Robin #25 (July 2011): gets inside the assassination tournament and frees Tim Drake", "source": "https://en.wikipedia.org/wiki/Cassandra_Cain", "continuity": "DC mainline comics (pre-Flashpoint)", "limitation": "Sources say she infiltrates but not whether by disguise or unseen; DC's solicitation casts her as a tournament fighter", "audit": "2026-11-r3"}
   ],
   "dc:Huntress": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Goes undercover inside Arkham Tower to investigate it, checking in as a patient (Detective Comics #1049, \"The Tower, Part 3\", March 2022).", "scene": "Detective Comics #1049, \"The Tower, Part 3\" (March 2022): undercover in Arkham Tower as a patient", "source": "https://dcuguide.com/Detective_Comics_1049", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Goes undercover inside Arkham Tower to investigate it, checking in as a patient (Detective Comics #1049, \"The Tower, Part 3\", March 2022).", "scene": "Detective Comics #1049, \"The Tower, Part 3\" (March 2022): undercover in Arkham Tower as a patient", "source": "https://dcuguide.com/Detective_Comics_1049", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
   ],
   "dc:Talia al Ghul": [
-    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Sits on the Wayne Enterprises board as Miranda Tate while secretly loyal to the League of Shadows, until she reveals herself as Talia (The Dark Knight Rises, 2012).", "scene": "The Dark Knight Rises (2012): poses as board member Miranda Tate; reveals herself after Batman beats Bane", "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate", "continuity": "The Dark Knight trilogy (Nolan films)", "limitation": "Film continuity; undercover identity, not a scene of moving unseen; no comics stealth scene confirmed yet", "audit": "2026-11-r3"}
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Sits on the Wayne Enterprises board as Miranda Tate while secretly loyal to the League of Shadows, until she reveals herself as Talia (The Dark Knight Rises, 2012).", "scene": "The Dark Knight Rises (2012): poses as board member Miranda Tate; reveals herself after Batman beats Bane", "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate", "continuity": "The Dark Knight trilogy (Nolan films)", "limitation": "Film continuity; undercover identity, not a scene of moving unseen; no comics stealth scene confirmed yet", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "dc:Batgirl (Barbara Gordon)": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "discovered", "feat": "Hacks her way into the Justice Society of America's headquarters and later breaks in, to ask to train under Black Canary; Wildcat catches up with her (Batgirl: Year One, 2003).", "scene": "Batgirl: Year One (2003 miniseries): the JSA headquarters hack and break-in", "source": "https://dc.fandom.com/wiki/Batgirl:_Year_One", "continuity": "DC mainline comics (Batgirl: Year One)", "limitation": "Discovered: Wildcat catches her after the break-in; no issue number on the source page", "ruling": "owner-ruled 2026-11-11 (Garrett): a break-in that is later discovered counts", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "harrypotter:Hermione Granger": [
+    {"tag": "flight", "tags": ["mount"], "kind": "mount", "feat": "Rides her own Thestral from Hogwarts to London to reach the Ministry of Magic (OotP ch. 33).", "scene": "Order of the Phoenix ch. 33: the Thestral flight to the Ministry of Magic", "source": "https://harrypotter.fandom.com/wiki/Hermione_Granger", "continuity": "Harry Potter novels", "limitation": "Needs a Thestral; rides it solo but does not fight from it", "ruling": "owner-ruled 2026-11-11 (Garrett): solo riders of a flying mount count, even without fighting from it", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "lotr:Gothmog (Lord of Balrogs)": [
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "Lord of the Balrogs. Tolkien's Lost Tales give a Balrog 'double his stature' against an Elf, about 12 ft.", "source": "https://en.wikipedia.org/wiki/Balrog", "continuity": "Tolkien legendarium", "limitation": "Species-level Balrog size; the 12 ft figure describes the Balrog Glorfindel fights, not Gothmog by name", "ruling": "owner-ruled 2026-11-11 (Garrett): a species-level Balrog size counts for a named Balrog", "verification": "owner-ruling", "audit": "2026-11-r3"}
   ],
   "lotr:Durin's Bane": [
-    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "scene": "The Fellowship of the Ring (2001 film): the Bridge of Khazad-dûm", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings films (Jackson)", "continuityScope": "film-only", "limitation": "Film only: Tolkien's text calls it taller than a man but not huge", "conflict": "Mixed continuity: the Jackson film shows a 20 ft Balrog; Tolkien's text gives no size and does not support a giant reading. The grant is meant for the film version only, but continuityScope is metadata the Campaign engine does not read yet, so the giants tag applies in every draft.", "audit": "2026-11-r3"}
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "scene": "The Fellowship of the Ring (2001 film): the Bridge of Khazad-dûm", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings (films and books)", "citationNote": "The Jackson film shows a 20 ft Balrog; Tolkien's text gives no measurement. The owner ruled the giant reading applies in every continuity.", "ruling": "owner-ruled 2026-11-11 (Garrett): a massive giant in every continuity; no film-only limit", "verification": "owner-ruling", "audit": "2026-11-r3"}
   ]
 };
 const CHARACTER_ABILITIES = (() => {
@@ -2431,7 +2441,6 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"games:Donkey Kong", tag:"giants", note:"No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).", source:"https://www.mariowiki.com/Donkey_Kong"},
   {id:"dc:Robin (Damian Wayne)", tag:"stealth", note:"Round 3: Wikipedia says he evades a Titans/Bat-family search after quitting Teen Titans (2020), but names no issue; dc.com Teen Titans #46 confirms only that he left. Needs that evasion scene confirmed on a page naming the issue (Teen Titans 2016 #45–47 or Annual #2).", source:"https://en.wikipedia.org/wiki/Damian_Wayne"},
   {id:"dc:Red Robin (Tim Drake)", tag:"stealth", note:"Round 3: no named stealth scene on Wikipedia; the Arkhamverse wiki lists only a generic Stealth ability. Candidate: the 'Alvin Draper' undercover identity in Robin vol. 2, needs a page describing the story.", source:"https://en.wikipedia.org/wiki/Tim_Drake"},
-  {id:"dc:Batgirl (Barbara Gordon)", tag:"stealth", note:"Round 3, borderline: Batgirl: Year One (2003) has her hack into and break into JSA headquarters, but Wildcat catches her. Grant only if a break-in that is later discovered counts; otherwise needs a scene where she gets in undetected.", source:"https://dc.fandom.com/wiki/Batgirl:_Year_One"},
   {id:"dc:Deathstroke", tag:"stealth", note:"Round 3: Wikipedia's infiltration scenes are Terra's (Judas Contract) or Rose's; Infinite Crisis #1 has a Secret Society group ambush from a hidden warehouse (not a personal stealth feat). Young Justice ambushes never say he went unseen. Needs a scene of Slade himself infiltrating undetected.", source:"https://en.wikipedia.org/wiki/Deathstroke"},
   {id:"dc:Swamp Thing", tag:"magic", note:"Seed-list grant removed: he is an elemental of the Green, not a sorcerer. Needs an owner ruling on whether elemental beings count for Arcane Assembly.", source:"https://en.wikipedia.org/wiki/Swamp_Thing", audit:"2026-11-r2"},
   {id:"dc:Darkseid", tag:"flight", note:"Round 3: only the Wikipedia infobox lists Flight; no article text, DC Database (Prime Earth) or dc.com page describes him flying or levitating. His documented movement is teleportation and Boom Tubes.", source:"https://en.wikipedia.org/wiki/Darkseid"},
@@ -2442,11 +2451,9 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"dc:Death of the Endless", tag:"magic", note:"Needs an owner ruling: Death is a personification, not a spellcaster.", source:"https://en.wikipedia.org/wiki/Death_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Doctor Fate", tag:"psychic", note:"Telepathy appears in some eras; a specific scene is needed.", source:"https://en.wikipedia.org/wiki/Doctor_Fate", audit:"2026-11-r2"},
   {id:"lotr:Quickbeam", tag:"giants", note:"Round 3: Tolkien Gateway gives only 'Tall'; no page states a height or size comparison for Quickbeam. Treebeard's 14 ft does not carry over.", source:"https://tolkiengateway.net/wiki/Quickbeam"},
-  {id:"lotr:Gothmog (Lord of Balrogs)", tag:"giants", note:"Round 3: Wikipedia's '12 feet' Balrog figure comes from Lost Tales ('double his stature') about the Balrog Glorfindel fights, not Gothmog. No Gothmog-specific size found. Open ruling: whether a species-level Balrog size counts.", source:"https://en.wikipedia.org/wiki/Balrog"},
   {id:"lotr:Carcharoth", tag:"giants", note:"Round 3: sources say only 'grew to great size' and 'huge'; no measurement or fixing comparison.", source:"https://lotr.fandom.com/wiki/Carcharoth"},
   {id:"lotr:Melian", tag:"psychic", note:"Seed-list grant removed pending a telepathy scene; her documented powers are enchantment and foresight.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
   {id:"lotr:Melian", tag:"healing", note:"Seed-list grant removed pending a healing scene.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
-  {id:"harrypotter:Hermione Granger", tag:"flight", note:"Round 3: a passenger in every confirmed flight (Buckbeak PoA ch. 21, Thestral with Kingsley DH ch. 4, Gringotts dragon DH ch. 26). Open ruling: in OotP ch. 33 she rides her own Thestral to London but does not fight from it. Grant as mount only if solo riders count.", source:"https://harrypotter.fandom.com/wiki/Hermione_Granger"},
   {id:"harrypotter:Albus Dumbledore", tag:"psychic", note:"Seed-list grant removed pending a specific on-page Legilimency scene; Wizarding World materials call him a skilled Legilimens.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
   {id:"harrypotter:Albus Dumbledore", tag:"healing", note:"Seed-list grant removed pending a scene of Dumbledore healing someone.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
   {id:"harrypotter:Lord Voldemort", tag:"fire", note:"The fire-serpent duel is a film scene; book support for Voldemort commanding fire was not confirmed.", source:"https://harrypotter.fandom.com/wiki/Tom_Riddle", audit:"2026-11-r2"},
@@ -3390,7 +3397,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Robin (Damian Wayne)": [],
     "Red Robin (Tim Drake)": [],
     "Red Hood": ["stealth", "infiltration"],
-    "Batgirl (Barbara Gordon)": [],
+    "Batgirl (Barbara Gordon)": ["stealth", "infiltration"],
     "Batwoman": ["stealth", "infiltration"],
     "Cassandra Cain": ["stealth", "infiltration"],
     "Catwoman": ["stealth", "infiltration"],
@@ -3546,7 +3553,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Carcharoth": [],
     "Glaurung": ["psychic", "mind-control", "fire", "fire-control", "giants", "giant-sized"],
     "Ancalagon the Black": ["flight", "natural-flight", "fire", "fire-control", "giants", "giant-sized"],
-    "Gothmog (Lord of Balrogs)": ["fire", "fire-control"],
+    "Gothmog (Lord of Balrogs)": ["fire", "fire-control", "giants", "giant-sized"],
     "Ecthelion of the Fountain": [],
     "Ar-Pharazôn": [],
     "Tar-Míriel": [],
@@ -3574,7 +3581,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
   }),
   harrypotter: Object.freeze({
     "Harry Potter": ["flight", "powered-flight", "magic", "spellcaster", "stealth", "invisibility", "teleport", "self-teleport", "teleports-others"],
-    "Hermione Granger": ["magic", "spellcaster", "fire", "fire-control", "teleport", "self-teleport", "teleports-others"],
+    "Hermione Granger": ["flight", "mount", "magic", "spellcaster", "fire", "fire-control", "teleport", "self-teleport", "teleports-others"],
     "Ron Weasley": ["flight", "powered-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Albus Dumbledore": ["magic", "spellcaster", "fire", "fire-control", "stealth", "invisibility", "teleport", "self-teleport", "teleports-others"],
     "Lord Voldemort": ["flight", "natural-flight", "magic", "spellcaster", "psychic", "telepathy", "mind-control", "teleport", "self-teleport", "teleports-others"],

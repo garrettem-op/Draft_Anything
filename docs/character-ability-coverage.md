@@ -8,7 +8,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 
 | Tag | nba | mcu | toons | muppets | games | pokemon | starwars | dc | lotr | harrypotter | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| flight | 0 | 34 | 17 | 4 | 37 | 30 | 38 | 36 | 11 | 25 | 232 |
+| flight | 0 | 34 | 17 | 4 | 37 | 30 | 38 | 36 | 11 | 26 | 233 |
 | magic | 0 | 10 | 3 | 4 | 20 | 1 | 0 | 15 | 25 | 77 | 155 |
 | psychic | 0 | 13 | 0 | 2 | 7 | 37 | 27 | 5 | 3 | 3 | 97 |
 | aquatic | 0 | 2 | 9 | 0 | 1 | 42 | 3 | 7 | 4 | 0 | 68 |
@@ -16,10 +16,10 @@ name lists or description keywords. Counts are characters holding each broad tag
 | ice | 0 | 0 | 5 | 0 | 12 | 60 | 0 | 6 | 0 | 0 | 83 |
 | electric | 0 | 5 | 2 | 0 | 16 | 58 | 4 | 4 | 0 | 0 | 89 |
 | tech | 0 | 34 | 13 | 1 | 26 | 1 | 21 | 13 | 0 | 0 | 109 |
-| stealth | 0 | 13 | 5 | 0 | 10 | 6 | 5 | 9 | 5 | 9 | 62 |
+| stealth | 0 | 13 | 5 | 0 | 10 | 6 | 5 | 10 | 5 | 9 | 63 |
 | teleport | 0 | 17 | 2 | 2 | 17 | 32 | 0 | 11 | 0 | 15 | 96 |
 | healing | 0 | 14 | 3 | 0 | 11 | 8 | 4 | 17 | 5 | 3 | 65 |
-| giants | 0 | 8 | 1 | 6 | 4 | 2 | 1 | 3 | 8 | 7 | 40 |
+| giants | 0 | 8 | 1 | 6 | 4 | 2 | 1 | 3 | 9 | 7 | 41 |
 
 ## Specific tags
 
@@ -29,7 +29,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 | flight | powered-flight | 59 |
 | flight | glide | 9 |
 | flight | pilot | 58 |
-| flight | mount | 7 |
+| flight | mount | 8 |
 | magic | spellcaster | 150 |
 | magic | magic-item | 7 |
 | psychic | telepathy | 31 |
@@ -50,13 +50,13 @@ name lists or description keywords. Counts are characters holding each broad tag
 | tech | gadgets | 43 |
 | tech | inventor | 34 |
 | stealth | invisibility | 19 |
-| stealth | infiltration | 47 |
+| stealth | infiltration | 48 |
 | teleport | self-teleport | 75 |
 | teleport | portals | 17 |
 | teleport | teleports-others | 15 |
 | healing | self-regeneration | 45 |
 | healing | heals-others | 27 |
-| giants | giant-sized | 28 |
+| giants | giant-sized | 29 |
 | giants | size-change | 13 |
 
 ## Provenance of every granted broad tag
@@ -70,13 +70,13 @@ name lists or description keywords. Counts are characters holding each broad tag
 | games | 157 | 0 | 25 | 182 |
 | pokemon | 226 | 0 | 98 | 324 |
 | starwars | 84 | 0 | 22 | 106 |
-| dc | 129 | 0 | 0 | 129 |
-| lotr | 69 | 0 | 0 | 69 |
-| harrypotter | 136 | 8 | 0 | 144 |
+| dc | 130 | 0 | 0 | 130 |
+| lotr | 70 | 0 | 0 | 70 |
+| harrypotter | 137 | 8 | 0 | 145 |
 
 Carry-over origins: name-list 94, research-guide 46, roster-description 56, curated-aerial 30, pokemon-type 37.
 
-`CHARACTER_ABILITIES` holds 924 source-linked records for 528 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
+`CHARACTER_ABILITIES` holds 927 source-linked records for 529 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
 
 ## Disputed grants (verdict incorrect: excluded from the index)
 
@@ -154,7 +154,6 @@ Carry-over origins: name-list 94, research-guide 46, roster-description 56, cura
 - `games:Donkey Kong` **giants**: No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).
 - `dc:Robin (Damian Wayne)` **stealth**: Round 3: Wikipedia says he evades a Titans/Bat-family search after quitting Teen Titans (2020), but names no issue; dc.com Teen Titans #46 confirms only that he left. Needs that evasion scene confirmed on a page naming the issue (Teen Titans 2016 #45–47 or Annual #2).
 - `dc:Red Robin (Tim Drake)` **stealth**: Round 3: no named stealth scene on Wikipedia; the Arkhamverse wiki lists only a generic Stealth ability. Candidate: the 'Alvin Draper' undercover identity in Robin vol. 2, needs a page describing the story.
-- `dc:Batgirl (Barbara Gordon)` **stealth**: Round 3, borderline: Batgirl: Year One (2003) has her hack into and break into JSA headquarters, but Wildcat catches her. Grant only if a break-in that is later discovered counts; otherwise needs a scene where she gets in undetected.
 - `dc:Deathstroke` **stealth**: Round 3: Wikipedia's infiltration scenes are Terra's (Judas Contract) or Rose's; Infinite Crisis #1 has a Secret Society group ambush from a hidden warehouse (not a personal stealth feat). Young Justice ambushes never say he went unseen. Needs a scene of Slade himself infiltrating undetected.
 - `dc:Swamp Thing` **magic**: Seed-list grant removed: he is an elemental of the Green, not a sorcerer. Needs an owner ruling on whether elemental beings count for Arcane Assembly.
 - `dc:Darkseid` **flight**: Round 3: only the Wikipedia infobox lists Flight; no article text, DC Database (Prime Earth) or dc.com page describes him flying or levitating. His documented movement is teleportation and Boom Tubes.
@@ -165,11 +164,9 @@ Carry-over origins: name-list 94, research-guide 46, roster-description 56, cura
 - `dc:Death of the Endless` **magic**: Needs an owner ruling: Death is a personification, not a spellcaster.
 - `dc:Doctor Fate` **psychic**: Telepathy appears in some eras; a specific scene is needed.
 - `lotr:Quickbeam` **giants**: Round 3: Tolkien Gateway gives only 'Tall'; no page states a height or size comparison for Quickbeam. Treebeard's 14 ft does not carry over.
-- `lotr:Gothmog (Lord of Balrogs)` **giants**: Round 3: Wikipedia's '12 feet' Balrog figure comes from Lost Tales ('double his stature') about the Balrog Glorfindel fights, not Gothmog. No Gothmog-specific size found. Open ruling: whether a species-level Balrog size counts.
 - `lotr:Carcharoth` **giants**: Round 3: sources say only 'grew to great size' and 'huge'; no measurement or fixing comparison.
 - `lotr:Melian` **psychic**: Seed-list grant removed pending a telepathy scene; her documented powers are enchantment and foresight.
 - `lotr:Melian` **healing**: Seed-list grant removed pending a healing scene.
-- `harrypotter:Hermione Granger` **flight**: Round 3: a passenger in every confirmed flight (Buckbeak PoA ch. 21, Thestral with Kingsley DH ch. 4, Gringotts dragon DH ch. 26). Open ruling: in OotP ch. 33 she rides her own Thestral to London but does not fight from it. Grant as mount only if solo riders count.
 - `harrypotter:Albus Dumbledore` **psychic**: Seed-list grant removed pending a specific on-page Legilimency scene; Wizarding World materials call him a skilled Legilimens.
 - `harrypotter:Albus Dumbledore` **healing**: Seed-list grant removed pending a scene of Dumbledore healing someone.
 - `harrypotter:Lord Voldemort` **fire**: The fire-serpent duel is a film scene; book support for Voldemort commanding fire was not confirmed.
@@ -193,6 +190,6 @@ Carry-over origins: name-list 94, research-guide 46, roster-description 56, cura
 - **games** (31): Donkey Kong, Ash Ketchum, Professor Oak, Jigglypuff, Captain Falcon, Marth, Amy Rose, Marcus Fenix, Nathan Drake, Sully, Joel Miller, Ellie, Crash Bandicoot, Lara Croft, Garrus Vakarian, Mordin Solus, Pac-Man, Blinky, Ms. Pac-Man, Q*bert, Wreck-It Ralph, Chun-Li, Heihachi Mishima, Tifa Lockhart, Leon S. Kennedy, Jill Valentine, Pyramid Head, Creeper, Isabelle, Tom Nook, Widowmaker
 - **pokemon** (25): Bulbasaur, Ivysaur, Venusaur, Caterpie, Metapod, Weedle, Kakuna, Arbok, Sandshrew, Sandslash, Oddish, Gloom, Vileplume, Paras, Parasect, Diglett, Dugtrio, Bellsprout, Weepinbell, Victreebel, Hitmonlee, Tangela, Pinsir, Ditto, Eevee
 - **starwars** (37): Padmé Amidala, Mon Mothma, Bail Organa, Jyn Erso, Chirrut Îmwe, Baze Malbus, Saw Gerrera, Zeb Orrelios, Finn, Rose Tico, Admiral Holdo, Maz Kanata, Grand Moff Tarkin, Grand Admiral Thrawn, Director Krennic, Stormtrooper, Captain Phasma, General Hux, Aurra Sing, Bossk, Greedo, Cara Dune, Cobb Vanth, Greef Karga, Kuiil, Migs Mayfeld, Captain Rex, Commander Cody, Hunter, Wrecker, Crosshair, Qi'ra, Tobias Beckett, Dryden Vos, Jabba the Hutt, Wampa, Wicket
-- **dc** (27): Green Arrow, Black Canary, Plastic Man, Vixen, Robin (Damian Wayne), Red Robin (Tim Drake), Batgirl (Barbara Gordon), Harley Quinn, Alfred Pennyworth, Commissioner James Gordon, Joker, Reverse-Flash (Eobard Thawne), Zoom (Hunter Zolomon), Cheetah, Ares (DC), Poison Ivy, Riddler, Penguin, Bane, Ra's al Ghul, Scarecrow, Two-Face, Deadshot, Peacemaker, Amanda Waller, Death of the Endless, Perpetua
+- **dc** (26): Green Arrow, Black Canary, Plastic Man, Vixen, Robin (Damian Wayne), Red Robin (Tim Drake), Harley Quinn, Alfred Pennyworth, Commissioner James Gordon, Joker, Reverse-Flash (Eobard Thawne), Zoom (Hunter Zolomon), Cheetah, Ares (DC), Poison Ivy, Riddler, Penguin, Bane, Ra's al Ghul, Scarecrow, Two-Face, Deadshot, Peacemaker, Amanda Waller, Death of the Endless, Perpetua
 - **lotr** (70): Samwise Gamgee, Meriadoc Brandybuck, Peregrin Took, Boromir, Faramir, Denethor II, Arwen Undómiel, Celeborn, Legolas, Gimli, Thranduil, Glorfindel, Círdan the Shipwright, Gil-galad, Celebrimbor, Isildur, Elendil, Anárion, Théoden, Éowyn, Éomer, Gríma Wormtongue, Quickbeam, Shelob, Thorin Oakenshield, Balin, Dwalin, Dáin II Ironfoot, Glóin, Bard the Bowman, Azog, Bolg, Uglúk, Shagrat, Gorbag, Troll Chieftain, Fëanor, Fingolfin, Finwë, Finarfin, Maedhros, Maglor, Celegorm, Caranthir, Curufin, Amrod, Amras, Turgon, Aredhel, Idril Celebrindal, Tuor, Dior Eluchíl, Beren Erchamion, Húrin Thalion, Túrin Turambar, Nienor Níniel, Thingol, Beleg Cúthalion, Mablung, Huan the Hound, Carcharoth, Ecthelion of the Fountain, Ar-Pharazôn, Tar-Míriel, Amandil, Tar-Palantir, Tar-Aldarion, Oromë, Tulkas, Nessa
 - **harrypotter** (15): Jacob Kowalski, Seraphina Picquery, Nagini, Winky, Griphook, Argus Filch, The Grey Lady (Helena Ravenclaw), Nearly Headless Nick, Bloody Baron, Moaning Myrtle, Dementor, Crookshanks, Niffler, Bowtruckle (Pickett), Obscurus
