@@ -30,8 +30,9 @@ const SCENE = 'The New Teen Titans #3 (1980), escape from Azarath';
 const THIN = 'Levitates and flies.';
 const VAGUE_LONG = 'He has the power to fly through the sky at will.';
 // Digest of CHARACTER_ABILITY_TAGS for this PR. The audit must never move it. Update it only in a PR that
-// deliberately changes grants, and say so in that PR.
-const PINNED_INDEX_DIGEST = 'd8e3b17f0966960e323462dfa8bca049ad16dc4792152422def4a171c546876c';
+// deliberately changes grants, and say so in that PR. Moved 2026-11-11 when main was merged in: PR #76 granted
+// Captain Atom tech (powered-armor). No grant changed in this PR.
+const PINNED_INDEX_DIGEST = 'd433085cb3c38f46c540bfcb6e504167d489d21dd1e598aa9149262dc5a24cc0';
 
 test('every host cited by an evidence record has a source type', () => {
   const types = new Set(CHARACTER_ABILITY_SOURCE_TYPES);

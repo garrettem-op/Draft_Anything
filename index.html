@@ -164,6 +164,21 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .side-node .lbl small { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
 .side-node .gr { margin-left: auto; font-family: var(--f-mono); font-size: 12px; font-weight: 600; }
 
+/* Selectable All-Star Mashup universe builder */
+.mashup-config{margin:12px 0 16px;padding:14px 16px;display:grid;gap:12px;min-width:0}
+.mashup-config .sec{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.mashup-config .sec .h{margin:0}
+.mashup-tools{display:flex;gap:8px;flex-wrap:wrap}
+.mashup-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px}
+.mashup-option{display:flex;align-items:center;gap:9px;padding:11px 9px;text-align:left;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;cursor:pointer;min-width:0}
+.mashup-option[aria-pressed="true"]{border-color:var(--accent-strong);background:var(--panel2);box-shadow:inset 0 0 0 1px var(--accent-strong)}
+.mashup-option>span:last-child{display:grid;gap:2px;min-width:0}
+.mashup-option b{font-size:13px;line-height:1.2}
+.mashup-option small{font-size:11px;color:var(--muted)}
+.mashup-check{border:1px solid var(--line);border-radius:5px;width:24px;height:24px;flex:none;display:grid;place-items:center;font-weight:800}
+.mashup-option[aria-pressed="true"] .mashup-check{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.mashup-status{font-weight:600}
+
 /* Picker panel */
 .picker { display: grid; grid-template-rows: auto auto minmax(0, 1fr); max-height: min(78vh, 760px); min-height: 360px; overflow: hidden; }
 .picker-head { padding: 14px 16px 10px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
@@ -712,6 +727,10 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 }
 
 
+/* Head-to-Head dealt-hand actions remain visible above the court. */
+.h2h-hand-selection{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:8px 0;font-size:13px}
+.h2h-deal-back .deal-popup{max-height:min(90dvh,800px);overflow-y:auto}
+@media(max-width:700px){.h2h-hand-selection{font-size:12px}.h2h-deal-back .deal-popup{max-height:94dvh}}
 /* Modal Dealt Hand: animation plays on the popup's portrait cards, then
    the dialog disappears so the field can receive the selected character. */
 .deal-popup-back {
@@ -883,6 +902,9 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .da-primary small { color:var(--muted); font-size:10px; }
 .da-secondary { display:flex; gap:4px 10px; flex-wrap:wrap; color:var(--muted); font-size:11px; }
 .da-secondary b { color:var(--text); }
+.da-fighter-why { border-top:1px dotted var(--line);padding-top:4px;margin-top:2px;font-size:11px; }
+.da-fighter-why>summary { cursor:pointer;color:var(--muted);font-weight:700; }
+.da-fighter-why>div { line-height:1.5;color:var(--muted);padding:5px 0;overflow-wrap:anywhere; }
 .da-story { padding:6px 8px 14px; font-size:14px; }
 .da-story>p:first-child { margin-top:0; }
 .da-inner-details { border-top:1px solid var(--line); padding:8px 0; }
@@ -904,6 +926,30 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
   .da-player-table .da-role { font-size:10px; }
 }
 
+
+/* Head-to-head: one court, opponent pick rail, and on-character Variant Surge */
+.h2h-court-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,230px);gap:14px;align-items:start;margin:16px 0}
+.h2h-main-court{min-width:0}
+.h2h-opponent-rail{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+.h2h-rail-toggle{display:flex;width:100%;flex-direction:column;align-items:flex-start;gap:5px;padding:12px;border:0;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.h2h-rail-toggle span{font-size:12px;color:var(--muted);text-decoration:underline}
+.h2h-rail-picks{display:grid;gap:0;padding:4px 10px}
+.h2h-rail-pick{display:flex;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:13px;overflow-wrap:anywhere}
+.h2h-rail-pick:last-child{border:0}
+.h2h-rail-position{color:var(--muted);min-width:28px;font:600 11px var(--f-mono)}
+.variant-ready{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important;cursor:pointer!important}
+@keyframes h2h-variant-pulse{0%,100%{filter:drop-shadow(0 0 2px var(--accent))}50%{filter:drop-shadow(0 0 13px var(--accent));transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.variant-ready{animation:none!important;outline:3px solid var(--accent)}}
+.h2h-ready-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap}
+.h2h-ability-phase{min-width:0}
+.h2h-ability-phase .h2h-ready-actions .btn{flex:0 0 auto}
+@media(max-width:700px){.h2h-ability-phase .h2h-ready-actions{position:sticky;top:0;z-index:12;background:var(--bg);padding:8px 0}.h2h-ability-phase .h2h-ready-actions .btn{flex:1 1 100%}}
+
+.h2h-variant-shade{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:18px}
+.h2h-variant-dialog{background:var(--panel);color:var(--ink);border-radius:16px;padding:24px;width:min(100%,360px);box-shadow:var(--shadow)}
+.h2h-variant-dialog h3{font:800 28px var(--f-display);margin:0 0 12px}
+.h2h-variant-dialog p{margin:0 0 20px}
+@media(max-width:700px){.h2h-court-layout{grid-template-columns:minmax(0,1fr) 122px;gap:8px}.h2h-rail-pick{font-size:11px;gap:4px}.h2h-rail-picks{padding:4px 6px}.h2h-rail-toggle{padding:8px;font-size:12px}.h2h-rail-position{min-width:20px;font-size:10px}}
 </style>
 </head>
 <body>
@@ -927,11 +973,14 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/muppet-force.js"></script>
 <script src="data/toon-force.js"></script>
 <script src="data/brawl-exceptional-power.js"></script>
+<script src="data/brawl-attack-profiles.js"></script>
+<script src="data/brawl-combat.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
 <script src="data/team-names.js"></script>
 <script src="data/daily-grid.js"></script>
 <script src="data/campaign-variant-expansion.js"></script>
+<script src="data/variant-abilities.js"></script>
 <script src="data/campaign-strategy.js"></script>
 <script src="data/after-action.js"></script>
 <script>
@@ -2271,8 +2320,16 @@ function gameRatings(A, B, playoff, rng, sportKey=null) {
     toon[side]+=moment.points;
     toonEvents.push({...moment,side});
   }
-  ra+=toon[0];rb+=toon[1];
-  return { ra, rb, ev, toon, toonEvents };
+  // The same documented alternate-form effects apply in every mode. Compared
+  // with a flat bonus, resistance and vulnerabilities make the opposing roster
+  // matter. All effects are deterministic and bounded; no paid AI/API calls.
+  const powerApi=window.DA_VARIANT_ABILITY_API;
+  const formA=sportKey&&powerApi?powerApi.variantBattleImpact(A,B,sportKey):{points:0,events:[]};
+  const formB=sportKey&&powerApi?powerApi.variantBattleImpact(B,A,sportKey):{points:0,events:[]};
+  const variant=[formA.points,formB.points];
+  const variantEvents=[...formA.events.map(e=>({...e,side:0})),...formB.events.map(e=>({...e,side:1}))];
+  ra+=toon[0]+variant[0];rb+=toon[1]+variant[1];
+  return { ra, rb, ev, toon, toonEvents, variant, variantEvents };
 }
 
 // ===== Battle Royale: fighting styles and the variety bonus =====
@@ -2861,19 +2918,28 @@ const UPSET_SIGMA = { off: 0, low: 2.5, high: 6 };
 function matchRatingBreakdown(A,B,g,randomDelta) {
   const base=[A.rating,B.rating];
   const chaos=[-((B.sig&&B.sig.chaos)||0),-((A.sig&&A.sig.chaos)||0)];
-  const toon=g.toon||[0,0];
-  const spark=[g.ra-base[0]-chaos[0]-toon[0],g.rb-base[1]-chaos[1]-toon[1]];
+  const toon=g.toon||[0,0],variant=g.variant||[0,0];
+  const spark=[g.ra-base[0]-chaos[0]-toon[0]-variant[0],g.rb-base[1]-chaos[1]-toon[1]-variant[1]];
   const random=[randomDelta/2,-randomDelta/2];
-  const final=[base[0]+chaos[0]+spark[0]+toon[0]+random[0],base[1]+chaos[1]+spark[1]+toon[1]+random[1]];
-  return {base,chaos,spark,toon,toonEvents:g.toonEvents||[],random,final};
+  const final=[base[0]+chaos[0]+spark[0]+toon[0]+variant[0]+random[0],base[1]+chaos[1]+spark[1]+toon[1]+variant[1]+random[1]];
+  return {base,chaos,spark,toon,toonEvents:g.toonEvents||[],variant,variantEvents:g.variantEvents||[],random,final};
 }
 function playGame(sportKey, A, B, sigma, rng, playoff = false) {
   const g = gameRatings(A, B, playoff, rng, sportKey);
   let randomDelta = sigma ? gauss(rng)*sigma : 0;
   let m = g.ra - g.rb + randomDelta;
   if (m === 0) { const tiebreak = rng() < 0.5 ? -0.01 : 0.01; randomDelta += tiebreak; m=tiebreak; }
-  const w=m>0?0:1;
-  return { winner:w, margin:Math.abs(m),line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),ev:g.ev,toonEvents:g.toonEvents,breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
+  // Ratings adjust combat effectiveness, but only modeled hits and depletion cause KOs.
+  const hasFighters=T=>Array.isArray(T?.rows)&&T.rows.some(r=>r.cand&&!r.pos.coach&&!r.pos.bench);
+  const combat=sportKey==='brawl'&&hasFighters(A)&&hasFighters(B)
+    ?window.DA_BRAWL_COMBAT.resolveBrawlCombat(A,B,
+      [g.ra+randomDelta/2,g.rb-randomDelta/2],rng)
+    :null;
+  const w=combat?combat.winner:(m>0?0:1);
+  return { winner:w,margin:Math.abs(m),
+    line:combat?combat.line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),
+    combat,ev:g.ev,toonEvents:g.toonEvents,
+    breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
 }
 
 // Sport-flavored final score for a game won by `margin` rating points. Returns [winnerScore, loserScore, note]
@@ -2944,7 +3010,7 @@ function simChampionship(sportKey, teams, sigma, rng) {
     const [W, L] = g.winner === 0 ? [i, j] : [j, i];
     rec[W].w++; rec[L].l++;
     rec[W].pf += g.line[0]; rec[W].pa += g.line[1]; rec[L].pf += g.line[1]; rec[L].pa += g.line[0];
-    games.push({ a:i,b:j,w:W,line:g.line,m:g.margin,breakdown:g.breakdown });
+    games.push({ a:i,b:j,w:W,line:g.line,m:g.margin,breakdown:g.breakdown,combat:g.combat });
   }
   const standings = teams.map((t, i) => ({ i, ...rec[i] }))
     .sort((x, y) => y.w - x.w || (y.pf - y.pa) - (x.pf - x.pa) || teams[y.i].score.rating - teams[x.i].score.rating);
@@ -2954,7 +3020,7 @@ function simChampionship(sportKey, teams, sigma, rng) {
   let round = pairs.map(([a, b]) => [seeds[a], seeds[b]]);
   const rounds = [];
   while (true) {
-    const res = round.map(([a, b]) => { const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true); return { a, b, w: g.winner === 0 ? a : b, line: g.line, m: g.margin, bo: 1, breakdown:g.breakdown, ev: g.ev.map(e => ({ ...e, team: e.side === 0 ? a : b, g: 1 })) }; });
+    const res = round.map(([a, b]) => { const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true); return { a, b, w: g.winner === 0 ? a : b, line: g.line, m: g.margin, bo: 1, breakdown:g.breakdown, combat:g.combat, ev: g.ev.map(e => ({ ...e, team: e.side === 0 ? a : b, g: 1 })) }; });
     rounds.push(res);
     if (res.length === 1) break;
     const next = [];
@@ -3039,7 +3105,7 @@ function playSeries(sportKey, teams, a, b, bo, sigma, rng) {
   const need = Math.ceil(bo / 2); let wa = 0, wb = 0, last = null; const games = [], ev = [];
   while (wa < need && wb < need) {
     const g = playGame(sportKey, teams[a].score, teams[b].score, sigma, rng, true);
-    games.push({ w:g.winner===0?a:b,line:g.line,breakdown:g.breakdown });
+    games.push({ w:g.winner===0?a:b,line:g.line,breakdown:g.breakdown,combat:g.combat });
     for (const e of g.ev) ev.push({ ...e, team: e.side === 0 ? a : b, g: games.length });
     if (g.winner === 0) wa++; else wb++;
     last = g;
@@ -3052,7 +3118,16 @@ function simSeason(sportKey, teams, rng) {
   const rec = teams.map(() => ({ w: 0, l: 0, d: 0, otl: 0, pf: 0, pa: 0 }));
   const games = [];
   for (const [a, b] of seasonSchedule(n, S.games)) {
-    const g = gameRatings(teams[a].score, teams[b].score, false, rng);
+    if (sportKey==='brawl') {
+      const g=playGame(sportKey,teams[a].score,teams[b].score,sigma,rng);
+      const W=g.winner===0?a:b,L=W===a?b:a;
+      rec[W].w++;rec[L].l++;
+      rec[W].pf+=g.line[0];rec[W].pa+=g.line[1];
+      rec[L].pf+=g.line[1];rec[L].pa+=g.line[0];
+      games.push({a,b,w:W,line:g.line,m:g.margin,breakdown:g.breakdown,combat:g.combat});
+      continue;
+    }
+    const g = gameRatings(teams[a].score, teams[b].score, false, rng, sportKey);
     const variation=gauss(rng)*sigma;
     const m = g.ra - g.rb + variation;
     const breakdown=matchRatingBreakdown(teams[a].score,teams[b].score,g,variation);
@@ -3657,16 +3732,50 @@ function saveChamp() {
 
 // ----- Pools -----
 POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 'Every built-in pool at once, on one scale', entries: [] };
-// Pokémon who also appear in the video game pool (Pikachu, Charizard...) show up once in the Mashup.
+// Legacy helper retained for existing pool/lore test harnesses.
 function mashupOnly(id) { const seen = new Set(getCands('games').map(c => c.n)); return getCands(id).filter(c => !seen.has(c.n)); }
+// Mashup selections are encoded in the pool ID so saved drafts and multiplayer
+// contests preserve the exact same universe subset across devices.
 const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'harrypotter', 'mashup'];
+const MASHUP_SOURCES = BUILTIN.filter(id => id !== 'mashup');
+function isMashupId(id) { return id === 'mashup' || (typeof id === 'string' && id.startsWith('mashup:')); }
+function mashupSources(id) {
+  if (id === 'mashup') return MASHUP_SOURCES.slice();
+  if (!isMashupId(id)) return [];
+  const chosen = new Set(id.slice('mashup:'.length).split(','));
+  return MASHUP_SOURCES.filter(source => chosen.has(source));
+}
+function mashupPoolId(sources) {
+  const chosen = new Set(sources);
+  const ids = MASHUP_SOURCES.filter(id => chosen.has(id));
+  return ids.length === MASHUP_SOURCES.length ? 'mashup' : 'mashup:' + ids.join(',');
+}
 const candCache = {};
-function getPool(id) { return POOLS[id] || S.custom[id] || null; }
+function getPool(id) {
+  if (isMashupId(id)) {
+    const sources = mashupSources(id);
+    return id === 'mashup' ? POOLS.mashup : {
+      ...POOLS.mashup, id, name: 'All-Star Mashup · ' + sources.length + ' pools',
+      blurb: sources.length ? sources.map(k => POOLS[k]?.short || POOLS[k]?.name || k).join(' + ') : 'Choose at least one talent pool'
+    };
+  }
+  return POOLS[id] || S.custom[id] || null;
+}
 function getCands(id) {
   if (candCache[id]) return candCache[id];
   const p = getPool(id); if (!p) return [];
-  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games'), ...mashupOnly('pokemon'), ...getCands('starwars'), ...getCands('dc'), ...getCands('lotr'), ...getCands('harrypotter')] : poolCandidates(p);
-  return (candCache[id] = list);
+  if (isMashupId(id)) {
+    const sources = mashupSources(id), seenGameNames = new Set();
+    if (sources.includes('games')) getCands('games').forEach(c => seenGameNames.add(c.n));
+    const candidates = [];
+    for (const source of sources) for (const c of getCands(source)) {
+      // Pokémon with a Video Games roster entry appear once when both pools are selected.
+      if (source === 'pokemon' && seenGameNames.has(c.n)) continue;
+      candidates.push(c);
+    }
+    return (candCache[id] = candidates);
+  }
+  return (candCache[id] = poolCandidates(p));
 }
 function candById(poolId, cid) { return getCands(poolId).find(c => c.id === cid) || null; }
 function poolFaces(id) {
@@ -3683,7 +3792,7 @@ function roleRank(poolId, sportKey, pos, cand) {
 }
 // Restore saved roster ids into candidate objects (for both boards)
 function restoreBoard(st, key) {
-  const okPool = BUILTIN.includes(st.poolId);
+  const okPool = BUILTIN.includes(st.poolId) || isMashupId(st.poolId);
   let lost = false; const out = {};
   for (const [k, v] of Object.entries(st.roster || {})) { const c = typeof v === 'string' && okPool ? candById(st.poolId, v) : null; if (c) out[k] = c; else lost = true; }
   st.roster = out;
@@ -3719,6 +3828,7 @@ function renderVariantSurgePanel(v,action,input,ready,label='draft') {
   const choices=variantSurgeCandidates(v),selected=choices.find(c=>c.id===v.variantTarget)||choices[0];
   if(!v.surge&&selected)v.variantTarget=selected.id;
   const active=variantForm(v);
+  const ability=active?window.DA_VARIANT_ABILITY_API?.variantAbilityProfile(active.base,active.form):null;
   return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
     <div class="row" style="justify-content:space-between">
       <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per ${esc(label)}: transform ONE drafted character into a random documented alternate form. Removing the character never refunds the charge.</p></div>
@@ -3726,6 +3836,7 @@ function renderVariantSurgePanel(v,action,input,ready,label='draft') {
     </div>
     ${!v.surge&&choices.length?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="${input}" id="${input}">${choices.map(c=>`<option value="${esc(c.id)}" ${selected?.id===c.id?'selected':''}>${esc(c.n)} · ${variantOptions(c).length} possible forms</option>`).join('')}</select></label>`:''}
     <p class="note" style="margin:8px 0 0">${v.surge?(active?'Active: '+esc(active.base.n)+' → '+esc(active.form.name)+' · '+esc(active.form.origin):'Surge spent; transformed character no longer on roster.'):(choices.length?choices.length+' eligible character(s) on your roster.'+(ready?' A random form will be selected from the chosen character’s catalog.':' Complete the lineup to activate.'):'No eligible alternate-form characters drafted yet.')}</p>
+    ${ability?`<div class="note" style="margin-top:10px"><b>Unique move: ${esc(ability.move)}</b> · Power domains: ${esc(ability.domains.join(', '))}.<div>Defenses: ${esc(ability.guards.join(', ')||'none documented')}${ability.weakTo.length?' · Vulnerable to: '+esc(ability.weakTo.join(', ')):''}.</div><div>Limit: ${esc(ability.limit)}</div><div>Matchups matter: countering powers reduce the surge's added impact.</div></div>`:active?'<p class="note">This form currently changes attributes only; its special ability profile awaits review.</p>':''}
   </div>`;
 }
 function shortName(n) { if (n.length <= 12) return n; const w = n.split(' '); return w[w.length - 1].length > 2 ? w[w.length - 1] : w.slice(-2).join(' '); }
@@ -3738,18 +3849,20 @@ function renderField(sportKey, roster, o = {}) {
   const team = o.team === 'opp' ? 'var(--opp)' : 'var(--you)';
   const node = p => {
     const c = roster[p.id];
-    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
-    const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
+    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const variantPick = !!(c && o.variantSlots?.has(p.id));
+    const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
-    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : ''].join(' ');
-    const dis = !o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c);
+    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const variantPick = !!(c && o.variantSlots?.has(p.id));
+    const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" data-act="slot" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
+    return `<button class="${cls}" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
     <div class="field ${sportKey === 'hockey' ? 'light' : ''}" style="aspect-ratio:${sp.aspect};--field-ratio:${sp.aspect}">${surfaceSVG(sportKey)}${sp.pos.filter(p => !p.side).map(node).join('')}</div>
@@ -3778,12 +3891,13 @@ function renderModal() {
     <div class="attr-grid">${ATTRS.map(a => `<div><b>${a.n}</b><span class="muted">${a.d}</span></div>`).join('')}</div>
     <p>Each position leans on a few of those traits (the chips under a position name show which). A pick's fit is mostly how well their profile matches the role, with extra weight on their weakest key trait, so a one-trick pick gets exposed. <b>Draft picks remain unranked.</b> You can inspect the optional Character Guide for research and explicitly reveal the numeric attributes if you want spoilers.</p>
     <p><b>Chemistry:</b> people with a real connection play better together: same championship team, same college, same faction or franchise, or the same archetype. Two linked picks help a little, three help more, and it never outweighs talent. Coaches add a second layer: a coach's system favors certain traits, so a Seven-Seconds-or-Less coach lifts a fast roster. Links that fire are revealed after the game.</p>
-    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front. For each Tank, size, strength and stamina form one physical-resilience rating; if all three are above 90, their average earns a 3% bonus (up to 99). If the lowest is at least 10 points below the average of the other two, use the average of those two with a 3% deduction. Otherwise use the average of all three. Physical resilience counts 95%, reflexes count 5%, and leadership does not affect Tank fit. The Commander handles team leadership. Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts: the winners drop all five, and the loser's count shows how close it got. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
+    <p><b>Battle Royale:</b> a straight-up 5-on-5 fight. Two Tanks hold the front. For each Tank, size, strength and stamina form one physical-resilience rating; if all three are above 90, their average earns a 3% bonus (up to 99). If the lowest is at least 10 points below the average of the other two, use the average of those two with a 3% deduction. Otherwise use the average of all three. Physical resilience counts 95%, reflexes count 5%, and leadership does not affect Tank fit. The Commander handles team leadership. Three Damage dealers do the hurting, and they can be anything: each is judged by whichever style suits them best, Power (strength and stamina), Speed (speed, agility, reflexes) or Precision (accuracy, reflexes, smarts). The Commander calls it and the Reinforcement lifts the whole crew. Results are knockouts from simulated attacks: offense, accuracy, durability, protection and mitigated damage determine which fighters fall. Adjusted team ratings influence exchanges but do not determine KOs directly. <b>Variety pays:</b> every fighter brings one or more styles (Ranged, Flyer, Technician, Close quarters, Explosives, Powers &amp; magic), and a crew covering three, four or five different styles gets a growing bonus, about as big as strong chemistry. It's revealed after the fight.</p>
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
     <p><b>Bench Spark:</b> every team carries one bench player who lives on intangibles: Stamina, Leadership and Clutch. A great one lifts the whole squad, a little less than a great coach does.</p>
     <p><b>Signature moves:</b> the most iconic characters carry a named signature move. What it does stays hidden until after the game. Some lift the whole squad, some let a lopsided build play bigger than it is, some rise up in the playoffs, and some knock opponents off balance. The computer drafts don't know about them.</p>
+    <p><b>Variant Surge:</b> A documented alternate form replaces the character's signature move, retains their identity, changes attributes and may grant form-specific powers and resistances. Countering forms reduce the added combat impact; every power has a listed limitation. Unreviewed forms still only change stats. The same rules apply across Championship, Campaign, Dealt Hand and Head-to-Head.</p>
     <p><b>Playoff Boom:</b> some players are boom-or-bust. In any playoff game they can catch fire and take over, or go cold. They're a gamble, and that's the point.</p>
     <p><b>Full pro season:</b> instead of a quick round robin, play a real-length season (82 NBA games, 17 NFL games, 162 MLB games, 82 NHL games with overtime losses, 26 Serie A1 volleyball matches, or 38 soccer matches with draws), then that league's playoff format: series, byes and all. Soccer has no playoffs; the table decides the title.</p>
     <p><b>Daily Grid:</b> Each day features a shared 3×3 intersection puzzle. Every square combines a character pool on the left with an attribute threshold across the top. Search for a character, use them only once, and make one guess per square. Wrong answers lock their squares. Your progress is stored on this device, and older puzzles are available in the archive.</p>
@@ -3885,10 +3999,22 @@ function poolPicker(cur, act, sportKey) {
   const cards = ids.map(id => {
     const p = getPool(id), n = getCands(id).length;
     const small = n < need * 2;
-    return `<button class="pool" data-act="${act}" data-pool="${id}" aria-pressed="${cur === id}" ${small ? 'disabled title="Too few candidates for this sport"' : ''}>
+    return `<button class="pool" data-act="${act}" data-pool="${id}" aria-pressed="${id === 'mashup' ? isMashupId(cur) : cur === id}" ${small ? 'disabled title="Too few candidates for this sport"' : ''}>
       <b>${esc(p.name)}</b><span>${esc(p.blurb || '')}${p.topic ? '' : ''}</span><span class="num">${n} candidates${S.custom[id] ? ' · made with Claude' : ''}</span>${poolFaces(id) ? `<span class="faces" aria-hidden="true">${poolFaces(id)}</span>` : ''}</button>`;
   }).join('');
-  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Harry Potter, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${renderGen()}`;
+  const mashupSelector = isMashupId(cur) ? (() => {
+    const selected = mashupSources(cur), selectedSet = new Set(selected);
+    const scope = act === 'h-pool' ? 'h' : 'c';
+    return `<div class="panel mashup-config" role="group" aria-label="Choose Mashup talent pools">
+      <div class="sec"><div><h3 class="h">Customize your Mashup</h3><span class="note">Choose which universes can appear in your draft and its opponents.</span></div>
+      <span class="num">${selected.length}/${MASHUP_SOURCES.length} selected</span></div>
+      <div class="mashup-tools"><button class="btn small" data-act="mashup-all" data-scope="${scope}">Select all</button>
+        <button class="btn small" data-act="mashup-clear" data-scope="${scope}">Clear all</button></div>
+      <div class="mashup-options">${MASHUP_SOURCES.map(id => `<button class="mashup-option" type="button" data-act="mashup-toggle" data-scope="${scope}" data-pool="${id}" aria-pressed="${selectedSet.has(id)}"><span class="mashup-check">${selectedSet.has(id) ? '✓' : '＋'}</span><span><b>${esc(POOLS[id].name)}</b><small>${getCands(id).length} characters</small></span></button>`).join('')}</div>
+      <div class="note mashup-status">${getCands(cur).length} characters available${!selected.length ? ' · Select at least one pool to continue' : ''}</div>
+    </div>`;
+  })() : '';
+  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Harry Potter, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${mashupSelector}${renderGen()}`;
 }
 function champLimits() {
   const c = S.champ, n = getCands(c.poolId).length;
@@ -4301,8 +4427,8 @@ function buildCrossLeague(sportKey, userPoolId, userRoster, rng) {
   const P = SPORTS[sportKey].pos.length, sig = SEASONS[sportKey].sigma, [ke, klo, khi] = PERFECT_TIERS[sportKey];
   const C = poolCeiling(sportKey, userPoolId);
   const used = new Set(Object.values(userRoster).map(c => c.id));
-  const U = BUILTIN.filter(id => id !== 'mashup');
-  if (userPoolId === 'mashup') U.push('mashup');
+  const U = isMashupId(userPoolId) ? mashupSources(userPoolId) : BUILTIN.filter(id => id !== 'mashup');
+  if (isMashupId(userPoolId)) U.push(userPoolId);
   else if (!U.includes(userPoolId) && getPool(userPoolId)) U.push(userPoolId);
   const avail = u => getCands(u).filter(c => !used.has(c.id));
   // A team from one universe aimed at a strength target: the best lineup that universe can make from
@@ -4543,13 +4669,47 @@ function sideForPick(k, d) {
 }
 function forcedSlot(k, d) { return d.rules.style === 'position' ? (SPORTS[d.sport].pos[Math.floor(k / 2)] || {}).id || null : null; }
 function totalPicks(d) { return SPORTS[d.sport].pos.length * 2; }
+function h2hDealtHand(d,k=d.picks.length) {
+  if(d.rules?.style!=='hand')return [];
+  // Each pick's offer is derived from the same shuffled, contest-seeded deck.
+  // Both players see identical choices for that pick; refreshes cannot reroll.
+  const taken=new Set((d.picks||[]).map(p=>p.cid));
+  const deck=getCands(d.poolId).slice(),rng=rngFrom('h2h-hand|'+d.code+'|'+d.poolId);
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  const current=deck.slice(k*HAND_SIZE,(k+1)*HAND_SIZE).filter(c=>!taken.has(c.id));
+  if(current.length===HAND_SIZE)return current;
+  // Small pools may exhaust the unused deck before all 2x roster picks.
+  // Recycle *unpicked* candidates only, never drafted characters.
+  const seen=new Set(current.map(c=>c.id));
+  const remaining=deck.filter(c=>!taken.has(c.id)&&!seen.has(c.id));
+  const fallbackRng=rngFrom('h2h-hand-fallback|'+d.code+'|'+k);
+  for(let i=remaining.length-1;i>0;i--){const j=Math.floor(fallbackRng()*(i+1));[remaining[i],remaining[j]]=[remaining[j],remaining[i]];}
+  return current.concat(remaining.slice(0,HAND_SIZE-current.length));
+}
+function renderH2HHandPopup(d,me,k){
+  if(d.rules?.style!=='hand'||sideForPick(k,d)!==me||S.h2h.handPick)return '';
+  const cards=h2hDealtHand(d,k);
+  if(!cards.length)return '';
+  return `<div class="modal-back deal-popup-back h2h-deal-back">
+    <div class="modal board hand deal-popup" role="dialog" aria-modal="true" aria-label="Head-to-Head three-card hand">
+      <div class="deal-popup-heading"><div class="eyebrow">Head-to-Head · Dealt Hand · Pick ${k+1}</div>
+        <h2 class="h">Choose your character</h2>
+        <p>Select one of three cards, then place that character on an open court position. Your opponent gets their own three-card hand.</p></div>
+      <div class="hand-list dealing">${cards.map((c,i)=>handTradingCardHTML(c,false,i)
+        .replace('data-act="hand-pick"','data-act="h-hand-select"')
+        .replace('data-act="hand-info"','data-act="h-hand-info"')).join('')}</div>
+      <div class="deal-popup-actions"><span class="note">One of three · No redeals · Pick becomes final when placed</span></div>
+    </div>
+  </div>`;
+}
+
 function rosterOf(d, side) { const r = {}; for (const p of d.picks || []) if (p.s === side) { const c = candById(d.poolId, p.cid); if (c) r[p.slot] = c; } return r; }
 function h2hRoster(d,side) {return variantRoster({sport:d.sport,roster:rosterOf(d,side),surge:d.surges?.[side]||null});}
 function mySide(d) { const u = S.cap.uid; return !d || !u ? null : d.host === u ? 'host' : d.guest === u ? 'guest' : null; }
 function contestName(d, side) { return (d.names && d.names[side]) || suggestedTeamName(d.poolId, side === 'host' ? 0 : 1, side === 'host' ? 'Home team' : 'Away team'); }
 function timerLabel(t) { return !t ? 'No clock' : t < 60 ? t + 's per pick' : (t / 60) + ' min per pick'; }
 function rulesSummary(r) {
-  return [timerLabel(r.timer), r.order === 'snake' ? 'Snake order' : 'Alternating order', r.style === 'position' ? 'Position by position' : 'Any open spot', r.upsets === 'off' ? 'No upsets' : r.upsets === 'low' ? 'Occasional upsets' : 'Chaos upsets'].join(' · ');
+  return [timerLabel(r.timer), r.order === 'snake' ? 'Snake order' : 'Alternating order', r.style === 'hand' ? 'Dealt Hand · 3 cards' : r.style === 'position' ? 'Position by position' : 'Any open spot', r.upsets === 'off' ? 'No upsets' : r.upsets === 'low' ? 'Occasional upsets' : 'Chaos upsets'].join(' · ');
 }
 
 // ----- db wiring -----
@@ -4573,17 +4733,17 @@ function subscribePools() {
 }
 function openRoom(id) {
   if (unsubRoom) { unsubRoom(); unsubRoom = null; }
-  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.variantTarget=null; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
+  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.handPick=null; S.h2h.handInfoId=null; S.h2h.variantTarget=null; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
   unsubRoom = S.cap.db.doc('contests/' + id).onSnapshot(snap => {
     const prev = S.h2h.contest;
     S.h2h.contest = snap.exists ? { id: snap.id, ...snap.data() } : null;
     const d = S.h2h.contest;
-    if (d && prev && (prev.picks || []).length !== (d.picks || []).length) { S.h2h.sel = null; }
+    if (d && prev && (prev.picks || []).length !== (d.picks || []).length) { S.h2h.sel = null; S.h2h.handPick=null; S.h2h.handInfoId=null; }
     if (S.mode === 'h2h' && S.h2h.stage === 'room') render();
   }, () => { });
   render();
 }
-function leaveRoom() { if (unsubRoom) { unsubRoom(); unsubRoom = null; } S.h2h.stage = 'lobby'; S.h2h.cid = null; S.h2h.contest = null; render(); }
+function leaveRoom() { if (unsubRoom) { unsubRoom(); unsubRoom = null; } S.h2h.stage = 'lobby'; S.h2h.cid = null; S.h2h.contest = null; S.h2h.handPick=null; S.h2h.handInfoId=null; render(); }
 
 async function withLease(ref, fn) {
   // Short lease so the next player is never locked out for long; it lapses on its own.
@@ -4649,7 +4809,7 @@ async function cancelContest() {
 function autoChoice(d, side) {
   const k = d.picks.length, sp = SPORTS[d.sport], roster = rosterOf(d, side);
   const taken = new Set(d.picks.map(p => p.cid));
-  const avail = getCands(d.poolId).filter(c => !taken.has(c.id));
+  const avail = (d.rules.style === 'hand' ? h2hDealtHand(d,k) : getCands(d.poolId)).filter(c => !taken.has(c.id));
   const forced = forcedSlot(k, d);
   const slots = forced ? [sp.pos.find(p => p.id === forced)] : sp.pos.filter(p => !roster[p.id]).sort((a, b) => slotImp(d.sport, b) - slotImp(d.sport, a)).slice(0, 1);
   const pos = slots[0]; let best = null;
@@ -4671,15 +4831,17 @@ async function makePick(slot, cid, auto = false, expectK = null) {
       if (auto) { const ch = autoChoice(d, side); if (!ch) throw { code: 'stale' }; slot = ch.slot; cid = ch.cid; }
       const forced = forcedSlot(k, d);
       if (forced && slot !== forced) throw { code: 'forced' };
+      if (d.rules.style==='hand' && !h2hDealtHand(d,k).some(c=>c.id===cid)) throw {code:'invalid_hand'};
+      if (!SPORTS[d.sport].pos.some(p=>p.id===slot)) throw {code:'filled'};
       if (d.picks.some(p => p.cid === cid)) throw { code: 'gone' };
       if (d.picks.some(p => p.s === side && p.slot === slot)) throw { code: 'filled' };
       const picks = [...d.picks, { s: side, slot, cid, at: Date.now(), auto: !!auto }];
       const done = picks.length === totalPicks(d), now = Date.now();
       await ref.update({ picks, status: done ? 'powers' : 'drafting', deadline: done || !d.rules.timer ? 0 : now + d.rules.timer * 1000, updatedAt: now });
     });
-    S.h2h.sel = null; S.h2h.query = '';
+    S.h2h.sel = null; S.h2h.query = ''; S.h2h.handPick=null;
   } catch (e) {
-    const m = { turn: 'It’s not your pick yet.', gone: 'Just taken by your opponent. Pick someone else.', filled: 'You already filled that spot.', forced: 'This round fills a specific position.' }[e.code];
+    const m = { turn: 'It’s not your pick yet.', gone: 'Just taken by your opponent. Pick someone else.', filled: 'You already filled that spot.', forced: 'This round fills a specific position.', invalid_hand: 'This character is not in the current three-card hand.' }[e.code];
     if (m) toast(m); else if (e.code !== 'stale') toast(dbErr(e));
   } finally { picking = false; }
 }
@@ -4753,7 +4915,7 @@ function renderLobby() {
         ${segRow('Pick clock', 'timer', [[0, 'None'], [30, '30s'], [60, '60s'], [90, '90s'], [120, '2 min']])}
         ${segRow('Draft order', 'order', [['snake', 'Snake'], ['alt', 'Alternating']])}
         ${segRow('First pick', 'first', [['host', 'Me'], ['guest', 'Opponent'], ['coin', 'Coin flip']])}
-        ${segRow('Pick style', 'style', [['free', 'Any open spot'], ['position', 'Position by position']])}
+        ${segRow('Pick style', 'style', [['free', 'Any open spot'], ['position', 'Position by position'], ['hand', 'Dealt Hand · 3 cards']])}
         ${segRow('Upsets', 'upsets', [['off', 'Off'], ['low', 'Occasional'], ['high', 'Chaos']])}
       </div>
       <div class="cta-row"><button class="btn primary big" data-act="h-create" ${S.h2h.busy || !enough ? 'disabled' : ''}>Create contest</button><span class="note">You get a 5-letter code to send your opponent.</span></div>
@@ -4793,28 +4955,46 @@ function renderRoom() {
   const taken = new Map(); for (const p of d.picks) taken.set(p.cid, p.s === me ? 'Your ' + sp.pos.find(x => x.id === p.slot).ab : contestName(d, p.s));
   const left = d.deadline ? Math.max(0, Math.ceil((d.deadline - Date.now()) / 1000)) : null;
   const clock = `<div class="clock"><div><div class="pickno">Pick ${k + 1} of ${totalPicks(d)}${forced ? ' · ' + sp.pos.find(p => p.id === forced).nm + ' round' : ''}</div><div class="who ${myTurn ? 'me' : ''}">${myTurn ? 'You’re on the clock' : esc(contestName(d, onSide)) + ' on the clock'}</div></div>${left != null ? `<div class="time num ${left <= 10 ? 'low' : ''}" id="clock-time">${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}</div>` : `<div class="time num" style="font-size:14px;opacity:.7">No clock</div>`}</div>`;
-  const sel = S.h2h.sel;
-  const picker = sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : `<div class="panel"><div class="sec"><h3 class="h">Draft log</h3><span class="note">${k} picks</span></div><div class="log">${d.picks.length ? [...d.picks].reverse().map((p, i) => { const c = candById(d.poolId, p.cid); const pos = sp.pos.find(x => x.id === p.slot); return `<div><span class="k">${k - i}</span><span class="pos-dot" style="background:${p.s === me ? 'var(--you)' : 'var(--opp)'}"></span><span><b>${esc(c ? c.n : '?')}</b> <span class="muted">${pos.ab} · ${esc(contestName(d, p.s))}${p.auto ? ' · auto' : ''}</span></span></div>`; }).join('') : '<div class="muted">No picks yet.</div>'}</div>
-      <div class="sec" style="border-top:1px solid var(--line);border-bottom:0"><span class="note">${myTurn ? 'Tap an open spot on your ' + (sp.surface === 'vball' ? 'court' : sp.surface) + ' to pick.' : 'Tap any spot to scout candidates while you wait.'}</span></div></div>`;
-  return head(`<span class="chip" style="color:var(--you)"><span class="dot"></span>${esc(me ? contestName(d, me) : contestName(d, 'host'))}</span><span class="chip" style="color:var(--opp)"><span class="dot"></span>${esc(contestName(d, me ? oppSide : 'guest'))}</span>`) + clock +
-    `<div class="board h2h"><div><div class="mini-head"><b>${me ? 'Your team' : esc(contestName(d, 'host'))}</b><span class="num muted">${Object.keys(myR).length}/${sp.pos.length}</span></div>${renderField(d.sport, myR, { sel, interactive: !!me, forced: myTurn ? forced : null, lockFilled: true })}</div>
-     <div><div class="mini-head"><b>${esc(contestName(d, oppSide))}</b><span class="num muted">${Object.keys(oppR).length}/${sp.pos.length}</span></div>${renderField(d.sport, oppR, { team: 'opp', interactive: false })}</div>
-     <div>${picker}</div></div>`;
+  const handMode=d.rules.style==='hand';
+  const handCharacter=handMode&&myTurn?h2hDealtHand(d,k).find(c=>c.id===S.h2h.handPick):null;
+  if(handMode&&!handCharacter)S.h2h.handPick=null;
+  const sel = handMode?null:S.h2h.sel;
+  const picker = !handMode&&sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : '';
+  const handBar=handMode ? `<div class="h2h-hand-selection">${handCharacter
+    ? `<span><b>Selected:</b> ${esc(handCharacter.n)} · Tap an empty position to place</span><button class="btn small" data-act="h-hand-reselect">Reselect card</button>`
+    : `<span>${myTurn?'Choose one of your three cards to continue':'Opponent is choosing from their hand'}</span>`}</div>` : '';
+  return head('') + clock + handBar + renderH2HCourt(d,me||'host',false,sel,myTurn?forced:null) + picker
+    + (handMode?renderH2HHandPopup(d,me,k):'');
+}
+function renderH2HCourt(d,side,powers=false,sel=null,forced=null){
+  const sp=SPORTS[d.sport],opp=side==='host'?'guest':'host',showOpp=!!S.h2h.viewOpp;
+  const myR=powers?h2hRoster(d,side):rosterOf(d,side);
+  const oppR=powers?h2hRoster(d,opp):rosterOf(d,opp);
+  const shown=showOpp?opp:side,roster=showOpp?oppR:myR;
+  const canSurge=powers&&!showOpp&&!!mySide(d)&&!d.powerReady?.[side]&&!d.surges?.[side];
+  const eligible=canSurge?new Set(variantSurgeCandidates({sport:d.sport,roster:myR,surge:null}).map(c=>c.id)):new Set();
+  const eligibleSlots=new Set(Object.entries(myR).filter(([,c])=>eligible.has(c?.id)).map(([slot])=>slot));
+  const picks=Object.entries(showOpp?myR:oppR);
+  return `<div class="h2h-court-layout">
+    <div class="h2h-main-court"><div class="mini-head"><b>${showOpp?esc(contestName(d,opp)): 'Your team'}</b><span class="num muted">${Object.keys(roster).length}/${sp.pos.length}</span></div>
+      ${renderField(d.sport,roster,{sel:showOpp?null:sel,interactive:!powers&&!showOpp,forced:!showOpp?forced:null,lockFilled:!powers,team:showOpp?'opp':undefined,variantSlots:eligibleSlots})}</div>
+    <aside class="h2h-opponent-rail">
+      <button class="h2h-rail-toggle" type="button" data-act="h-toggle-court" aria-pressed="${showOpp}">
+        <b>${showOpp?'Your picks':esc(contestName(d,opp))}</b><span>${showOpp?'View your court':'View opponent court'} ↔</span>
+      </button>
+      <div class="h2h-rail-picks">${sp.pos.filter(p=>picks.some(([slot])=>slot===p.id)).map(p=>{const c=(showOpp?myR:oppR)[p.id];return `<div class="h2h-rail-pick"><span class="h2h-rail-position">${esc(p.ab)}</span><span>${esc(c?.n||'')}</span></div>`;}).join('')||'<span class="note">No picks yet</span>'}</div>
+    </aside>
+  </div>`;
 }
 function renderH2HPowers(d){
-  const me=mySide(d),opp=me==='guest'?'host':'guest';
-  const myR=rosterOf(d,me||'host'),theirR=rosterOf(d,opp);
-  const ready=!!(me&&d.powerReady?.[me]);
-  const v={sport:d.sport,roster:myR,surge:me?d.surges?.[me]||null:null,variantTarget:S.h2h.variantTarget};
-  const status=me?(ready?'Your abilities are locked. Waiting for opponent.':'Activate your optional Surge, then lock your lineup to begin the match.'):'Players are locking their abilities.';
-  return `<section>
-    <div class="panel" style="padding:16px;margin-bottom:14px"><h2 class="h">Final ability lock-in</h2><p class="note">${status} Each team can use Variant Surge once, or skip it. The match starts only after both players lock.</p>
-      <div class="row"><span class="chip">Host: ${d.powerReady?.host?'Locked':'Choosing'}</span><span class="chip">Guest: ${d.powerReady?.guest?'Locked':'Choosing'}</span></div>
-    </div>
-    ${me&&!ready?renderVariantSurgePanel(v,'h-variant','h-variant-target',true,'match'):me&&ready?'<div class="panel" style="padding:14px;margin-bottom:14px"><b>Your lineup is locked.</b></div>':''}
-    ${me&&!ready?'<div class="cta-row"><button class="btn primary" data-act="h-ready">Lock lineup & start match</button><span class="note">You can skip the Surge.</span></div>':''}
-    <div class="board h2h"><div><div class="mini-head"><b>${esc(contestName(d,me||'host'))}</b></div>${renderField(d.sport,h2hRoster(d,me||'host'),{interactive:false})}</div>
-    <div><div class="mini-head"><b>${esc(contestName(d,opp))}</b></div>${renderField(d.sport,h2hRoster(d,opp),{team:'opp',interactive:false})}</div></div>
+  const me=mySide(d)||'host',ready=!!d.powerReady?.[me];
+  const canChoose=!!mySide(d)&&!ready&&!d.surges?.[me];
+  const slots=variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,me),surge:d.surges?.[me]||null});
+  const target=S.h2h.variantTarget,selected=slots.find(c=>c.id===target);
+  return `<section class="h2h-ability-phase">
+    ${mySide(d)?`<div class="h2h-ready-actions"><span class="note">${ready?'Ready · waiting for opponent':d.surges?.[me]?'Variant used · confirm to play':'Optional Variant Surge'}</span>${!ready?`<button class="btn primary" data-act="h-ready">${d.surges?.[me]?'Finalize & view results':'Skip Surge · Finalize'}</button>`:''}</div>`:''}
+    ${renderH2HCourt(d,me,true)}
+    ${canChoose&&selected?`<div class="h2h-variant-shade" data-act="h-variant-cancel"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p>Use Variant Surge on <b>${esc(selected.n)}</b>?</p><div class="row"><button class="btn" data-act="h-variant-cancel">Cancel</button><button class="btn primary" data-act="h-variant-confirm">Use Variant Surge</button></div></div></div>`:''}
   </section>`;
 }
 function renderH2HResult(d) {
@@ -4830,13 +5010,14 @@ function renderH2HResult(d) {
 
   const yours=g.winner===(me==='host'?0:1)?g.line[0]:g.line[1];
   const theirs=g.winner===(opp==='host'?0:1)?g.line[0]:g.line[1];
-  const breakdown=daMatchBreakdown(g.breakdown,sc[me],sc[opp],contestName(d,me),contestName(d,opp));
+  const combat=g.combat&&(me==='host'?g.combat:{...g.combat,sides:[...g.combat.sides].reverse(),winner:1-g.combat.winner});
+  const breakdown=daMatchBreakdown(g.breakdown,A,B,contestName(d,'host'),contestName(d,'guest'),null,g.combat);
   const summary=recapPanel(h2hRecap(d.sport,sc[me],sc[opp],contestName(d,me),contestName(d,opp),spectator?winSide==='host':iWon,g.line,UPSET_SIGMA[d.rules.upsets]||0,getCands(d.poolId),d.id,(g.ev||[]).map(e=>({...e,team:(e.side===0)===(me==='host')?0:1}))));
   return `<section class="da-results-screen">
     <div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${esc(sp.name)} · Head-to-Head</span><div class="big">${title}</div></div>
     <div class="cta-row">${mySide(d)?'<button class="btn primary" data-act="h-rematch">Rematch</button>':''}<button class="btn" data-act="h-lobby">Back to lobby</button></div>
     ${sc[me].muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${sc[me].muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${sc[me].muppetTeam.performers} Muppet(s) increased team rating by ${sc[me].muppetTeam.points.toFixed(2)} points beyond their personal role-fit multipliers.</p></div>`:''}
-    ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,breakdown,summaryHTML:summary})}
+    ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,combat,breakdown,summaryHTML:summary})}
   </section>`;
 }
 async function rematch() {
@@ -5061,6 +5242,12 @@ document.addEventListener('keydown', e => {
   }
 });
 function renderHandInfo() {
+  if(S.mode==='h2h'&&S.h2h.handInfoId){
+    const d=S.h2h.contest,c=d&&h2hDealtHand(d).find(x=>x.id===S.h2h.handInfoId);
+    if(!c)return '';
+    const origin=campaignOrigin(c);
+    return `<div class="modal-back hand-info-back" data-act="h-hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(c.n)}</h2><button class="btn small" data-act="h-hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
+  }
   if(S.mode!=='deal' || !S.handInfoId) return '';
   const character = (S.champ.hand||[]).find(c=>c.id===S.handInfoId);
   if(!character)return '';
@@ -5089,7 +5276,50 @@ function fitHandCardNames() {
 }
 window.addEventListener('resize', fitHandCardNames);
 
+// Head-to-Head result accordion state survives room snapshots and DOM rerenders.
+function h2hResultAccordionKey(){
+  const d=S.h2h.contest;
+  return S.mode==='h2h'&&S.h2h.stage==='room'&&d?.status==='complete'
+    ? String(S.h2h.cid||d.id||'') : null;
+}
+const H2H_RESULT_ACCORDIONS={stats:'.da-detail-toggle',summary:'.da-summary-toggle',calculation:'.da-inner-details'};
+function captureH2HAccordions(key){
+  if(!key)return;
+  if(S.h2h.resultAccordionKey!==key){
+    S.h2h.resultAccordionKey=key;
+    S.h2h.resultAccordions={stats:false,summary:false,calculation:false};
+    return;
+  }
+  const root=document.querySelector('.da-results-screen');
+  if(!root)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    const el=root.querySelector(selector);
+    if(el)S.h2h.resultAccordions[name]=el.open;
+  }
+}
+function restoreH2HAccordions(key){
+  if(!key||S.h2h.resultAccordionKey!==key)return;
+  const root=document.querySelector('.da-results-screen');
+  if(!root)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    const el=root.querySelector(selector);
+    if(el)el.open=!!S.h2h.resultAccordions[name];
+  }
+}
+// Record native toggle events too; on mobile they can occur close to an incoming snapshot.
+document.addEventListener('toggle',e=>{
+  const el=e.target;
+  const key=h2hResultAccordionKey();
+  if(!key||!el?.isConnected||!el.matches?.('details'))return;
+  if(!el.closest('.da-results-screen')||S.h2h.resultAccordionKey!==key)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    if(el.matches(selector))S.h2h.resultAccordions[name]=el.open;
+  }
+},true);
 function render() {
+  const accordionKey=h2hResultAccordionKey();
+  if(accordionKey)captureH2HAccordions(accordionKey);
+  else {S.h2h.resultAccordionKey=null;S.h2h.resultAccordions=null;}
   const scrollX=window.scrollX,scrollY=window.scrollY;
   const tracked=['.app','main','.board-side','.board > div:first-child','#camp-plist','#plist'];
   const scrollState=tracked.map(selector=>({selector,top:document.querySelector(selector)?.scrollTop,left:document.querySelector(selector)?.scrollLeft}));
@@ -5100,10 +5330,11 @@ function render() {
   else if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && ['drafting','powers'].includes(S.h2h.contest?.status);
+  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
+  restoreH2HAccordions(accordionKey);
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
     const el=document.querySelector(selector);
@@ -5360,6 +5591,21 @@ document.addEventListener('click', e => {
     case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
+    case 'mashup-toggle': case 'mashup-all': case 'mashup-clear': {
+      const isH2H=t.dataset.scope==='h', current=isH2H?h.form.poolId:c.poolId;
+      if (!isMashupId(current)) break;
+      const currentSources=mashupSources(current);
+      const chosen=a==='mashup-all' ? MASHUP_SOURCES.slice() :
+        a==='mashup-clear' ? [] :
+        currentSources.includes(t.dataset.pool)
+          ? currentSources.filter(id=>id!==t.dataset.pool)
+          : [...currentSources,t.dataset.pool];
+      const next=mashupPoolId(chosen);
+      if (next===current) break;
+      if (isH2H) { h.form.poolId=next; lsSet('da.h2hform',h.form); }
+      else { c.poolId=next; resetDraft(); }
+      break;
+    }
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
     case 'c-rivals': if (c.rivals !== t.dataset.v) { c.rivals = t.dataset.v; if (c.queue) resetDraft(); } break;
     case 'hand-info': S.handInfoId = t.dataset.cid; break;
@@ -5401,6 +5647,11 @@ document.addEventListener('click', e => {
         placeFromHand(slot, c.handSel);
       }
       else if (S.mode === 'champ') { c.sel = t.dataset.slot; c.query = ''; }
+      else if(h.contest?.rules?.style==='hand'){
+        const d=h.contest,slot=t.dataset.slot,side=mySide(d),k=d.picks.length;
+        if(d.status==='drafting'&&side===sideForPick(k,d)&&h.handPick&&!rosterOf(d,side)[slot])
+          {makePick(slot,h.handPick,false,k);return;}
+      }
       else { h.sel = t.dataset.slot; h.query = ''; }
       break;
     case 'c-close': c.sel = null; break;
@@ -5435,7 +5686,27 @@ document.addEventListener('click', e => {
     case 'h-cancel': cancelContest(); return;
     case 'h-close': h.sel = null; break;
     case 'h-pick': if (h.sel) makePick(h.sel, t.dataset.cid); return;
+    case 'h-hand-select': {
+      const d=h.contest,k=d?.picks?.length||0;
+      if(d?.status==='drafting'&&d.rules?.style==='hand'&&sideForPick(k,d)===mySide(d)&&h2hDealtHand(d,k).some(c=>c.id===t.dataset.cid)) {
+        h.handPick=t.dataset.cid;h.handInfoId=null;h.viewOpp=false;
+      }
+      break;
+    }
+    case 'h-hand-reselect': h.handPick=null;h.handInfoId=null;break;
+    case 'h-hand-info': h.handInfoId=t.dataset.cid;break;
+    case 'h-hand-info-close': h.handInfoId=null;break;
     case 'h-copy-invite': copyText(t.dataset.text); return;
+    case 'h-toggle-court': h.viewOpp=!h.viewOpp; break;
+    case 'h-variant-open': {
+      const d=h.contest,side=d&&mySide(d);
+      if(!d||d.status!=='powers'||!side||d.powerReady?.[side]||d.surges?.[side])break;
+      const c=rosterOf(d,side)[t.dataset.slot];
+      if(c&&variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,side),surge:null}).some(v=>v.id===c.id))h.variantTarget=c.id;
+      break;
+    }
+    case 'h-variant-cancel': h.variantTarget=null; break;
+    case 'h-variant-confirm': h.variantTarget&&void useH2HVariant().then(()=>{h.variantTarget=null;render();}); return;
     case 'h-variant': void useH2HVariant(); return;
     case 'h-ready': void lockH2HAbilities(); return;
     case 'h-rematch': rematch(); return;
