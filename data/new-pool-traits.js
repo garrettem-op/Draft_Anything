@@ -31,14 +31,14 @@
  women:{
    muppets:"Miss Piggy|Camilla the Chicken|Janice|Hilda|Annie Sue|Gladys the Cow|Abby Cadabby|Zoe|Rosita|Prairie Dawn|Curly Bear|Bernice|Ji-Young|Grundgetta|Mokey Fraggle|Red Fraggle|Ma Gorg|Cotterpin Doozer|Ma Otter",
    games:"Princess Peach|Zelda|Samus Aran|Amy Rose|Cortana|Ellie|Aloy|Lara Croft|Yennefer|Ciri|Jill Valentine|Tifa Lockhart|Aerith Gainsborough|Chun-Li|Ms. Pac-Man|Bayonetta|Isabelle|Jinx|Tracer|Widowmaker|Sarah Kerrigan|Chell|Alyx Vance|GLaDOS",
-   toons:"Lola Bunny|Minnie Mouse|Mulan|Moana|Elsa|Anna|Ariel|Ursula|Belle|Esmeralda|Lilo|Snow White|Cinderella|Maleficent|Jasmine|Violet|Elastigirl|Edna Mode|Tigress|Sandy Cheeks|Marge Simpson|Lisa Simpson|Velma|Katara|Toph Beifong|Blossom|Bubbles|Buttercup|Lucy van Pelt|Peppermint Patty|Bluey|Vanellope von Schweetz",
+   toons:"Lola Bunny|Minnie Mouse|Mulan|Moana|Elsa|Anna|Ariel|Ursula|Belle|Esmeralda|Lilo|Snow White|Cinderella|Maleficent|Jasmine|Violet|Elastigirl|Edna Mode|Tigress|Sandy Cheeks|Marge Simpson|Lisa Simpson|Velma|Katara|Toph Beifong|Blossom|Bubbles|Buttercup|Lucy van Pelt|Peppermint Patty|Bluey",
    pokemon:"Nidoran♀|Nidorina|Nidoqueen|Kangaskhan|Jynx|Chansey",
    starwars:"Leia Organa|Padmé Amidala|Rey|Ahsoka Tano|Aayla Secura|Asajj Ventress|Reva|Jyn Erso|Mon Mothma|Hera Syndulla|Sabine Wren|Rose Tico|Admiral Holdo|Maz Kanata|Bo-Katan Kryze|Fennec Shand|Aurra Sing|Cara Dune|Captain Phasma|Omega|Qi'ra|Enfys Nest"
  },
  kids:{
    muppets:"Elmo|Abby Cadabby|Zoe|Baby Bear|Robin the Frog|Curly Bear|Ji-Young|Little Bird",
    games:"Atreus|Ellie|Ness|Ash Ketchum",
-   toons:"Dash|Violet|Jack-Jack|Bluey|Bart Simpson|Lisa Simpson|Morty|Blossom|Bubbles|Buttercup|Aang|Katara|Toph Beifong|Sokka|Zuko|Vanellope von Schweetz|Lilo|Charlie Brown|Lucy van Pelt|Peppermint Patty|Peter Pan|Dexter",
+   toons:"Dash|Violet|Bluey|Bart Simpson|Lisa Simpson|Morty|Blossom|Bubbles|Buttercup|Aang|Katara|Toph Beifong|Sokka|Zuko|Lilo|Charlie Brown|Lucy van Pelt|Peppermint Patty|Peter Pan|Dexter",
    starwars:"Grogu|Omega|Ezra Bridger"
  },
  mortal:{
@@ -50,7 +50,7 @@
    mcu:"Iron Man|Spider-Man|Scarlet Witch|Vision|Red Guardian|Red Skull|Daredevil|Deadpool|Human Torch|Star-Lord",
    toons:"Lightning McQueen|Mr. Incredible|Elastigirl|Blossom|Optimus Prime|Raphael|Mickey Mouse|Minnie Mouse|Yosemite Sam|Mr. Krabs|Mushu|Sebastian|Ariel|Lisa Simpson",
    muppets:"Animal|Elmo|Red Fraggle|Frazzle",
-   games:"Mario|Knuckles|Diddy Kong|Amy Rose|Blinky|Dante|M. Bison|Incineroar|Wreck-It Ralph",
+   games:"Mario|Knuckles|Diddy Kong|Amy Rose|Blinky|Dante|M. Bison|Wreck-It Ralph",
    pokemon:"Charmeleon|Krabby|Kingler|Magmar|Voltorb|Electrode|Paras|Parasect|Vileplume|Jynx|Flareon",
    starwars:"Darth Maul",
    dc:"Red Robin (Tim Drake)|Batwoman"
