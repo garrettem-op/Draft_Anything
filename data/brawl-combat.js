@@ -44,7 +44,7 @@
       id:c.id,name:c.n,position:row.pos.id,side,tank,
       ability,physicalTier,wardHp,
       attack,armor,fit,maxHp,hp:maxHp,
-      accuracy:a('acc'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
+      accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
       powerUses:0,powerDmg:0,wear:0,roundsAlive:0,receivedHits:0,koRound:0,
@@ -108,10 +108,20 @@
         const target=pickTarget(enemies,rng);
         f.attacks++;attacks++;
         const p=f.ability;
-        const signature=!!p&&((round-1)%p.cooldown===0);
+        // Extremely high-tier, non-physical entities primarily act through
+        // powers rather than ordinary punches. Their limited spell cadence
+        // is quicker; this does not create a free automatic knockout.
+        const highOrder=!!p&&p.tier>=5&&
+          ['reality','cosmic','magic','elemental'].includes(p.domain);
+        const cooldown=highOrder&&f.physicalTier===1?Math.min(2,p.cooldown):p?.cooldown;
+        const signature=!!p&&((round-1)%cooldown===0);
         if(signature)f.powerUses++;
-        const hitChance=clamp(.79+.0014*(f.accuracy-target.reflex)+
+        let hitChance=clamp(.79+.0014*(f.accuracy-target.reflex)+
           .0011*(f.speed-target.agility),.53,.97);
+        // Reality alteration / spellcasting is not hand-eye marksmanship.
+        if(signature&&['reality','cosmic','magic'].includes(p.domain))
+          hitChance=Math.max(hitChance,clamp(.78+.025*(p.tier-3)+
+            .0005*(f.focus-target.reflex),.66,.94));
         if(rng()>hitChance){
           log({round,type:'miss',attacker:f.id,side:f.side,target:target.id,
             move:signature?p.move:'Standard attack'});
