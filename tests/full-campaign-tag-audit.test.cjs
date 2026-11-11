@@ -13,7 +13,9 @@ test('tag audit uses every Campaign rule, every power family and all four legacy
  assert.equal(tax.rules.length,34);
  assert.equal(new Set(tax.rules.map(x=>x.rule)).size,34);
  assert.deepEqual(tax.traitTags.sort(),['women','red','kids','mortal'].sort());
- assert.deepEqual(tax.abilityTags.sort(),['flight','magic','psychic','aquatic','fire','ice','electric','tech','stealth','teleport','healing','giants'].sort());
+ for(const broad of ['flight','magic','psychic','aquatic','fire','ice','electric','tech','stealth','teleport','healing','giants']) assert.ok(tax.abilityTags.includes(broad),'missing broad '+broad);
+ assert.ok(tax.abilityTags.includes('natural-flight'),'granular flight evidence must be represented');
+ assert.ok(tax.abilityTags.includes('heals-others'),'granular healing evidence must be represented');
  assert.ok(tax.rules.find(x=>x.rule==='fast').conditions.some(x=>x.key==='spd'&&x.value===90));
  assert.ok(tax.rules.find(x=>x.rule==='final').conditions.some(x=>x.scope==='roster'));
  assert.ok(tax.rules.find(x=>x.rule==='muppetforce').conditions.some(x=>x.kind==='muppetforce'&&x.value===65));
