@@ -67,8 +67,8 @@ test('committed audit snapshot matches the entire live roster and every variant;
  assert.deepEqual(snapshot.forms,report.forms);
 });
 
-test('unconfirmed research-queue claims cannot silently enter the canonical Campaign tags',()=>{
- const {CHARACTER_ABILITY_TAGS}=require('../data/character-abilities.js');
+test('newly reviewed source grants are recorded with the correct continuity and cannot be silently dropped',()=>{
+ const {CHARACTER_ABILITY_TAGS,CHARACTER_ABILITIES}=require('../data/character-abilities.js');
  const cases=[
   ['dc','Nightwing','stealth'],['dc','Red Hood','stealth'],
   ['dc','Batgirl (Barbara Gordon)','stealth'],['dc','Batwoman','stealth'],
@@ -78,6 +78,8 @@ test('unconfirmed research-queue claims cannot silently enter the canonical Camp
   ['lotr','Gothmog (Lord of Balrogs)','giants'],
   ['harrypotter','Hermione Granger','flight']
  ];
- for(const [pool,name,tag] of cases)
-   assert.equal(CHARACTER_ABILITY_TAGS[pool][name].includes(tag),false,pool+':'+name+' must remain on the research queue');
+ for(const [pool,name,tag] of cases){
+   assert.equal(CHARACTER_ABILITY_TAGS[pool][name].includes(tag),true,pool+':'+name+' grant missing');
+   assert.ok(CHARACTER_ABILITIES[pool+':'+name].some(r=>r.tag===tag&&r.feat&&r.source),pool+':'+name+' missing source-linked feat');
+ }
 });
