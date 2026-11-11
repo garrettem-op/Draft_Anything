@@ -305,7 +305,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
     // Native nested details avoid an additional dialog and explain the actual
     // per-character outcome; never claim DMG is an immutable lore attribute.
     let explanation='';
-    if(log&&r.active){
+    if(log&&typeof log.attacks==='number'){
       const hits=Number(log.hits)||0,attempts=Number(log.attacks)||0;
       const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg).slice(0,3);
       const why=[
