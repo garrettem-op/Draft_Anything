@@ -24,12 +24,17 @@
     const attack=9+.31*power+.32*fit+.10*a('spd');
     const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+.58*a('siz')+.24*fit+(tank?64:0));
     const c=row.cand;
+    // A physical combat tier is distinct from magic/reality technique tiers.
+    // This reduces conventional blows against opponents with established
+    // extreme bodies without accidentally ranking all cosmic spells as fists.
+    const physicalTier=a('str')>=90&&a('end')>=85?3:
+      a('str')>=75&&a('end')>=70?2:1;
     let toon=null,muppet=null;
     if(typeof toonForceOf==='function')toon=toonForceOf(c);
     if(typeof muppetForceOf==='function')muppet=muppetForceOf(c);
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
-      ability:abilityFor(c),
+      ability:abilityFor(c),physicalTier,
       attack,armor,fit,maxHp,hp:maxHp,
       accuracy:a('acc'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
@@ -118,6 +123,17 @@
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
         if(signature&&target.ability?.guard?.includes(domain))block+=raw*.13;
         if(signature&&target.ability?.weakTo?.includes(domain))block-=raw*.12;
+        // A non-superhuman punch or gadget does not routinely punch through
+        // invulnerable physiology. Toon physics uses its own resilience model.
+        // Signature reality/cosmic/magic attacks bypass the *physical* gap;
+        // their own specific domain guards still apply above.
+        const physicalAttack=!signature||['melee','toxin','tech','physical'].includes(domain);
+        if(physicalAttack&&!f.toon){
+          const gap=Math.max(0,target.physicalTier-f.physicalTier);
+          block+=raw*Math.min(.32,.11*gap);
+        }
+        if(signature&&domain==='toxin'&&target.physicalTier===3)
+          block+=raw*.10; // delivery to extreme physiologies is less reliable
         const prevented=Math.min(raw-1,Math.max(0,Math.round(block)));
         const incoming=Math.max(1,raw-prevented);
         const dealt=Math.min(target.hp,incoming);
@@ -154,6 +170,7 @@
           attacks:f.attacks,hits:f.hits,hp:f.hp,maxHp:f.maxHp,
           roundsAlive:f.roundsAlive,receivedHits:f.receivedHits,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
+          physicalTier:f.physicalTier,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
           wear:f.wear,koRound:f.koRound,targets:f.targets
