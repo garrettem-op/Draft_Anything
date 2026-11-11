@@ -46,7 +46,7 @@ const CAMPAIGN_RULE_CRITERIA = Object.freeze(Object.fromEntries(
   [...CAMPAIGN_STAGES,...CAMPAIGN_EXTRA].map(stage=>[stage.rule,stage.criteria])
 ));
 function campaignCriteria(rule){return CAMPAIGN_RULE_CRITERIA[rule]||null;}
-function campaignHasTheme(rule){return !!campaignCriteria(rule)?.acceptedTags?.length;}
+function campaignHasTheme(rule){return !!campaignCriteria(rule)?.acceptedTags?.length;} // Only these currently have server-side AI appeal support.
 // A commander may meet a themed challenge through demonstrated tactical expertise
 // rather than personal physical traits. Only the actual Commander/Coach slot may
 // use these universe-scoped exceptions. Identity, age, power-ban, size and reuse
@@ -382,12 +382,12 @@ function campaignNewOrder(sport='basketball'){
   return [...picked,last];
 }
 const CAMPAIGN_WOMEN=new Set('Black Widow|Scarlet Witch|Captain Marvel|Gamora|Nebula|Mantis|The Wasp|Janet van Dyne|Kate Bishop|Okoye|Ayo|Shuri|Nakia|Ironheart|Valkyrie|Hela|Sif|Pepper Potts|Ms. Marvel|She-Hulk|Yelena Belova|Taskmaster|Sharon Carter|Agatha Harkness|Maria Hill|Peggy Carter|Darcy Lewis|Ghost|MJ|Aunt May|Thena|Makkari|Ajak|Sersi|Sprite|Monica Rambeau|America Chavez|Echo|Jessica Jones|Elektra|Jean Grey|Invisible Woman|Silver Surfer|Captain Carter|Lola Bunny|Minnie Mouse|Daisy Duck|Elsa|Moana|Mulan|Violet|Elastigirl|Sandy Cheeks|Lisa Simpson|Marge Simpson|Velma|Lucy van Pelt|Peppermint Patty|Blossom|Bubbles|Buttercup|Katara|Toph Beifong|Tigress|Bluey|Anna|Vanellope von Schweetz|Princess Peach|Princess Daisy|Rosalina|Samus Aran|Zelda|Princess Zelda|Lara Croft|Chun-Li|Sonya Blade|Kitana|Mileena|Bayonetta|Jill Valentine|Ada Wong|Ellie|Aloy|Jasmine|Ariel|Ursula|Belle|Esmeralda|Lilo|Maleficent|Snow White|Cinderella'.split('|'));
-const CAMPAIGN_RED=new Set('Iron Man|Spider-Man|Scarlet Witch|Vision|Red Guardian|Red Skull|Daredevil|Deadpool|Human Torch|Star-Lord|Carnage|Mario|Knuckles|Diddy Kong|Donkey Kong|Raphael|Lightning McQueen|Mr. Incredible|Elastigirl|Blossom|Optimus Prime|Zuko|Yosemite Sam|Mr. Krabs|Anger|Incineroar|Scorpion|Flash|The Flash|Ant-Man|Wreck-It Ralph|Mickey Mouse|Sebastian|Mushu|Captain Hook|Ariel'.split('|'));
+const CAMPAIGN_RED=new Set('Iron Man|Spider-Man|Scarlet Witch|Vision|Red Guardian|Red Skull|Daredevil|Deadpool|Human Torch|Star-Lord|Carnage|Mario|Knuckles|Diddy Kong|Raphael|Lightning McQueen|Mr. Incredible|Elastigirl|Blossom|Optimus Prime|Zuko|Yosemite Sam|Mr. Krabs|Anger|Incineroar|Flash|The Flash|Ant-Man|Wreck-It Ralph|Mickey Mouse|Sebastian|Mushu|Captain Hook|Ariel'.split('|'));
 const CAMPAIGN_KIDS=new Set('Spider-Man|Ms. Marvel|Ironheart|America Chavez|Sprite|Franklin Richards|Dash|Violet|Jack-Jack|Blossom|Bubbles|Buttercup|Bluey|Bingo|Bart Simpson|Lisa Simpson|Charlie Brown|Lucy van Pelt|Peppermint Patty|Aang|Toph Beifong|Zuko|Katara|Sokka|Morty|Ned Leeds|MJ|Vanellope von Schweetz|Ness|Lucas|Ash Ketchum|Pokémon Trainer|Young Link|Kid Link|Baby Mario|Baby Luigi|Dora the Explorer|Jimmy Neutron|Dexter|Timmy Turner|Penny Proud|Phineas|Ferb|Stewie Griffin|Maggie Simpson|Huey|Dewey|Louie|Lincoln Loud|Lilo|Peter Pan|Ariel'.split('|'));
 const CAMPAIGN_MORTAL=new Set('Black Widow|Hawkeye|Kate Bishop|Falcon|Happy Hogan|Howard Stark|Nick Fury|Maria Hill|Phil Coulson|Peggy Carter|Jimmy Woo|Darcy Lewis|Sharon Carter|Yelena Belova|Zemo|Katy|MJ|Ned Leeds|Aunt May|Kingpin|The Punisher|Mulan|Phil|Tarzan|Fred Jones|Velma|Shaggy|Hank Hill|Bob Belcher|Sokka|Marge Simpson|Lisa Simpson|Bart Simpson|Charlie Brown|Peppermint Patty|Moana|Edna Mode|Porky Pig|Minnie Mouse|Lola Bunny|Aladdin|Jasmine|Belle|Gaston|Quasimodo|Esmeralda|Frollo|Phoebus|Shan Yu|Anna|Lilo|Captain Hook|Snow White|Cinderella'.split('|'));
 // Pokémon and Star Wars characters for the themed stages.
 for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secura','Asajj Ventress','Reva','Jyn Erso','Mon Mothma','Hera Syndulla','Sabine Wren','Rose Tico','Admiral Holdo','Maz Kanata','Bo-Katan Kryze','Fennec Shand','Aurra Sing','Cara Dune','Captain Phasma','Omega',"Qi'ra",'Enfys Nest','Nidoran♀','Nidorina','Nidoqueen','Chansey','Kangaskhan','Jynx']) CAMPAIGN_WOMEN.add(n);
-for (const n of ['Darth Maul','Savage Opress','Charmander','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
+for (const n of ['Darth Maul','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
 function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},surge:null,variantTarget:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
@@ -429,11 +429,30 @@ function campaignWinUses(id){return S.campaign.history.reduce((n,h)=>n+(h.ids||[
 function campaignPickAllowed(c,rule,pos){return campaignWinUses(c.id)<2&&campaignAllowed(c,rule,pos);}
 // Identity/color/age classifications remain their own legacy trait source.
 // No themed challenge reads a character name, description or research keywords.
-function campaignTraitAllowed(c,trait){
+const CAMPAIGN_TRAIT_LABELS=Object.freeze({
+  women:'Female character',red:'Predominantly red or distinctively red character design',
+  kids:'Child or teenage character in the drafted continuity',
+  mortal:'Non-superpowered character (ordinary human physiology/skills)'
+});
+const CAMPAIGN_LEGACY_POOLS=new Set(['mcu','toons','muppets','games','pokemon','starwars']);
+// Legacy lists stay as a compatibility layer until each legacy grant has been
+// individually promoted to a universe-scoped, documented taxonomy entry.
+function campaignTraitEvidence(c,trait){
+  if(!c?.n||!c?.pool)return null;
+  if(trait==='mortal'&&c.pool==='nba')
+    return {allowed:true,source:'nba-pool',reason:'Basketball participants have ordinary human bodies.'};
+  const curated=typeof window!=='undefined'?window.DA_CAMPAIGN_TRAIT_EVIDENCE?.(c,trait):null;
+  if(curated?.allowed===false)return curated; // Explicit corrections beat legacy lists.
+  if(curated?.allowed===true)return curated;
   const legacy={women:CAMPAIGN_WOMEN,red:CAMPAIGN_RED,kids:CAMPAIGN_KIDS,mortal:CAMPAIGN_MORTAL};
-  if(trait==='mortal'&&c.pool==='nba')return true;
-  return !!legacy[trait]?.has(c.n)||
-    (typeof window!=='undefined'&&!!window.DA_NEW_POOL_HAS_TRAIT?.(c,trait));
+  if(CAMPAIGN_LEGACY_POOLS.has(c.pool)&&legacy[trait]?.has(c.n))
+    return {allowed:true,source:'legacy-campaign-review',reason:'Existing curated Campaign classification.'};
+  if(typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,trait))
+    return {allowed:true,source:'approved-user-evidence',reason:'A stored eligibility ruling accepts this trait.'};
+  return null;
+}
+function campaignTraitAllowed(c,trait){
+  return campaignTraitEvidence(c,trait)?.allowed===true;
 }
 function campaignStatValue(c,attribute){
   if(!Array.isArray(c?.a)||!c.a.length)return NaN;
@@ -463,37 +482,62 @@ function campaignHoldsAcceptedTag(c,acceptedTags){
   if(owned&&typeof owned.has==='function')return acceptedTags.some(tag=>owned.has(tag));
   return false;
 }
-function campaignMatchesCriteria(c,criteria,rule){
-  if(!c||!criteria)return false;
-  if(Array.isArray(criteria.poolIds)&&!criteria.poolIds.includes(c.pool))return false;
-  if(criteria.trait&&!campaignTraitAllowed(c,criteria.trait))return false;
-  if(criteria.stats&&!campaignPassesStats(c,criteria.stats))return false;
+// Every Campaign stage passes through this same rule evaluator. Its explanation
+// drives rejection UI and tests, so the display can never disagree with scoring.
+function campaignCriteriaResult(c,criteria,rule){
+  const fail=(reason,source='campaign-rule')=>({allowed:false,reason,source});
+  if(!c||!criteria)return fail('Character or challenge requirements are unavailable.');
+  if(Array.isArray(criteria.poolIds)&&!criteria.poolIds.includes(c.pool))
+    return fail('This challenge requires a character from: '+criteria.poolIds.join(', ')+'.');
+  if(criteria.trait){
+    const record=campaignTraitEvidence(c,criteria.trait);
+    if(record?.allowed===false)
+      return fail(record.reason||'Documented exclusion from this trait.',record.source||'curated-trait-exclusion');
+    if(record?.allowed!==true)
+      return fail('No verified '+(CAMPAIGN_TRAIT_LABELS[criteria.trait]||criteria.trait)+' classification is recorded for this character and universe. Missing data is not proof the character fails the theme.','missing-trait-evidence');
+  }
+  if(criteria.stats){
+    for(const condition of criteria.stats){
+      const actual=campaignStatValue(c,condition.attribute);
+      const passed=campaignPassesStats(c,[condition]);
+      if(!passed){
+        const label=condition.attribute==='average'?'Average rating':condition.attribute.toUpperCase();
+        const operator={gte:'at least',gt:'greater than',lte:'at most',lt:'less than',eq:'equal to'}[condition.op]||condition.op;
+        return fail(label+' must be '+operator+' '+condition.value+' (recorded: '+(Number.isFinite(actual)?actual.toFixed(1):'unknown')+').','character-attributes');
+      }
+    }
+  }
   if(criteria.muppetForceMin!==undefined){
     const power=typeof muppetForceOf==='function'?muppetForceOf(c):null;
-    if(!power||power.score<criteria.muppetForceMin)return false;
+    if(!power||power.score<criteria.muppetForceMin)
+      return fail('MuppetForce must be at least '+criteria.muppetForceMin+' (recorded: '+(power?.score??'unknown')+').','muppet-force');
   }
-  if(criteria.neverPreviouslyWon&&campaignUsed().has(c.id))return false;
+  if(criteria.neverPreviouslyWon&&campaignUsed().has(c.id))
+    return fail('Already appeared in a winning Campaign lineup. Finale requires unused characters.','campaign-history');
   if(Array.isArray(criteria.acceptedTags)){
     const matches=criteria.acceptedTags.length>0&&campaignHoldsAcceptedTag(c,criteria.acceptedTags);
     if(!matches){
-      // Never let a saved approval resurrect a power the reviewed audit expressly rejected.
-      // Curated Commander specialties remain a separate exception in campaignAllowed().
-      if(typeof CHARACTER_ABILITY_DISPUTES!=='undefined'&&
-         CHARACTER_ABILITY_DISPUTES.some(d=>d.verdict==='incorrect'&&d.id===c.pool+':'+c.n&&d.tag===rule))return false;
-      // An older approved claim may still supplement missing, non-disputed evidence.
-      // No live AI, keyword matching or paid calls are triggered here.
-      if(!(rule&&typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule)))return false;
+      const isDisputed=typeof CHARACTER_ABILITY_DISPUTES!=='undefined'&&
+        CHARACTER_ABILITY_DISPUTES.some(d=>d.verdict==='incorrect'&&d.id===c.pool+':'+c.n&&d.tag===rule);
+      if(isDisputed)return fail('A reviewed ability ruling explicitly rejects this tag.','reviewed-ability-dispute');
+      if(!(rule&&typeof KnowledgeEngine!=='undefined'&&KnowledgeEngine.has(c,rule)))
+        return fail('No verified '+rule+' ability tag or approved appeal is recorded for this character.','missing-ability-evidence');
     }
   }
-  return true;
+  return {allowed:true,reason:'Verified against the Campaign criteria.',source:'campaign-eligibility'};
+}
+function campaignMatchesCriteria(c,criteria,rule){
+  return campaignCriteriaResult(c,criteria,rule).allowed;
+}
+function campaignEligibilityResult(c,rule,pos=null){
+  const criteria=campaignCriteria(rule);
+  if(!c||!criteria)return {allowed:false,reason:'Unknown character or Campaign rule.',source:'campaign-rule'};
+  if(criteria.commanderSpecialty&&campaignCommanderSpecialty(c,rule,pos))
+    return {allowed:true,reason:'Documented Commander/Coach tactical specialty.',source:'commander-specialty'};
+  return campaignCriteriaResult(c,criteria,rule);
 }
 function campaignAllowed(c,rule,pos=null){
-  const criteria=campaignCriteria(rule);
-  if(!c||!criteria)return false;
-  // Tactical expertise is an explicitly curated Commander/Coach-slot exception.
-  // It cannot waive identity, age, nonpowered or reuse constraints.
-  if(criteria.commanderSpecialty&&campaignCommanderSpecialty(c,rule,pos))return true;
-  return campaignMatchesCriteria(c,criteria,rule);
+  return campaignEligibilityResult(c,rule,pos).allowed;
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
 function campaignSportValid(sport){return campaignEligibleStageIds(sport).length>=9;}
@@ -647,15 +691,15 @@ function renderCampaignRejected(){
   if(!v.validationOpen||!v.validation||v.status!=='draft')return '';
   const bad=campaignInvalidSlots();
   if(!bad.size)return '';
-  const offenders=[...bad].map(id=>({slot:id,c:v.roster[id]})).filter(x=>x.c);
+  const offenders=[...bad].map(id=>({slot:id,c:v.roster[id],position:SPORTS[v.sport].pos.find(p=>p.id===id)})).filter(x=>x.c);
   return `<div class="campaign-reject-overlay" data-act="camp-reject-close">
     <div class="campaign-reject-card" role="alertdialog" aria-modal="true" aria-labelledby="campaign-reject-title" aria-describedby="campaign-reject-description" data-stop="1">
       <div class="eyebrow" style="color:var(--bad)">Campaign challenge</div>
       <h2 class="h" id="campaign-reject-title" style="margin:8px 0 12px">Lineup rejected</h2>
       <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
       <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
-      <ul class="campaign-reject-names">${offenders.map(({slot,c})=>`<li><span>${esc(c.n)}</span> ${campaignHasTheme(campaignStage().rule)?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:''}</li>`).join('')}</ul>
-      <p class="note">Replace the highlighted picks, or challenge a ruling with evidence.</p>
+      <ul class="campaign-reject-names">${offenders.map(({slot,c,position})=>{const detail=campaignEligibilityResult(c,campaignStage().rule,position);const trait=campaignCriteria(campaignStage().rule)?.trait;const issueUrl="https://github.com/garrettem-op/Draft_Anything/issues/new?"+new URLSearchParams({title:"Campaign eligibility: "+c.n+" / "+campaignStage().name,body:"Character: "+c.pool+":"+c.n+"\\nChallenge: "+campaignStage().name+"\\nCurrent finding: "+detail.reason+"\\nSupporting source / evidence: "}).toString();return `<li><span>${esc(c.n)}</span><small style="display:block;max-width:36ch;margin:4px 0 8px;color:var(--muted)">${esc(detail.reason)}</small>${campaignHasTheme(campaignStage().rule)?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:trait?`<a class="btn small" target="_blank" rel="noopener noreferrer" href="${esc(issueUrl)}">Report missing evidence</a>`:""}</li>`}).join('')}</ul>
+      <p class="note">Unverified evidence is not an automatic denial. Report an incorrect classification without spending AI credits, or challenge an ability ruling through the review service.</p>
       <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
     </div>
   </div>`;
