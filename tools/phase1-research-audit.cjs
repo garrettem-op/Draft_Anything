@@ -14,6 +14,7 @@ const path=require('node:path');
 const fs=require('node:fs');
 const vm=require('node:vm');
 const {ROOT,loadGame,POWER_TAGS,POOL_IDS}=require('./ability-audit-lib.cjs');
+const {CHARACTER_ABILITY_TAGS:CANONICAL_TAGS}=require('../data/character-abilities.js');
 const FORM_DECISIONS=require('../data/phase1-form-research.cjs');
 const BASE_TRAIT_DECISIONS=require('../data/phase1-trait-research.cjs');
 const TRAITS=['women','red','kids','mortal'];
@@ -53,7 +54,7 @@ function collectPhase1Research(){
      const record=records.find(r=>r.tag===tag);
      const carry=carryovers.find(r=>r.tag===tag);
      const denied=disputes.find(r=>r.tag===tag);
-     const has=game.tagIndex[c.pool]?.[c.n]?.includes(tag);
+     const has=CANONICAL_TAGS[c.pool]?.[c.n]?.includes(tag);
      if(c.pool==='nba'){
        found[tag]=finding('no','class-reviewed',
          c.n+' is an NBA athlete portrayed as an ordinary human basketball player; the roster does not depict a '+tag+' superpower, specialist technology, or qualifying fantasy feat.',
@@ -64,7 +65,7 @@ function collectPhase1Research(){
        summary.explicitDisputeNo++;
      }else if(has&&record){
        found[tag]=finding('yes','documented-ability',
-         record.feat,record.source,{subtags:game.tagIndex[c.pool][c.n].filter(t=>t!==tag&&game.families[tag]?.includes(t)),
+         record.feat,record.source,{subtags:CANONICAL_TAGS[c.pool][c.n].filter(t=>t!==tag&&game.families[tag]?.includes(t)),
          continuity:record.continuity||'',limitation:record.limitation||''});
        summary.existingSourceYes++;
      }else if(has&&carry){
