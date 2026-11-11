@@ -101,3 +101,51 @@ test('full trace is optional and preserves exact scalar statistics',()=>{
   assert.match(a.sides[0].fighters[0].powerSource,/^https:\/\/www\.dc\.com\/blog\/2014/);
   assert.ok(a.sides[1].fighters[0].powerSource.startsWith('https://www.dc.com/'));
 });
+
+
+test('reviewed power-domain guard and weakness change mitigation on the same seeded attack',()=>{
+ const caster=hero('test','Caster',{str:82,spd:85,end:88,acc:89,ref:84},{
+   variantBase:'Caster',variantAbilities:{
+     move:'Cosmic Surge',domains:['cosmic'],guards:[],weakTo:[],tier:4,limit:'Test variant.'
+   }
+ });
+ const target=(guard,weakTo)=>hero('test','Target',{str:80,end:85,ref:75,spd:75},{
+   variantBase:'Target',variantAbilities:{
+     move:'Melee defense',domains:['melee'],guards:guard,weakTo,tier:2,limit:'Test variant.'
+   }
+ });
+ function first(seed,guard,weakTo){
+   const r=duel(caster,target(guard,weakTo),seed,{trace:true});
+   return r.events.find(e=>e.type==='hit'&&e.attacker===caster.id&&e.move==='Cosmic Surge');
+ }
+ let found=false;
+ for(let seed=1;seed<=60;seed++){
+   const plain=first(seed,[],[]);
+   if(!plain)continue;
+   const protectedHit=first(seed,['cosmic'],[]);
+   const exposed=first(seed,[],['cosmic']);
+   if(!protectedHit||!exposed)continue;
+   assert.equal(plain.raw,protectedHit.raw);
+   assert.equal(plain.raw,exposed.raw);
+   assert.ok(protectedHit.prevented>plain.prevented,'matching domain guard should protect against the strike');
+   assert.ok(exposed.prevented<plain.prevented,'matching weakness should increase damage taken');
+   found=true;break;
+ }
+ assert.equal(found,true,'seeded attacks should expose both guard and weakness effects');
+});
+test('finite high-order wards and Hellbat metabolic wear are separately recorded',()=>{
+ assert.ok(duel(franklin,joker,11).sides[0].fighters[0].wardHp>0);
+ assert.equal(duel(hellbat,joker,11).sides[0].fighters[0].wardHp,0);
+ let found=false;
+ for(let seed=1;seed<=40;seed++){
+   const r=duel(hellbat,hero('test','Durable Target',{str:25,spd:1,acc:1,end:99,siz:99,ref:1}),
+     seed,{trace:true});
+   const strain=r.events.filter(e=>e.type==='wear'&&e.fighter===hellbat.id);
+   if(!strain.length)continue;
+   assert.ok(strain.every(e=>e.amount>0&&e.round>=5));
+   assert.equal(strain.reduce((a,e)=>a+e.amount,0),r.sides[0].fighters[0].wear);
+   assert.ok(r.sides[0].fighters[0].powerUses>0);
+   found=true;break;
+ }
+ assert.equal(found,true,'Hellbat metabolic cost should activate in suitably long battles');
+});
