@@ -105,11 +105,15 @@
           continue;
         }
         f.hits++;
-        const raw=Math.max(1,Math.round(
-          f.attack*(f.tank?1.02:1.14)*support[f.side]*
-          (.83+.34*rng())*fatigue*
-          (signature?(1+.19+.06*p.tier):1)
-        ));
+        // Exceptional reality/cosmic abilities should not be reduced to
+        // their owner's conventional punch strength (e.g. Franklin Richards).
+        // Only reviewed, cooldown-limited signature events receive this floor.
+        const rolled=f.attack*(f.tank?1.02:1.14)*support[f.side]*
+          (.83+.34*rng())*fatigue*(signature?(1+.19+.06*p.tier):1);
+        const elevated=signature&&p.tier>=4&&
+          ['reality','cosmic','magic','elemental'].includes(p.domain);
+        const floor=elevated?(30+14*p.tier)*support[f.side]*fatigue:0;
+        const raw=Math.max(1,Math.round(Math.max(rolled,floor)));
         const domain=signature?p.domain:'physical';
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
         if(signature&&target.ability?.guard?.includes(domain))block+=raw*.13;
@@ -150,6 +154,8 @@
           attacks:f.attacks,hits:f.hits,hp:f.hp,maxHp:f.maxHp,
           roundsAlive:f.roundsAlive,receivedHits:f.receivedHits,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
+          powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
+          powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
           wear:f.wear,koRound:f.koRound,targets:f.targets
         }))
       };
