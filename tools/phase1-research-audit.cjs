@@ -171,7 +171,7 @@ function collectPhase1Research(){
  }
  if(manual.size)throw Error('Research records have no live alternate form: '+[...manual.keys()].join(' | '));
  for(const [id,entries] of Object.entries(BASE_TRAIT_DECISIONS)){
-   if(!rosterIds.has(id))throw Error('Manual trait research for unknown roster identity: '+id);
+   if(!indexed.has(id))throw Error('Manual trait research for unknown roster identity: '+id);
    for(const trait of Object.keys(entries))if(!TRAITS.includes(trait))throw Error('Unknown researched trait: '+id+' '+trait);
  }
  if(summary.base!==game.roster.length||summary.cells!==(summary.base+summary.forms)*ALL.length)
