@@ -98,6 +98,6 @@ test('full trace is optional and preserves exact scalar statistics',()=>{
   assert.deepEqual(a.sides,b.sides);
   assert.equal(b.events,undefined);
   assert.ok(a.events.some(e=>e.type==='hit'&&e.raw>0&&e.incoming>0));
-  assert.ok(a.sides[0].fighters[0].powerSource=== '');
+  assert.match(a.sides[0].fighters[0].powerSource,/^https:\/\/www\.dc\.com\/blog\/2014/);
   assert.ok(a.sides[1].fighters[0].powerSource.startsWith('https://www.dc.com/'));
 });
