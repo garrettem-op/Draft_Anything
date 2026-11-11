@@ -297,15 +297,33 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
   const total=(rows,key)=>rows.reduce((sum,row)=>sum+(row.stats.find(x=>x[0]===key)?.[1]||0),0);
   const leftTotal=total(left,primary),rightTotal=total(right,primary),denom=Math.max(1,leftTotal+rightTotal);
   const lPct=Math.round(100*leftTotal/denom);
-  const cell=(r)=>{
+  const fighterLogs=(options.combat?.sides||[]).map(side=>new Map((side?.fighters||[]).map(f=>[f.id,f])));
+  const cell=(r,side=0)=>{
     if(!r)return '<span class="muted">—</span>';
     const main=daLineupMetric(r,sport);
+    const log=sport==='brawl'?fighterLogs[side]?.get(r.id):null;
+    // Native nested details avoid an additional dialog and explain the actual
+    // per-character outcome; never claim DMG is an immutable lore attribute.
+    let explanation='';
+    if(log&&r.active){
+      const hits=Number(log.hits)||0,attempts=Number(log.attacks)||0;
+      const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg).slice(0,3);
+      const why=[
+        `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive.`,
+        log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
+        targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
+        log.wear?`Ability strain: ${log.wear} HP lost (not credited as opponent DMG).`:'',
+        log.koRound?`Knocked out in round ${log.koRound}.`:
+          `Remaining HP: ${Number(log.hp)||0}/${Number(log.maxHp)||0}.`
+      ].filter(Boolean).join(' ');
+      explanation=`<details class="da-fighter-why"><summary>Why this DMG?</summary><div>${why}</div></details>`;
+    }
     return `<div class="da-player"><span class="da-name">${esc(r.name)}</span><span class="da-primary">${main?`<b class="num">${main[1]}</b> <small>${esc(main[0])}</small>`:'—'}</span>
-      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span></div>`;
+      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span>${explanation}</div>`;
   };
   const pairs=Array.from({length:Math.max(left.length,right.length)},(_,i)=>{
     const a=left[i],b=right[i],role=a?.role||b?.role||'';
-    return `<tr><td class="da-side">${cell(a)}</td><th scope="row" class="da-role">${esc(role)}</th><td class="da-side">${cell(b)}</td></tr>`;
+    return `<tr><td class="da-side">${cell(a,0)}</td><th scope="row" class="da-role">${esc(role)}</th><td class="da-side">${cell(b,1)}</td></tr>`;
   }).join('');
   const active=rows=>rows.filter(r=>!['hc','mgr','cmd','bn'].includes(r.position));
   const leading=rows=>active(rows).slice().sort((a,b)=>(daLineupMetric(b,sport)?.[1]||0)-(daLineupMetric(a,sport)?.[1]||0))[0];
