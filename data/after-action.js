@@ -309,6 +309,8 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
       const hits=Number(log.hits)||0,attempts=Number(log.attacks)||0;
       const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg).slice(0,3);
       const why=[
+        log.apexRank===2?`Apex form: exceptional damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:
+          log.apexRank===1?`Empowered form: enhanced damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:'',
         `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive.`,
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
         targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
