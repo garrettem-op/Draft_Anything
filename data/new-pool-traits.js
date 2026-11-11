@@ -10,7 +10,7 @@
     harrypotter:'Hermione Granger|Minerva McGonagall|Lily Potter|Luna Lovegood|Ginny Weasley|Molly Weasley|Narcissa Malfoy|Bellatrix Lestrange|Dolores Umbridge|Nymphadora Tonks|Tina Goldstein|Queenie Goldstein|Leta Lestrange|Seraphina Picquery|Nagini|Winky|Pomona Sprout|Sybill Trelawney|Madam Poppy Pomfrey|Madam Hooch|Rita Skeeter|Amelia Bones|Cho Chang|Fleur Delacour|Madame Maxime|Lavender Brown|Parvati Patil|Padma Patil|Pansy Parkinson|Rowena Ravenclaw|Helga Hufflepuff|The Grey Lady (Helena Ravenclaw)|Moaning Myrtle'
   },
   kids:{
-    dc:'Robin (Damian Wayne)|Red Robin (Tim Drake)|Blue Beetle (Jaime Reyes)|Superboy (Conner Kent)|Jon Kent|Static|Beast Boy|Raven',
+    dc:'Shazam|Robin (Damian Wayne)|Red Robin (Tim Drake)|Blue Beetle (Jaime Reyes)|Superboy (Conner Kent)|Jon Kent|Static|Beast Boy|Raven',
     harrypotter:'Harry Potter|Hermione Granger|Ron Weasley|Neville Longbottom|Luna Lovegood|Ginny Weasley|Fred Weasley|George Weasley|Draco Malfoy|Regulus Black|Cho Chang|Cedric Diggory|Seamus Finnigan|Dean Thomas|Lavender Brown|Parvati Patil|Padma Patil|Lee Jordan|Pansy Parkinson|Vincent Crabbe|Gregory Goyle|Oliver Wood'
   },
   mortal:{
