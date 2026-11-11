@@ -8,38 +8,38 @@ name lists or description keywords. Counts are characters holding each broad tag
 
 | Tag | nba | mcu | toons | muppets | games | pokemon | starwars | dc | lotr | harrypotter | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| flight | 0 | 34 | 17 | 4 | 37 | 30 | 38 | 36 | 11 | 26 | 233 |
-| magic | 0 | 10 | 3 | 4 | 20 | 1 | 0 | 15 | 25 | 77 | 155 |
-| psychic | 0 | 13 | 0 | 2 | 7 | 37 | 27 | 5 | 3 | 3 | 97 |
-| aquatic | 0 | 2 | 9 | 0 | 1 | 42 | 3 | 7 | 4 | 0 | 68 |
-| fire | 0 | 1 | 3 | 0 | 21 | 47 | 3 | 3 | 8 | 5 | 91 |
+| flight | 0 | 34 | 20 | 4 | 37 | 30 | 38 | 36 | 11 | 26 | 236 |
+| magic | 0 | 10 | 9 | 4 | 20 | 1 | 0 | 15 | 25 | 77 | 161 |
+| psychic | 0 | 13 | 1 | 2 | 7 | 37 | 27 | 5 | 3 | 3 | 98 |
+| aquatic | 0 | 2 | 13 | 0 | 1 | 42 | 3 | 7 | 4 | 0 | 72 |
+| fire | 0 | 1 | 8 | 0 | 21 | 47 | 3 | 3 | 8 | 5 | 96 |
 | ice | 0 | 0 | 5 | 0 | 12 | 60 | 0 | 6 | 0 | 0 | 83 |
 | electric | 0 | 5 | 2 | 0 | 16 | 58 | 4 | 4 | 0 | 0 | 89 |
 | tech | 0 | 34 | 13 | 1 | 26 | 1 | 21 | 14 | 0 | 0 | 110 |
-| stealth | 0 | 13 | 5 | 0 | 10 | 6 | 5 | 10 | 5 | 9 | 63 |
-| teleport | 0 | 17 | 2 | 2 | 17 | 32 | 0 | 11 | 0 | 15 | 96 |
+| stealth | 0 | 13 | 6 | 0 | 10 | 6 | 5 | 10 | 5 | 9 | 64 |
+| teleport | 0 | 17 | 5 | 2 | 17 | 32 | 0 | 11 | 0 | 15 | 99 |
 | healing | 0 | 14 | 3 | 0 | 11 | 8 | 4 | 17 | 5 | 3 | 65 |
-| giants | 0 | 8 | 1 | 6 | 4 | 2 | 1 | 3 | 9 | 7 | 41 |
+| giants | 0 | 8 | 6 | 6 | 4 | 2 | 1 | 3 | 9 | 7 | 46 |
 
 ## Specific tags
 
 | Broad | Specific tag | Characters |
 | --- | --- | ---: |
-| flight | natural-flight | 107 |
+| flight | natural-flight | 109 |
 | flight | powered-flight | 59 |
 | flight | glide | 9 |
 | flight | pilot | 58 |
-| flight | mount | 8 |
-| magic | spellcaster | 150 |
-| magic | magic-item | 7 |
+| flight | mount | 9 |
+| magic | spellcaster | 155 |
+| magic | magic-item | 9 |
 | psychic | telepathy | 31 |
 | psychic | telekinesis | 73 |
-| psychic | mind-control | 25 |
-| aquatic | water-breathing | 13 |
-| aquatic | swimmer | 61 |
-| aquatic | water-control | 6 |
-| fire | fire-control | 86 |
-| fire | fire-weapon | 5 |
+| psychic | mind-control | 26 |
+| aquatic | water-breathing | 17 |
+| aquatic | swimmer | 65 |
+| aquatic | water-control | 7 |
+| fire | fire-control | 90 |
+| fire | fire-weapon | 6 |
 | ice | ice-control | 80 |
 | ice | ice-weapon | 3 |
 | electric | electric-control | 86 |
@@ -50,14 +50,14 @@ name lists or description keywords. Counts are characters holding each broad tag
 | tech | gadgets | 43 |
 | tech | inventor | 34 |
 | stealth | invisibility | 19 |
-| stealth | infiltration | 48 |
-| teleport | self-teleport | 75 |
+| stealth | infiltration | 49 |
+| teleport | self-teleport | 78 |
 | teleport | portals | 17 |
 | teleport | teleports-others | 15 |
 | healing | self-regeneration | 45 |
 | healing | heals-others | 27 |
-| giants | giant-sized | 29 |
-| giants | size-change | 13 |
+| giants | giant-sized | 30 |
+| giants | size-change | 17 |
 
 ## Provenance of every granted broad tag
 
@@ -65,7 +65,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 | --- | ---: | ---: | ---: | ---: |
 | nba | 0 | 0 | 0 | 0 |
 | mcu | 60 | 0 | 91 | 151 |
-| toons | 38 | 0 | 25 | 63 |
+| toons | 66 | 0 | 25 | 91 |
 | muppets | 17 | 0 | 2 | 19 |
 | games | 157 | 0 | 25 | 182 |
 | pokemon | 226 | 0 | 98 | 324 |
@@ -76,7 +76,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 
 Carry-over origins: name-list 94, research-guide 46, roster-description 56, curated-aerial 30, pokemon-type 37.
 
-`CHARACTER_ABILITIES` holds 928 source-linked records for 529 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
+`CHARACTER_ABILITIES` holds 956 source-linked records for 543 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
 
 ## Disputed grants (verdict incorrect: excluded from the index)
 
@@ -185,7 +185,7 @@ Carry-over origins: name-list 94, research-guide 46, roster-description 56, cura
 ## Non-NBA characters with no qualifying power
 
 - **mcu** (46): Captain America, Bruce Banner, Happy Hogan, Gamora, Drax, Taserface, Okoye, Ayo, M'Baku, Sif, Korg, Hercules, Red Skull, Ronan the Accuser, The Collector, Grandmaster, Shang-Chi, Katy, Red Guardian, Taskmaster, John Walker, Zemo, Maria Hill, Phil Coulson, Peggy Carter, Jimmy Woo, Darcy Lewis, MJ, Aunt May, Thena, Makkari, Gilgamesh, Kingo, Sersi, Kingpin, Daredevil, Jessica Jones, Luke Cage, The Punisher, Miek, Valentina Allegra de Fontaine, Mole Man, Stick, Captain Carter, Erik Selvig, Bullseye
-- **toons** (63): Bugs Bunny, Road Runner, Tasmanian Devil, Lola Bunny, Porky Pig, Speedy Gonzales, Sylvester, Foghorn Leghorn, Yosemite Sam, Pepé Le Pew, Elmer Fudd, Michigan J. Frog, Minnie Mouse, Donald Duck, Goofy, Pluto, Phil, Mulan, Simba, Baloo, Tarzan, Woody, Mr. Incredible, Dash, Edna Mode, Sulley, Mike Wazowski, Lightning McQueen, Remy, Shrek, Donkey, Puss in Boots, Po, Master Shifu, Tigress, Homer Simpson, Bart Simpson, Lisa Simpson, Marge Simpson, Fred Flintstone, Barney Rubble, Scooby-Doo, Shaggy, Velma, Fred Jones, Yogi Bear, Popeye, Bluto, Master Splinter, Toph Beifong, Sokka, Johnny Bravo, Courage the Cowardly Dog, Charlie Brown, Lucy van Pelt, Peppermint Patty, Garfield, Tom, Jerry, Bandit, Bluey, Hank Hill, Bob Belcher
+- **toons** (80): Bugs Bunny, Road Runner, Tasmanian Devil, Lola Bunny, Porky Pig, Speedy Gonzales, Sylvester, Foghorn Leghorn, Yosemite Sam, Pepé Le Pew, Elmer Fudd, Michigan J. Frog, Minnie Mouse, Donald Duck, Goofy, Pluto, Phil, Mulan, Simba, Baloo, Tarzan, Jasmine, Belle, Gaston, Quasimodo, Frollo, Phoebus, Scar, Mufasa, Timon, Pumbaa, Shan Yu, Anna, Olaf, Lilo, Captain Hook, Snow White, Cinderella, Woody, Mr. Incredible, Dash, Edna Mode, Sulley, Mike Wazowski, Lightning McQueen, Remy, Shrek, Donkey, Puss in Boots, Po, Master Shifu, Tigress, Homer Simpson, Bart Simpson, Lisa Simpson, Marge Simpson, Fred Flintstone, Barney Rubble, Scooby-Doo, Shaggy, Velma, Fred Jones, Yogi Bear, Popeye, Bluto, Master Splinter, Toph Beifong, Sokka, Johnny Bravo, Courage the Cowardly Dog, Charlie Brown, Lucy van Pelt, Peppermint Patty, Garfield, Tom, Jerry, Bandit, Bluey, Hank Hill, Bob Belcher
 - **muppets** (86): Kermit the Frog, Miss Piggy, Fozzie Bear, Gonzo, Swedish Chef, Rowlf the Dog, Beaker, Statler, Waldorf, Sam Eagle, Pepe the King Prawn, Scooter, Rizzo the Rat, Robin the Frog, Camilla the Chicken, Dr. Teeth, Floyd Pepper, Janice, Zoot, Lips, Lew Zealand, Crazy Harry, Sweetums, Uncle Deadly, Dr. Julius Strangepork, Marvin Suggs, Mahna Mahna, Bobo the Bear, Clifford, Walter, Constantine, Johnny Fiama, Sal Minella, Spa'am, Bean Bunny, Beauregard, Big Mean Carl, Doglion, Seymour, The Newsman, Pops, Hilda, Annie Sue, Mr. Snuffleupagus, Cookie Monster, Elmo, Oscar the Grouch, Bert, Ernie, Zoe, Rosita, Telly Monster, Herry Monster, Prairie Dawn, Baby Bear, Curly Bear, Two-Headed Monster, Guy Smiley, Mr. Johnson, Slimey the Worm, Honkers, Murray Monster, Frazzle, Gladys the Cow, Sherlock Hemlock, Roosevelt Franklin, Barkley, Hoots the Owl, Bernice, Forgetful Jones, Ji-Young, Lefty the Salesman, Grundgetta, Bruno the Trashman, Gobo Fraggle, Wembley Fraggle, Boober Fraggle, Mokey Fraggle, Red Fraggle, Uncle Traveling Matt, Sprocket, Doc, Cotterpin Doozer, Philo and Gunge, Emmet Otter, Ma Otter
 - **games** (31): Donkey Kong, Ash Ketchum, Professor Oak, Jigglypuff, Captain Falcon, Marth, Amy Rose, Marcus Fenix, Nathan Drake, Sully, Joel Miller, Ellie, Crash Bandicoot, Lara Croft, Garrus Vakarian, Mordin Solus, Pac-Man, Blinky, Ms. Pac-Man, Q*bert, Wreck-It Ralph, Chun-Li, Heihachi Mishima, Tifa Lockhart, Leon S. Kennedy, Jill Valentine, Pyramid Head, Creeper, Isabelle, Tom Nook, Widowmaker
 - **pokemon** (25): Bulbasaur, Ivysaur, Venusaur, Caterpie, Metapod, Weedle, Kakuna, Arbok, Sandshrew, Sandslash, Oddish, Gloom, Vileplume, Paras, Parasect, Diglett, Dugtrio, Bellsprout, Weepinbell, Victreebel, Hitmonlee, Tangela, Pinsir, Ditto, Eevee

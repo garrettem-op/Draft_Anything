@@ -87,7 +87,7 @@ test('the new pools participate in the picker and Mashup without deleting past p
   const builtin=h.evaluate('BUILTIN');
   for(const pool of [...old,...newly,'mashup'])assert.ok(builtin.includes(pool),pool);
   const mashup=h.evaluate("getCands('mashup')");
-  assert.equal(mashup.length,1169);
+  assert.equal(mashup.length,1200);
   for(const pool of [...old,...newly])assert.ok(mashup.some(c=>c.pool===pool),pool);
   for(const pool of newly){
     const candidates=h.evaluate('getCands('+JSON.stringify(pool)+')');
