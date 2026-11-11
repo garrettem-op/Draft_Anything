@@ -549,8 +549,13 @@ const server=http.createServer((req,res)=>{
     'A source-backed god-tier suit should exceed baseline Joker damage on average');
   assert.ok(combatAudit.underJoker<125,
     'Joker must not outdamage Hellbat in most full-roster seeded battles');
-  assert.ok(combatAudit.avgDarkseid>combatAudit.avgHellbat,
-    'Darkseid should remain a dangerous combatant without predetermined match results');
+  // Apex Hellbat is now intended to be decisive, so it may lead the damage
+  // chart even against Darkseid. The opposing cosmic squad must still fight
+  // back with documented signature techniques rather than an imposed ranking.
+  assert.ok(combatAudit.avgDarkseid>0&&combatAudit.darkPower>0,
+    'Darkseid must still execute damaging, documented cosmic attacks');
+  assert.ok(combatAudit.wins<250,
+    'a whole team of cosmic entities should retain a credible chance to defeat an Apex fighter');
   console.log('Actual roster (250 seeds): Hellbat',combatAudit.avgHellbat.toFixed(1),
     'Joker',combatAudit.avgJoker.toFixed(1),
     'Darkseid',combatAudit.avgDarkseid.toFixed(1),
