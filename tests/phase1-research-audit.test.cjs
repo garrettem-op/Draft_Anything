@@ -56,6 +56,15 @@ test('committed research snapshots are in sync with the exact live roster',()=>{
  assert.deepEqual(summary.summary,r.summary);
  for(const [pool,data] of Object.entries(r.pools)){
    const snapshot=JSON.parse(fs.readFileSync(path.join(dir,pool+'.json'),'utf8'));
-   assert.deepEqual(snapshot,data,pool);
+   function mismatch(a,b,loc=''){
+     if(a===b)return null;
+     if(!a||!b||typeof a!=='object'||typeof b!=='object')return loc+': '+JSON.stringify(a)+' != '+JSON.stringify(b);
+     for(const k of new Set([...Object.keys(a),...Object.keys(b)])){
+       const diff=mismatch(a[k],b[k],loc+'.'+k);
+       if(diff)return diff;
+     }
+     return null;
+   }
+   assert.equal(mismatch(snapshot,data),null,pool);
  }
 });
