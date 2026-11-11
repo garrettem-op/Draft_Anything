@@ -15,6 +15,7 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const {ROOT,loadGame,POWER_TAGS,POOL_IDS}=require('./ability-audit-lib.cjs');
 const FORM_DECISIONS=require('../data/phase1-form-research.cjs');
+const BASE_TRAIT_DECISIONS=require('../data/phase1-trait-research.cjs');
 const TRAITS=['women','red','kids','mortal'];
 const ALL=[...POWER_TAGS,...TRAITS];
 const isLink=s=>/^https:\/\//.test(String(s||''));
@@ -30,6 +31,7 @@ function collectPhase1Research(){
    existingSourceYes:0,existingCarryoverYes:0,existingTraitYes:0,
    individualFormYes:0,individualFormNo:0,explicitDisputeNo:0,
    classReviewNBA:0,positiveEvidenceDerivedNo:0,
+   individualTraitYes:0,individualTraitNo:0,
    byPool:{}
  };
  const count=(pool,rec)=>{
@@ -83,7 +85,14 @@ function collectPhase1Research(){
      ctx.__phase1Candidate=c;ctx.__phase1Trait=tag;
      const value=vm.runInContext('JSON.stringify(campaignTraitEvidence(__phase1Candidate,__phase1Trait))',ctx);
      if(value)trait=JSON.parse(value);
-     if(c.pool==='nba'&&tag!=='red'){
+     const individual=BASE_TRAIT_DECISIONS[c.id]?.[tag];
+     if(individual){
+       if(trait?.allowed===true&&individual.decision==='no'||trait?.allowed===false&&individual.decision==='yes')
+         throw Error('Manual research contradicts an existing individual trait ruling: '+c.id+' '+tag);
+       found[tag]=finding(individual.decision,'individual-trait-review',individual.reason,individual.source);
+       if(individual.decision==='yes')summary.individualTraitYes++;
+       else summary.individualTraitNo++;
+     }else if(c.pool==='nba'&&tag!=='red'){
        const yes=tag==='mortal';
        found[tag]=finding(yes?'yes':'no','class-reviewed',
          tag==='mortal'?
@@ -161,6 +170,10 @@ function collectPhase1Research(){
    }
  }
  if(manual.size)throw Error('Research records have no live alternate form: '+[...manual.keys()].join(' | '));
+ for(const [id,entries] of Object.entries(BASE_TRAIT_DECISIONS)){
+   if(!rosterIds.has(id))throw Error('Manual trait research for unknown roster identity: '+id);
+   for(const trait of Object.keys(entries))if(!TRAITS.includes(trait))throw Error('Unknown researched trait: '+id+' '+trait);
+ }
  if(summary.base!==game.roster.length||summary.cells!==(summary.base+summary.forms)*ALL.length)
    throw Error('Research decision matrix does not cover every form and character');
  return {schemaVersion:1,task:'Phase 1 Campaign research',rules:ALL,
