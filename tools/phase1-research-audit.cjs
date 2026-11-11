@@ -16,6 +16,7 @@ const vm=require('node:vm');
 const {ROOT,loadGame,POWER_TAGS,POOL_IDS}=require('./ability-audit-lib.cjs');
 const {CHARACTER_ABILITY_TAGS:CANONICAL_TAGS}=require('../data/character-abilities.js');
 const FORM_DECISIONS=require('../data/phase1-form-research.cjs');
+const {formIdentityFinding}=require('../data/phase1-form-identity.cjs');
 const BASE_TRAIT_DECISIONS=require('../data/phase1-trait-research.cjs');
 const TRAITS=['women','red','kids','mortal'];
 const ALL=[...POWER_TAGS,...TRAITS];
@@ -31,6 +32,7 @@ function collectPhase1Research(){
    base:0,forms:0,cells:0,yes:0,no:0,needsReview:0,
    existingSourceYes:0,existingCarryoverYes:0,existingTraitYes:0,
    individualFormYes:0,individualFormNo:0,explicitDisputeNo:0,
+   formIdentityYes:0,formIdentityNo:0,
    classReviewNBA:0,positiveEvidenceDerivedNo:0,
    individualTraitYes:0,individualTraitNo:0,
    byPool:{}
@@ -155,6 +157,11 @@ function collectPhase1Research(){
          findings[tag]=finding(d.decision,'individual-form-review',d.reason,d.source);
          if(d.decision==='yes')summary.individualFormYes++;
          else summary.individualFormNo++;
+       }else if(tag==='women'&&formIdentityFinding(base,form)){
+         const reviewed=formIdentityFinding(base,form);
+         findings[tag]=reviewed;
+         if(reviewed.decision==='yes')summary.formIdentityYes++;
+         else summary.formIdentityNo++;
        }else{
          findings[tag]=finding('needs-review','needs-form-specific-review',
            'The '+form.name+' continuity must be assessed independently for '+tag+'. Do not silently inherit baseline '+base.n+' tags.',
