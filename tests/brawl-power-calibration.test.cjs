@@ -138,8 +138,13 @@ test('finite high-order wards and Hellbat metabolic wear are separately recorded
  assert.equal(duel(hellbat,joker,11).sides[0].fighters[0].wardHp,0);
  let found=false;
  for(let seed=1;seed<=40;seed++){
-   const r=duel(hellbat,hero('test','Durable Target',{str:25,spd:1,acc:1,end:99,siz:99,ref:1}),
-     seed,{trace:true});
+   // Apex Hellbat now wins a conventional duel before round five. Four
+   // resilient targets prolong the fight so its metabolic cost can trigger.
+   const targets={rating:80,rows:Array.from({length:4},(_,i)=>({
+     pos:{id:i<2?'tk'+i:'d'+i,tank:i<2},fit:80,
+     cand:hero('test','Durable Target '+i,{str:25,spd:1,acc:1,end:99,siz:99,ref:1})
+   }))};
+   const r=resolveBrawlCombat(solo(hellbat),targets,[80,80],rngFrom(seed),{trace:true});
    const strain=r.events.filter(e=>e.type==='wear'&&e.fighter===hellbat.id);
    if(!strain.length)continue;
    assert.ok(strain.every(e=>e.amount>0&&e.round>=5));

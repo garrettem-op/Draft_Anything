@@ -13,8 +13,9 @@ These are **editorial gameplay HP and DMG figures**; none are canonical numerica
 5. **Power-based targeting:** A high-tier reality, cosmic or magical move uses an ability-targeting chance that is not identical to manual hand-eye accuracy. Fragile tier-5 abstract beings can use it more often than their ordinary physical attacks, without gaining a guaranteed hit or a scripted KO.
 6. **Physical protection:** Severe strength/endurance gaps modestly reduce the effectiveness of regular punches, toxins and tech/melee bursts. This is not absolute immunity. ToonForce remains a distinct resilience model and bypasses this physical-gap attack reduction when relevant.
 7. **Finite cosmic defense:** Characters with documented tier-4 or tier-5 reality/cosmic/magic/elemental abilities start with a capped extra HP ward (26 HP × tier). It is exhausted like ordinary HP and never ensures invulnerability. It is not claimed as a publisher-specified number.
-8. **Hellbat cost:** Reviewed Hellbat Armor Batman uses high-output tech attacks but suffers modeled HP metabolic strain after round four. Strain cannot itself create an opponent KO, is logged separately, and does not count toward enemy DMG.
-9. **Reports:** Every fighter's log includes attacks, hits, rounds alive, named targets, signature uses/DMG, remaining HP, ward, metabolic wear and knockout round. A compact native 'Why this DMG?' disclosure includes the specific power limitation and allowlisted source URL. Optional `{trace:true}` captures a full attack timeline for debugging, omitted in normal seasons to avoid storage costs.
+8. **Rare transformation tiers:** A selected, reviewed tier-5 form or a specifically curated exceptional form (including Hellbat) enters **Apex** combat rank 2: +730 combat HP, 2.7× attribute-derived attack, and a second 82%-strength attack after the normal initiative pass. Other reviewed tier-4 forms are **Empowered** rank 1: +570 HP, 2.3× attack, the same second-action cadence. These are intentionally high-impact gameplay rules because a randomly surged pinnacle form is rare, not publisher-given numerical values. Physical protection against baseline attackers is stronger, while documented tier-4+ supernatural attackers can counter with enhanced signature effects and upper-tier passive guards. These benefits are exclusive to a *selected reviewed form*; they do not apply to normal Batman, unreviewed variants, or automatically to baseline high-tier characters.
+9. **Hellbat cost:** Reviewed Hellbat Armor Batman uses high-output tech attacks but suffers modeled HP metabolic strain after round four. Strain cannot itself create an opponent KO, is logged separately, and does not count toward enemy DMG.
+10. **Reports:** Every fighter's log includes attacks, hits, rounds alive, named targets, signature uses/DMG, remaining HP, ward, metabolic wear and knockout round. A compact native 'Why this DMG?' disclosure includes the specific power limitation and allowlisted source URL. Optional `{trace:true}` captures a full attack timeline for debugging, omitted in normal seasons to avoid storage costs.
 
 ## Reproduction
 ```sh
@@ -25,7 +26,7 @@ The Chromium regression uses the **actual browser roster and shared Variant Surg
 - **The Chungus**: Abomination, Adam Warlock, Hellbat Armor Batman, Joker, Lucifer Morningstar; Captain Carter reinforcement; Captain America commander
 - **The Crossover**: Ares (DC), The Watcher, Death of the Endless, Scarlet Witch, Darkseid; Wonder Woman reinforcement; Trigon commander
 
-### 250-seed full-roster replay, current tuned model
+### 250-seed full-roster replay — historical v2 calibration (before Apex variants)
 | Result | Value |
 |---|---:|
 | Hellbat mean DMG | 243.9 |
@@ -56,3 +57,14 @@ CI: 211 Node tests passing, Chromium mobile browser smoke passing, Edge Function
 - Recreating the original screenshot without its seed or saved combat event log.
 - Inferring full powers for every character from Campaign eligibility tags. A source-linked flight or color tag is **not** sufficient evidence for a combat ability.
 - Modeling unrestricted metaphysical omnipotence and a finite five-person HP game simultaneously. The arena proxy convention is an explicit constraint, not a lore truth.
+
+
+## Rare variant calibration (follow-up to PR #73)
+
+The goal is that an **Apex** transformation often decides a fight against an ordinary, non-Apex lineup (rough design target: **at least 95% in controlled seeded fixtures**), but does not automatically beat other Apex forms or high-order reality/cosmic opposition. This is an asymmetric *game design* objective, not a claim about cross-publisher canon or a universal 95% matchup win rate. The odds of receiving a particular variant are controlled separately by the draft/Variant Surge system.
+
+- **Apex**: all documented tier-5 variants plus curated exceptional lower-tier forms such as Hellbat, World Breaker Hulk, Dark Phoenix and Super Sonic.
+- **Empowered**: other documented tier-4 variants, still superior to an ordinary baseline form but not given an automatic win.
+- **Unreviewed**: do not acquire Apex advantages from their names or inflated attributes alone.
+
+The combat engine is shared by match modes; the new tiers affect only live combat when the form is selected, not the probability of drafting it. The second attack is placed after all surviving combatants' first initiative turns. Metabolic wear, signature cooldowns, cosmic counters and damage-event accounting remain in force. Against the same synthetic Hellbat–Darkseid isolation used in the earlier audit, the baseline Darkseid retains a small but nonzero chance of defeating the Apex suit; this is not a canonical probability. Reports disclose Apex/Empowered effects. Existing stored results are historical and are not recomputed by changing these rules.
