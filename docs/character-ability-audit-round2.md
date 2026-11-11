@@ -172,6 +172,9 @@ A test names all seven, so a regenerated index cannot quietly regrant one.
 
 **Owner rulings, 2026-11-11 (Garrett).** These answer the questions this review raised. Each affected record
 carries `ruling` and `verification: "owner-ruling"`, and a test pins them.
+A ruling is a policy decision about what counts for a tag, not independent canonical proof. Each record keeps
+its cited scene and source, and `verification: "owner-ruling"` keeps the two apart: the PR #57 audit rates these
+records `owner-ruling`, never as source-confirmed or corroborated.
 - **Undercover identities count for Ghost Protocol** (Nightwing, Batwoman, Huntress, Talia). No grant changed.
   `stealthMode` stays as descriptive metadata.
 - **Durin's Bane is a giant in every continuity.** The film-only scope (`continuityScope`) and the `conflict` note
