@@ -29,6 +29,9 @@
  // Universe-scoped keys prevent characters with the same name inheriting each other's traits.
  const expanded={
  women:{
+   mcu:"Cosmo the Spacedog",
+   harrypotter:"Hedwig|Norbert (Norberta)",
+   lotr:"Shelob",
    muppets:"Miss Piggy|Camilla the Chicken|Janice|Hilda|Annie Sue|Gladys the Cow|Abby Cadabby|Zoe|Rosita|Prairie Dawn|Curly Bear|Bernice|Ji-Young|Grundgetta|Mokey Fraggle|Red Fraggle|Ma Gorg|Cotterpin Doozer|Ma Otter",
    games:"Princess Peach|Zelda|Samus Aran|Amy Rose|Cortana|Ellie|Aloy|Lara Croft|Yennefer|Ciri|Jill Valentine|Tifa Lockhart|Aerith Gainsborough|Chun-Li|Ms. Pac-Man|Bayonetta|Isabelle|Jinx|Tracer|Widowmaker|Sarah Kerrigan|Chell|Alyx Vance|GLaDOS",
    toons:"Lola Bunny|Minnie Mouse|Mulan|Moana|Elsa|Anna|Ariel|Ursula|Belle|Esmeralda|Lilo|Snow White|Cinderella|Maleficent|Jasmine|Violet|Elastigirl|Edna Mode|Tigress|Sandy Cheeks|Marge Simpson|Lisa Simpson|Velma|Katara|Toph Beifong|Blossom|Bubbles|Buttercup|Lucy van Pelt|Peppermint Patty|Bluey",
@@ -67,6 +70,10 @@
  ]));
 
  const sourceNotes=Object.freeze({
+   'women:mcu:Cosmo the Spacedog':{reason:'Cosmo is depicted as a female talking dog in Guardians of the Galaxy Vol. 3.'},
+   'women:harrypotter:Hedwig':{reason:'Hedwig is explicitly the female snowy owl belonging to Harry Potter.'},
+   'women:harrypotter:Norbert (Norberta)':{reason:'The dragon is confirmed female and renamed Norberta in Deathly Hallows.'},
+   'women:lotr:Shelob':{reason:'Shelob is a female spider referred to as she in The Two Towers.'},
    'red:games:Blinky':{reason:'Blinky is PAC-MAN’s red ghost.',url:'https://www.namcogames.com/_guides/User_Guide_-_PAC-MAN_Plus_by_Namco.pdf'},
    'red:muppets:Red Fraggle':{reason:'Red Fraggle has a distinct red/orange signature design.',url:'https://www.henson.com/fraggle-rock/'},
    'red:muppets:Elmo':{reason:'Elmo is a red-furred Sesame Street Muppet.',url:'https://www.sesameworkshop.org/characters'},
