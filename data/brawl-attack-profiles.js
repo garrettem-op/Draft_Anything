@@ -25,13 +25,13 @@
       const hellbat=candidate.pool==='dc'&&candidate.n==='Hellbat Armor Batman'&&v.move==='Hellbat Counteroffensive';
       return {
         move:v.move||'Signature strike',domain:v.domains[0],
-        tier,pierce:hellbat?.34:clamp(.08+.045*tier,.10,.34),
+        tier,pierce:hellbat ? .34 : clamp(.08+.045*tier,.10,.34),
         guard:Array.isArray(v.guards)?v.guards.slice(0,8):[],
         weakTo:Array.isArray(v.weakTo)?v.weakTo.slice(0,8):[],
         cooldown:hellbat?3:(tier>=5?4:3),
         // The Hellbat is formidable in short exchanges, but prolonged use
         // consumes Bruce's metabolic reserves. Wear cannot by itself award a KO.
-        wearStart:hellbat?5:0,wearRate:hellbat?.025:0,
+        wearStart:hellbat?5:0,wearRate:hellbat ? .025 : 0,
         origin:v.origin||'',limit:v.limit||''
       };
     }
