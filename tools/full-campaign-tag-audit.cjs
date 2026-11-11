@@ -74,8 +74,8 @@ function auditCampaignTags(){
       totals.formTagsPending+=actualAbilities.length+actualTraits.length;
       return {name:f.name,origin:f.origin||'',continuity:f.continuity||'',
         combatAbilityRegistered:!!(profile&&profile!=='null'),
-        abilityTags:{decision:'needs-form-specific-review',tagCount:actualAbilities.length},
-        traitTags:{decision:'needs-form-specific-review',tagCount:actualTraits.length},
+        abilityTags:Object.fromEntries(actualAbilities.map(tag=>[tag,{decision:'needs-form-specific-review'}])),
+        traitTags:Object.fromEntries(actualTraits.map(tag=>[tag,{decision:'needs-form-specific-review'}])),
         inheritedBaseTagsAreSuggestionsOnly:true};
     });
   }
