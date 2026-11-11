@@ -61,6 +61,18 @@ test('committed audit snapshot matches the entire live roster and every variant;
  const path=require('node:path');
  report||=auditCampaignTags();
  const snapshot=JSON.parse(fs.readFileSync(path.join(__dirname,'../docs/campaign-tag-audit-ledger.json'),'utf8'));
+ if(snapshot.totals.abilityGranted!==report.totals.abilityGranted){
+   const changed=[];
+   for(const [pool,base] of Object.entries(report.byPool)){
+     for(const [name,entry] of Object.entries(base)){
+       const old=snapshot.byPool?.[pool]?.[name];
+       const now=entry.abilities.granted.slice().sort().join(',');
+       const was=old?.abilities?.granted?.slice().sort().join(',');
+       if(now!==was)changed.push({id:pool+':'+name,old:was,new:now});
+     }
+   }
+   assert.equal(changed.length,0,'Changed granted tags: '+JSON.stringify(changed.slice(0,20)));
+ }
  assert.deepEqual(snapshot.totals,report.totals);
  assert.deepEqual(snapshot.taxonomy,report.taxonomy);
  assert.deepEqual(snapshot.byPool,report.byPool);
