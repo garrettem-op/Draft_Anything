@@ -536,7 +536,7 @@ const server=http.createServer((req,res)=>{
         const html=daComparison('brawl',A,B,combat.sides[0].kos,combat.sides[1].kos,
           'The Chungus','The Crossover','battle-audit',{combat});
         if(!html.includes('Why this DMG?')||!html.includes('Hellbat Counteroffensive'))
-          throw Error('Live match report mismatch: why='+html.includes('Why this DMG?')+' power='+html.includes('Hellbat Counteroffensive')+' details='+html.includes('da-fighter-why')+' snippet='+html.slice(0,900));
+          throw Error('Live match report lacks fighter ability/damage explanation');
       }
     }
     return {avgHellbat:h/25,avgJoker:j/25,avgDarkseid:d/25,wins:hellWins,results};
