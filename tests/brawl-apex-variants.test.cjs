@@ -108,5 +108,5 @@ test('cosmic entities retain counters; Hellbat is not programmed to win every ma
   const rhs=team([darkseid,manhattan,lucifer,manhunter,kerrigan],92,92);
   let wins=0;
   for(let i=0;i<250;i++)wins+=run(lhs,rhs,41+i*77).winner===0;
-  assert.ok(wins>0&&wins<250,'cosmic squad must remain a viable counter: '+wins);
+  assert.ok(wins<125,'a stacked roster of cosmic entities should defeat a lone Apex threat more often than not: '+wins);
 });
