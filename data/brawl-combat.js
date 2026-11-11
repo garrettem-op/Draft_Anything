@@ -22,8 +22,16 @@
     // Rating/fit already account for signature team support, selected variants,
     // ToonForce/MuppetForce and registered exceptional-power bonuses.
     const attack=9+.31*power+.32*fit+.10*a('spd');
-    const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+.58*a('siz')+.24*fit+(tank?64:0));
     const c=row.cand;
+    const ability=abilityFor(c);
+    // High-order magic/reality/cosmic entities bring limited protective power
+    // even when their human/child physical stats are unexceptional. This is a
+    // depleted gameplay ward, not an assertion of literal invulnerability.
+    const wardHp=ability&&ability.tier>=4&&
+      ['reality','cosmic','magic','elemental'].includes(ability.domain)
+      ?Math.round(26*ability.tier):0;
+    const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
+      .58*a('siz')+.24*fit+(tank?64:0)+wardHp);
     // A physical combat tier is distinct from magic/reality technique tiers.
     // This reduces conventional blows against opponents with established
     // extreme bodies without accidentally ranking all cosmic spells as fists.
@@ -34,7 +42,7 @@
     if(typeof muppetForceOf==='function')muppet=muppetForceOf(c);
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
-      ability:abilityFor(c),physicalTier,
+      ability,physicalTier,wardHp,
       attack,armor,fit,maxHp,hp:maxHp,
       accuracy:a('acc'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
@@ -170,7 +178,7 @@
           attacks:f.attacks,hits:f.hits,hp:f.hp,maxHp:f.maxHp,
           roundsAlive:f.roundsAlive,receivedHits:f.receivedHits,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
-          physicalTier:f.physicalTier,
+          physicalTier:f.physicalTier,wardHp:f.wardHp,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
           wear:f.wear,koRound:f.koRound,targets:f.targets
