@@ -3,6 +3,9 @@
    chosen lineup. The same retry uses the same opponents and simulation RNG.
    Variant Surge locks one random eligible character AND one documented form
    per stage; replacing that character does not return the charge. */
+// The form-specific power catalog is independent from Claude's base-character audit.
+const VARIANT_ABILITIES_API=(typeof window!=='undefined'&&window.DA_VARIANT_ABILITY_API)||
+  (typeof require==='function'?require('./variant-abilities.js'):null);
 const CAMPAIGN_ATTR_INDEX=Object.freeze({spd:0,agi:1,str:2,siz:3,lep:4,end:5,tch:6,acc:7,ref:8,iq:9,clu:10,ldr:11});
 const CAMPAIGN_TACTICS=Object.freeze({
   blitz:{name:'Explosive tempo',description:'Strikes before defenders can establish control',threat:'spd',counter:'iq',counterLabel:'Anticipation and game IQ'},
@@ -246,7 +249,12 @@ function variantRoster(v){
     }
     // Preserve base identity, signatures, boom flags, synergy and ability tags.
     // The transformed stats and any documented cosmic bonus are one-use effects.
+    const abilities=VARIANT_ABILITIES_API?.variantAbilityProfile(c,transform.form)||null;
     roster[slot]={...c,n:transform.form.name,a:attrs,variantBase:c.n,
+      // A documented alternate form replaces the base move; it does not stack
+      // a second, hidden signature. Profiles are never inferred for unreviewed forms.
+      sig:abilities?{name:abilities.move,kind:abilities.kind}:c.sig,
+      variantAbilities:abilities,
       variantRatingBonus:Math.max(0,Math.min(5,Number(transform.form.ratingBonus)||0))};
   }
   return roster;

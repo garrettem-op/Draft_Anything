@@ -1387,6 +1387,7 @@ const CHARACTER_ABILITY_RECORDS_NEW_POOLS = {
   ],
   "dc:Captain Atom": [
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies on quantum-field energy; led Justice League Europe (1989).", "source": "https://en.wikipedia.org/wiki/Captain_Atom", "continuity": "DC mainline comics", "audit": "2026-11-r2"},
+    {"tag": "tech", "tags": ["powered-armor"], "kind": "powered-armor", "feat": "The Captain Atom Project bonded an alien Dilustel shell to Nathaniel Adam. The engineered protective coating contains and channels his quantum energy; he relies on that armor to function safely.", "source": "https://dc.fandom.com/wiki/Nathaniel_Adam_(New_Earth)", "continuity": "DC mainline comics (Nathaniel Adam)", "audit": "2026-11-owner-ruling"},
   ],
   "dc:Supergirl (Kara Zor-El)": [
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies unaided as a Kryptonian under a yellow sun.", "source": "https://en.wikipedia.org/wiki/Supergirl_(Kara_Zor-El)", "continuity": "DC mainline comics", "limitation": "Kryptonite and red-sun weaknesses", "audit": "2026-11-r2"},
@@ -2383,7 +2384,7 @@ const CHARACTER_ABILITY_DISPUTES = Object.freeze([
   {id:"games:Donkey Kong", tag:"giants", verdict:"incorrect", reason:"Granted by name list. Owner ruling 2026-11-09: Giant Problems counts about 8 ft or taller. Only his weight (800 lb, Donkey Kong 64) is documented, never his height; restore if a height of 8 ft or more is found.", source:"https://www.mariowiki.com/Donkey_Kong"},
   {id:"pokemon:Snorlax", tag:"giants", verdict:"incorrect", reason:"Granted by the CAMPAIGN_TAGS name list. Owner ruling 2026-11-09: Giant Problems is about 8 ft or taller with a documented size. Snorlax's Pokédex height is 2.1 m (6 ft 11 in).", source:"https://pokemondb.net/pokedex/snorlax", audit:"2026-11-r2"},
   {id:"dc:Firestorm", tag:"tech", verdict:"incorrect", reason:"Seed-list grant. Firestorm's powers are nuclear transmutation from a fused human pair, not technology or armor.", source:"https://en.wikipedia.org/wiki/Firestorm_(character)", audit:"2026-11-r2"},
-  {id:"dc:Captain Atom", tag:"tech", verdict:"incorrect", reason:"Seed-list grant. His quantum-field powers come from alien metal bonded to his body, not technology he relies on.", source:"https://en.wikipedia.org/wiki/Captain_Atom", audit:"2026-11-r2"},
+  {id:"dc:Captain Atom", tag:"tech", verdict:"ruling", reason:"Owner clarification: Tech Titans accepts extraordinary armor and engineered protective equipment. The Project Atom Dilustel covering is a bonded protective containment shell, not merely the alien biology of an unmodified character. Qualifies as powered armor.", source:"https://www.dc.com/blog/2025/01/03/a-periodic-post-the-elements-of-the-dc-universe", audit:"2026-11-owner-ruling"},
   {id:"dc:Amanda Waller", tag:"tech", verdict:"incorrect", reason:"Seed-list grant. Waller is a government operator with no technology or armor of her own; running Task Force X is a role.", source:"https://en.wikipedia.org/wiki/Amanda_Waller", audit:"2026-11-r2"},
   {id:"dc:Harley Quinn", tag:"stealth", verdict:"incorrect", reason:"Seed-list grant. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth feat. Harley's documented skills are gymnastics and open mallet combat.", source:"https://en.wikipedia.org/wiki/Harley_Quinn", audit:"2026-11-r2"},
   {id:"dc:Deadshot", tag:"stealth", verdict:"incorrect", reason:"Seed-list grant from the 'assassin' role. Owner ruling 2026-11-09: a role is not a stealth feat; Deadshot's documented skill is marksmanship.", source:"https://en.wikipedia.org/wiki/Deadshot", audit:"2026-11-r2"},
@@ -3386,7 +3387,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Booster Gold": ["flight", "powered-flight", "tech", "powered-armor"],
     "Blue Beetle (Jaime Reyes)": ["flight", "powered-flight", "tech", "powered-armor"],
     "Red Tornado": ["flight", "natural-flight", "tech", "robot-or-ai"],
-    "Captain Atom": ["flight", "natural-flight"],
+    "Captain Atom": ["flight", "natural-flight", "tech", "powered-armor"],
     "Vixen": [],
     "Supergirl (Kara Zor-El)": ["flight", "natural-flight", "ice", "ice-control"],
     "Power Girl": ["flight", "natural-flight"],

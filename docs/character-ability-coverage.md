@@ -15,7 +15,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 | fire | 0 | 1 | 3 | 0 | 21 | 47 | 3 | 3 | 8 | 5 | 91 |
 | ice | 0 | 0 | 5 | 0 | 12 | 60 | 0 | 6 | 0 | 0 | 83 |
 | electric | 0 | 5 | 2 | 0 | 16 | 58 | 4 | 4 | 0 | 0 | 89 |
-| tech | 0 | 34 | 13 | 1 | 26 | 1 | 21 | 13 | 0 | 0 | 109 |
+| tech | 0 | 34 | 13 | 1 | 26 | 1 | 21 | 14 | 0 | 0 | 110 |
 | stealth | 0 | 13 | 5 | 0 | 10 | 6 | 5 | 10 | 5 | 9 | 63 |
 | teleport | 0 | 17 | 2 | 2 | 17 | 32 | 0 | 11 | 0 | 15 | 96 |
 | healing | 0 | 14 | 3 | 0 | 11 | 8 | 4 | 17 | 5 | 3 | 65 |
@@ -44,7 +44,7 @@ name lists or description keywords. Counts are characters holding each broad tag
 | ice | ice-weapon | 3 |
 | electric | electric-control | 86 |
 | electric | electric-weapon | 3 |
-| tech | powered-armor | 26 |
+| tech | powered-armor | 27 |
 | tech | robot-or-ai | 24 |
 | tech | cyborg | 10 |
 | tech | gadgets | 43 |
@@ -70,13 +70,13 @@ name lists or description keywords. Counts are characters holding each broad tag
 | games | 157 | 0 | 25 | 182 |
 | pokemon | 226 | 0 | 98 | 324 |
 | starwars | 84 | 0 | 22 | 106 |
-| dc | 130 | 0 | 0 | 130 |
+| dc | 131 | 0 | 0 | 131 |
 | lotr | 70 | 0 | 0 | 70 |
 | harrypotter | 137 | 8 | 0 | 145 |
 
 Carry-over origins: name-list 94, research-guide 46, roster-description 56, curated-aerial 30, pokemon-type 37.
 
-`CHARACTER_ABILITIES` holds 927 source-linked records for 529 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
+`CHARACTER_ABILITIES` holds 928 source-linked records for 529 characters; `CHARACTER_ABILITY_CARRYOVER` holds 263 reviewed carry-overs.
 
 ## Disputed grants (verdict incorrect: excluded from the index)
 
@@ -97,7 +97,7 @@ Carry-over origins: name-list 94, research-guide 46, roster-description 56, cura
 - `games:Donkey Kong` **giants** (incorrect): Granted by name list. Owner ruling 2026-11-09: Giant Problems counts about 8 ft or taller. Only his weight (800 lb, Donkey Kong 64) is documented, never his height; restore if a height of 8 ft or more is found.
 - `pokemon:Snorlax` **giants** (incorrect): Granted by the CAMPAIGN_TAGS name list. Owner ruling 2026-11-09: Giant Problems is about 8 ft or taller with a documented size. Snorlax's Pokédex height is 2.1 m (6 ft 11 in).
 - `dc:Firestorm` **tech** (incorrect): Seed-list grant. Firestorm's powers are nuclear transmutation from a fused human pair, not technology or armor.
-- `dc:Captain Atom` **tech** (incorrect): Seed-list grant. His quantum-field powers come from alien metal bonded to his body, not technology he relies on.
+- `dc:Captain Atom` **tech** (ruling): Owner clarification: Tech Titans accepts extraordinary armor and engineered protective equipment. The Project Atom Dilustel covering is a bonded protective containment shell, not merely the alien biology of an unmodified character. Qualifies as powered armor.
 - `dc:Amanda Waller` **tech** (incorrect): Seed-list grant. Waller is a government operator with no technology or armor of her own; running Task Force X is a role.
 - `dc:Harley Quinn` **stealth** (incorrect): Seed-list grant. Owner ruling 2026-11-09: Ghost Protocol needs a documented stealth feat. Harley's documented skills are gymnastics and open mallet combat.
 - `dc:Deadshot` **stealth** (incorrect): Seed-list grant from the 'assassin' role. Owner ruling 2026-11-09: a role is not a stealth feat; Deadshot's documented skill is marksmanship.
