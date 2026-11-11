@@ -23,7 +23,7 @@
  ['dc:Anti-Monitor','Antimatter wave','cosmic',5,.38,['cosmic'],4,'https://www.dc.com/characters/anti-monitor','Multiversal feats are scenario-dependent, not instant arena obliteration.'],
  ['dc:Mister Mxyzptlk','Fifth-dimensional revision','reality',5,.40,['reality'],4,'https://www.dc.com/blog/2024/05/02/invasion-of-the-imps-five-magical-pranksters-from-the-fifth-dimension','Trickable and bound by narrative banishment conventions.'],
  ['dc:Doctor Manhattan','Matter reconstitution','reality',5,.40,['reality'],4,'https://www.dc.com/blog/2024/08/28/we-may-have-been-entirely-wrong-about-why-doctor-manhattan-goes-to-mars','Temporal perspective and motivations constrain intervention.'],
- ['dc:The Spectre','Spectral judgment','magic',5,.38,['magic','reality'],4,'https://www.dc.com/characters','Dependent on host and divine mandate; generic DC landing page is only a discovery link.'],
+ ['dc:The Spectre','Spectral judgment','magic',5,.38,['magic','reality'],4,'https://www.dc.com/graphic-novels/dc-finest-the-spectre-the-wrath-of-the-spectre','Dependent on host and divine mandate.'],
  ['dc:Dream of the Endless','Dream manifestation','reality',4,.26,['reality'],4,'https://www.dc.com/characters','Dream realm influence does not guarantee waking-arena victory.'],
  ['mcu:Franklin Richards','Reality reshape','reality',5,.40,['reality'],4,'https://www.marvel.com/comics/discover/2513/the-children-of-the-fantastic-four','Powers vary by age, depletion and storyline.'],
  ['mcu:Galactus','Power Cosmic discharge','cosmic',5,.38,['cosmic'],4,'https://www.marvel.com/teams-and-groups/heralds-of-galactus','Hunger and feeding state matter.'],
