@@ -164,9 +164,20 @@
         const elevated=signature&&p.tier>=4&&
           ['reality','cosmic','magic','elemental'].includes(p.domain);
         const floor=elevated?(30+14*p.tier)*support[f.side]*fatigue:0;
-        const raw=Math.max(1,Math.round(Math.max(rolled,floor)));
+        let raw=Math.max(1,Math.round(Math.max(rolled,floor)));
         const domain=signature?p.domain:'physical';
+        // A rare form is not invincible to an established cosmic opponent:
+        // documented tier-4+ magic/reality/cosmic moves have enough force to
+        // threaten it, rather than being treated as another generic punch.
+        if(signature&&target.apexRank&&p?.tier>=4&&
+          ['cosmic','magic','reality','time','elemental'].includes(domain))
+          raw=Math.round(raw*4);
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
+        // High-order baseline entities may have formidable passive defenses
+        // even without being randomly granted an alternate form themselves.
+        if(f.apexRank&&!target.apexRank&&target.ability?.tier>=4&&
+          ['cosmic','magic','reality'].includes(target.ability.domain))
+          block+=raw*.50;
         if(signature&&target.ability?.guard?.includes(domain))block+=raw*.13;
         if(signature&&target.ability?.weakTo?.includes(domain))block-=raw*.12;
         // A non-superhuman punch or gadget does not routinely punch through
