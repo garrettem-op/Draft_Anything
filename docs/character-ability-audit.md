@@ -36,6 +36,8 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 
 Raw research, including rejected claims and researcher notes, is preserved in `research/ABILITY_AUDIT_2026-11.json`.
 
+**Evidence audit (2026-11-10, owner's evidence standard and PR #57 review):** `docs/character-ability-source-audit.md` rates every grant in every pool by evidence quality, not source type, and says who checked it (owner, reviewer, or automated triage). `credible` means a traceable, specific claim is on record, not that it was fact-checked; `corroborated` needs a reviewed agreement marker; `needs-review` names an actual gap; `investigate` covers contradictions. Form, power-up and item dependencies are a separate worklist with stable IDs and proposed handling; nothing is stripped. Regenerate with `node tools/ability-source-audit.cjs --write`; `--check` fails on drift.
+
 ## Coverage, before → after (characters per theme)
 
 "After" counts the reviewed index. It is what the game will accept once the engine honors the `incorrect`

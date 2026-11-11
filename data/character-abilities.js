@@ -1387,7 +1387,7 @@ const CHARACTER_ABILITY_RECORDS_NEW_POOLS = {
   ],
   "dc:Captain Atom": [
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies on quantum-field energy; led Justice League Europe (1989).", "source": "https://en.wikipedia.org/wiki/Captain_Atom", "continuity": "DC mainline comics", "audit": "2026-11-r2"},
-    {"tag": "tech", "tags": ["powered-armor"], "kind": "powered-armor", "feat": "The Captain Atom Project bonded an alien Dilustel shell to Nathaniel Adam. The engineered protective coating contains and channels his quantum energy; he relies on that armor to function safely.", "source": "https://dc.fandom.com/wiki/Nathaniel_Adam_(New_Earth)", "continuity": "DC mainline comics (Nathaniel Adam)", "audit": "2026-11-owner-ruling"},
+    {"tag": "tech", "tags": ["powered-armor"], "kind": "powered-armor", "feat": "The Captain Atom Project bonded an alien Dilustel shell to Nathaniel Adam. The engineered protective coating contains and channels his quantum energy; he relies on that armor to function safely.", "source": "https://dc.fandom.com/wiki/Nathaniel_Adam_(New_Earth)", "continuity": "DC mainline comics (Nathaniel Adam)", "audit": "2026-11-owner-ruling", "policyRuling": "owner-ruled 2026-11-11 (Garrett): the engineered Dilustel protective containment armor qualifies for Tech Titans under the standing armor policy. This settles eligibility only; it does not verify the feat. Source verification stays open until a specific comic issue or official primary reference is pinned."},
   ],
   "dc:Supergirl (Kara Zor-El)": [
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies unaided as a Kryptonian under a yellow sun.", "source": "https://en.wikipedia.org/wiki/Supergirl_(Kara_Zor-El)", "continuity": "DC mainline comics", "limitation": "Kryptonite and red-sun weaknesses", "audit": "2026-11-r2"},
@@ -3794,18 +3794,136 @@ function characterAbilityEvidence(candidate, tag) {
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
   return (CHARACTER_ABILITIES[candidate.pool + ':' + candidate.n] || []).find(x => x.tag === broad) || null;
 }
-/* Why a character holds a tag (broad or specific): {basis:'evidence', record} for a source-linked record,
-   {basis:'carry-over', record} for a reviewed pre-audit grant without a source-linked feat, or null when
+/* Evidence standard (owner, 2026-11-10): the question is whether a grant is accurate, not who published the
+   source. A specific, well-documented community entry (Wikipedia, Fandom, TV Tropes, Comic Vine) is credible
+   evidence, the same as an official source with clear feats. Data only: nothing here changes eligibility.
+
+   Source type is descriptive. Every cited host is classified once so the audit can report what kinds of
+   source the roster rests on, and so a typo'd or unknown host is caught. It never lowers a rating. */
+const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
+  // official: the rights holder or its licensed publications
+  'starwars.com':'official', 'marvel.com':'official', 'd23.com':'official', 'disneyplus.com':'official',
+  'pixar.com':'official', 'in.portal-pokemon.com':'official', 'primagames.com':'official',
+  // game-data: values reproduced mechanically from the games (learnsets, Pokédex text)
+  'pokemondb.net':'game-data',
+  // dialogue: screenplays and transcribed dialogue of the work itself
+  'imsdb.com':'dialogue', 'sellingyourscreenplay.com':'dialogue', 'imdb.com':'dialogue', 'moviemistakes.com':'dialogue',
+  // editorial: professionally edited press, film reference and academic publications
+  'syfy.com':'editorial', 'thewrap.com':'editorial', 'themarysue.com':'editorial', 'tcm.com':'editorial',
+  'nbclosangeles.com':'editorial', 'journals.le.ac.uk':'editorial',
+  // community: open-edit wikis, fan sites and guide aggregators
+  'en.wikipedia.org':'community', 'tvtropes.org':'community', 'comicvine.gamespot.com':'community',
+  'mariowiki.com':'community', 'zeldawiki.wiki':'community', 'strategywiki.org':'community', 'wikirby.com':'community',
+  'ssbwiki.com':'community', 'halopedia.org':'community', 'theportalwiki.com':'community',
+  'wiki.leagueoflegends.com':'community', 'en.uesp.net':'community', 'warcraft.wiki.gg':'community',
+  'wikibound.info':'community', 'looneytuneswiki.com':'community', 'doomwiki.org':'community', 'raymanpc.com':'community',
+  'starwars.archivum.wiki':'community', 'thewitcher3.wiki.fextralife.com':'community', 'game8.co':'community',
+  'gamerguides.com':'community', 'comicbasics.com':'community', 'fortressofsolitude.co.za':'community',
+  'autoassembly.org.uk':'community', 'dcuguide.com':'community',
+});
+const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
+/* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
+function characterAbilitySourceTier(url) {
+  let host;
+  try { host = new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  if (CHARACTER_ABILITY_SOURCE_TIERS[host]) return CHARACTER_ABILITY_SOURCE_TIERS[host];
+  return /(^|\.)fandom\.com$/.test(host) ? 'community' : null;
+}
+/* Feat-evidence URLs. officialSource is left out on purpose: it confirms who a character is, not a feat. */
+const CHARACTER_ABILITY_FEAT_URL_FIELDS = Object.freeze(['source', 'verifiedBy', 'dialogueSource', 'speciesSource']);
+function characterAbilityFeatUrls(record) {
+  return CHARACTER_ABILITY_FEAT_URL_FIELDS.flatMap(k => [].concat(record?.[k] || []));
+}
+/* Sites and owners. Distinct hostnames show only that two websites were cited, not that they report
+   independently or agree. For corroboration we also fold sites that share one editorial voice into one owner:
+   the Disney-owned official sites, and GameSpot with its Comic Vine wiki. Separate Fandom wikis are separate
+   volunteer communities and stay distinct. */
+const CHARACTER_ABILITY_SOURCE_OWNERS = Object.freeze({
+  'disney.com':'disney', 'd23.com':'disney', 'disneyplus.com':'disney', 'starwars.com':'disney', 'marvel.com':'disney',
+  'pixar.com':'disney', 'comicvine.gamespot.com':'gamespot', 'gamespot.com':'gamespot',
+});
+function characterAbilitySourceOwner(url) {
+  let host;
+  try { host = new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  return CHARACTER_ABILITY_SOURCE_OWNERS[host] || host;
+}
+function characterAbilityIndependentSources(record) {
+  return new Set(characterAbilityFeatUrls(record).map(characterAbilitySourceOwner).filter(Boolean)).size;
+}
+/* Corroboration is a reviewed marker, never inferred from a URL count: a reviewer recorded the scene (record.scene)
+   and a verifiedBy source, from a different owner than the main source, that was checked to describe that same feat. */
+function characterAbilityHasReviewedAgreement(record) {
+  if (!record?.verifiedBy || String(record.scene || '').length < 20) return false;
+  const main = characterAbilitySourceOwner(record.source);
+  return [].concat(record.verifiedBy).some(u => { const o = characterAbilitySourceOwner(u); return o && o !== main; });
+}
+/* Traceability: does the record point at where the feat happens? Yes when it names a scene, cites an occurrence in the
+   feat (a work, year, chapter, issue, episode or quoted title), or its continuity names a specific work or run rather
+   than an umbrella ("DC mainline comics", "Sonic series", or none) and the feat is more than a bare label. Word count
+   alone and the mere presence of a URL field never count. This is automated documentation triage, not a fact-check: it says the claim can be checked, not that it
+   has been. */
+const CHARACTER_ABILITY_FEAT_CITATION = /\([^)]*\d[^)]*\)|\([^)]*[A-Z][^)]*\)|#\d|\b(ch|chapter|ep|episode|season|issue|vol|book)\.?\s*\d|['‘"“][A-Z][^'’"”]{2,}['’"”]|\b([Ii]n|[Aa]t|[Dd]uring) (the )?[A-Z][\w'’-]+/;
+function characterAbilityUmbrellaContinuity(continuity) {
+  const c = String(continuity ?? '').trim();
+  if (!c || c === 'undefined') return true;
+  if (/\d{4}|season|vol\./i.test(c)) return false;
+  return /mainline|\bseries\b|^films and series$|trilogies|^milestone|^sesame street$|novels$|^the sandman and lucifer/i.test(c);
+}
+function characterAbilityFeatIsSpecific(record) {
+  if (!record) return false;
+  if (String(record.scene || '').length >= 20) return true;
+  const feat = String(record.feat || '').trim();
+  if (CHARACTER_ABILITY_FEAT_CITATION.test(feat)) return true;
+  // A specific work or run makes the claim traceable only if the feat says something: a bare label such as
+  // "Levitates and flies." stays untraceable wherever it is set. (Length is a floor here, never enough alone.)
+  return !characterAbilityUmbrellaContinuity(record.continuity) && feat.split(/\s+/).length >= 5;
+}
+/* How well a record supports its grant. Every status below is still granted unless the reviewed index says
+   otherwise; the label says what has been checked and what, if anything, is worth checking.
+   'owner-ruling'  granted or settled by the owner. Final.
+   'investigate'   accounts contradict, continuities are mixed, or the interpretation is disputed (record.conflict).
+   'corroborated'  a reviewer confirmed that an independent second source describes the same feat (reviewed marker).
+   'credible'      documentation is complete: a traceable, specific claim from a source of any type. Automated triage
+                   unless a reviewer set the label; it is not a statement that the feat was fact-checked.
+   'needs-review'  an actual gap: no traceable occurrence, or a reviewer could not confirm the scene.
+   An explicit record.verification from a hand review wins over the derived label, except that a recorded conflict
+   always surfaces as 'investigate' unless the owner has ruled, and 'corroborated' must carry the reviewed marker. */
+const CHARACTER_ABILITY_STATUSES = Object.freeze(['owner-ruling', 'corroborated', 'credible', 'needs-review', 'investigate']);
+function characterAbilityVerification(record) {
+  if (!record) return null;
+  if (record.verification === 'owner-ruling') return 'owner-ruling';
+  if (record.conflict) return 'investigate';
+  if (record.verification === 'corroborated') return characterAbilityHasReviewedAgreement(record) ? 'corroborated' : 'credible';
+  if (record.verification) return record.verification;
+  if (characterAbilityHasReviewedAgreement(record)) return 'corroborated';
+  return characterAbilityFeatIsSpecific(record) ? 'credible' : 'needs-review';
+}
+/* Who checked it: 'owner', 'review' (a person set the label), or 'automated' (derived by the rules above only). */
+function characterAbilityCheckedBy(record) {
+  if (!record) return null;
+  if (record.verification === 'owner-ruling') return 'owner';
+  return record.verification ? 'review' : 'automated';
+}
+/* Why a grant needs a look, in the owner's terms. null when nothing is outstanding. */
+function characterAbilityReviewReason(record) {
+  const v = characterAbilityVerification(record);
+  if (v === 'investigate') return 'conflict';
+  if (v !== 'needs-review') return null;
+  return record.verification === 'needs-review' ? 'unconfirmed-scene' : 'untraceable';
+}
+/* Why a character holds a tag (broad or specific): {basis:'evidence', record, verification} for a source-linked
+   record, {basis:'carry-over', record, verification:'unsourced'} for a reviewed pre-audit grant without a
+   source-linked feat, or null when
    the reviewed index does not grant it (including every disputed grant). */
 function characterAbilityProvenance(candidate, tag) {
   const tags = characterAbilityTags(candidate);
   if (!tags || !tags.includes(tag)) return null;
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
   const record = characterAbilityEvidence(candidate, broad);
-  if (record) return { basis: 'evidence', record };
+  if (record) return { basis: 'evidence', record, verification: characterAbilityVerification(record) };
   const id = candidate.pool + ':' + candidate.n;
   const carried = CHARACTER_ABILITY_CARRYOVER.find(x => x.id === id && x.tag === broad);
-  return carried ? { basis: 'carry-over', record: carried } : null;
+  return carried ? { basis: 'carry-over', record: carried, verification: 'unsourced' } : null;
 }
 /* Reviewed power tags for a roster character, e.g. ['flight','tech']. Returns null for a
    character outside the audited roster (unknown), and [] for audited non-powered characters. */
@@ -3817,5 +3935,9 @@ function characterAbilityTags(candidate) {
 if (typeof module !== 'undefined' && module.exports) module.exports = {
   CHARACTER_ABILITIES, CHARACTER_ABILITY_DISPUTES, CHARACTER_ABILITY_RESEARCH_QUEUE,
   CHARACTER_ABILITY_TAGS, CHARACTER_ABILITY_TAG_FAMILIES, CHARACTER_ABILITY_BROAD_TAG, CHARACTER_ABILITY_CARRYOVER,
-  characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance
+  characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance,
+  CHARACTER_ABILITY_SOURCE_TIERS, CHARACTER_ABILITY_SOURCE_TYPES, CHARACTER_ABILITY_STATUSES, CHARACTER_ABILITY_FEAT_URL_FIELDS,
+  CHARACTER_ABILITY_SOURCE_OWNERS, characterAbilitySourceTier, characterAbilitySourceOwner, characterAbilityFeatUrls,
+  characterAbilityIndependentSources, characterAbilityHasReviewedAgreement, characterAbilityUmbrellaContinuity,
+  characterAbilityFeatIsSpecific, characterAbilityVerification, characterAbilityCheckedBy, characterAbilityReviewReason
 };
