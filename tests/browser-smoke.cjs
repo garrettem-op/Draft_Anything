@@ -517,8 +517,8 @@ const server=http.createServer((req,res)=>{
       d1:pick('dc','Death of the Endless'),d2:pick('mcu','Scarlet Witch'),d3:pick('dc','Darkseid'),
       bn:pick('dc','Wonder Woman'),cmd:pick('dc','Trigon')};
     const A=teamScore('brawl',left),B=teamScore('brawl',right);
-    let h=0,j=0,d=0,hellWins=0,helPower=0,darkPower=0,results=[];
-    for(let i=0;i<25;i++){
+    let h=0,j=0,d=0,hellWins=0,helPower=0,darkPower=0,underJoker=0,noAttacks=0,results=[];
+    for(let i=0;i<250;i++){
       const g=playGame('brawl',A,B,8,rngFrom('hellbat-real-roster-'+i));
       const combat=g.combat;
       if(!combat)throw Error('Match bypassed the Battle Royale combat engine');
@@ -531,6 +531,8 @@ const server=http.createServer((req,res)=>{
       if(!dark.powerMove||(dark.attacks>0&&!dark.powerUses))
         throw Error('Darkseid profile/first-attack signature missing: '+JSON.stringify(dark));
       h+=hel.dmg;j+=jok.dmg;d+=dark.dmg;helPower+=hel.powerUses;darkPower+=dark.powerUses;hellWins+=combat.winner===0?1:0;
+      if(hel.dmg<jok.dmg)underJoker++;
+      if(!hel.attacks)noAttacks++;
       results.push({h:hel.dmg,j:jok.dmg,d:dark.dmg,hAttacks:hel.attacks,jAttacks:jok.attacks});
       if(i===0){
         const html=daComparison('brawl',A,B,combat.sides[0].kos,combat.sides[1].kos,
@@ -540,13 +542,14 @@ const server=http.createServer((req,res)=>{
       }
     }
     if(!helPower||!darkPower)throw Error('Signature abilities never triggered across full-roster seeds');
-    return {avgHellbat:h/25,avgJoker:j/25,avgDarkseid:d/25,wins:hellWins,helPower,darkPower,results};
+    return {avgHellbat:h/250,avgJoker:j/250,avgDarkseid:d/250,wins:hellWins,helPower,darkPower,underJoker,noAttacks,results};
   });
-  assert.equal(combatAudit.results.length,25);
-  console.log('Actual roster (25 seeds): Hellbat',combatAudit.avgHellbat.toFixed(1),
+  assert.equal(combatAudit.results.length,250);
+  console.log('Actual roster (250 seeds): Hellbat',combatAudit.avgHellbat.toFixed(1),
     'Joker',combatAudit.avgJoker.toFixed(1),
     'Darkseid',combatAudit.avgDarkseid.toFixed(1),
-    'Chungus wins',combatAudit.wins);
+    'Chungus wins',combatAudit.wins,
+    'Hellbat below Joker',combatAudit.underJoker,'Hellbat no attacks',combatAudit.noAttacks);
   assert.equal(errors.length,0,'Browser JS errors: '+errors.join('; '));
   process.stdout.write('Browser gameplay smoke test passed: mobile campaign draft, A-Z, info scroll, simulated result.\\n');
  } finally {
