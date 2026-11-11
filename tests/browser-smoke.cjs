@@ -545,6 +545,12 @@ const server=http.createServer((req,res)=>{
     return {avgHellbat:h/250,avgJoker:j/250,avgDarkseid:d/250,wins:hellWins,helPower,darkPower,underJoker,noAttacks,results};
   });
   assert.equal(combatAudit.results.length,250);
+  assert.ok(combatAudit.avgHellbat>combatAudit.avgJoker*1.3,
+    'A source-backed god-tier suit should exceed baseline Joker damage on average');
+  assert.ok(combatAudit.underJoker<125,
+    'Joker must not outdamage Hellbat in most full-roster seeded battles');
+  assert.ok(combatAudit.avgDarkseid>combatAudit.avgHellbat,
+    'Darkseid should remain a dangerous combatant without predetermined match results');
   console.log('Actual roster (250 seeds): Hellbat',combatAudit.avgHellbat.toFixed(1),
     'Joker',combatAudit.avgJoker.toFixed(1),
     'Darkseid',combatAudit.avgDarkseid.toFixed(1),
