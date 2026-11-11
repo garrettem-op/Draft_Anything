@@ -10,7 +10,7 @@ const newly=['dc','lotr','harrypotter'];
 const old=['nba','mcu','toons','muppets','games','pokemon','starwars'];
 const modules=[
   'data/new-pool-core.js',
-  'data/pools-dc.js','data/pools-middle-earth.js','data/pools-harry-potter.js',
+  'data/pools-dc.js','data/pools-middle-earth.js','data/pools-harry-potter.js','data/pools-action-movies.js',
   'data/new-pool-traits.js','data/new-pool-powers.js',
   'data/pool-lore-dc.js','data/pool-lore-middle-earth.js','data/pool-lore-harry-potter.js'
 ];
@@ -87,7 +87,7 @@ test('the new pools participate in the picker and Mashup without deleting past p
   const builtin=h.evaluate('BUILTIN');
   for(const pool of [...old,...newly,'mashup'])assert.ok(builtin.includes(pool),pool);
   const mashup=h.evaluate("getCands('mashup')");
-  assert.equal(mashup.length,1200);
+  assert.equal(mashup.length,1300); // +100 Action Movies (PR #70), no name collisions
   for(const pool of [...old,...newly])assert.ok(mashup.some(c=>c.pool===pool),pool);
   for(const pool of newly){
     const candidates=h.evaluate('getCands('+JSON.stringify(pool)+')');
@@ -242,10 +242,10 @@ test('every roster member is evaluated by all 34 Campaign challenges with explai
     }
     return {count:characters.length,ruleCount:stages.length,errors,coverage};
   })()`);
-  assert.equal(report.count,1200);
+  assert.equal(report.count,1300);
   assert.equal(report.ruleCount,34);
   assert.deepEqual([...report.errors],[],'Every rule and character must produce one consistent explanation');
   for(const [rule,counts] of Object.entries(report.coverage))
-    assert.equal(counts.eligible+counts.rejected,1200,rule+' missed characters');
+    assert.equal(counts.eligible+counts.rejected,1300,rule+' missed characters');
   assert.equal(h.paid(),0,'Full audit must not initiate paid AI research');
 });
