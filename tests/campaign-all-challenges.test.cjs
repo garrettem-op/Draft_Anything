@@ -72,7 +72,9 @@ test('female identities work across Muppets, animation, games, Pokémon, Star Wa
     ['muppets','Red Fraggle'],['muppets','Mokey Fraggle'],
     ['toons','Katara'],['games','Chell'],['pokemon','Nidoqueen'],
     ['starwars','Leia Organa'],['dc','Wonder Woman'],
-    ['lotr','Galadriel'],['harrypotter','Hermione Granger']
+    ['lotr','Galadriel'],['harrypotter','Hermione Granger'],
+    ['mcu','Cosmo the Spacedog'],['harrypotter','Hedwig'],
+    ['harrypotter','Norbert (Norberta)'],['lotr','Shelob']
   ]) assert.equal(h.result(pool,name,'women').allowed,true,pool+':'+name);
   assert.equal(h.result('muppets','Kermit the Frog','women').allowed,false);
 });
