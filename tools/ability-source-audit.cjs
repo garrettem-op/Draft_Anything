@@ -41,8 +41,10 @@ function indexDigest(tags = CHARACTER_ABILITY_TAGS) {
   return crypto.createHash('sha256').update(JSON.stringify(norm)).digest('hex');
 }
 
-/* Form, power-up and item dependencies: what kind, and a proposed handling for the owner to rule on.
-   Proposals only. Eligibility is unchanged until the owner rules and the engine (ChatGPT) implements it. */
+/* Form, power-up and item dependencies: what kind, and the handling proposed before the owner ruled.
+   Owner ruling (FORM_RULING): every one counts for the base character, which is what Campaign already does,
+   so no engine change is needed. The proposals are kept as history. */
+const FORM_RULING = 'Owner ruling (Garrett, 2026-11-10): a power that depends on a form, power-up or item counts for the base character, including wish-granted forms and stolen items.';
 const HANDLING = {
   'owned-item': ['count-base', 'Signature gear the character carries in normal play; follows the ruling that armor counts for tech.'],
   'equipment': ['count-base', 'Signature gear the character carries in normal play; follows the ruling that armor counts for tech.'],
@@ -105,7 +107,8 @@ function sourceAudit() {
     const [proposedHandling, handlingBasis] = HANDLING[dependencyType];
     return { conditionId: 'condition:' + g.id + ':' + g.tag, id: g.id, character: g.character, tag: g.tag,
       continuity: record.continuity || null, dependencyType, dependency: g.gateNote, typed: g.gate !== 'candidate',
-      proposedHandling, handlingBasis, eligibility: 'unchanged: granted until the owner rules' };
+      handling: 'count-base', ruling: FORM_RULING, proposedHandling, handlingBasis,
+      eligibility: 'granted: owner ruling 2026-11-10' };
   });
   const count = rows => Object.fromEntries(STATUSES.map(s => [s, rows.filter(g => g.status === s).length]));
   const byPool = Object.fromEntries(POOL_IDS.map(p => [p, count(grants.filter(g => g.pool === p))]));
@@ -143,7 +146,7 @@ function markdown(a) {
     '| Reviewer confirmed an independent second source describes the same feat | Strong corroboration | `corroborated` |',
     '| No traceable occurrence, or a scene a reviewer could not confirm | Needs review | `needs-review` |',
     '| Contradictory accounts, mixed continuities, disputed interpretation | Requires investigation | `investigate` |',
-    '| Equipment-dependent or transformed abilities | Evaluate eligibility conditions | *Eligibility conditions* worklist below, whatever the status |',
+    '| Equipment-dependent or transformed abilities | Count for the base character (owner ruling 2026-11-10) | *Eligibility conditions* list below, whatever the status |',
     '| Settled by the owner | Final | `owner-ruling` |',
     '| Reviewed pre-audit carry-over with no link yet | Add a source | `unsourced` |', '',
     '### What the automation checked, and what it did not', '',
@@ -198,12 +201,12 @@ function markdown(a) {
   L.push('');
   const byHandling = h => a.conditions.filter(c => c.proposedHandling === h).length;
   L.push('## Eligibility conditions: form, power-up and item dependencies (' + a.conditions.length + ')', '',
-    'Campaign counts every indexed tag for the base character. These grants depend on a form, power-up or item, so the open question is the eligibility condition, not the evidence. Each has a stable `conditionId` and a **proposed** handling for the owner to rule on: ' +
-    byHandling('count-base') + ' count-base, ' + byHandling('variant-only') + ' variant-only, ' + byHandling('owner-ruling-needed') + ' owner-ruling-needed. **Nothing is stripped:** every grant stays eligible until the owner rules and the engine implements it. `typed` = the dependency is recorded in `formGate`; otherwise it was detected from the record\'s `limitation` text.', '');
+    '**' + FORM_RULING + '** All ' + a.conditions.length + ' grants below therefore stay eligible as `count-base`. Campaign already counts every indexed tag for the base character, so no engine change is needed.', '',
+    'Before the ruling, the audit had proposed ' + byHandling('count-base') + ' count-base, ' + byHandling('variant-only') + ' variant-only and ' + byHandling('owner-ruling-needed') + ' owner-ruling-needed. Those proposals are kept in the JSON as `proposedHandling`, as history. Each grant keeps a stable `conditionId`. `typed` = the dependency is recorded in `formGate`; otherwise it was detected from the record\'s `limitation` text.', '');
   for (const [type, [handling, basis]] of Object.entries(HANDLING)) {
     const rows = a.conditions.filter(c => c.dependencyType === type);
     if (!rows.length) continue;
-    L.push('### ' + type + ' → proposed ' + handling + ' (' + rows.length + ')', '', basis, '',
+    L.push('### ' + type + ' → count-base (' + rows.length + ')', '', 'Earlier proposal: ' + handling + '. ' + basis, '',
       '| conditionId | Continuity | Dependency | Typed |', '| --- | --- | --- | --- |');
     for (const c of rows) L.push('| `' + c.conditionId + '` | ' + String(c.continuity || '').replace(/\|/g, '/') + ' | ' + String(c.dependency).replace(/\|/g, '/') + ' | ' + (c.typed ? 'yes' : 'no') + ' |');
     L.push('');
@@ -247,4 +250,4 @@ if (require.main === module) {
     console.log('Source audit is up to date.');
   } else { console.log('Usage: --write or --check [--root DIR]'); process.exit(2); }
 }
-module.exports = { sourceAudit, outputs, staleOutputs, indexDigest, classifyDependency, HANDLING, PRIORITY_TAGS, STATUSES, REVIEW, DOC, JSON_FILE };
+module.exports = { FORM_RULING, sourceAudit, outputs, staleOutputs, indexDigest, classifyDependency, HANDLING, PRIORITY_TAGS, STATUSES, REVIEW, DOC, JSON_FILE };

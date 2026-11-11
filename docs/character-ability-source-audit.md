@@ -15,7 +15,7 @@ Owner ruling, 2026-11-10: the goal is an accurate character knowledge database, 
 | Reviewer confirmed an independent second source describes the same feat | Strong corroboration | `corroborated` |
 | No traceable occurrence, or a scene a reviewer could not confirm | Needs review | `needs-review` |
 | Contradictory accounts, mixed continuities, disputed interpretation | Requires investigation | `investigate` |
-| Equipment-dependent or transformed abilities | Evaluate eligibility conditions | *Eligibility conditions* worklist below, whatever the status |
+| Equipment-dependent or transformed abilities | Count for the base character (owner ruling 2026-11-10) | *Eligibility conditions* list below, whatever the status |
 | Settled by the owner | Final | `owner-ruling` |
 | Reviewed pre-audit carry-over with no link yet | Add a source | `unsourced` |
 
@@ -161,11 +161,13 @@ The owner ruled that the feat, as described, qualifies for the power. That settl
 
 ## Eligibility conditions: form, power-up and item dependencies (61)
 
-Campaign counts every indexed tag for the base character. These grants depend on a form, power-up or item, so the open question is the eligibility condition, not the evidence. Each has a stable `conditionId` and a **proposed** handling for the owner to rule on: 41 count-base, 6 variant-only, 14 owner-ruling-needed. **Nothing is stripped:** every grant stays eligible until the owner rules and the engine implements it. `typed` = the dependency is recorded in `formGate`; otherwise it was detected from the record's `limitation` text.
+**Owner ruling (Garrett, 2026-11-10): a power that depends on a form, power-up or item counts for the base character, including wish-granted forms and stolen items.** All 61 grants below therefore stay eligible as `count-base`. Campaign already counts every indexed tag for the base character, so no engine change is needed.
 
-### owned-item → proposed count-base (3)
+Before the ruling, the audit had proposed 41 count-base, 6 variant-only and 14 owner-ruling-needed. Those proposals are kept in the JSON as `proposedHandling`, as history. Each grant keeps a stable `conditionId`. `typed` = the dependency is recorded in `formGate`; otherwise it was detected from the record's `limitation` text.
 
-Signature gear the character carries in normal play; follows the ruling that armor counts for tech.
+### owned-item → count-base (3)
+
+Earlier proposal: count-base. Signature gear the character carries in normal play; follows the ruling that armor counts for tech.
 
 | conditionId | Continuity | Dependency | Typed |
 | --- | --- | --- | --- |
@@ -173,9 +175,9 @@ Signature gear the character carries in normal play; follows the ruling that arm
 | `condition:toons:Jafar:psychic` | Disney's Aladdin (1992) | The hypnosis works only through his staff, which he carries as base Jafar. | yes |
 | `condition:toons:King Triton:magic` | Disney's The Little Mermaid (1989) | The trident is his own and he carries it as base Triton. | yes |
 
-### equipment → proposed count-base (23)
+### equipment → count-base (23)
 
-Signature gear the character carries in normal play; follows the ruling that armor counts for tech.
+Earlier proposal: count-base. Signature gear the character carries in normal play; follows the ruling that armor counts for tech.
 
 | conditionId | Continuity | Dependency | Typed |
 | --- | --- | --- | --- |
@@ -203,9 +205,9 @@ Signature gear the character carries in normal play; follows the ruling that arm
 | `condition:lotr:Frodo Baggins:stealth` | The Lord of the Rings | Only while wearing the Ring | no |
 | `condition:lotr:Bilbo Baggins:stealth` | The Hobbit | Only while wearing the Ring | no |
 
-### self-transformation → proposed count-base (15)
+### self-transformation → count-base (15)
 
-A form the character takes at will, by their own power.
+Earlier proposal: count-base. A form the character takes at will, by their own power.
 
 | conditionId | Continuity | Dependency | Typed |
 | --- | --- | --- | --- |
@@ -225,9 +227,9 @@ A form the character takes at will, by their own power.
 | `condition:dc:Beast Boy:giants` | DC mainline comics | Limited to animal forms | no |
 | `condition:lotr:Beorn:giants` | The Hobbit | Only in bear form | no |
 
-### power-up → proposed owner-ruling-needed (14)
+### power-up → count-base (14)
 
-A temporary pickup or consumable. Either count it as a signature move, or move it to a variant.
+Earlier proposal: owner-ruling-needed. A temporary pickup or consumable. Either count it as a signature move, or move it to a variant.
 
 | conditionId | Continuity | Dependency | Typed |
 | --- | --- | --- | --- |
@@ -246,27 +248,27 @@ A temporary pickup or consumable. Either count it as a signature move, or move i
 | `condition:games:Sonic the Hedgehog:flight` | Sonic series (Super form) | Only as Super Sonic (seven Chaos Emeralds; ring-limited) | no |
 | `condition:games:Cloud Strife:magic` | Final Fantasy VII | Requires equipped Materia | no |
 
-### granted-form → proposed variant-only (2)
+### granted-form → count-base (2)
 
-The power belongs to a form granted by someone else (a wish, a Vala) or to a later form, so the base character does not hold it.
+Earlier proposal: variant-only. The power belongs to a form granted by someone else (a wish, a Vala) or to a later form, so the base character does not hold it.
 
 | conditionId | Continuity | Dependency | Typed |
 | --- | --- | --- | --- |
 | `condition:toons:Mickey Mouse:magic` | Disney: Fantasia (1940) | Borrowed sorcerer's magic; uncontrolled; one segment | no |
 | `condition:lotr:Elwing:flight` | The Silmarillion | A form given by Ulmo | no |
 
-### stolen-item → proposed variant-only (2)
+### stolen-item → count-base (2)
 
-The power needs someone else's item, held only briefly.
+Earlier proposal: variant-only. The power needs someone else's item, held only briefly.
 
 | conditionId | Continuity | Dependency | Typed |
 | --- | --- | --- | --- |
 | `condition:toons:Ursula:aquatic` | Disney's The Little Mermaid (1989) | Water-breathing and swimming are her own; water control needs Triton's stolen trident. | yes |
 | `condition:toons:Ursula:giants` | Disney's The Little Mermaid (1989) | She grows only by using Triton's stolen trident. | yes |
 
-### wish-form → proposed variant-only (2)
+### wish-form → count-base (2)
 
-The power exists only after a wish is granted.
+Earlier proposal: variant-only. The power exists only after a wish is granted.
 
 | conditionId | Continuity | Dependency | Typed |
 | --- | --- | --- | --- |

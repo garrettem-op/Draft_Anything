@@ -172,14 +172,19 @@ test('form, power-up and item dependencies form a stable, actionable worklist th
     assert.equal(c.conditionId, 'condition:' + c.id + ':' + c.tag);
     assert.ok(HANDLING[c.dependencyType], c.conditionId + ' ' + c.dependencyType);
     assert.ok(handlings.has(c.proposedHandling) && c.handlingBasis && c.dependency, c.conditionId);
-    assert.match(c.eligibility, /^unchanged/);
+    assert.equal(c.handling, 'count-base', c.conditionId + ': owner ruled that form, power-up and item powers count');
+    assert.equal(c.eligibility, 'granted: owner ruling 2026-11-10');
     const [pool, ...rest] = c.id.split(':');
     assert.ok(CHARACTER_ABILITY_TAGS[pool][rest.join(':')].includes(c.tag), c.conditionId + ' must stay granted');
   }
   const has = id => a.conditions.some(c => c.conditionId === id);
   assert.ok(has('condition:games:Mario:fire'));
   assert.ok(has('condition:lotr:Frodo Baggins:stealth'));
-  assert.equal(a.conditions.find(c => c.conditionId === 'condition:toons:Jafar:giants').proposedHandling, 'variant-only');
+  // The pre-ruling proposal is kept as history; the ruling decides.
+  const jafar = a.conditions.find(c => c.conditionId === 'condition:toons:Jafar:giants');
+  assert.equal(jafar.proposedHandling, 'variant-only');
+  assert.equal(jafar.handling, 'count-base');
+  assert.ok(CHARACTER_ABILITY_TAGS.toons.Jafar.includes('giants') && CHARACTER_ABILITY_TAGS.toons.Ursula.includes('giants'));
   // Already ruled, so not conditions: a character's own glide counts for Skyborne.
   assert.ok(!has('condition:games:Knuckles:flight'));
   assert.ok(!has('condition:games:Spyro:flight'));
