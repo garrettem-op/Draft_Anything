@@ -95,6 +95,26 @@ test('peak tier-5 forms and curated tier-4 forms share Apex effects; ordinary ti
   }
   assert.equal(run(team([regular]),team([agent]),47).sides[0].fighters[0].apexRank,1);
 });
+test('King Thanos gains the documented Apex combat kit, while base Thanos does not',()=>{
+  const attrs={str:99,end:99,iq:98,acc:91,ref:94,spd:83,siz:94};
+  const king=form('mcu','Thanos','King Thanos',attrs);
+  const base=hero('mcu','Thanos',attrs);
+  // A surge preserves the base ID; opponents can draft the same character identity.
+  king.id=base.id;
+  const sample=run(team([king]),team([base]),57,{trace:true});
+  const upgraded=sample.sides[0].fighters[0];
+  const ordinary=sample.sides[1].fighters[0];
+  assert.equal(upgraded.apexRank,2);
+  assert.equal(ordinary.apexRank,0);
+  assert.equal(upgraded.apexHp,730);
+  assert.equal(ordinary.apexHp,0);
+  assert.equal(upgraded.powerMove,'End-of-Time Onslaught');
+  assert.match(upgraded.powerSource,/marvel\.com\/comics\/discover\/1214\/thanos-wins/);
+  assert.equal(ordinary.powerMove,'');
+  let kingWins=0;
+  for(let i=0;i<100;i++)kingWins+=run(team([king]),team([base]),i*37+11).winner===0;
+  assert.ok(kingWins>=95,'King Thanos must decisively outperform base Thanos in controlled duels: '+kingWins);
+});
 test('unreviewed variants and baseline versions do not inherit Apex form powers',()=>{
   const unreviewed=hero('dc','Hellbat Armor Batman',{}, {variantBase:'Batman',variantAbilities:null});
   const cases=[ordinaryBatman,unreviewed,hero('dc','Darkseid',{str:99,end:99}),hero('mcu','Thor')];
