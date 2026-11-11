@@ -15,7 +15,7 @@ const get = id => { const c = byId.get(id); assert.ok(c, id + ' is not on the ro
 const accepts = (id, tag) => game.allowed(get(id), tag);
 
 test('index lists every roster character in every pool exactly once, and nobody else', () => {
-  assert.equal(game.roster.filter(c => LEGACY_POOL_IDS.includes(c.pool)).length, 848);
+  assert.equal(game.roster.filter(c => LEGACY_POOL_IDS.includes(c.pool)).length, 879);
   let listed = 0;
   for (const pool of POOL_IDS) {
     const names = Object.keys(game.tagIndex[pool] || {});

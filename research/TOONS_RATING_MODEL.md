@@ -1,10 +1,10 @@
 # Cartoon character ratings — evidence framework
 
-**Pool:** 104 animated characters in Draft Anything (`POOLS.toons`).  
+**Pool:** 134 animated characters in Draft Anything (`POOLS.toons`).  
 **Game rule:** Standard repeatable supernatural abilities, cartoon-physics resiliency, magic, elemental bending, portals, shapeshifting and normally carried personal equipment are permitted.
 
 ## Scope
-Research was prepared for every existing cartoon character. Each profile records named source cartoons or movies, demonstrated powers and feats, weaknesses/defeats, effective sports utility, 12 attribute ratings (1–99), estimated power tier and variant. Each attribute has a brief rationale in `TOONS_ALL_104_PROFILES.json`. Numerical rankings are creative judgments derived from primary works and subject to revision, **not official studio statistics**.
+Research was prepared for every existing cartoon character. Each profile records named source cartoons or movies, demonstrated powers and feats, weaknesses/defeats, effective sports utility, 12 attribute ratings (1–99), estimated power tier and variant. Each attribute has a brief rationale in `TOONS_ALL_PROFILES.json`. Numerical rankings are creative judgments derived from primary works and subject to revision, **not official studio statistics**.
 
 ## Source hierarchy and confidence
 1. Named on-screen episode/movie actions and franchise-specific continuity; strongest evidence once the precise scene is checked.
@@ -30,6 +30,11 @@ Every individual scene claim not individually checked is flagged in data. Verifi
 - **Snoopy:** Imaginary Red Baron plane is not necessarily physical flight.
 - **Moana:** Ocean acts independently; no assumption that she can waterbend at will.
 - **Maui:** Recurring shapeshifting requires his magic hook.
+- **Genie:** Lamp-bound 1992 version. At-will shapeshifting, flight and conjuration count; wish-scale reality changes need a master and do not.
+- **Jafar:** Sorcerer form from Aladdin (1992); the lamp-bound Genie Jafar of his third wish is not the default.
+- **Ursula / King Triton:** Triton's power lives in his trident. Ursula's giant size and sea control need the stolen trident; her own spells and contracts do not.
+- **Maleficent:** Dragon form is part of her normal kit in Sleeping Beauty (1959).
+- **Peter Pan:** Flight relies on pixie dust, which he always has with Tinker Bell.
 - **Popeye:** Recurrent spinach amplification is part of normal kit, but consumption and pre-spinach weakness are meaningful counters.
 - **Katara:** Bloodbending requires special conditions; not a default unrestricted ability every turn.
 - **Aang:** Season-end four-element skills, spirit state and Avatar State are period-dependent.
@@ -46,8 +51,8 @@ Every individual scene claim not individually checked is flagged in data. Verifi
 - [Adult Swim: Rick and Morty portal-gun production](https://www.adultswim.com/videos/rick-and-morty/rick-and-morty-prop-process)
 
 ## Implementation
-The game references exactly 104 profiles from `TOONS_PROFILES_BATCH_01..03.json`. `index.html` holds the current numeric arrays and uses them in both draft simulation and role-ranking logic. `data/toons-profiles.js` populates the on-screen optional Character Guide with research context and explicit score reveal. `TOONS_MATCHUP_EVIDENCE.json` catalogs 32 contextual candidate opponent events. MCU scores remain unchanged.
+The game references one profile per shipped character from `TOONS_PROFILES_BATCH_01..04.json` (134 as of November 2026; batch 04 is the Disney additions). `index.html` holds the current numeric arrays and uses them in both draft simulation and role-ranking logic. `data/toons-profiles.js` populates the on-screen optional Character Guide with research context and explicit score reveal. `TOONS_MATCHUP_EVIDENCE.json` catalogs 32 contextual candidate opponent events. MCU scores remain unchanged.
 
 Run `node research/validate_toons_profiles.mjs` from the repository root to verify that all research and shipped values are synchronized.
 
-**Research status:** All 104 drafted and owner-authorized for deployment; primary-scene verification remains incomplete. Treat the profile descriptions and numeric ratings as interpretive/subject to correction.
+**Research status:** The original 103 (Wreck-It Ralph has since moved to Video Games) and the 31 Disney additions are drafted and owner-authorized for deployment; primary-scene verification remains incomplete. Treat the profile descriptions and numeric ratings as interpretive/subject to correction.

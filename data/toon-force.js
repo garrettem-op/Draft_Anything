@@ -213,6 +213,11 @@ const TOON_FORCE_PROFILES=Object.freeze({
     98,
     "Tom and Jerry: survives and outmaneuvers giant threats using improbable props and recovery.",
     "Small size still limits ordinary leverage."
+  ],
+  "Genie": [
+    95,
+    "Aladdin (1992): nonstop shapeshifting sight gags and impressions, even pulling off his own head and putting it back while listing his rules.",
+    "World-changing feats need a master's wish; he cannot kill, force love or raise the dead."
   ]
 });
 
@@ -558,6 +563,14 @@ const TOON_FORCE_FACETS=Object.freeze({
     93,
     36,
     91
+  ],
+  "Genie": [
+    96,
+    84,
+    99,
+    95,
+    90,
+    62
   ]
 });
 const TOON_FORCE_FACET_KEYS=Object.freeze(["comedy","resilience","body","environment","fourthWall","sports"]);

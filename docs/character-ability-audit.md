@@ -5,7 +5,7 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 ## What changed
 
 1. **Every roster character now has reviewed ability tags.** `CHARACTER_ABILITY_TAGS` in
-   `data/character-abilities.js` lists every character in every pool: the 848 in the original seven pools, plus
+   `data/character-abilities.js` lists every character in every pool: the 879 in the original seven pools (848 at the time of this audit, plus the 31 Disney characters added to Cartoons on 2026-11-10), plus
    the DC, Middle-earth and Harry Potter pools from PR #42 (1,173 in total). For the new pools, the index reflects
    ChatGPT's seeded power data until their lore research lands. Each list holds the 12 Campaign
    power ids. An empty list means **audited, no qualifying power**, which is different from unknown.
