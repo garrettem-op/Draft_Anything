@@ -196,6 +196,21 @@ test("Peter Pan's flight is an owner ruling: Skyborne, granted, and not reopened
   assert.ok(!a.conditions.some(c => c.id === 'toons:Peter Pan'));
 });
 
+test('Captain Atom tech: an owner policy ruling keeps the grant but is not shown as verified evidence', () => {
+  // Owner, 2026-11-11 (PR #76): the Dilustel containment armor qualifies under the armor policy. A ruling on
+  // eligibility must not be represented as independent canon verification.
+  const r = CHARACTER_ABILITIES['dc:Captain Atom'].find(x => x.tag === 'tech');
+  assert.match(r.policyRuling, /owner-ruled 2026-11-11/);
+  assert.ok(CHARACTER_ABILITY_TAGS.dc['Captain Atom'].includes('tech'), 'the tech grant stays');
+  assert.notEqual(r.verification, 'owner-ruling');
+  assert.equal(characterAbilityVerification(r), 'needs-review');
+  assert.equal(characterAbilityCheckedBy(r), 'automated');
+  const row = sourceAudit().rows.find(x => x.id === 'dc:Captain Atom' && x.tag === 'tech');
+  assert.equal(row.status, 'needs-review');
+  assert.equal(row.policyRuling, r.policyRuling);
+  assert.match(outputs()[DOC], /## Owner policy rulings, sourcing still open \(1\)[\s\S]*dc:Captain Atom: tech \(needs-review/);
+});
+
 test('--check passes when outputs are current and fails when they drift or go missing', () => {
   const ok = spawnSync(process.execPath, [TOOL, '--check'], { encoding: 'utf8' });
   assert.equal(ok.status, 0, ok.stderr);

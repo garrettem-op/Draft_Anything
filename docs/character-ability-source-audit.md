@@ -153,6 +153,12 @@ These cite two or more independent owners, but no reviewer has confirmed the sou
 
 Records with a `conflict` note: contradictory accounts, mixed continuities or a disputed interpretation. None recorded yet. Add `conflict: "<what disagrees>"` to a record when sources or continuities disagree on a feat.
 
+## Owner policy rulings, sourcing still open (1)
+
+The owner ruled that the feat, as described, qualifies for the power. That settles eligibility, not whether the feat canonically occurred, so these keep the status their sourcing earns (not `owner-ruling`) and stay on the worklist until a specific occurrence is pinned. The grant stays.
+
+- dc:Captain Atom: tech (needs-review, untraceable). owner-ruled 2026-11-11 (Garrett): the engineered Dilustel protective containment armor qualifies for Tech Titans under the standing armor policy. This settles eligibility only; it does not verify the feat. Source verification stays open until a specific comic issue or official primary reference is pinned.
+
 ## Eligibility conditions: form, power-up and item dependencies (61)
 
 Campaign counts every indexed tag for the base character. These grants depend on a form, power-up or item, so the open question is the eligibility condition, not the evidence. Each has a stable `conditionId` and a **proposed** handling for the owner to rule on: 41 count-base, 6 variant-only, 14 owner-ruling-needed. **Nothing is stripped:** every grant stays eligible until the owner rules and the engine implements it. `typed` = the dependency is recorded in `formGate`; otherwise it was detected from the record's `limitation` text.

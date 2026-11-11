@@ -91,6 +91,8 @@ function sourceAudit() {
           // Two or more owners cited, but no reviewer has confirmed they describe the same feat.
           ...(sites >= 2 && status !== 'corroborated' ? { multipleSitesUnchecked: sites } : {}),
           ...(record?.conflict ? { conflict: record.conflict } : {}),
+          // An owner policy ruling settles eligibility, not whether the feat occurred; the status stays as rated.
+          ...(record?.policyRuling ? { policyRuling: record.policyRuling } : {}),
           ...(gate ? { gate, gateNote: record.formGate?.note || record.limitation } : {}),
           ...(carried ? { basis: carried.basis } : {})
         });
@@ -189,6 +191,11 @@ function markdown(a) {
     'Records with a `conflict` note: contradictory accounts, mixed continuities or a disputed interpretation. ' + (conflicts.length ? '' : 'None recorded yet. Add `conflict: "<what disagrees>"` to a record when sources or continuities disagree on a feat.'), '');
   for (const r of conflicts) L.push('- ' + r.id + ': ' + r.tag + '. ' + r.conflict);
   if (conflicts.length) L.push('');
+  const policy = a.rows.filter(r => r.policyRuling);
+  L.push('## Owner policy rulings, sourcing still open (' + policy.length + ')', '',
+    'The owner ruled that the feat, as described, qualifies for the power. That settles eligibility, not whether the feat canonically occurred, so these keep the status their sourcing earns (not `owner-ruling`) and stay on the worklist until a specific occurrence is pinned. The grant stays.', '');
+  for (const r of policy) L.push('- ' + r.id + ': ' + r.tag + ' (' + r.status + (r.reviewReason ? ', ' + r.reviewReason : '') + '). ' + r.policyRuling);
+  L.push('');
   const byHandling = h => a.conditions.filter(c => c.proposedHandling === h).length;
   L.push('## Eligibility conditions: form, power-up and item dependencies (' + a.conditions.length + ')', '',
     'Campaign counts every indexed tag for the base character. These grants depend on a form, power-up or item, so the open question is the eligibility condition, not the evidence. Each has a stable `conditionId` and a **proposed** handling for the owner to rule on: ' +
