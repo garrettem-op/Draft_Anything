@@ -86,7 +86,8 @@ test('special cosmic forms contribute their bonus exactly once through universal
     coachMult:()=>1,benchMult:()=>1,
     synergyOf:()=>({total:0}),
     sigOf:rows=>({lift:rows[0].cand.sig?0.8:0,chaos:0,spark:[],list:[]}),
-    muppetForceTeamwork:()=>({points:0})
+    muppetForceTeamwork:()=>({points:0}),
+    benchChemistry:()=>({points:0,percent:0,sidekick:false})
   };
   vm.runInNewContext(source+'; this.score=teamScore;',scoreContext);
   const base=scoreContext.score('test',{a:thor});

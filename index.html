@@ -972,6 +972,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/campaign-eligibility.js"></script>
 <script src="data/muppet-force.js"></script>
 <script src="data/toon-force.js"></script>
+<script src="data/bench-chemistry.js"></script>
 <script src="data/brawl-exceptional-power.js"></script>
 <script src="data/brawl-attack-profiles.js"></script>
 <script src="data/brawl-combat.js"></script>
@@ -1277,7 +1278,11 @@ function teamScore(sportKey, roster) {
   const variantBonus=rows.reduce((sum,r)=>sum+(Number(r.cand?.variantRatingBonus)||0),0);
   const baseRating=playerScore*mult+syn.total+sig.lift+(variety?variety.pts:0)+variantBonus;
   const muppetTeam=muppetForceTeamwork(roster,sp.pos,baseRating);
-  return { rating:baseRating+muppetTeam.points, playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety, muppetTeam, variantBonus };
+  // Bench Chemistry: sidekicks thrive on the bench, and any bench player lifts teammates they mesh with.
+  const benchChem=benchChemistry(roster,sp.pos,baseRating);
+  const bi=rows.findIndex(r=>r.pos.bench&&r.cand);
+  const benchHeat=bi<0?null:{i:bi,fit:rows[bi].fit,clutch:rows[bi].cand.a[AK.indexOf('clu')],sidekick:benchChem.sidekick};
+  return { rating:baseRating+muppetTeam.points+benchChem.points, playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety, muppetTeam, benchChem, benchHeat, variantBonus };
 }
 
 function grade(f) {
@@ -2311,6 +2316,14 @@ function gameRatings(A, B, playoff, rng, sportKey=null) {
     }
     if (side === 0) ra += d; else rb += d;
   }
+  // Off the Bench: the bench player sees minutes every game and can catch fire (or go cold).
+  for (const [T, side] of [[A, 0], [B, 1]]) {
+    const bh = T.benchHeat; if (!bh) continue;
+    const x = benchHeatRoll(bh.clutch, bh.fit, bh.sidekick, playoff, rng);
+    if (!x.pts) continue;
+    if (side === 0) ra += x.pts; else rb += x.pts;
+    if (playoff) ev.push({ side, i: bh.i, kind: x.kind, bench: true });
+  }
   // ToonForce is a context-dependent stunt, never guaranteed invulnerability.
   // At most one bounded spotlight event per side per match.
   const toon=[0,0],toonEvents=[];
@@ -2707,6 +2720,17 @@ function synergyOf(sportKey, roster) {
   return { total: Math.min(LINK_CAP, sum) + (style ? style.pts : 0), links, style };
 }
 
+// Results panel for Bench Chemistry (see data/bench-chemistry.js).
+function benchChemPanel(score) {
+  const b = score && score.benchChem; if (!b || !b.percent) return '';
+  const list = a => a.map(esc).join(', ').replace(/, ([^,]*)$/, ' and $1');
+  const bits = [];
+  if (b.sidekick) bits.push(`${esc(b.bench)} is a born sidekick and thrives in the bench role`);
+  if (b.leads.length) bits.push(`backing ${list(b.leads)}`);
+  if (b.mesh.length) bits.push(`${b.sidekick ? 'and meshes' : `${esc(b.bench)} meshes`} with ${list(b.mesh)}`);
+  return `<div class="panel" style="padding:12px 16px;margin:12px 0"><b>Bench Chemistry · +${b.percent.toFixed(2)}% team rating</b><p class="note">${bits.join(', ')}. That lifted the whole squad by ${b.points.toFixed(2)} rating points.</p></div>`;
+}
+
 // ===== Engine: candidates, AI draft, simulation =====
 function hashStr(s) { let h = 1779033703 ^ s.length; for (let i = 0; i < s.length; i++) { h = Math.imul(h ^ s.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; } return h >>> 0; }
 function rngFrom(seed) {
@@ -2815,7 +2839,7 @@ function aiTeamValue(sportKey, roster) {
   const sp = SPORTS[sportKey]; let num = 0, den = 0, cf = 30, bf = 30;
   for (const q of sp.pos) { const c = roster[q.id]; const f = c ? fitAI(sportKey, c, q) : 0; if (q.coach) { if (c) cf = f; } else if (q.bench) { if (c) bf = f; } else { num += q.imp * f; den += q.imp; } }
   const baseRating=num/den*coachMult(cf)*benchMult(bf)+synergyOf(sportKey,roster).total;
-  return baseRating+muppetForceTeamwork(roster,sp.pos,baseRating).points;
+  return baseRating+muppetForceTeamwork(roster,sp.pos,baseRating).points+benchChemistry(roster,sp.pos,baseRating).points;
 }
 function aiStackDraft(sportKey, available, nTeams, polish = true) {
   const sp = SPORTS[sportKey], P = sp.pos, imps = P.map(q => slotImp(sportKey, q));
@@ -3465,7 +3489,7 @@ function rcContext(sportKey, me, opp, T, O, N, r, o) {
 function rcSpark(evs, teams, me, opp, N, r, o) {
   const when = e => e.ri == null ? '' : e.bo > 1 ? `in Game ${e.g} of the ${o.rn[e.ri].toLowerCase()}` : `in the ${o.rn[e.ri].toLowerCase()}`;
   const cand = e => teams[e.team].score.rows[e.i].cand;
-  const w = e => { const t = when(e); return t ? ' ' + t : ''; };
+  const w = e => { const t = when(e); return (e.bench ? ' off the bench' : '') + (t ? ' ' + t : ''); };
   if (o.lost) {
     const ob = evs.find(e => e.team === opp && e.kind === 'boom'), mb = evs.find(e => e.team === me && e.kind === 'bust');
     if (ob && mb) return `${N(cand(mb))} went cold${w(mb)}, while ${N(cand(ob))} caught fire for ${o.O}${w(ob)}.`;
@@ -3617,7 +3641,7 @@ function characterForceMultiplier(sportKey,c,pos){
 }
 function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos);
+  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos)+(pos.bench&&isSidekick(c)?6:0);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
@@ -3895,7 +3919,7 @@ function renderModal() {
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
-    <p><b>Bench Spark:</b> every team carries one bench player who lives on intangibles: Stamina, Leadership and Clutch. A great one lifts the whole squad, a little less than a great coach does.</p>
+    <p><b>Bench Spark:</b> every team carries one bench player who lives on intangibles: Stamina, Leadership and Clutch. Whoever sits there multiplies the whole squad, more when they mesh with the rest of your roster. Born sidekicks thrive in the role, especially next to the stars they're known for backing. The bench player also sees minutes every game and can catch fire.</p>
     <p><b>Signature moves:</b> the most iconic characters carry a named signature move. What it does stays hidden until after the game. Some lift the whole squad, some let a lopsided build play bigger than it is, some rise up in the playoffs, and some knock opponents off balance. The computer drafts don't know about them.</p>
     <p><b>Variant Surge:</b> A documented alternate form replaces the character's signature move, retains their identity, changes attributes and may grant form-specific powers and resistances. Countering forms reduce the added combat impact; every power has a listed limitation. Unreviewed forms still only change stats. The same rules apply across Championship, Campaign, Dealt Hand and Head-to-Head.</p>
     <p><b>Playoff Boom:</b> some players are boom-or-bust. In any playoff game they can catch fire and take over, or go cold. They're a gamble, and that's the point.</p>
@@ -4381,6 +4405,7 @@ function renderChampResults() {
       ${handMode()?'<button class="btn" data-act="c-newdeal">New draft</button>':'<button class="btn" data-act="c-edit">Edit lineup</button>'}
       <button class="btn" data-act="c-copy">Share result</button></div>
     ${me.score.muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${me.score.muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${me.score.muppetTeam.performers} Muppet teammate(s) generated +${me.score.muppetTeam.points.toFixed(2)} rating points for the entire squad. Individual MuppetForce bonuses are already reflected in position fit.</p></div>`:''}
+    ${benchChemPanel(me.score)}
     ${daMatchBrowser(c.sport,sim,teams,c.reportMatch,recapPanel(c.result.recap))}
     <details class="panel da-aux"><summary>League details</summary><div class="da-aux-content">
       ${rounds.length?`<div><h3 class="h">Playoffs</h3><div class="bracket">${bracket}</div></div>`:''}
@@ -5017,6 +5042,7 @@ function renderH2HResult(d) {
     <div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${esc(sp.name)} · Head-to-Head</span><div class="big">${title}</div></div>
     <div class="cta-row">${mySide(d)?'<button class="btn primary" data-act="h-rematch">Rematch</button>':''}<button class="btn" data-act="h-lobby">Back to lobby</button></div>
     ${sc[me].muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${sc[me].muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${sc[me].muppetTeam.performers} Muppet(s) increased team rating by ${sc[me].muppetTeam.points.toFixed(2)} points beyond their personal role-fit multipliers.</p></div>`:''}
+    ${benchChemPanel(sc[me])}
     ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,combat,breakdown,summaryHTML:summary})}
   </section>`;
 }
