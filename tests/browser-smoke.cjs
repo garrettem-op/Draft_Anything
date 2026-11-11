@@ -493,6 +493,59 @@ const server=http.createServer((req,res)=>{
   await page.locator('.modal [data-act="hand-info-close"]').first().waitFor();
   assert.equal(await page.evaluate(()=>S.champ.handSel),selectedBefore,'Opening Info selected the hand card');
   await page.locator('.modal [data-act="hand-info-close"]').first().click();
+  // Full-roster regression for the reported Hellbat 79 vs Joker 510 outcome:
+  // use the actual candidate catalog, variant transformations and scoring
+  // pipeline, not manually supplied attributes from an isolated unit test.
+  const combatAudit=await page.evaluate(()=>{
+    const all=getCands('mashup');
+    const pick=(pool,name)=>{
+      const found=all.find(c=>c.pool===pool&&c.n===name);
+      if(!found)throw Error('Missing reported battle character: '+pool+':'+name);
+      return found;
+    };
+    const batman=pick('dc','Batman');
+    const surged=variantRoster({
+      sport:'brawl',roster:{d1:batman},
+      surge:{id:batman.id,name:'Hellbat Armor Batman'}
+    }).d1;
+    if(surged.n!=='Hellbat Armor Batman'||!surged.variantAbilities)
+      throw Error('Hellbat form transformation lost its reviewed abilities');
+    const left={tk1:pick('mcu','Abomination'),tk2:pick('mcu','Adam Warlock'),
+      d1:surged,d2:pick('dc','Joker'),d3:pick('dc','Lucifer Morningstar'),
+      bn:pick('mcu','Captain Carter'),cmd:pick('mcu','Captain America')};
+    const right={tk1:pick('dc','Ares (DC)'),tk2:pick('mcu','The Watcher'),
+      d1:pick('dc','Death of the Endless'),d2:pick('mcu','Scarlet Witch'),d3:pick('dc','Darkseid'),
+      bn:pick('dc','Wonder Woman'),cmd:pick('dc','Trigon')};
+    const A=teamScore('brawl',left),B=teamScore('brawl',right);
+    let h=0,j=0,d=0,hellWins=0,results=[];
+    for(let i=0;i<25;i++){
+      const g=playGame('brawl',A,B,8,rngFrom('hellbat-real-roster-'+i));
+      const combat=g.combat;
+      if(!combat)throw Error('Match bypassed the Battle Royale combat engine');
+      const hel=combat.sides[0].fighters.find(f=>f.name==='Hellbat Armor Batman');
+      const jok=combat.sides[0].fighters.find(f=>f.name==='Joker');
+      const dark=combat.sides[1].fighters.find(f=>f.name==='Darkseid');
+      if(!hel||!jok||!dark)throw Error('Battle report lost a character in the combat roster');
+      if(hel.powerMove!=='Hellbat Counteroffensive'||!hel.powerUses)
+        throw Error('Hellbat signature ability not active in live team match');
+      if(!dark.powerMove||!dark.powerUses)
+        throw Error('Darkseid signature ability not active in live team match');
+      h+=hel.dmg;j+=jok.dmg;d+=dark.dmg;hellWins+=combat.winner===0?1:0;
+      results.push({h:hel.dmg,j:jok.dmg,d:dark.dmg,hAttacks:hel.attacks,jAttacks:jok.attacks});
+      if(i===0){
+        const html=daComparison('brawl',A,B,combat.sides[0].kos,combat.sides[1].kos,
+          'The Chungus','The Crossover','battle-audit',{combat});
+        if(!html.includes('Why this DMG?')||!html.includes('Hellbat Counteroffensive'))
+          throw Error('Live match report lacks fighter ability/damage explanation');
+      }
+    }
+    return {avgHellbat:h/25,avgJoker:j/25,avgDarkseid:d/25,wins:hellWins,results};
+  });
+  assert.equal(combatAudit.results.length,25);
+  console.log('Actual roster (25 seeds): Hellbat',combatAudit.avgHellbat.toFixed(1),
+    'Joker',combatAudit.avgJoker.toFixed(1),
+    'Darkseid',combatAudit.avgDarkseid.toFixed(1),
+    'Chungus wins',combatAudit.wins);
   assert.equal(errors.length,0,'Browser JS errors: '+errors.join('; '));
   process.stdout.write('Browser gameplay smoke test passed: mobile campaign draft, A-Z, info scroll, simulated result.\\n');
  } finally {
