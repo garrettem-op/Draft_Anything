@@ -312,6 +312,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
         `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive.`,
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
         targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
+        log.wardHp?`Bounded power ward: +${log.wardHp} protective HP at start.`:'',
         log.wear?`Ability strain: ${log.wear} HP lost (not credited as opponent DMG).`:'',
         log.koRound?`Knocked out in round ${log.koRound}.`:
           `Remaining HP: ${Number(log.hp)||0}/${Number(log.maxHp)||0}.`,
