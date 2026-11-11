@@ -60,7 +60,8 @@
        weakTo:Array.isArray(v.weakTo)?v.weakTo.slice(0,8):[],
        cooldown:hellbat ? 3 :(tier>=5?4:3),
        wearStart:hellbat ? 5 :0,wearRate:hellbat ? .025 :0,
-       source:v.source||'',origin:v.origin||'',limit:v.limit||'',
+       source:hellbat?'https://www.dc.com/blog/2014/12/19/this-just-happened-robin-rises-batman-falls':(v.source||''),
+       origin:v.origin||'',limit:v.limit||'',
        continuity:v.continuity||''
      };
    }
