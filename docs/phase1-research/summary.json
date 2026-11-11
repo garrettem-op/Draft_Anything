@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "task": "Phase 1 Campaign research",
+  "rules": [
+    "flight",
+    "magic",
+    "psychic",
+    "aquatic",
+    "fire",
+    "ice",
+    "electric",
+    "tech",
+    "stealth",
+    "teleport",
+    "healing",
+    "giants",
+    "women",
+    "red",
+    "kids",
+    "mortal"
+  ],
+  "policy": "No-knowledge means needs-review; a no decision requires concrete negative evidence or NBA class review.",
+  "summary": {
+    "base": 1204,
+    "forms": 243,
+    "cells": 23152,
+    "yes": 1957,
+    "no": 2166,
+    "needsReview": 19029,
+    "existingSourceYes": 946,
+    "existingCarryoverYes": 263,
+    "existingTraitYes": 529,
+    "individualFormYes": 85,
+    "individualFormNo": 3,
+    "explicitDisputeNo": 31,
+    "classReviewNBA": 2010,
+    "positiveEvidenceDerivedNo": 252,
+    "byPool": {
+      "nba": {
+        "characters": 134,
+        "forms": 0,
+        "yes": 134,
+        "no": 1876,
+        "needsReview": 134
+      },
+      "mcu": {
+        "characters": 143,
+        "forms": 64,
+        "yes": 250,
+        "no": 19,
+        "needsReview": 3043
+      },
+      "toons": {
+        "characters": 134,
+        "forms": 12,
+        "yes": 196,
+        "no": 12,
+        "needsReview": 2128
+      },
+      "muppets": {
+        "characters": 101,
+        "forms": 0,
+        "yes": 50,
+        "no": 5,
+        "needsReview": 1561
+      },
+      "games": {
+        "characters": 118,
+        "forms": 59,
+        "yes": 248,
+        "no": 33,
+        "needsReview": 2551
+      },
+      "pokemon": {
+        "characters": 151,
+        "forms": 40,
+        "yes": 380,
+        "no": 48,
+        "needsReview": 2628
+      },
+      "starwars": {
+        "characters": 98,
+        "forms": 8,
+        "yes": 176,
+        "no": 28,
+        "needsReview": 1492
+      },
+      "dc": {
+        "characters": 104,
+        "forms": 40,
+        "yes": 197,
+        "no": 31,
+        "needsReview": 2076
+      },
+      "lotr": {
+        "characters": 115,
+        "forms": 8,
+        "yes": 120,
+        "no": 34,
+        "needsReview": 1814
+      },
+      "harrypotter": {
+        "characters": 106,
+        "forms": 12,
+        "yes": 206,
+        "no": 80,
+        "needsReview": 1602
+      }
+    }
+  },
+  "gate": {
+    "phase1Complete": false,
+    "phase2Unblocked": false
+  }
+}
