@@ -26,7 +26,7 @@ The Chromium regression uses the **actual browser roster and shared Variant Surg
 - **The Chungus**: Abomination, Adam Warlock, Hellbat Armor Batman, Joker, Lucifer Morningstar; Captain Carter reinforcement; Captain America commander
 - **The Crossover**: Ares (DC), The Watcher, Death of the Endless, Scarlet Witch, Darkseid; Wonder Woman reinforcement; Trigon commander
 
-### 250-seed full-roster replay, current tuned model
+### 250-seed full-roster replay — historical v2 calibration (before Apex variants)
 | Result | Value |
 |---|---:|
 | Hellbat mean DMG | 243.9 |
