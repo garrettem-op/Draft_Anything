@@ -56,6 +56,18 @@ test('alternate form research uses exact identity instead of copied baseline tag
  assert.equal(form('mcu','mcu:Iron Man|Godbuster Iron Man','tech').decision,'yes');
  assert.equal(form('dc','dc:Batman|Hellbat Armor Batman','tech').decision,'yes');
 });
+test('variant gender identity is independently reviewed, without inheriting other combat or Campaign traits',()=>{
+ const phoenix=load().pools.mcu.forms['mcu:Jean Grey|White Phoenix of the Crown'];
+ assert.equal(phoenix.decisions.women.decision,'yes');
+ assert.equal(phoenix.decisions.red.decision,'needs-review');
+ assert.equal(phoenix.decisions.magic.decision,'needs-review','new form powers need specific research');
+ assert.equal(form('mcu','mcu:Thanos|King Thanos','women').decision,'no');
+ assert.equal(form('mcu','mcu:Silver Surfer|Silver Surfer Black','women').decision,'no');
+ assert.equal(form('games','games:Princess Peach|Radiant Peach','women').decision,'yes');
+ assert.equal(form('toons','toons:Elsa|Fifth Spirit Elsa','women').decision,'yes');
+ const ratio=load().summary.formIdentityYes+load().summary.formIdentityNo;
+ assert.ok(ratio>=190);
+});
 test('committed research snapshots are in sync with the exact live roster',()=>{
  const r=load(),dir=path.join(__dirname,'../docs/phase1-research');
  const summary=JSON.parse(fs.readFileSync(path.join(dir,'summary.json'),'utf8'));
