@@ -6,6 +6,11 @@ on:
   pull_request:
     paths:
       - 'data/after-action.js'
+      - 'data/brawl-combat.js'
+      - 'data/brawl-attack-profiles.js'
+      - 'data/brawl-exceptional-power.js'
+      - 'data/variant-abilities.js'
+      - 'docs/brawl-combat-model.md'
       - 'data/campaign.js'
       - 'data/knowledge-engine.js'
       - 'supabase/**'
