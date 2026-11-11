@@ -390,7 +390,7 @@ details.st-row .roster-mini { padding-top: 10px; }
 
 /* Championship: perfect season */
 .uchip { display: inline-block; vertical-align: 1px; margin-left: 4px; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; color: #fff; background: #5B6670; white-space: nowrap; }
-.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-pokemon { background: #C9561F; } .uchip.u-starwars { background: #1C1C1C; } .uchip.u-dc { background: #2157A5; } .uchip.u-lotr { background: #3C6540; } .uchip.u-harrypotter { background: #604A7C; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
+.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-pokemon { background: #C9561F; } .uchip.u-starwars { background: #1C1C1C; } .uchip.u-dc { background: #2157A5; } .uchip.u-lotr { background: #3C6540; } .uchip.u-harrypotter { background: #604A7C; } .uchip.u-actionmovies { background: #772B23; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
 .game .w .uchip, .game .l .uchip { font-size: 9px; }
 .result-hero .meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,.14); overflow: hidden; max-width: 520px; margin: 4px 0 8px; }
 .result-hero .meter i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
@@ -699,6 +699,7 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-art[data-pool="dc"] { background: radial-gradient(ellipse at 50% 28%, #9bbfe3, #26446f); }
 .trading-card .tc-art[data-pool="lotr"] { background: radial-gradient(ellipse at 50% 28%, #d0c49a, #385f47); }
 .trading-card .tc-art[data-pool="harrypotter"] { background: radial-gradient(ellipse at 50% 28%, #d6bea3, #51406a); }
+.trading-card .tc-art[data-pool="actionmovies"] { background: radial-gradient(ellipse at 50% 28%, #f0bd79, #67241e); }
 
 
 /* Individually recognizable pool emblems instead of the generic DA logo. */
@@ -720,6 +721,7 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-name > .tc-pool-dc { background: #244d86; color: #ffe180; }
 .trading-card .tc-name > .tc-pool-lotr { background: #315e49; color: #e5d4a2; }
 .trading-card .tc-name > .tc-pool-harrypotter { background: #604a78; color: #e5c879; }
+.trading-card .tc-name > .tc-pool-actionmovies { background: #772b23; color: #f5b96b; }
 .trading-card .tc-name > .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
 @media (max-width:899px) {
   .trading-card .tc-name > .tc-pool-mark { flex:0 0 18px; width:18px; height:18px; min-width:18px; }
@@ -963,6 +965,7 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 <script src="data/pools-dc.js"></script>
 <script src="data/pools-middle-earth.js"></script>
 <script src="data/pools-harry-potter.js"></script>
+<script src="data/pools-action-movies.js"></script>
 <script src="data/new-pool-traits.js"></script>
 <script src="data/new-pool-powers.js"></script>
 <script src="data/pool-lore-dc.js"></script>
@@ -3311,7 +3314,7 @@ function sportGlyph(sportKey) {
 // Player tokens: a designed jersey for every candidate. No photos or character art.
 // Pool sets the kit colors; on the field the jersey takes the team color.
 const JERSEY = 'M12 4 L16 4 Q20 8.5 24 4 L28 4 L36.5 10.5 L32.5 17.5 L29 15.5 L29 35.5 Q20 37.5 11 35.5 L11 15.5 L7.5 17.5 L3.5 10.5 Z';
-const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'], pokemon: ['#E0662A', '#1F3A68'], starwars: ['#1C1C1C', '#FFE81F'], dc: ['#2157A5', '#F9C53C'], lotr: ['#3C6540', '#D6B86E'], harrypotter: ['#604A7C', '#D8B777'] };
+const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'], pokemon: ['#E0662A', '#1F3A68'], starwars: ['#1C1C1C', '#FFE81F'], dc: ['#2157A5', '#F9C53C'], lotr: ['#3C6540', '#D6B86E'], harrypotter: ['#604A7C', '#D8B777'], actionmovies: ['#772B23', '#F5B96B'] };
 const CUSTOM_KIT = ['#0F7C8C', '#F4E9D8'];
 // Real jersey numbers for the NBA pool (the number each is best known for).
 const NBA_NUM = {
@@ -3760,7 +3763,7 @@ POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 
 function mashupOnly(id) { const seen = new Set(getCands('games').map(c => c.n)); return getCands(id).filter(c => !seen.has(c.n)); }
 // Mashup selections are encoded in the pool ID so saved drafts and multiplayer
 // contests preserve the exact same universe subset across devices.
-const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'harrypotter', 'mashup'];
+const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'harrypotter', 'actionmovies', 'mashup'];
 const MASHUP_SOURCES = BUILTIN.filter(id => id !== 'mashup');
 function isMashupId(id) { return id === 'mashup' || (typeof id === 'string' && id.startsWith('mashup:')); }
 function mashupSources(id) {
@@ -4430,7 +4433,7 @@ function champResultText() {
 // Each opponent comes from ONE universe (NBA, Marvel, Cartoons, Muppets); mixed All-Star
 // teams only show up when you cast from the All-Star Mashup yourself.
 const LEAGUE_SIZE = { basketball: 30, football: 16, soccer: 20, baseball: 30, hockey: 32, volleyball: 14, brawl: 16 };
-const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', pokemon: 'Pokémon', starwars: 'Star Wars', dc: 'DC Comics', lotr: 'Middle-earth', harrypotter: 'Harry Potter', mashup: 'All-Stars' };
+const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', pokemon: 'Pokémon', starwars: 'Star Wars', dc: 'DC Comics', lotr: 'Middle-earth', harrypotter: 'Harry Potter', actionmovies: 'Action Movies', mashup: 'All-Stars' };
 function universeLabel(id) { return UNIVERSE_LABEL[id] || (S.custom[id] ? (S.custom[id].short || S.custom[id].name) : 'Custom'); }
 
 function shuffleWith(arr, rng) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }

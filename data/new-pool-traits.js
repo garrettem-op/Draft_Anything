@@ -56,6 +56,17 @@
    dc:"Red Robin (Tim Drake)|Batwoman"
  }
  };
+// Action Movies (PR #70): identity, age and no-powers classifications scoped to the drafted film.
+ // mortal is deliberately conservative: anyone with superhuman, supernatural, synthetic or simulation-dependent
+ // feats in that film is left out (Matrix cast, wuxia leads, cursed pirates, Thulsa Doom, Xerxes, Narnia's
+ // Aslan and Jadis, Terminators, Bishop, Predator, Xenomorph Queen, Imhotep) pending the #71 power research.
+ const actionMovies={
+  women:"Gorgo|Valeria|White Witch (Jadis)|Lucy Pevensie|Ms. Perkins|Ellen Ripley|Xenomorph Queen|Lucilla|Murron MacClannough|Imperator Furiosa|Sarah Connor|Trinity|The Bride (Beatrix Kiddo)|O-Ren Ishii|Gogo Yubari|Vernita Green|Yu Shu Lien|Jen Yu|Jade Fox|Kim Mills|Lenore Mills|Marie Kreutz|Ilsa Faust|Evelyn Carnahan|Elizabeth Swann",
+  kids:"Peter Pevensie|Lucy Pevensie|John Connor (1991)|Kim Mills|Gogo Yubari",
+  mortal:"Achilles|Hector|Paris|Agamemnon|Leonidas|Gorgo|Stelios|Conan|Valeria|Subotai|Peter Pevensie|Lucy Pevensie|John Wick|Viggo Tarasov|Iosef Tarasov|Ms. Perkins|John Rambo|Sheriff Will Teasle|Colonel Sam Trautman|Deputy Art Galt|Dutch Schaefer|Dillon|Billy Sole|Ellen Ripley|Dwayne Hicks|Robin of Locksley|Sheriff of Nottingham|Azeem|Guy of Gisborne|Maximus Decimus Meridius|Commodus|Proximo|Lucilla|William Wallace|Robert the Bruce|King Edward I|Murron MacClannough|Nathan Algren|Katsumoto|Ujio|Colonel Bagley|Max Rockatansky|Imperator Furiosa|Immortan Joe|Nux|Sarah Connor|John Connor (1991)|John McClane|Hans Gruber|Karl Vreski|Al Powell|The Bride (Beatrix Kiddo)|O-Ren Ishii|Gogo Yubari|Vernita Green|Lee|Han|Roper|Williams|Bryan Mills|Kim Mills|Marko Hoxha|Lenore Mills|Jason Bourne|Marie Kreutz|Alexander Conklin|The Professor|Ethan Hunt|August Walker|Ilsa Faust|Solomon Lane|Rick O'Connell|Evelyn Carnahan|Ardeth Bay|Will Turner|Elizabeth Swann|Rama|Mad Dog|Andi|Tama Riyadi"
+ };
+ for(const [trait,names] of Object.entries(actionMovies))(expanded[trait]||={}).actionmovies=names;
+
  for(const [trait,groups] of Object.entries(expanded)){
    raw[trait]||={};
    for(const [pool,entries] of Object.entries(groups))
