@@ -31,8 +31,10 @@ const THIN = 'Levitates and flies.';
 const VAGUE_LONG = 'He has the power to fly through the sky at will.';
 // Digest of CHARACTER_ABILITY_TAGS for this PR. The audit must never move it. Update it only in a PR that
 // deliberately changes grants, and say so in that PR. Moved 2026-11-11 when main was merged in: PR #76 granted
-// Captain Atom tech (powered-armor). No grant changed in this PR.
-const PINNED_INDEX_DIGEST = 'd433085cb3c38f46c540bfcb6e504167d489d21dd1e598aa9149262dc5a24cc0';
+// Captain Atom tech (powered-armor). Moved again 2026-11-11 when main was merged in after #56: Round 3 granted
+// stealth to 7 DC characters (Nightwing, Red Hood, Batgirl, Batwoman, Cassandra Cain, Huntress, Talia al Ghul),
+// giants to Durin's Bane and Gothmog, and flight to Hermione Granger (10 grants). No grant changed in this PR.
+const PINNED_INDEX_DIGEST = 'fcd54e0227a1a76311f1283ee0004c21d010322f759fde72e7fe84b10e180e7f';
 
 test('every host cited by an evidence record has a source type', () => {
   const types = new Set(CHARACTER_ABILITY_SOURCE_TYPES);

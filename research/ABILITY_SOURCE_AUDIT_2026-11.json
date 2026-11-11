@@ -1,20 +1,20 @@
 {
  "audited": "2026-11-10",
  "standard": "accuracy-first (owner, 2026-11-10)",
- "indexDigest": "d433085cb3c38f46c540bfcb6e504167d489d21dd1e598aa9149262dc5a24cc0",
- "grants": 1209,
+ "indexDigest": "fcd54e0227a1a76311f1283ee0004c21d010322f759fde72e7fe84b10e180e7f",
+ "grants": 1219,
  "totals": {
-  "owner-ruling": 7,
+  "owner-ruling": 15,
   "corroborated": 10,
-  "credible": 807,
+  "credible": 809,
   "needs-review": 122,
   "investigate": 0,
   "unsourced": 263
  },
  "checkedBy": {
-  "owner": 7,
+  "owner": 15,
   "review": 21,
-  "automated": 918,
+  "automated": 920,
   "none": 263
  },
  "byPool": {
@@ -75,15 +75,15 @@
    "unsourced": 22
   },
   "dc": {
-   "owner-ruling": 0,
+   "owner-ruling": 5,
    "corroborated": 0,
-   "credible": 56,
+   "credible": 58,
    "needs-review": 68,
    "investigate": 0,
    "unsourced": 0
   },
   "lotr": {
-   "owner-ruling": 0,
+   "owner-ruling": 2,
    "corroborated": 0,
    "credible": 68,
    "needs-review": 0,
@@ -91,7 +91,7 @@
    "unsourced": 0
   },
   "harrypotter": {
-   "owner-ruling": 0,
+   "owner-ruling": 1,
    "corroborated": 0,
    "credible": 143,
    "needs-review": 1,
@@ -101,7 +101,7 @@
  },
  "byTag": {
   "flight": {
-   "owner-ruling": 1,
+   "owner-ruling": 2,
    "corroborated": 0,
    "credible": 120,
    "needs-review": 38,
@@ -165,9 +165,9 @@
    "unsourced": 33
   },
   "stealth": {
-   "owner-ruling": 1,
+   "owner-ruling": 6,
    "corroborated": 0,
-   "credible": 47,
+   "credible": 49,
    "needs-review": 5,
    "investigate": 0,
    "unsourced": 4
@@ -189,7 +189,7 @@
    "unsourced": 12
   },
   "giants": {
-   "owner-ruling": 2,
+   "owner-ruling": 4,
    "corroborated": 2,
    "credible": 30,
    "needs-review": 2,
@@ -198,9 +198,9 @@
   }
  },
  "communityOnly": {
-  "owner-ruling": 7,
+  "owner-ruling": 15,
   "corroborated": 0,
-  "credible": 552,
+  "credible": 554,
   "needs-review": 104,
   "investigate": 0,
   "unsourced": 0
@@ -211,7 +211,7 @@
   "community\ten.uesp.net": 2,
   "official\tstarwars.com": 31,
   "dialogue\timsdb.com": 1,
-  "community\t*.fandom.com": 417,
+  "community\t*.fandom.com": 421,
   "dialogue\tsellingyourscreenplay.com": 1,
   "game-data\tpokemondb.net": 223,
   "community\tzeldawiki.wiki": 11,
@@ -224,7 +224,7 @@
   "editorial\tthewrap.com": 1,
   "community\tcomicbasics.com": 1,
   "community\tfortressofsolitude.co.za": 1,
-  "community\ten.wikipedia.org": 181,
+  "community\ten.wikipedia.org": 186,
   "community\tautoassembly.org.uk": 1,
   "editorial\tjournals.le.ac.uk": 1,
   "community\tlooneytuneswiki.com": 1,
@@ -247,7 +247,8 @@
   "official\tdisneyplus.com": 1,
   "dialogue\tmoviemistakes.com": 1,
   "editorial\tnbclosangeles.com": 1,
-  "editorial\ttcm.com": 5
+  "editorial\ttcm.com": 5,
+  "community\tdcuguide.com": 1
  },
  "conditions": [
   {
@@ -13577,6 +13578,71 @@
    "gateNote": "Limited to animal forms"
   },
   {
+   "id": "dc:Nightwing",
+   "pool": "dc",
+   "character": "Nightwing",
+   "tag": "stealth",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)"
+  },
+  {
+   "id": "dc:Red Hood",
+   "pool": "dc",
+   "character": "Red Hood",
+   "tag": "stealth",
+   "status": "credible",
+   "checkedBy": "automated",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://en.wikipedia.org/wiki/Jason_Todd"
+  },
+  {
+   "id": "dc:Batgirl (Barbara Gordon)",
+   "pool": "dc",
+   "character": "Batgirl (Barbara Gordon)",
+   "tag": "stealth",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://dc.fandom.com/wiki/Batgirl:_Year_One"
+  },
+  {
+   "id": "dc:Batwoman",
+   "pool": "dc",
+   "character": "Batwoman",
+   "tag": "stealth",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://en.wikipedia.org/wiki/Batwoman_(Kate_Kane)"
+  },
+  {
+   "id": "dc:Cassandra Cain",
+   "pool": "dc",
+   "character": "Cassandra Cain",
+   "tag": "stealth",
+   "status": "credible",
+   "checkedBy": "automated",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://en.wikipedia.org/wiki/Cassandra_Cain"
+  },
+  {
    "id": "dc:Catwoman",
    "pool": "dc",
    "character": "Catwoman",
@@ -13588,6 +13654,19 @@
     "community"
    ],
    "source": "https://en.wikipedia.org/wiki/Catwoman"
+  },
+  {
+   "id": "dc:Huntress",
+   "pool": "dc",
+   "character": "Huntress",
+   "tag": "stealth",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://dcuguide.com/Detective_Comics_1049"
   },
   {
    "id": "dc:Lucius Fox",
@@ -13930,6 +14009,19 @@
     "community"
    ],
    "source": "https://en.wikipedia.org/wiki/Mr._Freeze"
+  },
+  {
+   "id": "dc:Talia al Ghul",
+   "pool": "dc",
+   "character": "Talia al Ghul",
+   "tag": "stealth",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate"
   },
   {
    "id": "dc:Clayface",
@@ -14680,6 +14772,19 @@
    "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane"
   },
   {
+   "id": "lotr:Durin's Bane",
+   "pool": "lotr",
+   "character": "Durin's Bane",
+   "tag": "giants",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane"
+  },
+  {
    "id": "lotr:Smaug",
    "pool": "lotr",
    "character": "Smaug",
@@ -14994,6 +15099,19 @@
     "community"
    ],
    "source": "https://lotr.fandom.com/wiki/Gothmog_(Balrog)"
+  },
+  {
+   "id": "lotr:Gothmog (Lord of Balrogs)",
+   "pool": "lotr",
+   "character": "Gothmog (Lord of Balrogs)",
+   "tag": "giants",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 1,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://en.wikipedia.org/wiki/Balrog"
   },
   {
    "id": "lotr:Manwë",
@@ -15319,6 +15437,19 @@
     "community"
    ],
    "source": "https://harrypotter.fandom.com/wiki/Harry_Potter"
+  },
+  {
+   "id": "harrypotter:Hermione Granger",
+   "pool": "harrypotter",
+   "character": "Hermione Granger",
+   "tag": "flight",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 2,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://harrypotter.fandom.com/wiki/Hermione_Granger"
   },
   {
    "id": "harrypotter:Hermione Granger",
