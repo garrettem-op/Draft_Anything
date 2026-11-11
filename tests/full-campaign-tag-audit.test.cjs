@@ -53,3 +53,14 @@ test('each registered variant gets an independent queue instead of silently inhe
  }
  assert.ok(report.forms['mcu:Thor'].some(x=>x.name==='Rune King Thor'));
 });
+
+test('committed audit snapshot matches the entire live roster and every variant; new additions cannot silently escape review',()=>{
+ const fs=require('node:fs');
+ const path=require('node:path');
+ report||=auditCampaignTags();
+ const snapshot=JSON.parse(fs.readFileSync(path.join(__dirname,'../docs/campaign-tag-audit-ledger.json'),'utf8'));
+ assert.deepEqual(snapshot.totals,report.totals);
+ assert.deepEqual(snapshot.taxonomy,report.taxonomy);
+ assert.deepEqual(snapshot.byPool,report.byPool);
+ assert.deepEqual(snapshot.forms,report.forms);
+});
