@@ -70,6 +70,7 @@
  ]));
 
  const sourceNotes=Object.freeze({
+   'kids:dc:Shazam':{reason:'Billy Batson is a teenage boy who magically transforms into the adult superhero Shazam.',url:'https://www.dc.com/characters/shazam'},
    'women:mcu:Cosmo the Spacedog':{reason:'Cosmo is depicted as a female talking dog in Guardians of the Galaxy Vol. 3.'},
    'women:harrypotter:Hedwig':{reason:'Hedwig is explicitly the female snowy owl belonging to Harry Potter.'},
    'women:harrypotter:Norbert (Norberta)':{reason:'The dragon is confirmed female and renamed Norberta in Deathly Hallows.'},
