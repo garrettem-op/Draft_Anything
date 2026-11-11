@@ -359,7 +359,7 @@ test('index generation never consults name lists, descriptions, keywords or the 
 
 test('every incorrect dispute is rejected under the PR #44 tag criteria (Vision psychic included)', () => {
   const incorrect = game.disputes.filter(d => d.verdict === 'incorrect');
-  assert.ok(incorrect.length >= 32);
+  assert.ok(incorrect.length >= 31);
   for (const d of incorrect) {
     assert.equal(qualifiesUnderPR44(d.id, d.tag), false, d.id + ' still qualifies for ' + d.tag + ' via the reviewed tags');
     assert.equal(abilityApi.characterAbilityProvenance(get(d.id), d.tag), null, d.id + ' ' + d.tag + ' still has provenance');
@@ -374,10 +374,21 @@ test('every incorrect dispute is rejected under the PR #44 tag criteria (Vision 
   assert.ok(qualifiesUnderPR44('mcu:Vision', 'flight') && qualifiesUnderPR44('mcu:Vision', 'tech'));
 });
 
+test('Captain Atom bonded Dilustel armor qualifies for Tech Titans without paid AI research', () => {
+  const c = get('dc:Captain Atom');
+  assert.equal(accepts(c.id, 'tech'), true);
+  const record = game.abilities[c.id].find(f => f.tag === 'tech');
+  assert.ok(record?.tags.includes('powered-armor'));
+  assert.ok(record?.feat.includes('Dilustel'));
+  assert.match(record.source, /^https:\/\//);
+  assert.ok(!game.disputes.some(d => d.id === c.id && d.tag === 'tech' && d.verdict === 'incorrect'));
+  assert.equal(abilityApi.characterAbilityProvenance(c, 'tech')?.basis, 'evidence');
+});
+
 test('new pools: owner rulings and corrected seeds', () => {
   const yes = [['lotr:Witch-king of Angmar', 'flight'], ['lotr:Khamûl the Easterling', 'flight'], ['harrypotter:Madam Hooch', 'flight'],
     ['harrypotter:Rubeus Hagrid', 'flight'], ['harrypotter:Rubeus Hagrid', 'giants'], ['dc:Superman', 'ice'], ['dc:Beast Boy', 'giants'],
-    ['dc:Batman', 'stealth'], ['lotr:Gollum (Sméagol)', 'aquatic'], ['harrypotter:Peter Pettigrew', 'stealth'], ['dc:Giganta', 'giants']];
+    ['dc:Batman', 'stealth'], ['dc:Captain Atom', 'tech'], ['lotr:Gollum (Sméagol)', 'aquatic'], ['harrypotter:Peter Pettigrew', 'stealth'], ['dc:Giganta', 'giants']];
   const no = [['lotr:Gandalf', 'flight'], ['lotr:Éomer', 'flight'], ['dc:Firestorm', 'tech'], ['dc:Amanda Waller', 'tech'],
     ['dc:Deadshot', 'stealth'], ['dc:Nightwing', 'stealth'], ['lotr:Durin\'s Bane', 'giants'], ['harrypotter:Hermione Granger', 'flight'],
     ['harrypotter:Jacob Kowalski', 'magic'], ['harrypotter:Argus Filch', 'magic'], ['dc:The Atom (Ray Palmer)', 'giants']];
