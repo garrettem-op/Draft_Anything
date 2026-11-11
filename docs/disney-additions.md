@@ -83,9 +83,11 @@ Every record except owner rulings also carries a `scene`: the film and sequence 
 
 D23 Disney A to Z entries are one-line identity notes, so they confirm what a character is (sea witch, crab, ruler of the seas) but not a specific feat.
 
-## Form and item gates (owner decision needed)
+## Form and item gates (owner ruling, 2026-11-10)
 
-Campaign reads only `CHARACTER_ABILITY_TAGS`, so a tag counts for the base character every time. `limitation` and the new `formGate` field are information only; nothing enforces them. That is the existing practice across the roster (for example Ganondorf's teleport in Beast form and Mario's power-ups). The Disney records now label each dependency:
+**Ruling (Garrett, 2026-11-10): keep them all.** A power that depends on a form, power-up or item counts for the base character. That includes wish-granted forms and stolen items, so Jafar keeps giants and fire and Ursula keeps giants. The ruling applies roster-wide, not only to Disney.
+
+Campaign reads only `CHARACTER_ABILITY_TAGS`, so this is the existing behavior and needs no engine change. `limitation` and `formGate` stay as descriptive labels; nothing enforces them. The Disney records label each dependency:
 
 | Gate | Records |
 | --- | --- |
@@ -93,11 +95,6 @@ Campaign reads only `CHARACTER_ABILITY_TAGS`, so a tag counts for the base chara
 | `wish-form`: a form granted by Genie | Jafar giants (cobra) and fire (sorcerer) |
 | `stolen-item`: needs Triton's trident | Ursula giants, Ursula water control (her water-breathing and swimming are her own) |
 | `self-transformation`: her own magic | Maleficent giants and fire (dragon) |
-
-Options for the owner:
-1. Keep all of them (current behavior).
-2. Base identity only: wish forms and stolen items move to the research queue until Campaign variants (Genie Jafar, Giant Ursula) carry them. Jafar loses giants and fire; Ursula loses giants.
-3. Gate in the engine using `formGate`. This is ChatGPT's area.
 
 ## ToonForce
 
