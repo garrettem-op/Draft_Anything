@@ -1,52 +1,58 @@
-# Battle Royale combat model — audit implementation (PR #73)
+# Battle Royale combat model — verified implementation (PR #73)
 
-This document records the first implementation pass for [combat audit #72](https://github.com/garrettem-op/Draft_Anything/issues/72). Lore/ability evidence review is tracked separately in [#75](https://github.com/garrettem-op/Draft_Anything/issues/75).
+Implements the audit tracked by [#72](https://github.com/garrettem-op/Draft_Anything/issues/72). Source evidence for the screenshot lineup and all registered exceptional-profile identities is recorded in [brawl-source-audit.md](brawl-source-audit.md); follow-up evidence requests are tracked by [#75](https://github.com/garrettem-op/Draft_Anything/issues/75).
 
-## Model vs canon
-All values are **gameplay estimates**, not canonical numerical measures. Signature attacks and guards are bounded editorial mechanics. One match cannot establish relative canonical strength. Variant abilities require a reviewed profile; unreviewed forms inherit only their documented stat changes.
+## Model is not canon
+These are **editorial gameplay HP and DMG figures**; none are canonical numerical feats. A KO of Death of the Endless or a similar cosmic being means its bounded **arena manifestation** can no longer influence this fight, not that Death has been permanently killed. The existence of a canonical feat does not imply unconditional use or guaranteed victory.
 
-## Flow (Battle Royale only)
-1. Drafted fighters receive active candidate attributes and selected variant form; the team scoring pipeline contributes role fit and support from commander, reinforcement, signatures, exceptional powers, ToonForce/MuppetForce and other modeled adjustments.
-2. A fighter's initial attack and armor ratings derive from individual attributes and role fit; HP is determined from endurance, strength, size, fit and tank role. Unlike earlier engine versions, the tank role no longer applies a severe fixed damage penalty, and tanks have 2.2x target selection weight rather than 3.1x.
-3. In each round, fighters act by speed/reflex-based initiative. A surviving fighter gets one attempt; successful hits calculate raw damage, typed protection, mitigation, absorbed HP, overkill and knockouts.
-4. Reviewed forms and curated baseline profiles can unleash an ability every 3–4 rounds (including the first), carrying attack type, burst magnitude and guard penetration. Defensive power-domain guards and vulnerabilities modify prevention, not automatically grant a win.
-5. The Hellbat form can do enhanced tech/melee offense but consumes its wearer's HP starting in round five. That expenditure is tracked under **ability strain**, not credited to enemy DMG. Strain alone cannot cause a knockout or fabricate an opponent KO.
-6. Battle reports record attempts, hits, active rounds, signature uses and damage, named targets, HP remaining, knockouts and ability strain. **Signature DMG is part of DMG, not additional damage.** DMG includes finishing-blow overkill. A separate event timeline is available only with `{trace:true}` and is not stored for routine season results.
+## Resolution rules
+1. **Identity and form:** Each drafted fighter uses base or selected reviewed-variant attributes and team role fit, with team support from commander, reinforcement, signature, exceptional-power register, team chemistry, ToonForce/MuppetForce and variance. Unreviewed forms have changed stats only, not invented abilities.
+2. **Role and targeting:** Tanks absorb disproportionate incoming targeting pressure (2.2x odds relative to other fighters in a full roster), but their attack multiplier is 1.02 rather than the original 0.88, leaving them able to fight. DPS multiplier 1.14.
+3. **Attacks:** Each surviving fighter can attempt an attack in speed/reflex initiative order. A hit computes raw, blocked, absorbed and overkill damage. Individual DMG sums modeled incoming attacks (including finishing-blow excess); absorbed is actual HP removed.
+4. **Profile techniques:** 31 documented baseline/exceptional identities and reviewed variants have typed power moves, cooldowns, finite burst and guard/vulnerability counters. Ordinary attacks remain attribute-driven. An exceptional reality/cosmic spell gets a bounded **minimum burst** independent of the attacker's conventional punching strength.
+5. **Power-based targeting:** A high-tier reality, cosmic or magical move uses an ability-targeting chance that is not identical to manual hand-eye accuracy. Fragile tier-5 abstract beings can use it more often than their ordinary physical attacks, without gaining a guaranteed hit or a scripted KO.
+6. **Physical protection:** Severe strength/endurance gaps modestly reduce the effectiveness of regular punches, toxins and tech/melee bursts. This is not absolute immunity. ToonForce remains a distinct resilience model and bypasses this physical-gap attack reduction when relevant.
+7. **Finite cosmic defense:** Characters with documented tier-4 or tier-5 reality/cosmic/magic/elemental abilities start with a capped extra HP ward (26 HP × tier). It is exhausted like ordinary HP and never ensures invulnerability. It is not claimed as a publisher-specified number.
+8. **Hellbat cost:** Reviewed Hellbat Armor Batman uses high-output tech attacks but suffers modeled HP metabolic strain after round four. Strain cannot itself create an opponent KO, is logged separately, and does not count toward enemy DMG.
+9. **Reports:** Every fighter's log includes attacks, hits, rounds alive, named targets, signature uses/DMG, remaining HP, ward, metabolic wear and knockout round. A compact native 'Why this DMG?' disclosure includes the specific power limitation and allowlisted source URL. Optional `{trace:true}` captures a full attack timeline for debugging, omitted in normal seasons to avoid storage costs.
 
-## Replay and regression results
-Reproduce isolated seeded fixtures via:
+## Reproduction
 ```sh
-node --test tests/brawl-combat.test.cjs tests/brawl-signatures.test.cjs
+node --test tests/*.test.cjs
+node tests/browser-smoke.cjs
 ```
+The Chromium regression uses the **actual browser roster and shared Variant Surge transformation** from the user's screenshot:
+- **The Chungus**: Abomination, Adam Warlock, Hellbat Armor Batman, Joker, Lucifer Morningstar; Captain Carter reinforcement; Captain America commander
+- **The Crossover**: Ares (DC), The Watcher, Death of the Endless, Scarlet Witch, Darkseid; Wonder Woman reinforcement; Trigon commander
 
-The browser smoke regression uses the **actual roster and variant transformation**, in the order displayed in the user's report:
-- The Chungus: Abomination (tank), Adam Warlock (tank), Hellbat Batman (DPS), Joker (DPS), Lucifer Morningstar (DPS), Captain Carter (reinforcement), Captain America (commander)
-- The Crossover: Ares (DC) (tank), The Watcher (tank), Death of the Endless (DPS), Scarlet Witch (DPS), Darkseid (DPS), Wonder Woman (reinforcement), Trigon (commander)
-
-The current implementation tested 25 repeatable whole-lineup seeds in Chromium. Observed mean damage (rounded):
-| Fighter | Mean DMG |
+### 250-seed full-roster replay, current tuned model
+| Result | Value |
 |---|---:|
-| Hellbat Armor Batman | 245.6 |
-| Joker | 132.3 |
-| Darkseid | 584.8 |
+| Hellbat mean DMG | 243.9 |
+| Joker mean DMG | 152.8 |
+| Darkseid mean DMG | 597.4 |
+| The Chungus victories | 5/250 |
+| Joker DMG above Hellbat DMG | 74/250 |
+| Hellbat eliminated before any attack | 10/250 |
 
-The Crossover won 25/25 whole-team matches in that fixture. These are gameplay outputs for a *specific seeded sample*, not evidence that any team always wins. The original screenshot is one result and its exact random seed is not available.
+The team outcome still strongly favors The Crossover. A single bad Hellbat performance is possible: early focus fire, targeting and initiative matter. The new explanatory report lets players distinguish low contribution caused by death, missed attacks or strong mitigation from unsupported character stats. The original screenshot's random seed is unavailable, so this is a reproducible sample, not the historical match.
 
-100-seed **isolated** matchup checks (hand-specified comparison attributes for regression, not exact source-roster stats) produced:
-| Matchup | Mean DMG | Win samples |
-|---|---|---:|
-| Hellbat vs Joker | 320.9 vs 110.8 | Hellbat 100/100 |
-| Adam Warlock vs Joker | 311.5 vs 112.2 | Warlock 100/100 |
-| Hellbat vs Darkseid | 341.9 vs 350.8 | Hellbat 35/100 |
+### 1,500 seeded isolated bouts (six pairs × 250)
+| Pair | First fighter victories | Second fighter victories |
+|---|---:|---:|
+| Hellbat vs Joker | 250 | 0 |
+| Adam Warlock vs Joker | 250 | 0 |
+| Darkseid vs Joker | 250 | 0 |
+| Hellbat vs Darkseid | 22 | 228 |
+| Adam Warlock vs Darkseid | 9 | 241 |
+| Baby Franklin Richards vs Joker | 105 | 145 |
 
-Do not overfit these samples to force the outcome of future fights. The full-roster replay is a better integration test; the isolated tests are targeted mechanics regressions.
-
-## Remaining audit work
-- Validate sourced feats for baseline character profiles and form-specific costs/counters (#75). Distinguish Darkseid avatar from true form, metaphysical characters from ordinary brawlers, and continuity-specific reality powers.
-- Improve cross-tier calibration beyond the current 12 ratings and team fit. Add targeted tests for ToonForce, MuppetForce, alternate forms, power counters and short-handed fights.
-- Record player-visible battle narrative/event excerpts where useful without multiplying storage or closing the report accordion on mobile.
-- Audit longer statistical distributions and fairness by role, damage type, survival, and player expectations.
-- Recheck actual live records and known match IDs when available; cannot reproduce the screenshot's exact seed from the image alone.
+The baby Franklin example uses intentionally very low physical stats and exceptional reality manipulation; it is not a baseline adult Franklin forecast. All figures are gameplay outcomes for **specific seeded test attributes**, and must not be presented as canon or universal real-world win probabilities.
 
 ## Verification
-Pull-request CI executes `node --test tests/*.test.cjs`, Chromium mobile browser smoke and Edge Function type checks. A successful run verifies functional integration, not canonical fidelity or comprehensive game balance.
+CI: 211 Node tests passing, Chromium mobile browser smoke passing, Edge Function typechecks passing as of the test run on commit `8dfaa8b45f3524731f0922be4863b8d8f920bd42`. The model is still subject to iterative future character research and design changes: no finite list of cross-universe assumptions can settle every disputed feat or continuity.
+
+## Explicitly deferred beyond this audit's acceptance scope
+- Recreating the original screenshot without its seed or saved combat event log.
+- Inferring full powers for every character from Campaign eligibility tags. A source-linked flight or color tag is **not** sufficient evidence for a combat ability.
+- Modeling unrestricted metaphysical omnipotence and a finite five-person HP game simultaneously. The arena proxy convention is an explicit constraint, not a lore truth.
