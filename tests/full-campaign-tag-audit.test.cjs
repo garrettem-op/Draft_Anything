@@ -48,8 +48,10 @@ test('each registered variant gets an independent queue instead of silently inhe
  const forms=report.forms['mcu:Thanos'];
  assert.ok(forms.some(x=>x.name==='King Thanos'));
  for(const f of forms){
-   assert.equal(f.abilityTags.decision,'needs-form-specific-review');
-   assert.equal(f.traitTags.decision,'needs-form-specific-review');
+   assert.equal(Object.keys(f.abilityTags).length,12);
+   assert.equal(Object.keys(f.traitTags).length,4);
+   for(const decision of [...Object.values(f.abilityTags),...Object.values(f.traitTags)])
+     assert.equal(decision.decision,'needs-form-specific-review');
  }
  assert.ok(report.forms['mcu:Thor'].some(x=>x.name==='Rune King Thor'));
 });
