@@ -11,6 +11,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
 const {ROOT,loadGame,POWER_TAGS}=require('./ability-audit-lib.cjs');
+const {CHARACTER_ABILITY_TAGS:CANONICAL_TAGS}=require('../data/character-abilities.js');
 const {deriveCampaignTagTaxonomy}=require('../data/campaign-tag-taxonomy.js');
 
 const TRAITS=['women','red','kids','mortal'];
@@ -28,7 +29,7 @@ function auditCampaignTags(){
   const totals={characters:0,forms:0,abilityGranted:0,abilityMissing:0,traitGranted:0,traitRejected:0,traitUnreviewed:0,formTagsPending:0};
   const notes={};
   for(const candidate of game.roster){
-    const granted=game.tagIndex[candidate.pool]?.[candidate.n];
+    const granted=CANONICAL_TAGS[candidate.pool]?.[candidate.n];
     if(!Array.isArray(granted))throw new Error('Missing ability review for '+candidate.id);
     const positive=actualAbilities.filter(t=>granted.includes(t));
     const notGranted=actualAbilities.filter(t=>!granted.includes(t));
