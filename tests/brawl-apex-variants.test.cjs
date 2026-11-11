@@ -97,10 +97,11 @@ test('peak tier-5 forms and curated tier-4 forms share Apex effects; ordinary ti
 });
 test('King Thanos gains the documented Apex combat kit, while base Thanos does not',()=>{
   const attrs={str:99,end:99,iq:98,acc:91,ref:94,spd:83,siz:94};
-  const king=form('mcu','Thanos','King Thanos',attrs);
   const base=hero('mcu','Thanos',attrs);
-  // A surge preserves the base ID; opponents can draft the same character identity.
-  king.id=base.id;
+  const variant=require('../data/campaign-variant-expansion.js')['mcu:Thanos'].find(f=>f.name==='King Thanos');
+  assert.ok(variant,'King Thanos form must be in the real surge catalog');
+  // Use the actual catalog record so evidence and source metadata are tested end-to-end.
+  const king={...base,n:variant.name,variantBase:'Thanos',variantAbilities:variantAbilityProfile(base,variant)};
   const sample=run(team([king]),team([base]),57,{trace:true});
   const upgraded=sample.sides[0].fighters[0];
   const ordinary=sample.sides[1].fighters[0];
