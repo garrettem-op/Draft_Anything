@@ -12,6 +12,28 @@
   const abilityApi=(root&&root.DA_BRAWL_ABILITY_API)||
     (typeof module!=='undefined'&&module.exports?require('./brawl-attack-profiles.js'):null);
   const abilityFor=c=>abilityApi?.brawlAbilityOf?.(c)||null;
+  // Rare, reviewed transformations must feel qualitatively different from a
+  // mild stat boost. Tier-5 forms and feat-reviewed flagship forms are Apex;
+  // other reviewed tier-4 forms are Empowered. Baseline characters and
+  // unreviewed variants do not silently inherit this power.
+  const FLAGSHIP_FORMS=new Set([
+    'dc:Hellbat Armor Batman',
+    'mcu:World Breaker Hulk','mcu:Titan Hulk','mcu:Immortal Hulk',
+    'mcu:Dark Phoenix','mcu:Phoenix Force Jean Grey',
+    'mcu:Cosmic Spider-Man (Captain Universe)','mcu:The Void (Sentry)',
+    'mcu:Death Seed Sentry','mcu:Herald of Thunder Thor',
+    'mcu:King Thor','mcu:Silver Surfer Black',
+    'dc:Parallax Hal Jordan','dc:White Lantern Hal Jordan',
+    'dc:Red Death Batman','games:Super Sonic',
+    'games:Super Shadow','games:Dreamy Bowser',
+    'games:Fierce Deity Link','games:Safer Sephiroth',
+    'games:The Lich King','toons:Spinach-Powered Popeye'
+  ]);
+  function apexRankOf(c,ability){
+    if(!c?.variantAbilities||!ability)return 0;
+    if(ability.tier>=5||FLAGSHIP_FORMS.has(String(c.pool)+':'+String(c.n)))return 2;
+    return ability.tier>=4?1:0;
+  }
 
   function fighter(row,side) {
     const tank=!!row.pos.tank;
@@ -24,6 +46,8 @@
     const attack=9+.31*power+.32*fit+.10*a('spd');
     const c=row.cand;
     const ability=abilityFor(c);
+    const apexRank=apexRankOf(c,ability);
+    const apexHp=apexRank===2?730:apexRank?570:0;
     // High-order magic/reality/cosmic entities bring limited protective power
     // even when their human/child physical stats are unexceptional. This is a
     // depleted gameplay ward, not an assertion of literal invulnerability.
@@ -31,7 +55,7 @@
       ['reality','cosmic','magic','elemental'].includes(ability.domain)
       ?Math.round(26*ability.tier):0;
     const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
-      .58*a('siz')+.24*fit+(tank?64:0)+wardHp);
+      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+apexHp);
     // A physical combat tier is distinct from magic/reality technique tiers.
     // This reduces conventional blows against opponents with established
     // extreme bodies without accidentally ranking all cosmic spells as fists.
@@ -42,8 +66,8 @@
     if(typeof muppetForceOf==='function')muppet=muppetForceOf(c);
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
-      ability,physicalTier,wardHp,
-      attack,armor,fit,maxHp,hp:maxHp,
+      ability,physicalTier,wardHp,apexRank,apexHp,
+      attack:attack*(apexRank===2?2.7:apexRank?2.3:1),armor,fit,maxHp,hp:maxHp,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
@@ -101,7 +125,11 @@
         f,initiative:.57*f.speed+.43*f.reflex+18*rng()
       })).sort((a,b)=>b.initiative-a.initiative);
       const fatigue=round>17?1+Math.min(3,(round-17)*.13):1;
-      for(const {f} of ordered) {
+      // The second Apex/Empowered action follows the normal initiative pass,
+      // preserving an opportunity for enemies to respond or counterattack.
+      const actions=ordered.concat(ordered.filter(x=>x.f.apexRank)
+        .map(x=>({...x,action:1})));
+      for(const {f,action=0} of actions) {
         if(f.hp<=0)continue;
         const enemies=fighters[1-f.side].filter(x=>x.hp>0);
         if(!enemies.length)break;
@@ -114,7 +142,7 @@
         const highOrder=!!p&&p.tier>=5&&
           ['reality','cosmic','magic','elemental'].includes(p.domain);
         const cooldown=highOrder&&f.physicalTier===1?Math.min(2,p.cooldown):p?.cooldown;
-        const signature=!!p&&((round-1)%cooldown===0);
+        const signature=!!p&&action===0&&((round-1)%cooldown===0);
         if(signature)f.powerUses++;
         let hitChance=clamp(.79+.0014*(f.accuracy-target.reflex)+
           .0011*(f.speed-target.agility),.53,.97);
@@ -132,7 +160,7 @@
         // their owner's conventional punch strength (e.g. Franklin Richards).
         // Only reviewed, cooldown-limited signature events receive this floor.
         const rolled=f.attack*(f.tank?1.02:1.14)*support[f.side]*
-          (.83+.34*rng())*fatigue*(signature?(1+.19+.06*p.tier):1);
+          (.83+.34*rng())*fatigue*(action?.82:1)*(signature?(1+.19+.06*p.tier):1);
         const elevated=signature&&p.tier>=4&&
           ['reality','cosmic','magic','elemental'].includes(p.domain);
         const floor=elevated?(30+14*p.tier)*support[f.side]*fatigue:0;
@@ -149,6 +177,15 @@
         if(physicalAttack&&!f.toon){
           const gap=Math.max(0,target.physicalTier-f.physicalTier);
           block+=raw*Math.min(.32,.11*gap);
+        }
+        if(target.apexRank&&!f.apexRank){
+          // Standard weapons and punches struggle against empowered forms,
+          // but high-order documented abilities remain meaningful counters.
+          const threat=Math.max(p?.tier||0,f.physicalTier===3?3:0);
+          const shell=target.apexRank===2?.61:.51;
+          const resistance=Math.max(0,shell-.11*Math.min(5,threat));
+          const physicalOrDevice=!signature||['physical','melee','tech','toxin'].includes(domain);
+          block+=raw*Math.max(0,resistance-(physicalOrDevice?0:.08));
         }
         if(signature&&domain==='toxin'&&target.physicalTier===3)
           block+=raw*.10; // delivery to extreme physiologies is less reliable
@@ -189,6 +226,7 @@
           roundsAlive:f.roundsAlive,receivedHits:f.receivedHits,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,wardHp:f.wardHp,
+          apexRank:f.apexRank,apexHp:f.apexHp,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
           wear:f.wear,koRound:f.koRound,targets:f.targets
