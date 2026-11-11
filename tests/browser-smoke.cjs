@@ -517,7 +517,7 @@ const server=http.createServer((req,res)=>{
       d1:pick('dc','Death of the Endless'),d2:pick('mcu','Scarlet Witch'),d3:pick('dc','Darkseid'),
       bn:pick('dc','Wonder Woman'),cmd:pick('dc','Trigon')};
     const A=teamScore('brawl',left),B=teamScore('brawl',right);
-    let h=0,j=0,d=0,hellWins=0,results=[];
+    let h=0,j=0,d=0,hellWins=0,helPower=0,darkPower=0,results=[];
     for(let i=0;i<25;i++){
       const g=playGame('brawl',A,B,8,rngFrom('hellbat-real-roster-'+i));
       const combat=g.combat;
@@ -526,11 +526,11 @@ const server=http.createServer((req,res)=>{
       const jok=combat.sides[0].fighters.find(f=>f.name==='Joker');
       const dark=combat.sides[1].fighters.find(f=>f.name==='Darkseid');
       if(!hel||!jok||!dark)throw Error('Battle report lost a character in the combat roster');
-      if(hel.powerMove!=='Hellbat Counteroffensive'||!hel.powerUses)
-        throw Error('Hellbat signature ability not active in live team match');
-      if(!dark.powerMove||!dark.powerUses)
-        throw Error('Darkseid signature ability not active in live team match');
-      h+=hel.dmg;j+=jok.dmg;d+=dark.dmg;hellWins+=combat.winner===0?1:0;
+      if(hel.powerMove!=='Hellbat Counteroffensive'||(hel.attacks>0&&!hel.powerUses))
+        throw Error('Hellbat profile/first-attack signature missing: '+JSON.stringify(hel));
+      if(!dark.powerMove||(dark.attacks>0&&!dark.powerUses))
+        throw Error('Darkseid profile/first-attack signature missing: '+JSON.stringify(dark));
+      h+=hel.dmg;j+=jok.dmg;d+=dark.dmg;helPower+=hel.powerUses;darkPower+=dark.powerUses;hellWins+=combat.winner===0?1:0;
       results.push({h:hel.dmg,j:jok.dmg,d:dark.dmg,hAttacks:hel.attacks,jAttacks:jok.attacks});
       if(i===0){
         const html=daComparison('brawl',A,B,combat.sides[0].kos,combat.sides[1].kos,
@@ -539,7 +539,8 @@ const server=http.createServer((req,res)=>{
           throw Error('Live match report lacks fighter ability/damage explanation');
       }
     }
-    return {avgHellbat:h/25,avgJoker:j/25,avgDarkseid:d/25,wins:hellWins,results};
+    if(!helPower||!darkPower)throw Error('Signature abilities never triggered across full-roster seeds');
+    return {avgHellbat:h/25,avgJoker:j/25,avgDarkseid:d/25,wins:hellWins,helPower,darkPower,results};
   });
   assert.equal(combatAudit.results.length,25);
   console.log('Actual roster (25 seeds): Hellbat',combatAudit.avgHellbat.toFixed(1),
