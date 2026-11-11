@@ -52,6 +52,7 @@ group('dc',
  'kids','no','{name} is depicted as an adult (or adult-presenting immortal/synthetic being), not a child or teenager, in the main DC Comics continuity used for this roster entry.',
  'DC Comics character stories and official DC identity biographies');
 
+mark('dc:Shazam','kids','yes','Billy Batson is a teenage boy whose magic-word transformation creates an adult superhero body; his identity remains a child or teen.','https://www.dc.com/characters/shazam');
 for(const [id,reason,source] of [
  ['harrypotter:Hedwig','Hedwig is Harry Potter\'s female snowy owl; the books consistently use female pronouns.','Harry Potter and the Philosopher\'s Stone'],
  ['harrypotter:Norbert (Norberta)','Hagrid learns the dragon is female and renames her Norberta.','Harry Potter and the Deathly Hallows'],
