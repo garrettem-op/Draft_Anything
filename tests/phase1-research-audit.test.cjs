@@ -38,6 +38,12 @@ test('specific ability evidence and researched negative disputes are distinct fr
  assert.equal(base('pokemon','Snorlax','giants').decision,'no');
  assert.equal(base('mcu','The Watcher','flight').decision,'needs-review');
  assert.equal(base('games','Blinky','red').decision,'yes');
+ assert.equal(base('mcu','Cosmo the Spacedog','women').decision,'yes');
+ assert.equal(base('harrypotter','Hedwig','women').decision,'yes');
+ assert.equal(base('lotr','Shelob','women').decision,'yes');
+ assert.equal(base('muppets','Curly Bear','women').decision,'yes');
+ assert.equal(base('mcu','Thanos','women').decision,'no');
+ assert.equal(base('starwars','Jabba the Hutt','women').decision,'no');
  assert.equal(base('pokemon','Charmander','red').decision,'no');
 });
 test('alternate form research uses exact identity instead of copied baseline tags',()=>{
