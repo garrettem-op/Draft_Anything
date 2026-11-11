@@ -75,7 +75,7 @@ function collectPhase1Research(){
      }else{
        found[tag]=finding('needs-review','unverified-negative',
          'No individually evidenced qualifying '+tag+' feat is currently indexed for '+c.n+'. This is not proof that the ability is impossible.',
-         '',{researchHint:c.t||''});
+         '');
      }
    }
    for(const tag of TRAITS){
@@ -115,12 +115,12 @@ function collectPhase1Research(){
        }else{
          found[tag]=finding('needs-review','uncertain-trait',
            'The '+tag+' classification must be assessed for this precise character and continuity; omission from a curated list is not proof of no.',
-           '',{researchHint:c.t||''});
+           '');
        }
      }
    }
    if(Object.keys(found).length!==16)throw Error('Missing audit decisions: '+c.id);
-   pools[c.pool].base[c.n]={id:c.id,description:c.t||'',decisions:found};
+   pools[c.pool].base[c.n]={id:c.id,decisions:found};
    summary.base++;summary.byPool[c.pool]??={characters:0,forms:0,yes:0,no:0,needsReview:0};
    summary.byPool[c.pool].characters++;
    count(c.pool,found);
