@@ -87,7 +87,7 @@ test('the new pools participate in the picker and Mashup without deleting past p
   const builtin=h.evaluate('BUILTIN');
   for(const pool of [...old,...newly,'mashup'])assert.ok(builtin.includes(pool),pool);
   const mashup=h.evaluate("getCands('mashup')");
-  assert.equal(mashup.length,1169);
+  assert.equal(mashup.length,1200);
   for(const pool of [...old,...newly])assert.ok(mashup.some(c=>c.pool===pool),pool);
   for(const pool of newly){
     const candidates=h.evaluate('getCands('+JSON.stringify(pool)+')');
@@ -220,4 +220,32 @@ test('Commanders may qualify through concrete team support, without personal cha
   assert.equal(h.allowed('starwars','Jar Jar Binks','flight',{coach:true}),false,
     'A Gungan general is not automatically an aerial commander');
   assert.equal(h.paid(),0);
+});
+
+
+test('every roster member is evaluated by all 34 Campaign challenges with explainable outcomes',()=>{
+  const h=harness();
+  const report=h.evaluate(`(()=>{
+    const characters=getCands('mashup');
+    const stages=[...CAMPAIGN_STAGES,...CAMPAIGN_EXTRA];
+    const errors=[];
+    const coverage={};
+    for(const stage of stages)coverage[stage.rule]={eligible:0,rejected:0};
+    for(const character of characters){
+      for(const stage of stages){
+        const evaluation=campaignEligibilityResult(character,stage.rule);
+        const allowed=campaignAllowed(character,stage.rule);
+        if(typeof evaluation.allowed!=='boolean'||!evaluation.reason||allowed!==evaluation.allowed)
+          errors.push(character.pool+':'+character.n+' / '+stage.rule);
+        coverage[stage.rule][allowed?'eligible':'rejected']++;
+      }
+    }
+    return {count:characters.length,ruleCount:stages.length,errors,coverage};
+  })()`);
+  assert.equal(report.count,1200);
+  assert.equal(report.ruleCount,34);
+  assert.deepEqual([...report.errors],[],'Every rule and character must produce one consistent explanation');
+  for(const [rule,counts] of Object.entries(report.coverage))
+    assert.equal(counts.eligible+counts.rejected,1200,rule+' missed characters');
+  assert.equal(h.paid(),0,'Full audit must not initiate paid AI research');
 });

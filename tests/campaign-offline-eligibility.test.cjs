@@ -53,9 +53,9 @@ function harness(){
   return {ctx,calls,pools,find,allows,html};
 }
 
-test('All 848 roster records and seven talent pools participate in the local audit',()=>{
+test('All 879 roster records and seven talent pools participate in the local audit',()=>{
   const h=harness();
-  assert.equal(poolIds.reduce((sum,id)=>sum+h.pools[id].entries.length,0),848);
+  assert.equal(poolIds.reduce((sum,id)=>sum+h.pools[id].entries.length,0),879);
   assert.ok(h.html.indexOf('data/campaign-eligibility.js')>0);
   assert.ok(h.html.indexOf('data/campaign-eligibility.js')<h.html.indexOf('data/campaign.js'));
   assert.match(h.html,/taxonomy: Array\.isArray\(e\[4\]\)/);
@@ -150,7 +150,7 @@ test('Other campaign constraints and Commander-only exceptions stay strict',()=>
   assert.equal(h.calls.paid,0);
 });
 
-test('Scanning all 848 character descriptions against all 12 themes never calls paid AI',()=>{
+test('Scanning all 879 character descriptions against all 12 themes never calls paid AI',()=>{
   const h=harness();
   for(const pool of poolIds){
     for(const e of h.pools[pool].entries){

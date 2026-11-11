@@ -26,7 +26,8 @@ test('simulated attacks, not team rating margins, account for actual KOs and dam
  const A=buildTeam('A',{str:94,acc:90,spd:88,end:87,siz:82,fit:94},95);
  const B=buildTeam('B',{str:64,acc:60,spd:58,end:62,siz:60,fit:64},64);
  const result=resolveBrawlCombat(A,B,[97,63],rngFrom(1234));
- assert.equal(result.version,1);
+ assert.equal(result.version,2);
+ assert.equal(result.model,'typed-signature-v1');
  assert.equal(result.sides.length,2);
  assert.equal(result.line[0],5);
  assert.equal(result.winner,0);

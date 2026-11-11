@@ -1,4 +1,12 @@
-# Cartoon research deployment — 104 / 104
+# Cartoon research deployment — 134 / 134
+
+## Update 2026-11-10: Disney additions
+- 31 Disney characters added (batch `TOONS_PROFILES_BATCH_04.json`): Aladdin, Jasmine, Genie, Jafar; Ariel, Ursula, King Triton, Sebastian; Belle, Beast, Gaston, Lumière; Quasimodo, Esmeralda, Frollo, Phoebus; Scar, Mufasa, Timon, Pumbaa; Mushu, Shan Yu; Hades; Anna, Olaf; Lilo; Peter Pan, Captain Hook; Maleficent, Snow White, Cinderella.
+- Every new feat links to a plot summary or character page (Wikipedia, Disney Wiki, Disney Villains Wiki, TV Tropes, Comic Vine). None is timestamp-verified.
+- Wreck-It Ralph, reclassified to Video Games earlier, now sits in a `reclassified` list in the consolidated file instead of the cartoon roster, so the validator passes again.
+- Consolidated file renamed `TOONS_ALL_104_PROFILES.json` → `TOONS_ALL_PROFILES.json`; the validator now reads the roster size from `index.html`.
+
+## Original deployment (2026-10-19)
 
 **Date:** 2026-10-19
 
@@ -6,7 +14,7 @@
 - **104 character profiles** covering every character in `POOLS.toons`. Each has primary animation/movie titles, powers, notable feats, limitations, sports transfer rationale, power tier, and 12 proposed athletic attributes.
 - **104 characters revised**, encompassing **495 changed attribute cells** relative to the original in-game roster (after absolute-scale calibration).
 - Three working research files: `TOONS_PROFILES_BATCH_01.json`, `TOONS_PROFILES_BATCH_02.json`, `TOONS_PROFILES_BATCH_03.json`.
-- Consolidated `TOONS_ALL_104_PROFILES.json` with per-attribute rationales and continuity warnings.
+- Consolidated `TOONS_ALL_PROFILES.json` (then named `TOONS_ALL_104_PROFILES.json`) with per-attribute rationales and continuity warnings.
 - **32 contextual matchup/feat records**: `TOONS_MATCHUP_EVIDENCE.json`.
 - `TOONS_RATING_MODEL.md` documents treatment of repeatable toon-force, normal equipment, special conditions, and universal cross-pool 1–99 calibration.
 - `index.html` now uses the revised 104 numeric vectors. The existing role-fit computation, simulated games, Championship, Dealt Hand, Head-to-Head, and Mashup all draw from them.

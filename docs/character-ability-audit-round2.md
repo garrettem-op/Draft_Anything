@@ -126,3 +126,79 @@ The Campaign, new-pool and Skyborne suites cover the Commander-only exceptions.
    - Whether Valar and Maiar "powers" count as magic. They are currently granted as spellcaster, with a limitation note, where a supernatural working is documented.
 3. **Carry-overs:** 263 older-pool grants still lack per-feat sources.
 4. **Merge order with PR #46.** PR #46 (lore files) also touches `tests/character-abilities.test.cjs`. If #45 merges first, #46 needs a trivial rebase.
+
+## Round 3 (2026-11-10): disputed areas — DC stealth, then flight and giants
+
+Owner chose to source the disputed areas first. Round 3 resolves the 17 research-queue items Round 2 removed
+"pending a specific scene". Every cited page was opened and the feat confirmed on it. Records are in
+`CHARACTER_ABILITY_RECORDS_ROUND3` (`audit: "2026-11-r3"`).
+
+**Granted (10)** (Trigon flight was granted in the first push and went back to the queue after review; the last
+three rows and the Durin's Bane scope come from the owner's 2026-11-11 rulings)
+
+| Character | Tag | Scene | Mode | Continuity |
+|---|---|---|---|---|
+| Nightwing | stealth | Undercover in Spyral as Agent 37, reporting to Batman in secret (Grayson #1–4) | undercover | DC comics (New 52) |
+| Red Hood | stealth | Hides at Duela Dent's funeral until the Titans leave (Countdown #43, "The Funeral"); breaks into Titans Tower (Teen Titans v3 #29) | undetected | DC comics |
+| Batwoman | stealth | Inside Arkham Tower as psychiatrist "Dr. Lisa Frow" ("Shadows of the Bat") | undercover | DC comics |
+| Cassandra Cain | stealth | Infiltrates a hired-killers tournament and frees Red Robin (Red Robin #25) | unspecified | DC comics |
+| Huntress | stealth | Undercover in Arkham Tower as a patient (Detective Comics #1049) | undercover | DC comics |
+| Talia al Ghul | stealth | On the Wayne Enterprises board as Miranda Tate (The Dark Knight Rises) | undercover | Nolan films only |
+| Durin's Bane | giants | At least 20 ft tall on the Bridge of Khazad-dûm | | All continuities (owner ruling) |
+| Batgirl (Barbara Gordon) | stealth | Hacks into, then breaks into, JSA headquarters; Wildcat catches her (Batgirl: Year One) | discovered | DC comics |
+| Hermione Granger | flight (mount) | Rides her own Thestral to London (OotP ch. 33) | | Harry Potter novels |
+| Gothmog | giants | Species-level Balrog size, "double his stature" against an Elf (Lost Tales) | | Tolkien legendarium |
+
+**Still queued (7), notes updated:** Robin (Damian) and Red Robin stealth (candidate scenes, no page naming
+the issue); Deathstroke stealth (only group ambushes or Terra's infiltration); Darkseid flight (infobox only);
+Trigon flight (power summary only, no issue); Quickbeam and Carcharoth giants (no size).
+A test names all seven, so a regenerated index cannot quietly regrant one.
+
+### PR #56 review follow-up (2026-11-10)
+
+- **Trigon flight:** no issue, story or episode was found where he flies; Wikipedia lists flight only in a
+  power summary. Back in the research queue and out of the tag index.
+- **Durin's Bane:** the record carries `continuityScope: "film-only"` and a `conflict` note (film 20 ft, book
+  gives no size), so the PR #57 source audit will rate it `investigate`. A test checks the limit survives
+  `characterAbilityProvenance` and does not widen to Tolkien's books.
+- **Stealth:** every record now has a `scene` and a `stealthMode`. Only Red Hood has a scene of staying
+  unseen; Nightwing, Batwoman, Huntress and Talia hold undercover identities; Cassandra's method is not
+  stated. Sources stay as they were (Wikipedia, DCU Guide, a fan wiki): under the owner's 2026-11-10 standard
+  they are credible when the claim is specific. Issue-number disagreements are recorded in `citationNote`
+  (Batwoman: Urban Legends #8–9 vs Detective Comics #1048; Red Hood's funeral: Countdown #43 vs #51).
+- Undercover identities count today by precedent (Nakia, Sharon Carter and Cassian Andor hold stealth for
+  undercover work), so no grant changed. Whether undercover-only feats should count for Ghost Protocol is
+  listed below for the owner.
+
+**Owner rulings, 2026-11-11 (Garrett).** These answer the questions this review raised. Each affected record
+carries `ruling` and `verification: "owner-ruling"`, and a test pins them.
+A ruling is a policy decision about what counts for a tag, not independent canonical proof. Each record keeps
+its cited scene and source, and `verification: "owner-ruling"` keeps the two apart: the PR #57 audit rates these
+records `owner-ruling`, never as source-confirmed or corroborated.
+- **Undercover identities count for Ghost Protocol** (Nightwing, Batwoman, Huntress, Talia). No grant changed.
+  `stealthMode` stays as descriptive metadata.
+- **Durin's Bane is a giant in every continuity.** The film-only scope (`continuityScope`) and the `conflict` note
+  are removed. The book/film size difference is kept in `citationNote` for transparency. Because the owner has
+  ruled, the PR #57 audit rates it `owner-ruling`, not `investigate`. Nothing is left for the engine to enforce.
+- **A discovered break-in counts:** Batgirl (Barbara Gordon) gains stealth.
+- **Solo riders of a flying mount count:** Hermione gains flight as a `mount`, not as a flyer of her own.
+- **A species-level Balrog size counts for a named Balrog:** Gothmog gains giants.
+
+The earlier "Gameplay limitations" note (film-only and undercover metadata not enforced) is superseded by these
+rulings and was removed.
+
+### Merge sequence (#55, then #56, then #57)
+
+A local simulation of that order (2026-11-10, not pushed):
+- **#56 after #55:** conflicts in `data/character-abilities.js` and the generated `docs/character-ability-coverage.md`.
+  Both PRs add a record block before `CHARACTER_ABILITIES` and append it to the same merge list. To resolve, keep
+  both blocks, list `CHARACTER_ABILITY_RECORDS_DISNEY, CHARACTER_ABILITY_RECORDS_ROUND3`, then run
+  `node tools/ability-audit.cjs --report`. `--write-index` produces no further change.
+- **#57 on top:** merges cleanly. Three follow-ups are needed before its checks pass:
+  1. Classify `dcuguide.com` (DCU Guide, a fan-run chronology database) as `community`.
+  2. Update `PINNED_INDEX_DIGEST` to the post-#56 index. That is a deliberate grant change from Round 3 and the
+     2026-11-11 rulings.
+  3. Run `node tools/ability-source-audit.cjs --write`.
+
+  In the 2026-11-10 simulation (before the 2026-11-11 rulings), those three fixes made 213/213 tests pass, made
+  `--check` clean and let the browser smoke test pass. The digest value changes again with the new grants.
