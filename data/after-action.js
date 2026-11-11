@@ -314,9 +314,15 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
         targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
         log.wear?`Ability strain: ${log.wear} HP lost (not credited as opponent DMG).`:'',
         log.koRound?`Knocked out in round ${log.koRound}.`:
-          `Remaining HP: ${Number(log.hp)||0}/${Number(log.maxHp)||0}.`
+          `Remaining HP: ${Number(log.hp)||0}/${Number(log.maxHp)||0}.`,
+        log.powerLimit?`Limit: ${esc(log.powerLimit)}`:''
       ].filter(Boolean).join(' ');
-      explanation=`<details class="da-fighter-why"><summary>Why this DMG?</summary><div>${why}</div></details>`;
+      // Source links are shown only for allowlisted editorial publishers.
+      // Variant metadata is not assumed safe to interpolate into a URL.
+      const source=String(log.powerSource||'');
+      const trusted=/^https:\/\/(?:www\.)?(?:dc\.com|marvel\.com|tolkiengateway\.net)\//.test(source);
+      const sourceHTML=trusted?` <a href="${esc(source)}" target="_blank" rel="noopener noreferrer">Source material</a>`:'';
+      explanation=`<details class="da-fighter-why"><summary>Why this DMG?</summary><div>${why}${sourceHTML}</div></details>`;
     }
     return `<div class="da-player"><span class="da-name">${esc(r.name)}</span><span class="da-primary">${main?`<b class="num">${main[1]}</b> <small>${esc(main[0])}</small>`:'—'}</span>
       <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span>${explanation}</div>`;
