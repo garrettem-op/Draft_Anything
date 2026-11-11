@@ -164,3 +164,9 @@ test('Peter Pan stays Skyborne-eligible under the owner ruling', () => {
   assert.equal(r.formGate, undefined, 'pixie dust is not recorded as a form or item gate');
   assert.ok(!CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === 'toons:Peter Pan'), 'not reopened in the research queue');
 });
+
+test('owner ruling 2026-11-10: form-, wish- and item-dependent powers count for the base character', () => {
+  for (const [n, rule] of [['Jafar', 'giants'], ['Jafar', 'fire'], ['Jafar', 'psychic'], ['Ursula', 'giants'],
+    ['Ursula', 'aquatic'], ['King Triton', 'magic'], ['Maleficent', 'giants'], ['Maleficent', 'fire']])
+    assert.equal(accepts(n, rule), true, n + ' keeps ' + rule + ' under the keep-them-all ruling');
+});
