@@ -1387,7 +1387,7 @@ const CHARACTER_ABILITY_RECORDS_NEW_POOLS = {
   ],
   "dc:Captain Atom": [
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies on quantum-field energy; led Justice League Europe (1989).", "source": "https://en.wikipedia.org/wiki/Captain_Atom", "continuity": "DC mainline comics", "audit": "2026-11-r2"},
-    {"tag": "tech", "tags": ["powered-armor"], "kind": "powered-armor", "feat": "The Captain Atom Project bonded an alien Dilustel shell to Nathaniel Adam. The engineered protective coating contains and channels his quantum energy; he relies on that armor to function safely.", "source": "https://dc.fandom.com/wiki/Nathaniel_Adam_(New_Earth)", "continuity": "DC mainline comics (Nathaniel Adam)", "audit": "2026-11-owner-ruling"},
+    {"tag": "tech", "tags": ["powered-armor"], "kind": "powered-armor", "feat": "The Captain Atom Project bonded an alien Dilustel shell to Nathaniel Adam. The engineered protective coating contains and channels his quantum energy; he relies on that armor to function safely.", "source": "https://dc.fandom.com/wiki/Nathaniel_Adam_(New_Earth)", "continuity": "DC mainline comics (Nathaniel Adam)", "audit": "2026-11-owner-ruling", "policyRuling": "owner-ruled 2026-11-11 (Garrett): the engineered Dilustel protective containment armor qualifies for Tech Titans under the standing armor policy. This settles eligibility only; it does not verify the feat. Source verification stays open until a specific comic issue or official primary reference is pinned."},
   ],
   "dc:Supergirl (Kara Zor-El)": [
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Flies unaided as a Kryptonian under a yellow sun.", "source": "https://en.wikipedia.org/wiki/Supergirl_(Kara_Zor-El)", "continuity": "DC mainline comics", "limitation": "Kryptonite and red-sun weaknesses", "audit": "2026-11-r2"},
@@ -2377,9 +2377,50 @@ const CHARACTER_ABILITY_RECORDS_DISNEY = {
     {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "feat": "Escapes Frollo's guards at the Feast of Fools with a vanishing trick, and later slips out of Notre Dame unseen in disguise with Quasimodo's help.", "source": "https://en.wikipedia.org/wiki/The_Hunchback_of_Notre_Dame_(1996_film)", "continuity": "Disney's The Hunchback of Notre Dame (1996)", "limitation": "Stage illusion and disguise, not invisibility", "ruling": "owner-approved 2026-11-10 (Garrett)", "verification": "owner-ruling", "audit": "2026-11-disney"},
   ],
 };
+/* ---- 2026-11 round 3 (Claude): disputed areas (DC stealth, new-pool flight and giants).
+   Resolves research-queue items that round 2 removed pending a specific scene. Each source page was
+   opened and the feat confirmed on it. PR #56 review: each record names its scene; stealth records say
+   whether the feat is an undercover identity or moving unseen (stealthMode); Trigon flight went back to
+   the queue (no pinned scene).
+   Owner rulings 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol; Durin's Bane is a
+   giant in every continuity (no film-only limit); a discovered break-in counts (Batgirl); solo riders of a
+   flying mount count (Hermione); a species-level Balrog size counts for a named Balrog (Gothmog).
+   stealthMode stays as descriptive metadata; no engine code reads it. */
+const CHARACTER_ABILITY_RECORDS_ROUND3 = {
+  "dc:Nightwing": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Batman sends him undercover to investigate the spy agency Spyral, where he is designated Agent 37 and reports to Batman in secret code (Grayson #1–4, 2014).", "scene": "Grayson #1–4 (2014): joins Spyral as Agent 37 while secretly reporting to Batman", "source": "https://en.wikipedia.org/wiki/Grayson_(comic_book)", "continuity": "DC mainline comics (New 52)", "limitation": "Undercover identity, not a scene of moving unseen", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "dc:Red Hood": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undetected", "feat": "Breaks into Titans Tower to confront Tim Drake (Teen Titans vol. 3 #29, December 2005) and, at Duela Dent's funeral, hides until every Titan but Donna Troy has left (Countdown).", "scene": "Countdown #43, \"The Funeral\" (September 2007): stays hidden at Duela Dent's funeral; Teen Titans vol. 3 #29: the Titans Tower break-in", "source": "https://en.wikipedia.org/wiki/Jason_Todd", "sceneSource": "https://dcuguide.com/Red_Hood_(Jason_Todd)_Chronology", "continuity": "DC mainline comics (pre-Flashpoint)", "citationNote": "Wikipedia's footnote for the funeral sentence cites Countdown #51; DCU Guide's Red Hood chronology lists the funeral as Countdown #43", "audit": "2026-11-r3"}
+  ],
+  "dc:Batwoman": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Infiltrates Arkham Tower, hired on as psychiatrist Dr. Lisa Frow (\"Shadows of the Bat\").", "scene": "\"Shadows of the Bat\" (2021–22): works inside Arkham Tower under the alias Dr. Lisa Frow", "source": "https://en.wikipedia.org/wiki/Batwoman_(Kate_Kane)", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "citationNote": "Same feat, different issue: the Kate Kane article cites Batman: Urban Legends #8–9; the Shadows of the Bat article places it in Detective Comics #1048", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "dc:Cassandra Cain": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "unspecified", "feat": "Infiltrates a tournament for hired killers and rescues the captured Red Robin, then fakes his death so he can escape (Red Robin #25, July 2011).", "scene": "Red Robin #25 (July 2011): gets inside the assassination tournament and frees Tim Drake", "source": "https://en.wikipedia.org/wiki/Cassandra_Cain", "continuity": "DC mainline comics (pre-Flashpoint)", "limitation": "Sources say she infiltrates but not whether by disguise or unseen; DC's solicitation casts her as a tournament fighter", "audit": "2026-11-r3"}
+  ],
+  "dc:Huntress": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Goes undercover inside Arkham Tower to investigate it, checking in as a patient (Detective Comics #1049, \"The Tower, Part 3\", March 2022).", "scene": "Detective Comics #1049, \"The Tower, Part 3\" (March 2022): undercover in Arkham Tower as a patient", "source": "https://dcuguide.com/Detective_Comics_1049", "sceneSource": "https://en.wikipedia.org/wiki/Shadows_of_the_Bat", "continuity": "DC mainline comics (Infinite Frontier)", "limitation": "Undercover identity, not a scene of moving unseen", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "dc:Talia al Ghul": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "undercover", "feat": "Sits on the Wayne Enterprises board as Miranda Tate while secretly loyal to the League of Shadows, until she reveals herself as Talia (The Dark Knight Rises, 2012).", "scene": "The Dark Knight Rises (2012): poses as board member Miranda Tate; reveals herself after Batman beats Bane", "source": "https://chrisnolan.fandom.com/wiki/Miranda_Tate", "continuity": "The Dark Knight trilogy (Nolan films)", "limitation": "Film continuity; undercover identity, not a scene of moving unseen; no comics stealth scene confirmed yet", "ruling": "owner-ruled 2026-11-11 (Garrett): undercover-identity feats count for Ghost Protocol", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "dc:Batgirl (Barbara Gordon)": [
+    {"tag": "stealth", "tags": ["infiltration"], "kind": "infiltration", "stealthMode": "discovered", "feat": "Hacks her way into the Justice Society of America's headquarters and later breaks in, to ask to train under Black Canary; Wildcat catches up with her (Batgirl: Year One, 2003).", "scene": "Batgirl: Year One (2003 miniseries): the JSA headquarters hack and break-in", "source": "https://dc.fandom.com/wiki/Batgirl:_Year_One", "continuity": "DC mainline comics (Batgirl: Year One)", "limitation": "Discovered: Wildcat catches her after the break-in; no issue number on the source page", "ruling": "owner-ruled 2026-11-11 (Garrett): a break-in that is later discovered counts", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "harrypotter:Hermione Granger": [
+    {"tag": "flight", "tags": ["mount"], "kind": "mount", "feat": "Rides her own Thestral from Hogwarts to London to reach the Ministry of Magic (OotP ch. 33).", "scene": "Order of the Phoenix ch. 33: the Thestral flight to the Ministry of Magic", "source": "https://harrypotter.fandom.com/wiki/Hermione_Granger", "continuity": "Harry Potter novels", "limitation": "Needs a Thestral; rides it solo but does not fight from it", "ruling": "owner-ruled 2026-11-11 (Garrett): solo riders of a flying mount count, even without fighting from it", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "lotr:Gothmog (Lord of Balrogs)": [
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "Lord of the Balrogs. Tolkien's Lost Tales give a Balrog 'double his stature' against an Elf, about 12 ft.", "source": "https://en.wikipedia.org/wiki/Balrog", "continuity": "Tolkien legendarium", "limitation": "Species-level Balrog size; the 12 ft figure describes the Balrog Glorfindel fights, not Gothmog by name", "ruling": "owner-ruled 2026-11-11 (Garrett): a species-level Balrog size counts for a named Balrog", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ],
+  "lotr:Durin's Bane": [
+    {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "scene": "The Fellowship of the Ring (2001 film): the Bridge of Khazad-dûm", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings (films and books)", "citationNote": "The Jackson film shows a 20 ft Balrog; Tolkien's text gives no measurement. The owner ruled the giant reading applies in every continuity.", "ruling": "owner-ruled 2026-11-11 (Garrett): a massive giant in every continuity; no film-only limit", "verification": "owner-ruling", "audit": "2026-11-r3"}
+  ]
+};
 const CHARACTER_ABILITIES = (() => {
   const merged = {};
-  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS, CHARACTER_ABILITY_RECORDS_DISNEY]) {
+  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS, CHARACTER_ABILITY_RECORDS_DISNEY, CHARACTER_ABILITY_RECORDS_ROUND3]) {
     for (const [id, facts] of Object.entries(block)) {
       const list = merged[id] || (merged[id] = []);
       // The first record for a tag is authoritative; audit records only add missing tags.
@@ -2467,31 +2508,21 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"muppets:Big Mean Carl", tag:"giants", note:"No documented height. ToughPigs calls him 'massive', a 'gigantic messy creature' and a 'giant monster', which are qualitative only.", source:"https://www.toughpigs.com/?p=52374"},
   {id:"mcu:The Watcher", tag:"giants", note:"No documented height. The Wikipedia MCU article gives no size or scale. An earlier pass found the same on the MCU wiki (Uatu). Would need an on-screen scale scene.", source:"https://en.wikipedia.org/wiki/Watcher_(Marvel_Cinematic_Universe)"},
   {id:"games:Donkey Kong", tag:"giants", note:"No documented height. Super Mario Wiki gives only his weight, 800 lb (363 kg), from Donkey Kong 64's talking Microphone, plus 'big, tall, with lots of muscles'. Other Kongs (Chunky, Sumo) are larger. If no height turns up, the current giants grant is doubtful (see the earlier games dispute).", source:"https://www.mariowiki.com/Donkey_Kong"},
-  {id:"dc:Nightwing", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene; the role of acrobat/detective is not enough under the owner's ruling.", source:"https://en.wikipedia.org/wiki/Dick_Grayson", audit:"2026-11-r2"},
-  {id:"dc:Robin (Damian Wayne)", tag:"stealth", note:"Assassin training is backstory; a specific unseen-infiltration scene is needed.", source:"https://en.wikipedia.org/wiki/Damian_Wayne", audit:"2026-11-r2"},
-  {id:"dc:Red Robin (Tim Drake)", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Tim_Drake", audit:"2026-11-r2"},
-  {id:"dc:Red Hood", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Jason_Todd", audit:"2026-11-r2"},
-  {id:"dc:Batgirl (Barbara Gordon)", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Barbara_Gordon", audit:"2026-11-r2"},
-  {id:"dc:Batwoman", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene (Elegy has candidates).", source:"https://en.wikipedia.org/wiki/Kate_Kane", audit:"2026-11-r2"},
-  {id:"dc:Cassandra Cain", tag:"stealth", note:"Likely qualifies, but a specific scene of moving unseen is needed.", source:"https://en.wikipedia.org/wiki/Cassandra_Cain", audit:"2026-11-r2"},
-  {id:"dc:Huntress", tag:"stealth", note:"Seed-list grant removed pending a specific stealth scene.", source:"https://en.wikipedia.org/wiki/Helena_Bertinelli", audit:"2026-11-r2"},
-  {id:"dc:Talia al Ghul", tag:"stealth", note:"Seed-list grant removed pending a specific infiltration scene.", source:"https://en.wikipedia.org/wiki/Talia_al_Ghul", audit:"2026-11-r2"},
-  {id:"dc:Deathstroke", tag:"stealth", note:"In The Judas Contract the infiltrator is Terra, not Slade; a personal stealth scene is needed.", source:"https://en.wikipedia.org/wiki/Deathstroke", audit:"2026-11-r2"},
+  {id:"dc:Robin (Damian Wayne)", tag:"stealth", note:"Round 3: Wikipedia says he evades a Titans/Bat-family search after quitting Teen Titans (2020), but names no issue; dc.com Teen Titans #46 confirms only that he left. Needs that evasion scene confirmed on a page naming the issue (Teen Titans 2016 #45–47 or Annual #2).", source:"https://en.wikipedia.org/wiki/Damian_Wayne"},
+  {id:"dc:Red Robin (Tim Drake)", tag:"stealth", note:"Round 3: no named stealth scene on Wikipedia; the Arkhamverse wiki lists only a generic Stealth ability. Candidate: the 'Alvin Draper' undercover identity in Robin vol. 2, needs a page describing the story.", source:"https://en.wikipedia.org/wiki/Tim_Drake"},
+  {id:"dc:Deathstroke", tag:"stealth", note:"Round 3: Wikipedia's infiltration scenes are Terra's (Judas Contract) or Rose's; Infinite Crisis #1 has a Secret Society group ambush from a hidden warehouse (not a personal stealth feat). Young Justice ambushes never say he went unseen. Needs a scene of Slade himself infiltrating undetected.", source:"https://en.wikipedia.org/wiki/Deathstroke"},
   {id:"dc:Swamp Thing", tag:"magic", note:"Seed-list grant removed: he is an elemental of the Green, not a sorcerer. Needs an owner ruling on whether elemental beings count for Arcane Assembly.", source:"https://en.wikipedia.org/wiki/Swamp_Thing", audit:"2026-11-r2"},
-  {id:"dc:Darkseid", tag:"flight", note:"Seed-list grant removed pending a documented flight or levitation scene.", source:"https://en.wikipedia.org/wiki/Darkseid", audit:"2026-11-r2"},
-  {id:"dc:Trigon", tag:"flight", note:"Seed-list grant removed pending a documented flight scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
+  {id:"dc:Darkseid", tag:"flight", note:"Round 3: only the Wikipedia infobox lists Flight; no article text, DC Database (Prime Earth) or dc.com page describes him flying or levitating. His documented movement is teleportation and Boom Tubes.", source:"https://en.wikipedia.org/wiki/Darkseid"},
+  {id:"dc:Trigon", tag:"flight", note:"Round 3, re-queued after PR #56 review: Wikipedia lists flight only in a power summary ('can fly, generate energy blasts, teleport') and names no issue, story or episode. Needs a scene where Trigon himself flies or levitates.", source:"https://en.wikipedia.org/wiki/Trigon_(comics)"},
   {id:"dc:Trigon", tag:"psychic", note:"Seed-list grant removed pending a documented telepathy scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
   {id:"dc:Trigon", tag:"teleport", note:"Seed-list grant removed pending a documented teleport or portal scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
   {id:"dc:The Spectre", tag:"healing", note:"Seed-list grant removed pending a documented healing scene.", source:"https://en.wikipedia.org/wiki/Spectre_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Death of the Endless", tag:"magic", note:"Needs an owner ruling: Death is a personification, not a spellcaster.", source:"https://en.wikipedia.org/wiki/Death_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Doctor Fate", tag:"psychic", note:"Telepathy appears in some eras; a specific scene is needed.", source:"https://en.wikipedia.org/wiki/Doctor_Fate", audit:"2026-11-r2"},
-  {id:"lotr:Quickbeam", tag:"giants", note:"Ents are huge, but Tolkien gives a height only for Treebeard (14 ft); the owner's ruling needs a documented size.", source:"https://lotr.fandom.com/wiki/Bregalad", audit:"2026-11-r2"},
-  {id:"lotr:Durin's Bane", tag:"giants", note:"Tolkien describes it only as man-shaped 'yet greater' (FotR II.5); no documented size.", source:"https://lotr.fandom.com/wiki/Durin%27s_Bane", audit:"2026-11-r2"},
-  {id:"lotr:Gothmog (Lord of Balrogs)", tag:"giants", note:"No documented size for Balrogs in the text.", source:"https://lotr.fandom.com/wiki/Gothmog_(Balrog)", audit:"2026-11-r2"},
-  {id:"lotr:Carcharoth", tag:"giants", note:"Called the mightiest wolf, but no documented size.", source:"https://lotr.fandom.com/wiki/Carcharoth", audit:"2026-11-r2"},
+  {id:"lotr:Quickbeam", tag:"giants", note:"Round 3: Tolkien Gateway gives only 'Tall'; no page states a height or size comparison for Quickbeam. Treebeard's 14 ft does not carry over.", source:"https://tolkiengateway.net/wiki/Quickbeam"},
+  {id:"lotr:Carcharoth", tag:"giants", note:"Round 3: sources say only 'grew to great size' and 'huge'; no measurement or fixing comparison.", source:"https://lotr.fandom.com/wiki/Carcharoth"},
   {id:"lotr:Melian", tag:"psychic", note:"Seed-list grant removed pending a telepathy scene; her documented powers are enchantment and foresight.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
   {id:"lotr:Melian", tag:"healing", note:"Seed-list grant removed pending a healing scene.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
-  {id:"harrypotter:Hermione Granger", tag:"flight", note:"Seed-list grant removed: she rides the Gringotts dragon and Thestrals as a passenger; no scene of her flying a broom herself was confirmed.", source:"https://harrypotter.fandom.com/wiki/Hermione_Granger", audit:"2026-11-r2"},
   {id:"harrypotter:Albus Dumbledore", tag:"psychic", note:"Seed-list grant removed pending a specific on-page Legilimency scene; Wizarding World materials call him a skilled Legilimens.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
   {id:"harrypotter:Albus Dumbledore", tag:"healing", note:"Seed-list grant removed pending a scene of Dumbledore healing someone.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
   {id:"harrypotter:Lord Voldemort", tag:"fire", note:"The fire-serpent duel is a film scene; book support for Voldemort commanding fire was not confirmed.", source:"https://harrypotter.fandom.com/wiki/Tom_Riddle", audit:"2026-11-r2"},
@@ -3462,16 +3493,16 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Starfire": ["flight", "natural-flight"],
     "Raven": ["flight", "natural-flight", "magic", "spellcaster", "psychic", "telepathy", "teleport", "self-teleport", "healing", "heals-others"],
     "Beast Boy": ["flight", "natural-flight", "aquatic", "water-breathing", "swimmer", "giants", "size-change"],
-    "Nightwing": [],
+    "Nightwing": ["stealth", "infiltration"],
     "Robin (Damian Wayne)": [],
     "Red Robin (Tim Drake)": [],
-    "Red Hood": [],
-    "Batgirl (Barbara Gordon)": [],
-    "Batwoman": [],
-    "Cassandra Cain": [],
+    "Red Hood": ["stealth", "infiltration"],
+    "Batgirl (Barbara Gordon)": ["stealth", "infiltration"],
+    "Batwoman": ["stealth", "infiltration"],
+    "Cassandra Cain": ["stealth", "infiltration"],
     "Catwoman": ["stealth", "infiltration"],
     "Harley Quinn": [],
-    "Huntress": [],
+    "Huntress": ["stealth", "infiltration"],
     "Alfred Pennyworth": [],
     "Lucius Fox": ["tech", "inventor"],
     "Commissioner James Gordon": [],
@@ -3502,7 +3533,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Penguin": [],
     "Bane": [],
     "Ra's al Ghul": [],
-    "Talia al Ghul": [],
+    "Talia al Ghul": ["stealth", "infiltration"],
     "Scarecrow": [],
     "Clayface": ["healing", "self-regeneration"],
     "Killer Croc": ["aquatic", "swimmer", "healing", "self-regeneration"],
@@ -3570,7 +3601,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Khamûl the Easterling": ["flight", "mount", "stealth", "invisibility"],
     "Mouth of Sauron": ["magic", "spellcaster"],
     "Shelob": [],
-    "Durin's Bane": ["fire", "fire-control"],
+    "Durin's Bane": ["fire", "fire-control", "giants", "giant-sized"],
     "Smaug": ["flight", "natural-flight", "fire", "fire-control", "giants", "giant-sized"],
     "Gwaihir": ["flight", "natural-flight"],
     "Thorondor": ["flight", "natural-flight"],
@@ -3622,7 +3653,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Carcharoth": [],
     "Glaurung": ["psychic", "mind-control", "fire", "fire-control", "giants", "giant-sized"],
     "Ancalagon the Black": ["flight", "natural-flight", "fire", "fire-control", "giants", "giant-sized"],
-    "Gothmog (Lord of Balrogs)": ["fire", "fire-control"],
+    "Gothmog (Lord of Balrogs)": ["fire", "fire-control", "giants", "giant-sized"],
     "Ecthelion of the Fountain": [],
     "Ar-Pharazôn": [],
     "Tar-Míriel": [],
@@ -3650,7 +3681,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
   }),
   harrypotter: Object.freeze({
     "Harry Potter": ["flight", "powered-flight", "magic", "spellcaster", "stealth", "invisibility", "teleport", "self-teleport", "teleports-others"],
-    "Hermione Granger": ["magic", "spellcaster", "fire", "fire-control", "teleport", "self-teleport", "teleports-others"],
+    "Hermione Granger": ["flight", "mount", "magic", "spellcaster", "fire", "fire-control", "teleport", "self-teleport", "teleports-others"],
     "Ron Weasley": ["flight", "powered-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Albus Dumbledore": ["magic", "spellcaster", "fire", "fire-control", "stealth", "invisibility", "teleport", "self-teleport", "teleports-others"],
     "Lord Voldemort": ["flight", "natural-flight", "magic", "spellcaster", "psychic", "telepathy", "mind-control", "teleport", "self-teleport", "teleports-others"],
@@ -3763,18 +3794,136 @@ function characterAbilityEvidence(candidate, tag) {
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
   return (CHARACTER_ABILITIES[candidate.pool + ':' + candidate.n] || []).find(x => x.tag === broad) || null;
 }
-/* Why a character holds a tag (broad or specific): {basis:'evidence', record} for a source-linked record,
-   {basis:'carry-over', record} for a reviewed pre-audit grant without a source-linked feat, or null when
+/* Evidence standard (owner, 2026-11-10): the question is whether a grant is accurate, not who published the
+   source. A specific, well-documented community entry (Wikipedia, Fandom, TV Tropes, Comic Vine) is credible
+   evidence, the same as an official source with clear feats. Data only: nothing here changes eligibility.
+
+   Source type is descriptive. Every cited host is classified once so the audit can report what kinds of
+   source the roster rests on, and so a typo'd or unknown host is caught. It never lowers a rating. */
+const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
+  // official: the rights holder or its licensed publications
+  'starwars.com':'official', 'marvel.com':'official', 'd23.com':'official', 'disneyplus.com':'official',
+  'pixar.com':'official', 'in.portal-pokemon.com':'official', 'primagames.com':'official',
+  // game-data: values reproduced mechanically from the games (learnsets, Pokédex text)
+  'pokemondb.net':'game-data',
+  // dialogue: screenplays and transcribed dialogue of the work itself
+  'imsdb.com':'dialogue', 'sellingyourscreenplay.com':'dialogue', 'imdb.com':'dialogue', 'moviemistakes.com':'dialogue',
+  // editorial: professionally edited press, film reference and academic publications
+  'syfy.com':'editorial', 'thewrap.com':'editorial', 'themarysue.com':'editorial', 'tcm.com':'editorial',
+  'nbclosangeles.com':'editorial', 'journals.le.ac.uk':'editorial',
+  // community: open-edit wikis, fan sites and guide aggregators
+  'en.wikipedia.org':'community', 'tvtropes.org':'community', 'comicvine.gamespot.com':'community',
+  'mariowiki.com':'community', 'zeldawiki.wiki':'community', 'strategywiki.org':'community', 'wikirby.com':'community',
+  'ssbwiki.com':'community', 'halopedia.org':'community', 'theportalwiki.com':'community',
+  'wiki.leagueoflegends.com':'community', 'en.uesp.net':'community', 'warcraft.wiki.gg':'community',
+  'wikibound.info':'community', 'looneytuneswiki.com':'community', 'doomwiki.org':'community', 'raymanpc.com':'community',
+  'starwars.archivum.wiki':'community', 'thewitcher3.wiki.fextralife.com':'community', 'game8.co':'community',
+  'gamerguides.com':'community', 'comicbasics.com':'community', 'fortressofsolitude.co.za':'community',
+  'autoassembly.org.uk':'community', 'dcuguide.com':'community',
+});
+const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
+/* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
+function characterAbilitySourceTier(url) {
+  let host;
+  try { host = new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  if (CHARACTER_ABILITY_SOURCE_TIERS[host]) return CHARACTER_ABILITY_SOURCE_TIERS[host];
+  return /(^|\.)fandom\.com$/.test(host) ? 'community' : null;
+}
+/* Feat-evidence URLs. officialSource is left out on purpose: it confirms who a character is, not a feat. */
+const CHARACTER_ABILITY_FEAT_URL_FIELDS = Object.freeze(['source', 'verifiedBy', 'dialogueSource', 'speciesSource']);
+function characterAbilityFeatUrls(record) {
+  return CHARACTER_ABILITY_FEAT_URL_FIELDS.flatMap(k => [].concat(record?.[k] || []));
+}
+/* Sites and owners. Distinct hostnames show only that two websites were cited, not that they report
+   independently or agree. For corroboration we also fold sites that share one editorial voice into one owner:
+   the Disney-owned official sites, and GameSpot with its Comic Vine wiki. Separate Fandom wikis are separate
+   volunteer communities and stay distinct. */
+const CHARACTER_ABILITY_SOURCE_OWNERS = Object.freeze({
+  'disney.com':'disney', 'd23.com':'disney', 'disneyplus.com':'disney', 'starwars.com':'disney', 'marvel.com':'disney',
+  'pixar.com':'disney', 'comicvine.gamespot.com':'gamespot', 'gamespot.com':'gamespot',
+});
+function characterAbilitySourceOwner(url) {
+  let host;
+  try { host = new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  return CHARACTER_ABILITY_SOURCE_OWNERS[host] || host;
+}
+function characterAbilityIndependentSources(record) {
+  return new Set(characterAbilityFeatUrls(record).map(characterAbilitySourceOwner).filter(Boolean)).size;
+}
+/* Corroboration is a reviewed marker, never inferred from a URL count: a reviewer recorded the scene (record.scene)
+   and a verifiedBy source, from a different owner than the main source, that was checked to describe that same feat. */
+function characterAbilityHasReviewedAgreement(record) {
+  if (!record?.verifiedBy || String(record.scene || '').length < 20) return false;
+  const main = characterAbilitySourceOwner(record.source);
+  return [].concat(record.verifiedBy).some(u => { const o = characterAbilitySourceOwner(u); return o && o !== main; });
+}
+/* Traceability: does the record point at where the feat happens? Yes when it names a scene, cites an occurrence in the
+   feat (a work, year, chapter, issue, episode or quoted title), or its continuity names a specific work or run rather
+   than an umbrella ("DC mainline comics", "Sonic series", or none) and the feat is more than a bare label. Word count
+   alone and the mere presence of a URL field never count. This is automated documentation triage, not a fact-check: it says the claim can be checked, not that it
+   has been. */
+const CHARACTER_ABILITY_FEAT_CITATION = /\([^)]*\d[^)]*\)|\([^)]*[A-Z][^)]*\)|#\d|\b(ch|chapter|ep|episode|season|issue|vol|book)\.?\s*\d|['‘"“][A-Z][^'’"”]{2,}['’"”]|\b([Ii]n|[Aa]t|[Dd]uring) (the )?[A-Z][\w'’-]+/;
+function characterAbilityUmbrellaContinuity(continuity) {
+  const c = String(continuity ?? '').trim();
+  if (!c || c === 'undefined') return true;
+  if (/\d{4}|season|vol\./i.test(c)) return false;
+  return /mainline|\bseries\b|^films and series$|trilogies|^milestone|^sesame street$|novels$|^the sandman and lucifer/i.test(c);
+}
+function characterAbilityFeatIsSpecific(record) {
+  if (!record) return false;
+  if (String(record.scene || '').length >= 20) return true;
+  const feat = String(record.feat || '').trim();
+  if (CHARACTER_ABILITY_FEAT_CITATION.test(feat)) return true;
+  // A specific work or run makes the claim traceable only if the feat says something: a bare label such as
+  // "Levitates and flies." stays untraceable wherever it is set. (Length is a floor here, never enough alone.)
+  return !characterAbilityUmbrellaContinuity(record.continuity) && feat.split(/\s+/).length >= 5;
+}
+/* How well a record supports its grant. Every status below is still granted unless the reviewed index says
+   otherwise; the label says what has been checked and what, if anything, is worth checking.
+   'owner-ruling'  granted or settled by the owner. Final.
+   'investigate'   accounts contradict, continuities are mixed, or the interpretation is disputed (record.conflict).
+   'corroborated'  a reviewer confirmed that an independent second source describes the same feat (reviewed marker).
+   'credible'      documentation is complete: a traceable, specific claim from a source of any type. Automated triage
+                   unless a reviewer set the label; it is not a statement that the feat was fact-checked.
+   'needs-review'  an actual gap: no traceable occurrence, or a reviewer could not confirm the scene.
+   An explicit record.verification from a hand review wins over the derived label, except that a recorded conflict
+   always surfaces as 'investigate' unless the owner has ruled, and 'corroborated' must carry the reviewed marker. */
+const CHARACTER_ABILITY_STATUSES = Object.freeze(['owner-ruling', 'corroborated', 'credible', 'needs-review', 'investigate']);
+function characterAbilityVerification(record) {
+  if (!record) return null;
+  if (record.verification === 'owner-ruling') return 'owner-ruling';
+  if (record.conflict) return 'investigate';
+  if (record.verification === 'corroborated') return characterAbilityHasReviewedAgreement(record) ? 'corroborated' : 'credible';
+  if (record.verification) return record.verification;
+  if (characterAbilityHasReviewedAgreement(record)) return 'corroborated';
+  return characterAbilityFeatIsSpecific(record) ? 'credible' : 'needs-review';
+}
+/* Who checked it: 'owner', 'review' (a person set the label), or 'automated' (derived by the rules above only). */
+function characterAbilityCheckedBy(record) {
+  if (!record) return null;
+  if (record.verification === 'owner-ruling') return 'owner';
+  return record.verification ? 'review' : 'automated';
+}
+/* Why a grant needs a look, in the owner's terms. null when nothing is outstanding. */
+function characterAbilityReviewReason(record) {
+  const v = characterAbilityVerification(record);
+  if (v === 'investigate') return 'conflict';
+  if (v !== 'needs-review') return null;
+  return record.verification === 'needs-review' ? 'unconfirmed-scene' : 'untraceable';
+}
+/* Why a character holds a tag (broad or specific): {basis:'evidence', record, verification} for a source-linked
+   record, {basis:'carry-over', record, verification:'unsourced'} for a reviewed pre-audit grant without a
+   source-linked feat, or null when
    the reviewed index does not grant it (including every disputed grant). */
 function characterAbilityProvenance(candidate, tag) {
   const tags = characterAbilityTags(candidate);
   if (!tags || !tags.includes(tag)) return null;
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
   const record = characterAbilityEvidence(candidate, broad);
-  if (record) return { basis: 'evidence', record };
+  if (record) return { basis: 'evidence', record, verification: characterAbilityVerification(record) };
   const id = candidate.pool + ':' + candidate.n;
   const carried = CHARACTER_ABILITY_CARRYOVER.find(x => x.id === id && x.tag === broad);
-  return carried ? { basis: 'carry-over', record: carried } : null;
+  return carried ? { basis: 'carry-over', record: carried, verification: 'unsourced' } : null;
 }
 /* Reviewed power tags for a roster character, e.g. ['flight','tech']. Returns null for a
    character outside the audited roster (unknown), and [] for audited non-powered characters. */
@@ -3786,5 +3935,9 @@ function characterAbilityTags(candidate) {
 if (typeof module !== 'undefined' && module.exports) module.exports = {
   CHARACTER_ABILITIES, CHARACTER_ABILITY_DISPUTES, CHARACTER_ABILITY_RESEARCH_QUEUE,
   CHARACTER_ABILITY_TAGS, CHARACTER_ABILITY_TAG_FAMILIES, CHARACTER_ABILITY_BROAD_TAG, CHARACTER_ABILITY_CARRYOVER,
-  characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance
+  characterAbilityEvidence, characterAbilityTags, characterAbilityProvenance,
+  CHARACTER_ABILITY_SOURCE_TIERS, CHARACTER_ABILITY_SOURCE_TYPES, CHARACTER_ABILITY_STATUSES, CHARACTER_ABILITY_FEAT_URL_FIELDS,
+  CHARACTER_ABILITY_SOURCE_OWNERS, characterAbilitySourceTier, characterAbilitySourceOwner, characterAbilityFeatUrls,
+  characterAbilityIndependentSources, characterAbilityHasReviewedAgreement, characterAbilityUmbrellaContinuity,
+  characterAbilityFeatIsSpecific, characterAbilityVerification, characterAbilityCheckedBy, characterAbilityReviewReason
 };
