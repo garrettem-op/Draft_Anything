@@ -1068,6 +1068,16 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/variant-abilities.js"></script>
 <script src="data/campaign-strategy.js"></script>
 <script src="data/after-action.js"></script>
+<!-- Option C (Version 2) shadow evaluator. Default OFF; read-only; see docs/OPTION_C_SHADOW_EVALUATOR.md -->
+<script src="data/option-c/runtime.js"></script>
+<script src="data/option-c/reviewed-capabilities.js"></script>
+<script src="data/option-c/profile-adapter.js"></script>
+<script src="data/option-c/interaction-engine.js"></script>
+<script src="data/option-c/sport-rules.js"></script>
+<script src="data/option-c/team-ledger.js"></script>
+<script src="data/option-c/probability.js"></script>
+<script src="data/option-c/explain.js"></script>
+<script src="data/option-c/evaluator.js"></script>
 <script>
 const POOLS = {};
 Object.assign(POOLS, window.DA_ADDED_POOLS || {});
@@ -3044,10 +3054,15 @@ function playGame(sportKey, A, B, sigma, rng, playoff = false) {
       [g.ra+randomDelta/2,g.rb-randomDelta/2],rng)
     :null;
   const w=combat?combat.winner:(m>0?0:1);
-  return { winner:w,margin:Math.abs(m),
+  const result={ winner:w,margin:Math.abs(m),
     line:combat?combat.line:scoreline(sportKey,Math.abs(m),(g.ra+g.rb)/2,rng),
     combat,ev:g.ev,toonEvents:g.toonEvents,
     breakdown:matchRatingBreakdown(A,B,g,randomDelta) };
+  // Option C shadow mode (default OFF): a developer-only, read-only comparison made
+  // AFTER the result is final. It receives no rng and adds nothing to the result.
+  const shadow=window.DA_OPTION_C&&window.DA_OPTION_C.shadow;
+  if(shadow&&shadow.enabled)shadow.observe(sportKey,A,B,result,{playoff});
+  return result;
 }
 
 // Sport-flavored final score for a game won by `margin` rating points. Returns [winnerScore, loserScore, note]

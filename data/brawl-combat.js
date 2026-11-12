@@ -257,7 +257,9 @@
     if(events)result.events=events;
     return result;
   }
-  const api={resolveBrawlCombat};
+  // apexRankOf is exported read-only so the Option C shadow evaluator reports the
+  // SAME Apex/Empowered ranks this engine applies, instead of keeping a second list.
+  const api={resolveBrawlCombat,apexRankOf};
   if(root)root.DA_BRAWL_COMBAT=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
