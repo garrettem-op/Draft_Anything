@@ -63,4 +63,59 @@ group('pokemon','Nidoran♂|Nidorino|Nidoking|Tauros|Hitmonlee|Hitmonchan','wome
  '{name} is a male-only species in the Pokédex; it is not a female character.','Pokémon National Pokédex · gender ratio');
 group('pokemon','Mewtwo|Mew|Ditto|Magnemite|Magneton|Voltorb|Electrode|Staryu|Starmie|Porygon|Articuno|Zapdos|Moltres','women','no',
  '{name} is a gender-unknown or genderless species in the Pokédex, not an individually identified female.','Pokémon National Pokédex · gender information');
+
+// Phase 1 issue #82 — Star Wars individually checked visual/age/physiology decisions.
+// Color means the CHARACTER's distinctive appearance, not a red weapon or rare costume.
+// Adult/child status refers to the live base incarnation; ambiguous age portrayals stay pending.
+mark('starwars:Yoda','red','no',"Yoda's visible design centers on green skin and earth-toned Jedi robes, not red.","https://www.starwars.com/databank/yoda");
+mark('starwars:Yoda','kids','no',"Yoda trained Jedi for centuries before meeting Luke; the roster's master is not a child or teen.","https://www.starwars.com/databank/yoda");
+mark('starwars:Darth Vader','red','no',"Vader's signature appearance is black armor, cape and helmet; his red saber does not turn the character design red.","https://www.starwars.com/databank/darth-vader");
+mark('starwars:Darth Vader','kids','no',"The armored Sith Lord is adult Anakin after Mustafar, not the younger boy shown in The Phantom Menace.","https://www.starwars.com/databank/darth-vader");
+mark('starwars:Han Solo','red','no',"Han's standard vest, shirt and trousers are white, black and dark brown, not a distinctive red design.","https://www.starwars.com/databank/han-solo");
+mark('starwars:Han Solo','kids','no',"The Millennium Falcon's captain is a grown smuggler and Rebel, not the childhood Han mentioned in his biography.","https://www.starwars.com/databank/han-solo");
+mark('starwars:Chewbacca','red','no',"Chewbacca has characteristic brown fur and a bandolier, not red coloring.","https://www.starwars.com/databank/chewbacca");
+mark('starwars:Chewbacca','kids','no',"The long-serving Wookiee co-pilot and veteran is an adult, not a youngling.","https://www.starwars.com/databank/chewbacca");
+mark('starwars:R2-D2','red','no',"Artoo's familiar astromech housing is principally white and blue, not a red design.","https://www.starwars.com/databank/r2-d2");
+mark('starwars:R2-D2','kids','no',"R2-D2 is the established astromech serving Padmé, Anakin and Luke, not a child or teen persona.","https://www.starwars.com/databank/r2-d2");
+mark('starwars:C-3PO','red','no',"Threepio's iconic protocol-droid body is gold-toned rather than distinctively red; an occasional red arm is not his defining design.","https://www.starwars.com/databank/c-3po");
+mark('starwars:C-3PO','kids','no',"Threepio is a built and programmed protocol droid, not a child or teen identity.","https://www.starwars.com/databank/c-3po");
+mark('starwars:BB-8','red','no',"BB-8's standard spherical shell is white with orange accents, not red.","https://www.starwars.com/databank/bb-8");
+mark('starwars:BB-8','kids','no',"BB-8 is Poe Dameron's working astromech droid, not a juvenile biological character.","https://www.starwars.com/databank/bb-8");
+mark('starwars:General Grievous','red','no',"The General's pale skeletal cyborg shell and dark joints are not a predominantly red design.","https://www.starwars.com/databank/general-grievous");
+mark('starwars:General Grievous','kids','no',"Grievous is a veteran Separatist general and experienced Jedi hunter, not an adolescent.","https://www.starwars.com/databank/general-grievous");
+mark('starwars:Captain Phasma','red','no',"Phasma's defining salvaged-chromium armor is reflective silver, not red.","https://www.starwars.com/databank/captain-phasma");
+mark('starwars:Captain Phasma','kids','no',"Phasma is a veteran First Order commander and former soldier, not a child or teenage incarnation.","https://www.starwars.com/databank/captain-phasma");
+mark('starwars:Kylo Ren','red','no',"Kylo's signature robes, mask and armor are black; the red crossguard saber is equipment, not a red body or costume.","https://www.starwars.com/databank/kylo-ren");
+mark('starwars:Kylo Ren','kids','no',"Ben Solo is already a grown leader of the Knights of Ren and First Order, not a school-aged child.","https://www.starwars.com/databank/kylo-ren");
+mark('starwars:Grand Admiral Thrawn','red','no',"Thrawn's Chiss skin is blue and his Grand Admiral uniform white, so he lacks a distinctively red appearance.","https://www.starwars.com/databank/grand-admiral-thrawn");
+mark('starwars:Grand Admiral Thrawn','kids','no',"Thrawn is an experienced adult Imperial Grand Admiral, not a child or teenage cadet.","https://www.starwars.com/databank/grand-admiral-thrawn");
+mark('starwars:Jango Fett','red','no',"Jango's Mandalorian combat suit is silver and blue, rather than red.","https://www.starwars.com/databank/jango-fett");
+mark('starwars:Jango Fett','kids','no',"Jango is a professional adult bounty hunter and Boba's father in Attack of the Clones.","https://www.starwars.com/databank/jango-fett");
+mark('starwars:Mace Windu','red','no',"Windu wears traditional tan and brown Jedi robes and wields a purple blade, not a distinctive red design.","https://www.starwars.com/databank/mace-windu");
+mark('starwars:Mace Windu','kids','no',"Windu sits on the Jedi High Council as an adult Jedi Master, not a Padawan child.","https://www.starwars.com/databank/mace-windu");
+mark('starwars:Jabba the Hutt','red','no',"Jabba's standard slug-like body is brownish-green, not red.","https://www.starwars.com/databank/jabba-the-hutt");
+mark('starwars:Jabba the Hutt','kids','no',"Jabba is an established adult criminal lord in Return of the Jedi, not a juvenile Hutt.","https://www.starwars.com/databank/jabba-the-hutt");
+mark('starwars:Boba Fett','red','no',"Boba's iconic Mandalorian armor is mainly green with mixed accents, not a red signature suit.","https://www.starwars.com/databank/boba-fett");
+mark('starwars:Boba Fett','kids','no',"This baseline is the adult bounty hunter of the original trilogy and Book of Boba Fett; his documented Clone Wars childhood is a different age portrayal.","https://www.starwars.com/databank/boba-fett");
+mark('starwars:The Mandalorian','red','no',"Din Djarin's default beskar armor is metallic gray and brown, not a red uniform.","https://www.starwars.com/databank/the-mandalorian");
+mark('starwars:The Mandalorian','kids','no',"Din is an adult bounty hunter and guardian of Grogu, rather than the childhood version recalled in flashbacks.","https://www.starwars.com/databank/the-mandalorian");
+mark('starwars:Chopper','red','no',"The official profile specifies Chopper's orange-and-yellow astromech paint, not red.","https://www.starwars.com/databank/chopper");
+mark('starwars:Chopper','kids','no',"The long-serving patched astromech of the Ghost crew is not a child or teen portrayal.","https://www.starwars.com/databank/chopper");
+mark('starwars:IG-11','red','no',"IG-11's standard thin assassin-droid chassis is metallic gray, not distinctively red.","https://www.starwars.com/databank/ig-11");
+mark('starwars:IG-11','kids','no',"IG-11 is a programmed assassin droid and later nurse droid, not a child or teen character.","https://www.starwars.com/databank/ig-11");
+mark('starwars:Battle Droid','red','no',"The standard B1 battle droid has a tan mechanical chassis, not a red signature design.","https://www.starwars.com/databank/battle-droid");
+mark('starwars:Battle Droid','kids','no',"The B1 is a manufactured Separatist infantry machine, not a child or adolescent individual.","https://www.starwars.com/databank/battle-droid");
+mark('starwars:Droideka','red','no',"The droideka is a dark metallic/brown rolling destroyer robot, not a red-dominant character.","https://www.starwars.com/databank/droideka");
+mark('starwars:Droideka','kids','no',"A droideka is a purpose-built destroyer droid, not a child or teen incarnation.","https://www.starwars.com/databank/droideka");
+mark('starwars:Grogu','red','no',"Grogu has green skin and generally beige/brown clothing, not a distinctively red design.","https://www.starwars.com/databank/grogu");
+mark('starwars:Omega','red','no',"Omega's normal Bad Batch appearance has blonde hair and practical neutral-toned clothes, not a distinctively red design.","https://www.starwars.com/databank/omega");
+mark('starwars:R2-D2','mortal','no',"R2-D2 is an astromech robot with mechanical tools and circuitry, not ordinary human physiology.","https://www.starwars.com/databank/r2-d2");
+mark('starwars:C-3PO','mortal','no',"C-3PO is a manufactured humanoid protocol droid, not a biologically ordinary human.","https://www.starwars.com/databank/c-3po");
+mark('starwars:BB-8','mortal','no',"BB-8 is a rolling astromech robot, so lacks ordinary human physiology.","https://www.starwars.com/databank/bb-8");
+mark('starwars:Chopper','mortal','no',"C1-10P is a patched mechanical astromech droid, not a human with ordinary physiology.","https://www.starwars.com/databank/chopper");
+mark('starwars:IG-11','mortal','no',"IG-11 is a programmed armored assassin droid, not an ordinary human organism.","https://www.starwars.com/databank/ig-11");
+mark('starwars:Battle Droid','mortal','no',"The B1 is a programmed manufactured mechanical soldier, not an ordinary human.","https://www.starwars.com/databank/battle-droid");
+mark('starwars:Droideka','mortal','no',"A droideka is a transforming destroyer robot with shields and blasters, not human physiology.","https://www.starwars.com/databank/droideka");
+mark('starwars:Gonk Droid','mortal','no',"A Gonk is an ambulatory power-battery droid, not a biological human with ordinary physiology.","https://www.starwars.com/databank/gonk-droid");
+mark('starwars:General Grievous','mortal','no',"Grievous is a heavily cybernetically reconstructed organic warrior with extraordinary mechanical limbs, not ordinary human physiology.","https://www.starwars.com/databank/general-grievous");
 module.exports=Object.freeze(OUT);

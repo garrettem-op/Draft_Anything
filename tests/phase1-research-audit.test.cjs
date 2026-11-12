@@ -86,3 +86,23 @@ test('committed research snapshots are in sync with the exact live roster',()=>{
    assert.equal(mismatch(snapshot,data),null,pool);
  }
 });
+
+test('Star Wars source-linked #82 batch documents individual visual, age and synthetic-body negatives',()=>{
+ const selected=[
+  ['Yoda','red'],['Yoda','kids'],['Darth Vader','red'],['Boba Fett','kids'],
+  ['Captain Phasma','red'],['Chopper','red'],['R2-D2','mortal'],
+  ['IG-11','mortal'],['Battle Droid','mortal'],['Droideka','mortal'],
+  ['General Grievous','mortal'],['Grogu','red'],['Omega','red']
+ ];
+ for(const [name,tag] of selected){
+  const f=base('starwars',name,tag);
+  assert.equal(f.decision,'no',name+' '+tag);
+  assert.equal(f.status,'individual-trait-review');
+  assert.ok(f.reason.length>45);
+  assert.match(f.source,/^https:\/\/www\.starwars\.com\/databank\//);
+ }
+ // Do not collapse continuity ambiguities into unresearched blanket negatives.
+ assert.equal(base('starwars','Ahsoka Tano','kids').decision,'needs-review');
+ assert.equal(base('starwars','Luke Skywalker','kids').decision,'needs-review');
+ assert.equal(load().summary.needsReview,17884);
+});
