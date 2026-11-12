@@ -5,7 +5,7 @@ const vm=require('node:vm');
 const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
 const poolSource=html.slice(html.indexOf('// ----- Pools -----'),html.indexOf('function poolFaces('));
 assert(poolSource.includes('function mashupPoolId('));
-const ids=['nba','mcu','toons','muppets','games','pokemon','starwars','dc','lotr','harrypotter'];
+const ids=['nba','mcu','toons','muppets','games','pokemon','starwars','dc','lotr','harrypotter','actionmovies'];
 const pools=Object.fromEntries(ids.map(id=>[id,{id,name:id,short:id,entries:[]}]));
 const candidates=Object.fromEntries(ids.map(id=>[id,[{id:id+':alpha',n:id+' alpha'}]]));
 candidates.games=[{id:'games:shared',n:'Pikachu'},{id:'games:alpha',n:'games alpha'}];

@@ -45,20 +45,6 @@ test('documented powers change the form move and retain immutable base identity'
   assert.equal(thor.sig.name,'Original move');
   assert.ok(thor.a.every(x=>x===90));
 });
-test('King Thanos transforms through the shared surge path with an evidence-linked ability, not capped stats alone',()=>{
-  const base=make('mcu','Thanos');
-  const form=v.variantOptions(base).find(x=>x.name==='King Thanos');
-  assert.ok(form);
-  const king=v.variantRoster(set(base,'King Thanos')).fighter;
-  assert.equal(king.id,base.id);
-  assert.equal(king.n,'King Thanos');
-  assert.equal(king.variantAbilities.tier,4);
-  assert.equal(king.sig.name,'End-of-Time Onslaught');
-  assert.equal(king.variantRatingBonus,2.5);
-  assert.match(king.variantAbilities.source,/marvel\.com\/comics\/discover\/1214\/thanos-wins/);
-  assert.equal(ability.variantAbilityProfile(base,{name:'King Thanos'}).tier,4);
-  assert.equal(base.variantAbilities,undefined);
-});
 test('unreviewed forms never get powers invented from their name or stats',()=>{
   const base=make('mcu','Iron Man'),form='Model Prime Iron Man';
   assert.ok(v.variantOptions(base).some(x=>x.name===form));

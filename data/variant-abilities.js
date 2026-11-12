@@ -33,7 +33,6 @@
     ['mcu:Loki','God of Stories Loki','Narrative Rewrite','reality,magic','magic,reality','',5,'chaos','Metanarrative agency has contextual limits.'],
     ['mcu:Loki','God of Stories Loki (TVA)','Branches Held Together','time,cosmic','time','',5,'lift','TVA continuity and the time-branch role are distinctive.'],
     ['mcu:Thanos','Infinity Gauntlet Thanos','Infinity Stone Command','reality,time,cosmic','cosmic,time','',5,'chaos','Requires possession and functional use of all Stones.'],
-    ['mcu:Thanos','King Thanos','End-of-Time Onslaught','melee,cosmic','melee,cosmic','',4,'unbreakable','Alternate future Thanos from Thanos Wins. His conquest does not grant Infinity Stones, reality rewriting or unconditional victory.'],
     ['mcu:Thanos','Heart of the Universe Thanos','Heart of the Universe','reality,cosmic','reality,cosmic','',5,'chaos','Temporary cosmic ascension.'],
     ['mcu:Ultron','Infinity Ultron','Infinity Stone Barrage','reality,cosmic,tech','tech,cosmic','',5,'chaos','What If...? Ultron requires the Infinity Stones.'],
     ['mcu:Silver Surfer','Silver Surfer Black','Black Cosmic Alchemy','cosmic,shadow','cosmic','',4,'unbreakable','Dark cosmic struggle is specific to Silver Surfer: Black.'],

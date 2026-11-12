@@ -72,7 +72,9 @@ test('female identities work across Muppets, animation, games, Pokémon, Star Wa
     ['muppets','Red Fraggle'],['muppets','Mokey Fraggle'],
     ['toons','Katara'],['games','Chell'],['pokemon','Nidoqueen'],
     ['starwars','Leia Organa'],['dc','Wonder Woman'],
-    ['lotr','Galadriel'],['harrypotter','Hermione Granger']
+    ['lotr','Galadriel'],['harrypotter','Hermione Granger'],
+    ['mcu','Cosmo the Spacedog'],['harrypotter','Hedwig'],
+    ['harrypotter','Norbert (Norberta)'],['lotr','Shelob']
   ]) assert.equal(h.result(pool,name,'women').allowed,true,pool+':'+name);
   assert.equal(h.result('muppets','Kermit the Frog','women').allowed,false);
 });
@@ -82,7 +84,7 @@ test('child status is separate from identity and depends on the drafted continui
   for(const [pool,name] of [
     ['muppets','Elmo'],['muppets','Robin the Frog'],
     ['games','Atreus'],['toons','Bluey'],['starwars','Grogu'],
-    ['dc','Robin (Damian Wayne)'],['harrypotter','Harry Potter'],
+    ['dc','Robin (Damian Wayne)'],['dc','Shazam'],['harrypotter','Harry Potter'],
     ['mcu','Ms. Marvel']
   ]) assert.equal(h.result(pool,name,'kids').allowed,true,pool+':'+name);
   assert.equal(h.result('games','Nathan Drake','kids').allowed,false);

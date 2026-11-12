@@ -22,7 +22,7 @@
     'mcu:Dark Phoenix','mcu:Phoenix Force Jean Grey',
     'mcu:Cosmic Spider-Man (Captain Universe)','mcu:The Void (Sentry)',
     'mcu:Death Seed Sentry','mcu:Herald of Thunder Thor',
-    'mcu:King Thor','mcu:King Thanos','mcu:Silver Surfer Black',
+    'mcu:King Thor','mcu:Silver Surfer Black',
     'dc:Parallax Hal Jordan','dc:White Lantern Hal Jordan',
     'dc:Red Death Batman','games:Super Sonic',
     'games:Super Shadow','games:Dreamy Bowser',

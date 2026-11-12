@@ -10,7 +10,7 @@
     harrypotter:'Hermione Granger|Minerva McGonagall|Lily Potter|Luna Lovegood|Ginny Weasley|Molly Weasley|Narcissa Malfoy|Bellatrix Lestrange|Dolores Umbridge|Nymphadora Tonks|Tina Goldstein|Queenie Goldstein|Leta Lestrange|Seraphina Picquery|Nagini|Winky|Pomona Sprout|Sybill Trelawney|Madam Poppy Pomfrey|Madam Hooch|Rita Skeeter|Amelia Bones|Cho Chang|Fleur Delacour|Madame Maxime|Lavender Brown|Parvati Patil|Padma Patil|Pansy Parkinson|Rowena Ravenclaw|Helga Hufflepuff|The Grey Lady (Helena Ravenclaw)|Moaning Myrtle'
   },
   kids:{
-    dc:'Robin (Damian Wayne)|Red Robin (Tim Drake)|Blue Beetle (Jaime Reyes)|Superboy (Conner Kent)|Jon Kent|Static|Beast Boy|Raven',
+    dc:'Shazam|Robin (Damian Wayne)|Red Robin (Tim Drake)|Blue Beetle (Jaime Reyes)|Superboy (Conner Kent)|Jon Kent|Static|Beast Boy|Raven',
     harrypotter:'Harry Potter|Hermione Granger|Ron Weasley|Neville Longbottom|Luna Lovegood|Ginny Weasley|Fred Weasley|George Weasley|Draco Malfoy|Regulus Black|Cho Chang|Cedric Diggory|Seamus Finnigan|Dean Thomas|Lavender Brown|Parvati Patil|Padma Patil|Lee Jordan|Pansy Parkinson|Vincent Crabbe|Gregory Goyle|Oliver Wood'
   },
   mortal:{
@@ -29,6 +29,9 @@
  // Universe-scoped keys prevent characters with the same name inheriting each other's traits.
  const expanded={
  women:{
+   mcu:"Cosmo the Spacedog",
+   harrypotter:"Hedwig|Norbert (Norberta)",
+   lotr:"Shelob",
    muppets:"Miss Piggy|Camilla the Chicken|Janice|Hilda|Annie Sue|Gladys the Cow|Abby Cadabby|Zoe|Rosita|Prairie Dawn|Curly Bear|Bernice|Ji-Young|Grundgetta|Mokey Fraggle|Red Fraggle|Ma Gorg|Cotterpin Doozer|Ma Otter",
    games:"Princess Peach|Zelda|Samus Aran|Amy Rose|Cortana|Ellie|Aloy|Lara Croft|Yennefer|Ciri|Jill Valentine|Tifa Lockhart|Aerith Gainsborough|Chun-Li|Ms. Pac-Man|Bayonetta|Isabelle|Jinx|Tracer|Widowmaker|Sarah Kerrigan|Chell|Alyx Vance|GLaDOS",
    toons:"Lola Bunny|Minnie Mouse|Mulan|Moana|Elsa|Anna|Ariel|Ursula|Belle|Esmeralda|Lilo|Snow White|Cinderella|Maleficent|Jasmine|Violet|Elastigirl|Edna Mode|Tigress|Sandy Cheeks|Marge Simpson|Lisa Simpson|Velma|Katara|Toph Beifong|Blossom|Bubbles|Buttercup|Lucy van Pelt|Peppermint Patty|Bluey",
@@ -56,6 +59,17 @@
    dc:"Red Robin (Tim Drake)|Batwoman"
  }
  };
+// Action Movies (PR #70): identity, age and no-powers classifications scoped to the drafted film.
+ // mortal is deliberately conservative: anyone with superhuman, supernatural, synthetic or simulation-dependent
+ // feats in that film is left out (Matrix cast, wuxia leads, cursed pirates, Thulsa Doom, Xerxes, Narnia's
+ // Aslan and Jadis, Terminators, Bishop, Predator, Xenomorph Queen, Imhotep) pending the #71 power research.
+ const actionMovies={
+  women:"Gorgo|Valeria|White Witch (Jadis)|Lucy Pevensie|Ms. Perkins|Ellen Ripley|Xenomorph Queen|Lucilla|Murron MacClannough|Imperator Furiosa|Sarah Connor|Trinity|The Bride (Beatrix Kiddo)|O-Ren Ishii|Gogo Yubari|Vernita Green|Yu Shu Lien|Jen Yu|Jade Fox|Kim Mills|Lenore Mills|Marie Kreutz|Ilsa Faust|Evelyn Carnahan|Elizabeth Swann",
+  kids:"Peter Pevensie|Lucy Pevensie|John Connor (1991)|Kim Mills|Gogo Yubari",
+  mortal:"Achilles|Hector|Paris|Agamemnon|Leonidas|Gorgo|Stelios|Conan|Valeria|Subotai|Peter Pevensie|Lucy Pevensie|John Wick|Viggo Tarasov|Iosef Tarasov|Ms. Perkins|John Rambo|Sheriff Will Teasle|Colonel Sam Trautman|Deputy Art Galt|Dutch Schaefer|Dillon|Billy Sole|Ellen Ripley|Dwayne Hicks|Robin of Locksley|Sheriff of Nottingham|Azeem|Guy of Gisborne|Maximus Decimus Meridius|Commodus|Proximo|Lucilla|William Wallace|Robert the Bruce|King Edward I|Murron MacClannough|Nathan Algren|Katsumoto|Ujio|Colonel Bagley|Max Rockatansky|Imperator Furiosa|Immortan Joe|Nux|Sarah Connor|John Connor (1991)|John McClane|Hans Gruber|Karl Vreski|Al Powell|The Bride (Beatrix Kiddo)|O-Ren Ishii|Gogo Yubari|Vernita Green|Lee|Han|Roper|Williams|Bryan Mills|Kim Mills|Marko Hoxha|Lenore Mills|Jason Bourne|Marie Kreutz|Alexander Conklin|The Professor|Ethan Hunt|August Walker|Ilsa Faust|Solomon Lane|Rick O'Connell|Evelyn Carnahan|Ardeth Bay|Will Turner|Elizabeth Swann|Rama|Mad Dog|Andi|Tama Riyadi"
+ };
+ for(const [trait,names] of Object.entries(actionMovies))(expanded[trait]||={}).actionmovies=names;
+
  for(const [trait,groups] of Object.entries(expanded)){
    raw[trait]||={};
    for(const [pool,entries] of Object.entries(groups))
@@ -67,6 +81,11 @@
  ]));
 
  const sourceNotes=Object.freeze({
+   'kids:dc:Shazam':{reason:'Billy Batson is a teenage boy who magically transforms into the adult superhero Shazam.',url:'https://www.dc.com/characters/shazam'},
+   'women:mcu:Cosmo the Spacedog':{reason:'Cosmo is depicted as a female talking dog in Guardians of the Galaxy Vol. 3.'},
+   'women:harrypotter:Hedwig':{reason:'Hedwig is explicitly the female snowy owl belonging to Harry Potter.'},
+   'women:harrypotter:Norbert (Norberta)':{reason:'The dragon is confirmed female and renamed Norberta in Deathly Hallows.'},
+   'women:lotr:Shelob':{reason:'Shelob is a female spider referred to as she in The Two Towers.'},
    'red:games:Blinky':{reason:'Blinky is PAC-MAN’s red ghost.',url:'https://www.namcogames.com/_guides/User_Guide_-_PAC-MAN_Plus_by_Namco.pdf'},
    'red:muppets:Red Fraggle':{reason:'Red Fraggle has a distinct red/orange signature design.',url:'https://www.henson.com/fraggle-rock/'},
    'red:muppets:Elmo':{reason:'Elmo is a red-furred Sesame Street Muppet.',url:'https://www.sesameworkshop.org/characters'},
