@@ -974,6 +974,65 @@ html.draft-active .h2h-opponent-rail{min-height:0;overflow-y:auto;overscroll-beh
   html.draft-active .h2h-court-layout{margin:8px 0 0}
   html.draft-active .h2h-main-court .field-wrap>.field{width:min(100%,29dvh)}
 }
+
+/* Head-to-Head must be able to reach every position, regardless of viewport
+   height or iOS browser chrome. Unlike other draft boards, its court, opponent
+   rail, clock and sideline do not fit reliably in a locked 100dvh flex shell.
+   Use document scrolling rather than a clipped, nested court scroller. */
+html.draft-active.h2h-scrollable,
+html.draft-active.h2h-scrollable body{
+  height:auto;
+  min-height:100%;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior-y:auto;
+}
+html.draft-active.h2h-scrollable .app{
+  height:auto;
+  max-height:none;
+  min-height:100dvh;
+  overflow:visible;
+  padding-bottom:max(32px,env(safe-area-inset-bottom));
+}
+html.draft-active.h2h-scrollable main{
+  display:block;
+  flex:1 0 auto;
+  min-height:0;
+  overflow:visible;
+}
+html.draft-active.h2h-scrollable .h2h-court-layout{
+  flex:none;
+  min-height:0;
+  height:auto;
+  overflow:visible;
+  align-items:start;
+  margin:10px 0 18px;
+}
+html.draft-active.h2h-scrollable .h2h-main-court{
+  overflow:visible;
+  min-height:0;
+  padding-bottom:0;
+}
+html.draft-active.h2h-scrollable .h2h-main-court .field-wrap{
+  flex:0 0 auto;
+  min-height:0;
+}
+html.draft-active.h2h-scrollable .h2h-main-court .field-wrap>.field{
+  max-height:none;
+  flex:none;
+}
+html.draft-active.h2h-scrollable .h2h-main-court .side-node{
+  flex:0 0 auto;
+  flex-basis:auto;
+  height:auto;
+  min-height:42px;
+}
+/* Battle Royale's bench and commander are clickable scroll targets.
+   The existing touch-action:none on field controls blocks iPhone swipes. */
+html.draft-active.h2h-scrollable .field-wrap .node,
+html.draft-active.h2h-scrollable .field-wrap .side-node{
+  touch-action:pan-y;
+}
 </style>
 </head>
 <body>
@@ -5385,6 +5444,10 @@ function render() {
   else main = renderH2H();
   const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
+  // Only Head-to-Head drafting unlocks document scrolling; other game modes
+  // retain their existing fixed-viewport boards and scrollable picker lists.
+  const h2hScrollable = S.mode==='h2h' && S.h2h.stage==='room' && S.h2h.contest?.status==='drafting';
+  document.documentElement.classList.toggle('h2h-scrollable', h2hScrollable);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
   restoreH2HAccordions(accordionKey);
