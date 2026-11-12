@@ -4,22 +4,6 @@ on:
     branches:
       - feature/per-match-box-scores
   pull_request:
-    paths:
-      - 'data/after-action.js'
-      - 'data/brawl-combat.js'
-      - 'data/brawl-attack-profiles.js'
-      - 'data/brawl-exceptional-power.js'
-      - 'data/variant-abilities.js'
-      - 'docs/brawl-combat-model.md'
-      - 'data/campaign.js'
-      - 'data/knowledge-engine.js'
-      - 'supabase/**'
-      - 'index.html'
-      - 'data/character-abilities.js'
-      - 'tests/**'
-      - 'data/knowledge-engine.js'
-      - 'supabase/**'
-      - '.github/workflows/after-action-tests.yml'
 jobs:
   box-scores:
     runs-on: ubuntu-latest
@@ -30,6 +14,8 @@ jobs:
           node-version: '22'
       - name: Verify reports and score reconciliation
         run: node --test tests/*.test.cjs
+      - name: Run volleyball sample regression
+        run: node tests/volleyball-score-audit.test.js
   mobile-browser:
     # Playwright 1.57 supports Ubuntu 24.04; ubuntu-latest has advanced to 26.04.
     runs-on: ubuntu-24.04
