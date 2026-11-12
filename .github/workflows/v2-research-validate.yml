@@ -1,0 +1,27 @@
+name: V2 research validation
+on:
+  pull_request:
+    branches: [develop/v2-option-c]
+    paths:
+      - 'research/option-c/batches/**'
+      - 'tools/v2-research-pipeline.cjs'
+      - 'tests/v2-research-pipeline.test.cjs'
+      - '.github/workflows/v2-research-*.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate roster identity, sources, and review status
+        run: |
+          node tools/v2-research-pipeline.cjs --validate
+          node --test tests/v2-research-pipeline.test.cjs
+          node tools/v2-research-pipeline.cjs --report

@@ -1,0 +1,46 @@
+name: V2 research queue
+on:
+  push:
+    branches: [develop/v2-option-c]
+    paths: ['research/option-c/batches/**', 'tools/v2-research-pipeline.cjs', '.github/workflows/v2-research-queue.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: v2-research-queue
+  cancel-in-progress: false
+jobs:
+  next-batch:
+    if: github.repository == 'garrettem-op/Draft_Anything'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop/v2-option-c
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate and choose next unassigned research batch
+        id: next
+        run: |
+          node tools/v2-research-pipeline.cjs --validate
+          node tools/v2-research-pipeline.cjs --next > "$RUNNER_TEMP/next.json"
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync(process.argv[1]));fs.appendFileSync(process.env.GITHUB_OUTPUT,'complete='+x.complete+'\n'+'pool='+(x.pool||'')+'\n')" "$RUNNER_TEMP/next.json"
+      - name: Publish next research assignment
+        if: steps.next.outputs.complete == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          node - "$RUNNER_TEMP/next.json" > "$RUNNER_TEMP/issue.md" <<'NODE'
+          const fs=require('fs'),q=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
+          console.log('Research the following exact roster identities. Only claim feats supported in this specific continuity; variants are separate.\n');
+          console.log(q.ids.map(id=>'- `'+id+'`').join('\n'));
+          console.log('\nOutput: validated JSON in `research/option-c/batches/` following docs/V2_RESEARCH_AUTOMATION.md. Use sources with claim-level support; leave unknowns unresolved. PR to `develop/v2-option-c`. Model work is manual/externally submitted until a free, authenticated worker is configured.');
+          NODE
+          # One open queued assignment at a time. Completed issues should be closed by a reviewer.
+          count="$(gh issue list -R "$REPO" --state open --search 'in:title [V2 Research Queue]' --json number --jq 'length')"
+          if [ "$count" -gt 0 ]; then echo 'An open research assignment exists; not duplicating.'; exit 0; fi
+          gh issue create -R "$REPO" --title "[V2 Research Queue] Next ${{ steps.next.outputs.pool }} batch" --body-file "$RUNNER_TEMP/issue.md"
