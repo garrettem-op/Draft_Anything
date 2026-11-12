@@ -967,8 +967,12 @@ html.draft-active .h2h-opponent-rail{min-height:0;overflow-y:auto;overscroll-beh
 .h2h-main-court .h2h-coach-first .side-node{border:2px solid var(--accent);background:var(--panel2)}
 @media(max-width:700px){
   .h2h-main-court .sideline{display:flex;flex-direction:column;gap:5px}
-  .h2h-main-court .side-node{flex:0 0 auto;width:100%;min-height:42px;box-sizing:border-box}
-  html.draft-active .h2h-main-court .field-wrap>.field{width:min(100%,32dvh)}
+  /* Override html.draft-active .side-node's 110px flex-basis. Otherwise each
+     bench/coach slot consumes over twice its intended height and the coach
+     disappears below the fixed mobile draft viewport. */
+  html.draft-active .h2h-main-court .side-node{flex:0 0 auto;flex-basis:auto;width:100%;height:auto;min-height:42px;box-sizing:border-box;padding:5px 7px}
+  html.draft-active .h2h-court-layout{margin:8px 0 0}
+  html.draft-active .h2h-main-court .field-wrap>.field{width:min(100%,29dvh)}
 }
 </style>
 </head>
