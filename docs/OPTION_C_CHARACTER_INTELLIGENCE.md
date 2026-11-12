@@ -34,6 +34,29 @@ For every consequential or disputed power application:
 - Doctor Strange's portals may affect passing geometry, but ball movement and player actions still require a consistent football rules interpretation.
 - Telekinesis may alter what a character *can* do; it does not automatically establish that manipulating a ball without a permitted contact is legal.
 
+## Team intelligence and collective effects (required)
+
+**The unit of evaluation is the full drafted lineup, not just five isolated characters.** Option C must incorporate established team-building mechanics *before* it judges win probability, positional performance, combat resolution, or final team results. Individual matchup judgments must not override an otherwise valid coach, bench, sidekick, reunion, chemistry, support, or team-wide effect.
+
+Preserve the currently implemented systems as initial compatibility requirements, even while migrating their implementation into a shared qualitative/contextual evaluator:
+
+1. **Sidekick / Bench Spark / Reinforcement:** Maintain `data/bench-chemistry.js`'s approved sidekick-role tag, guaranteed bench-sidekick lift even without the lead present, additional lead-reunion lift when an eligible lead appears on the roster (including coach), shared-group mesh for *any* bench player, and the existing **8% combined bench chemistry cap**. Keep the separately modeled bench minutes, clutch-driven hot streaks and cold games, including sidekicks' lower cold-game chance. Do not make Sidekick a supernatural ability tag.
+2. **MuppetForce ensemble:** Maintain `data/muppet-force.js`'s **team-wide camaraderie effect** for an eligible Muppet alongside at least one teammate, including teammates from *other pools*. Preserve starter/coach/bench contribution weights, diminishing returns and the **22% team-wide cap**; its individual role effects are separate. This is an advantage for the **whole team**, not a claim that other characters acquire MuppetForce powers. See [ToonForce/MuppetForce scoring](toonforce-muppetforce-scoring.md).
+3. **Established character combinations:** Retain existing faction, crew, family, named partnership, signature-teamup, group chemistry and other documented roster relationships. Assess who is present, the role each occupies, and whether the documented interaction is actually applicable in this sport or fight. A known partnership can add an advantage beyond individual scores; do not invent unsupported relationships or treat shared franchise membership as automatic synergy.
+4. **Coach / commander / reinforcement / other support:** Preserve existing role-specific support, coaching, commander and reinforcement effects. A support character's legal, demonstrated team-boosting powers can also have situational effects, but the same source of influence must not be counted twice merely because it appears in both character research and a legacy numeric bonus.
+5. **ToonForce and conditional team events:** Keep ToonForce distinct from MuppetForce: documented individual cartoon physics and its seeded spotlight events are not automatically a permanent team-wide aura. The specific event's actual effect on teammates/opponents should be represented when applicable, without granting unsupported cartoon powers to everyone.
+6. **Contextual collective powers:** Research legitimate team-wide buffs, morale/coordination, healing, shields, tactical foresight, shared equipment, debuffs, and counters. Identify affected recipients, activation conditions, range/duration, mode-specific legality, interaction with opposing powers, and ability/form continuity. These are **in addition to**, not substitutes for, established relationship and team chemistry bonuses.
+
+### Evaluation and accounting contract
+
+1. Build the *entire* roster with selected forms, field positions, coach, bench/reinforcement and opponents.
+2. Calculate existing individual and positional baselines; resolve legal ability use, named pair/group synergies, team auras, support roles and opposing counters in context.
+3. Apply each established bonus **once**, with its existing stacking semantics, individual limits and team-wide caps. Preserve numeric behavior during migration unless explicitly approved as a separate balance change.
+4. Use the fully adjusted team's capabilities to derive matchup advantages, predicted probabilities and coherent seeded events. A qualitative evaluation that ignores a team's bench or MuppetForce is **incomplete**.
+5. Report a transparent contribution ledger: individual attributes/abilities, named partnership/reunion, bench-sidekick/mesh, MuppetForce ensemble, ToonForce spotlight (if triggered), coach/support, other team-wide ability, counters, and final total. Do not double-count benefits represented in multiple categories.
+
+**Required regressions:** sidekick alone vs lead reunion, ordinary bench with group mesh, non-Muppet receiving the MuppetForce team effect, multi-Muppet diminishing returns/cap, coach and bench contribution weights, mixed-pool teams, ToonForce's lack of unconditional team aura, team-combo activation/deactivation, support/ability countering, no repeated bonus, and final score/damage/report reconciliation.
+
 ## Character interactions, matchup outcomes and explanations
 
 - Evaluate **power-to-power and power-to-rule interactions**, not only additive stat bonuses. Range, flight, regeneration, magic, matter manipulation, telepathy, ToonForce, counters, physical durability and special forms may completely change a matchup.
