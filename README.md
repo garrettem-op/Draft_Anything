@@ -23,6 +23,12 @@ The page is a single `index.html`. Head-to-Head drafts are stored in Supabase (`
 
 Daily Grid puzzles are generated deterministically from the date so everyone on the same game version sees the same grid. Attempts, scores, and past-grid history are stored locally in the browser (they do not sync across devices). It uses the built-in character ratings, not paid AI research.
 
+## Option C: character intelligence and sports rules
+
+**Governing rule:** Character abilities are canonically grounded. Sporting applications are rules-constrained. Ratings are derived from the resulting competitive advantages, not used as substitutes for them.
+
+Every character may use documented supernatural abilities **within the rules of the selected sport**. The game retains numeric athletic attributes and position ratings, while reviewed abilities, legal applications, opponents and match conditions inform actual performance. See [Option C — character-intelligence governing rule](docs/OPTION_C_CHARACTER_INTELLIGENCE.md) for design and implementation requirements. This is a guiding specification; the current game engine is not yet a complete Option C implementation.
+
 ## Built-in talent pools
 
 The game includes NBA, MCU, Cartoons, Muppets, Video Games, Original 151 Pokémon, Star Wars, DC Comics, Middle-earth (The Hobbit / The Lord of the Rings / The Silmarillion), Harry Potter / Wizarding World, and a cross-universe Mashup.
