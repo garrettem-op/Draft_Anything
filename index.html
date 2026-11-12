@@ -164,6 +164,21 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .side-node .lbl small { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
 .side-node .gr { margin-left: auto; font-family: var(--f-mono); font-size: 12px; font-weight: 600; }
 
+/* Selectable All-Star Mashup universe builder */
+.mashup-config{margin:12px 0 16px;padding:14px 16px;display:grid;gap:12px;min-width:0}
+.mashup-config .sec{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.mashup-config .sec .h{margin:0}
+.mashup-tools{display:flex;gap:8px;flex-wrap:wrap}
+.mashup-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px}
+.mashup-option{display:flex;align-items:center;gap:9px;padding:11px 9px;text-align:left;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;cursor:pointer;min-width:0}
+.mashup-option[aria-pressed="true"]{border-color:var(--accent-strong);background:var(--panel2);box-shadow:inset 0 0 0 1px var(--accent-strong)}
+.mashup-option>span:last-child{display:grid;gap:2px;min-width:0}
+.mashup-option b{font-size:13px;line-height:1.2}
+.mashup-option small{font-size:11px;color:var(--muted)}
+.mashup-check{border:1px solid var(--line);border-radius:5px;width:24px;height:24px;flex:none;display:grid;place-items:center;font-weight:800}
+.mashup-option[aria-pressed="true"] .mashup-check{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.mashup-status{font-weight:600}
+
 /* Picker panel */
 .picker { display: grid; grid-template-rows: auto auto minmax(0, 1fr); max-height: min(78vh, 760px); min-height: 360px; overflow: hidden; }
 .picker-head { padding: 14px 16px 10px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
@@ -375,7 +390,7 @@ details.st-row .roster-mini { padding-top: 10px; }
 
 /* Championship: perfect season */
 .uchip { display: inline-block; vertical-align: 1px; margin-left: 4px; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; color: #fff; background: #5B6670; white-space: nowrap; }
-.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-pokemon { background: #C9561F; } .uchip.u-starwars { background: #1C1C1C; } .uchip.u-dc { background: #2157A5; } .uchip.u-lotr { background: #3C6540; } .uchip.u-harrypotter { background: #604A7C; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
+.uchip.u-nba { background: #1D4E9E; } .uchip.u-mcu { background: #B4232A; } .uchip.u-toons { background: #6A3BB8; } .uchip.u-muppets { background: #2E8B45; } .uchip.u-games { background: #3A3F8F; } .uchip.u-pokemon { background: #C9561F; } .uchip.u-starwars { background: #1C1C1C; } .uchip.u-dc { background: #2157A5; } .uchip.u-lotr { background: #3C6540; } .uchip.u-harrypotter { background: #604A7C; } .uchip.u-actionmovies { background: #772B23; } .uchip.u-mashup { background: #8A5A00; } .uchip.u-custom { background: #0F7C8C; }
 .game .w .uchip, .game .l .uchip { font-size: 9px; }
 .result-hero .meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,.14); overflow: hidden; max-width: 520px; margin: 4px 0 8px; }
 .result-hero .meter i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
@@ -684,6 +699,7 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-art[data-pool="dc"] { background: radial-gradient(ellipse at 50% 28%, #9bbfe3, #26446f); }
 .trading-card .tc-art[data-pool="lotr"] { background: radial-gradient(ellipse at 50% 28%, #d0c49a, #385f47); }
 .trading-card .tc-art[data-pool="harrypotter"] { background: radial-gradient(ellipse at 50% 28%, #d6bea3, #51406a); }
+.trading-card .tc-art[data-pool="actionmovies"] { background: radial-gradient(ellipse at 50% 28%, #f0bd79, #67241e); }
 
 
 /* Individually recognizable pool emblems instead of the generic DA logo. */
@@ -705,6 +721,7 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 .trading-card .tc-name > .tc-pool-dc { background: #244d86; color: #ffe180; }
 .trading-card .tc-name > .tc-pool-lotr { background: #315e49; color: #e5d4a2; }
 .trading-card .tc-name > .tc-pool-harrypotter { background: #604a78; color: #e5c879; }
+.trading-card .tc-name > .tc-pool-actionmovies { background: #772b23; color: #f5b96b; }
 .trading-card .tc-name > .tc-pool-mashup { background: #9056a4; color: #fff1c3; }
 @media (max-width:899px) {
   .trading-card .tc-name > .tc-pool-mark { flex:0 0 18px; width:18px; height:18px; min-width:18px; }
@@ -712,6 +729,10 @@ html.draft-active .clock .who, html.draft-active .clock .time { font-size: 17px;
 }
 
 
+/* Head-to-Head dealt-hand actions remain visible above the court. */
+.h2h-hand-selection{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:8px 0;font-size:13px}
+.h2h-deal-back .deal-popup{max-height:min(90dvh,800px);overflow-y:auto}
+@media(max-width:700px){.h2h-hand-selection{font-size:12px}.h2h-deal-back .deal-popup{max-height:94dvh}}
 /* Modal Dealt Hand: animation plays on the popup's portrait cards, then
    the dialog disappears so the field can receive the selected character. */
 .deal-popup-back {
@@ -883,6 +904,9 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .da-primary small { color:var(--muted); font-size:10px; }
 .da-secondary { display:flex; gap:4px 10px; flex-wrap:wrap; color:var(--muted); font-size:11px; }
 .da-secondary b { color:var(--text); }
+.da-fighter-why { border-top:1px dotted var(--line);padding-top:4px;margin-top:2px;font-size:11px; }
+.da-fighter-why>summary { cursor:pointer;color:var(--muted);font-weight:700; }
+.da-fighter-why>div { line-height:1.5;color:var(--muted);padding:5px 0;overflow-wrap:anywhere; }
 .da-story { padding:6px 8px 14px; font-size:14px; }
 .da-story>p:first-child { margin-top:0; }
 .da-inner-details { border-top:1px solid var(--line); padding:8px 0; }
@@ -918,7 +942,11 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .variant-ready{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important;cursor:pointer!important}
 @keyframes h2h-variant-pulse{0%,100%{filter:drop-shadow(0 0 2px var(--accent))}50%{filter:drop-shadow(0 0 13px var(--accent));transform:translateY(-3px)}}
 @media(prefers-reduced-motion:reduce){.variant-ready{animation:none!important;outline:3px solid var(--accent)}}
-.h2h-ready-actions{display:flex;justify-content:flex-end;margin:14px 0}
+.h2h-ready-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap}
+.h2h-ability-phase{min-width:0}
+.h2h-ability-phase .h2h-ready-actions .btn{flex:0 0 auto}
+@media(max-width:700px){.h2h-ability-phase .h2h-ready-actions{position:sticky;top:0;z-index:12;background:var(--bg);padding:8px 0}.h2h-ability-phase .h2h-ready-actions .btn{flex:1 1 100%}}
+
 .h2h-variant-shade{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:18px}
 .h2h-variant-dialog{background:var(--panel);color:var(--ink);border-radius:16px;padding:24px;width:min(100%,360px);box-shadow:var(--shadow)}
 .h2h-variant-dialog h3{font:800 28px var(--f-display);margin:0 0 12px}
@@ -942,7 +970,6 @@ html.draft-active .h2h-opponent-rail{min-height:0;overflow-y:auto;overscroll-beh
   .h2h-main-court .side-node{flex:0 0 auto;width:100%;min-height:42px;box-sizing:border-box}
   html.draft-active .h2h-main-court .field-wrap>.field{width:min(100%,32dvh)}
 }
-
 </style>
 </head>
 <body>
@@ -956,6 +983,7 @@ html.draft-active .h2h-opponent-rail{min-height:0;overflow-y:auto;overscroll-beh
 <script src="data/pools-dc.js"></script>
 <script src="data/pools-middle-earth.js"></script>
 <script src="data/pools-harry-potter.js"></script>
+<script src="data/pools-action-movies.js"></script>
 <script src="data/new-pool-traits.js"></script>
 <script src="data/new-pool-powers.js"></script>
 <script src="data/pool-lore-dc.js"></script>
@@ -965,7 +993,9 @@ html.draft-active .h2h-opponent-rail{min-height:0;overflow-y:auto;overscroll-beh
 <script src="data/campaign-eligibility.js"></script>
 <script src="data/muppet-force.js"></script>
 <script src="data/toon-force.js"></script>
+<script src="data/bench-chemistry.js"></script>
 <script src="data/brawl-exceptional-power.js"></script>
+<script src="data/brawl-attack-profiles.js"></script>
 <script src="data/brawl-combat.js"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/campaign.js"></script>
@@ -1269,7 +1299,11 @@ function teamScore(sportKey, roster) {
   const variantBonus=rows.reduce((sum,r)=>sum+(Number(r.cand?.variantRatingBonus)||0),0);
   const baseRating=playerScore*mult+syn.total+sig.lift+(variety?variety.pts:0)+variantBonus;
   const muppetTeam=muppetForceTeamwork(roster,sp.pos,baseRating);
-  return { rating:baseRating+muppetTeam.points, playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety, muppetTeam, variantBonus };
+  // Bench Chemistry: sidekicks thrive on the bench, and any bench player lifts teammates they mesh with.
+  const benchChem=benchChemistry(roster,sp.pos,baseRating);
+  const bi=rows.findIndex(r=>r.pos.bench&&r.cand);
+  const benchHeat=bi<0?null:{i:bi,fit:rows[bi].fit,clutch:rows[bi].cand.a[AK.indexOf('clu')],sidekick:benchChem.sidekick};
+  return { rating:baseRating+muppetTeam.points+benchChem.points, playerScore, coachFit, benchFit, mult, syn, sig, rows, order, variety, muppetTeam, benchChem, benchHeat, variantBonus };
 }
 
 function grade(f) {
@@ -1570,7 +1604,7 @@ POOLS.mcu = { id: 'mcu', name: 'Marvel Cinematic Universe', short: 'MCU', blurb:
 ]};
 
 // Cartoon characters. Order: spd agi str siz lep end tch acc ref iq clu ldr
-POOLS.toons = { id: 'toons', name: 'Cartoons', short: 'Cartoons', blurb: '103 animated legends, from Looney Tunes to Avatar', entries: [
+POOLS.toons = { id: 'toons', name: 'Cartoons', short: 'Cartoons', blurb: '134 animated legends, from Looney Tunes to Disney classics', entries: [
 ["Bugs Bunny","🐰","Wisecracking trickster",[90,97,50,35,88,84,95,88,96,97,97,82]],
 ["Daffy Duck","🦆","Perpetually despicable",[74,85,40,30,70,95,66,60,72,52,24,40]],
 ["Road Runner","💨","Beep beep",[99,98,30,30,80,99,40,40,98,72,90,40]],
@@ -1602,6 +1636,37 @@ POOLS.toons = { id: 'toons', name: 'Cartoons', short: 'Cartoons', blurb: '103 an
 ["Maui","🪝","Demigod with a magic hook",[91,80,98,90,97,95,82,80,82,73,72,72]],
 ["Elsa","❄️","Ice queen",[74,70,40,56,73,80,97,94,84,84,60,80]],
 ["Stitch","👾","Experiment 626",[92,97,97,24,96,99,80,70,92,77,60,46]],
+["Aladdin","","Street rat with a heart of gold",[82,95,58,50,86,80,86,74,90,82,86,70]],
+["Jasmine","","Princess who will not be told who to marry",[62,76,42,46,68,64,68,56,68,84,82,82]],
+["Genie","🧞","Phenomenal cosmic shapeshifter",[97,95,90,82,98,96,96,88,92,90,72,74]],
+["Jafar","🐍","Royal vizier turned sorcerer",[52,54,44,58,44,64,84,76,64,94,58,76]],
+["Ariel","🧜‍♀️","Mermaid who dreams of the surface",[74,82,50,46,58,72,62,52,74,62,80,56]],
+["Ursula","🐙","Sea witch who deals in contracts",[52,60,82,86,42,82,90,74,64,92,72,76]],
+["King Triton","🔱","Sea king with a mighty trident",[80,70,92,82,62,90,76,88,76,80,78,96]],
+["Sebastian","🦀","Court composer and nervous chaperone",[48,80,18,6,40,74,90,62,80,80,52,84]],
+["Belle","📚","Bookworm who sees past appearances",[58,62,44,46,50,68,72,54,62,92,84,78]],
+["Beast","🌹","Cursed prince with a temper",[86,82,95,88,90,92,42,48,84,68,74,72]],
+["Gaston","🏹","Hunter with a giant ego",[74,68,93,82,66,86,70,93,76,42,62,82]],
+["Lumière","🕯️","Charming candelabra host",[46,78,18,14,52,60,86,62,72,76,72,86]],
+["Quasimodo","🔔","Bell-ringer of Notre Dame",[66,93,90,62,86,90,80,76,76,64,86,52]],
+["Esmeralda","💃","Quick-witted street performer",[80,94,52,46,82,76,88,82,88,84,90,76]],
+["Frollo","","Ruthless judge of Paris",[52,50,56,58,40,66,62,64,60,86,56,80]],
+["Phoebus","🐴","Captain of the guard turned rebel",[78,80,76,56,70,84,76,84,84,78,88,88]],
+["Scar","","Scheming usurper",[80,86,78,60,84,72,48,40,84,93,55,62]],
+["Mufasa","👑","Wise king of Pride Rock",[88,86,92,70,86,90,50,42,88,84,90,99]],
+["Timon","","Carefree meerkat schemer",[70,86,10,6,50,62,66,50,80,66,60,50]],
+["Pumbaa","🐗","Big-hearted warthog",[58,44,72,40,24,84,30,40,48,44,72,46]],
+["Mushu","🐉","Pint-sized guardian dragon",[70,82,18,6,56,66,62,70,76,72,74,56]],
+["Shan Yu","","Ruthless Hun warlord",[76,74,92,80,72,92,64,84,84,82,82,90]],
+["Hades","🔥","Lord of the Underworld with a short fuse",[86,72,84,70,74,97,82,84,82,90,52,78]],
+["Anna","","Fearless sister who never gives up",[64,68,52,46,56,82,58,56,64,62,88,76]],
+["Olaf","⛄","Snowman who likes warm hugs",[38,48,14,30,28,82,40,30,40,32,62,40]],
+["Lilo","🌺","Fierce, imaginative little sister",[42,55,22,18,38,58,55,42,52,62,72,48]],
+["Peter Pan","","Boy who never grows up",[90,96,46,32,97,76,84,82,92,70,88,84]],
+["Captain Hook","🏴‍☠️","Pirate captain afraid of a ticking croc",[60,68,62,58,52,70,80,76,74,82,40,82]],
+["Maleficent","","Mistress of all evil",[72,66,80,80,70,92,90,90,80,93,82,88]],
+["Snow White","🍎","Fairest of them all",[44,50,32,44,40,56,72,40,46,58,56,80]],
+["Cinderella","👠","Kind heart, glass slipper",[50,62,40,44,46,82,82,52,58,70,76,64]],
 ["Buzz Lightyear","🚀","To infinity and beyond",[40,68,20,12,45,83,67,76,74,70,89,92]],
 ["Woody","","Sheriff of the toy box",[45,64,19,12,45,82,70,65,70,89,91,97]],
 ["Mr. Incredible","💪","Super strength, big heart",[80,72,99,80,86,95,64,70,80,72,87,94]],
@@ -2272,6 +2337,14 @@ function gameRatings(A, B, playoff, rng, sportKey=null) {
     }
     if (side === 0) ra += d; else rb += d;
   }
+  // Off the Bench: the bench player sees minutes every game and can catch fire (or go cold).
+  for (const [T, side] of [[A, 0], [B, 1]]) {
+    const bh = T.benchHeat; if (!bh) continue;
+    const x = benchHeatRoll(bh.clutch, bh.fit, bh.sidekick, playoff, rng);
+    if (!x.pts) continue;
+    if (side === 0) ra += x.pts; else rb += x.pts;
+    if (playoff) ev.push({ side, i: bh.i, kind: x.kind, bench: true });
+  }
   // ToonForce is a context-dependent stunt, never guaranteed invulnerability.
   // At most one bounded spotlight event per side per match.
   const toon=[0,0],toonEvents=[];
@@ -2329,6 +2402,7 @@ const FIGHT_TAGS = {
     'Optimus Prime': 'RC', 'Megatron': 'RF', 'Leonardo': 'C', 'Raphael': 'C', 'Michelangelo': 'C', 'Donatello': 'TC', 'Master Splinter': 'C',
     'Aang': 'FM', 'Toph Beifong': 'MC', 'Zuko': 'MR', 'Uncle Iroh': 'MR', 'Katara': 'M', 'Sokka': 'R', 'Blossom': 'F', 'Bubbles': 'F',
     'Buttercup': 'FC', 'Professor Utonium': 'T', 'Mojo Jojo': 'TX', 'Dexter': 'T', 'Snoopy': 'F', 'Jerry': 'X', 'Rick Sanchez': 'TR',
+    'Aladdin': 'C', 'Genie': 'MF', 'Jafar': 'M', 'Ursula': 'M', 'King Triton': 'MR', 'Beast': 'C', 'Gaston': 'RC', 'Quasimodo': 'C', 'Esmeralda': 'C', 'Frollo': 'C', 'Phoebus': 'C', 'Scar': 'C', 'Mufasa': 'C', 'Pumbaa': 'C', 'Mushu': 'X', 'Shan Yu': 'C', 'Hades': 'MR', 'Peter Pan': 'FC', 'Captain Hook': 'CR', 'Maleficent': 'M',
   },
   pokemon: { "Bulbasaur": 'CR', "Ivysaur": 'CR', "Venusaur": 'CR', "Charmander": 'R', "Charmeleon": 'R', "Charizard": 'FR', "Squirtle": 'R', "Wartortle": 'R', "Blastoise": 'R', "Caterpie": 'C', "Metapod": 'C', "Butterfree": 'CF', "Weedle": 'CR', "Kakuna": 'CR', "Beedrill": 'CR', "Pidgey": 'CF', "Pidgeotto": 'CF', "Pidgeot": 'CF', "Rattata": 'C', "Raticate": 'C', "Spearow": 'CF', "Fearow": 'CF', "Ekans": 'CR', "Arbok": 'CR', "Pikachu": 'R', "Raichu": 'R', "Sandshrew": 'C', "Sandslash": 'C', "Nidoran♀": 'R', "Nidorina": 'R', "Nidoqueen": 'CR', "Nidoran♂": 'R', "Nidorino": 'R', "Nidoking": 'CR', "Clefairy": 'CM', "Clefable": 'CM', "Vulpix": 'R', "Ninetales": 'R', "Jigglypuff": 'CM', "Wigglytuff": 'CM', "Zubat": 'FR', "Golbat": 'FR', "Oddish": 'CR', "Gloom": 'CR', "Vileplume": 'CR', "Paras": 'C', "Parasect": 'C', "Venonat": 'CR', "Venomoth": 'CR', "Diglett": 'C', "Dugtrio": 'C', "Meowth": 'C', "Persian": 'C', "Psyduck": 'R', "Golduck": 'R', "Mankey": 'C', "Primeape": 'C', "Growlithe": 'R', "Arcanine": 'R', "Poliwag": 'R', "Poliwhirl": 'R', "Poliwrath": 'CR', "Abra": 'M', "Kadabra": 'MT', "Alakazam": 'MT', "Machop": 'C', "Machoke": 'C', "Machamp": 'C', "Bellsprout": 'CR', "Weepinbell": 'CR', "Victreebel": 'CR', "Tentacool": 'R', "Tentacruel": 'R', "Geodude": 'CX', "Graveler": 'CX', "Golem": 'CX', "Ponyta": 'R', "Rapidash": 'R', "Slowpoke": 'MR', "Slowbro": 'MR', "Magnemite": 'RT', "Magneton": 'RT', "Farfetch'd": 'CF', "Doduo": 'CF', "Dodrio": 'CF', "Seel": 'R', "Dewgong": 'R', "Grimer": 'R', "Muk": 'CR', "Shellder": 'R', "Cloyster": 'R', "Gastly": 'FMR', "Haunter": 'FMR', "Gengar": 'MR', "Onix": 'C', "Drowzee": 'M', "Hypno": 'M', "Krabby": 'R', "Kingler": 'CR', "Voltorb": 'RX', "Electrode": 'RX', "Exeggcute": 'CM', "Exeggutor": 'CMX', "Cubone": 'C', "Marowak": 'C', "Hitmonlee": 'C', "Hitmonchan": 'C', "Lickitung": 'C', "Koffing": 'CRX', "Weezing": 'CRX', "Rhyhorn": 'C', "Rhydon": 'C', "Chansey": 'C', "Tangela": 'C', "Kangaskhan": 'C', "Horsea": 'R', "Seadra": 'R', "Goldeen": 'R', "Seaking": 'R', "Staryu": 'R', "Starmie": 'MR', "Mr. Mime": 'MT', "Scyther": 'CF', "Jynx": 'MR', "Electabuzz": 'R', "Magmar": 'R', "Pinsir": 'C', "Tauros": 'C', "Magikarp": 'R', "Gyarados": 'CFR', "Lapras": 'CR', "Ditto": 'CT', "Eevee": 'C', "Vaporeon": 'R', "Jolteon": 'R', "Flareon": 'R', "Porygon": 'CT', "Omanyte": 'CR', "Omastar": 'CR', "Kabuto": 'CR', "Kabutops": 'CR', "Aerodactyl": 'CF', "Snorlax": 'C', "Articuno": 'R', "Zapdos": 'R', "Moltres": 'CR', "Dratini": 'R', "Dragonair": 'R', "Dragonite": 'CFR', "Mewtwo": 'CM', "Mew": 'FM' },
   starwars: { "Luke Skywalker": 'CMF', "Yoda": 'CM', "Obi-Wan Kenobi": 'CM', "Anakin Skywalker": 'CMF', "Mace Windu": 'CM', "Qui-Gon Jinn": 'CM', "Ahsoka Tano": 'CM', "Plo Koon": 'CMF', "Kit Fisto": 'CM', "Aayla Secura": 'CM', "Kanan Jarrus": 'CM', "Ezra Bridger": 'CMR', "Cal Kestis": 'CM', "Grogu": 'M', "Rey": 'CM', "Kylo Ren": 'CM', "Leia Organa": 'RM', "Padmé Amidala": 'R', "Darth Vader": 'CM', "Emperor Palpatine": 'MR', "Darth Maul": 'CM', "Count Dooku": 'CM', "General Grievous": 'C', "Asajj Ventress": 'CM', "Savage Opress": 'CM', "Grand Inquisitor": 'CM', "Reva": 'CM', "Supreme Leader Snoke": 'M', "Han Solo": 'RF', "Chewbacca": 'RC', "Lando Calrissian": 'RF', "Wedge Antilles": 'FR', "Nien Nunb": 'F', "Admiral Ackbar": 'T', "Bail Organa": 'R', "Jyn Erso": 'RC', "Cassian Andor": 'R', "K-2SO": 'CT', "Chirrut Îmwe": 'C', "Baze Malbus": 'R', "Saw Gerrera": 'RX', "Hera Syndulla": 'F', "Sabine Wren": 'XRF', "Zeb Orrelios": 'C', "Chopper": 'T', "Poe Dameron": 'FR', "Finn": 'R', "Rose Tico": 'T', "Admiral Holdo": 'F', "R2-D2": 'T', "BB-8": 'T', "IG-11": 'RX', "Battle Droid": 'R', "Droideka": 'R', "Grand Admiral Thrawn": 'T', "Director Krennic": 'R', "Moff Gideon": 'RC', "Stormtrooper": 'R', "Death Trooper": 'R', "Captain Phasma": 'R', "General Hux": 'R', "Boba Fett": 'RFX', "Jango Fett": 'RFX', "The Mandalorian": 'RFC', "Bo-Katan Kryze": 'RFC', "Cad Bane": 'R', "Fennec Shand": 'R', "Aurra Sing": 'R', "Bossk": 'R', "IG-88": 'RX', "Greedo": 'R', "Cara Dune": 'RC', "Cobb Vanth": 'R', "Greef Karga": 'R', "Kuiil": 'T', "Migs Mayfeld": 'R', "Captain Rex": 'R', "Commander Cody": 'R', "Hunter": 'RC', "Wrecker": 'XC', "Tech": 'T', "Crosshair": 'R', "Omega": 'R', "Qi'ra": 'CR', "Tobias Beckett": 'R', "Dryden Vos": 'C', "Enfys Nest": 'CF', "Rancor": 'C', "Wampa": 'C', "Wicket": 'R', "Jar Jar Binks": 'C', "Watto": 'F', "Maz Kanata": 'T', "Grand Moff Tarkin": 'T', "Mon Mothma": 'T' },
@@ -2483,7 +2557,19 @@ const SYN_DEF = {
     ['looney', 'Looney Tunes', 0.8, ['Bugs Bunny', 'Daffy Duck', 'Road Runner', 'Wile E. Coyote', 'Tasmanian Devil', 'Lola Bunny', 'Porky Pig', 'Speedy Gonzales', 'Sylvester', 'Tweety', 'Foghorn Leghorn', 'Yosemite Sam', 'Marvin the Martian', 'Pepé Le Pew', 'Elmer Fudd', 'Michigan J. Frog']],
     ['chase', 'Eternal Chases', 0.7, ['Wile E. Coyote', 'Road Runner', 'Sylvester', 'Tweety', 'Tom', 'Jerry', 'Elmer Fudd', 'Bugs Bunny']],
     ['mickey', 'Mickey & Friends', 1, ['Mickey Mouse', 'Minnie Mouse', 'Donald Duck', 'Goofy', 'Pluto']],
-    ['disney', 'Disney Heroes', 0.5, ['Hercules', 'Phil', 'Mulan', 'Simba', 'Baloo', 'Tarzan', 'Moana', 'Maui', 'Elsa', 'Stitch']],
+    ['disney', 'Disney Heroes', 0.5, ['Hercules', 'Phil', 'Mulan', 'Simba', 'Baloo', 'Tarzan', 'Moana', 'Maui', 'Elsa', 'Stitch', 'Aladdin', 'Jasmine', 'Genie', 'Ariel', 'King Triton', 'Sebastian', 'Belle', 'Beast', 'Lumière', 'Quasimodo', 'Esmeralda', 'Phoebus', 'Mufasa', 'Timon', 'Pumbaa', 'Mushu', 'Anna', 'Olaf', 'Lilo', 'Peter Pan', 'Snow White', 'Cinderella']],
+    ['villains', 'Disney Villains', 0.6, ['Jafar', 'Ursula', 'Gaston', 'Frollo', 'Scar', 'Shan Yu', 'Hades', 'Captain Hook', 'Maleficent']],
+    ['princesses', 'Disney Princesses', 0.6, ['Jasmine', 'Ariel', 'Belle', 'Mulan', 'Moana', 'Snow White', 'Cinderella']],
+    ['agrabah', 'Aladdin', 1, ['Aladdin', 'Jasmine', 'Genie', 'Jafar']],
+    ['atlantica', 'The Little Mermaid', 1, ['Ariel', 'Ursula', 'King Triton', 'Sebastian']],
+    ['batb', 'Beauty and the Beast', 1, ['Belle', 'Beast', 'Gaston', 'Lumière']],
+    ['notredame', 'The Hunchback of Notre Dame', 1, ['Quasimodo', 'Esmeralda', 'Frollo', 'Phoebus']],
+    ['lionking', 'The Lion King', 1, ['Simba', 'Mufasa', 'Scar', 'Timon', 'Pumbaa']],
+    ['mulan', 'Mulan', 1, ['Mulan', 'Mushu', 'Shan Yu']],
+    ['hercules', 'Hercules', 1, ['Hercules', 'Phil', 'Hades']],
+    ['frozen', 'Frozen', 1, ['Elsa', 'Anna', 'Olaf']],
+    ['ohana', 'Lilo & Stitch', 1, ['Lilo', 'Stitch']],
+    ['neverland', 'Peter Pan', 1, ['Peter Pan', 'Captain Hook']],
     ['pixar', 'Pixar', 0.7, ['Buzz Lightyear', 'Woody', 'Mr. Incredible', 'Elastigirl', 'Dash', 'Violet', 'Frozone', 'Edna Mode', 'Sulley', 'Mike Wazowski', 'Lightning McQueen', 'Remy', 'WALL-E']],
     ['incredibles', 'The Incredibles', 1, ['Mr. Incredible', 'Elastigirl', 'Dash', 'Violet', 'Frozone', 'Edna Mode']],
     ['toystory', 'Toy Story', 1, ['Buzz Lightyear', 'Woody']],
@@ -2503,9 +2589,9 @@ const SYN_DEF = {
     ['cn', 'Cartoon Network', 0.6, ['Blossom', 'Bubbles', 'Buttercup', 'Professor Utonium', 'Mojo Jojo', 'Johnny Bravo', 'Dexter', 'Courage the Cowardly Dog']],
     ['nick', 'Nickelodeon', 0.5, ['SpongeBob SquarePants', 'Patrick Star', 'Sandy Cheeks', 'Squidward', 'Mr. Krabs', 'Plankton', 'Aang', 'Toph Beifong', 'Zuko', 'Uncle Iroh', 'Katara', 'Sokka', 'Leonardo', 'Raphael', 'Michelangelo', 'Donatello', 'Master Splinter']],
     ['adult', 'Prime-Time Animation', 0.5, ['Homer Simpson', 'Bart Simpson', 'Lisa Simpson', 'Marge Simpson', 'Hank Hill', 'Bob Belcher', 'Rick Sanchez', 'Morty']],
-    ['mentors', 'Mentors', 0.5, ['Master Splinter', 'Master Shifu', 'Uncle Iroh', 'Phil', 'Professor Utonium', 'Baloo', 'Edna Mode']],
+    ['mentors', 'Mentors', 0.5, ['Master Splinter', 'Master Shifu', 'Uncle Iroh', 'Phil', 'Professor Utonium', 'Baloo', 'Edna Mode', 'Mufasa']],
     ['speed', 'Speedsters', 0.5, ['Road Runner', 'Speedy Gonzales', 'Dash', 'Lightning McQueen', 'Stitch', 'Jerry']],
-    ['strong', 'Strongmen', 0.5, ['Popeye', 'Hercules', 'Maui', 'Mr. Incredible', 'Sulley', 'Optimus Prime', 'Megatron', 'Bluto']],
+    ['strong', 'Strongmen', 0.5, ['Popeye', 'Hercules', 'Maui', 'Mr. Incredible', 'Sulley', 'Optimus Prime', 'Megatron', 'Bluto', 'Beast', 'Gaston']],
     ['dogs', 'Good Dogs', 0.5, ['Pluto', 'Scooby-Doo', 'Snoopy', 'Courage the Cowardly Dog', 'Bluey', 'Bandit', 'Goofy']],
     ['bluey', 'The Heelers', 1, ['Bluey', 'Bandit']],
   ],
@@ -2584,6 +2670,7 @@ const STYLE_DEF = {
     'Mulan': ['Honor and Strategy', { iq: 2, agi: 1, end: 1 }],
     'Mickey Mouse': ['Hot Dog Dance', { ldr: 2, spd: 1, tch: 1 }],
     'Optimus Prime': ['Roll Out', { str: 2, ldr: 2 }],
+    'Mufasa': ['Remember Who You Are', { ldr: 2, clu: 1, end: 1 }],
   },
   muppets: {
     'Kermit the Frog': ['The Show Must Go On', { tch: 2, agi: 1, iq: 1 }],
@@ -2652,6 +2739,17 @@ function synergyOf(sportKey, roster) {
     style = { name:coach.n,label:st.label,pts,focusAvg:avg,baseline,diff,match:pts>0.15?'Good fit':pts< -0.15?'Poor fit':'Neutral' };
   }
   return { total: Math.min(LINK_CAP, sum) + (style ? style.pts : 0), links, style };
+}
+
+// Results panel for Bench Chemistry (see data/bench-chemistry.js).
+function benchChemPanel(score) {
+  const b = score && score.benchChem; if (!b || !b.percent) return '';
+  const list = a => a.map(esc).join(', ').replace(/, ([^,]*)$/, ' and $1');
+  const bits = [];
+  if (b.sidekick) bits.push(`${esc(b.bench)} is a born sidekick and thrives in the bench role`);
+  if (b.leads.length) bits.push(`backing ${list(b.leads)}`);
+  if (b.mesh.length) bits.push(`${b.sidekick ? 'and meshes' : `${esc(b.bench)} meshes`} with ${list(b.mesh)}`);
+  return `<div class="panel" style="padding:12px 16px;margin:12px 0"><b>Bench Chemistry · +${b.percent.toFixed(2)}% team rating</b><p class="note">${bits.join(', ')}. That lifted the whole squad by ${b.points.toFixed(2)} rating points.</p></div>`;
 }
 
 // ===== Engine: candidates, AI draft, simulation =====
@@ -2762,7 +2860,7 @@ function aiTeamValue(sportKey, roster) {
   const sp = SPORTS[sportKey]; let num = 0, den = 0, cf = 30, bf = 30;
   for (const q of sp.pos) { const c = roster[q.id]; const f = c ? fitAI(sportKey, c, q) : 0; if (q.coach) { if (c) cf = f; } else if (q.bench) { if (c) bf = f; } else { num += q.imp * f; den += q.imp; } }
   const baseRating=num/den*coachMult(cf)*benchMult(bf)+synergyOf(sportKey,roster).total;
-  return baseRating+muppetForceTeamwork(roster,sp.pos,baseRating).points;
+  return baseRating+muppetForceTeamwork(roster,sp.pos,baseRating).points+benchChemistry(roster,sp.pos,baseRating).points;
 }
 function aiStackDraft(sportKey, available, nTeams, polish = true) {
   const sp = SPORTS[sportKey], P = sp.pos, imps = P.map(q => slotImp(sportKey, q));
@@ -3234,7 +3332,7 @@ function sportGlyph(sportKey) {
 // Player tokens: a designed jersey for every candidate. No photos or character art.
 // Pool sets the kit colors; on the field the jersey takes the team color.
 const JERSEY = 'M12 4 L16 4 Q20 8.5 24 4 L28 4 L36.5 10.5 L32.5 17.5 L29 15.5 L29 35.5 Q20 37.5 11 35.5 L11 15.5 L7.5 17.5 L3.5 10.5 Z';
-const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'], pokemon: ['#E0662A', '#1F3A68'], starwars: ['#1C1C1C', '#FFE81F'], dc: ['#2157A5', '#F9C53C'], lotr: ['#3C6540', '#D6B86E'], harrypotter: ['#604A7C', '#D8B777'] };
+const POOL_KIT = { nba: ['#1D4E9E', '#F2B33A'], mcu: ['#B4232A', '#F5C64F'], toons: ['#6A3BB8', '#FF8C2A'], muppets: ['#2E8B45', '#F7D84A'], games: ['#3A3F8F', '#5BD2F0'], pokemon: ['#E0662A', '#1F3A68'], starwars: ['#1C1C1C', '#FFE81F'], dc: ['#2157A5', '#F9C53C'], lotr: ['#3C6540', '#D6B86E'], harrypotter: ['#604A7C', '#D8B777'], actionmovies: ['#772B23', '#F5B96B'] };
 const CUSTOM_KIT = ['#0F7C8C', '#F4E9D8'];
 // Real jersey numbers for the NBA pool (the number each is best known for).
 const NBA_NUM = {
@@ -3412,7 +3510,7 @@ function rcContext(sportKey, me, opp, T, O, N, r, o) {
 function rcSpark(evs, teams, me, opp, N, r, o) {
   const when = e => e.ri == null ? '' : e.bo > 1 ? `in Game ${e.g} of the ${o.rn[e.ri].toLowerCase()}` : `in the ${o.rn[e.ri].toLowerCase()}`;
   const cand = e => teams[e.team].score.rows[e.i].cand;
-  const w = e => { const t = when(e); return t ? ' ' + t : ''; };
+  const w = e => { const t = when(e); return (e.bench ? ' off the bench' : '') + (t ? ' ' + t : ''); };
   if (o.lost) {
     const ob = evs.find(e => e.team === opp && e.kind === 'boom'), mb = evs.find(e => e.team === me && e.kind === 'bust');
     if (ob && mb) return `${N(cand(mb))} went cold${w(mb)}, while ${N(cand(ob))} caught fire for ${o.O}${w(ob)}.`;
@@ -3564,7 +3662,7 @@ function characterForceMultiplier(sportKey,c,pos){
 }
 function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos);
+  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos)+(pos.bench&&isSidekick(c)?6:0);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
@@ -3679,16 +3777,50 @@ function saveChamp() {
 
 // ----- Pools -----
 POOLS.mashup = { id: 'mashup', name: 'All-Star Mashup', short: 'Mashup', blurb: 'Every built-in pool at once, on one scale', entries: [] };
-// Pokémon who also appear in the video game pool (Pikachu, Charizard...) show up once in the Mashup.
+// Legacy helper retained for existing pool/lore test harnesses.
 function mashupOnly(id) { const seen = new Set(getCands('games').map(c => c.n)); return getCands(id).filter(c => !seen.has(c.n)); }
-const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'harrypotter', 'mashup'];
+// Mashup selections are encoded in the pool ID so saved drafts and multiplayer
+// contests preserve the exact same universe subset across devices.
+const BUILTIN = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'dc', 'lotr', 'harrypotter', 'actionmovies', 'mashup'];
+const MASHUP_SOURCES = BUILTIN.filter(id => id !== 'mashup');
+function isMashupId(id) { return id === 'mashup' || (typeof id === 'string' && id.startsWith('mashup:')); }
+function mashupSources(id) {
+  if (id === 'mashup') return MASHUP_SOURCES.slice();
+  if (!isMashupId(id)) return [];
+  const chosen = new Set(id.slice('mashup:'.length).split(','));
+  return MASHUP_SOURCES.filter(source => chosen.has(source));
+}
+function mashupPoolId(sources) {
+  const chosen = new Set(sources);
+  const ids = MASHUP_SOURCES.filter(id => chosen.has(id));
+  return ids.length === MASHUP_SOURCES.length ? 'mashup' : 'mashup:' + ids.join(',');
+}
 const candCache = {};
-function getPool(id) { return POOLS[id] || S.custom[id] || null; }
+function getPool(id) {
+  if (isMashupId(id)) {
+    const sources = mashupSources(id);
+    return id === 'mashup' ? POOLS.mashup : {
+      ...POOLS.mashup, id, name: 'All-Star Mashup · ' + sources.length + ' pools',
+      blurb: sources.length ? sources.map(k => POOLS[k]?.short || POOLS[k]?.name || k).join(' + ') : 'Choose at least one talent pool'
+    };
+  }
+  return POOLS[id] || S.custom[id] || null;
+}
 function getCands(id) {
   if (candCache[id]) return candCache[id];
   const p = getPool(id); if (!p) return [];
-  const list = id === 'mashup' ? [...getCands('nba'), ...getCands('mcu'), ...getCands('toons'), ...getCands('muppets'), ...getCands('games'), ...mashupOnly('pokemon'), ...getCands('starwars'), ...getCands('dc'), ...getCands('lotr'), ...getCands('harrypotter')] : poolCandidates(p);
-  return (candCache[id] = list);
+  if (isMashupId(id)) {
+    const sources = mashupSources(id), seenGameNames = new Set();
+    if (sources.includes('games')) getCands('games').forEach(c => seenGameNames.add(c.n));
+    const candidates = [];
+    for (const source of sources) for (const c of getCands(source)) {
+      // Pokémon with a Video Games roster entry appear once when both pools are selected.
+      if (source === 'pokemon' && seenGameNames.has(c.n)) continue;
+      candidates.push(c);
+    }
+    return (candCache[id] = candidates);
+  }
+  return (candCache[id] = poolCandidates(p));
 }
 function candById(poolId, cid) { return getCands(poolId).find(c => c.id === cid) || null; }
 function poolFaces(id) {
@@ -3705,7 +3837,7 @@ function roleRank(poolId, sportKey, pos, cand) {
 }
 // Restore saved roster ids into candidate objects (for both boards)
 function restoreBoard(st, key) {
-  const okPool = BUILTIN.includes(st.poolId);
+  const okPool = BUILTIN.includes(st.poolId) || isMashupId(st.poolId);
   let lost = false; const out = {};
   for (const [k, v] of Object.entries(st.roster || {})) { const c = typeof v === 'string' && okPool ? candById(st.poolId, v) : null; if (c) out[k] = c; else lost = true; }
   st.roster = out;
@@ -3810,7 +3942,7 @@ function renderModal() {
     <p><b>Baseball:</b> every spot but the pitcher also bats, and hitting is scored apart from fielding. A position's traits are its glove; the batting order is a second layer built from all nine hitters (contact from Reflexes and Accuracy, power from Strength), with the best bats hitting first and coming up most. Hulk can be a liability at shortstop and still hit bombs. Offense counts about as much as pitching and defense.</p>
     <p>Team strength is the importance-weighted average of every player's fit (a QB or a setter counts more than a guard or a slot receiver), scaled by the coach's Game IQ, Leadership and Clutch, plus chemistry.</p>
     <p><b>Basketball knows the NBA:</b> NBA players playing basketball blend their real prime production (their three best seasons on Basketball-Reference) into how well they fit, and NBA coaches get a bump coaching basketball. In a Championship season everyone gets a stat line: NBA players start from their real prime numbers, and everyone else is projected from the NBA players who play most like them.</p>
-    <p><b>Bench Spark:</b> every team carries one bench player who lives on intangibles: Stamina, Leadership and Clutch. A great one lifts the whole squad, a little less than a great coach does.</p>
+    <p><b>Bench Spark:</b> every team carries one bench player who lives on intangibles: Stamina, Leadership and Clutch. Whoever sits there multiplies the whole squad, more when they mesh with the rest of your roster. Born sidekicks thrive in the role, especially next to the stars they're known for backing. The bench player also sees minutes every game and can catch fire.</p>
     <p><b>Signature moves:</b> the most iconic characters carry a named signature move. What it does stays hidden until after the game. Some lift the whole squad, some let a lopsided build play bigger than it is, some rise up in the playoffs, and some knock opponents off balance. The computer drafts don't know about them.</p>
     <p><b>Variant Surge:</b> A documented alternate form replaces the character's signature move, retains their identity, changes attributes and may grant form-specific powers and resistances. Countering forms reduce the added combat impact; every power has a listed limitation. Unreviewed forms still only change stats. The same rules apply across Championship, Campaign, Dealt Hand and Head-to-Head.</p>
     <p><b>Playoff Boom:</b> some players are boom-or-bust. In any playoff game they can catch fire and take over, or go cold. They're a gamble, and that's the point.</p>
@@ -3914,10 +4046,22 @@ function poolPicker(cur, act, sportKey) {
   const cards = ids.map(id => {
     const p = getPool(id), n = getCands(id).length;
     const small = n < need * 2;
-    return `<button class="pool" data-act="${act}" data-pool="${id}" aria-pressed="${cur === id}" ${small ? 'disabled title="Too few candidates for this sport"' : ''}>
+    return `<button class="pool" data-act="${act}" data-pool="${id}" aria-pressed="${id === 'mashup' ? isMashupId(cur) : cur === id}" ${small ? 'disabled title="Too few candidates for this sport"' : ''}>
       <b>${esc(p.name)}</b><span>${esc(p.blurb || '')}${p.topic ? '' : ''}</span><span class="num">${n} candidates${S.custom[id] ? ' · made with Claude' : ''}</span>${poolFaces(id) ? `<span class="faces" aria-hidden="true">${poolFaces(id)}</span>` : ''}</button>`;
   }).join('');
-  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Harry Potter, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${renderGen()}`;
+  const mashupSelector = isMashupId(cur) ? (() => {
+    const selected = mashupSources(cur), selectedSet = new Set(selected);
+    const scope = act === 'h-pool' ? 'h' : 'c';
+    return `<div class="panel mashup-config" role="group" aria-label="Choose Mashup talent pools">
+      <div class="sec"><div><h3 class="h">Customize your Mashup</h3><span class="note">Choose which universes can appear in your draft and its opponents.</span></div>
+      <span class="num">${selected.length}/${MASHUP_SOURCES.length} selected</span></div>
+      <div class="mashup-tools"><button class="btn small" data-act="mashup-all" data-scope="${scope}">Select all</button>
+        <button class="btn small" data-act="mashup-clear" data-scope="${scope}">Clear all</button></div>
+      <div class="mashup-options">${MASHUP_SOURCES.map(id => `<button class="mashup-option" type="button" data-act="mashup-toggle" data-scope="${scope}" data-pool="${id}" aria-pressed="${selectedSet.has(id)}"><span class="mashup-check">${selectedSet.has(id) ? '✓' : '＋'}</span><span><b>${esc(POOLS[id].name)}</b><small>${getCands(id).length} characters</small></span></button>`).join('')}</div>
+      <div class="note mashup-status">${getCands(cur).length} characters available${!selected.length ? ' · Select at least one pool to continue' : ''}</div>
+    </div>`;
+  })() : '';
+  return `<div class="pools">${cards}<button class="pool gen" data-act="gen-open" aria-pressed="false"><b>＋ Any topic you like</b><span>Type a topic (Harry Potter, dog breeds, your favorite show) and Claude builds a rated pool.</span></button></div>${mashupSelector}${renderGen()}`;
 }
 function champLimits() {
   const c = S.champ, n = getCands(c.poolId).length;
@@ -4284,6 +4428,7 @@ function renderChampResults() {
       ${handMode()?'<button class="btn" data-act="c-newdeal">New draft</button>':'<button class="btn" data-act="c-edit">Edit lineup</button>'}
       <button class="btn" data-act="c-copy">Share result</button></div>
     ${me.score.muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${me.score.muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${me.score.muppetTeam.performers} Muppet teammate(s) generated +${me.score.muppetTeam.points.toFixed(2)} rating points for the entire squad. Individual MuppetForce bonuses are already reflected in position fit.</p></div>`:''}
+    ${benchChemPanel(me.score)}
     ${daMatchBrowser(c.sport,sim,teams,c.reportMatch,recapPanel(c.result.recap))}
     <details class="panel da-aux"><summary>League details</summary><div class="da-aux-content">
       ${rounds.length?`<div><h3 class="h">Playoffs</h3><div class="bracket">${bracket}</div></div>`:''}
@@ -4308,7 +4453,7 @@ function champResultText() {
 // Each opponent comes from ONE universe (NBA, Marvel, Cartoons, Muppets); mixed All-Star
 // teams only show up when you cast from the All-Star Mashup yourself.
 const LEAGUE_SIZE = { basketball: 30, football: 16, soccer: 20, baseball: 30, hockey: 32, volleyball: 14, brawl: 16 };
-const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', pokemon: 'Pokémon', starwars: 'Star Wars', dc: 'DC Comics', lotr: 'Middle-earth', harrypotter: 'Harry Potter', mashup: 'All-Stars' };
+const UNIVERSE_LABEL = { nba: 'NBA', mcu: 'Marvel', toons: 'Cartoons', muppets: 'Muppets', games: 'Video Games', pokemon: 'Pokémon', starwars: 'Star Wars', dc: 'DC Comics', lotr: 'Middle-earth', harrypotter: 'Harry Potter', actionmovies: 'Action Movies', mashup: 'All-Stars' };
 function universeLabel(id) { return UNIVERSE_LABEL[id] || (S.custom[id] ? (S.custom[id].short || S.custom[id].name) : 'Custom'); }
 
 function shuffleWith(arr, rng) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -4330,8 +4475,8 @@ function buildCrossLeague(sportKey, userPoolId, userRoster, rng) {
   const P = SPORTS[sportKey].pos.length, sig = SEASONS[sportKey].sigma, [ke, klo, khi] = PERFECT_TIERS[sportKey];
   const C = poolCeiling(sportKey, userPoolId);
   const used = new Set(Object.values(userRoster).map(c => c.id));
-  const U = BUILTIN.filter(id => id !== 'mashup');
-  if (userPoolId === 'mashup') U.push('mashup');
+  const U = isMashupId(userPoolId) ? mashupSources(userPoolId) : BUILTIN.filter(id => id !== 'mashup');
+  if (isMashupId(userPoolId)) U.push(userPoolId);
   else if (!U.includes(userPoolId) && getPool(userPoolId)) U.push(userPoolId);
   const avail = u => getCands(u).filter(c => !used.has(c.id));
   // A team from one universe aimed at a strength target: the best lineup that universe can make from
@@ -4572,13 +4717,47 @@ function sideForPick(k, d) {
 }
 function forcedSlot(k, d) { return d.rules.style === 'position' ? (SPORTS[d.sport].pos[Math.floor(k / 2)] || {}).id || null : null; }
 function totalPicks(d) { return SPORTS[d.sport].pos.length * 2; }
+function h2hDealtHand(d,k=d.picks.length) {
+  if(d.rules?.style!=='hand')return [];
+  // Each pick's offer is derived from the same shuffled, contest-seeded deck.
+  // Both players see identical choices for that pick; refreshes cannot reroll.
+  const taken=new Set((d.picks||[]).map(p=>p.cid));
+  const deck=getCands(d.poolId).slice(),rng=rngFrom('h2h-hand|'+d.code+'|'+d.poolId);
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  const current=deck.slice(k*HAND_SIZE,(k+1)*HAND_SIZE).filter(c=>!taken.has(c.id));
+  if(current.length===HAND_SIZE)return current;
+  // Small pools may exhaust the unused deck before all 2x roster picks.
+  // Recycle *unpicked* candidates only, never drafted characters.
+  const seen=new Set(current.map(c=>c.id));
+  const remaining=deck.filter(c=>!taken.has(c.id)&&!seen.has(c.id));
+  const fallbackRng=rngFrom('h2h-hand-fallback|'+d.code+'|'+k);
+  for(let i=remaining.length-1;i>0;i--){const j=Math.floor(fallbackRng()*(i+1));[remaining[i],remaining[j]]=[remaining[j],remaining[i]];}
+  return current.concat(remaining.slice(0,HAND_SIZE-current.length));
+}
+function renderH2HHandPopup(d,me,k){
+  if(d.rules?.style!=='hand'||sideForPick(k,d)!==me||S.h2h.handPick)return '';
+  const cards=h2hDealtHand(d,k);
+  if(!cards.length)return '';
+  return `<div class="modal-back deal-popup-back h2h-deal-back">
+    <div class="modal board hand deal-popup" role="dialog" aria-modal="true" aria-label="Head-to-Head three-card hand">
+      <div class="deal-popup-heading"><div class="eyebrow">Head-to-Head · Dealt Hand · Pick ${k+1}</div>
+        <h2 class="h">Choose your character</h2>
+        <p>Select one of three cards, then place that character on an open court position. Your opponent gets their own three-card hand.</p></div>
+      <div class="hand-list dealing">${cards.map((c,i)=>handTradingCardHTML(c,false,i)
+        .replace('data-act="hand-pick"','data-act="h-hand-select"')
+        .replace('data-act="hand-info"','data-act="h-hand-info"')).join('')}</div>
+      <div class="deal-popup-actions"><span class="note">One of three · No redeals · Pick becomes final when placed</span></div>
+    </div>
+  </div>`;
+}
+
 function rosterOf(d, side) { const r = {}; for (const p of d.picks || []) if (p.s === side) { const c = candById(d.poolId, p.cid); if (c) r[p.slot] = c; } return r; }
 function h2hRoster(d,side) {return variantRoster({sport:d.sport,roster:rosterOf(d,side),surge:d.surges?.[side]||null});}
 function mySide(d) { const u = S.cap.uid; return !d || !u ? null : d.host === u ? 'host' : d.guest === u ? 'guest' : null; }
 function contestName(d, side) { return (d.names && d.names[side]) || suggestedTeamName(d.poolId, side === 'host' ? 0 : 1, side === 'host' ? 'Home team' : 'Away team'); }
 function timerLabel(t) { return !t ? 'No clock' : t < 60 ? t + 's per pick' : (t / 60) + ' min per pick'; }
 function rulesSummary(r) {
-  return [timerLabel(r.timer), r.order === 'snake' ? 'Snake order' : 'Alternating order', r.style === 'position' ? 'Position by position' : 'Any open spot', r.upsets === 'off' ? 'No upsets' : r.upsets === 'low' ? 'Occasional upsets' : 'Chaos upsets'].join(' · ');
+  return [timerLabel(r.timer), r.order === 'snake' ? 'Snake order' : 'Alternating order', r.style === 'hand' ? 'Dealt Hand · 3 cards' : r.style === 'position' ? 'Position by position' : 'Any open spot', r.upsets === 'off' ? 'No upsets' : r.upsets === 'low' ? 'Occasional upsets' : 'Chaos upsets'].join(' · ');
 }
 
 // ----- db wiring -----
@@ -4602,17 +4781,17 @@ function subscribePools() {
 }
 function openRoom(id) {
   if (unsubRoom) { unsubRoom(); unsubRoom = null; }
-  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.variantTarget=null; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
+  S.h2h.cid = id; S.h2h.stage = 'room'; S.h2h.sel = null; S.h2h.query = ''; S.h2h.handPick=null; S.h2h.handInfoId=null; S.h2h.variantTarget=null; S.h2h.contest = S.h2h.contests.find(c => c.id === id) || null;
   unsubRoom = S.cap.db.doc('contests/' + id).onSnapshot(snap => {
     const prev = S.h2h.contest;
     S.h2h.contest = snap.exists ? { id: snap.id, ...snap.data() } : null;
     const d = S.h2h.contest;
-    if (d && prev && (prev.picks || []).length !== (d.picks || []).length) { S.h2h.sel = null; }
+    if (d && prev && (prev.picks || []).length !== (d.picks || []).length) { S.h2h.sel = null; S.h2h.handPick=null; S.h2h.handInfoId=null; }
     if (S.mode === 'h2h' && S.h2h.stage === 'room') render();
   }, () => { });
   render();
 }
-function leaveRoom() { if (unsubRoom) { unsubRoom(); unsubRoom = null; } S.h2h.stage = 'lobby'; S.h2h.cid = null; S.h2h.contest = null; render(); }
+function leaveRoom() { if (unsubRoom) { unsubRoom(); unsubRoom = null; } S.h2h.stage = 'lobby'; S.h2h.cid = null; S.h2h.contest = null; S.h2h.handPick=null; S.h2h.handInfoId=null; render(); }
 
 async function withLease(ref, fn) {
   // Short lease so the next player is never locked out for long; it lapses on its own.
@@ -4678,7 +4857,7 @@ async function cancelContest() {
 function autoChoice(d, side) {
   const k = d.picks.length, sp = SPORTS[d.sport], roster = rosterOf(d, side);
   const taken = new Set(d.picks.map(p => p.cid));
-  const avail = getCands(d.poolId).filter(c => !taken.has(c.id));
+  const avail = (d.rules.style === 'hand' ? h2hDealtHand(d,k) : getCands(d.poolId)).filter(c => !taken.has(c.id));
   const forced = forcedSlot(k, d);
   const slots = forced ? [sp.pos.find(p => p.id === forced)] : sp.pos.filter(p => !roster[p.id]).sort((a, b) => slotImp(d.sport, b) - slotImp(d.sport, a)).slice(0, 1);
   const pos = slots[0]; let best = null;
@@ -4700,15 +4879,17 @@ async function makePick(slot, cid, auto = false, expectK = null) {
       if (auto) { const ch = autoChoice(d, side); if (!ch) throw { code: 'stale' }; slot = ch.slot; cid = ch.cid; }
       const forced = forcedSlot(k, d);
       if (forced && slot !== forced) throw { code: 'forced' };
+      if (d.rules.style==='hand' && !h2hDealtHand(d,k).some(c=>c.id===cid)) throw {code:'invalid_hand'};
+      if (!SPORTS[d.sport].pos.some(p=>p.id===slot)) throw {code:'filled'};
       if (d.picks.some(p => p.cid === cid)) throw { code: 'gone' };
       if (d.picks.some(p => p.s === side && p.slot === slot)) throw { code: 'filled' };
       const picks = [...d.picks, { s: side, slot, cid, at: Date.now(), auto: !!auto }];
       const done = picks.length === totalPicks(d), now = Date.now();
       await ref.update({ picks, status: done ? 'powers' : 'drafting', deadline: done || !d.rules.timer ? 0 : now + d.rules.timer * 1000, updatedAt: now });
     });
-    S.h2h.sel = null; S.h2h.query = '';
+    S.h2h.sel = null; S.h2h.query = ''; S.h2h.handPick=null;
   } catch (e) {
-    const m = { turn: 'It’s not your pick yet.', gone: 'Just taken by your opponent. Pick someone else.', filled: 'You already filled that spot.', forced: 'This round fills a specific position.' }[e.code];
+    const m = { turn: 'It’s not your pick yet.', gone: 'Just taken by your opponent. Pick someone else.', filled: 'You already filled that spot.', forced: 'This round fills a specific position.', invalid_hand: 'This character is not in the current three-card hand.' }[e.code];
     if (m) toast(m); else if (e.code !== 'stale') toast(dbErr(e));
   } finally { picking = false; }
 }
@@ -4782,7 +4963,7 @@ function renderLobby() {
         ${segRow('Pick clock', 'timer', [[0, 'None'], [30, '30s'], [60, '60s'], [90, '90s'], [120, '2 min']])}
         ${segRow('Draft order', 'order', [['snake', 'Snake'], ['alt', 'Alternating']])}
         ${segRow('First pick', 'first', [['host', 'Me'], ['guest', 'Opponent'], ['coin', 'Coin flip']])}
-        ${segRow('Pick style', 'style', [['free', 'Any open spot'], ['position', 'Position by position']])}
+        ${segRow('Pick style', 'style', [['free', 'Any open spot'], ['position', 'Position by position'], ['hand', 'Dealt Hand · 3 cards']])}
         ${segRow('Upsets', 'upsets', [['off', 'Off'], ['low', 'Occasional'], ['high', 'Chaos']])}
       </div>
       <div class="cta-row"><button class="btn primary big" data-act="h-create" ${S.h2h.busy || !enough ? 'disabled' : ''}>Create contest</button><span class="note">You get a 5-letter code to send your opponent.</span></div>
@@ -4822,9 +5003,16 @@ function renderRoom() {
   const taken = new Map(); for (const p of d.picks) taken.set(p.cid, p.s === me ? 'Your ' + sp.pos.find(x => x.id === p.slot).ab : contestName(d, p.s));
   const left = d.deadline ? Math.max(0, Math.ceil((d.deadline - Date.now()) / 1000)) : null;
   const clock = `<div class="clock"><div><div class="pickno">Pick ${k + 1} of ${totalPicks(d)}${forced ? ' · ' + sp.pos.find(p => p.id === forced).nm + ' round' : ''}</div><div class="who ${myTurn ? 'me' : ''}">${myTurn ? 'You’re on the clock' : esc(contestName(d, onSide)) + ' on the clock'}</div></div>${left != null ? `<div class="time num ${left <= 10 ? 'low' : ''}" id="clock-time">${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}</div>` : `<div class="time num" style="font-size:14px;opacity:.7">No clock</div>`}</div>`;
-  const sel = S.h2h.sel;
-  const picker = sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : '';
-  return head('') + clock + renderH2HCourt(d,me||'host',false,sel,myTurn?forced:null) + picker;
+  const handMode=d.rules.style==='hand';
+  const handCharacter=handMode&&myTurn?h2hDealtHand(d,k).find(c=>c.id===S.h2h.handPick):null;
+  if(handMode&&!handCharacter)S.h2h.handPick=null;
+  const sel = handMode?null:S.h2h.sel;
+  const picker = !handMode&&sel ? `<div class="panel picker open">${pickerHTML({ sportKey: d.sport, poolId: d.poolId, sel, roster: myR, taken, query: S.h2h.query, title: myTurn ? 'Your pick' : 'Scouting while you wait', closeAct: forced && myTurn ? null : 'h-close', pickAct: 'h-pick', readOnly: !myTurn })}</div><div class="sheet-backdrop open" data-act="h-close"></div>` : '';
+  const handBar=handMode ? `<div class="h2h-hand-selection">${handCharacter
+    ? `<span><b>Selected:</b> ${esc(handCharacter.n)} · Tap an empty position to place</span><button class="btn small" data-act="h-hand-reselect">Reselect card</button>`
+    : `<span>${myTurn?'Choose one of your three cards to continue':'Opponent is choosing from their hand'}</span>`}</div>` : '';
+  return head('') + clock + handBar + renderH2HCourt(d,me||'host',false,sel,myTurn?forced:null) + picker
+    + (handMode?renderH2HHandPopup(d,me,k):'');
 }
 function renderH2HCourt(d,side,powers=false,sel=null,forced=null){
   const sp=SPORTS[d.sport],opp=side==='host'?'guest':'host',showOpp=!!S.h2h.viewOpp;
@@ -4851,9 +5039,9 @@ function renderH2HPowers(d){
   const canChoose=!!mySide(d)&&!ready&&!d.surges?.[me];
   const slots=variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,me),surge:d.surges?.[me]||null});
   const target=S.h2h.variantTarget,selected=slots.find(c=>c.id===target);
-  return `<section>
+  return `<section class="h2h-ability-phase">
+    ${mySide(d)?`<div class="h2h-ready-actions"><span class="note">${ready?'Ready · waiting for opponent':d.surges?.[me]?'Variant used · confirm to play':'Optional Variant Surge'}</span>${!ready?`<button class="btn primary" data-act="h-ready">${d.surges?.[me]?'Finalize & view results':'Skip Surge · Finalize'}</button>`:''}</div>`:''}
     ${renderH2HCourt(d,me,true)}
-    ${!ready&&mySide(d)?`<div class="h2h-ready-actions"><button class="btn primary" data-act="h-ready">${d.surges?.[me]?'Ready':'Skip Surge · Ready'}</button></div>`:''}
     ${canChoose&&selected?`<div class="h2h-variant-shade" data-act="h-variant-cancel"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p>Use Variant Surge on <b>${esc(selected.n)}</b>?</p><div class="row"><button class="btn" data-act="h-variant-cancel">Cancel</button><button class="btn primary" data-act="h-variant-confirm">Use Variant Surge</button></div></div></div>`:''}
   </section>`;
 }
@@ -4877,6 +5065,7 @@ function renderH2HResult(d) {
     <div class="result-hero"><span class="eyebrow" style="color:inherit;opacity:.7">${esc(sp.name)} · Head-to-Head</span><div class="big">${title}</div></div>
     <div class="cta-row">${mySide(d)?'<button class="btn primary" data-act="h-rematch">Rematch</button>':''}<button class="btn" data-act="h-lobby">Back to lobby</button></div>
     ${sc[me].muppetTeam?.percent?`<div class="panel" style="padding:12px 16px;margin:12px 0"><b>MuppetForce camaraderie · +${sc[me].muppetTeam.percent.toFixed(2)}% team rating</b><p class="note">${sc[me].muppetTeam.performers} Muppet(s) increased team rating by ${sc[me].muppetTeam.points.toFixed(2)} points beyond their personal role-fit multipliers.</p></div>`:''}
+    ${benchChemPanel(sc[me])}
     ${daComparison(d.sport,sc[me],sc[opp],yours,theirs,contestName(d,me),contestName(d,opp),d.id,{note:g.line[2],leftSide:g.winner===(me==='host'?0:1)?0:1,rightSide:g.winner===(opp==='host'?0:1)?0:1,combat,breakdown,summaryHTML:summary})}
   </section>`;
 }
@@ -5102,6 +5291,12 @@ document.addEventListener('keydown', e => {
   }
 });
 function renderHandInfo() {
+  if(S.mode==='h2h'&&S.h2h.handInfoId){
+    const d=S.h2h.contest,c=d&&h2hDealtHand(d).find(x=>x.id===S.h2h.handInfoId);
+    if(!c)return '';
+    const origin=campaignOrigin(c);
+    return `<div class="modal-back hand-info-back" data-act="h-hand-info-close"><div class="modal" role="dialog" aria-modal="true" aria-label="Character origin" data-stop="1"><div class="row" style="justify-content:space-between"><h2 class="h">${esc(c.n)}</h2><button class="btn small" data-act="h-hand-info-close">Close</button></div><p class="note">Where this character is from</p><p><b>${esc(origin.work)}</b></p><p class="muted">Talent pool: ${esc(origin.universe)}</p></div></div>`;
+  }
   if(S.mode!=='deal' || !S.handInfoId) return '';
   const character = (S.champ.hand||[]).find(c=>c.id===S.handInfoId);
   if(!character)return '';
@@ -5130,7 +5325,50 @@ function fitHandCardNames() {
 }
 window.addEventListener('resize', fitHandCardNames);
 
+// Head-to-Head result accordion state survives room snapshots and DOM rerenders.
+function h2hResultAccordionKey(){
+  const d=S.h2h.contest;
+  return S.mode==='h2h'&&S.h2h.stage==='room'&&d?.status==='complete'
+    ? String(S.h2h.cid||d.id||'') : null;
+}
+const H2H_RESULT_ACCORDIONS={stats:'.da-detail-toggle',summary:'.da-summary-toggle',calculation:'.da-inner-details'};
+function captureH2HAccordions(key){
+  if(!key)return;
+  if(S.h2h.resultAccordionKey!==key){
+    S.h2h.resultAccordionKey=key;
+    S.h2h.resultAccordions={stats:false,summary:false,calculation:false};
+    return;
+  }
+  const root=document.querySelector('.da-results-screen');
+  if(!root)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    const el=root.querySelector(selector);
+    if(el)S.h2h.resultAccordions[name]=el.open;
+  }
+}
+function restoreH2HAccordions(key){
+  if(!key||S.h2h.resultAccordionKey!==key)return;
+  const root=document.querySelector('.da-results-screen');
+  if(!root)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    const el=root.querySelector(selector);
+    if(el)el.open=!!S.h2h.resultAccordions[name];
+  }
+}
+// Record native toggle events too; on mobile they can occur close to an incoming snapshot.
+document.addEventListener('toggle',e=>{
+  const el=e.target;
+  const key=h2hResultAccordionKey();
+  if(!key||!el?.isConnected||!el.matches?.('details'))return;
+  if(!el.closest('.da-results-screen')||S.h2h.resultAccordionKey!==key)return;
+  for(const [name,selector] of Object.entries(H2H_RESULT_ACCORDIONS)){
+    if(el.matches(selector))S.h2h.resultAccordions[name]=el.open;
+  }
+},true);
 function render() {
+  const accordionKey=h2hResultAccordionKey();
+  if(accordionKey)captureH2HAccordions(accordionKey);
+  else {S.h2h.resultAccordionKey=null;S.h2h.resultAccordions=null;}
   const scrollX=window.scrollX,scrollY=window.scrollY;
   const tracked=['.app','main','.board-side','.board > div:first-child','#camp-plist','#plist'];
   const scrollState=tracked.map(selector=>({selector,top:document.querySelector(selector)?.scrollTop,left:document.querySelector(selector)?.scrollLeft}));
@@ -5141,10 +5379,11 @@ function render() {
   else if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && ['drafting','powers'].includes(S.h2h.contest?.status);
+  const draftActive = (S.mode==='grid' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
+  restoreH2HAccordions(accordionKey);
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
     const el=document.querySelector(selector);
@@ -5401,6 +5640,21 @@ document.addEventListener('click', e => {
     case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
+    case 'mashup-toggle': case 'mashup-all': case 'mashup-clear': {
+      const isH2H=t.dataset.scope==='h', current=isH2H?h.form.poolId:c.poolId;
+      if (!isMashupId(current)) break;
+      const currentSources=mashupSources(current);
+      const chosen=a==='mashup-all' ? MASHUP_SOURCES.slice() :
+        a==='mashup-clear' ? [] :
+        currentSources.includes(t.dataset.pool)
+          ? currentSources.filter(id=>id!==t.dataset.pool)
+          : [...currentSources,t.dataset.pool];
+      const next=mashupPoolId(chosen);
+      if (next===current) break;
+      if (isH2H) { h.form.poolId=next; lsSet('da.h2hform',h.form); }
+      else { c.poolId=next; resetDraft(); }
+      break;
+    }
     case 'c-pool': if (c.poolId !== t.dataset.pool) { c.poolId = t.dataset.pool; resetDraft(); } S.gen.open = false; break;
     case 'c-rivals': if (c.rivals !== t.dataset.v) { c.rivals = t.dataset.v; if (c.queue) resetDraft(); } break;
     case 'hand-info': S.handInfoId = t.dataset.cid; break;
@@ -5442,6 +5696,11 @@ document.addEventListener('click', e => {
         placeFromHand(slot, c.handSel);
       }
       else if (S.mode === 'champ') { c.sel = t.dataset.slot; c.query = ''; }
+      else if(h.contest?.rules?.style==='hand'){
+        const d=h.contest,slot=t.dataset.slot,side=mySide(d),k=d.picks.length;
+        if(d.status==='drafting'&&side===sideForPick(k,d)&&h.handPick&&!rosterOf(d,side)[slot])
+          {makePick(slot,h.handPick,false,k);return;}
+      }
       else { h.sel = t.dataset.slot; h.query = ''; }
       break;
     case 'c-close': c.sel = null; break;
@@ -5476,6 +5735,16 @@ document.addEventListener('click', e => {
     case 'h-cancel': cancelContest(); return;
     case 'h-close': h.sel = null; break;
     case 'h-pick': if (h.sel) makePick(h.sel, t.dataset.cid); return;
+    case 'h-hand-select': {
+      const d=h.contest,k=d?.picks?.length||0;
+      if(d?.status==='drafting'&&d.rules?.style==='hand'&&sideForPick(k,d)===mySide(d)&&h2hDealtHand(d,k).some(c=>c.id===t.dataset.cid)) {
+        h.handPick=t.dataset.cid;h.handInfoId=null;h.viewOpp=false;
+      }
+      break;
+    }
+    case 'h-hand-reselect': h.handPick=null;h.handInfoId=null;break;
+    case 'h-hand-info': h.handInfoId=t.dataset.cid;break;
+    case 'h-hand-info-close': h.handInfoId=null;break;
     case 'h-copy-invite': copyText(t.dataset.text); return;
     case 'h-toggle-court': h.viewOpp=!h.viewOpp; break;
     case 'h-variant-open': {

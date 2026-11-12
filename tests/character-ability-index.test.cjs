@@ -15,7 +15,7 @@ const get = id => { const c = byId.get(id); assert.ok(c, id + ' is not on the ro
 const accepts = (id, tag) => game.allowed(get(id), tag);
 
 test('index lists every roster character in every pool exactly once, and nobody else', () => {
-  assert.equal(game.roster.filter(c => LEGACY_POOL_IDS.includes(c.pool)).length, 848);
+  assert.equal(game.roster.filter(c => LEGACY_POOL_IDS.includes(c.pool)).length, 879);
   let listed = 0;
   for (const pool of POOL_IDS) {
     const names = Object.keys(game.tagIndex[pool] || {});
@@ -359,7 +359,7 @@ test('index generation never consults name lists, descriptions, keywords or the 
 
 test('every incorrect dispute is rejected under the PR #44 tag criteria (Vision psychic included)', () => {
   const incorrect = game.disputes.filter(d => d.verdict === 'incorrect');
-  assert.ok(incorrect.length >= 32);
+  assert.ok(incorrect.length >= 31);
   for (const d of incorrect) {
     assert.equal(qualifiesUnderPR44(d.id, d.tag), false, d.id + ' still qualifies for ' + d.tag + ' via the reviewed tags');
     assert.equal(abilityApi.characterAbilityProvenance(get(d.id), d.tag), null, d.id + ' ' + d.tag + ' still has provenance');
@@ -374,18 +374,96 @@ test('every incorrect dispute is rejected under the PR #44 tag criteria (Vision 
   assert.ok(qualifiesUnderPR44('mcu:Vision', 'flight') && qualifiesUnderPR44('mcu:Vision', 'tech'));
 });
 
+test('Captain Atom bonded Dilustel armor qualifies for Tech Titans without paid AI research', () => {
+  const c = get('dc:Captain Atom');
+  assert.equal(accepts(c.id, 'tech'), true);
+  const record = game.abilities[c.id].find(f => f.tag === 'tech');
+  assert.ok(record?.tags.includes('powered-armor'));
+  assert.ok(record?.feat.includes('Dilustel'));
+  assert.match(record.source, /^https:\/\//);
+  assert.ok(!game.disputes.some(d => d.id === c.id && d.tag === 'tech' && d.verdict === 'incorrect'));
+  assert.equal(abilityApi.characterAbilityProvenance(c, 'tech')?.basis, 'evidence');
+});
+
 test('new pools: owner rulings and corrected seeds', () => {
   const yes = [['lotr:Witch-king of Angmar', 'flight'], ['lotr:Khamûl the Easterling', 'flight'], ['harrypotter:Madam Hooch', 'flight'],
     ['harrypotter:Rubeus Hagrid', 'flight'], ['harrypotter:Rubeus Hagrid', 'giants'], ['dc:Superman', 'ice'], ['dc:Beast Boy', 'giants'],
-    ['dc:Batman', 'stealth'], ['lotr:Gollum (Sméagol)', 'aquatic'], ['harrypotter:Peter Pettigrew', 'stealth'], ['dc:Giganta', 'giants']];
+    ['dc:Batman', 'stealth'], ['dc:Captain Atom', 'tech'], ['lotr:Gollum (Sméagol)', 'aquatic'], ['harrypotter:Peter Pettigrew', 'stealth'], ['dc:Giganta', 'giants'],
+    // Round 3: queue items resolved with a specific sourced scene.
+    ['dc:Nightwing', 'stealth'], ['dc:Red Hood', 'stealth'], ['dc:Batwoman', 'stealth'], ['dc:Cassandra Cain', 'stealth'],
+    ['dc:Huntress', 'stealth'], ['dc:Talia al Ghul', 'stealth'], ['lotr:Durin\'s Bane', 'giants'],
+    // Owner rulings 2026-11-11: discovered break-in, solo flying-mount rider, species-level Balrog size.
+    ['dc:Batgirl (Barbara Gordon)', 'stealth'], ['harrypotter:Hermione Granger', 'flight'], ['lotr:Gothmog (Lord of Balrogs)', 'giants']];
   const no = [['lotr:Gandalf', 'flight'], ['lotr:Éomer', 'flight'], ['dc:Firestorm', 'tech'], ['dc:Amanda Waller', 'tech'],
-    ['dc:Deadshot', 'stealth'], ['dc:Nightwing', 'stealth'], ['lotr:Durin\'s Bane', 'giants'], ['harrypotter:Hermione Granger', 'flight'],
+    ['dc:Deadshot', 'stealth'], ['dc:Deathstroke', 'stealth'], ['dc:Darkseid', 'flight'],
     ['harrypotter:Jacob Kowalski', 'magic'], ['harrypotter:Argus Filch', 'magic'], ['dc:The Atom (Ray Palmer)', 'giants']];
   for (const [id, r] of yes) assert.equal(qualifiesUnderPR44(id, r), true, id + ' ' + r);
   for (const [id, r] of no) assert.equal(qualifiesUnderPR44(id, r), false, id + ' ' + r);
   for (const q of game.research.filter(q => ['dc', 'lotr', 'harrypotter'].includes(q.id.split(':')[0]))) {
     assert.equal(qualifiesUnderPR44(q.id, q.tag), false, q.id + ' ' + q.tag + ' is queued, not granted');
   }
+});
+
+/* PR #56 review (2026-11-10). */
+test('round 3: the seven still-queued cases stay queued and ungranted', () => {
+  // Explicit list, so a regenerated index or a trimmed queue cannot quietly regrant one of them.
+  // Batgirl stealth, Hermione flight and Gothmog giants left the queue by owner ruling on 2026-11-11.
+  const QUEUED = [['dc:Robin (Damian Wayne)', 'stealth'], ['dc:Red Robin (Tim Drake)', 'stealth'],
+    ['dc:Deathstroke', 'stealth'], ['dc:Darkseid', 'flight'],
+    ['dc:Trigon', 'flight'], ['lotr:Quickbeam', 'giants'], ['lotr:Carcharoth', 'giants']];
+  for (const [id, rule] of QUEUED) {
+    assert.ok(abilityApi.CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === id && q.tag === rule), id + ' ' + rule + ' must stay in the research queue');
+    assert.equal(qualifiesUnderPR44(id, rule), false, id + ' ' + rule + ' is queued, not granted');
+    for (const t of PR44_ACCEPTED[rule]) assert.ok(!tagsOf(id).includes(t), id + ' must not carry ' + t);
+    assert.ok(!(abilityApi.CHARACTER_ABILITIES[id] || []).some(r => r.tag === rule), id + ' ' + rule + ' has no evidence record');
+  }
+});
+
+test('round 3: Durin\'s Bane is a giant in every continuity by owner ruling (2026-11-11)', () => {
+  const bane = { pool: 'lotr', n: "Durin's Bane" };
+  for (const tag of ['giants', 'giant-sized']) {
+    const p = abilityApi.characterAbilityProvenance(bane, tag);
+    assert.equal(p?.basis, 'evidence', tag);
+    assert.equal(p.record.verification, 'owner-ruling', tag);
+    assert.match(p.record.ruling, /2026-11-11.*no film-only limit/, tag);
+    assert.equal(p.record.continuityScope, undefined, tag + ': no film-only scope');
+    assert.equal(p.record.conflict, undefined, tag + ': settled by the owner, not a conflict');
+    assert.match(p.record.continuity, /films and books/, tag);
+  }
+});
+
+test('round 3: owner rulings of 2026-11-11 are granted and marked as rulings', () => {
+  const RULED = [['dc:Nightwing', 'stealth'], ['dc:Batwoman', 'stealth'], ['dc:Huntress', 'stealth'],
+    ['dc:Talia al Ghul', 'stealth'], ['dc:Batgirl (Barbara Gordon)', 'stealth'],
+    ['harrypotter:Hermione Granger', 'flight'], ['lotr:Gothmog (Lord of Balrogs)', 'giants'], ["lotr:Durin's Bane", 'giants']];
+  for (const [id, rule] of RULED) {
+    const r = (abilityApi.CHARACTER_ABILITIES[id] || []).find(x => x.tag === rule && x.audit === '2026-11-r3');
+    assert.ok(r, id + ' ' + rule + ' has a round 3 record');
+    assert.equal(r.verification, 'owner-ruling', id);
+    assert.match(r.ruling, /^owner-ruled 2026-11-11 \(Garrett\)/, id);
+    assert.ok(qualifiesUnderPR44(id, rule), id + ' ' + rule + ' is granted');
+    assert.ok(!abilityApi.CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === id && q.tag === rule), id + ' left the queue');
+  }
+  // Hermione counts as a solo rider of a flying mount, not as a flyer of her own.
+  assert.ok(tagsOf('harrypotter:Hermione Granger').includes('mount'));
+  assert.ok(!tagsOf('harrypotter:Hermione Granger').includes('natural-flight'));
+});
+
+test('round 3: stealth grants name their scene and say undercover or unseen', () => {
+  const ids = ['dc:Nightwing', 'dc:Red Hood', 'dc:Batwoman', 'dc:Cassandra Cain', 'dc:Huntress', 'dc:Talia al Ghul',
+    'dc:Batgirl (Barbara Gordon)'];
+  const mode = {};
+  for (const id of ids) {
+    const r = abilityApi.CHARACTER_ABILITIES[id].find(x => x.tag === 'stealth' && x.audit === '2026-11-r3');
+    assert.ok(r, id);
+    assert.ok(r.scene && r.scene.length >= 20, id + ' needs a scene');
+    assert.ok(['undercover', 'undetected', 'discovered', 'unspecified'].includes(r.stealthMode), id + ' stealthMode');
+    if (r.stealthMode === 'undercover') assert.match(r.limitation || '', /undercover identity/i, id);
+    mode[id] = r.stealthMode;
+  }
+  assert.equal(mode['dc:Red Hood'], 'undetected');
+  assert.equal(mode['dc:Nightwing'], 'undercover');
+  assert.equal(mode['dc:Talia al Ghul'], 'undercover');
 });
 
 test('Pokémon rules: Gen I Fly earns flight, Surf earns aquatic, Rest is never healing', () => {

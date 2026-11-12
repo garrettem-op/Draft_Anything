@@ -5,7 +5,7 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
 ## What changed
 
 1. **Every roster character now has reviewed ability tags.** `CHARACTER_ABILITY_TAGS` in
-   `data/character-abilities.js` lists every character in every pool: the 848 in the original seven pools, plus
+   `data/character-abilities.js` lists every character in every pool: the 879 in the original seven pools (848 at the time of this audit, plus the 31 Disney characters added to Cartoons on 2026-11-10), plus
    the DC, Middle-earth and Harry Potter pools from PR #42 (1,173 in total). For the new pools, the index reflects
    ChatGPT's seeded power data until their lore research lands. Each list holds the 12 Campaign
    power ids. An empty list means **audited, no qualifying power**, which is different from unknown.
@@ -35,6 +35,8 @@ Owner: Claude (character knowledge). Engine, UI and integration: ChatGPT.
      challenges instead of 13.
 
 Raw research, including rejected claims and researcher notes, is preserved in `research/ABILITY_AUDIT_2026-11.json`.
+
+**Evidence audit (2026-11-10, owner's evidence standard and PR #57 review):** `docs/character-ability-source-audit.md` rates every grant in every pool by evidence quality, not source type, and says who checked it (owner, reviewer, or automated triage). `credible` means a traceable, specific claim is on record, not that it was fact-checked; `corroborated` needs a reviewed agreement marker; `needs-review` names an actual gap; `investigate` covers contradictions. Form, power-up and item dependencies are a separate worklist with stable IDs and proposed handling; nothing is stripped. Regenerate with `node tools/ability-source-audit.cjs --write`; `--check` fails on drift.
 
 ## Coverage, before → after (characters per theme)
 

@@ -127,11 +127,54 @@ function daBoxScore(sport,score,points,seed='',options={}) {
     case 'volleyball': {
       const estimatedPoints=daVolleyballPoints(total,options.note,options.side||0);
       summary.teamRallyPoints=estimatedPoints;
-      metric('KILLS',Math.round(estimatedPoints*.51),r=>['oh1','oh2','mb1','mb2','opp','s'].includes(r.position),r=>val(r,'str')+val(r,'lep')+({oh1:65,opp:60,oh2:50,mb1:38,mb2:38}[r.position]||0),'kills');
-      metric('AST',Math.round(estimatedPoints*.46),only(['s']),r=>val(r,'acc')+val(r,'iq'),'assists');
-      metric('DIG',Math.round(estimatedPoints*.54),null,r=>val(r,'ref')+val(r,'agi')+({lib:120,oh2:45,oh1:25}[r.position]||0),'digs');
-      metric('BLK',Math.round(estimatedPoints*.075),null,r=>val(r,'siz')+val(r,'lep')+({mb1:95,mb2:95,opp:40}[r.position]||0),'blocks');
-      metric('ACE',Math.round(estimatedPoints*.05),null,r=>val(r,'acc')+val(r,'str'),'aces');
+      // Calibrated against 50 distinct 2025 men's NCAA/VNL matches (100 team box
+      // scores). Actual leading-scorer share: p25 26.4%, median 29.7%, p75
+      // 33.3%, p90 36.6%; 17% of teams under 25% and 14% above 35%.
+      // data/research/mens-vb-2025-results.json
+      const pinRoles=['oh1','oh2','opp'],pins=active.filter(r=>pinRoles.includes(r.position));
+      const focusRoll=daHash(seed+':vb:focus'),balanced=focusRoll<.17,dominant=focusRoll>.86;
+      // Balanced games spread attempts across three pins and give middles more
+      // opportunities. Typical games favor high-volume pins and a featured hitter.
+      const roleAttack=balanced
+        ? {oh1:1.25,oh2:1.25,opp:1.25,mb1:.70,mb2:.70,s:.10}
+        : {oh1:1.55,oh2:1.32,opp:1.68,mb1:.52,mb2:.52,s:.10};
+      const focusWeights=pins.map(r=>(roleAttack[r.position]||1)*Math.pow(Math.max(25,r.fit)/70,.8));
+      const focusTotal=focusWeights.reduce((sum,w)=>sum+w,0);
+      let focusIndex=-1,needle=daHash(seed+':vb:featured')*focusTotal;
+      for(let i=0;i<focusWeights.length;i++){needle-=focusWeights[i];if(needle<=0){focusIndex=i;break;}}
+      if(focusIndex<0&&pins.length)focusIndex=pins.length-1;
+      const featuredId=pins[focusIndex]?.id;
+      const usageRoll=daHash(seed+':vb:usage');
+      const featureMultiplier=balanced?1.06:focusRoll>.985?2.6:dominant
+        ? 1.70+.45*usageRoll
+        : 1.15+.33*usageRoll;
+      const attackWeight=r=>{
+        const base=roleAttack[r.position]||.1;
+        const ability=Math.pow(Math.max(25,r.fit)/70,.85);
+        const nightly=.78+.44*daHash(seed+':vb:attack:'+r.position+':'+r.id);
+        return Math.max(.01,base*ability*nightly*(r.id===featuredId?featureMultiplier:1));
+      };
+      summary.attackFeatured=balanced?null:featuredId;
+      summary.attackBalanced=balanced;
+      // Strict position eligibility: liberos only DIG/AST/ACE; middles only KILLS/BLK/ACE.
+      metric('KILLS',Math.round(estimatedPoints*.51),only(['oh1','oh2','mb1','mb2','opp','s']),attackWeight,'kills');
+      metric('AST',Math.round(estimatedPoints*.46),only(['s','lib','oh1','oh2','opp']),
+        r=>(val(r,'acc')+val(r,'iq'))*({s:9,lib:.36,oh1:.22,oh2:.22,opp:.18}[r.position]||.1),'assists');
+      metric('DIG',Math.round(estimatedPoints*.54),only(['lib','s','oh1','oh2','opp']),
+        r=>(val(r,'ref')+val(r,'agi'))*({lib:2.9,s:.85,oh1:1.25,oh2:1.55,opp:.62}[r.position]||1),'digs');
+      metric('BLK',Math.round(estimatedPoints*.075),only(['mb1','mb2','opp','oh1','oh2','s']),
+        r=>(val(r,'siz')+val(r,'lep'))*({mb1:3.2,mb2:3.2,opp:1.15,oh1:.55,oh2:.55,s:.25}[r.position]||1),'blocks');
+      // Serving aces are sporadic and may be concentrated on one hot server.
+      const serverIndex=Math.floor(daHash(seed+':vb:server')*active.length);
+      const serverId=active[serverIndex]?.id;
+      metric('ACE',Math.round(estimatedPoints*.05),null,
+        r=>(val(r,'acc')+val(r,'str'))*(r.id===serverId?2.25:1)*(.65+.7*daHash(seed+':vb:serve:'+r.id)),'aces');
+      // Individual scoring points exclude opposition errors and do not include
+      // digs or assists. Sum of player PTS = team kills + blocks + aces.
+      for(const r of active){
+        const stat=k=>r.stats.find(([name])=>name===k)?.[1]||0;
+        r.stats.unshift(['PTS',stat('KILLS')+stat('BLK')+stat('ACE')]);
+      }
       break;
     }
     default:metric('Scoring',total,null,r=>r.fit,'scoring');
@@ -151,7 +194,7 @@ function daReport(sport,score,points,title='',options={}) {
   const top=[...active].sort((a,b)=>b.delta-a.delta)[0];
   const low=[...active].sort((a,b)=>a.delta-b.delta)[0];
   const weakest=[...active].sort((a,b)=>a.fit-b.fit)[0];
-  const primary=({basketball:'PTS',football:'TD',brawl:'DMG',soccer:'G',hockey:'G',baseball:'R',volleyball:'KILLS'})[sport]||'Scoring';
+  const primary=({basketball:'PTS',football:'TD',brawl:'DMG',soccer:'G',hockey:'G',baseball:'R',volleyball:'PTS'})[sport]||'Scoring';
   const getMetric=r=>r.stats.find(x=>x[0]===primary)?.[1]||0;
   const leader=[...active].sort((a,b)=>getMetric(b)-getMetric(a))[0];
   const scouting=leader&&weakest?`<p class="note"><b>Scouting takeaway:</b> ${esc(leader.name)} led the roster in projected ${esc(primary)} (${getMetric(leader)}). Lowest positional fit: ${esc(weakest.name)} (${weakest.fit}) at ${esc(weakest.role)}; consider that slot first when evaluating possible upgrades. These are model estimates, not evidence of actual poor play.</p>`:'';
@@ -254,15 +297,42 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
   const total=(rows,key)=>rows.reduce((sum,row)=>sum+(row.stats.find(x=>x[0]===key)?.[1]||0),0);
   const leftTotal=total(left,primary),rightTotal=total(right,primary),denom=Math.max(1,leftTotal+rightTotal);
   const lPct=Math.round(100*leftTotal/denom);
-  const cell=(r)=>{
+  const fighterLogs=(options.combat?.sides||[]).map(side=>new Map((side?.fighters||[]).map(f=>[f.id,f])));
+  const cell=(r,side=0)=>{
     if(!r)return '<span class="muted">—</span>';
     const main=daLineupMetric(r,sport);
+    const log=sport==='brawl'?fighterLogs[side]?.get(r.id):null;
+    // Native nested details avoid an additional dialog and explain the actual
+    // per-character outcome; never claim DMG is an immutable lore attribute.
+    let explanation='';
+    if(log&&typeof log.attacks==='number'){
+      const hits=Number(log.hits)||0,attempts=Number(log.attacks)||0;
+      const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg).slice(0,3);
+      const why=[
+        log.apexRank===2?`Apex form: exceptional damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:
+          log.apexRank===1?`Empowered form: enhanced damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:'',
+        `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive.`,
+        log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
+        targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
+        log.wardHp?`Bounded power ward: +${log.wardHp} protective HP at start.`:'',
+        log.wear?`Ability strain: ${log.wear} HP lost (not credited as opponent DMG).`:'',
+        log.koRound?`Knocked out in round ${log.koRound}.`:
+          `Remaining HP: ${Number(log.hp)||0}/${Number(log.maxHp)||0}.`,
+        log.powerLimit?`Limit: ${esc(log.powerLimit)}`:''
+      ].filter(Boolean).join(' ');
+      // Source links are shown only for allowlisted editorial publishers.
+      // Variant metadata is not assumed safe to interpolate into a URL.
+      const source=String(log.powerSource||'');
+      const trusted=/^https:\/\/(?:www\.)?(?:dc\.com|marvel\.com|tolkiengateway\.net)\//.test(source);
+      const sourceHTML=trusted?` <a href="${esc(source)}" target="_blank" rel="noopener noreferrer">Source material</a>`:'';
+      explanation=`<details class="da-fighter-why"><summary>Why this DMG?</summary><div>${why}${sourceHTML}</div></details>`;
+    }
     return `<div class="da-player"><span class="da-name">${esc(r.name)}</span><span class="da-primary">${main?`<b class="num">${main[1]}</b> <small>${esc(main[0])}</small>`:'—'}</span>
-      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span></div>`;
+      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span>${explanation}</div>`;
   };
   const pairs=Array.from({length:Math.max(left.length,right.length)},(_,i)=>{
     const a=left[i],b=right[i],role=a?.role||b?.role||'';
-    return `<tr><td class="da-side">${cell(a)}</td><th scope="row" class="da-role">${esc(role)}</th><td class="da-side">${cell(b)}</td></tr>`;
+    return `<tr><td class="da-side">${cell(a,0)}</td><th scope="row" class="da-role">${esc(role)}</th><td class="da-side">${cell(b,1)}</td></tr>`;
   }).join('');
   const active=rows=>rows.filter(r=>!['hc','mgr','cmd','bn'].includes(r.position));
   const leading=rows=>active(rows).slice().sort((a,b)=>(daLineupMetric(b,sport)?.[1]||0)-(daLineupMetric(a,sport)?.[1]||0))[0];

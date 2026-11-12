@@ -38,8 +38,16 @@ test('all modes use the same documented character form catalog',()=>{
     'Perfect Season and Dealt Hand must share the Surge UI');
   assert.match(campaign,/renderVariantSurgePanel\(v,'camp-variant','camp-variant-target',valid,'challenge'\)/,
     'Campaign must share the Surge UI');
-  assert.match(html,/renderVariantSurgePanel\(v,'h-variant','h-variant-target',true,'match'\)/,
-    'Head-to-Head must share the Surge UI');
+  // H2H intentionally uses the newer on-character Surge prompt, not the
+  // older dropdown panel, but must still use the shared form catalog/engine.
+  assert.match(html,/function renderH2HPowers\(d\)/,
+    'Head-to-Head must present its Surge phase');
+  assert.match(html,/variantSurgeCandidates\(\{sport:d.sport,roster:rosterOf\(d,me\)/,
+    'Head-to-Head must use documented form eligibility');
+  assert.match(html,/useVariantSurge\(v,target,'h2h\|'/,
+    'Head-to-Head must use the same Surge transformation engine');
+  assert.match(html,/case 'h-variant-confirm':/,
+    'Head-to-Head must expose the on-character Surge confirmation');
   assert.match(html,/case 'c-variant':/);
   assert.match(html,/case 'h-variant':/);
   assert.match(html,/case 'camp-variant':/);
@@ -78,7 +86,8 @@ test('special cosmic forms contribute their bonus exactly once through universal
     coachMult:()=>1,benchMult:()=>1,
     synergyOf:()=>({total:0}),
     sigOf:rows=>({lift:rows[0].cand.sig?0.8:0,chaos:0,spark:[],list:[]}),
-    muppetForceTeamwork:()=>({points:0})
+    muppetForceTeamwork:()=>({points:0}),
+    benchChemistry:()=>({points:0,percent:0,sidekick:false})
   };
   vm.runInNewContext(source+'; this.score=teamScore;',scoreContext);
   const base=scoreContext.score('test',{a:thor});
