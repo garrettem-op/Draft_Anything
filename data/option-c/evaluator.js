@@ -238,8 +238,10 @@
       const assessment = evaluateMatchup({ sportKey, teamA: A, teamB: B, mode: 'shadow', teamNames: o.teamNames, context: { sigma } });
       const legacy = winsA / n, pA = assessment.sides[0].probability, range = assessment.sides[0].probabilityRange;
       return { sportKey, seeds: n, sigma, legacyWinRateA: RT.round(legacy, 4), optionCProbabilityA: pA, optionCRangeA: range,
-        // The estimate never reports beyond 5%/95%, so a 0% or 100% frequency is compared at that bound.
-        withinRange: Math.min(1 - PR.MODEL.floor, Math.max(PR.MODEL.floor, legacy)) >= range[0] - 1e-9 && Math.min(1 - PR.MODEL.floor, Math.max(PR.MODEL.floor, legacy)) <= range[1] + 1e-9, sameFavorite: (legacy > 0.5) === (pA > 0.5) || pA === 0.5 || legacy === 0.5,
+        // Compare the raw observed frequency. Clamping it to the model's 5%-95%
+        // reporting bounds would falsely mark 0/100% samples as "within range".
+        withinRange: legacy >= range[0] - 1e-9 && legacy <= range[1] + 1e-9,
+        sameFavorite: (legacy > 0.5) === (pA > 0.5) || pA === 0.5 || legacy === 0.5,
         status: assessment.status, basis: assessment.probabilityModel.basis, assessment };
     },
   };
