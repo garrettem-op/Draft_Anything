@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "kind": "pre-implementation qualitative benchmark registry",
+  "kind": "qualitative benchmark registry (20 pre-implementation cases + PR 1 shadow-evaluator fixtures)",
   "note": "Directional rules/acceptance cases, NOT verified quantitative outcomes or automatic ability grants. Case references must be validated against exact in-game selected identities/forms; content under needs-review is not an approved sports-rule ruling.",
   "cases": [
     {
@@ -293,6 +293,70 @@
         "One well-documented capability can have different competitive effect for libero, goalkeeper and other positions",
         "Position evaluation retains numeric 12-attribute baseline and can express nonadditive power consequences",
         "No universal combat tier is used as a substitute for sport position fit"
+      ]
+    },
+    {
+      "id": "combat-unreviewed-form-no-powers",
+      "mode": "brawl",
+      "category": "form-identity",
+      "participants": [
+        "dc:Batman"
+      ],
+      "reviewState": "approved-structural",
+      "addedIn": "PR 1 shadow evaluator",
+      "basis": "docs/brawl-combat-model.md rule 1 and docs/V2_OPTION_C_EVALUATOR_BUILD.md: unreviewed forms change stats only",
+      "checks": [
+        "A selected form without a reviewed ability profile receives no power, guard, weakness or Apex rank",
+        "Its combat evidence is reported as unknown rather than inherited from the base character",
+        "Base-character ability tags are downgraded to needs-review for the form"
+      ]
+    },
+    {
+      "id": "evidence-undocumented-ability-unknown",
+      "mode": "all",
+      "category": "continuity-guard",
+      "participants": [
+        "nba:Michael Jordan",
+        "dc:Black Adam"
+      ],
+      "reviewState": "approved-structural",
+      "addedIn": "PR 1 shadow evaluator",
+      "basis": "docs/OPTION_C_CHARACTER_INTELLIGENCE.md: an unreviewed ability is unknown, not automatically absent",
+      "checks": [
+        "A capability with no record is reported as unknown, never as a researched no",
+        "An unknown capability grants no advantage in any sport",
+        "The matchup assessment lists unresearched kits as a material uncertainty"
+      ]
+    },
+    {
+      "id": "coach-commander-effects",
+      "mode": "all",
+      "category": "legacy-effect-ledger",
+      "participants": [
+        "nba:Phil Jackson",
+        "mcu:Nick Fury"
+      ],
+      "reviewState": "approved-rule",
+      "addedIn": "PR 1 shadow evaluator",
+      "basis": "Existing Version 1 coach/commander multiplier and coaching-style rules",
+      "checks": [
+        "Head coach and Battle Royale commander effects are observed with the character who supplies them",
+        "The coach multiplier is recorded inside the position-fit baseline and not added a second time",
+        "Coach and bench slots receive no individual ToonForce multiplier"
+      ]
+    },
+    {
+      "id": "ledger-derived-never-rating",
+      "mode": "all",
+      "category": "legacy-effect-ledger",
+      "participants": [],
+      "reviewState": "approved-structural",
+      "addedIn": "PR 1 shadow evaluator",
+      "basis": "CLAUDE.md and docs/V2_OPTION_C_EVALUATOR_BUILD.md: derived effects live in a separate partition and are never added to Version 1 scores",
+      "checks": [
+        "Option C derived entries are probability-interaction or tactical only",
+        "A derived entry that overlaps a legacy effect names the legacy stack key",
+        "Observed team-score entries reconcile exactly to the Version 1 rating"
       ]
     }
   ]

@@ -561,6 +561,34 @@ const server=http.createServer((req,res)=>{
     'Darkseid',combatAudit.avgDarkseid.toFixed(1),
     'Chungus wins',combatAudit.wins,
     'Hellbat below Joker',combatAudit.underJoker,'Hellbat no attacks',combatAudit.noAttacks);
+  // Option C shadow evaluator (Version 2): present in the real browser, OFF by
+  // default, and unable to change a seeded result, the RNG stream or storage.
+  const optionC=await page.evaluate(()=>{
+    const OC=window.DA_OPTION_C;
+    const team=(sport,pool,swap)=>{const r={},list=getCands(pool);SPORTS[sport].pos.forEach((p,i)=>r[p.id]=list[i]);
+      if(swap)for(const [slot,pl,name] of swap)r[slot]=getCands(pl).find(c=>c.n===name);return teamScore(sport,r);};
+    const A=team('brawl','dc',[['d1','toons','Bugs Bunny'],['bn','muppets','Kermit the Frog']]),B=team('brawl','mcu');
+    const storageBefore=JSON.stringify(Object.keys(localStorage).sort());
+    const run=()=>{const r=rngFrom('option-c-browser');const games=[];for(let k=0;k<30;k++)games.push(playGame('brawl',A,B,6,r,k%2===1));return JSON.stringify(games)+'|'+r();};
+    const defaultOff=OC.shadow.enabled===false,off=run();
+    OC.shadow.enable();const on=run();const report=OC.shadow.report();OC.shadow.disable();OC.shadow.clear();
+    const frozen=JSON.stringify([A,B]);
+    const a=OC.evaluateMatchup({sportKey:'brawl',teamA:A,teamB:B}),b=OC.evaluateMatchup({sportKey:'brawl',teamA:B,teamB:A});
+    return {present:!!OC,version:OC.modelVersion,defaultOff,identical:off===on,recorded:report.games,errors:report.errors,
+      unchanged:JSON.stringify([A,B])===frozen,sum:a.sides[0].probability+a.sides[1].probability,
+      mirrored:a.sides[0].probability===b.sides[1].probability,status:a.status,
+      reconciled:a.ledgerChecks.reconciliation.every(x=>x.ok)&&a.ledgerChecks.validation.ok,
+      storageSame:JSON.stringify(Object.keys(localStorage).sort())===storageBefore};
+  });
+  assert.ok(optionC.present&&optionC.version==='option-c-shadow-v1','Option C evaluator must load in the browser');
+  assert.ok(optionC.defaultOff,'Option C shadow mode must be OFF by default');
+  assert.ok(optionC.identical,'Shadow mode changed seeded live results or the RNG stream');
+  assert.equal(optionC.recorded,30,'Shadow mode should observe each live game when a developer enables it');
+  assert.equal(optionC.errors,0);
+  assert.ok(optionC.unchanged&&optionC.storageSame,'Shadow evaluation must not mutate teams or write storage');
+  assert.ok(Math.abs(optionC.sum-1)<1e-12&&optionC.mirrored,'Option C probabilities must be complementary and side-symmetric');
+  assert.ok(optionC.reconciled,'Option C effect ledger must reconcile to the Version 1 rating');
+  console.log('Option C shadow evaluator: browser parity OK ('+optionC.recorded+' games observed, status '+optionC.status+').');
   assert.equal(errors.length,0,'Browser JS errors: '+errors.join('; '));
   process.stdout.write('Browser gameplay smoke test passed: mobile campaign draft, A-Z, info scroll, simulated result.\\n');
  } finally {
