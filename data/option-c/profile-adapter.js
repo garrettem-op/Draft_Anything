@@ -39,7 +39,9 @@
       case 'corroborated': return EVIDENCE.REVIEWED;
       case 'credible':
       case 'unsourced': return EVIDENCE.PROVISIONAL; // reviewed grant; no source-linked feat yet
-      case 'investigate': return EVIDENCE.CONTRADICTED;
+      // An investigation flag means the grant's evidence conflicts; it is not a researched denial.
+      // Explicitly rejected grants are tracked separately in deniedTags as CONTRADICTED.
+      case 'investigate': return EVIDENCE.NEEDS_REVIEW;
       default: return EVIDENCE.NEEDS_REVIEW;
     }
   }
