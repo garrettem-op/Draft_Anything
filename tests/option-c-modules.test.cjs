@@ -263,6 +263,15 @@ test('the probability model is symmetric, bounded, coarse and explains itself', 
   assert.ok(wide.range[0][1] - wide.range[0][0] > tight.range[0][1] - tight.range[0][0], 'missing evidence widens the range');
 });
 
+test('comparison ranges include raw 0% and 100% sample frequencies without clipping', () => {
+  assert.equal(PR.withinRange(0, [0.05, 0.60]), false, '0/300 wins must not be called inside a 5%-60% estimate');
+  assert.equal(PR.withinRange(1, [0.75, 0.95]), false, '300/300 wins must not be clipped into a 95% upper bound');
+  assert.equal(PR.withinRange(0.05, [0.05, 0.60]), true);
+  assert.equal(PR.withinRange(0.95, [0.75, 0.95]), true);
+  assert.equal(PR.withinRange(0.4, [0.25, 0.85]), true);
+  assert.equal(PR.withinRange(NaN, [0.05, 0.95]), false);
+});
+
 test('the public interface is stable, shadow-only and off by default', () => {
   assert.equal(OC.schemaVersion, 1);
   assert.equal(OC.modelVersion, 'option-c-shadow-v1');
