@@ -80,7 +80,7 @@ test('rejected grants surface as contradicted and evidence statuses map from the
   assert.equal(PA.tagStatus('corroborated'), 'reviewed');
   assert.equal(PA.tagStatus('credible'), 'provisional');
   assert.equal(PA.tagStatus('needs-review'), 'needs-review');
-  assert.equal(PA.tagStatus('investigate'), 'contradicted');
+  assert.equal(PA.tagStatus('investigate'), 'needs-review', 'a disputed grant is unresolved, not disproven');
   const superman = P(cand('dc', 'Superman'));
   assert.equal(superman.abilityTags.find(t => t.tag === 'flight').status, 'needs-review');
 });
