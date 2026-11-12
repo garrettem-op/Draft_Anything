@@ -19,6 +19,7 @@
   const isNode = typeof module !== 'undefined' && !!module.exports && typeof require === 'function';
   const RT = NS.runtime || (isNode ? require('./runtime.js') : null);
   const REVIEWED = NS.reviewedCapabilities || (isNode ? require('./reviewed-capabilities.js') : null);
+  const MCU_BATCH_01 = NS.mcuResearchBatch01 || (isNode ? require('./mcu-research-batch-01.js') : null);
   const { EVIDENCE, ATTR_KEYS } = RT;
   const PROFILE_VERSION = 'option-c-profile-v1';
 
@@ -219,7 +220,9 @@
     const continuity = continuityOf(candidate, isVariant, tagInfo.tags, signature, toon || muppet);
     if (continuity.status === EVIDENCE.NEEDS_REVIEW) gaps.push('Continuity is not adjudicated for this entry.');
 
+    const researchProfile = !isVariant ? MCU_BATCH_01.profileFor(id) : null;
     return {
+      researchProfile,
       schemaVersion: RT.SCHEMA_VERSION, profileVersion: PROFILE_VERSION,
       id, formId, key: formId || id, pool, baseName, formName,
       displayName: String(candidate.n), isVariant, variantReviewed,
