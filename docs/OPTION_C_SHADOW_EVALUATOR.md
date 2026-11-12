@@ -67,7 +67,7 @@ Each file is a classic browser script and a CommonJS module. `tests/helpers/opti
 `reviewed` · `provisional` · `unknown` · `needs-review` · `contradicted`.
 
 - Combat evidence of a character: `reviewed` when a typed, sourced battle or form profile exists; `provisional` when only ability tags or ToonForce/MuppetForce facets exist; `unknown` otherwise. **Unknown is never treated as "has no powers".**
-- Ability tags map from the ability index: owner-ruling/corroborated → `reviewed`; credible or an unsourced reviewed grant → `provisional`; needs-review → `needs-review`; conflict → `contradicted`. Rejected grants (`CHARACTER_ABILITY_DISPUTES`) appear as `contradicted`.
+- Ability tags map from the ability index: owner-ruling/corroborated → `reviewed`; credible or an unsourced reviewed grant → `provisional`; needs-review or an unadjudicated evidence conflict → `needs-review`. Only expressly rejected grants (`CHARACTER_ABILITY_DISPUTES`) appear as `contradicted`; a record under investigation is not treated as disproven.
 - A selected form is its own identity. An unreviewed form gets no power, guard, weakness or Apex rank, and the base character's tags are downgraded to `needs-review` for it.
 - Continuity is `needs-review` unless a record states it. `mcu:Silver Surfer` is not given a comics kit.
 
