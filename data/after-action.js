@@ -291,8 +291,12 @@ function daPointsFor(game,teamIndex) {
 }
 function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName='Your team',rightName='Opponent',seed='',options={}) {
   if(!leftScore?.rows||!rightScore?.rows)return '';
-  const left=daBoxScore(sport,leftScore,leftPoints,seed+':left',{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints,combatSide:options.combat?.sides?.[0]});
-  const right=daBoxScore(sport,rightScore,rightPoints,seed+':right',{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints,combatSide:options.combat?.sides?.[1]});
+  // In Head-to-Head the left/right columns swap with the viewing player.
+  // Seed each team's projections by its stable match-side identity instead of
+  // its current on-screen column so both clients see identical box scores.
+  const stableSideKeys=options.stableSideKeys||['left','right'];
+  const left=daBoxScore(sport,leftScore,leftPoints,seed+':'+stableSideKeys[0],{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints,combatSide:options.combat?.sides?.[0]});
+  const right=daBoxScore(sport,rightScore,rightPoints,seed+':'+stableSideKeys[1],{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints,combatSide:options.combat?.sides?.[1]});
   const primary=sport==='brawl'&&!options.combat?'KOs':daMetricKey(sport);
   const total=(rows,key)=>rows.reduce((sum,row)=>sum+(row.stats.find(x=>x[0]===key)?.[1]||0),0);
   const leftTotal=total(left,primary),rightTotal=total(right,primary),denom=Math.max(1,leftTotal+rightTotal);
