@@ -9,6 +9,14 @@ Draft anyone into any sport: all-time NBA legends, Marvel, cartoons, Muppets, vi
 
 Live at https://garrettem-op.github.io/Draft_Anything/
 
+## Version 2 development (not published)
+
+**Do not deploy this branch.** Version 1 is frozen at `releases/v1.0.0` and remains live on GitHub Pages through `main`. The Option C qualitative evaluator is being designed and implemented on `develop/v2-option-c`, with first changes limited to a **default-OFF shadow mode**.
+
+- [Version 2 evaluator build contract](docs/V2_OPTION_C_EVALUATOR_BUILD.md)
+- [Claude Fable implementation handoff](docs/V2_CLAUDE_FABLE_HANDOFF.md)
+- [Tracking issue #93](https://github.com/garrettem-op/Draft_Anything/issues/93)
+
 ## Version 1 baseline (November 12, 2026)
 
 The current pre–Option C playable build is the **Version 1 baseline**. See [release scope, merged-work reconciliation, live publication status and known deferred issues](docs/V1_BASELINE_2026-11-12.md). The approved Option C evaluator remains a Version 2 project, not a shipped game feature.
