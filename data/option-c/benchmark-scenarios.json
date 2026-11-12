@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "kind": "pre-implementation qualitative benchmark registry",
+  "note": "Directional rules/acceptance cases, NOT verified quantitative outcomes or automatic ability grants. Case references must be validated against exact in-game selected identities/forms; content under needs-review is not an approved sports-rule ruling.",
+  "cases": [
+    {
+      "id": "combat-identity-form-hellbat",
+      "mode": "brawl",
+      "category": "form-identity",
+      "participants": [
+        "dc:Batman",
+        "dc:Hellbat Armor Batman"
+      ],
+      "reviewState": "approved-structural",
+      "checks": [
+        "Selected Hellbat form is distinct from base Batman; base receives no Apex gear",
+        "Reviewed selected form activates approved exceptional profile and associated limitations",
+        "Do not guarantee a win against high-order counterabilities"
+      ]
+    },
+    {
+      "id": "combat-identity-form-king-thanos",
+      "mode": "brawl",
+      "category": "form-identity",
+      "participants": [
+        "mcu:Thanos",
+        "mcu:King Thanos"
+      ],
+      "reviewState": "approved-structural",
+      "checks": [
+        "Base and reviewed form have distinct runtime identities and powers",
+        "King Thanos form-specific impact survives legacy attribute-score caps",
+        "Unselected form must not leak into base character"
+      ]
+    },
+    {
+      "id": "combat-continuity-black-adam-surfer",
+      "mode": "brawl",
+      "category": "continuity-guard",
+      "participants": [
+        "dc:Black Adam",
+        "mcu:Silver Surfer"
+      ],
+      "reviewState": "needs-review",
+      "checks": [
+        "Preserve exact pool/continuity for both participants",
+        "Do not silently treat mcu Silver Surfer as mainline Marvel Comics Silver Surfer",
+        "Do not hardcode the conversational 80/20 judgment as a canonical outcome"
+      ],
+      "uncertainty": "Cross-media roster continuity and feats require matching source review before numeric odds benchmark"
+    },
+    {
+      "id": "combat-cosmic-vs-physical",
+      "mode": "brawl",
+      "category": "typed-counter",
+      "participants": [
+        "mcu:Franklin Richards",
+        "mcu:Abomination"
+      ],
+      "reviewState": "needs-review",
+      "checks": [
+        "Reality/cosmic abilities are not silently reduced to physical punch-strength score",
+        "Individual power activation, reach and limitations must have source evidence",
+        "No unsupported baby/adult or comic/screen version transfer"
+      ],
+      "uncertainty": "Continuity, variant, and available feats must be reviewed for each exact roster portrayal"
+    },
+    {
+      "id": "combat-high-tier-vs-high-tier",
+      "mode": "brawl",
+      "category": "typed-counter",
+      "participants": [
+        "dc:Darkseid",
+        "dc:The Spectre"
+      ],
+      "reviewState": "needs-review",
+      "checks": [
+        "High-order opposing defenses and counters are considered",
+        "Do not grant automatic invulnerability from a coarse tier",
+        "No fixed universal odds without reviewed continuity and feat basis"
+      ],
+      "uncertainty": "Cross-version portrayal and exceptional power limitations need expert review"
+    },
+    {
+      "id": "bench-sidekick-no-lead",
+      "mode": "all",
+      "category": "sidekick",
+      "participants": [
+        "dc:Robin (Damian Wayne)"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "Sidekick in the Bench/Reinforcement slot gets the existing unconditional lock even with no lead",
+        "Role tag is not an innate power or combat tier",
+        "Do not apply legacy lock a second time in shadow"
+      ]
+    },
+    {
+      "id": "bench-sidekick-reunion",
+      "mode": "all",
+      "category": "sidekick",
+      "participants": [
+        "dc:Robin (Damian Wayne)",
+        "dc:Batman"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "Named lead's presence activates the additional reunion benefit",
+        "Coach counts as eligible lead when roster rules permit",
+        "Combined bench-chemistry percentage remains at most 8 percent"
+      ]
+    },
+    {
+      "id": "bench-group-mesh-non-sidekick",
+      "mode": "all",
+      "category": "sidekick",
+      "participants": [
+        "nba:Stephen Curry",
+        "nba:Klay Thompson"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "A non-sidekick bench candidate can receive shared chemistry-group mesh benefit",
+        "Do not require the sidekick tag for group mesh",
+        "Combined bench-chemistry percentage remains at most 8 percent"
+      ]
+    },
+    {
+      "id": "muppet-cross-pool-ensemble",
+      "mode": "all",
+      "category": "muppetforce",
+      "participants": [
+        "muppets:Kermit the Frog",
+        "mcu:Iron Man"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "An eligible Muppet contributes a single full-team ensemble benefit",
+        "The non-Muppet teammate benefits without acquiring the MuppetForce trait",
+        "Do not double-apply an aura already inside existing teamScore rating"
+      ]
+    },
+    {
+      "id": "muppet-contribution-weights",
+      "mode": "all",
+      "category": "muppetforce",
+      "participants": [
+        "muppets:Kermit the Frog",
+        "muppets:Fozzie Bear",
+        "mcu:Iron Man"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "Starter, coach and bench Muppet ensemble contributions use existing distinct weights",
+        "Inclusion of multiple Muppets obeys diminishing returns",
+        "Total teamwide MuppetForce contribution is capped at 22 percent"
+      ]
+    },
+    {
+      "id": "toonforce-not-team-aura",
+      "mode": "all",
+      "category": "toonforce",
+      "participants": [
+        "toons:Bugs Bunny",
+        "mcu:Iron Man"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "ToonForce individual multiplier stays attached to eligible toon",
+        "No automatic full-team ToonForce aura",
+        "Optional spotlight event uses its own conditional seeded trigger and cannot be counted twice"
+      ]
+    },
+    {
+      "id": "legacy-signatures-chemistry",
+      "mode": "all",
+      "category": "legacy-effect-ledger",
+      "participants": [
+        "nba:Michael Jordan",
+        "nba:Scottie Pippen"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "Observe existing named chemistry/signature bonuses in the ledger",
+        "An observation must never be applied a second time as a fresh Option C bonus",
+        "Changing a named partner or coach predictably changes only the eligible relationship effects"
+      ]
+    },
+    {
+      "id": "shadow-symmetry",
+      "mode": "all",
+      "category": "determinism",
+      "participants": [],
+      "reviewState": "approved-rule",
+      "checks": [
+        "evaluate(A,B) and evaluate(B,A) have swapped side labels and complementary probabilities",
+        "Repeat evaluations are deterministic",
+        "Evaluation does not mutate passed team objects or consume game RNG"
+      ]
+    },
+    {
+      "id": "shadow-no-live-result-change",
+      "mode": "all",
+      "category": "determinism",
+      "participants": [],
+      "reviewState": "approved-rule",
+      "checks": [
+        "Legacy results with shadow disabled match baseline golden seeds",
+        "Legacy results with shadow enabled match the same baseline outcomes, scores and player box scores",
+        "No additional randomness changes series or Head-to-Head cross-client determinism"
+      ]
+    },
+    {
+      "id": "sport-basketball-flight-rules",
+      "mode": "basketball",
+      "category": "sport-officiating",
+      "participants": [
+        "dc:Superman"
+      ],
+      "reviewState": "needs-review",
+      "checks": [
+        "Permitted flight may influence coverage and play execution",
+        "Flight does not waive ordinary ball-possession, traveling, scoring or interference rules",
+        "Rules ambiguities must yield needs-review rather than an invented advantage"
+      ],
+      "uncertainty": "Precise airborne dribbling/traveling applications need an approved game-specific officiating interpretation"
+    },
+    {
+      "id": "sport-football-portal-rules",
+      "mode": "football",
+      "category": "sport-officiating",
+      "participants": [
+        "mcu:Doctor Strange"
+      ],
+      "reviewState": "needs-review",
+      "checks": [
+        "Portal effect is not assumed equivalent to a legal forward pass",
+        "Apply field/possession/player rules based on documented ruling",
+        "Unknown legal use yields needs-review and no silent numeric buff"
+      ],
+      "uncertainty": "Portal-mediated forward pass, field bounds, and interference legality need an approved football ruling"
+    },
+    {
+      "id": "sport-basketball-telekinesis-rules",
+      "mode": "basketball",
+      "category": "sport-officiating",
+      "participants": [
+        "mcu:Scarlet Witch"
+      ],
+      "reviewState": "needs-review",
+      "checks": [
+        "Telekinesis is a real capability only for a continuity-matching source",
+        "Moving the basketball without ordinary legal handling is not silently accepted",
+        "Unresolved rules yield needs-review, not automatic dominance"
+      ],
+      "uncertainty": "Ball contact/handling through telekinesis needs officiating review"
+    },
+    {
+      "id": "sport-volleyball-libero-restrictions",
+      "mode": "volleyball",
+      "category": "stat-eligibility",
+      "participants": [
+        "mcu:Spider-Man"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "Libero can receive appropriate anticipation/reflex advantages within rules",
+        "Libero is not credited with kills or blocks by the existing score allocator",
+        "Libero's legal roles and attacks are constrained by the game rules, regardless of supernatural strength"
+      ]
+    },
+    {
+      "id": "sport-volleyball-middle-restrictions",
+      "mode": "volleyball",
+      "category": "stat-eligibility",
+      "participants": [],
+      "reviewState": "approved-rule",
+      "checks": [
+        "Middle Blocker is not assigned digs in Draft Anything's existing box score model",
+        "Kills, blocks and aces contribute to individual PTS",
+        "PTS = KILLS + BLK + ACE in match reporting"
+      ]
+    },
+    {
+      "id": "sports-position-specific-value",
+      "mode": "all",
+      "category": "position-context",
+      "participants": [
+        "mcu:Spider-Man"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "One well-documented capability can have different competitive effect for libero, goalkeeper and other positions",
+        "Position evaluation retains numeric 12-attribute baseline and can express nonadditive power consequences",
+        "No universal combat tier is used as a substitute for sport position fit"
+      ]
+    }
+  ]
+}
