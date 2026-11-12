@@ -329,8 +329,10 @@
         "end": 11,
         "iq": 10
       },
-      "origin": "Thanos (2017) #13–18 · Thanos Wins",
-      "continuity": "Alternate future"
+      "origin": "Thanos (2016) #13–18 · Thanos Wins",
+      "continuity": "Alternate future",
+      "source": "https://www.marvel.com/comics/discover/1214/thanos-wins",
+      "ratingBonus": 2.5
     },
     {
       "name": "Heart of the Universe Thanos",
