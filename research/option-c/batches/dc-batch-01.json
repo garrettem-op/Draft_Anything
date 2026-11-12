@@ -1,0 +1,324 @@
+{
+  "batchId": "DC research batch 01 (queue order: Alfred Pennyworth to Batman)",
+  "schemaVersion": 1,
+  "pool": "dc",
+  "researchedBy": "Claude (claude-opus-5-5), autonomous V2 run 2026-11-12",
+  "method": "Web research against encyclopedic and issue-index pages. Every feat names the issue or storyline the cited page gives. Claims the cited page did not support were left out or listed under unknowns. No numeric tiers, no win probabilities. All records stay provisional until a different contributor checks the cited support.",
+  "baselineContinuity": "Mainline DC Comics, matching data/pool-lore-dc.js. Films, animation, games and Elseworlds are excluded unless named.",
+  "characters": [
+    {
+      "id": "dc:Alfred Pennyworth",
+      "continuity": "Mainline DC Comics, Golden Age (Batman #16, 1943) through Rebirth; dead in primary continuity since Batman vol. 3 #77 (2019)",
+      "summary": "The Wayne family butler is a trained ex-soldier, medic, actor and intelligence hand. He fights only as an ordinary older man and is mostly a support and logistics piece, not a frontline combatant.",
+      "offense": {
+        "domains": ["physical"],
+        "techniques": ["armed and unarmed combat (below Bruce Wayne's level)", "shotgun, the one firearm Batman tolerates him carrying", "disguise and voice impersonation", "espionage and information gathering"],
+        "range": "melee and short-range firearm"
+      },
+      "defense": {
+        "mechanisms": ["ordinary human durability", "deception and avoidance rather than toughness"]
+      },
+      "support": ["Field medicine: suturing, bullet removal, arthroscopy", "Maintains and builds Batcave technology including the Batcomputer"],
+      "feats": [
+        {"claim": "Fought two slavers on his own during No Man's Land before Batman rescued him.", "citation": "Legends of the Dark Knight #118", "source": 0},
+        {"claim": "Escaped a cell and knocked out Hush.", "citation": "Batman Eternal #47", "source": 0},
+        {"claim": "Tricked Bane into helping him reach an emergency cave under Arkham, where he called for help.", "citation": "Batman Eternal #31", "source": 0},
+        {"claim": "Shot down the Batwing with Batman flying it, under Two-Face's blackmail.", "citation": "All-Star Batman #11", "source": 0}
+      ],
+      "notableResults": [
+        {"result": "loss", "opponent": "Bane (acting for the Flashpoint Thomas Wayne)", "citation": "Batman vol. 3 #77, City of Bane", "note": "Held hostage, then Bane broke his neck.", "source": 0}
+      ],
+      "weaknesses": ["Ordinary older human with no superhuman durability", "His medical skill was not enough for Batman's broken back (Knightfall) or skull fracture (Hush)"],
+      "unknowns": ["His service branch and role (special forces, intelligence, medic) changes between retellings, so no single military rank is treated as canon here."],
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Alfred_Pennyworth", "supports": "Abilities (combat below Bruce's level, shotgun, medic, intelligence, acting), LotDK #118, Batman Eternal #31 and #47, All-Star Batman #11, death in Batman vol. 3 #77"},
+        {"url": "https://www.gamesradar.com/alfred-pennyworth-batman-careers-jobs", "supports": "His military job (medic, commando, special forces) is rarely consistent across versions"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Amanda Waller",
+      "continuity": "Mainline DC Comics from Legends #1 (1986); New 52 redesign (young and thin) reverted in Rebirth",
+      "summary": "Waller has no powers. Her threat is command: she runs Task Force X, holds kill switches on its members and uses political leverage. Her personal combat is listed in references but has no documented winning fight.",
+      "offense": {
+        "domains": ["control", "physical"],
+        "techniques": ["command of Task Force X (Suicide Squad)", "detonation authority over squad members' implanted explosives", "firearms and hand-to-hand training", "blackmail and political coercion"],
+        "range": "strategic and remote through subordinates; short range in person"
+      },
+      "defense": {
+        "mechanisms": ["ordinary human durability", "operates through subordinates and contingencies rather than in person"]
+      },
+      "conditional": [
+        {"ability": "Direct control of Chemo during a mission", "dependsOn": "Nanotechnology implanted in her (Checkmate vol. 2 #20, Salvation Run)"},
+        {"ability": "Kryptonite stockpile and the AAB creature", "dependsOn": "Government resources (Superman/Batman #44-49)"}
+      ],
+      "feats": [
+        {"claim": "Appointed the White Queen of Checkmate by the UN.", "citation": "Checkmate vol. 2 #6", "source": 0},
+        {"claim": "Faked her own death with Deadshot and Enchantress.", "citation": "Suicide Squad (2016) #11-12 and #15", "source": 0},
+        {"claim": "Persuaded the President to keep Task Force X and put Rick Flag in charge.", "citation": "Suicide Squad: Rebirth (2016)", "source": 0}
+      ],
+      "notableResults": [
+        {"result": "staged loss", "opponent": "Deadshot", "citation": "Suicide Squad (2016) #11-12, revealed in #15", "note": "Apparently shot dead; the death was a setup she arranged.", "source": 0}
+      ],
+      "weaknesses": ["Ordinary human", "No documented one-on-one fight win (the cited page describes none)"],
+      "unknowns": ["How well her listed martial arts and marksmanship hold up against trained fighters has no sourced fight."],
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Amanda_Waller", "supports": "Non-powered; strategist, martial artist, markswoman; explosive implants; Chemo nanotech (Checkmate vol. 2 #20); Checkmate #6; Superman/Batman #44-49; Suicide Squad (2016) #11-15; Rebirth; no physical fight win described"},
+        {"url": "https://www.dc.com/characters/amanda-waller", "supports": "Publisher profile: founder of Task Force X; lists combat strategy, combat skill and political influence"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Anti-Monitor",
+      "continuity": "Mainline DC Comics: Crisis on Infinite Earths (1985-86), Sinestro Corps War (Green Lantern vol. 4, 2007), Blackest Night (2009-10), Darkseid War (Justice League vol. 2 #44-49, 2015-16)",
+      "summary": "A cosmic antimatter tyrant who consumed universes during the original Crisis. He is enormously durable and is rebuilt by the antimatter universe when destroyed, but every major defeat came from many heroes combining their power.",
+      "offense": {
+        "domains": ["cosmic", "energy", "reality", "control"],
+        "techniques": ["antimatter manipulation and antimatter waves", "absorbing energy and entire universes", "antimatter cannon (Crisis #8)", "empowering other beings, e.g. Psycho-Pirate", "commanding Shadow Demons and Qwardians", "size manipulation", "using the Black Racer through the Anti-Life Equation (Darkseid War)"],
+        "range": "melee to multiversal"
+      },
+      "defense": {
+        "mechanisms": ["near-invulnerable body", "rebuilt by the antimatter universe if destroyed while that universe exists", "Life Shell armor holding in his leaking life force"]
+      },
+      "feats": [
+        {"claim": "Killed Supergirl (Kara Zor-El), who sacrificed herself to save Superman.", "citation": "Crisis on Infinite Earths #7", "source": 0},
+        {"claim": "Killed two Green Lanterns and injured a Daxamite Lantern.", "citation": "Green Lantern vol. 4 #25 (Sinestro Corps War)", "source": 0},
+        {"claim": "Used the Black Racer, enslaved through the Anti-Life Equation, to kill Darkseid.", "citation": "Justice League vol. 2 #44-49 (Darkseid War)", "source": 0},
+        {"claim": "Powered the Black Lantern Central Battery because Nekron could not fully control him.", "citation": "Blackest Night #7-8", "source": 0}
+      ],
+      "notableResults": [
+        {"result": "loss", "opponent": "Doctor Light, Alexander Luthor Jr., Darkseid, Superboy-Prime and Kal-L together", "citation": "Crisis on Infinite Earths #12", "note": "Weakened by the group; Kal-L finished him by punching him into a star.", "source": 0},
+        {"result": "setback", "opponent": "The Flash (Barry Allen)", "citation": "Crisis on Infinite Earths #8", "note": "Barry destroyed the antimatter cannon at the cost of his life.", "source": 0},
+        {"result": "loss", "opponent": "Superboy-Prime, after John Stewart and Guy Gardner dropped New Warworld on him", "citation": "Green Lantern vol. 4 #25", "note": "Superboy-Prime flew through his chest and threw his body into space.", "source": 0},
+        {"result": "loss", "opponent": "Steve Trevor holding the Anti-Life Equation (given by Grail)", "citation": "Justice League vol. 2 #44-49", "note": "Reduced to a skeleton.", "source": 0}
+      ],
+      "weaknesses": ["Life force leaks without the Life Shell armor, leaving him unstable", "Repeatedly beaten by combined assaults", "Anti-Life Equation wielded against him"],
+      "unknowns": ["No single sourced statement of his top speed or reaction time.", "How much of the universe-consuming scale applies in a single arena fight is not established."],
+      "sources": [
+        {"url": "https://kaweah.freedombox.rocks/kiwix/wikipedia_en_all_maxi_2023-10/Anti-Monitor", "supports": "Powers list, Crisis #7, #8 and #12 events, GL vol. 4 #25, Blackest Night #7-8, Justice League vol. 2 #44-49, Life Shell and regeneration limits (Wikipedia offline copy, Oct 2023)"},
+        {"url": "https://www.dc.com/characters/anti-monitor", "supports": "Publisher profile: caused the Crisis on Infinite Earths; destroyer of universes"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Aquaman",
+      "continuity": "Mainline DC Comics Orin/Arthur Curry across eras. Excludes the Lady of the Lake water hand (separate form) and film versions.",
+      "summary": "Atlantean king with superhuman strength, deep-sea durability and worldwide command of sea life. He is far stronger in water than on land, and dehydration erodes his strength over time.",
+      "offense": {
+        "domains": ["physical", "control"],
+        "techniques": ["superhuman strength in melee", "telepathic command and summoning of sea life worldwide through the Clear", "harpoon/hook prosthetic (1990s era): fires on a line, spins like a drill, psionically controlled STAR Labs model", "trident (era-dependent)"],
+        "range": "melee; sea-life summons at long range near water"
+      },
+      "defense": {
+        "mechanisms": ["superhuman durability built for crushing ocean depths", "breathes water and air"]
+      },
+      "mobility": ["Exceptional swimming", "Echolocation after Poseidon opened his link to the Clear (blinded era)"],
+      "conditional": [
+        {"ability": "Hook/harpoon prosthetic abilities", "dependsOn": "1990s lost-hand era only"},
+        {"ability": "Trident powers", "dependsOn": "Which trident he carries varies by era; not assumed for every version"}
+      ],
+      "feats": [
+        {"claim": "Fought Poseidon's son Triton for control of the ocean and won, then received part of a sea god's power.", "citation": "1990s Aquaman series (issue not given by the cited pages)", "source": 2}
+      ],
+      "notableResults": [
+        {"result": "win (qualified)", "opponent": "Triton", "citation": "1990s Aquaman series", "note": "One source says Triton let him win; treat as a contested win.", "source": 1}
+      ],
+      "weaknesses": ["Dehydration: strength and endurance fall the longer he is out of water", "The out-of-water limit varies by era: one hour pre-Crisis, later uncertain and dependent on air moisture", "Marine command mainly works on sea life"],
+      "unknowns": ["No sourced top swimming speed.", "Issue numbers for the Triton fight and the hook's introduction were not confirmed in this pass."],
+      "sources": [
+        {"url": "https://www.dc.com/characters/aquaman", "supports": "Publisher profile: super strength, durability, control over sea life, exceptional swimming, underwater breathing"},
+        {"url": "https://www.writeups.org/aquaman-jla-dc-comics-justice-league/", "supports": "1990s profile: dehydration limit (one hour pre-Crisis, later uncertain), harpoon/hook functions, marine-only control limits, Triton fight with Triton letting him win"},
+        {"url": "https://www.dcuguide.com/Dweller_in_the_Depths", "supports": "The Clear, worldwide sea-life command, echolocation after blindness, STAR Labs psionic hook, Triton fight and sea-god power"},
+        {"url": "https://dc.fandom.com/wiki/Aquaman_I_(Prime_Earth)", "supports": "Prime Earth weakness: strength and endurance diminish the longer he is out of the water"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Aquaman|Water-Hand Aquaman",
+      "continuity": "Mainline DC Comics, Aquaman (2003) series by Rick Veitch and successors, where the Lady of the Lake gives Orin the Hand of the Waterbearer",
+      "formDifferences": "Same Orin with the same Atlantean body, but the harpoon is replaced by a hand of living water from the Secret Sea. The hand adds healing by touch, changing water density, pulling moisture out of objects, scrying, negating magic, controlling water and crossing dimensions, and it can act on its own. Violent use hurts the bearer. The harpoon's line and drill tricks do not carry over.",
+      "summary": "Aquaman as the Waterbearer: a mystic water hand turns him into a healer and water-shaper with anti-magic tools, at a real cost whenever the hand is used violently.",
+      "offense": {
+        "domains": ["physical", "control", "elemental", "magic"],
+        "techniques": ["base Atlantean strength and sea-life command", "water manipulation and density change", "drawing moisture out of objects", "magic negation", "dimensional travel through the hand"],
+        "range": "melee to short range; dimensional travel"
+      },
+      "defense": {
+        "mechanisms": ["base Atlantean durability", "healing touch (shown on others)", "magic negation"]
+      },
+      "feats": [
+        {"claim": "Learns the hand can change water density, draw moisture out of objects and heal; heals the Necromonstrocity and Rodunn with a touch.", "citation": "Aquaman (2003) #3, Feb 2003", "source": 0}
+      ],
+      "notableResults": [],
+      "weaknesses": ["Violent use or the death touch causes the bearer great pain and could kill him", "Heavy violent use summons the Thirst, which attacks the Secret Sea (Comic Vine says Orin later defeated it)", "Inherits base dehydration limits"],
+      "unknowns": ["Whether the hand stops the dehydration weakness is not stated in the cited pages.", "Combat feats using the hand offensively were not confirmed in this pass."],
+      "sources": [
+        {"url": "https://www.keycollectorcomics.com/issue/aquaman-4-3-421748,421748", "supports": "Aquaman (2003) #3, Rick Veitch, Feb 2003: water density, moisture drawing, healing touch; Lady of the Lake's explanation"},
+        {"url": "https://comicvine.gamespot.com/secret-sea/4020-56724/", "supports": "Hand of the Waterbearer: enhances abilities, healing, density change, scrying, magic negation, water manipulation, dimension travel, independent action; violent-use pain and the Thirst"},
+        {"url": "https://www.tvtropes.org/pmwiki/pmwiki.php/ComicBook/Aquaman2003", "supports": "Series identity: Aquaman (2003-2006), Lady of the Lake gives him a magical water hand with healing power"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Ares (DC)",
+      "continuity": "Mainline post-Crisis DC Comics from Wonder Woman vol. 2 #1 (1987). The New 52 'War' (Wonder Woman vol. 4) is an older mentor figure who dies in vol. 4 #23, and Rebirth has him imprisoned on Themyscira; those differences are noted, not merged.",
+      "summary": "The Olympian god of war: immortal, armored, strengthened and healed by violence and able to command any weapon. His power rises with conflict, and he can be outmaneuvered when war would leave him with no one to rule.",
+      "offense": {
+        "domains": ["magic", "physical", "control", "shadow", "energy"],
+        "techniques": ["godly strength and weapon mastery", "telekinetic command of any weapon or armor", "manipulating mortals toward war", "energy projection", "darkness manipulation", "necromancy and undead armies (as God of the Dead)", "shapeshifting and teleportation"],
+        "range": "melee to battlefield-wide"
+      },
+      "defense": {
+        "mechanisms": ["immortality", "virtually indestructible armor", "violence heals his wounds", "reported to be harmable only by magical weapons"]
+      },
+      "mobility": ["Flight", "Teleportation and dimensional travel"],
+      "feats": [
+        {"claim": "Grew strong enough during the Cold War escalation that the other gods and the Amazons neared death.", "citation": "Wonder Woman vol. 2 #6, 'Powerplay' (Jul 1987)", "source": 1},
+        {"claim": "Became God of the Dead after Hades abandoned the role (post-Crisis).", "citation": "Post-Crisis Wonder Woman (issue not given by the cited page)", "source": 0}
+      ],
+      "notableResults": [
+        {"result": "loss", "opponent": "Wonder Woman", "citation": "Wonder Woman vol. 2 #6 (1987)", "note": "Bound in the Lasso of Truth, he saw that nuclear war would leave him without worshippers and called it off. Diana needed recovery afterward (vol. 2 #7).", "source": 1},
+        {"result": "death", "opponent": "the First Born conflict", "citation": "Wonder Woman vol. 4 #23 (New 52)", "note": "New 52 continuity only; Hades takes him.", "source": 0}
+      ],
+      "weaknesses": ["Lasso of Truth has subdued him more than once", "Power depends on conflict, and Olympian power depends on belief", "Magical weapons such as Grail's Godkiller sword can affect him"],
+      "unknowns": ["The infobox lists time manipulation, mind control and illusion casting with no sourced feat in this pass; they are not counted as confirmed techniques.", "The post-Crisis battle-axe defeat by Diana has no issue number in the cited page."],
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Ares_(DC_Comics)", "supports": "Powers list, limitations (magic weapons, Lasso, belief and conflict dependence), post-Crisis God of the Dead, New 52 vol. 4 #23 death, Rebirth imprisonment and Godkiller sword, continuity differences"},
+        {"url": "https://cloud.clz.com/fred/comics/detail/9442449", "supports": "Wonder Woman vol. 2 #6 synopsis: gods and Amazons near death from Ares' growing strength; Lasso shows him his plan's outcome; he ends the nuclear threat"},
+        {"url": "https://comicbooks.com/issue/wonder-woman-6-43068", "supports": "Wonder Woman #6 'Powerplay', Jul 1987: Diana confronts Ares and uses the Lasso of Truth"},
+        {"url": "https://www.dc.com/characters/ares", "supports": "Publisher profile: warmongering, godlike strength, combat strategy, weapons expert, immortality, combat skill"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Atrocitus",
+      "continuity": "Mainline DC Comics, Green Lantern vol. 4 (from #25, 2008) through Red Lanterns (2011-15) and Green Lanterns (Rebirth)",
+      "summary": "Founder of the Red Lantern Corps. His rage ring makes him a strong, durable flyer whose red energy can corrupt other Lanterns' rings, and unlike most Red Lanterns he keeps his full intellect. He also uses blood-magic divination.",
+      "offense": {
+        "domains": ["energy", "magic", "physical"],
+        "techniques": ["red ring energy blasts and constructs (constructs learned during Blackest Night)", "rage-tainted blood expelled through the mouth", "red energy that corrupts and can burn away other rings' auras", "blood rituals for divination and tracking", "improvised energy-draining devices (GL vol. 4 #33)"],
+        "range": "melee to ranged"
+      },
+      "defense": {
+        "mechanisms": ["superhuman strength and durability", "ring force fields"]
+      },
+      "mobility": ["Flight via ring"],
+      "conditional": [
+        {"ability": "Ring powers (blasts, constructs, flight, aura corruption)", "dependsOn": "Wearing a red power ring; he lost it to Guy Gardner in Red Lanterns #34"}
+      ],
+      "feats": [
+        {"claim": "Threw a 14+ ton construction digger and shrugged off knife attacks.", "citation": "Green Lantern vol. 4 #31", "source": 0},
+        {"claim": "Escaped Ysmault and mortally wounded Abin Sur.", "citation": "Green Lantern vol. 4 #25, #29-30", "source": 0},
+        {"claim": "Crucified Sinestro on Ysmault.", "citation": "Green Lantern vol. 4 #36", "source": 0},
+        {"claim": "Resisted the Spectre's attempt to use his rage.", "citation": "Blackest Night (Green Lantern vol. 4 #45, #48, #50-51)", "source": 0},
+        {"claim": "Stopped the Butcher from possessing him and locked it in his battery.", "citation": "Green Lantern vol. 4 #61", "source": 0}
+      ],
+      "notableResults": [
+        {"result": "loss", "opponent": "Sinestro and Hal Jordan", "citation": "Green Lantern vol. 4 #32-34", "note": "Stopped and captured while hunting William Hand.", "source": 0},
+        {"result": "unresolved", "opponent": "Lobo", "citation": "Green Lantern vol. 4 #54-55", "note": "The cited page records the battle but not a clear winner.", "source": 0},
+        {"result": "loss", "opponent": "Guy Gardner", "citation": "Red Lanterns #34", "note": "Lost his ring and command of the Corps; regained control in Green Lanterns #1.", "source": 0}
+      ],
+      "weaknesses": ["Blue Lantern energy can purify red corruption", "Most of his arsenal depends on the ring"],
+      "unknowns": ["The infobox lists blood portals, mind reading and rage absorption with no explanation in the cited page; they are not counted as confirmed techniques.", "Whether he ever personally killed a Guardian is not supported by the cited page."],
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Atrocitus", "supports": "Ring nature, strength and durability (GL #31), constructs, rituals, intellect (GL #33), ring limitations (Red Lanterns #1, #3), aura corruption (GL #36), blue purification, fight history by issue"},
+        {"url": "https://www.comicvine.gamespot.com/red-lantern-corps/65-50747/", "supports": "Red Lantern Corps origin: Atrocitus accessed the red light of rage through blood magic"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Bane",
+      "continuity": "Mainline DC Comics from Batman: Vengeance of Bane #1 (1993)",
+      "summary": "A genius tactician from Peña Duro prison who breaks opponents physically and mentally. Venom pumped into his brain gives him superhuman strength, toughness and healing; cut the tubes and he crashes into withdrawal.",
+      "offense": {
+        "domains": ["physical", "melee"],
+        "techniques": ["Venom-boosted grappling and strikes, including the backbreaker", "self-taught combat system", "marksmanship", "long-term attrition strategy (wearing a target down before engaging)"],
+        "range": "melee; firearms at range"
+      },
+      "defense": {
+        "mechanisms": ["Venom-enhanced durability and accelerated healing", "peak-human conditioning without Venom"]
+      },
+      "conditional": [
+        {"ability": "Superhuman strength, speed, durability and healing (about 15 tonnes of lift per the cited page)", "dependsOn": "Venom fed through tubes into his brain, usually from a dosing tank; he swore off it in Vengeance of Bane II (1995) and later used it again in Secret Six"}
+      ],
+      "feats": [
+        {"claim": "Broke Batman's back after wearing him down during Knightfall.", "citation": "Batman #497 (Jul 1993)", "source": 0}
+      ],
+      "notableResults": [
+        {"result": "win", "opponent": "Batman (exhausted)", "citation": "Batman #497", "note": "Batman was already exhausted when Bane attacked.", "source": 1},
+        {"result": "loss", "opponent": "Azrael", "citation": "Knightfall", "note": "Azrael cut his Venom tubes.", "source": 0},
+        {"result": "loss", "opponent": "Batman", "citation": "Detective Comics #701", "note": "Single-combat defeat.", "source": 0},
+        {"result": "loss", "opponent": "Batman temporarily powered by Superman", "citation": "Superman/Batman #53-56", "note": "Overpowered but survived.", "source": 0}
+      ],
+      "weaknesses": ["Venom dependence: doses about every 12 hours", "Severe withdrawal if the supply is cut; the tubes are an exposed target"],
+      "unknowns": ["How strong Bane is without Venom in exact terms is not sourced."],
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Bane_(DC_Comics)", "supports": "Venom effects and delivery, 15-tonne lift, intellect and languages, dosing interval and withdrawal, Azrael cutting the tubes, Batman #497, Detective Comics #701, Superman/Batman #53-56, swearing off Venom (1995) and relapse in Secret Six"},
+        {"url": "https://www.looper.com/137500/the-untold-truth-of-bane/", "supports": "Batman was exhausted when Bane broke him over his knee in Batman #497"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Batgirl (Barbara Gordon)",
+      "continuity": "Mainline DC Comics: Batgirl 1967-1988, Oracle 1989-2011 (paraplegic after The Killing Joke), Batgirl again from the New 52 (2011). This record is for the active Batgirl identity; Oracle-era mobility limits do not apply to it.",
+      "summary": "A black-belt martial artist, eidetic-memory genius and elite hacker. She fights at a trained-human level and her bigger edge is information and coordination.",
+      "offense": {
+        "domains": ["physical", "tech"],
+        "techniques": ["judo, karate and taekwondo (black belts before becoming Batgirl)", "eskrima sticks (trained as Oracle)", "batarangs and small firearms (practiced after her paralysis)", "hacking and an information network"],
+        "range": "melee; thrown weapons at short range"
+      },
+      "defense": {
+        "mechanisms": ["ordinary human durability", "skill-based avoidance"]
+      },
+      "support": ["Ran the Birds of Prey as head of operations", "Coordinated hero counterstrikes as Oracle (Infinite Crisis, 2005)"],
+      "feats": [
+        {"claim": "Foiled Killer Moth's attempted kidnapping of Bruce Wayne in her debut.", "citation": "Detective Comics #359 (Jan 1967)", "source": 0},
+        {"claim": "Defeated the Calculator in Hong Kong and made his Anti-Life Equation fragments useless.", "citation": "Oracle: The Cure (2009)", "source": 0}
+      ],
+      "notableResults": [
+        {"result": "loss", "opponent": "Joker", "citation": "Batman: The Killing Joke (1988)", "note": "Shot through the spine in an ambush, not a fight.", "source": 0}
+      ],
+      "weaknesses": ["No superpowers", "Ordinary human durability"],
+      "unknowns": ["No sourced one-on-one wins against superpowered opponents."],
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Barbara_Gordon", "supports": "Abilities (eidetic memory, hacking, black belts, eskrima, batarangs, firearms), Detective Comics #359, The Killing Joke, Oracle debut, New 52 restored mobility, Oracle: The Cure, Infinite Crisis coordination"},
+        {"url": "https://www.britannica.com/topic/Batgirl", "supports": "Barbara Gordon as Batgirl and as Oracle with a photographic memory and hacking skills"}
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Batman",
+      "continuity": "Mainline DC Comics Bruce Wayne from Detective Comics #27 (1939). Excludes Elseworlds (Red Son, The Dark Knight Returns) and one-off powered or armored states.",
+      "summary": "No powers: a master of virtually every martial art, a genius detective and tactician with near-limitless technology. Against superpowered foes he wins through preparation, weaknesses and gadgets, and he is still an ordinary human when hit.",
+      "offense": {
+        "domains": ["physical", "tech"],
+        "techniques": ["mastery of many martial arts", "gadgets and vehicles from the Wayne fortune", "stealth and intimidation", "contingency plans for specific opponents"],
+        "range": "melee to short range; vehicles extend reach"
+      },
+      "defense": {
+        "mechanisms": ["ordinary human durability", "preparation, evasion and protective equipment (details vary by story)"]
+      },
+      "conditional": [
+        {"ability": "Kryptonite against Kryptonians", "dependsOn": "Carrying it, e.g. the Kryptonite ring in Batman: Hush"},
+        {"ability": "Counters to specific Justice League members", "dependsOn": "Prepared contingency plans (JLA: Tower of Babel, 2000)"}
+      ],
+      "feats": [
+        {"claim": "His contingency plans, stolen by Ra's al Ghul, neutralized the Justice League.", "citation": "JLA: Tower of Babel (2000)", "source": 2},
+        {"claim": "With Catwoman, fought a Poison Ivy-controlled Superman and used the Kryptonite ring.", "citation": "Batman: Hush (2002-03)", "source": 3}
+      ],
+      "notableResults": [
+        {"result": "loss", "opponent": "Bane", "citation": "Batman #497 (Knightfall)", "note": "Back broken after exhaustion.", "source": 1},
+        {"result": "win", "opponent": "Bane", "citation": "Detective Comics #701", "note": "Beat Bane in single combat.", "source": 1}
+      ],
+      "weaknesses": ["Ordinary human durability", "Effectiveness against superpowered foes depends on equipment and preparation"],
+      "unknowns": ["Exact issue numbers for the Hush Superman fight were not confirmed in this pass."],
+      "sources": [
+        {"url": "https://dc.com/characters/batman", "supports": "Publisher profile: no metahuman abilities; master of virtually every martial art; tactician; genius forensic scientist; advanced technology"},
+        {"url": "https://en.wikipedia.org/wiki/Bane_(DC_Comics)", "supports": "Batman #497 back-breaking and Detective Comics #701 single-combat win over Bane"},
+        {"url": "https://comicbook.com/comics/list/7-times-batman-beat-superman/?nb=1", "supports": "JLA: Tower of Babel: Ra's al Ghul used Batman's own plans against the Justice League"},
+        {"url": "https://comicbookmovie.com/batman/celebrate-batman-day-with-this-look-at-10-amazing-times-the-dark-knight-kicked-supermans-ass-a178513", "supports": "Batman: Hush fight with Superman using the Kryptonite ring from his utility belt"}
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
