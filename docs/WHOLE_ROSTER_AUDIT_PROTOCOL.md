@@ -1,5 +1,11 @@
 # Draft Anything — whole-roster audit protocol
 
+## Governing character intelligence principle (Option C)
+
+> **Character abilities are canonically grounded. Sporting applications are rules-constrained. Ratings are derived from the resulting competitive advantages, not used as substitutes for them.**
+
+The full policy is [Option C — character-intelligence governing rule](OPTION_C_CHARACTER_INTELLIGENCE.md). Universal numeric athletic attributes and weighted sports positions remain in use, but researched character/form powers must be evaluated for legal sporting use and competitive effects. This is a cross-mode design requirement, **not** a declaration that Phase 1 research is complete, Phase 2 is unblocked, or gameplay has already been migrated.
+
 ## Order of operations (mandatory)
 
 **Phase 1: Campaign eligibility tags** → **Phase 2: Combatant power scaling** → **Phase 3: Gauntlet**.
