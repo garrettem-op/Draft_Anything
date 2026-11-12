@@ -36,6 +36,14 @@
     grid: 0.05, floor: 0.05, // reported precision and the least/most certain estimate (5% / 95%)
   });
 
+  // Calibration must compare the *observed* frequency, including exact 0% and
+  // 100% samples, against the range. The 5%-95% reporting floor does not
+  // justify clipping experimental evidence to that floor.
+  function withinRange(observed, range) {
+    return Number.isFinite(observed) && Array.isArray(range) && range.length === 2 &&
+      observed >= range[0] - 1e-9 && observed <= range[1] + 1e-9;
+  }
+
   function estimate({ sportKey, effectiveRating, interactionIndex, coverage, sigma, flags }) {
     const brawl = sportKey === 'brawl';
     const scale = brawl ? MODEL.brawlScale
@@ -94,7 +102,7 @@
     };
   }
 
-  const api = { MODEL, estimate };
+  const api = { MODEL, estimate, withinRange };
   NS.probability = api;
   if (isNode) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
