@@ -9,6 +9,10 @@ Draft anyone into any sport: all-time NBA legends, Marvel, cartoons, Muppets, vi
 
 Live at https://garrettem-op.github.io/Draft_Anything/
 
+## Version 1 baseline (November 12, 2026)
+
+The current pre–Option C playable build is the **Version 1 baseline**. See [release scope, merged-work reconciliation, live publication status and known deferred issues](docs/V1_BASELINE_2026-11-12.md). The approved Option C evaluator remains a Version 2 project, not a shipped game feature.
+
 ## Home-screen app icon
 
 Version 1 of the Draft Anything esports crest is the site's favicon and home-screen icon:
@@ -31,7 +35,7 @@ Every character may use documented supernatural abilities **within the rules of 
 
 ## Built-in talent pools
 
-The game includes NBA, MCU, Cartoons, Muppets, Video Games, Original 151 Pokémon, Star Wars, DC Comics, Middle-earth (The Hobbit / The Lord of the Rings / The Silmarillion), Harry Potter / Wizarding World, and a cross-universe Mashup.
+The game includes NBA, MCU, Cartoons (including the Disney additions), Muppets, Video Games, Original 151 Pokémon, Star Wars, DC Comics, Middle-earth (The Hobbit / The Lord of the Rings / The Silmarillion), Harry Potter / Wizarding World, Action Movies, and a cross-universe Mashup.
 
 DC (104 characters), Middle-earth (115), and Wizarding World (106) were added as provisional playable seed rosters. Their 12-attribute scores are initial archetype estimates, pending a canon-focused balancing audit. They work in regular drafts, Championship, Campaign, player cards, and the Character Guide.
 
