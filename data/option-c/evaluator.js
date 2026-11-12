@@ -240,7 +240,7 @@
       return { sportKey, seeds: n, sigma, legacyWinRateA: RT.round(legacy, 4), optionCProbabilityA: pA, optionCRangeA: range,
         // Compare the raw observed frequency. Clamping it to the model's 5%-95%
         // reporting bounds would falsely mark 0/100% samples as "within range".
-        withinRange: legacy >= range[0] - 1e-9 && legacy <= range[1] + 1e-9,
+        withinRange: PR.withinRange(legacy, range),
         sameFavorite: (legacy > 0.5) === (pA > 0.5) || pA === 0.5 || legacy === 0.5,
         status: assessment.status, basis: assessment.probabilityModel.basis, assessment };
     },
