@@ -1,0 +1,625 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-044540 #76",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:H.E.R.B.I.E.",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "H.E.R.B.I.E. is an artificially intelligent robot developed by the Time Variance Authority or technological creators, acting primarily as an assistant, navigator, and scanner with limited physical combat utility.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Data scanning",
+          "System navigation",
+          "Information relay"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Compact metallic chassis",
+          "Evasion via hover locomotion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to EMP or advanced tech disruption",
+        "Low physical durability against heavy combat opponents"
+      ],
+      "mobility": [
+        "Hover flight"
+      ],
+      "limitations": [
+        "Lacks offensive weaponry or high-damage combat capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/HERBIE",
+          "supports": "General background and robot nature of H.E.R.B.I.E."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "H.E.R.B.I.E. is a robotic artificial intelligence.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat durability and defensive systems within MCU continuity remain unspecified."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hank Pym",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Hank Pym is a brilliant scientist and inventor who created Pym Particles, allowing for size manipulation and control over ants. In combat, he relies on his advanced shrinking and growing technology rather than direct physical brawling.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Size manipulation via Pym Particles",
+          "Insect swarm coordination",
+          "Disks for shrinking or expanding targets"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion through miniaturization",
+          "Pym Particle suit durability"
+        ]
+      },
+      "weaknesses": [
+        "Advanced age limits physical hand-to-hand endurance",
+        "Reliance on external particle canisters and suit technology"
+      ],
+      "mobility": [
+        "Walking",
+        "Shrink-assisted evasion"
+      ],
+      "limitations": [
+        "Subatomic realm traversal carries extreme environmental risks without a regulator."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hank_Pym",
+          "supports": "Background as creator of Pym Particles and scientific inventor in Marvel adaptations."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Size manipulation",
+          "dependsOn": "Pym Particle suit and discs",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Created Pym Particles and shrinking technology.",
+          "source": 0
+        },
+        {
+          "tag": "size-change",
+          "claim": "Uses Pym Particles to change size.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Relies on advanced scientific suits and technology.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific direct combat feats as an active field agent in the primary MCU timeline versus his historical exploits."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Happy Hogan",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Happy Hogan is a former boxer, head of security, and close associate of Tony Stark who relies on basic pugilism, improvised weapons, and occasionally armored suits in confrontations.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Boxing punches",
+          "Improvised weapon strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sturdy physical build",
+          "Occasional use of powered armor or reinforced security gear"
+        ]
+      },
+      "weaknesses": [
+        "Lacks superhuman durability or powers",
+        "Vulnerable to supernatural or high-tier cosmic opponents"
+      ],
+      "mobility": [
+        "Running",
+        "Driving vehicles"
+      ],
+      "limitations": [
+        "Fights primarily as a standard human without innate supernatural traits"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Happy_Hogan_(character)",
+          "supports": "Background as Tony Stark's bodyguard, head of security, and former boxer."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought multiple Extremis-enhanced guards during security engagements.",
+          "citation": "Iron Man 3",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Extremis soldiers",
+          "result": "loss",
+          "citation": "Iron Man 3",
+          "note": "Hospitalized due to the overwhelming explosive strength of the opponents.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses Stark Industries security tech and occasional armor components.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his combat capabilities when piloting advanced Stark tech outside of standard security work."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hawkeye",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Clint Barton is an elite master archer, tactical marksman, and hand-to-hand combatant who utilizes a versatile quiver of trick arrows and exceptional situational awareness.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Precision archery with trick arrows (explosive, grappling, electrical)",
+          "Close-quarters knife and baton combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tactical evasion",
+          "Agile acrobatics",
+          "Protective tactical clothing"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical limits",
+        "Vulnerable to overwhelming area-of-effect attacks"
+      ],
+      "mobility": [
+        "Acrobatic movement",
+        "Grappling line traversal",
+        "Aircraft piloting"
+      ],
+      "limitations": [
+        "Ammunition is finite and requires resupply"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hawkeye_(Marvel_Cinematic_Universe)",
+          "supports": "Overview of Clint Barton as an expert archer and SHIELD agent in the MCU."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off numerous Chitauri infantry units and closed the portal device using a specialized arrow head.",
+          "citation": "The Avengers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Black Widow",
+          "result": "win",
+          "citation": "The Avengers",
+          "note": "Freed her from Loki's mind control after physical combat.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes specialized trick arrows and tactical gear.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots Quinjets and other aircraft.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against high-tier cosmic entities without environmental or tactical advantages."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Heimdall",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Heimdall is the all-seeing Asgardian sentinel of the Bifrost, possessing superhuman Asgardian strength, enhanced senses capable of tracking souls across the cosmos, and proficiency with a massive enchanted sword.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Cosmic sensory tracking",
+          "Enchanted sword combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Asgardian physiology",
+          "Heavy golden armor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to fatal injuries from powerful celestial beings or weapons",
+        "Sensory overload under specific mystical interference"
+      ],
+      "mobility": [
+        "Asgardian running speed",
+        "Bifrost teleportation oversight"
+      ],
+      "limitations": [
+        "Sight can be obscured by powerful dark magic or specific magical wards"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Heimdall_(character)",
+          "supports": "Details on Heimdall's role as Asgardian gatekeeper and wielder of Hofund."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slashed through multiple Frost Giants effortlessly on Jotunheim.",
+          "citation": "Thor",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War",
+          "note": "Killed after summoning the dark magic of the Bifrost to send Hulk to Earth.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields the enchanted sword Hofund.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat scaling against top-tier universal rulers without his sword."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hela",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Hela, the Asgardian Goddess of Death, is an immensely powerful conqueror who generates an infinite array of sharp necro-swords, possesses overwhelming Asgardian strength, and draws continuous vitality directly from Asgard.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Necro-sword projectile barrage",
+          "Spike generation from the ground",
+          "Undead army summoning"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Near-instantaneous regeneration while connected to Asgard",
+          "Hardened armor manifest from energy"
+        ]
+      },
+      "weaknesses": [
+        "Power diminishes if severed from the realm of Asgard",
+        "Destroying Asgard itself leads to her ultimate defeat"
+      ],
+      "mobility": [
+        "Asgardian supernatural leaping and running",
+        "Flight via magical manifestation"
+      ],
+      "limitations": [
+        "Power source is tied directly to the physical existence of Asgard"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hela_(comics)#MCU",
+          "supports": "Overview of Hela as Goddess of Death, Asgardian source of power, and weapon generation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caught and crushed Thor's enchanted hammer Mjolnir with one hand.",
+          "citation": "Thor: Ragnarok",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Surtur",
+          "result": "loss",
+          "citation": "Thor: Ragnarok",
+          "note": "Crushed when Surtur destroyed Asgard.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Infinite weapon generation and rapid regeneration",
+          "dependsOn": "Proximity and connection to Asgard",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields dark Asgardian magic to conjure weapons and armor.",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Instantly heals wounds while drawing power from Asgard.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limits of durability outside of Asgardian territory."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hercules",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Hercules is an Olympian warrior introduced in post-credits appearances, boasting legendary physical strength, mythological endurance, and mastery over traditional Olympian weaponry.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Overwhelming physical strikes",
+          "Olympian weapon mastery"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Olympian divine physiology and durability"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance in combat encounters",
+        "Vulnerable to higher-tier cosmic manipulation"
+      ],
+      "mobility": [
+        "Superhuman leaping and running"
+      ],
+      "limitations": [
+        "Limited displayed combat screen time in current MCU entries"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hercules_(Marvel_Cinematic_Universe)",
+          "supports": "Introduction of Hercules as Zeus's son in Thor: Love and Thunder."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tasked by Zeus to hunt down Thor and demonstrate Olympian might.",
+          "citation": "Thor: Love and Thunder",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full spectrum of magical or divine abilities beyond baseline Olympian strength."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Howard Stark",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Howard Stark is a brilliant industrialist, engineer, and inventor who contributed foundational advancements to modern weaponry, early arc reactor technology, and strategic defense initiatives.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Advanced tactical weapon design",
+          "Technological deployment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard human security measures",
+          "Bodyguards"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physiology with no innate superpowers",
+        "Vulnerable to physical assassination"
+      ],
+      "mobility": [
+        "Standard human movement",
+        "Vehicular transport"
+      ],
+      "limitations": [
+        "Lacks combat training or physical prowess for direct frontline battles"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Howard_Stark",
+          "supports": "Background as co-founder of S.H.I.E.L.D., scientist, and industrialist."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Designed advanced tech and foundational arc reactor components.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Pioneered advanced weaponry and computing hardware.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct combat performance outside of controlled laboratory or industrial settings."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Bruce Banner transforms into the Hulk, a massive green behemoth possessing boundless physical strength that scales with anger, extreme regenerative healing, and high durability against conventional weapons.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Thunderclap shockwaves",
+          "Brutal ground smashes",
+          "Unrestrained brawling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely dense muscular hide",
+          "Rapid regenerative healing factor"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to psychological calming methods (the lullaby)",
+        "Vulnerable to powerful mind control or cosmic energy constriction"
+      ],
+      "mobility": [
+        "Massive superhuman leaps",
+        "Running"
+      ],
+      "limitations": [
+        "Prone to losing control and turning on allies if provoked beyond a threshold"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hulk_(Marvel_Cinematic_Universe)",
+          "supports": "Overview of Hulk's strength, durability, and transformation mechanics in the MCU."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stopped a speeding Chitauri Leviathan with a single punch.",
+          "citation": "The Avengers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War",
+          "note": "Defeated in a purely physical hand-to-hand bout aboard the sanctuary ship.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Peak anger-fueled strength scaling",
+          "dependsOn": "Heightened emotional stress or rage",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands well over 8 feet tall with massive physical mass.",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Heals from severe physical trauma rapidly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limits of strength scaling when facing cosmic entities of abstract power."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hulk|Green Scar Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "The Green Scar Hulk form represents an exceptionally disciplined, merciless, and battle-hardened persona of the Hulk, exhibiting maximized combat efficiency and gladiatorial prowess.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Gladiatorial weapon strikes",
+          "Calculated bone-crushing throws",
+          "Devastating shockwave punches"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Maximized muscular density",
+          "Enhanced tactical battle reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Extreme psychological provocation can disrupt strategic focus",
+        "Vulnerable to powerful electrical submission discs"
+      ],
+      "formDifferences": "Replaces the mindless, roaring rage of the standard Hulk with focused gladiatorial discipline, weapon proficiency, and strategic combat tactics.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hulk_(Marvel_Cinematic_Universe)",
+          "supports": "Covers Hulk's gladiatorial incarnation and combat capabilities on Sakaar."
+        }
+      ],
+      "unknowns": [
+        "Exact duration this persona can maintain absolute dominance over Banner's consciousness."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
