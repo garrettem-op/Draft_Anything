@@ -1,0 +1,568 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-064131 #18",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Spider-Man|Symbiote Spider-Man",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Spider-Man enhanced by the alien symbiote, granting him heightened aggression, amplified physical strength, and autonomous tendril manipulation. He fights with increased brutality compared to his standard suit.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Symbiote tendril strikes",
+          "Enhanced physical blows"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Symbiote regenerative durability",
+          "Enhanced automatic dodging via Spider-Sense"
+        ]
+      },
+      "weaknesses": [
+        "Sonic vibrations",
+        "Extreme heat"
+      ],
+      "mobility": [
+        "Web-slinging",
+        "Enhanced leaping"
+      ],
+      "limitations": [
+        "Vulnerability to sonic frequencies and intense heat"
+      ],
+      "formDifferences": "Replaces the standard Stark or integrated suits with the alien symbiote, boosting physical strength and aggressive tendencies while inheriting traditional symbiote vulnerabilities like sound and fire.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Spider-Man",
+          "supports": "General abilities and symbiote characteristics in Marvel media"
+        }
+      ],
+      "unknowns": [
+        "Exact canonical cinematic feats of the standalone symbiote suit within the primary MCU timeline prior to its brief appearance in No Way Home's post-credits scene."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Sprite",
+      "continuity": "Marvel Cinematic Universe (Eternals)",
+      "summary": "Sprite is an Eternal who specializes in illusion casting, creating highly realistic holographic projections to deceive opponents in combat. Physically, she possesses the baseline superhuman durability and strength of an Eternal.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "physical"
+        ],
+        "techniques": [
+          "Illusion projection",
+          "Memory concealment",
+          "Close-quarters knife combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Eternal physiology durability",
+          "Illusionary decoys"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to having her illusions seen through by those aware of her nature",
+        "Physical vulnerability relative to heavy cosmic hitters"
+      ],
+      "mobility": [
+        "Levitation"
+      ],
+      "limitations": [
+        "Cannot physically alter reality, only project realistic illusions."
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Sprite",
+          "supports": "Sprite abilities, Eternal physiology, and illusion casting."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created massive illusions of cities and battles to deceive enemies.",
+          "citation": "Eternals (2021)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Eternals levitation and movement abilities",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full offensive capability beyond deception and illusion projection."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Star-Lord",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Star-Lord relies on advanced alien weaponry, rocket boots for aerial maneuverability, and unpredictable tactical ingenuity. He frequently employs energy blasters, gravity mines, and various gadgets.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Quad-blaster energy shots",
+          "Gravity mine deployment",
+          "Hand-to-hand combat with electric batons"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy mask for space survivability",
+          "Acrobatic evasion"
+        ]
+      },
+      "weaknesses": [
+        "Human baseline physical durability without protective gear",
+        "Prone to emotional provocation"
+      ],
+      "mobility": [
+        "Jet boots flight",
+        "Spacecraft piloting"
+      ],
+      "limitations": [
+        "Relies heavily on technological gear which can be damaged or confiscated."
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Star-Lord",
+          "supports": "Star-Lord equipment, weapons, and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Briefly held an Infinity Stone with assistance from the Guardians.",
+          "citation": "Guardians of the Galaxy (2014)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ronan the Accuser",
+          "result": "win",
+          "citation": "Guardians of the Galaxy (2014)",
+          "note": "Defeated using the power of an Infinity Stone shared with teammates.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Uses jet boots for flight and maneuverability",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes gravity mines, taser elements, and energy blasters",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots the Milano and other spacecraft",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Loss of Celestial genetic power after Ego's destruction."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Stick",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Stick is a blind master martial former leader of the Chaste. Despite his blindness, his heightened senses allow him to fight highly skilled superhuman opponents with weaponized canes and blades.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Staff striking",
+          "Blade combat",
+          "Pressure point targeting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced tactile and auditory perception",
+          "Expert parrying and dodging"
+        ]
+      },
+      "weaknesses": [
+        "Human physical vulnerability to lethal trauma",
+        "Sensory overload vulnerabilities common to heightened-sense martial artists"
+      ],
+      "mobility": [
+        "Peak human running and acrobatics"
+      ],
+      "limitations": [
+        "Completely blind, relying entirely on non-visual senses."
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Stick",
+          "supports": "Stick background, combat skills, and heightened senses."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Trained Matt Murdock and Elektra Natchios in advanced martial arts.",
+          "citation": "Daredevil (TV series)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limit of his capabilities against heavily armored meta-humans."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Taserface",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Taserface is a Ravager mutineer who relies on brute force, energy rifles, and standard mercenary weaponry. He commands subordinates and engages enemies with aggressive, direct combat tactics.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Energy rifle firing",
+          "Brute physical strikes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Ravager armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Overconfident and lacks tactical brilliance",
+        "Standard biological limits"
+      ],
+      "mobility": [
+        "Standard foot movement",
+        "Spaceship piloting"
+      ],
+      "limitations": [
+        "Relies on standard Ravager tech."
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Taserface",
+          "supports": "Taserface equipment and affiliation with the Ravagers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led a mutiny against Yondu Udonta taking control of his faction.",
+          "citation": "Guardians of the Galaxy Vol. 2 (2017)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots Ravager starships",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability limits of his specialized chest plating."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Taskmaster",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Taskmaster possesses photographic reflex technology that allows her to instantly mimic the fighting styles, martial arts, and weapon techniques of any opponent she observes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Mimicked martial arts styles",
+          "Shield throwing (similar to Captain America)",
+          "Bow and arrow marksmanship",
+          "Sword combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced tactical armor",
+          "Anticipating attacks via fighting style analysis"
+        ]
+      },
+      "weaknesses": [
+        "Dependent on visual input to learn and mimic styles",
+        "Mind control via the Red Room chemical override"
+      ],
+      "mobility": [
+        "Peak human agility",
+        "Acrobatic movement"
+      ],
+      "limitations": [
+        "Subject to chemical programming by external handlers prior to being freed."
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Taskmaster",
+          "supports": "Taskmaster photographic reflexes and equipment."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Replicated the fighting techniques of Black Widow, Hawkeye, and Black Panther upon observation.",
+          "citation": "Black Widow (2021)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Black Widow",
+          "result": "inconclusive",
+          "citation": "Black Widow (2021)",
+          "note": "Fought multiple times before the chemical control was neutralized.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses multi-functional weapons like bows, swords, and a shield",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat adaptation limits against completely chaotic or non-human combat styles."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Thanos",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Thanos is a colossal Titan warlord possessing immense physical strength, near-invulnerability, and master-level tactical intellect. He fights using brutal hand-to-hand combat and a double-bladed sword.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Double-bladed sword spinning strikes",
+          "Titan martial arts",
+          "Brute force crushing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Titan skin durability",
+          "Heavy armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Overconfidence in his absolute destiny",
+        "Vulnerability to extremely powerful cosmic or magical artifacts"
+      ],
+      "mobility": [
+        "Standard foot movement",
+        "Spaceship transport"
+      ],
+      "limitations": [
+        "Lacks innate magical or energy projection powers without external items like the Infinity Stones."
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Thanos",
+          "supports": "Thanos physical traits, combat abilities, and history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overpowered Hulk in hand-to-hand combat without using stones.",
+          "citation": "Avengers: Infinity War (2018)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hulk",
+          "result": "win",
+          "citation": "Avengers: Infinity War (2018)",
+          "note": "Defeated Hulk purely through martial dominance.",
+          "source": 0
+        },
+        {
+          "opponent": "Iron Man",
+          "result": "win",
+          "citation": "Avengers: Infinity War (2018)",
+          "note": "Overcame Tony Stark's advanced nanotech armor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact biological limits of Titan longevity and resistance to energy attacks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Thanos|Heart of the Universe Thanos",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Thanos empowered by the Heart of the Universe, granting him absolute omnipotence over reality, time, and space within his continuity context.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic",
+          "control",
+          "physical"
+        ],
+        "techniques": [
+          "Reality warping",
+          "Absolute conceptual erasure"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Absolute omnipotent invulnerability"
+        ]
+      },
+      "weaknesses": [
+        "Not established within standard cinematic continuity"
+      ],
+      "mobility": [
+        "Omnipresence / instant universal teleportation"
+      ],
+      "limitations": [
+        "None established in this empowered state"
+      ],
+      "formDifferences": "Elevates base Thanos to omnipotence, granting limitless control over the fabric of reality.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Thanos",
+          "supports": "Thanos base profile reference (Heart of the Universe is primarily a comic artifact, adapted here as requested form)."
+        }
+      ],
+      "unknowns": [
+        "Direct MCU feature implementation, as the Heart of the Universe is primarily a Marvel Comics construct rather than a standard MCU artifact."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Thanos|Infinity Gauntlet Thanos",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Thanos equipped with the Infinity Gauntlet housing all six Infinity Stones, granting complete mastery over reality, time, space, mind, soul, and power.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic",
+          "control",
+          "physical"
+        ],
+        "techniques": [
+          "Snap reality erasure",
+          "Reality transmutation",
+          "Energy blasts via Power Stone",
+          "Spatial manipulation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Reality shielding",
+          "Time reversal"
+        ]
+      },
+      "weaknesses": [
+        "Severe physical feedback and radiation damage upon snapping",
+        "Vulnerable during the brief gesture required to close the fist"
+      ],
+      "mobility": [
+        "Space manipulation teleportation"
+      ],
+      "limitations": [
+        "Emits lethal gamma radiation that permanently damages the user's body upon activation."
+      ],
+      "formDifferences": "Adds the Infinity Gauntlet to Thanos, providing cosmic omnipotence across all six foundational domains of existence.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Infinity_Gauntlet",
+          "supports": "Capabilities of the Infinity Gauntlet and its stones in the MCU."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Avengers and Guardians alliance",
+          "result": "win",
+          "citation": "Avengers: Infinity War (2018)",
+          "note": "Successfully executed the Snap eradicating half of all life in the universe.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether a non-Titan biological entity could survive wearing the complete gauntlet without immediate disintegration."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Thanos|King Thanos",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "An older, hardened alternate future version of Thanos who has successfully conquered nearly all existence, commanding cosmic forces and wielding lethal execution techniques.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Advanced Titan combat",
+          "Executioner blade strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Venerable Titan armor and resilience"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance derived from absolute victory in his timeline"
+      ],
+      "mobility": [
+        "Standard foot movement",
+        "Cosmic transport"
+      ],
+      "limitations": [
+        "Subject to standard mortal limits of an aged Titan."
+      ],
+      "formDifferences": "Represents an older, battle-hardened future variant of Thanos with expanded conquest experience.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Thanos",
+          "supports": "General Thanos variant background."
+        }
+      ],
+      "unknowns": [
+        "Exact cinematic feats of King Thanos distinct from main continuity Thanos within live-action films."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
