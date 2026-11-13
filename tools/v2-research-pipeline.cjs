@@ -24,6 +24,18 @@ function rosterIds(){
  if(new Set(ids).size!==ids.length)throw Error('Duplicate roster/form identity');
  return ids.sort((a,b)=>a.localeCompare(b));
 }
+/* Campaign ability tag vocabulary (broad families + specific tags) read from the game itself
+   (data/character-abilities.js), so research proposals use exactly the tags the engine knows. */
+const TAG_RE=/^[a-z][a-z-]{1,40}$/;
+function abilityTagVocabulary(){
+ const game=loadGame();
+ const fam=JSON.parse(vm.runInContext('JSON.stringify(CHARACTER_ABILITY_TAG_FAMILIES)',game.ctx));
+ const tags=new Set();
+ for(const [broad,list] of Object.entries(fam)){tags.add(broad);for(const t of list)tags.add(t);}
+ const out=[...tags].sort();
+ if(!out.length||out.some(t=>!TAG_RE.test(t)))throw Error('Ability tag vocabulary missing or malformed');
+ return out;
+}
 function loadBatches(){
  if(!fs.existsSync(BATCH_DIR))return [];
  return fs.readdirSync(BATCH_DIR).filter(x=>x.endsWith('.json')).sort().map(file=>{
@@ -32,7 +44,7 @@ function loadBatches(){
   return {file,batch};
  });
 }
-function checkBatch(file,batch,roster){
+function checkBatch(file,batch,roster,tags){
  const errors=[],seen=new Set();
  const add=m=>errors.push(file+': '+m);
  if(!batch||typeof batch!=='object'||Array.isArray(batch))return [file+': expected JSON object'];
@@ -65,6 +77,20 @@ function checkBatch(file,batch,roster){
     if(f.source!==undefined&&!(Number.isInteger(f.source)&&f.source>=0&&f.source<nSources))add(where+' '+key+'['+k+'].source must index an existing sources[] entry');
    }
   }
+  for(const key of ['limitations','mobility','support','unknowns']){
+   if(p[key]!==undefined&&(!Array.isArray(p[key])||p[key].some(x=>typeof x!=='string'||!x.trim())))add(where+' '+key+' must be an array of non-empty strings');
+  }
+  // Proposed Campaign eligibility tags: closed vocabulary, each tied to a cited source.
+  if(p.campaignTags!==undefined){
+   if(!Array.isArray(p.campaignTags))add(where+' campaignTags must be an array');
+   else if(!(tags instanceof Set))add(where+' campaignTags present but the tag vocabulary is unavailable');
+   else for(const [k,t] of p.campaignTags.entries()){
+    if(!t||typeof t!=='object'){add(where+' campaignTags['+k+'] must be an object');continue;}
+    if(!tags.has(t.tag))add(where+' campaignTags['+k+'].tag is not a known ability tag: '+t.tag);
+    if(!isText(t.claim))add(where+' campaignTags['+k+'].claim must state the evidence');
+    if(!(Number.isInteger(t.source)&&t.source>=0&&t.source<nSources))add(where+' campaignTags['+k+'].source must index an existing sources[] entry');
+   }
+  }
   if(!STATUS.has(p.researchStatus))add(where+' invalid researchStatus');
   if(p.researchStatus==='reviewed'&&(!isText(p.reviewedBy)||!isText(p.reviewNotes)))add(where+' reviewed record needs reviewer identity and substantive reviewNotes');
   if(p.id&&p.id.includes('|')&&!isText(p.formDifferences))add(where+' variant must specify formDifferences');
@@ -73,11 +99,11 @@ function checkBatch(file,batch,roster){
  return errors;
 }
 function audit(){
- const ids=rosterIds(),known=new Set(ids),batches=loadBatches(),errors=[],records=new Map();
+ const ids=rosterIds(),known=new Set(ids),tags=abilityTagVocabulary(),tagSet=new Set(tags),batches=loadBatches(),errors=[],records=new Map();
  const poolCounts={};
  for(const id of ids){const pool=id.split(':')[0];if(!poolCounts[pool])poolCounts[pool]={total:0,reviewed:0,provisional:0,missing:0,needsReview:0};poolCounts[pool].total++;}
  for(const {file,batch} of batches){
-  errors.push(...checkBatch(file,batch,known));
+  errors.push(...checkBatch(file,batch,known,tagSet));
   for(const p of Array.isArray(batch.characters)?batch.characters:[]){
    if(!p||typeof p.id!=='string')continue;
    if(records.has(p.id))errors.push(file+': duplicate across batches '+p.id);
@@ -91,7 +117,7 @@ function audit(){
   else if(status)poolCounts[pool].needsReview++;
   else poolCounts[pool].missing++;
  }
- return {ids,records,errors,poolCounts,batches:batches.length};
+ return {ids,records,errors,poolCounts,batches:batches.length,tags};
 }
 function nextBatch(a,size=10,claimed=new Set()){
  // Skip identities already recorded on the branch AND identities claimed by open, unmerged PRs.
@@ -109,7 +135,7 @@ function readClaimed(file){
 /* Data-only snapshot of the branch: roster ids + merged records. Produced by an UNPRIVILEGED job
    (it executes the branch's game data to read the roster); privileged jobs consume it as JSON. */
 function snapshot(a=audit()){
- return {schemaVersion:1,ids:a.ids,records:[...a.records].map(([id,r])=>({id,file:r.file,status:r.status})),errors:a.errors};
+ return {schemaVersion:1,ids:a.ids,tags:a.tags,records:[...a.records].map(([id,r])=>({id,file:r.file,status:r.status})),errors:a.errors};
 }
 const ID_RE=/^[a-z0-9_-]+:[^\n\r]{1,200}$/i;
 function fromSnapshot(x){
@@ -117,12 +143,13 @@ function fromSnapshot(x){
  if(!x||x.schemaVersion!==1||!Array.isArray(x.ids)||!Array.isArray(x.records)||!Array.isArray(x.errors))throw Error('snapshot: bad shape');
  if(x.ids.length>20000||x.records.length>20000)throw Error('snapshot: too large');
  if(x.ids.some(id=>typeof id!=='string'||!ID_RE.test(id)))throw Error('snapshot: bad identity');
+ if(!Array.isArray(x.tags)||!x.tags.length||x.tags.length>200||x.tags.some(t=>typeof t!=='string'||!TAG_RE.test(t)))throw Error('snapshot: bad tag vocabulary');
  const records=new Map();
  for(const r of x.records){
   if(!r||typeof r.id!=='string'||!ID_RE.test(r.id)||typeof r.file!=='string'||!/^[a-z0-9][a-z0-9_.-]*\.json$/i.test(r.file))throw Error('snapshot: bad record');
   records.set(r.id,{file:r.file,status:typeof r.status==='string'?r.status:undefined});
  }
- return {ids:[...x.ids],records,errors:x.errors.map(String)};
+ return {ids:[...x.ids],tags:[...x.tags],records,errors:x.errors.map(String)};
 }
 function main(argv){
  if(argv.includes('--snapshot')){const a=audit();console.log(JSON.stringify(snapshot(a)));if(a.errors.length)process.exitCode=1;return;}
@@ -137,4 +164,4 @@ function main(argv){
  console.log('Usage: node tools/v2-research-pipeline.cjs --validate | --report | --snapshot | --next [--size N] [--claimed ids.json]');
 }
 if(require.main===module)main(process.argv.slice(2));
-module.exports={rosterIds,loadBatches,checkBatch,audit,nextBatch,snapshot,fromSnapshot};
+module.exports={rosterIds,abilityTagVocabulary,loadBatches,checkBatch,audit,nextBatch,snapshot,fromSnapshot};
