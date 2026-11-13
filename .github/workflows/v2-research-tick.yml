@@ -10,6 +10,8 @@ name: V2 research tick
 #   develop/v2-option-c. Changing TOOLS_SHA requires a reviewed PR to main. They load the
 #   snapshot as validated data, never check out the development branch, and write via REST only.
 # - Each job gets only the permissions it needs; only `generate` sees GEMINI_API_KEY.
+# - `generate` reads docs/PROJECT_VISION.md from main through the REST API and sends it to Gemini
+#   as instructions (text, never executed). The tick is also the only merge path for research PRs.
 on:
   schedule:
     - cron: '7,37 * * * *'
@@ -21,6 +23,7 @@ concurrency:
 env:
   BASE: develop/v2-option-c
   # Pin to the merge commit of #100 on develop/v2-option-c once merged. Empty = scheduler idle.
+  # Every change to this line needs a reviewed PR to main.
   TOOLS_SHA: ''
 jobs:
   snapshot:
