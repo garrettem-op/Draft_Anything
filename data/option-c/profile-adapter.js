@@ -19,6 +19,7 @@
   const isNode = typeof module !== 'undefined' && !!module.exports && typeof require === 'function';
   const RT = NS.runtime || (isNode ? require('./runtime.js') : null);
   const REVIEWED = NS.reviewedCapabilities || (isNode ? require('./reviewed-capabilities.js') : null);
+  const LEDGER = NS.researchLedger || (isNode ? require('./research-ledger.js') : null);
   const { EVIDENCE, ATTR_KEYS } = RT;
   const PROFILE_VERSION = 'option-c-profile-v1';
 
@@ -239,6 +240,9 @@
       },
       abilityTags: tagInfo.tags, deniedTags: tagInfo.denied, tagsAudited: tagInfo.audited,
       sportCapabilities,
+      /* Report-only: what validated research exists for this exact identity.
+       * Never used to derive powers, ratings or probabilities. */
+      research: LEDGER ? (r => ({ status: r.status, batchId: r.batchId, unknowns: r.unknowns, note: r.note }))(LEDGER.shared.lookup(formId || id)) : null,
       evidence: { combat, gaps },
     };
   }

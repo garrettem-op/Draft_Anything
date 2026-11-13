@@ -25,6 +25,7 @@
   const TL = need('teamLedger', './team-ledger.js');
   const PR = need('probability', './probability.js');
   const EX = need('explain', './explain.js');
+  const LG = need('researchLedger', './research-ledger.js');
   const { EVIDENCE } = RT;
   const SPORT_KEYS = Object.freeze(['basketball', 'football', 'soccer', 'baseball', 'hockey', 'volleyball', 'brawl']);
 
@@ -171,6 +172,9 @@
         unresolvedRulings: unresolved.length, conflicts,
       },
       decisiveFactors, uncertainties,
+      /* Report-only (shadow parity): coverage of validated research for the
+       * evaluated identities. It does not influence any probability above. */
+      researchCoverage: LG.shared.size() === 0 ? null : LG.shared.coverage(rows.flat().map(r => r.profile.key)),
       interactions: battle ? [[battle.ab, 'A', 'B'], [battle.ba, 'B', 'A']].flatMap(([m, at, df]) => m.flat().map(t => ({ attackerTeam: at, defenderTeam: df, ...t }))) : [],
       initiative: battle ? battle.initiative : [],
       sportRulings: rulings ? rulings.flatMap((r, i) => r.applications.map(a => ({ teamKey: keys[i], ...a }))) : [],
