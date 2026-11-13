@@ -1,0 +1,595 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125224 #25",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Porygon",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Porygon is an artificial Pokémon made entirely of programming code that can alter its data to change its properties and attack using digital or physical strikes.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Conversion",
+          "Tackle",
+          "Sharpen",
+          "Psybeam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Data manipulation via Conversion to change type",
+          "Durability derived from its digital composition"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Floating movement through digital environment manipulation"
+      ],
+      "limitations": [
+        "Cannot breathe in normal biological terms as it is made of code"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Porygon_(Pok%C3%A9mon)",
+          "supports": "Porygon abilities, artificial nature, moveset, and typing."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Changed its own type to match the opponent's type using Conversion.",
+          "citation": "Pokémon Red and Blue Game Manual / Mechanics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Porygon is an artificial Pokémon made of programming code.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Porygon is an artificial creation composed of computer code.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact real-world translation of digital capabilities in physical combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Primeape",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Primeape is a fierce Fighting-type Pokémon that flies into uncontrollable rages and attacks with overwhelming physical martial arts strikes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Thrash",
+          "Close Combat",
+          "Rage",
+          "Karate Chop"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High physical stamina and endurance fueled by extreme anger"
+        ]
+      },
+      "weaknesses": [
+        "Psychic-type attacks",
+        "Flying-type attacks",
+        "Fairy-type attacks"
+      ],
+      "mobility": [
+        "Super-speed running and agility"
+      ],
+      "limitations": [
+        "Prone to losing tactical focus due to uncontrollable rage."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Primeape_(Pok%C3%A9mon)",
+          "supports": "Primeape typing, abilities, and combat behavior."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Pursued opponents relentlessly across vast distances when provoked into anger.",
+          "citation": "Pokémon Red Pokédex Entry",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of its physical strength under maximum rage."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Psyduck",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Psyduck is a Water-type Pokémon constantly troubled by headaches that unlock latent, powerful psychic abilities when the pain peaks.",
+      "offense": {
+        "domains": [
+          "water",
+          "psychic",
+          "physical"
+        ],
+        "techniques": [
+          "Water Gun",
+          "Confusion",
+          "Scratch",
+          "Disable"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Amnesiac unawareness that sometimes deflects psychological stress"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks"
+      ],
+      "mobility": [
+        "Swimming",
+        "Walking"
+      ],
+      "limitations": [
+        "Psychic powers are largely uncontrollable and depend entirely on headache severity."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Psyduck_(Pok%C3%A9mon)",
+          "supports": "Psyduck typing, headaches, and psychic/water abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Used powerful psychic waves unconsciously while suffering from a migraine.",
+          "citation": "Pokémon anime episode: 'Hypno's Naptime'",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Unleash powerful psychic blasts",
+          "dependsOn": "Severe headache triggering latent power",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-breathing",
+          "claim": "Psyduck is a water-dwelling Pokémon capable of swimming and breathing underwater.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Psyduck is naturally adapted to swimming in water.",
+          "source": 0
+        },
+        {
+          "tag": "psychic",
+          "claim": "Psyduck can unleash psychic attacks when its headache peaks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact biological mechanism connecting its headaches to psychokinetic force."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Raichu",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Raichu is an Electric-type evolution of Pikachu that discharges high-voltage electricity through its tail and body to stun or knock out opponents.",
+      "offense": {
+        "domains": [
+          "electric",
+          "physical"
+        ],
+        "techniques": [
+          "Thunderbolt",
+          "Thunder Punch",
+          "Quick Attack",
+          "Iron Tail"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Electrical grounding through its tail",
+          "High agility"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks"
+      ],
+      "mobility": [
+        "Super-speed running",
+        "Leaping"
+      ],
+      "limitations": [
+        "Becomes aggressive if it stores too much electricity and must discharge it into the ground."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Raichu_(Pok%C3%A9mon)",
+          "supports": "Raichu stats, electric abilities, and evolution mechanics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stored up to 100,000 volts of electricity in its body, capable of knocking out larger creatures.",
+          "citation": "Pokémon Red/Blue Pokédex Entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Raichu naturally generates and controls high-voltage electricity.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Raichu discharges up to 100,000 volts of electricity in combat.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact voltage threshold before self-injury occurs."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Raichu|Alolan Raichu",
+      "continuity": "Pokémon Sun and Moon / Alola Region Continuity",
+      "summary": "Alolan Raichu is an Electric/Psychic-type variant that rides upon its own tail like a surfboard, utilizing psychokinetic energy to glide and attack.",
+      "offense": {
+        "domains": [
+          "electric",
+          "psychic"
+        ],
+        "techniques": [
+          "Thunderbolt",
+          "Psychic",
+          "Thunder",
+          "Psychic Terrain"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Psychokinetic barrier manipulation",
+          "Agile riding evasion"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks",
+        "Bug-type attacks"
+      ],
+      "formDifferences": "Adds Psychic-typing, changes appearance, and grants the ability to ride its tail using psychokinetic power to float.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Raichu_(Pok%C3%A9mon)",
+          "supports": "Alolan Raichu regional variant typing and psychic abilities."
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how regional adaptation altered its electrical sacs into psychic pathways."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Rapidash",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Rapidash is a Fire-type equine Pokémon that gallops at extreme speeds, wreathed in intense flames that incinerate anyone who approaches.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical"
+        ],
+        "techniques": [
+          "Flame Charge",
+          "Flare Blitz",
+          "Agility",
+          "Fire Spin"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Flame aura that deters physical contact",
+          "Extreme running speed"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Ground-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Extreme super-speed running"
+      ],
+      "limitations": [
+        "Cannot control its full speed immediately upon starting to run."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Rapidash_(Pok%C3%A9mon)",
+          "supports": "Rapidash fire generation, speed feats, and combat techniques."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Galloped at speeds up to 150 mph, matching the speed of bullet trains.",
+          "citation": "Pokémon Silver Pokédex Entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Rapidash is wreathed in flames and generates intense heat.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Rapidash controls fire to execute high-speed burning charges.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum running duration at top speed before exhaustion."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Raticate",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Raticate is a Normal-type rodent Pokémon featuring incredibly sturdy incisors capable of chewing through metal and concrete.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Hyper Fang",
+          "Super Fang",
+          "Quick Attack",
+          "Crunch"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Webbed feet for swimming and rapid evasion",
+          "Sturdy hide"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Running",
+        "Swimming"
+      ],
+      "limitations": [
+        "Must constantly gnaw on hard objects to keep its teeth from growing too long."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Raticate_(Pok%C3%A9mon)",
+          "supports": "Raticate physical stats, teeth capability, and moveset."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Chewed through concrete walls and cinder blocks using its continuously growing incisors.",
+          "citation": "Pokémon Yellow Pokédex Entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Raticate has webbed feet that allow it to swim across rivers.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Raticate can swim in water using its webbed feet.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Durability limits against heavy energy projections."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Rattata",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Rattata is a small Normal-type rodent Pokémon that relies on quick movement and sharp bites to overwhelm adversaries.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tackle",
+          "Quick Attack",
+          "Bite",
+          "Hyper Fang"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Small target profile",
+          "High evasiveness"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Running",
+        "Agile dodging"
+      ],
+      "limitations": [
+        "Low physical durability due to small mass."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Rattata_(Pok%C3%A9mon)",
+          "supports": "Rattata stats, size, and combat attributes."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Can live anywhere and reproduce rapidly, chewing through any barrier with its fangs.",
+          "citation": "Pokémon Red/Blue Pokédex Entry",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat effectiveness against evolved or legendary opponents without numerical level advantages."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Rhydon",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Rhydon is a massive Ground/Rock-type dinosaurian Pokémon possessing near-impenetrable armor hide and immense physical strength.",
+      "offense": {
+        "domains": [
+          "physical",
+          "earth",
+          "energy"
+        ],
+        "techniques": [
+          "Earthquake",
+          "Rock Slide",
+          "Megahorn",
+          "Take Down"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick hide capable of withstanding direct cannon fire or lava immersion"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Grass-type attacks",
+        "Ice-type attacks",
+        "Fighting-type attacks",
+        "Ground-type attacks",
+        "Steel-type attacks"
+      ],
+      "mobility": [
+        "Heavy bipedal walking",
+        "Digging underground"
+      ],
+      "limitations": [
+        "Low agility and poor turning radius due to heavy armor and mass."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Rhydon_(Pok%C3%A9mon)",
+          "supports": "Rhydon classification, durability feats, and moveset."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Withstood a direct blast from a direct artillery strike without sustaining major injury.",
+          "citation": "Pokémon anime episode: 'Riders of the Underground'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Rhydon stands over six feet tall with massive armored bulk and heavy weight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of its thermal resistance inside active magma chambers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Rhyhorn",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Rhyhorn is a stout Ground/Rock-type Pokémon that tackles obstacles and enemies with unstoppable momentum, though its short-term memory impairs complex strategy.",
+      "offense": {
+        "domains": [
+          "physical",
+          "earth"
+        ],
+        "techniques": [
+          "Take Down",
+          "Horn Attack",
+          "Bulldoze",
+          "Rock Blast"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bone-hard hide that absorbs heavy impacts"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Grass-type attacks",
+        "Ice-type attacks",
+        "Fighting-type attacks",
+        "Ground-type attacks",
+        "Steel-type attacks"
+      ],
+      "mobility": [
+        "Heavy running charge"
+      ],
+      "limitations": [
+        "Cannot easily change direction while charging due to a one-track mind and heavy build."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Rhyhorn_(Pok%C3%A9mon)",
+          "supports": "Rhyhorn armor, charge habits, and weaknesses."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Smashed through thick stone walls and heavy boulders effortlessly by charging headfirst.",
+          "citation": "Pokémon Red/Blue Pokédex Entry",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Cognitive capacity during high-stress tactical situations."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
