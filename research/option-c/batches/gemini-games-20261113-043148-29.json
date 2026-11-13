@@ -1,0 +1,741 @@
+{
+  "batchId": "Gemini V2 research games 20261113-043148 #29",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Kirby|Ultra Sword Kirby",
+      "continuity": "Kirby video game series",
+      "summary": "Ultra Sword Kirby wields an enormous, incredibly sharp broadsword capable of bisecting massive boss enemies and slicing through environmental hazards with a single colossal swing.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Colossal Sword Slash",
+          "Multi-directional Giant Swing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invincibility frames active during the super ability animation",
+          "Massive destructive output clearing incoming projectiles"
+        ]
+      },
+      "weaknesses": [
+        "Limited duration of the super ability before reverting to standard form"
+      ],
+      "mobility": [
+        "Standard movement restricted while holding the heavy sword"
+      ],
+      "limitations": [
+        "Lasts only for a short duration during specific stages"
+      ],
+      "formDifferences": "Transforms Kirby by granting him a temporary, oversized magical sword capable of screen-clearing melee attacks.",
+      "sources": [
+        {
+          "url": "https://wikirby.com/wiki/Ultra_Sword",
+          "supports": "Details the Ultra Sword ability, its massive range, and its usage in Kirby's Return to Dream Land."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Sliced a massive pillar and split a boss enemy in half with a single giant sword swing.",
+          "citation": "Kirby's Return to Dream Land",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Landia",
+          "result": "win",
+          "citation": "Kirby's Return to Dream Land",
+          "note": "Used Ultra Sword to heavily damage and defeat the four-headed dragon.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Ultra Sword Slash",
+          "dependsOn": "Must swallow a Super Enemy or activate a Super Ability crystal",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Summons an enormous sword far larger than Kirby's body during the attack.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact lifting strength while holding the Ultra Sword outside of specific attack animations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Knuckles",
+      "continuity": "Sonic the Hedgehog series",
+      "summary": "Knuckles is a powerhouse echidna who relies on brutal physical strength, climbing, and gliding to overwhelm opponents in close combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Punching combos",
+          "Digging",
+          "Glide attack"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High durability",
+          "Quick recovery"
+        ]
+      },
+      "weaknesses": [
+        "Gullible nature often exploited by villains"
+      ],
+      "mobility": [
+        "Glide",
+        "Climbing",
+        "Running"
+      ],
+      "limitations": [
+        "Relies entirely on close-quarters combat or environmental projectiles"
+      ],
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Knuckles_the_Echidna",
+          "supports": "Abilities, gliding, digging, and physical combat style of Knuckles."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Smashed through solid bedrock and thick metal plating with his fists.",
+          "citation": "Sonic & Knuckles",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sonic the Hedgehog",
+          "result": "inconclusive",
+          "citation": "Sonic 3 & Knuckles",
+          "note": "Fought to a standstill before Eggman's betrayal was revealed.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "glide",
+          "claim": "Can glide through the air at variable speeds.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum upper limit of his striking strength without Chaos Emeralds."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Knuckles|Hyper Knuckles",
+      "continuity": "Sonic the Hedgehog series",
+      "summary": "Hyper Knuckles is an empowered form achieved through the Super Emeralds, granting blinding speed, flashing afterimages, and a screen-clearing earthquake attack.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Flash Dash",
+          "Screen-Clearing Earthquake Glide"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invulnerability to standard hazards and enemy attacks"
+        ]
+      },
+      "weaknesses": [
+        "Time limit dependent on Ring supply"
+      ],
+      "mobility": [
+        "Enhanced Flight/Glide",
+        "Super-speed"
+      ],
+      "limitations": [
+        "Requires rings to maintain the form"
+      ],
+      "formDifferences": "Adds flashing color changes, higher jumping/gliding performance, and a room-clearing vibration effect when hitting walls.",
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Hyper_Knuckles",
+          "supports": "Hyper Knuckles abilities, earthquake effect, and Super Emerald transformation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Triggered an earthquake that destroyed all on-screen enemies when crashing into a wall while gliding.",
+          "citation": "Sonic 3 & Knuckles",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Robotnik's forces",
+          "result": "win",
+          "citation": "Sonic 3 & Knuckles",
+          "note": "Cleared out entire enemy battalions instantly.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Hyper Form Invulnerability",
+          "dependsOn": "Possession of all seven Super Emeralds and ring consumption",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "glide",
+          "claim": "Can glide with enhanced speed and create screen-wide shockwaves upon landing.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Flies via high-speed gliding and sustained aerial momentum.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of the form without picking up rings."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Kratos",
+      "continuity": "God of War series",
+      "summary": "Kratos is a brutal Spartan warrior and god-slayer who utilizes chained blades, heavy axes, and immense physical strength to rip through mythological foes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Leviathan Axe throws",
+          "Blades of Chaos swings",
+          "Spartan Rage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Guardian Shield parries",
+          "Extreme regenerative resilience",
+          "Armor mitigation"
+        ]
+      },
+      "weaknesses": [
+        "Prone to blind rage",
+        "Emotional trauma from his past"
+      ],
+      "mobility": [
+        "Standard running",
+        "Chain grappling",
+        "Portal-based travel in specific realms"
+      ],
+      "limitations": [
+        "Spartan Rage meter depletes rapidly in combat"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kratos_(God_of_War)",
+          "supports": "Overview of Kratos's weapons, history, and combat abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overpowered titans and wrestled colossal mythological beasts in physical combat.",
+          "citation": "God of War III",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Zeus",
+          "result": "win",
+          "citation": "God of War III",
+          "note": "Defeated the King of the Gods after a brutal, multi-stage battle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields divine and elemental magic tied to his weapons.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his durability against modern futuristic weaponry."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Lara Croft",
+      "continuity": "Tomb Raider Survivor Trilogy",
+      "summary": "Lara Croft is an agile survivalist and archaeologist who uses stealth, firearms, makeshift weaponry, and environmental traps to eliminate adversaries.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Compound bow sniping",
+          "Pistol marksmanship",
+          "Melee counterattacks with climbing axe"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Crouch stealth",
+          "Dodging",
+          "Cover usage"
+        ]
+      },
+      "weaknesses": [
+        "Flesh-and-blood human vulnerability to bullets and sharp trauma"
+      ],
+      "mobility": [
+        "Climbing",
+        "Ziplining",
+        "Swimming"
+      ],
+      "limitations": [
+        "Limited ammunition capacity",
+        "Normal human physical constraints"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Lara_Croft",
+          "supports": "General profile of Lara Croft, her weapons, and survival skills."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived being impaled through the abdomen and fought through a mercenary camp.",
+          "citation": "Tomb Raider (2013)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Trinity mercenaries",
+          "result": "win",
+          "citation": "Shadow of the Tomb Raider",
+          "note": "Overcame heavily armed squads using stealth and guerrilla tactics.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Uses foliage and shadows to silently eliminate enemies.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes climbing axes, radios, and crafted explosive devices.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Proficiency with heavy military ordinance."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Leon S. Kennedy",
+      "continuity": "Resident Evil series",
+      "summary": "Leon S. Kennedy is a US federal agent and tactical combat expert specializing in firearms, close-quarters knife combat, and surviving bio-weapons.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Roundhouse kicks",
+          "Combat knife slashes",
+          "Handgun and shotgun targeting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tactical evasion",
+          "Quick-time dodges"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to biological infections and standard human injuries"
+      ],
+      "mobility": [
+        "Tactical running",
+        "Vaulting"
+      ],
+      "limitations": [
+        "Human stamina and ammunition limits"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Leon_S._Kennedy",
+          "supports": "Overview of Leon S. Kennedy's role as a government agent and combat specialist."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Navigated through a Spanish village infested with Plagas-infected hosts, defeating multiple mutated bosses.",
+          "citation": "Resident Evil 4",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jack Krauser",
+          "result": "win",
+          "citation": "Resident Evil 4",
+          "note": "Defeated his former mentor after a grueling knife and gun duel.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses tactical flashbangs, customized firearms, and laser sights.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against high-tier reality-warpers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Link",
+      "continuity": "The Legend of Zelda: Breath of the Wild / Tears of the Kingdom",
+      "summary": "Link is a master swordsman equipped with diverse weaponry, shields, elemental arrows, and technological runes to overcome environmental and combat threats.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "tech"
+        ],
+        "techniques": [
+          "Flurry Rush",
+          "Ancient Arrow banishment",
+          "Elemental sword strikes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield parry",
+          "Dodge roll",
+          "Protective elixirs"
+        ]
+      },
+      "weaknesses": [
+        "Weapons degrade and break with repeated use"
+      ],
+      "mobility": [
+        "Paraglider",
+        "Horse riding",
+        "Climbing"
+      ],
+      "limitations": [
+        "Weapon durability mechanics"
+      ],
+      "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Link",
+          "supports": "Combat techniques, weapons, and inventory systems of Link."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated armored Lynels and giant Talus monsters single-handedly.",
+          "citation": "The Legend of Zelda: Breath of the Wild",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Calamity Ganon",
+          "result": "win",
+          "citation": "The Legend of Zelda: Breath of the Wild",
+          "note": "Defeated the corrupted entity after a protracted dual-phase battle.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Daruk's Protection",
+          "dependsOn": "Recharge timer after blocking attacks",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses Sheikah Slate and Purah Pad runes for stasis, bomb generation, and object manipulation.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Fires fire-infused arrows and swings flame-blades.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact magical output without divine assistance items."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Link|Ancient Hero's Aspect Link",
+      "continuity": "The Legend of Zelda: Tears of the Kingdom",
+      "summary": "Ancient Hero's Aspect Link wears the primordial armor of the ancient hero who fought the Calamity long ago, channeling spiritual guardian energy into combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Master Sword beams",
+          "Enhanced melee strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High innate armor defense rating matching ancient tech"
+        ]
+      },
+      "weaknesses": [
+        "Dependent on physical weapon durability like standard Link"
+      ],
+      "mobility": [
+        "Standard running",
+        "Paraglider",
+        "Climbing"
+      ],
+      "limitations": [
+        "Requires completing all Shrines in the game to acquire"
+      ],
+      "formDifferences": "Transforms Link's appearance to resemble a Zonai-like ancient hero and grants maximum base defense ratings.",
+      "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Ancient_Hero's_Aspect",
+          "supports": "Details the Ancient Hero's Aspect armor and its defensive/offensive boosts in Tears of the Kingdom."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Withstood heavy blows from subterranean monsters while clad in the ancient armor set.",
+          "citation": "The Legend of Zelda: Tears of the Kingdom",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gloom-spawned monsters",
+          "result": "win",
+          "citation": "The Legend of Zelda: Tears of the Kingdom",
+          "note": "Successfully cleared subterranean gloom nests.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Master Chief-level durability boost",
+          "dependsOn": "Must be fully upgraded by great fairies",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the mystical Ancient Hero's Aspect suit providing exceptional protective enhancement.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact historical identity of the ancient hero."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Link|Fierce Deity Link",
+      "continuity": "The Legend of Zelda: Majora's Mask",
+      "summary": "Fierce Deity Link channels the power of a god-like mask, projecting devastating crescent energy beams from his double-helix sword at any distance.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Sword Beam Projectiles",
+          "Close-quarters double-helix sword slashing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High damage output overwhelming opponents before they can strike back"
+        ]
+      },
+      "weaknesses": [
+        "Magic meter drains continuously when firing sword beams in certain versions"
+      ],
+      "mobility": [
+        "Standard running",
+        "Jumping"
+      ],
+      "limitations": [
+        "Restricted to boss rooms in original N64 release without glitches"
+      ],
+      "formDifferences": "Transforms Link into an adult deity-like warrior capable of shooting magical sword waves from a double-bladed sword.",
+      "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Fierce_Deity's_Mask",
+          "supports": "Details the Fierce Deity Mask, sword beams, and boss-melting combat capacity."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Onhit melted Majora's final form in seconds with ranged sword beams.",
+          "citation": "The Legend of Zelda: Majora's Mask",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Majora",
+          "result": "win",
+          "citation": "The Legend of Zelda: Majora's Mask",
+          "note": "Quickly overwhelmed Majora with overwhelming beam attacks.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Sword Beam Projectiles",
+          "dependsOn": "Wearing the Fierce Deity Mask",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Fires concentrated magic energy beams from his sword.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Channels divine mask magic to alter form and project energy.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True origin of the Fierce Deity entity."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Link|Wolf Link",
+      "continuity": "The Legend of Zelda: Twilight Princess",
+      "summary": "Wolf Link fights using feral bites, dash tackles, and energy fields generated by Midna, relying on enhanced canine senses to track and ambush prey.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Feral bite attack",
+          "Midna energy field dash",
+          "Howl summoning"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile quadrupedal dodging",
+          "Digging underground to evade attacks"
+        ]
+      },
+      "weaknesses": [
+        "Cannot wield conventional weapons or shields in this form"
+      ],
+      "mobility": [
+        "Quadrupedal running",
+        "Digging",
+        "Wall jumping"
+      ],
+      "limitations": [
+        "Unable to open doors or interact with human-scale mechanisms directly"
+      ],
+      "formDifferences": "Transforms Link into a wolf, swapping sword and shield for teeth, claws, and enhanced tracking senses.",
+      "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Wolf_Link",
+          "supports": "Combat abilities, Midna's assistance, and senses of Wolf Link."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cleared twilight-corrupted beasts and shadow monsters across Hyrule.",
+          "citation": "The Legend of Zelda: Twilight Princess",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Twilight Beasts",
+          "result": "win",
+          "citation": "The Legend of Zelda: Twilight Princess",
+          "note": "Defeated pairs of shadow beasts simultaneously using the energy circle.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Twilight Energy Circle",
+          "dependsOn": "Midna riding on Wolf Link's back",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Uses Midna's twilight energy ring to attack multiple targets at once.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact physical bite force compared to real-world wolves."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
