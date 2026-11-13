@@ -1,0 +1,721 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125523 #36",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Greef Karga",
+      "continuity": "Star Wars Canon (The Mandalorian)",
+      "summary": "Greef Karga relies on administrative authority, a trusted crew, and a blaster pistol for self-defense. He is a pragmatic former magistrate who prefers negotiation or hiring mercenaries over direct hand-to-hand combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol marksmanship",
+          "Directing bounty hunters and security forces"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bodyguard protection",
+          "Armored clothing",
+          "Defensive positioning behind cover"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in close-quarters physical combat without protection"
+      ],
+      "mobility": [
+        "Walking",
+        "Riding in speeders"
+      ],
+      "limitations": [
+        "Relies heavily on external allies and guards for safety"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Greef_Karga",
+          "supports": "General abilities, blaster use, and history as magistrate of Nevarro."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fired a blaster to defend himself against Imperial remnants on Nevarro.",
+          "citation": "The Mandalorian, Season 1, Chapter 8: 'Redemption'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial stormtroopers",
+          "result": "win",
+          "citation": "The Mandalorian, Season 1, Chapter 7: 'The Reckoning'",
+          "note": "Fought alongside Din Djarin and Cara Dune.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots transports and manages starfighter logistics on Nevarro.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his combat training prior to becoming magistrate of the Bounty Hunters' Guild."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Grogu",
+      "continuity": "Star Wars Canon (The Mandalorian, The Book of Boba Fett)",
+      "summary": "Grogu is an infant Force-sensitive alien who employs telekinesis, barrier generation, and animal taming. Due to his youth, he tires quickly after using demanding Force abilities.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Force push",
+          "Telekinetic choke",
+          "Energy barrier creation",
+          "Animal taming"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Telekinetic barriers",
+          "Evasion",
+          "Concealment in his hoverpram"
+        ]
+      },
+      "weaknesses": [
+        "Physical immaturity and vulnerability when exhausted by Force usage"
+      ],
+      "mobility": [
+        "Hoverpram levitation",
+        "Walking",
+        "Leaping"
+      ],
+      "limitations": [
+        "Falls unconscious or experiences severe fatigue after exerting heavy Force powers"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Grogu",
+          "supports": "Force abilities, hoverpram usage, and fatigue limitations."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lifted a massive Mudhorn into the air using telekinesis.",
+          "citation": "The Mandalorian, Season 1, Chapter 2: 'The Child'",
+          "source": 0
+        },
+        {
+          "claim": "Created a protective kinetic barrier against a burst of fire from an incinerator trooper.",
+          "citation": "The Mandalorian, Season 1, Chapter 8: 'Redemption'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mudhorn",
+          "result": "win",
+          "citation": "The Mandalorian, Season 1, Chapter 2: 'The Child'",
+          "note": "Used the Force to heal and lift the creature.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "teleport",
+          "claim": "Not applicable",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Demonstrated ability to lift heavy objects and creatures with the Force.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his potential without formal Jedi academy training."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Han Solo",
+      "continuity": "Star Wars Original Trilogy and Canon",
+      "summary": "Han Solo is a veteran smuggler and sharpshooter who relies on quick reflexes, a DL-44 heavy blaster pistol, and unorthodox tactics. He is exceptionally skilled at improvising under pressure.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Quick-draw blaster shooting",
+          "Improvised explosives",
+          "Ship-to-ship combat piloting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Jukes and evasive movement",
+          "Hard cover",
+          "Vests and basic armor"
+        ]
+      },
+      "weaknesses": [
+        "Human physiology with standard physical vulnerability"
+      ],
+      "mobility": [
+        "Millennium Falcon starship",
+        "Running",
+        "Climbing"
+      ],
+      "limitations": [
+        "Relies entirely on equipment, weapons, and starship availability"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Han_Solo",
+          "supports": "Blaster marksmanship, piloting skills, and notable engagements."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shot Greedo under the table before Greedo could fire.",
+          "citation": "Star Wars: Episode IV - A New Hope",
+          "source": 0
+        },
+        {
+          "claim": "Piloted the Millennium Falcon through an asteroid field to evade Imperial pursuers.",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Boba Fett",
+          "result": "win",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "note": "Accidentally activated Fett's jetpack while blind, sending him into the Sarlacc pit.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Captain of the Millennium Falcon, renowned throughout the galaxy for piloting feats.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Precise combat effectiveness when completely separated from his gear and ship."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Hera Syndulla",
+      "continuity": "Star Wars Rebels and Canon",
+      "summary": "Hera Syndulla is a master pilot, rebel leader, and tactical commander. She specializes in starfighter combat, leadership coordination, and small arms proficiency.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol combat",
+          "Advanced starfighter maneuvers",
+          "Tactical ambush orchestration"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Starship shields",
+          "Combat evasive maneuvers",
+          "Cover and concealment"
+        ]
+      },
+      "weaknesses": [
+        "Standard Twi'lek physiological vulnerability"
+      ],
+      "mobility": [
+        "The Ghost (VCX-100 light freighter)",
+        "Running",
+        "Climbing"
+      ],
+      "limitations": [
+        "Relies on tactical planning and equipment rather than superhuman traits"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Hera_Syndulla",
+          "supports": "Pilot qualifications, leadership role, and combat feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew the Ghost through Imperial blockade lines during intense space combat.",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial pilots",
+          "result": "win",
+          "citation": "Star Wars Rebels",
+          "note": "Out-maneuvered Imperial TIE fighters in atmospheric dogfights.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Commander and pilot of the Ghost and general in the New Republic defense forces.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Hand-to-hand proficiency against specialized martial artists."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Hunter",
+      "continuity": "Star Wars: The Bad Batch",
+      "summary": "Hunter is a genetically enhanced clone sergeant with heightened sensory perception, expert tracking abilities, and proficiency in knife and blaster combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Vibro-blade close quarters combat",
+          "Blaster rifle marksmanship",
+          "Stealth assassination and tracking"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced clone commando armor",
+          "Tactical evasion",
+          "Environmental camouflage"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to standard lethal weaponry despite advanced armor"
+      ],
+      "mobility": [
+        "Running",
+        "Climbing",
+        "Piloting squad transport"
+      ],
+      "limitations": [
+        "Sensory overload risk in high-intensity electromagnetic environments"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Hunter",
+          "supports": "Genetic enhancements, tracking skills, and combat gear."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tracked targets across hostile worlds using enhanced electromagnetic and sensory perception.",
+          "citation": "Star Wars: The Bad Batch",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Standard clone troopers",
+          "result": "win",
+          "citation": "Star Wars: The Bad Batch",
+          "note": "Defeated squads of standard troopers using guerrilla tactics.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Utilizes acute sensory mutations and stealth tactics to infiltrate enemy installations undetected.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against Force-wielding opponents in solo combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:IG-11",
+      "continuity": "Star Wars Canon (The Mandalorian)",
+      "summary": "IG-11 is a lethal assassin droid programmed with rapid 360-degree firing arcs, extreme precision, and a self-destruct protocol. It fights with relentless calculation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Dual blaster pistol firing",
+          "360-degree rotating torso targeting",
+          "Thermal detonators",
+          "Thermal self-destruction"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Durasteel chassis",
+          "Built-in computational threat calculation"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to precise electromagnetic pulses or heavy ordnance targeting critical internal processors"
+      ],
+      "mobility": [
+        "Mechanical running",
+        "Jumping"
+      ],
+      "limitations": [
+        "Rigid adherence to programming parameters until modified"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/IG-11",
+          "supports": "Assassin droid capabilities, weaponry, and self-destruct mechanism."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cleaned out a fortified encampment of dozens of guards in a rapid firefight.",
+          "citation": "The Mandalorian, Season 1, Chapter 1: 'The Mandalorian'",
+          "source": 0
+        },
+        {
+          "claim": "Executed a thermal self-destruction sequence to eliminate a squad of stormtroopers.",
+          "citation": "The Mandalorian, Season 1, Chapter 8: 'Redemption'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Weequay pirates",
+          "result": "win",
+          "citation": "The Mandalorian, Season 1, Chapter 1: 'The Mandalorian'",
+          "note": "Fought alongside Din Djarin to clear out a camp.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Fully autonomous mechanical assassin droid.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Durability limits against continuous heavy starship-grade artillery."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:IG-88",
+      "continuity": "Star Wars Legends and Canon",
+      "summary": "IG-88 is an assassin droid equipped with heavy ordnance, encrypted communication links, and lethal combat processing algorithms.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Heavy repeating blaster fire",
+          "Pulse cannons",
+          "Poison gas deployment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy durasteel armor plating",
+          "Backup processor cores"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to specialized slicing and ion weapon disablement"
+      ],
+      "mobility": [
+        "Mechanical stride",
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Dependent on ammunition and power cells"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/IG-88",
+          "supports": "Assassin droid armament, armor, and bounty hunting record."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tracked targets across multiple star systems as part of the galaxy's elite bounty hunters.",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rebel security forces",
+          "result": "win",
+          "citation": "Star Wars Tales of the Bounty Hunters",
+          "note": "Eliminated targets with heavy ordnance.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Independent mechanical droid intelligence.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact canonical status of expanded universe consciousness-transfer feats."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Jabba the Hutt",
+      "continuity": "Star Wars Original Trilogy and Canon",
+      "summary": "Jabba the Hutt is a powerful crime lord who relies entirely on his criminal empire, guards, mercenaries, and execution methods rather than personal physical combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Ordering executions via rancor or trapdoor",
+          "Financial coercion"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored palace guards",
+          "Bounty hunter bodyguards"
+        ]
+      },
+      "weaknesses": [
+        "Immobile slug-like physiology makes him entirely defenseless in direct physical combat"
+      ],
+      "mobility": [
+        "Slithering/crawling slowly",
+        "Sedan transport"
+      ],
+      "limitations": [
+        "Cannot walk or move quickly on his own"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Jabba_Desilijic_Tiure",
+          "supports": "Crime lord status, palace security, and physical vulnerability."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fed disobedient underlings and enemies to his pet rancor.",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Princess Leia Organa",
+          "result": "loss",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "note": "Strangled to death by Leia using his own chains while incapacitated on his barge.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Resistance to specific poisons or toxins."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Jango Fett",
+      "continuity": "Star Wars Canon (Attack of the Clones)",
+      "summary": "Jango Fett is a premier Mandalorian bounty hunter equipped with beskar armor, flamethrowers, wrist rockets, toxic darts, and a jetpack. He fights with lethal precision at all ranges.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech",
+          "fire"
+        ],
+        "techniques": [
+          "Dual WESTAR-34 blaster pistols",
+          "Jetpack missile launch",
+          "Wrist-mounted flamethrower",
+          "Kaminoan saberdart poisoning"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Full Beskar alloy armor suit",
+          "Energy shields",
+          "Jetpack aerial evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable at the neck seam and joint areas if exposed to precise strikes"
+      ],
+      "mobility": [
+        "Jetpack flight",
+        "Running",
+        "Acrobatic dodging"
+      ],
+      "limitations": [
+        "Jetpack malfunction renders him vulnerable to grounded traps"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Jango_Fett",
+          "supports": "Mandalorian armor, weapons, jetpack, and combat capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Assassinated Zam Wesell with a poisoned dart across a city distance.",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "source": 0
+        },
+        {
+          "claim": "Fought Obi-Wan Kenobi to a standstill on Kamino using ranged gadgets and physical strikes.",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Obi-Wan Kenobi",
+          "result": "win",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "note": "Successfully escaped Kamino after an intense duel.",
+          "source": 0
+        },
+        {
+          "opponent": "Mace Windu",
+          "result": "loss",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "note": "Jetpack malfunctioned during the Geonosis arena battle, leading to his decapitation by Windu's lightsaber.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Equipped with a Z-6 jetpack for rapid aerial combat and maneuverability.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Utilizes a wrist-mounted flamethrower in close combat.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Employs grappling hooks, wrist rockets, and toxic darts.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance in prolonged unarmed combat without armor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Jar Jar Binks",
+      "continuity": "Star Wars Canon (The Phantom Menace, The Clone Wars)",
+      "summary": "Jar Jar Binks relies on bizarre slapstick acrobatics, clumsy reflex evasion, and occasional accidental strikes. He is surprisingly resilient despite his chaotic style.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Accidental tumbling strikes",
+          "Electro-pole combat",
+          "Booma energy ball throwing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Inadvertent dodging",
+          "Gungan aquatic flexibility"
+        ]
+      },
+      "weaknesses": [
+        "Extreme clumsiness and lack of formal tactical discipline"
+      ],
+      "mobility": [
+        "High leaping",
+        "Swimming",
+        "Running"
+      ],
+      "limitations": [
+        "Completely lacks intentional martial skill or composure"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Jar_Jar_Binks",
+          "supports": "Gungan biology, clumsy combat style, and participation in battles."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated battle droids in the Battle of Naboo through accidental entanglement and frantic tumbling.",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Battle droids",
+          "result": "win",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "note": "Survived and disrupted droid formations through chaotic slapstick accidents.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Gungan species capable of prolonged underwater breathing and swimming.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Natural lung adaptation for breathing underwater.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True extent of potential latent Force sensitivity explored in fan theories."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
