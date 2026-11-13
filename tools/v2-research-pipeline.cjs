@@ -51,7 +51,20 @@ function checkBatch(file,batch,roster){
   if(!p.defense||typeof p.defense!=='object'||!Array.isArray(p.defense.mechanisms)||!p.defense.mechanisms.length)add(where+' defense.mechanisms required');
   if(!Array.isArray(p.weaknesses)||!p.weaknesses.length)add(where+' weaknesses required (write "not established" with evidence if unknown)');
   if(!Array.isArray(p.sources)||!p.sources.length)add(where+' sources required');
-  else for(const [j,s] of p.sources.entries())if(!s||!GOOD_URL.test(s.url||'')||!isText(s.supports))add(where+' source['+j+'] needs valid URL and specific claim it supports');
+  else for(const [j,s] of p.sources.entries()){
+   if(!s||!GOOD_URL.test(s.url||'')||!isText(s.supports))add(where+' source['+j+'] needs valid URL and specific claim it supports');
+   else if(s.supports.trim().replace(/\/+$/,'')===s.url.trim().replace(/\/+$/,''))add(where+' source['+j+'].supports must describe the claim, not repeat the URL');
+  }
+  // Optional evidence lists (feats, notableResults, conditional) may point at sources[] by index.
+  const nSources=Array.isArray(p.sources)?p.sources.length:0;
+  for(const key of ['feats','notableResults','conditional']){
+   if(p[key]===undefined)continue;
+   if(!Array.isArray(p[key])){add(where+' '+key+' must be an array');continue;}
+   for(const [k,f] of p[key].entries()){
+    if(!f||typeof f!=='object'){add(where+' '+key+'['+k+'] must be an object');continue;}
+    if(f.source!==undefined&&!(Number.isInteger(f.source)&&f.source>=0&&f.source<nSources))add(where+' '+key+'['+k+'].source must index an existing sources[] entry');
+   }
+  }
   if(!STATUS.has(p.researchStatus))add(where+' invalid researchStatus');
   if(p.researchStatus==='reviewed'&&(!isText(p.reviewedBy)||!isText(p.reviewNotes)))add(where+' reviewed record needs reviewer identity and substantive reviewNotes');
   if(p.id&&p.id.includes('|')&&!isText(p.formDifferences))add(where+' variant must specify formDifferences');
@@ -80,19 +93,29 @@ function audit(){
  }
  return {ids,records,errors,poolCounts,batches:batches.length};
 }
-function nextBatch(a,size=10){
- const outstanding=a.ids.filter(id=>!a.records.has(id));if(!outstanding.length)return {complete:true,ids:[]};
+function nextBatch(a,size=10,claimed=new Set()){
+ // Skip identities already recorded on the branch AND identities claimed by open, unmerged PRs.
+ const outstanding=a.ids.filter(id=>!a.records.has(id)&&!claimed.has(id));if(!outstanding.length)return {complete:true,ids:[]};
  const firstPool=outstanding[0].split(':')[0];
  return {complete:false,pool:firstPool,ids:outstanding.filter(id=>id.startsWith(firstPool+':')).slice(0,size)};
+}
+function argValue(argv,name){const i=argv.indexOf(name);return i>=0?argv[i+1]:undefined;}
+function readClaimed(file){
+ if(!file)return new Set();
+ const x=JSON.parse(fs.readFileSync(file,'utf8'));
+ if(!Array.isArray(x)||x.some(id=>typeof id!=='string'))throw Error('--claimed file must be a JSON array of identity strings');
+ return new Set(x);
 }
 function main(argv){
  const a=audit();
  if(argv.includes('--validate')){if(a.errors.length){a.errors.forEach(e=>console.error(e));process.exitCode=1;}else console.log('Research batches valid ('+a.batches+' batches)');return;}
- if(argv.includes('--next')){if(a.errors.length)throw Error('Invalid existing research batches: '+a.errors.join('; '));console.log(JSON.stringify(nextBatch(a),null,2));return;}
+ if(argv.includes('--next')){if(a.errors.length)throw Error('Invalid existing research batches: '+a.errors.join('; '));const size=Number(argValue(argv,'--size')||10);
+  if(!Number.isInteger(size)||size<1||size>20)throw Error('--size must be 1-20 (validator limit)');
+  console.log(JSON.stringify(nextBatch(a,size,readClaimed(argValue(argv,'--claimed'))),null,2));return;}
  if(argv.includes('--report')){
   console.log(JSON.stringify({identities:a.ids.length,batches:a.batches,pools:a.poolCounts,errors:a.errors},null,2));if(a.errors.length)process.exitCode=1;return;
  }
- console.log('Usage: node tools/v2-research-pipeline.cjs --validate | --report | --next');
+ console.log('Usage: node tools/v2-research-pipeline.cjs --validate | --report | --next [--size N] [--claimed ids.json]');
 }
 if(require.main===module)main(process.argv.slice(2));
 module.exports={rosterIds,loadBatches,checkBatch,audit,nextBatch};

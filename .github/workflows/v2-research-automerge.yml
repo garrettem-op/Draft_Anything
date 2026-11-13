@@ -1,50 +1,58 @@
-name: V2 reviewed research auto-merge gate
-# Uses trusted base-branch code only; never checks out or executes PR content.
-# A human, non-author GitHub APPROVED review and explicit research approval label
-# are both mandatory. GitHub repo also needs auto-merge and branch rules configured.
+name: V2 reviewed research merge gate
+# The gate logic (tools/v2-research-gate.cjs) is always checked out from the trusted base
+# branch develop/v2-option-c, never from the PR. The gate itself fails closed: research JSON
+# only, label present, a non-author non-bot APPROVED review on the current head, no change
+# requests, and every other check on the head completed green (it waits up to ~10 min for
+# running checks). It merges with --match-head-commit so only the approved head can land.
+#
+# Caveat: pull_request_review has no *_target variant, so for that event GitHub uses the
+# workflow YAML from the PR's merge commit. A PR that edits this YAML is itself ineligible
+# (non-research file), but only branch protection/rulesets can stop a malicious same-repo
+# edit. See docs/V2_RESEARCH_AUTOMATION.md.
 on:
-  pull_request:
+  pull_request_target:
     types: [labeled, synchronize, reopened, ready_for_review]
     branches: [develop/v2-option-c]
   pull_request_review:
     types: [submitted]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: 'PR number to evaluate'
+        required: true
 permissions:
   contents: write
   pull-requests: write
+  actions: write
+concurrency:
+  group: v2-research-gate-${{ github.event.pull_request.number || inputs.pr }}
+  cancel-in-progress: false
 jobs:
-  gate:
+  research-merge-gate:
     if: github.repository == 'garrettem-op/Draft_Anything'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: Check explicit approval, files, and completed green checks
+      - uses: actions/checkout@v4
+        with:
+          ref: develop/v2-option-c
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Evaluate and merge if eligible
+        id: gate
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
-          PR: ${{ github.event.pull_request.number }}
-        shell: bash
+          PR: ${{ github.event.pull_request.number || inputs.pr }}
+        run: node tools/v2-research-gate.cjs "$REPO" "$PR"
+      - name: Continue the queue after a merge
+        # Merges made with GITHUB_TOKEN do not fire push workflows, so dispatch explicitly.
+        if: steps.gate.outputs.merged == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
         run: |
-          if [ -z "$PR" ]; then exit 0; fi
-          node - <<'NODE'
-          const cp=require('child_process');
-          const repo=process.env.REPO,n=process.env.PR;
-          const api=(u)=>JSON.parse(cp.execFileSync('gh',['api',u],{encoding:'utf8'}));
-          const pr=api('/repos/'+repo+'/pulls/'+n);
-          const stop=m=>{console.log('Not eligible for automatic merge: '+m);process.exit(0)};
-          if(pr.base.ref!=='develop/v2-option-c'||pr.draft||pr.state!=='open')stop('not an open V2 review-ready PR');
-          if(!pr.labels.some(l=>l.name==='v2-research-approved'))stop('approval label absent');
-          const files=api('/repos/'+repo+'/pulls/'+n+'/files?per_page=100');
-          if(files.length===0||files.length>=100)stop('no files or too many to verify');
-          if(files.some(f=>f.status==='removed'||!/^research\/option-c\/batches\/[a-z0-9][a-z0-9_-]*\.json$/i.test(f.filename)))stop('changes extend outside research data JSON');
-          const reviews=api('/repos/'+repo+'/pulls/'+n+'/reviews?per_page=100');
-          const latest=new Map();for(const r of reviews){if(r.user?.login)latest.set(r.user.login,{state:r.state,at:r.submitted_at||''});}
-          const approvers=[...latest].filter(([login,r])=>login!==pr.user.login&&r.state==='APPROVED');
-          if(!approvers.length)stop('no independent approved review');
-          const checks=api('/repos/'+repo+'/commits/'+pr.head.sha+'/check-runs?per_page=100');
-          const all=checks.check_runs||[];
-          const validations=all.filter(x=>x.name==='validate-research');
-          if(!validations.some(x=>x.status==='completed'&&x.conclusion==='success'))stop('V2 research validation has not passed on this head');
-          const failing=all.filter(x=>x.status==='completed'&&['failure','cancelled','timed_out','action_required'].includes(x.conclusion));
-          if(failing.length)stop('head contains failing checks');
-          console.log('Eligible for GitHub auto-merge request. Other branch protection and repository settings remain authoritative.');
-          cp.execFileSync('gh',['pr','merge',String(n),'-R',repo,'--auto','--squash'],{stdio:'inherit'});
-          NODE
+          gh workflow run v2-research-queue.yml -R "$REPO" --ref develop/v2-option-c \
+            || echo '::warning::Could not dispatch the research queue; run it manually or from a scheduled tick.'
