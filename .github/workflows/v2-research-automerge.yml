@@ -3,7 +3,7 @@ name: V2 reviewed research merge gate
 # branch develop/v2-option-c, never from the PR. The gate itself fails closed: research JSON
 # only, label present, a non-author non-bot APPROVED review on the current head, no change
 # requests, and every other check on the head completed green (it waits up to ~10 min for
-# running checks). It merges with --match-head-commit so only the approved head can land.
+# running checks). It merges through the REST API pinned to the approved head SHA, so only that head can land.
 #
 # Caveat: pull_request_review has no *_target variant, so for that event GitHub uses the
 # workflow YAML from the PR's merge commit. A PR that edits this YAML is itself ineligible

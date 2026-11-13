@@ -9,6 +9,9 @@ on:
       - '.github/workflows/v2-research-*.yml'
       - 'tools/v2-research-gate.cjs'
       - 'tests/v2-research-gate.test.cjs'
+      - 'tools/v2-gemini-worker.cjs'
+      - 'tools/v2-research-tick.cjs'
+      - 'tests/v2-gemini-worker.test.cjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,5 +28,5 @@ jobs:
       - name: Validate roster identity, sources, and review status
         run: |
           node tools/v2-research-pipeline.cjs --validate
-          node --test tests/v2-research-pipeline.test.cjs tests/v2-research-gate.test.cjs
+          node --test tests/v2-research-pipeline.test.cjs tests/v2-research-gate.test.cjs tests/v2-gemini-worker.test.cjs
           node tools/v2-research-pipeline.cjs --report
