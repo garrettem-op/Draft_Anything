@@ -1,0 +1,523 @@
+{
+  "batchId": "Gemini V2 research muppets 20261113-220802 #65",
+  "schemaVersion": 1,
+  "pool": "muppets",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "muppets:The Count",
+      "continuity": "The Muppet Show / Sesame Street",
+      "summary": "The Count is a vampire-themed Muppet who specializes in arithmetic, compulsively counting objects aloud with thunder and lightning effects. In a combat context, he relies on psychological disruption, traditional vampire attributes like immortality or bat transformation, and theatrical flair rather than direct martial violence.",
+      "offense": {
+        "domains": [
+          "control",
+          "magic"
+        ],
+        "techniques": [
+          "Compulsive counting spell/effect",
+          "Bat transformation",
+          "Summoning thunder and lightning"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vampiric regeneration or immortality",
+          "Shape-shifting into a bat to evade attacks"
+        ]
+      },
+      "weaknesses": [
+        "Compulsion to count objects if they are presented to him"
+      ],
+      "mobility": [
+        "Bat flight",
+        "Walking"
+      ],
+      "limitations": [
+        "Easily distracted by the need to count scattered items"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/The_Count",
+          "supports": "Basic attributes, vampire nature, counting compulsion, and bat transformation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Triggered localized thunder and lightning merely by counting up to high numbers",
+          "citation": "Sesame Street recurring segments",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Compulsive counting distraction",
+          "dependsOn": "Presence of countable objects (such as stones, coins, or items thrown at him)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-teleport",
+          "claim": "Can transform into a bat to reposition quickly",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether his vampiric abilities include traditional weaknesses like sunlight or stakes, beyond the parody elements."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:The Newsman",
+      "continuity": "The Muppet Show",
+      "summary": "The Newsman delivers live television news updates that frequently conclude with an absurd physical disaster or object crashing into his desk. He fights primarily with verbal composure under fire, though he lacks offensive combat training.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Desk-shielding",
+          "Reporting under extreme hazard"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Office desk cover",
+          "Quick evacuation"
+        ]
+      },
+      "weaknesses": [
+        "Extremely fragile when struck by falling debris or thrown objects"
+      ],
+      "mobility": [
+        "Standard running",
+        "Desk-bound"
+      ],
+      "limitations": [
+        "No combat offensive capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/The_Newsman",
+          "supports": "The Newsman's role, recurring desk gags, and vulnerability to news disasters."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived numerous direct impacts from cannonballs, anvils, and explosions while delivering a broadcast",
+          "citation": "The Muppet Show episodes",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True physical resilience outside of comedic cartoon physics."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Thog",
+      "continuity": "The Muppet Show",
+      "summary": "Thog is an enormous, gentle blue monster who towers over most other Muppets. Due to his immense size, his combat style relies entirely on physical mass, overwhelming reach, and accidental collateral damage, though his gentle disposition usually prevents him from fighting aggressively.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Massive physical strikes",
+          "Trampling",
+          "Grappling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick furry hide",
+          "Enormous physical mass acting as natural armor"
+        ]
+      },
+      "weaknesses": [
+        "Gentle nature often prevents him from capitalizing on aggressive combat advantages"
+      ],
+      "mobility": [
+        "Heavy footsteps",
+        "Standard walking"
+      ],
+      "limitations": [
+        "Low agility due to massive bulk"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Thog",
+          "supports": "Thog's enormous size, appearance, and physical description."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Physically lifted and interacted with standard-sized Muppets with extreme ease due to towering height",
+          "citation": "The Muppet Show",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Towers over standard Muppets at approximately nine feet tall",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Actual combat stamina in a sustained engagement."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Two-Headed Monster",
+      "continuity": "Sesame Street",
+      "summary": "The Two-Headed Monster consists of two blue heads sharing a single furry body, frequently arguing over coordination and direction. In physical tasks, their lack of synchronization makes precise maneuvers difficult, but they possess combined strength when they agree.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Uncoordinated dual pushes",
+          "Simultaneous pulling from two directions"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shared furry bulk"
+        ]
+      },
+      "weaknesses": [
+        "Frequent internal disagreements impede tactical decision-making in combat"
+      ],
+      "mobility": [
+        "Clumsy walking"
+      ],
+      "limitations": [
+        "Poor coordination between the two heads"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Two-Headed_Monster",
+          "supports": "Physical description, dual heads, and uncoordinated nature."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully pushed and manipulated heavy objects together once agreement was reached",
+          "citation": "Sesame Street sketches",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "How well they can defend against attacks coming from blind spots behind either head."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Uncle Deadly",
+      "continuity": "The Muppet Show",
+      "summary": "Uncle Deadly is a theatrical, villainous dragon-like monster with a flair for melodrama and the supernatural. He fights using intimidation, dramatic entrances, theatrical traps, and menacing physical presence.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Dramatic ambushes",
+          "Intimidation tactics",
+          "Theatrical claw strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Scaling hide",
+          "Stealthy shadow blending"
+        ]
+      },
+      "weaknesses": [
+        "Prone to distraction by theatrical staging and dramatic monologues"
+      ],
+      "mobility": [
+        "Stalking movement",
+        "Stage flying rigs"
+      ],
+      "limitations": [
+        "Relies heavily on surprise and atmosphere rather than sustained brawling"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Uncle_Deadly",
+          "supports": "Character background as a villainous phantom/dragon monster, theatrical nature."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Frightened the entire cast of The Muppet Show by posing as the Phantom of the Opera equivalent",
+          "citation": "The Muppet Show",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Known for operating as a phantom lurking in backstage shadows",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True durability against direct physical assaults."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Uncle Traveling Matt",
+      "continuity": "Fraggle Rock",
+      "summary": "Uncle Traveling Matt is an intrepid explorer who ventures into 'Outer Space' (human dwellings). His combat style is defined by rugged resilience, improvised survival gear, and an absolute fearlessness toward gigantic everyday objects.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Improvised tool usage",
+          "Reckless exploration charges"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Explorer helmet protection",
+          "High pain tolerance from domestic hazards"
+        ]
+      },
+      "weaknesses": [
+        "Misinterprets ordinary household items as dangerous beasts or traps, leading to tactical errors"
+      ],
+      "mobility": [
+        "Climbing",
+        "Running",
+        "Sprinting away from hazards"
+      ],
+      "limitations": [
+        "Lacks formal martial training; relies on survival instinct"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Uncle_Traveling_Matt",
+          "supports": "Role as an explorer in Outer Space, survival experiences."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived numerous perilous encounters with human household hazards such as vacuum cleaners and postal mail",
+          "citation": "Fraggle Rock episodes",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance in actual combat against trained opponents rather than household appliances."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Waldorf",
+      "continuity": "The Muppet Show",
+      "summary": "Waldorf is an elderly, sharp-tongued critic who views all events from a balcony alongside his companion Statler. He fights exclusively with verbal insults and heckling, relying on caustic wit to demoralize opponents.",
+      "offense": {
+        "domains": [
+          "control"
+        ],
+        "techniques": [
+          "Caustic verbal barbs",
+          "Demoralizing heckles"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Balcony elevation cover",
+          "Retreating behind theater curtains"
+        ]
+      },
+      "weaknesses": [
+        "Complete lack of physical combat capability; entirely sedentary"
+      ],
+      "mobility": [
+        "Slow walking",
+        "Balcony seating"
+      ],
+      "limitations": [
+        "Advanced age and sedentary lifestyle restrict mobility"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Waldorf",
+          "supports": "Balcony heckler persona, partnership with Statler."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Consistently demoralized performers on stage with sharp comedic put-downs",
+          "citation": "The Muppet Show",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Physical endurance if forced out of his balcony seat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Walter",
+      "continuity": "The Muppets (2011 film)",
+      "summary": "Walter is an enthusiastic, mild-mannered Muppet fan whose primary assets are encyclopedic knowledge of Muppet lore and surprising dexterity under pressure. He fights using coordinated teamwork, heartfelt determination, and occasional whistling acrobatics.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Fingernail whistling projectile projection",
+          "Collaborative team maneuvers"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Support from allies"
+        ]
+      },
+      "weaknesses": [
+        "Prone to self-doubt and lacks innate aggressive instincts"
+      ],
+      "mobility": [
+        "Standard running",
+        "Stage acrobatics"
+      ],
+      "limitations": [
+        "Average physical strength for a standard Muppet"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Walter",
+          "supports": "Walter's debut in The Muppets (2011), whistling talent, and fan background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Performed a complex theatrical talent-show routine under high-stress conditions to save the Muppet Theater",
+          "citation": "The Muppets (2011 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat viability outside of performing arts and teamwork scenarios."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Wembley Fraggle",
+      "continuity": "Fraggle Rock",
+      "summary": "Wembley Fraggle is an indecisive, friendly, and agile cave-dweller who excels at squeezing through tight spaces and escaping danger. His combat style prioritizes evasion, nimble scrambling, and utilizing subterranean terrain.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Scrambling escapes",
+          "Improvised distraction"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme agility",
+          "Hiding in narrow tunnels"
+        ]
+      },
+      "weaknesses": [
+        "Chronic indecision can delay tactical choices during high-pressure situations"
+      ],
+      "mobility": [
+        "Running",
+        "Climbing",
+        "Crawlspace maneuvering"
+      ],
+      "limitations": [
+        "Lacks offensive striking power"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Wembley_Fraggle",
+          "supports": "Wembley's personality traits, agility, and role in Fraggle Rock."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully navigated complex cave networks and evaded Gorg predators through sheer speed and agility",
+          "citation": "Fraggle Rock episodes",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance in direct offensive combat without escape routes."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Zoe",
+      "continuity": "Sesame Street",
+      "summary": "Zoe is a high-energy, expressive toddler monster characterized by her love of dancing, her pet rock Roci, and fierce independence. She fights with exuberant physical energy, acrobatic twirls, and stubborn determination.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Balletic leaps",
+          "Energetic rushes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic dodging",
+          "Furry resilience"
+        ]
+      },
+      "weaknesses": [
+        "Impulsive emotional outbursts can compromise defensive positioning"
+      ],
+      "mobility": [
+        "Dancing",
+        "Leaping",
+        "Running"
+      ],
+      "limitations": [
+        "Childlike stature limits reach against larger opponents"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Zoe",
+          "supports": "Zoe's energetic personality, dancing skills, and Sesame Street appearances."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Executed complex gymnastic routines and sustained high-energy physical play throughout long episodes",
+          "citation": "Sesame Street",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Capability in serious combat scenarios outside of youth-oriented educational adventures."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
