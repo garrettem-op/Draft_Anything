@@ -1,0 +1,695 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125108 #20",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Charizard|Gigantamax Charizard",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Gigantamax Charizard transforms into a colossal, fire-infused form using the Gigantamax phenomenon. It attacks by projecting massive pillars of G-Max Wildfire that incinerate opponents for multiple turns.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "G-Max Wildfire",
+          "Fire Blast",
+          "Flamethrower"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gigantamax health boost",
+          "Fire-type resistances"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Electric-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "flight"
+      ],
+      "limitations": [
+        "Gigantamax form lasts only three turns in battle"
+      ],
+      "formDifferences": "Changes Charizard into a giant form with clouds of flame on its tail and back, replacing standard Max Flare with G-Max Wildfire.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Gigantamax Charizard form details and G-Max Wildfire capabilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Incinerates opponents over four turns using G-Max Wildfire.",
+          "citation": "Pokémon Sword and Shield game mechanics and animations",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gigantamax transformation and G-Max Wildfire",
+          "dependsOn": "Gigantamax energy or Power Spot availability",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Gigantamax Charizard uses G-Max Wildfire and standard fire attacks.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Controls massive pillars of Gigantamax fire energy.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Gigantamax form grows to massive proportions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of Gigantamax energy outside of specific battle environments"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Charizard|Mega Charizard X",
+      "continuity": "Pokémon X and Y / Omega Ruby and Alpha Sapphire",
+      "summary": "Mega Charizard X transforms Charizard into a Fire and Dragon-type, trading its flying flame for roaring blue fire and increased physical strength. It strikes fiercely in close combat with powerful dragon and fire maneuvers.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical",
+          "dragon"
+        ],
+        "techniques": [
+          "Flare Blitz",
+          "Dragon Claw",
+          "Outrage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tough Claws ability boosting contact moves",
+          "Dragon-type defensive resistances"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks",
+        "Rock-type attacks",
+        "Dragon-type attacks",
+        "Water-type attacks"
+      ],
+      "mobility": [
+        "flight"
+      ],
+      "limitations": [
+        "Mega Evolution lasts for the duration of a single battle"
+      ],
+      "formDifferences": "Changes typing from Fire/Flying to Fire/Dragon, alters body color to black and blue, and changes its ability to Tough Claws.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Mega Charizard X typing, ability, and movepool details"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Gains the Tough Claws ability, increasing the power of physical attacks.",
+          "citation": "Pokémon X and Y games",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution into Mega Charizard X",
+          "dependsOn": "Charizardite X item and Trainer's Mega Bracelet",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Mega Charizard X generates blue fire from its mouth.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Retains the ability to fly using wings in Mega form.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Reversibility limits outside of official battle facilities"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Charizard|Mega Charizard Y",
+      "continuity": "Pokémon X and Y / Omega Ruby and Alpha Sapphire",
+      "summary": "Mega Charizard Y enhances Charizard's aerial agility and special attack power. Its Drought ability immediately summons harsh sunlight, empowering its fire attacks to devastating levels.",
+      "offense": {
+        "domains": [
+          "fire",
+          "energy",
+          "air"
+        ],
+        "techniques": [
+          "Flamethrower",
+          "Fire Blast",
+          "Solar Beam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced special defense and speed in flight"
+        ]
+      },
+      "weaknesses": [
+        "Rock-type attacks",
+        "Electric-type attacks",
+        "Water-type attacks"
+      ],
+      "mobility": [
+        "flight"
+      ],
+      "limitations": [
+        "Mega Evolution is restricted to once per battle"
+      ],
+      "formDifferences": "Retains Fire/Flying typing, increases special attack and speed, and gains the Drought ability.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Mega Charizard Y Drought ability and special attack profile"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Summons harsh sunlight upon entering battle via Drought, allowing instant execution of Solar Beam.",
+          "citation": "Pokémon X and Y games",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution into Mega Charizard Y and Drought weather creation",
+          "dependsOn": "Charizardite Y item and Trainer's Mega Bracelet",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Mega Charizard Y wields intensely powered fire attacks.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses enhanced wings for supreme aerial maneuverability.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Interaction with opposing weather-changing abilities in prolonged combat"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Charmander",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Charmander is a small bipedal lizard Pokémon whose life force is tied to the flame burning at the tip of its tail. It fights using quick scratching maneuvers and projected streams of fire.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical"
+        ],
+        "techniques": [
+          "Scratch",
+          "Ember",
+          "Flamethrower"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile dodging",
+          "Fire resistance"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Ground-type attacks",
+        "Rock-type attacks",
+        "Extinguishing of tail flame"
+      ],
+      "mobility": [
+        "running"
+      ],
+      "limitations": [
+        "Vulnerable if the flame on its tail is extinguished"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(Pok%C3%A9mon)",
+          "supports": "Charmander baseline abilities, tail flame life-force lore, and movepool"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survives and fights despite heavy rain dampening its tail flame in early anime episodes.",
+          "citation": "Pokémon anime - Episode 11 'Charmander – The Stray Pokémon'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Charmander generates and breathes fire.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact threshold of rain required to fully extinguish the tail flame"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Charmeleon",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Charmeleon is an aggressive bipedal reptilian Pokémon that overwhelms opponents with sharp claws and intense bursts of flame. It is stronger and more temperamental than its pre-evolution.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical"
+        ],
+        "techniques": [
+          "Scratch",
+          "Slash",
+          "Flamethrower",
+          "Fire Fang"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thicker hide than Charmander",
+          "Agile movement"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Ground-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "running"
+      ],
+      "limitations": [
+        "Prone to ignoring inexperienced Trainers due to its aggressive disposition"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(Pok%C3%A9mon)",
+          "supports": "Charmeleon evolution traits and combat tendencies"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slashes opponents with sharp claws to inflict heavy damage in close quarters.",
+          "citation": "Pokémon Red and Blue game mechanics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Charmeleon uses powerful fire attacks like Flamethrower.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact psychological breaking point for obedience thresholds"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Clefable",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Clefable is a fairy-type Pokémon known for its magical adaptability and ability to harness cosmic energy. It uses unusual psychic and fairy techniques to disrupt and overwhelm opponents.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "psychic"
+        ],
+        "techniques": [
+          "Moonblast",
+          "Metronome",
+          "Cosmic Power",
+          "Moonlight"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High special defense",
+          "Immunity to Dragon-type attacks"
+        ]
+      },
+      "weaknesses": [
+        "Steel-type attacks",
+        "Poison-type attacks"
+      ],
+      "mobility": [
+        "walking",
+        "gravity-defying leaps"
+      ],
+      "limitations": [
+        "Dependent on unpredictable move selection when using Metronome"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Clefable_(Pok%C3%A9mon)",
+          "supports": "Clefable typing, magical moves, and defensive stats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wields the Metronome move to unpredictably execute virtually any known attack.",
+          "citation": "Pokémon Red and Blue game mechanics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Clefable utilizes fairy-type magical attacks and moonlight manipulation.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Clefable restores its own health using Moonlight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact probability distribution of Metronome move outputs"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Clefairy",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Clefairy is a small, cute Fairy-type Pokémon that channels lunar energy and distorts probability with metronomic attacks. It avoids direct heavy combat through evasive maneuvers and supportive magic.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Pound",
+          "Metronome",
+          "Moonlight",
+          "Disarming Voice"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Fairy-type resistances",
+          "Evade tactics"
+        ]
+      },
+      "weaknesses": [
+        "Steel-type attacks",
+        "Poison-type attacks"
+      ],
+      "mobility": [
+        "walking"
+      ],
+      "limitations": [
+        "Low physical durability compared to evolved forms"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Clefairy_(Pok%C3%A9mon)",
+          "supports": "Clefairy baseline attributes and move list"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Waggle of a finger via Metronome triggers random powerful attacks.",
+          "citation": "Pokémon Red and Blue game mechanics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Clefairy uses fairy-type moves and moonlight energy.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Clefable and Clefairy heal themselves using Moonlight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of moonlight absorption during daylight hours"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Cloyster",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Cloyster is a bivalve Pokémon encased in an exceptionally hard shell that can withstand almost any physical blow. It attacks by launching barrage-style icicles and sharp spikes at enemies.",
+      "offense": {
+        "domains": [
+          "ice",
+          "physical"
+        ],
+        "techniques": [
+          "Icicle Spear",
+          "Spike Cannon",
+          "Hydro Pump",
+          "Aurora Beam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely high physical defense shell",
+          "Shell Smash tactical hardening"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks",
+        "Fighting-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "swimming",
+        "jet propulsion via water expulsion"
+      ],
+      "limitations": [
+        "Low special defense when its shell is closed or compromised by special energy attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Cloyster_(Pok%C3%A9mon)",
+          "supports": "Cloyster shell defense, ice attacks, and movepool"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fires a rapid succession of 2 to 5 icicles using Icicle Spear.",
+          "citation": "Pokémon Red and Blue game mechanics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Cloyster lives in aquatic environments and uses water attacks.",
+          "source": 0
+        },
+        {
+          "tag": "ice",
+          "claim": "Cloyster projects multi-hit icicle attacks.",
+          "source": 0
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Generates and launches high-velocity icicles.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Cloyster breathes underwater naturally.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Swims proficiently in aquatic habitats.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Penetration limits of its shell against legendary-tier physical strikes"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Cubone",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Cubone is a small ground-type Pokémon that wears the skull of its deceased mother as a helmet. It fights defensively or aggressively by wielding a bone as a club and throwing it like a boomerang.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Bone Club",
+          "Bonemerang",
+          "Headbutt",
+          "Thick Club"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Skull helmet protecting the head"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Grass-type attacks",
+        "Ice-type attacks"
+      ],
+      "mobility": [
+        "running"
+      ],
+      "limitations": [
+        "Emotionally vulnerable when thinking of its deceased mother"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Cubone_(Pok%C3%A9mon)",
+          "supports": "Cubone skull helmet lore, bone weapon techniques, and ground typing"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Throws its bone weapon to strike an opponent twice on the go and return via Bonemerang.",
+          "citation": "Pokémon Red and Blue game mechanics",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Double attack power when holding a Thick Club item",
+          "dependsOn": "Thick Club item",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Source of replacement bones if its primary weapon is permanently destroyed"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Dewgong",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Dewgong is a marine mammal Pokémon covered in pure white fur that thrives in freezing polar waters. It uses icy breath and horn attacks to subdue adversaries while swimming with high agility.",
+      "offense": {
+        "domains": [
+          "ice",
+          "water",
+          "physical"
+        ],
+        "techniques": [
+          "Ice Beam",
+          "Aurora Beam",
+          "Aqua Jet",
+          "Headbutt"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick insulating blubber against cold and physical impacts"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks",
+        "Fighting-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "swimming",
+        "sliding on ice"
+      ],
+      "limitations": [
+        "Slower and more cumbersome on dry land than in water"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Dewgong_(Pok%C3%A9mon)",
+          "supports": "Dewgong polar adaptation, ice typing, and swimming prowess"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Swims actively through ice floes and frigid polar waters unaffected by sub-zero temperatures.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Dewgong is a marine Pokémon residing in icy waters.",
+          "source": 0
+        },
+        {
+          "tag": "ice",
+          "claim": "Dewgong fires freezing Ice Beams.",
+          "source": 0
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Creates freezing ice beams and aurora effects.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Respires underwater indefinitely.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Navigates icy oceans with high speed.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum diving depth in deep-sea trenches"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
