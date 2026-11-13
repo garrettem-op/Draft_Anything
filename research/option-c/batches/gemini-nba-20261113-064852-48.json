@@ -1,0 +1,642 @@
+{
+  "batchId": "Gemini V2 research nba 20261113-064852 #48",
+  "schemaVersion": 1,
+  "pool": "nba",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "nba:Steve Nash",
+      "continuity": "NBA career (1996-2012)",
+      "summary": "Steve Nash is an elite playmaking point guard renowned for orchestrating fast-paced offenses with exceptional passing vision and high-efficiency shooting.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "pick-and-roll orchestration",
+          "no-look passing",
+          "floater",
+          "three-point shooting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "positional awareness",
+          "taking charges"
+        ]
+      },
+      "weaknesses": [
+        "limited lateral quickness against elite slashing guards",
+        "undersized relative to dominant defensive guards and forwards"
+      ],
+      "mobility": [
+        "running",
+        "agility"
+      ],
+      "limitations": [
+        "vulnerable to physical defensive pressure",
+        "relies entirely on tactical execution and teammates"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Steve_Nash",
+          "supports": "Playing style, career achievements, and offensive capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won back-to-back NBA MVP awards in 2005 and 2006 while leading the Phoenix Suns to the Western Conference Finals.",
+          "citation": "NBA 2004-05 and 2005-06 seasons",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "San Antonio Spurs",
+          "result": "loss",
+          "citation": "2007 NBA Playoffs Western Conference Semifinals",
+          "note": "Eliminated in a closely contested, physical series.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact defensive rating metrics across different rule eras"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Tim Duncan",
+      "continuity": "NBA career (1997-2016)",
+      "summary": "Tim Duncan is a dominant two-way center and power forward famous for his fundamental mastery, elite interior defense, and steady leadership.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "bank shot",
+          "post-up play",
+          "pick-and-roll scoring",
+          "interior passing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "shot-blocking",
+          "positional rim protection",
+          "defensive rebounding"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable against extremely fast, small-ball lineups stretching the floor"
+      ],
+      "mobility": [
+        "running",
+        "footwork"
+      ],
+      "limitations": [
+        "limited perimeter scoring range outside mid-range"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tim_Duncan",
+          "supports": "Career achievements, defensive dominance, and offensive toolkit."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won five NBA championships and three NBA Finals MVP awards with the San Antonio Spurs.",
+          "citation": "1999, 2003, 2005, 2007, and 2014 NBA Finals",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Miami Heat",
+          "result": "win",
+          "citation": "2014 NBA Finals",
+          "note": "Won series 4-1 with dominant team play.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands 6 feet 11 inches tall.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact impact of fluctuating rule interpretations on vertical contest calls"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Tim Hardaway",
+      "continuity": "NBA career (1989-2003)",
+      "summary": "Tim Hardaway is an explosive point guard best known for popularizing the 'killer crossover' dribble and running dynamic fast-break offenses.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "killer crossover",
+          "penetration and kick-out passing",
+          "pull-up jump shot"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "ball-pressure",
+          "active hands"
+        ]
+      },
+      "weaknesses": [
+        "undersized against larger wing defenders",
+        "relies heavily on rhythm dribbling"
+      ],
+      "mobility": [
+        "super-speed",
+        "lateral agility"
+      ],
+      "limitations": [
+        "decreased mobility after career-altering knee injuries"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tim_Hardaway",
+          "supports": "Signature crossover move and career statistics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Selected to five NBA All-Star teams and earned All-NBA Team honors multiple times.",
+          "citation": "NBA career achievements",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Chicago Bulls",
+          "result": "loss",
+          "citation": "1991 NBA Playoffs",
+          "note": "Faced Michael Jordan and the Bulls.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term efficacy of knee durability across extended playoff runs"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Tom Thibodeau",
+      "continuity": "NBA coaching career (1989-Present)",
+      "summary": "Tom Thibodeau is a relentless head coach who imposes high-intensity defensive systems, strict rotations, and fierce competitive discipline.",
+      "offense": {
+        "domains": [
+          "tactical"
+        ],
+        "techniques": [
+          "structured half-court execution",
+          "relentless offensive rebounding pursuit"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "help-side shell defense",
+          "aggressive ball-screen coverage",
+          "communicative trapping"
+        ]
+      },
+      "weaknesses": [
+        "heavy reliance on starting players can lead to fatigue",
+        "inflexibility in defensive schemes against elite five-out shooting teams"
+      ],
+      "mobility": [
+        "sideline pacing"
+      ],
+      "limitations": [
+        "dependent entirely on player execution and roster health"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tom_Thibodeau",
+          "supports": "Coaching philosophy, defensive schemes, and career history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won NBA Coach of the Year in 2011 after leading the Chicago Bulls to 62 wins.",
+          "citation": "2010-11 NBA Season",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Miami Heat",
+          "result": "loss",
+          "citation": "2011 Eastern Conference Finals",
+          "note": "Faced LeBron James and Dwyane Wade.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Adaptability to modern pace-and-space analytics over long-term franchise management"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Tony Parker",
+      "continuity": "NBA career (2001-2019)",
+      "summary": "Tony Parker is a lightning-fast point guard renowned for his devastating penetration, high-percentage floater game, and efficient orchestration of the San Antonio Spurs offense.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "tear-drop floater",
+          "high-speed baseline drive",
+          "pick-and-roll scoring"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "team defensive positioning",
+          "ball-pressure"
+        ]
+      },
+      "weaknesses": [
+        "susceptible to physical, tall shot-blockers in the paint",
+        "average three-point shooting range"
+      ],
+      "mobility": [
+        "super-speed",
+        "acceleration"
+      ],
+      "limitations": [
+        "limited perimeter threat compared to modern stretch guards"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tony_Parker",
+          "supports": "Career achievements, playing style, and Finals MVP win."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won four NBA championships and was named the NBA Finals MVP in 2007.",
+          "citation": "2007 NBA Finals",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Cleveland Cavaliers",
+          "result": "win",
+          "citation": "2007 NBA Finals",
+          "note": "Swept the Cavaliers 4-0.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Longevity scaling outside Gregg Popovich's system"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Tracy McGrady",
+      "continuity": "NBA career (1997-2013)",
+      "summary": "Tracy McGrady is a prolific scoring wing blessed with exceptional height, length, fluidity, and an unstoppable pull-up jumper.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "pull-up jump shot",
+          "slashing dunk",
+          "isolation scoring"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "shot-blocking from behind",
+          "passing lane disruption"
+        ]
+      },
+      "weaknesses": [
+        "prone to lengthy injury absences",
+        "inconsistent defensive engagement off-ball"
+      ],
+      "mobility": [
+        "running",
+        "leaping"
+      ],
+      "limitations": [
+        "chronic back and knee injuries limited peak athletic longevity"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+          "supports": "Scoring titles, career statistics, and notable scoring feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scored 13 points in 33 seconds to secure a comeback win against the San Antonio Spurs.",
+          "citation": "December 9, 2004 game vs. San Antonio Spurs",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Utah Jazz",
+          "result": "loss",
+          "citation": "2008 NBA Playoffs",
+          "note": "Eliminated in the first round.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands 6 feet 8 inches tall.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance ceiling without historical back injuries"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Victor Wembanyama",
+      "continuity": "NBA career (2023-Present)",
+      "summary": "Victor Wembanyama is a generational center combining unprecedented height and wingspan with perimeter guard skills and elite rim protection.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "step-back three-pointer",
+          "unblockable jump shot",
+          "lob finishing",
+          "ball-handling drives"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "elite shot-blocking",
+          "perimeter recovery",
+          "intercepting passing lanes"
+        ]
+      },
+      "weaknesses": [
+        "slender frame vulnerable to brute physical post power",
+        "developing turnover proneness under heavy double-teams"
+      ],
+      "mobility": [
+        "running",
+        "fluid agility"
+      ],
+      "limitations": [
+        "physical durability constraints against heavy-contact centers"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+          "supports": "Physical measurements, rookie achievements, and defensive statistics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won NBA Rookie of the Year unanimously and led the league in blocks per game.",
+          "citation": "2023-24 NBA Season",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Los Angeles Lakers",
+          "result": "loss",
+          "citation": "2023-24 NBA Regular Season",
+          "note": "Faced veteran superstars in competitive matchups.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands 7 feet 4 inches tall with an 8-foot wingspan.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Peak physical conditioning requirements over a decade-long career"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Vince Carter",
+      "continuity": "NBA career (1998-2020)",
+      "summary": "Vince Carter is an exceptionally explosive high-flying wing who combined unprecedented dunking ability with deep shooting range and scoring versatility.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "acrobatic slam dunk",
+          "pull-up three-pointer",
+          "slashing drive"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "athletic closeouts",
+          "weak-side shot-blocking"
+        ]
+      },
+      "weaknesses": [
+        "fluctuating defensive focus during regular season play",
+        "susceptible to ankle and knee injuries during prime"
+      ],
+      "mobility": [
+        "leaping",
+        "super-speed",
+        "running"
+      ],
+      "limitations": [
+        "loss of elite vertical explosiveness in later career stages"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+          "supports": "Slam Dunk Contest performance, career longevity, and scoring feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won the 2000 NBA Slam Dunk Contest with some of the most iconic aerial dunk sequences in history.",
+          "citation": "2000 NBA All-Star Weekend",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Philadelphia 76ers",
+          "result": "loss",
+          "citation": "2001 Eastern Conference Semifinals",
+          "note": "Missed potential game-winning shot in Game 7.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands 6 feet 6 inches tall.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Playoff performance consistency across multiple franchise transitions"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Walt Frazier",
+      "continuity": "NBA career (1967-1980)",
+      "summary": "Walt Frazier is an iconic defensive maestro and clutch scoring guard who combined elite ball-handling, cool composure, and relentless on-ball pressure.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "controlled isolation scoring",
+          "precise mid-range jump shot",
+          "unflappable passing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "on-ball perimeter pressure",
+          "stripping steals",
+          "defensive rebounding from guard position"
+        ]
+      },
+      "weaknesses": [
+        "limited three-point shot volume due to era rules"
+      ],
+      "mobility": [
+        "quick footwork",
+        "running"
+      ],
+      "limitations": [
+        "dependent on team pacing and low-tempo defensive strategy"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Walt_Frazier",
+          "supports": "Championship victories, defensive prowess, and iconic Game 7 performance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Recorded 36 points, 19 assists, and 7 steals in Game 7 of the 1970 NBA Finals to secure New York's first title.",
+          "citation": "1970 NBA Finals Game 7",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Los Angeles Lakers",
+          "result": "win",
+          "citation": "1970 NBA Finals",
+          "note": "Won series 4-3, starring alongside Willis Reed.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance metrics translated directly to modern high-pace analytics"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Wes Unseld",
+      "continuity": "NBA career (1968-1981)",
+      "summary": "Wes Unseld is a heavily built, fiercely physical center and power expert famous for setting bone-crushing screens, grabbing dominant rebounds, and throwing pinpoint outlet passes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "full-court outlet pass",
+          "physical interior screening",
+          "close-range post scoring"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "rebound dominance",
+          "impenetrable positional boxing out",
+          "interior toughness"
+        ]
+      },
+      "weaknesses": [
+        "undersized height for a center at 6 feet 7 inches",
+        "limited scoring range outside the paint"
+      ],
+      "mobility": [
+        "strength-based movement",
+        "running"
+      ],
+      "limitations": [
+        "vulnerable to taller elite centers in vertical contests"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Wes_Unseld",
+          "supports": "MVP win as a rookie, championship win, and outlet passing skill."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won both NBA MVP and Rookie of the Year in the 1968-69 season, leading the Baltimore Bullets.",
+          "citation": "1968-69 NBA Season",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Seattle SuperSonics",
+          "result": "win",
+          "citation": "1978 NBA Finals",
+          "note": "Won NBA Finals MVP and the championship.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands 6 feet 7 inches tall with formidable bulk.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact blocked shot statistics before blocks were officially recorded"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
