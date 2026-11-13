@@ -1,0 +1,579 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-065417 #63",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Flareon",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Flareon is a fire-type evolution of Eevee that generates intense heat inside its fluffy fur coat. It relies on physical strikes and fiery breath or projectile attacks to overwhelm opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Flamethrower",
+          "Fire Blast",
+          "Bite",
+          "Quick Attack"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick fur coat that radiates heat to deter physical approaches",
+          "High special defensive resilience"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to water, ground, and rock-type attacks"
+      ],
+      "mobility": [
+        "Standard quadrupedal running and leaping"
+      ],
+      "limitations": [
+        "Internal body temperature can rise dangerously high if it moves around too much during battle."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Flareon_(Pok%C3%A9mon)",
+          "supports": "Basic stats, fire typing, and standard movepool including Flamethrower and Fire Blast."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Heats up its body temperature to up to 1,700 degrees Fahrenheit.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Flareon is a Fire-type Pokémon capable of generating and breathing intense fire.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact physical output limits outside of stated Pokédex temperature thresholds."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Gastly",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Gastly is a Ghost/Poison-type Pokémon composed mostly of gaseous matter, allowing it to bypass physical barriers and suffocate opponents with toxic gas.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Lick",
+          "Shadow Ball",
+          "Hypnosis",
+          "Night Shade"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gaseous body that passes harmlessly through physical attacks",
+          "Levitation"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ghost and psychic-type attacks"
+      ],
+      "mobility": [
+        "Levitation and floating flight"
+      ],
+      "limitations": [
+        "Body can be blown away by strong winds due to its gaseous composition."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Gastly_(Pok%C3%A9mon)",
+          "supports": "Ghost/Poison typing, gaseous physiology, and levitation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wraps opponents in its gaseous body to weaken and eventually knock them out.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Gastly naturally floats and moves through the air without wings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True physical mass distribution across different environmental conditions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Gengar",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Gengar is a shadowy Ghost/Poison-type that hides in the shadows of its targets to drain their body heat and curse them. It uses a mix of stealth, status-inflicting moves, and direct shadow-based energy attacks.",
+      "offense": {
+        "domains": [
+          "energy",
+          "control",
+          "physical"
+        ],
+        "techniques": [
+          "Shadow Ball",
+          "Hypnosis",
+          "Dream Eater",
+          "Hex"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intangible shadow body",
+          "Ability to hide completely within shadows"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ghost, psychic, dark, and ground-type attacks"
+      ],
+      "mobility": [
+        "Levitation and flight"
+      ],
+      "limitations": [
+        "Cannot hide in areas completely devoid of light or shadow casting."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)",
+          "supports": "Ghost/Poison typing, shadow manipulation, and standard movepool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Steals the warmth of surrounding areas, dropping temperatures drastically.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Gengar hovers and flies naturally in the air.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Gengar can hide completely inside the shadow of any target.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of its shadow concealment in dimensions outside normal space."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Gengar|Gigantamax Gengar",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Gigantamax Gengar takes on a massive, cavernous form with a wide-open mouth that serves as a portal to the afterlife. It traps opponents inside its body to subject them to curses and thermal drains.",
+      "offense": {
+        "domains": [
+          "energy",
+          "control",
+          "physical"
+        ],
+        "techniques": [
+          "G-Max Terror",
+          "Shadow Ball",
+          "Hypnosis"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Colossal gigantamax durability",
+          "Immunity to normal-type and fighting-type moves due to ghost typing"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ghost, dark, psychic, and ground-type attacks",
+        "Reverts to normal size after the Gigantamax duration expires"
+      ],
+      "mobility": [
+        "Stationary or hovering massive form"
+      ],
+      "formDifferences": "Expands Gengar to a massive size with a portal-like mouth and grants access to G-Max Terror.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)",
+          "supports": "Gigantamax Gengar form details, gigantic proportions, and G-Max Terror move."
+        }
+      ],
+      "unknowns": [
+        "Exact structural mechanics of the interior portal dimension."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Gengar|Mega Gengar",
+      "continuity": "Pokémon X and Y / Pokémon Omega Ruby and Alpha Sapphire",
+      "summary": "Mega Gengar unlocks a connection to another dimension through its partially sunken body. It gains enhanced special attack power and a trapping ability that prevents opponents from escaping.",
+      "offense": {
+        "domains": [
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Shadow Ball",
+          "Sludge Bomb",
+          "Destiny Bond",
+          "Hypnosis"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced evasiveness and heightened special statistics"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ghost, dark, psychic, and ground-type attacks",
+        "Requires a Gengarite Mega Stone held during battle"
+      ],
+      "mobility": [
+        "Flight and levitation"
+      ],
+      "limitations": [
+        "Lasts only for the duration of a single battle."
+      ],
+      "formDifferences": "Gains the Shadow Tag ability, preventing opponent escape, and increases all offensive output.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)",
+          "supports": "Mega Gengar stats, Shadow Tag ability, and design features."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution",
+          "dependsOn": "Holding the Gengarite item and resonance with a Trainer's Mega Bracelet",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Mega Gengar floats effortlessly in the air.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The absolute depth of the dimensional void accessed via its body."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Geodude",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Geodude is a Rock/Ground-type Pokémon possessing a rugged, boulder-like body. It relies on its hard stone exterior to endure hits while delivering heavy physical tackles and punches.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tackle",
+          "Rock Throw",
+          "Magnitude",
+          "Earthquake"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Solid rock armor body capable of deflecting light impacts"
+        ]
+      },
+      "weaknesses": [
+        "Extremely vulnerable to water and grass-type attacks; also weak to ice, fighting, ground, and steel-type moves"
+      ],
+      "mobility": [
+        "Rolling across terrain, short walking strides"
+      ],
+      "limitations": [
+        "Limited mobility outside of rolling or short hops."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Geodude_(Pok%C3%A9mon)",
+          "supports": "Rock/Ground typing, physical defense statistics, and movepool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Crashes into opponents with a hard stone body, using mountainsides as camouflage.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mineral composition variations across different geographical regions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Gloom",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Gloom is a Grass/Poison-type Pokémon that secretes foul-smelling fluids from its pistil and drool from its mouth to incapacitate enemies with overwhelming stench.",
+      "offense": {
+        "domains": [
+          "control",
+          "energy"
+        ],
+        "techniques": [
+          "Absorb",
+          "Acid",
+          "Sleep Powder",
+          "Petal Dance"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Foul odor drives away attackers before physical contact occurs"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to fire, flying, psychic, and ice-type attacks"
+      ],
+      "mobility": [
+        "Bipedal walking"
+      ],
+      "limitations": [
+        "Slow movement speed in standard terrain."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Gloom_(Pok%C3%A9mon)",
+          "supports": "Grass/Poison typing, odor secretion mechanics, and abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Releases a stench so foul that it can cause fainting from a distance of over a mile.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact chemical makeup of the honey-like nectar it produces."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Golbat",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Golbat is a Poison/Flying-type bat Pokémon equipped with sharp fangs designed to pierce thick hides and drain blood from its targets during aerial swoops.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Bite",
+          "Wing Attack",
+          "Supersonic",
+          "Poison Fang"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Aerial agility and erratic flight patterns"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to electric, ice, psychic, and rock-type attacks"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Becomes sluggish and heavy if it drinks too much blood, hindering flight."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Golbat_(Pok%C3%A9mon)",
+          "supports": "Poison/Flying typing, flight abilities, and blood-draining characteristics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Drinks large quantities of blood from victims in a single feeding session before flying off.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Golbat possesses large wings enabling sustained natural flight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum flight altitude and endurance limits."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Goldeen",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Goldeen is a Water-type goldfish Pokémon that swims gracefully at high speeds and uses its sharp horn to ram opponents in aquatic environments.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Peck",
+          "Waterfall",
+          "Horn Attack",
+          "Agility"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Rapid swimming speed to evade capture"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to electric and grass-type attacks",
+        "Helpless when removed from water for extended periods"
+      ],
+      "mobility": [
+        "Swimming, occasional short leaps out of water"
+      ],
+      "limitations": [
+        "Cannot survive indefinitely out of water."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Goldeen_(Pok%C3%A9mon)",
+          "supports": "Water typing, horn attributes, and swimming capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Swims at speeds up to five knots against strong river currents.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Goldeen lives entirely in aquatic environments and swims with high speed.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Goldeen extracts oxygen from water using gills.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Goldeen is a fast, agile swimmer.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact force output of its horn strike when hitting non-aquatic armor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Golduck",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Golduck is a Water-type duck Pokémon featuring streamlined webbed limbs and potent psychic capabilities, allowing it to move at supreme velocities through water and unleash mental attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "psychic"
+        ],
+        "techniques": [
+          "Surf",
+          "Confusion",
+          "Psybeam",
+          "Aqua Tail"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Streamlined physique for rapid evasion",
+          "Psychic barriers"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to electric and grass-type attacks"
+      ],
+      "mobility": [
+        "Bipedal walking, fast swimming, diving"
+      ],
+      "limitations": [
+        "Psychic powers occasionally drain mental focus if overused."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Golduck_(Pok%C3%A9mon)",
+          "supports": "Water typing, webbed limbs, speed stats, and psychic movepool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Swims smoothly and effortlessly even in rough, stormy seas.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Golduck is an aquatic Pokémon built for river and ocean environments.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Golduck breathes underwater effortlessly.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Golduck swims faster than any human swimmer using its webbed flippers.",
+          "source": 0
+        },
+        {
+          "tag": "psychic",
+          "claim": "Golduck can utilize psychic moves like Confusion and Psybeam.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full extent of its latent psychic power scaling."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
