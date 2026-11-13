@@ -7,216 +7,282 @@
   "characters": [
     {
       "id": "games:Bowser|Dry Bowser",
-      "continuity": "Super Mario series",
-      "summary": "Dry Bowser is the skeletal, undead form of Bowser who retains his fire-breathing capabilities and gains skeletal resilience and bone-throwing attacks.",
+      "continuity": "New Super Mario Bros. (DS), with later appearances (New Super Mario Bros. 2, Mario & Luigi: Paper Jam)",
+      "summary": "Dry Bowser is the skeletal form Bowser takes after falling into lava in New Super Mario Bros. He throws his own bones, breathes fire (blue in later games) and is fireproof, but Mario beat him by dropping him into a pit.",
       "offense": {
         "domains": [
           "physical",
-          "energy",
-          "magic"
+          "energy"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Throws his own bones",
+          "Breathes small flames in New Super Mario Bros.; blue fire in later games",
+          "High jumps and a drop from the ceiling at the start of his fight",
+          "Mario & Luigi: Paper Jam: throws his head to spew blue flames, inhales foes, summons Thwomps and Koopalings"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Fireproof like Dry Bones: Fire Mario's fireballs have no effect",
+          "His body falls apart when he lands after being thrown into a pit, and he reassembles for the World 8 fight"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "A skull switch destroys the bridge he stands on and drops him into a deep pit",
+        "A Mega Mushroom jump makes him crumble",
+        "Three shell-dash hits defeat him, as with living Bowser"
       ],
       "mobility": [
-        "Short leaps"
+        "High jumps"
       ],
       "limitations": [],
-      "formDifferences": "Transforms Bowser into a skeletal undead version with immunity to standard damage and the ability to throw bones and breathe blue fire.",
+      "formDifferences": "Bowser's skeleton after he fell into lava in World 1-Castle. He trades flesh for a fireproof skeletal body that throws bones. Bowser Jr. later tosses the bones into a cauldron and Bowser returns, larger and breathing blue fire.",
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Bowser_(character)",
-          "supports": "General overview of Bowser forms including Dry Bowser."
+          "url": "https://mariowiki.com/Dry_Bowser",
+          "supports": "Origin in New Super Mario Bros. World 1-Castle, attacks (bones, flames, jumps; Paper Jam moves), fireproofing, falling apart and reassembling, defeat by skull switch, Mega Mushroom or shell dashes, and reversion via Bowser Jr.'s cauldron"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fell into lava after his defeat in World 1-Castle and came back as the skeletal Dry Bowser",
+          "citation": "New Super Mario Bros.",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mario",
+          "result": "loss",
+          "citation": "New Super Mario Bros., World 8",
+          "note": "Mario hit the skull switch, which destroyed the bridge and sent Dry Bowser into a deep pit",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Dry Bowser form",
+          "dependsOn": "Bowser falling into lava; it ends when Bowser Jr. tosses the bones into a cauldron and Bowser revives",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire-control",
+          "claim": "Breathes flames, blue fire in later games",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether the skeleton can reassemble indefinitely is not stated; the page shows one reassembly between World 1 and World 8.",
+        "Reviewed by Claude (2026-11-13): replaced the cited Wikipedia page (not opened this run) with the Super Mario Wiki Dry Bowser page. Restored bone throwing and fire breath; fireproofing and falling apart/reassembling are now sourced. Removed \"ground pound shockwaves\", \"immune to standard blunt force\" and a collapse-on-impact limitation (not on the page). Tag `fire` narrowed to `fire-control`. Removed `magic` domain (no magic described)."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Bowser|Fury Bowser",
+      "continuity": "Bowser's Fury (Super Mario 3D World + Bowser's Fury, 2021)",
+      "summary": "Fury Bowser is a gigantic kaiju form of Bowser created by splotchy black goop. He sleeps in the Fury Sun at the middle of Lake Lapcat and rampages at intervals, raining fire over the lake, until Giga Cat Mario defeats him.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Fury blasts: large beams of fire aimed at Mario; the only attack that destroys Fury Blocks",
+          "Fireballs that fall across the whole lake and leave circles of lava",
+          "Digs into the ground to summon large falling spikes",
+          "A shockwave of fire when he jumps at Mario",
+          "Later fights: a ring of huge fireballs and gigantic Kick Bombs"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gigantic size; his belly is exposed to Ground Pounds only when his shell is flipped",
+          "Claw swipes and lighthouse light deal only small damage outside that window"
+        ]
+      },
+      "weaknesses": [
+        "Flipping him exposes his belly to Ground Pounds; three Ground Pounds empty his health bar in the first battle",
+        "Lighthouse light damages him slightly"
+      ],
+      "mobility": [
+        "Jumps at his target"
+      ],
+      "limitations": [
+        "Sleeps in the Fury Sun between rampages, waking roughly every six minutes",
+        "A rampage ends after a while, or when the player collects a Cat Shine"
+      ],
+      "formDifferences": "Bowser turned into a gigantic black-skinned kaiju by splotchy goop. He gains fire beams, lake-wide fireball rain and summoned spikes, but only Giga Cat Mario can fight him to a defeat.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Fury_Bowser",
+          "supports": "Transformation by splotchy goop, kaiju size, fury blasts, fireballs, spikes, shockwave, sleep/wake cycle in the Fury Sun on Lake Lapcat, Giga Bell/Giga Cat Mario battles, Ground Pound weakness, lighthouse damage, Bowser Jr. in multiplayer"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "During rampages, fireballs fall across the whole of Lake Lapcat and leave circles of lava",
+          "citation": "Bowser's Fury",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mario (as Giga Cat Mario), with Bowser Jr.",
+          "result": "loss",
+          "citation": "Bowser's Fury",
+          "note": "Mario collects Giga Bells to become Giga Cat Mario for five boss battles; depleting Fury Bowser's health is the only way to defeat him. Bowser Jr. can also attack him in multiplayer for less damage",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Fury Bowser form",
+          "dependsOn": "Exposure to splotchy goop (the page implies Bowser Jr. painted him black as a prank)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Described as a gigantic kaiju whose body dwarfs his head; fought only by Giga Cat Mario",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Fury blasts of fire, lake-wide fireball rain and fire shockwaves",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The page gives no height figure; giant-sized rests on the kaiju description, which is far beyond 8 ft. Owner may want a numeric figure.",
+        "Whether he can swim is not stated; after his final defeat he hits the water and sinks back into the Fury Sun.",
+        "Reviewed by Claude (2026-11-13): replaced the cited Wikipedia page (not opened this run) with the Super Mario Wiki Fury Bowser page. Restored fire blasts and spike summons; removed \"tidal wave leaps\", \"impenetrable shell\" and swimming (not on the page). The Giga Bell weakness is reworded: the bells make Giga Cat Mario, who beats him. Tag `fire` narrowed to `fire-control`."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Bowser|Giga Bowser",
+      "continuity": "Super Smash Bros. series (Melee hidden boss; Bowser's Final Smash in Brawl and SSB4; boss and Giga Bowser Punch in Ultimate)",
+      "summary": "Giga Bowser is a monstrous form almost twice Bowser's size. He has passive super armor and barely flinches, but in Smash he appears only as a boss or as a short Final Smash.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Fire Breath: a large stream of flames",
+          "Flying Slam (20%)",
+          "Bowser Bomb",
+          "Whirling Fortress",
+          "Giga Bowser Punch Final Smash in Ultimate (40%)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Passive super armor; takes minimal hitstun",
+          "Knockback threshold (20 KB subtractive in Melee; 95 KB non-subtractive in Ultimate)",
+          "Cannot be grabbed, inhaled or egg-laid"
+        ]
+      },
+      "weaknesses": [
+        "In Melee he can only be beaten by knocking him offstage",
+        "Misusing Flying Slam or Bowser Bomb can carry him off the stage for a KO"
+      ],
+      "mobility": [
+        "Walking and jumping as Bowser does"
+      ],
+      "limitations": [
+        "As a Final Smash in Brawl and SSB4 the transformation lasts only ten seconds"
+      ],
+      "formDifferences": "A larger, horned, demonic Bowser, almost twice his size, with stronger offense and defense, passive super armor and grab immunity.",
+      "sources": [
+        {
+          "url": "https://www.ssbwiki.com/Giga_Bowser",
+          "supports": "Melee Adventure Mode boss, Brawl/SSB4 ten-second Final Smash, Ultimate Giga Bowser Punch (40%), size about twice Bowser, super armor and knockback threshold, grab immunity, attacks and how he is defeated"
         }
       ],
       "feats": [],
       "notableResults": [],
       "conditional": [
         {
-          "ability": "Skeletal resurrection",
-          "dependsOn": "Falling into lava or taking fatal damage in base form",
+          "ability": "Giga Bowser form",
+          "dependsOn": "Bowser's Final Smash (ten seconds in Brawl/SSB4) or a boss encounter",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "fire",
-          "claim": "Breathes blue or standard hellfire.",
+          "tag": "fire-control",
+          "claim": "Fire Breath: breathes a large stream of flames",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact mechanics of how Bowser transitions into Dry Bowser outside of severe magma injury.",
-        "Removed by review (not supported by the cited source): technique: Hellfire breath; technique: Bone throwing; technique: Ground pound shockwaves; defense: Undead skeletal anatomy immune to standard blunt force; defense: Regeneration from skeletal remains; weakness: Vulnerability to lava or being dropped into deep pits; weakness: Reconstitution can be interrupted or destroyed by complete incineration; limitation: Skeletal structure can still collapse temporarily upon heavy impact; mobility: Walking; feat: Survived being boiled in magma and returned as a skeleton.; result: Mario",
-        "Flagged needs-review: most claims unsupported by sources."
+        "No height in feet: the page says only that he is almost twice as large as Bowser, so `giant-sized` is not granted under the ~8 ft ruling (consistent with base Bowser). Owner may rule on this.",
+        "The page notes his weight does not scale with size and in tests he is lighter than Bowser.",
+        "Reviewed by Claude (2026-11-13): replaced the cited Super Smash Bros. Melee Wikipedia page (not opened) with the SmashWiki Giga Bowser page. Removed the unsupported feat \"fought off multiple Smash fighters\" and the unnamed-opponent \"roster\" result. Tags: `giant-sized` removed, `fire` narrowed to `fire-control`."
       ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Bowser|Fury Bowser",
-      "continuity": "Super Mario 3D World + Bowser's Fury",
-      "summary": "Fury Bowser is a gigantic, corrupted, kaiju-sized version of Bowser who rains down fiery projectiles and attacks with overwhelming mass.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy"
-        ],
-        "techniques": [
-          "Spike ball summons"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [],
-      "limitations": [],
-      "formDifferences": "The cited source never mentions the \"Fury Bowser\" form; variant-specific claims could not be verified and powers are inherited from the base form. (Gemini originally claimed: Magnifies Bowser to kaiju proportions, covering him in spikes, dark shell plates, and glowing fiery patterns.)",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Bowser_(character)",
-          "supports": "Information regarding Bowser's appearance and Fury Bowser form in Bowser's Fury."
-        }
-      ],
-      "feats": [],
-      "notableResults": [
-        {
-          "opponent": "Mario and Bowser Jr.",
-          "result": "loss",
-          "citation": "Wikipedia: Bowser (character)",
-          "note": "Defeated by Giga Cat Mario.",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "giant-sized",
-          "claim": "Grows to massive kaiju proportions.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "The absolute limit of durability against non-Giga Bell attacks.",
-        "Removed by review (not supported by the cited source): technique: Fury Beam fire blast; technique: Devastating tidal wave leaps; defense: Impenetrable black shell; defense: Colossal size absorbing normal attacks; weakness: Vulnerable to the light of the Giga Bell; limitation: Becomes dormant for periods before rampaging again; mobility: Walking; mobility: Swimming in lava and water at giant scale; feat: Awakened periodically from sleep to reshape Lake Lapcat and terrorize the environment.; conditional: Kaiju size and corruption; tag: Fires massive beams of destructive fire.",
-        "Flagged needs-review: variant not covered by its source; most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Bowser|Giga Bowser",
-      "continuity": "Super Smash Bros. series",
-      "summary": "Giga Bowser is a monstrous, towering transformation of Bowser characterized by extreme physical strength, glowing eyes, and demonic horns.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Massive health pool"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "Heavy leaps"
-      ],
-      "limitations": [
-        "Time-limited form in standard gameplay"
-      ],
-      "formDifferences": "The cited source never mentions the \"Giga Bowser\" form; variant-specific claims could not be verified and powers are inherited from the base form. (Gemini originally claimed: Transforms Bowser into a gigantic, horned demon-like beast with overwhelming physical power and knockback resistance.)",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Super_Smash_Bros._Melee",
-          "supports": "Introduction of Giga Bowser as a boss character."
-        }
-      ],
-      "feats": [],
-      "notableResults": [
-        {
-          "opponent": "Super Smash Bros. roster",
-          "result": "loss",
-          "citation": "Wikipedia: Super Smash Bros. Melee",
-          "note": "Defeated by players in solo matches.",
-          "source": 0
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Giga Bowser transformation",
-          "dependsOn": "Accessing Final Smash or appearing as an event boss",
-          "source": 0
-        }
-      ],
-      "campaignTags": [],
-      "unknowns": [
-        "Canon scaling outside of the Smash tournament universe framework.",
-        "Removed by review (not supported by the cited source): technique: Giga Fire Breath; technique: Colossal Punch; technique: Earthshaking Stomp; defense: Immunity to flinching from standard attacks; weakness: Temporary transformation duration; mobility: Walking; feat: Fought off multiple Smash fighters simultaneously as a boss.; tag: Grows into a towering monster form.; tag: Unleashes massive torrents of fire.",
-        "Flagged needs-review: variant not covered by its source; most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Calamity Ganon",
       "continuity": "The Legend of Zelda: Breath of the Wild",
-      "summary": "Calamity Ganon is a swirling mass of malice and ancient technology that attacks with elemental fury, lasers, and overwhelming dark magic.",
+      "summary": "Calamity Ganon is the primal evil of Hyrule in its BotW form: Malice fused with Guardian parts. He turned the Guardian army against Hyrule a hundred years earlier, and in battle he combines all four Blight Ganons' elemental attacks.",
       "offense": {
         "domains": [
           "magic",
           "energy",
+          "physical",
           "tech"
         ],
         "techniques": [
-          "Elemental strikes (fire, ice, electric)"
+          "Ice blocks like Waterblight Ganon",
+          "Fields of thunder spikes",
+          "Tornado gusts",
+          "A slow laser and a large laser beam",
+          "A fireball that ignites the battlefield",
+          "Swings a flaming sword and smaller blue swords",
+          "Throws a spear (second phase)"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "An impenetrable orange shield in the second phase that blocks arrows, melee weapons and elemental rods"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Perfect Dodges trigger Flurry Rushes, and a Perfect Guard stuns him after a laser",
+        "A Perfect Guard, Daruk's Protection, a Flurry Rush or Urbosa's Fury drops his shield",
+        "Ancient and Guardian equipment deal extra damage, since he counts as a Guardian-type enemy",
+        "Loses 1/8 of his health for each Divine Beast freed"
       ],
       "mobility": [
-        "Levitation"
+        "Centipede-like body; crashes to the ground in the second phase"
       ],
       "limitations": [
-        "Trapped within Hyrule Castle regenerating for 100 years until confronted"
+        "Sealed and tethered to Hyrule Castle by Zelda for a hundred years",
+        "Link wakes him early, so he fights in an incomplete form"
       ],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild",
-          "supports": "Overview of Calamity Ganon as the primary antagonist."
+          "url": "https://zeldawiki.wiki/wiki/Calamity_Ganon",
+          "supports": "Nature (primal evil; Malice, Ganondorf and Guardian parts), corrupting the Guardian army, Blights seizing the Divine Beasts, Zelda's sealing, premature awakening by Link, and the 1/8 health loss per freed Divine Beast"
+        },
+        {
+          "url": "https://zeldadungeon.net/wiki/Calamity_Ganon_(Boss)",
+          "supports": "Boss fight: ice blocks, thunder spikes, tornadoes, lasers, fireball, flaming sword, spear, orange shield, and how Link beats him (Perfect Dodge/Guard, Champion abilities, Ancient gear)"
         }
       ],
       "feats": [
         {
-          "claim": "Corrupted the four Divine Beasts and destroyed Hyrule Castle kingdom in a single night.",
-          "citation": "Wikipedia: The Legend of Zelda: Breath of the Wild",
+          "claim": "Used Malice to corrupt the entire Guardian army and turn it on the Hyrulians; his Blight Ganons took control of the four Divine Beasts after their pilots were slain",
+          "citation": "The Legend of Zelda: Breath of the Wild (the Great Calamity)",
           "source": 0
         }
       ],
@@ -224,354 +290,509 @@
         {
           "opponent": "Link",
           "result": "loss",
-          "citation": "Wikipedia: The Legend of Zelda: Breath of the Wild",
-          "note": "Defeated after breaking out of his cocoon.",
-          "source": 0
+          "citation": "The Legend of Zelda: Breath of the Wild, Hyrule Castle",
+          "note": "Link fights him in an incomplete form after waking him early; the boss guide describes beating him with Perfect Dodges, Perfect Guards and Champion abilities",
+          "source": 1
         }
       ],
-      "conditional": [],
+      "conditional": [
+        {
+          "ability": "Orange shield",
+          "dependsOn": "Second phase of the fight; dropped by a Perfect Guard, Flurry Rush, Daruk's Protection or Urbosa's Fury",
+          "source": 1
+        }
+      ],
       "campaignTags": [
         {
-          "tag": "magic",
-          "claim": "Wields ancient dark magic and Malice.",
-          "source": 0
+          "tag": "ice-control",
+          "claim": "Shoots ice blocks like Waterblight Ganon",
+          "source": 1
         },
         {
-          "tag": "electric",
-          "claim": "Generates lightning and electric attacks.",
-          "source": 0
+          "tag": "electric-control",
+          "claim": "Summons fields of thunder spikes",
+          "source": 1
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Launches a fireball that ignites the battlefield",
+          "source": 1
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Swings a flaming sword",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Full extent of power had he completed 100 percent regeneration.",
-        "Removed by review (not supported by the cited source): technique: Guardian Laser blasts; technique: Malice swipe; defense: Impenetrable energy cocoon shield; defense: Regenerative Malice layer; weakness: Vulnerable to Perfect Parries with the Master Sword or ancient shields; weakness: Exposed core during vulnerability phases; mobility: Wall-crawling within cocoon; conditional: Invulnerable energy shield; tag: Unleashes scorching fire attacks.; tag: Utilizes freezing ice attacks.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "The opened pages do not describe the Dark Beast Ganon phase or Zelda's final sealing; the end of the story is not recorded here.",
+        "His full power had he completed regeneration is unknown.",
+        "Reviewed by Claude (2026-11-13): replaced the BotW Wikipedia page (not opened) with Zelda Wiki and the Zelda Dungeon boss page. Removed \"destroyed Hyrule in a single night\" and \"regenerative Malice layer\" (not on the pages). Restored his elemental attacks, lasers and shield. Tags: broad `magic` removed (no spells named); broad `fire`, `ice` and `electric` narrowed to `fire-control`, `fire-weapon`, `ice-control` and `electric-control`."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Captain Falcon",
-      "continuity": "F-Zero / Super Smash Bros. series",
-      "summary": "Captain Falcon is an elite F-Zero pilot and bounty hunter who relies on exceptional physical hand-to-hand combat, fiery martial arts strikes, and his high-speed racing machine.",
+      "continuity": "F-Zero series background (F-Zero X, F-Zero GX) with his Super Smash Bros. series moveset",
+      "summary": "Captain Falcon is an F-Zero champion pilot and bounty hunter with an \"astronomic\" record. In Smash he is a fast, heavy close-range brawler with the Falcon Punch and a fiery Falcon Kick, but no projectile.",
       "offense": {
         "domains": [
           "physical",
           "energy"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Falcon Punch: a slow but powerful charge-up punch",
+          "Falcon Kick: a fiery flying kick",
+          "Falcon Dive: an aerial grab that ends in an explosion",
+          "Raptor Boost: a rising uppercut (\"explosive\" per a Melee trophy)",
+          "Final Smash (Brawl): calls the Blue Falcon and rams opponents"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
-          "High-speed reflexes"
+          "Heavy, which makes him harder to KO in Smash"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Lacks any projectile, so opponents who keep him at range avoid his strengths (SSB)",
+        "Bad recovery (SSB)"
       ],
       "mobility": [
-        "Super-speed running"
+        "Fastest running speed in Melee; fastest dash in SSB",
+        "Pilots the Blue Falcon, which can exceed the speed of sound"
       ],
-      "limitations": [],
+      "limitations": [
+        "Lacks a quick KO move (SSB)"
+      ],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Captain_Falcon",
-          "supports": "Overview of Captain Falcon's background as an F-Zero racer and brawler."
+          "url": "https://fzero.fandom.com/wiki/Captain_Falcon",
+          "supports": "F-Zero background: bounty hunter with an astronomic record, pilot of the Blue Falcon, F-Zero GX Grand Prix champion, race wins over Deathborn and the Creator, Black Shadow binding him and bombing the Blue Falcon"
+        },
+        {
+          "url": "https://www.ssbwiki.com/Captain_Falcon",
+          "supports": "Smash moveset (Falcon Punch, fiery Falcon Kick, Falcon Dive, Raptor Boost, Blue Falcon Final Smash), speed, weight, lack of projectile, bad recovery, Blue Falcon exceeding the speed of sound"
         }
       ],
-      "feats": [],
+      "feats": [
+        {
+          "claim": "Sitting champion who won the F-Zero GX Grand Prix, and beat Deathborn and the Creator in one-on-one races",
+          "citation": "F-Zero GX",
+          "source": 0
+        },
+        {
+          "claim": "Escaped after Black Shadow bound him and strapped a bomb to the Blue Falcon, by driving under a crane to knock the bomb off",
+          "citation": "F-Zero GX",
+          "source": 0
+        }
+      ],
       "notableResults": [],
       "conditional": [
         {
-          "ability": "Blue Falcon vehicle combat",
-          "dependsOn": "Access to his F-Zero racing machine",
-          "source": 0
+          "ability": "Blue Falcon (supersonic machine; Final Smash ram)",
+          "dependsOn": "Access to his F-Zero machine",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
           "tag": "pilot",
-          "claim": "Pilots the Blue Falcon racing machine.",
+          "claim": "Pilots the Blue Falcon F-Zero machine",
           "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Falcon Kick is a fiery flying kick",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact canonical bounty hunter feats outside of racing lore.",
-        "Removed by review (not supported by the cited source): technique: Falcon Punch; technique: Raptor Boost; technique: Falcon Dive; defense: Acrobatic dodging; weakness: Limited defensive projectiles; weakness: Susceptible to being out-ranged by long-range weapon users; limitation: Relies primarily on physical close-quarters combat outside of his vehicle; mobility: Acrobatic leaps; feat: Conquered countless lethal racing tracks across the galaxy.; result: Super Smash Bros. roster; tag: Generates pyrotechnic energy with the Falcon Punch.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "The opened pages do not describe the Falcon Punch as fiery; only the Falcon Kick is. Combat results against named opponents are not documented (his F-Zero contests are races).",
+        "He carries a sidearm, shown used only once in the 1990 manual comic.",
+        "Reviewed by Claude (2026-11-13): replaced the cited Wikipedia page (not opened) with the F-Zero Wiki and SmashWiki pages. Replaced the vague \"conquered countless tracks\" feat with sourced race wins, and removed the unnamed \"Smash roster\" result. Removed \"acrobatic dodging/reflexes\" (not on the pages). Tags: `pilot` kept, `fire` kept but now rests on the fiery Falcon Kick, not the Falcon Punch."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Charizard",
-      "continuity": "Pokémon series",
-      "summary": "Charizard is a powerful Fire and Flying-type dragon-like Pokémon that incinerates opponents with intense flamethrowers and shreds them with razor-sharp claws.",
+      "continuity": "Pokémon core series games (species data and Pokédex), with one anime battle by Ash's Charizard",
+      "summary": "Charizard is a Fire/Flying Pokémon whose fire can melt boulders and whose wings carry it to about 4,600 feet. It is four times weak to Rock and weak to Water and Electric.",
       "offense": {
         "domains": [
           "energy",
           "physical"
         ],
         "techniques": [
-          "Flamethrower",
-          "Fire Blast"
+          "Flamethrower (level 30)",
+          "Fire Blast (TM)",
+          "Dragon Claw",
+          "Air Slash",
+          "Flare Blitz",
+          "Fly (TM; learnable since Pokémon Yellow)",
+          "Seismic Toss (Ash's Charizard)"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Immune to Ground-type moves (Fire/Flying typing)"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Four times weak to Rock",
+        "Weak to Water and Electric"
       ],
       "mobility": [
-        "Natural flight"
+        "Flies; its wings can carry it to about 4,600 feet (1,400 m)"
       ],
       "limitations": [],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Charizard",
-          "supports": "Charizard biological traits, typing, and abilities."
+          "url": "https://pokemondb.net/pokedex/charizard",
+          "supports": "Fire/Flying type, Blaze/Solar Power, type defenses (4x Rock, 2x Water and Electric, Ground immunity), Red/Blue \"hot enough to melt boulders\" entry, FireRed 4,600 ft entry, learnset (Flamethrower, Fire Blast, Dragon Claw, Air Slash, Fly, Flare Blitz)"
+        },
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Pokédex entries incl. Stadium \"can quickly melt glaciers weighing 10,000 tons\""
+        },
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Noland%27s_Articuno",
+          "supports": "Ash's Charizard defeating Noland's Articuno with Seismic Toss for the Knowledge Symbol"
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Spits fire hot enough to melt boulders",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        },
+        {
+          "claim": "Can quickly melt glaciers weighing 10,000 tons",
+          "citation": "Pokémon Stadium Pokédex",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Articuno (Noland's)",
+          "result": "win",
+          "citation": "Pokémon anime, The Symbol Life (Battle Frontier)",
+          "note": "Ash's Charizard won with a Seismic Toss, earning Ash the Knowledge Symbol",
+          "source": 2
+        }
+      ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Flies using large built-in wings.",
+          "claim": "Fire/Flying Pokémon that flies on its own wings",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Breathes fire hot enough to melt boulders; learns Flamethrower and Fire Blast",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact output limits of internal fire sac temperature.",
-        "Removed by review (not supported by the cited source): technique: Dragon Claw; technique: Air Slash; defense: Durable reptilian hide; defense: Aerial evasion; weakness: Quadruple weakness to rock-type attacks; weakness: Vulnerable to water and electric attacks; limitation: Obedience depends on Trainer's badge count or bond in early training; mobility: Running; feat: Melted massive boulders and steel structures with fiery breath.; result: Articuno; tag: Generates and controls intense fire streams.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "Exact flame temperature for base Charizard is not on the opened pages.",
+        "Reviewed by Claude (2026-11-13): replaced the cited Wikipedia page (not opened) with PokémonDB and Bulbapedia. Corrected the feat: the Pokédex says boulders (and glaciers), not \"steel structures\" or anime. The Articuno win is now sourced and attributed to Ash's Charizard. Removed \"durable reptilian hide\", \"aerial evasion\" and the obedience limitation (not on the pages). Tag `fire` narrowed to `fire-control`."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Charizard|Gigantamax Charizard",
-      "continuity": "Pokémon series",
-      "summary": "Gigantamax Charizard transforms into a towering colossus wreathed in roaring flames, unleashing G-Max Wildfire to trap and burn opponents.",
+      "continuity": "Pokémon Sword and Shield (Gigantamax), Galar",
+      "summary": "Gigantamax Charizard is a colossal, flame-winged Charizard at least 28 m tall, created by Gigantamax energy. Its G-Max Wildfire launches its fiery wings as a bird that circles and scorches foes.",
       "offense": {
         "domains": [
           "energy",
           "physical"
         ],
         "techniques": [
-          "G-Max Wildfire",
-          "Max Flare"
+          "G-Max Wildfire: launches its colossal fiery wings in the shape of a bird that circles and scorches opponents"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Colossal size (28.0+ m)"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Not established by the opened sources for this form (base Charizard is 4x weak to Rock, 2x to Water and Electric)"
       ],
       "mobility": [
-        "Gigantic flight"
+        "Not established by the opened sources for this form"
       ],
-      "limitations": [
-        "Form wears off after three turns"
-      ],
-      "formDifferences": "Increases Charizard to giant size, replacing wings with blazing fire energy shapes and boosting fire-type move potency.",
+      "limitations": [],
+      "formDifferences": "Charizard grown to at least 28 m by Gigantamax energy, with its wings turned into literal flame wings. The flame inside it burns hotter than 3,600 °F.",
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Charizard",
-          "supports": "Details on Gigantamax form introduced in Pokémon Sword and Shield."
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Gigantamax height 91'10\"+ (28.0+ m), Sword and Shield Pokédex entries (colossal flame-winged figure; flame hotter than 3,600 °F), G-Max Wildfire description"
+        },
+        {
+          "url": "https://pokemondb.net/pokedex/charizard",
+          "supports": "Base Charizard Fire/Flying typing and flight"
         }
       ],
-      "feats": [],
+      "feats": [
+        {
+          "claim": "The flame inside its body burns hotter than 3,600 degrees Fahrenheit, and hotter still when it roars",
+          "citation": "Pokémon Shield Pokédex",
+          "source": 0
+        }
+      ],
       "notableResults": [],
-      "conditional": [],
+      "conditional": [
+        {
+          "ability": "Gigantamax form",
+          "dependsOn": "Gigantamax energy",
+          "source": 0
+        }
+      ],
       "campaignTags": [
         {
           "tag": "giant-sized",
-          "claim": "Grows to colossal proportions through Gigantamax energy.",
+          "claim": "Documented height of 28.0+ m (91'10\"+)",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "G-Max Wildfire scorches foes with its fiery wings",
           "source": 0
         },
         {
           "tag": "natural-flight",
-          "claim": "Maintains flight with flaming spectral wings.",
-          "source": 0
+          "claim": "Charizard is a flying Pokémon; under the owner's Pokémon ruling naturally flying Pokémon keep flight",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact duration outside of sanctioned Dynamax energy zones.",
-        "Removed by review (not supported by the cited source): technique: Colossal Claw Swipe; defense: Massive Gigantamax energy barrier; defense: Immense physical scale; weakness: Limited to three turns of Gigantamax power before reverting; weakness: Vulnerable to Water and Rock attacks; feat: Engulfed entire battle arenas in raging pillars of fire.; result: Leon's Charizard; conditional: Gigantamax transformation; tag: Controls massive conflagrations and G-Max Wildfire.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "The opened pages do not give the Gigantamax duration (Gemini's \"three turns\") or the type matchups of this form.",
+        "Whether the flame wings let it fly is not stated; natural-flight rests on the Pokémon ruling.",
+        "Reviewed by Claude (2026-11-13): replaced the cited Wikipedia page (not opened) with Bulbapedia. Removed \"energy barrier\", \"engulfed entire arenas\" and the \"win vs Leon's Charizard\" result (not on the pages; Leon's Charizard can Gigantamax, it is not an opponent). `giant-sized` kept on the documented 28 m height; `fire` narrowed to `fire-control`."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Charizard|Mega Charizard X",
-      "continuity": "Pokémon series",
-      "summary": "Mega Charizard X turns Charizard into a Fire and Dragon-type with blue flames scorching from its jaws and enhanced physical striking power.",
+      "continuity": "Pokémon X and Y onward (Mega Evolution); results from the Pokémon the Series: XY anime (Alain's Charizard)",
+      "summary": "Mega Charizard X is a black Fire/Dragon Mega Evolution with the Tough Claws ability and intense blue flames. Alain's Mega Charizard X won the Kalos League final against Ash-Greninja.",
       "offense": {
         "domains": [
           "energy",
           "physical"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Blast Burn",
+          "Dragon Claw",
+          "Flamethrower",
+          "Thunder Punch",
+          "Fire Spin",
+          "Breathes blue flames from the sides of its mouth"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Alain's Mega Charizard X blocked Trevor's Heat Wave with a tail strike"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Not established by the opened sources (Fire/Dragon type matchups not checked)"
       ],
       "mobility": [
-        "Natural flight"
+        "Not established by the opened sources for this form"
       ],
       "limitations": [],
-      "formDifferences": "Changes coloring to black and blue, adds Dragon typing, replaces tail flame with blue fire, and boosts physical attack stats.",
+      "formDifferences": "Mega Evolution turns Charizard black, adds the Dragon type, makes its tail flame burn blue and gives it Tough Claws.",
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Charizard",
-          "supports": "Mega Evolution details including Mega Charizard X."
+          "url": "https://pokemondb.net/pokedex/charizard",
+          "supports": "Mega Charizard X Fire/Dragon type and Tough Claws; Charizard's learnset"
+        },
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Let's Go Pokédex: overwhelming power turns it black and creates intense blue flames"
+        },
+        {
+          "url": "https://pokemon.fandom.com/wiki/Alain",
+          "supports": "Alain's Mega Charizard X: Kalos League final win over Ash-Greninja, win over Malva's Mega Houndoom, moves (Blast Burn, Dragon Claw, Flamethrower, Thunder Punch, Fire Spin), tail strike blocking Heat Wave"
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Was the last Pokémon standing in the Kalos League final after a Blast Burn versus Water Shuriken exchange with Ash-Greninja",
+          "citation": "Pokémon the Series: XY&Z, Kalos League final",
+          "source": 2
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ash-Greninja (Ash's Greninja)",
+          "result": "win",
+          "citation": "Pokémon the Series: XY&Z, Kalos League final",
+          "note": "Alain's last Pokémon; it also fought Pikachu before Greninja",
+          "source": 2
+        },
+        {
+          "opponent": "Mega Houndoom (Malva's)",
+          "result": "win",
+          "citation": "Pokémon the Series: XY&Z (Lysandre's ten Mega Evolution battles)",
+          "note": "Defeated Houndoom with Blast Burn",
+          "source": 2
+        }
+      ],
       "conditional": [
         {
-          "ability": "Mega Evolution X",
-          "dependsOn": "Charizardite X stone and Trainer bond",
-          "source": 0
+          "ability": "Mega Charizard X form",
+          "dependsOn": "Mega Evolution through its Trainer",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
-          "tag": "natural-flight",
-          "claim": "Maintains flight capabilities with wings.",
-          "source": 0
+          "tag": "fire-control",
+          "claim": "Breathes intense blue flames; uses Blast Burn and Flamethrower",
+          "source": 1
         },
         {
-          "tag": "fire",
-          "claim": "Exhales intense blue flames.",
+          "tag": "natural-flight",
+          "claim": "Charizard is a flying Pokémon; under the owner's Pokémon ruling naturally flying Pokémon keep flight",
           "source": 0
         }
       ],
       "unknowns": [
-        "Long-term physiological strain of sustained Mega Evolution.",
-        "Removed by review (not supported by the cited source): technique: Outrage; technique: Flare Blitz; technique: Dragon Claw; defense: Toughened dragon scales; defense: Increased physical defense; weakness: Vulnerable to Dragon, Ground, and Rock-type attacks; limitation: Reverts to normal Charizard after battle ends; feat: Overpowered legendary Pokémon through sheer physical dragon strikes.; result: Alain's Mega Charizard X",
-        "Flagged needs-review: most claims unsupported by sources."
+        "Type-chart weaknesses of the Fire/Dragon form are not on an opened page.",
+        "Thunder Punch is an Electric move it learns; whether electric moves earn an electric tag is not covered by the Pokémon ruling, so none is added.",
+        "Reviewed by Claude (2026-11-13): fixed Gemini's result: Alain's Mega Charizard X **won** the Kalos final against Ash-Greninja; it did not lose to \"Alain's Mega Charizard X\". Removed the vague \"overpowered legendary Pokémon\" feat, \"toughened scales\" and the reversion limitation (not on the pages). Tag `fire` narrowed to `fire-control`."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Charizard|Mega Charizard Y",
-      "continuity": "Pokémon series",
-      "summary": "Mega Charizard Y supercharges Charizard's special attack capabilities, enabling scorching solar beams and unmatched aerial maneuverability.",
+      "continuity": "Pokémon X and Y onward (Mega Evolution)",
+      "summary": "Mega Charizard Y is a Fire/Flying Mega Evolution with the Drought ability and flying skill beyond a jet fighter. Its power comes from its bond with its Trainer.",
       "offense": {
         "domains": [
           "energy"
         ],
         "techniques": [
-          "Flamethrower",
-          "Fire Blast"
+          "Charizard's moves, including Flamethrower, Fire Blast, Air Slash and Solar Beam (TM)",
+          "Drought ability"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Immune to Ground-type moves (Fire/Flying typing)",
+          "Speed and maneuverability greater than a jet fighter's"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Four times weak to Rock (Fire/Flying)",
+        "Weak to Water and Electric (Fire/Flying)"
       ],
       "mobility": [
-        "High-speed natural flight"
+        "Flies with skill beyond that of a jet fighter"
       ],
       "limitations": [],
-      "formDifferences": "Gives Charizard a sleeker, more aerodynamic shape with three horns and larger wings, drastically increasing special attack power.",
+      "formDifferences": "Mega Evolution keeps Charizard Fire/Flying and gives it the Drought ability and greater flying speed and maneuverability.",
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Charizard",
-          "supports": "Mega Evolution Y details and Drought ability."
-        }
-      ],
-      "feats": [],
-      "notableResults": [
+          "url": "https://pokemondb.net/pokedex/charizard",
+          "supports": "Mega Charizard Y Fire/Flying type and Drought ability; Fire/Flying type defenses; Charizard's learnset"
+        },
         {
-          "opponent": "Mewtwo",
-          "result": "win",
-          "citation": "Wikipedia: Charizard",
-          "note": "Featured in animated special battle sequences.",
-          "source": 0
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Let's Go Pokédex: its bond with its Trainer is the source of its power; speed and maneuverability greater than a jet fighter's"
         }
       ],
+      "feats": [
+        {
+          "claim": "Has speed and maneuverability greater than a jet fighter's",
+          "citation": "Pokémon: Let's Go Pokédex",
+          "source": 1
+        }
+      ],
+      "notableResults": [],
       "conditional": [
         {
-          "ability": "Mega Evolution Y",
-          "dependsOn": "Charizardite Y stone and Trainer bond",
-          "source": 0
+          "ability": "Mega Charizard Y form",
+          "dependsOn": "Mega Evolution; its bond with its Trainer is the source of its power",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Exhibits superior high-speed flight with aerodynamic horns and wings.",
+          "claim": "Fire/Flying; flies with skill beyond a jet fighter",
+          "source": 1
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Fire-type with Flamethrower and Fire Blast",
           "source": 0
         }
       ],
       "unknowns": [
-        "Limits of thermal output during extended flight.",
-        "Removed by review (not supported by the cited source): technique: Solar Beam; technique: Air Slash; defense: High-speed aerial dodging; defense: Drought ability clearing moisture; weakness: Vulnerable to Rock, Electric, and Water-type attacks prior to sun activation; limitation: Reverts after battle; feat: Flew faster than fighter jets while circling opponents.; tag: Instantly summons harsh sunlight and fires intense solar energy.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "Drought's effect (harsh sunlight) is not described on the opened pages.",
+        "Reviewed by Claude (2026-11-13): removed Gemini's \"win over Mewtwo in Genesect and the Legend Awakened\" (not on the pages; that film features a Mega Mewtwo, not Mega Charizard Y). Reworded \"flew faster than fighter jets\" to the Pokédex wording. Removed \"Drought clearing moisture\" and the reversion limitation. Tag `fire` narrowed to `fire-control`; the \"solar energy\" claim was removed."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Chell",
-      "continuity": "Portal series",
-      "summary": "Chell is a silent test subject who navigates lethal environments using the Aperture Science Handheld Portal Device and spatial momentum.",
+      "continuity": "Portal (2007) and Portal 2 single-player campaign",
+      "summary": "Chell is Aperture Science's silent, tenacious test subject. Her only tool is the Handheld Portal Device, with which she redirected rockets to dismantle GLaDOS and later sent Wheatley into space through a portal to the Moon.",
       "offense": {
         "domains": [
           "tech"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Redirects hazards through linked portals (Rocket Turret fire into GLaDOS)",
+          "Momentum flinging: momentum is conserved between portals",
+          "Destroys detached personality cores (Emergency Intelligence Incinerator)"
         ],
         "range": "strategic"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Aperture Science Advanced Knee Replacements on her lower legs let her survive falls from great heights",
+          "Avoids hazards such as Goo and High Energy Pellets"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Portals need flat, stationary surfaces of the right material (white concrete or moon rock); moving, non-flat or too-small surfaces block them"
       ],
       "mobility": [
-        "Running",
-        "Momentum preservation through portals"
+        "Travels through her portals with conserved momentum"
       ],
-      "limitations": [],
+      "limitations": [
+        "The Handheld Portal Device is her only tool",
+        "No other physical or combat abilities are documented"
+      ],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Chell_(Portal)",
-          "supports": "Overview of Chell, her equipment, and Portal mechanics."
+          "url": "https://theportalwiki.com/wiki/Chell",
+          "supports": "Silent protagonist, tenacity, Handheld Portal Device as her only tool, Advanced Knee Replacement, defeat of GLaDOS in Portal, defeat of Wheatley via the Moon portal, GLaDOS rescuing and releasing her"
+        },
+        {
+          "url": "https://theportalwiki.com/wiki/Portals",
+          "supports": "Which surfaces accept portals and conservation of momentum between portals"
         }
       ],
       "feats": [
         {
-          "claim": "Escaped the collapsing Aperture Science facility and defeated GLaDOS and Wheatley.",
-          "citation": "Wikipedia: Chell (Portal)",
+          "claim": "Redirected Rocket Turret fire through linked portals to break GLaDOS apart and destroyed her detached cores",
+          "citation": "Portal",
+          "source": 0
+        },
+        {
+          "claim": "Fired a portal onto the Moon, pulling Wheatley into space",
+          "citation": "Portal 2",
           "source": 0
         }
       ],
@@ -579,30 +800,42 @@
         {
           "opponent": "GLaDOS",
           "result": "win",
-          "citation": "Wikipedia: Chell (Portal)",
-          "note": "Destroyed personality cores while evading neurotoxin.",
+          "citation": "Portal",
+          "note": "Destroyed the personality cores; the page does not explain how she survived the neurotoxin",
+          "source": 0
+        },
+        {
+          "opponent": "Wheatley",
+          "result": "win",
+          "citation": "Portal 2",
+          "note": "Linked the Moon and the Central AI Chamber; GLaDOS then rescued Chell and closed the portals, leaving Wheatley in space",
           "source": 0
         }
       ],
-      "conditional": [],
+      "conditional": [
+        {
+          "ability": "Portal creation and travel",
+          "dependsOn": "The Handheld Portal Device and suitable flat, stationary surfaces",
+          "source": 1
+        }
+      ],
       "campaignTags": [
         {
           "tag": "portals",
-          "claim": "Wields the Portal Gun to create teleportation gateways.",
+          "claim": "Creates linked portals with the Handheld Portal Device",
           "source": 0
         },
         {
           "tag": "gadgets",
-          "claim": "Equipped with Long Fall Boots and Portal Gun.",
+          "claim": "Handheld Portal Device and Advanced Knee Replacements",
           "source": 0
         }
       ],
       "unknowns": [
-        "What happened to Chell following her release into the wheat field at the end of Portal 2.",
-        "Removed by review (not supported by the cited source): technique: Momentum-based portal flinging; technique: Turret redirection; technique: Neurotoxin generator sabotage; defense: Long Fall Boots preventing impact damage; defense: Environmental cover; weakness: Physically ordinary human with no superhuman durability or hand-to-hand combat training; weakness: Dependent on portal-conductive surfaces; limitation: Cannot place portals on non-conductive surfaces like wood, metal grids, or open terrain; conditional: Portal creation and teleportation",
-        "Flagged needs-review: most claims unsupported by sources."
+        "What happened to Chell after her release into the wheat field at the end of Portal 2.",
+        "Reviewed by Claude (2026-11-13): replaced the cited Wikipedia page (not opened) with the Portal Wiki pages. Corrected the feat: GLaDOS was not defeated in Portal 2; she rescued Chell and released her. The Wheatley win is now its own result. \"Long Fall Boots\" renamed to the page's Advanced Knee Replacements. Portal surface limits now use the Portals page (concrete or moon rock); the \"metal grids\" claim was removed."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     }
   ]
 }
