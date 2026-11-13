@@ -106,7 +106,26 @@ function readClaimed(file){
  if(!Array.isArray(x)||x.some(id=>typeof id!=='string'))throw Error('--claimed file must be a JSON array of identity strings');
  return new Set(x);
 }
+/* Data-only snapshot of the branch: roster ids + merged records. Produced by an UNPRIVILEGED job
+   (it executes the branch's game data to read the roster); privileged jobs consume it as JSON. */
+function snapshot(a=audit()){
+ return {schemaVersion:1,ids:a.ids,records:[...a.records].map(([id,r])=>({id,file:r.file,status:r.status})),errors:a.errors};
+}
+const ID_RE=/^[a-z0-9_-]+:[^\n\r]{1,200}$/i;
+function fromSnapshot(x){
+ // Strict shape check: the snapshot comes from a lower-trust job and is treated purely as data.
+ if(!x||x.schemaVersion!==1||!Array.isArray(x.ids)||!Array.isArray(x.records)||!Array.isArray(x.errors))throw Error('snapshot: bad shape');
+ if(x.ids.length>20000||x.records.length>20000)throw Error('snapshot: too large');
+ if(x.ids.some(id=>typeof id!=='string'||!ID_RE.test(id)))throw Error('snapshot: bad identity');
+ const records=new Map();
+ for(const r of x.records){
+  if(!r||typeof r.id!=='string'||!ID_RE.test(r.id)||typeof r.file!=='string'||!/^[a-z0-9][a-z0-9_.-]*\.json$/i.test(r.file))throw Error('snapshot: bad record');
+  records.set(r.id,{file:r.file,status:typeof r.status==='string'?r.status:undefined});
+ }
+ return {ids:[...x.ids],records,errors:x.errors.map(String)};
+}
 function main(argv){
+ if(argv.includes('--snapshot')){const a=audit();console.log(JSON.stringify(snapshot(a)));if(a.errors.length)process.exitCode=1;return;}
  const a=audit();
  if(argv.includes('--validate')){if(a.errors.length){a.errors.forEach(e=>console.error(e));process.exitCode=1;}else console.log('Research batches valid ('+a.batches+' batches)');return;}
  if(argv.includes('--next')){if(a.errors.length)throw Error('Invalid existing research batches: '+a.errors.join('; '));const size=Number(argValue(argv,'--size')||10);
@@ -115,7 +134,7 @@ function main(argv){
  if(argv.includes('--report')){
   console.log(JSON.stringify({identities:a.ids.length,batches:a.batches,pools:a.poolCounts,errors:a.errors},null,2));if(a.errors.length)process.exitCode=1;return;
  }
- console.log('Usage: node tools/v2-research-pipeline.cjs --validate | --report | --next [--size N] [--claimed ids.json]');
+ console.log('Usage: node tools/v2-research-pipeline.cjs --validate | --report | --snapshot | --next [--size N] [--claimed ids.json]');
 }
 if(require.main===module)main(process.argv.slice(2));
-module.exports={rosterIds,loadBatches,checkBatch,audit,nextBatch};
+module.exports={rosterIds,loadBatches,checkBatch,audit,nextBatch,snapshot,fromSnapshot};

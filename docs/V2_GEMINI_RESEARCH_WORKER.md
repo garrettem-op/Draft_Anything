@@ -18,6 +18,18 @@ Claude review session (scheduled, hourly)
 merge gate (#98)  -> merges on the review event, or on the next tick
 ```
 
+### Trust boundary (fix for ChatGPT's #102 review)
+
+Reading the roster means executing the game's own JavaScript (`index.html`, `data/*.js`), so code from `develop/v2-option-c` only ever runs in an **unprivileged** job:
+
+| Job | Runs code from | Token | Secrets |
+|---|---|---|---|
+| snapshot | develop/v2-option-c (HEAD) | `contents: read` | none |
+| reconcile | pinned `TOOLS_SHA` (reviewed, merged) | contents/pull-requests/checks write | none |
+| generate | pinned `TOOLS_SHA` | contents/pull-requests/issues write | `GEMINI_API_KEY` |
+
+The snapshot job outputs JSON only (`--snapshot`: roster ids + merged records). The privileged jobs load it through `fromSnapshot`, which strictly validates its shape and treats it as data. They never check out the development branch, never shell out to git, and write only through the GitHub REST API. `TOOLS_SHA` lives in the main-branch workflow file. Changing it takes a reviewed PR to `main`, and the workflow refuses a SHA that is not already merged into `develop/v2-option-c`.
+
 Polling replaces event chaining on purpose: anything done with `GITHUB_TOKEN` (opening a PR, merging) does not trigger other workflows, so the tick re-checks state every run. Every step is idempotent; a missed or failed tick is picked up by the next one.
 
 ## Generation details (`tools/v2-gemini-worker.cjs`)
@@ -33,7 +45,7 @@ Polling replaces event chaining on purpose: anything done with `GITHUB_TOKEN` (o
 
 ## Setup (owner)
 
-1. Merge #98, then this PR, into `develop/v2-option-c`; merge the scheduler PR into `main`.
+1. Merge #98, then this PR, into `develop/v2-option-c`. Then set `TOOLS_SHA` in #102 to this PR's merge commit, review that change, and merge #102 into `main`.
 2. Settings → Actions → General → Workflow permissions: **Read and write**, and tick **Allow GitHub Actions to create and approve pull requests** (required for the bot to open PRs).
 3. Confirm `GEMINI_API_KEY` belongs to a Google AI Studio project with **no billing account**, then add repository variable `GEMINI_FREE_TIER_CONFIRMED = true`. Free-tier prompts may be used by Google to improve its products.
 4. Optional: branch ruleset on `develop/v2-option-c` restricting `.github/**` and `tools/**` changes to reviewed PRs.

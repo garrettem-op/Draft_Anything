@@ -53,3 +53,22 @@ test('a normalized record passes the batch validator and is offered to nobody el
  const a=pipe.audit();const ids=pipe.nextBatch(a,2).ids;assert.equal(ids.length,2);
  const again=pipe.nextBatch(a,2,new Set(ids));assert.ok(again.ids.every(id=>!ids.includes(id)));
 });
+test('snapshot round-trips and rejects malformed or hostile data',()=>{
+ const snap=pipe.snapshot({ids:['dc:Bane','dc:Batman|Hellbat Armor Batman'],records:new Map([['dc:Bane',{file:'dc-batch-01.json',status:'provisional'}]]),errors:[]});
+ const a=pipe.fromSnapshot(JSON.parse(JSON.stringify(snap)));
+ assert.deepEqual(a.ids,['dc:Bane','dc:Batman|Hellbat Armor Batman']);assert.equal(a.records.get('dc:Bane').file,'dc-batch-01.json');
+ assert.throws(()=>pipe.fromSnapshot({...snap,schemaVersion:2}),/bad shape/);
+ assert.throws(()=>pipe.fromSnapshot({...snap,ids:['no-colon']}),/bad identity/);
+ assert.throws(()=>pipe.fromSnapshot({...snap,records:[{id:'dc:Bane',file:'../../.github/workflows/x.yml'}]}),/bad record/);
+ assert.throws(()=>pipe.fromSnapshot({...snap,ids:[{toString(){return 'dc:x'}}]}),/bad identity/);
+});
+test('privileged tick never shells out to git or executes branch code when given a snapshot',()=>{
+ const fs=require('node:fs'),path=require('node:path');
+ const src=fs.readFileSync(path.join(__dirname,'../tools/v2-research-tick.cjs'),'utf8');
+ assert.doesNotMatch(src,/execFileSync\('git'|\bgit\(\[/);
+ const tick=require('../tools/v2-research-tick.cjs');
+ const tmp=path.join(require('node:os').tmpdir(),'da-snap-'+process.pid+'.json');
+ fs.writeFileSync(tmp,JSON.stringify(pipe.snapshot({ids:['dc:Bane'],records:new Map(),errors:[]})));
+ const orig=pipe.audit;pipe.audit=()=>{throw Error('audit must not run with --snapshot');};
+ try{assert.deepEqual(tick.state(['generate','--snapshot',tmp]).ids,['dc:Bane']);}finally{pipe.audit=orig;fs.unlinkSync(tmp);}
+});

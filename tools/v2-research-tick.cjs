@@ -7,7 +7,13 @@
                   is used up, or the time budget ends. One PR per batch (opened by the
                   workflow token, so garrettem-op can independently approve it).
    It works by polling, so it does not depend on events that GITHUB_TOKEN actions suppress.
-   Usage: node tools/v2-research-tick.cjs reconcile|generate [--budget-minutes N] [--batch-size N] */
+
+   Trust boundary: in Actions this file runs from a pinned, already-merged commit and is given
+   --snapshot <file>, a JSON snapshot of the roster made by an unprivileged job. It never executes
+   code from develop/v2-option-c, never checks it out, and writes to GitHub only through the REST API.
+   Without --snapshot (local use) it reads the local checkout instead.
+   Usage: node tools/v2-research-tick.cjs reconcile [--dry-run] | generate [--budget-minutes N] [--batch-size N]
+          (both accept --snapshot <file>)                                                          */
 
 const fs = require('node:fs');
 const path = require('node:path');
@@ -16,18 +22,20 @@ const pipe = require('./v2-research-pipeline.cjs');
 const gate = require('./v2-research-gate.cjs');
 const worker = require('./v2-gemini-worker.cjs');
 
-const ROOT = path.resolve(__dirname, '..');
 const BASE = 'develop/v2-option-c';
 const MANUAL_TITLE = '[V2 Research] Needs manual research';
 const REPO = process.env.GITHUB_REPOSITORY || 'garrettem-op/Draft_Anything';
 
 const gh = (args, opts = {}) => cp.execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, ...opts });
-const git = (args) => cp.execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const summary = [];
 const say = (line) => { console.log(line); summary.push(line); };
 
 function argValue(argv, name, dflt) { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : dflt; }
+function state(argv) {
+  const file = argValue(argv, '--snapshot');
+  return file ? pipe.fromSnapshot(JSON.parse(fs.readFileSync(file, 'utf8'))) : pipe.audit();
+}
 
 function openResearchPRs() {
   return gate.apiAll('/repos/' + REPO + '/pulls?state=open&base=' + encodeURIComponent(BASE) + '&per_page=100')
@@ -95,8 +103,7 @@ function postCheck(sha, ok, title, text) {
   restWrite('POST', '/repos/' + REPO + '/check-runs', { name: 'validate-research', head_sha: sha, status: 'completed', conclusion: ok ? 'success' : 'failure', output: { title, summary: text.slice(0, 60000) } });
 }
 
-function reconcile({ dry = false } = {}) {
-  const audit = pipe.audit();
+function reconcile(audit, { dry = false } = {}) {
   const known = new Set(audit.ids);
   let merged = 0;
   for (const pr of openResearchPRs()) {
@@ -125,10 +132,8 @@ async function generate(argv) {
   const size = Number(argValue(argv, '--batch-size', '10'));
   const model = process.env.GEMINI_MODEL || worker.DEFAULT_MODEL;
   const started = Date.now();
-  git(['config', 'user.name', 'github-actions[bot]']);
-  git(['config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com']);
-  const baseSha = git(['rev-parse', 'HEAD']).trim();
-  const audit = pipe.audit();
+  const baseSha = JSON.parse(gh(['api', '/repos/' + REPO + '/git/ref/heads/' + encodeURIComponent(BASE)])).object.sha;
+  const audit = state(argv);
   if (audit.errors.length) throw Error('Research ledger has errors; fix before generating: ' + audit.errors.join('; '));
   const skip = new Set([...claimedIds(openResearchPRs()), ...manualIds(manualIssue())]);
   const transient = new Set();
@@ -187,13 +192,11 @@ async function generate(argv) {
     };
     const errors = pipe.checkBatch(name + '.json', batch, new Set(audit.ids));
     if (errors.length) { say('Skipped an invalid batch: ' + errors[0]); out.characters.forEach((c) => transient.add(c.id)); continue; }
-    fs.mkdirSync(path.join(ROOT, 'research/option-c/batches'), { recursive: true });
-    fs.writeFileSync(path.join(ROOT, file), JSON.stringify(batch, null, 2) + '\n');
+    // REST only: new branch at develop's head, one added file. No checkout, no git hooks.
     const branch = 'gemini/v2-research/' + name;
-    git(['add', '--', file]);
-    git(['commit', '-q', '-m', 'research(option-c): provisional Gemini batch ' + name]);
-    git(['push', '-q', 'origin', 'HEAD:refs/heads/' + branch]);
-    git(['reset', '-q', '--hard', baseSha]);
+    restWrite('POST', '/repos/' + REPO + '/git/refs', { ref: 'refs/heads/' + branch, sha: baseSha });
+    restWrite('PUT', '/repos/' + REPO + '/contents/' + file, { message: 'research(option-c): provisional Gemini batch ' + name, branch,
+      content: Buffer.from(JSON.stringify(batch, null, 2) + '\n').toString('base64') });
     const body = [
       'Automated research-only batch (' + out.characters.length + ' identities). **All records provisional.**',
       '',
@@ -209,7 +212,7 @@ async function generate(argv) {
     prs++; records += out.characters.length;
   }
   addManual(manual);
-  const a = pipe.audit();
+  const a = audit;
   const remaining = a.ids.filter((id) => !a.records.has(id) && !skip.has(id)).length;
   say('Generate: ' + calls + ' Gemini call(s), ' + prs + ' PR(s), ' + records + ' record(s), ' + manual.length + ' sent to manual research. Stopped: ' + stop + '.');
   say('Backlog: ' + a.ids.length + ' identities, ' + a.records.size + ' merged, ' + (a.ids.length - a.records.size - remaining) + ' in open PRs or manual list, ' + remaining + ' not yet started.');
@@ -219,7 +222,7 @@ async function generate(argv) {
 async function main(argv) {
   const cmd = argv[0];
   try {
-    if (cmd === 'reconcile') reconcile({ dry: argv.includes('--dry-run') });
+    if (cmd === 'reconcile') reconcile(state(argv), { dry: argv.includes('--dry-run') });
     else if (cmd === 'generate') await generate(argv);
     else throw Error('Usage: v2-research-tick.cjs reconcile [--dry-run] | generate [--budget-minutes N] [--batch-size N]');
   } finally {
@@ -227,4 +230,4 @@ async function main(argv) {
   }
 }
 if (require.main === module) main(process.argv.slice(2)).catch((e) => { console.error(e.stack || e.message); process.exitCode = 1; });
-module.exports = { validatePR, claimedIds };
+module.exports = { validatePR, claimedIds, state };
