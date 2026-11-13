@@ -1,0 +1,659 @@
+{
+  "batchId": "Gemini V2 research games 20261113-043234 #32",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Mewtwo",
+      "continuity": "Pokémon core series games",
+      "summary": "Mewtwo is a Psychic-type Pokémon created through gene splicing and DNA engineering, described by the Pokédex as having the most savage heart among Pokémon. It has very high Special Attack and Speed, the signature move Psystrike, and a broad movepool including Psychic, Aura Sphere, Shadow Ball, Barrier and Recover, plus elemental TMs (Thunderbolt, Ice Beam, Fire Blast) and Teleport.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Psystrike",
+          "Psychic",
+          "Psycho Cut",
+          "Aura Sphere",
+          "Shadow Ball (TM)",
+          "Thunderbolt, Ice Beam and Fire Blast (TMs)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Barrier",
+          "Recover"
+        ]
+      },
+      "weaknesses": [
+        "Bug, Ghost and Dark attacks are super effective"
+      ],
+      "mobility": [
+        "Teleport (TM30, Gen 1)"
+      ],
+      "limitations": [
+        "Cannot learn Fly or Surf (Gen 1 learnset)"
+      ],
+      "sources": [
+        {
+          "url": "https://pokemondb.net/pokedex/mewtwo",
+          "supports": "Mewtwo: Psychic type, Pressure/Unnerve, base stats total 680 (Sp. Atk 154, Speed 130), 2.0 m; weak to Bug, Ghost and Dark; Pokédex: created by gene splicing and DNA engineering, most savage heart among Pokémon. Mega Mewtwo X: Psychic/Fighting, Steadfast, Attack 190, 2.3 m, weak to Flying, Ghost and Fairy, muscles enhanced by psychic power. Mega Mewtwo Y: Psychic, Insomnia, Sp. Atk 194, Speed 140, 1.5 m, weak to Bug, Ghost and Dark; mental power can smash a skyscraper with a mere thought (Let's Go entry)."
+        },
+        {
+          "url": "https://pokemondb.net/pokedex/mewtwo/moves/1",
+          "supports": "Gen 1 (Red/Blue/Yellow) learnset: Confusion, Disable, Psychic, Swift, Barrier, Recover, Mist, Amnesia by level; TMs include Ice Beam (13), Blizzard (14), Submission (17), Thunderbolt (24), Thunder (25), Psychic (29), Teleport (30), Fire Blast (38); no Fly or Surf."
+        },
+        {
+          "url": "https://pokemondb.net/pokedex/mewtwo/moves/6",
+          "supports": "Gen 6 learnset: Psystrike (Lv 100), Psycho Cut, Psychic, Aura Sphere, Recover, Barrier; TMs include Shadow Ball, Thunderbolt, Ice Beam, Flamethrower, Fire Blast."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Psychic-type Pokémon whose attacks include Psystrike and Psychic.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Learns Teleport (TM30) in Red/Blue/Yellow.",
+          "source": 1
+        },
+        {
+          "tag": "electric",
+          "claim": "Learns Thunderbolt (TM24) and Thunder (TM25) in Gen 1 (owner ruling: learnable moves count).",
+          "source": 1
+        },
+        {
+          "tag": "ice",
+          "claim": "Learns Ice Beam (TM13) and Blizzard (TM14) in Gen 1 (owner ruling: learnable moves count).",
+          "source": 1
+        },
+        {
+          "tag": "fire",
+          "claim": "Learns Fire Blast (TM38) in Gen 1 (owner ruling: learnable moves count).",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Telekinesis, telepathy and mind control appear in the anime/films but were not confirmed for the games on the opened pages; tags not added.",
+        "Bulbapedia's Mewtwo species page could not be opened in review; replaced by PokémonDB pages."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mewtwo|Armored Mewtwo",
+      "continuity": "Pokémon GO (armor from the film Mewtwo Strikes Back: Evolution)",
+      "summary": "Armored Mewtwo wears the power-suppressing armor from Mewtwo Strikes Back: Evolution. In Pokémon GO it is a pure Psychic type with lower attack and higher defense than a standard Mewtwo, and normally cannot learn Psystrike.",
+      "offense": {
+        "domains": [
+          "psychic"
+        ],
+        "techniques": [
+          "Psychic-type attacks (Psystrike only in special raid events)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Power-suppressing armor: higher defense than standard Mewtwo"
+        ]
+      },
+      "weaknesses": [
+        "Ghost, Bug and Dark attacks are super effective"
+      ],
+      "formDifferences": "Wears power-suppressing armor: lower attack, higher defense, and normally no Psystrike.",
+      "sources": [
+        {
+          "url": "https://www.gamespot.com/articles/armored-mewtwo-pokemon-go-guide-counters-raid-tips/1100-6474098/",
+          "supports": "Armored Mewtwo in Pokémon GO wears the power-suppressing armor from Mewtwo Strikes Back: Evolution; pure Psychic type; lower attack and higher defense than standard Mewtwo; typically cannot learn Psystrike; Ghost, Bug and Dark types have the advantage."
+        }
+      ],
+      "unknowns": [
+        "Who built the armor (Giovanni in the film) is not stated on the opened source.",
+        "Bulbapedia pages for the form could not be opened in review."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Armor suppresses its power: lower attack than standard Mewtwo",
+        "Normally cannot learn Psystrike"
+      ],
+      "mobility": [],
+      "feats": [],
+      "conditional": [],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Psychic-type Pokémon using Psychic-type attacks.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Mewtwo|Mega Mewtwo X",
+      "continuity": "Pokémon X and Y onward (Mega Evolution)",
+      "summary": "Mega Mewtwo X is Mewtwo Mega Evolved with Mewtwonite X. It becomes Psychic/Fighting with the Steadfast ability and a huge Attack boost (190), its muscles greatly enhanced by psychic power, at 2.3 m tall.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "physical"
+        ],
+        "techniques": [
+          "Psycho Cut",
+          "Psychic-powered physical strikes",
+          "Aura Sphere"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Resists Fighting and Rock attacks"
+        ]
+      },
+      "weaknesses": [
+        "Flying, Ghost and Fairy attacks are super effective"
+      ],
+      "formDifferences": "Psychic/Fighting instead of pure Psychic; Attack rises from 110 to 190; Steadfast ability; weaknesses shift to Flying, Ghost and Fairy.",
+      "sources": [
+        {
+          "url": "https://pokemondb.net/pokedex/mewtwo",
+          "supports": "Mewtwo: Psychic type, Pressure/Unnerve, base stats total 680 (Sp. Atk 154, Speed 130), 2.0 m; weak to Bug, Ghost and Dark; Pokédex: created by gene splicing and DNA engineering, most savage heart among Pokémon. Mega Mewtwo X: Psychic/Fighting, Steadfast, Attack 190, 2.3 m, weak to Flying, Ghost and Fairy, muscles enhanced by psychic power. Mega Mewtwo Y: Psychic, Insomnia, Sp. Atk 194, Speed 140, 1.5 m, weak to Bug, Ghost and Dark; mental power can smash a skyscraper with a mere thought (Let's Go entry)."
+        },
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwonite_X",
+          "supports": "Held by Mewtwo, Mewtwonite X lets it Mega Evolve into Mega Mewtwo X if its Trainer has a Key Stone."
+        },
+        {
+          "url": "https://pokemondb.net/pokedex/mewtwo/moves/6",
+          "supports": "Gen 6 learnset: Psystrike (Lv 100), Psycho Cut, Psychic, Aura Sphere, Recover, Barrier; TMs include Shadow Ball, Thunderbolt, Ice Beam, Flamethrower, Fire Blast."
+        }
+      ],
+      "unknowns": [
+        "Duration of Mega Evolution outside battle is not documented on the opened pages."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Requires holding Mewtwonite X and a Trainer with a Key Stone"
+      ],
+      "mobility": [],
+      "feats": [],
+      "conditional": [
+        {
+          "ability": "Mega Mewtwo X form",
+          "dependsOn": "Mewtwonite X held item and a Trainer's Key Stone",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Psychic/Fighting type; muscles enhanced by psychic power.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Mewtwo|Mega Mewtwo Y",
+      "continuity": "Pokémon X and Y onward (Mega Evolution)",
+      "summary": "Mega Mewtwo Y is Mewtwo Mega Evolved with Mewtwonite Y. It stays pure Psychic with Insomnia, becomes smaller (1.5 m) and faster, and its Special Attack rises to 194; the Pokédex says its mental power can smash a skyscraper with a mere thought.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Psystrike",
+          "Psychic",
+          "Aura Sphere"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Higher Special Defense (120)"
+        ]
+      },
+      "weaknesses": [
+        "Bug, Ghost and Dark attacks are super effective",
+        "Lower Defense (70) than base Mewtwo"
+      ],
+      "formDifferences": "Smaller (1.5 m) with Special Attack 194, Speed 140 and Insomnia; lower physical Defense.",
+      "sources": [
+        {
+          "url": "https://pokemondb.net/pokedex/mewtwo",
+          "supports": "Mewtwo: Psychic type, Pressure/Unnerve, base stats total 680 (Sp. Atk 154, Speed 130), 2.0 m; weak to Bug, Ghost and Dark; Pokédex: created by gene splicing and DNA engineering, most savage heart among Pokémon. Mega Mewtwo X: Psychic/Fighting, Steadfast, Attack 190, 2.3 m, weak to Flying, Ghost and Fairy, muscles enhanced by psychic power. Mega Mewtwo Y: Psychic, Insomnia, Sp. Atk 194, Speed 140, 1.5 m, weak to Bug, Ghost and Dark; mental power can smash a skyscraper with a mere thought (Let's Go entry)."
+        },
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwonite_Y",
+          "supports": "Held by Mewtwo, Mewtwonite Y lets it Mega Evolve into Mega Mewtwo Y if its Trainer has a Key Stone."
+        },
+        {
+          "url": "https://pokemondb.net/pokedex/mewtwo/moves/6",
+          "supports": "Gen 6 learnset: Psystrike (Lv 100), Psycho Cut, Psychic, Aura Sphere, Recover, Barrier; TMs include Shadow Ball, Thunderbolt, Ice Beam, Flamethrower, Fire Blast."
+        }
+      ],
+      "unknowns": [
+        "Duration of Mega Evolution outside battle is not documented on the opened pages."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Requires holding Mewtwonite Y and a Trainer with a Key Stone"
+      ],
+      "mobility": [],
+      "feats": [
+        {
+          "claim": "Pokédex: its mental power can smash a skyscraper with a mere thought.",
+          "citation": "Pokémon: Let's Go, Pikachu!/Eevee! Pokédex",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Mewtwo Y form",
+          "dependsOn": "Mewtwonite Y held item and a Trainer's Key Stone",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Psychic type; mental power able to smash a skyscraper.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Mordin Solus",
+      "continuity": "Mass Effect series (Mass Effect 2 squad member)",
+      "summary": "Mordin Solus is a salarian geneticist and scientist, formerly of the Special Tasks Group, where he led scientists studying the krogan genophage. In Mass Effect 2 he fights alongside Commander Shepard with submachine guns and heavy pistols and the tech powers Incinerate, Cryo Blast and (once loyal) Neural Shock.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Incinerate",
+          "Cryo Blast",
+          "Neural Shock (after loyalty)",
+          "Submachine guns and heavy pistols"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [
+        "Cryo Blast requires Incinerate rank 2; Neural Shock is unlocked only by gaining his loyalty (ME2)"
+      ],
+      "sources": [
+        {
+          "url": "https://masseffect2.wiki.fextralife.com/Mordin+Solus",
+          "supports": "Mass Effect 2 companion who fights alongside Shepard; geneticist and scientist, member of the Salarian Special Tasks Group who led scientists studying the krogan genophage; proficient with submachine guns and heavy pistols; powers Incinerate, Cryo Blast (requires Incinerate level 2), Salarian Scientist, Neural Shock (unlocked by loyalty); loyalty mission Old Blood on Tuchanka."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [],
+      "unknowns": [
+        "The Mass Effect Wiki page could not be opened in review; replaced by the Fextralife ME2 page.",
+        "Combat feats, the genophage-cure outcome and his Mass Effect 3 fate were not covered by the opened page.",
+        "Campaign tags (tech, fire, ice, inventor) not added: the opened page lists the powers but not their in-universe nature in enough detail; candidates for a later pass."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ms. Pac-Man",
+      "continuity": "Ms. Pac-Man (1982 arcade)",
+      "summary": "Ms. Pac-Man scores by eating pellets in mazes while four ghosts (Blinky, Pinky, Inky and Sue) pursue her. Eating a power pellet turns the ghosts blue so she can eat them; ghost contact otherwise costs a life, and the power pellet effect shrinks and eventually stops in later rounds.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Eating vulnerable (blue) ghosts after a power pellet"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Contact with a non-vulnerable ghost costs a life"
+      ],
+      "mobility": [
+        "Maze movement with warp tunnels"
+      ],
+      "limitations": [
+        "Power pellet vulnerability shortens as rounds progress and eventually stops altogether"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ms._Pac-Man",
+          "supports": "Player earns points by eating pellets and avoiding ghosts Blinky, Pinky, Inky and Sue; energizers turn ghosts blue so she can eat them; energizer duration lessens with rounds and eventually stops; ghost contact loses a life; mazes have one or two sets of warp tunnels."
+        }
+      ],
+      "feats": [],
+      "unknowns": [
+        "Combat effectiveness outside maze games."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Eating ghosts",
+          "dependsOn": "Power pellet (energizer) active",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Nathan Drake",
+      "continuity": "Uncharted series (games)",
+      "summary": "Nathan Drake is a treasure hunter whose main proficiency is guns (handguns, rifles, shotguns, crossbows). He is a capable unarmed fighter, close to a one-man army, uses stealth takedowns and explosives, and is a skilled free-runner and climber. He defeated Navarro, Lazarević, Talbot and Rafe, but can be overwhelmed: Nadine beat him quickly in their first fight.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Firearms (handguns, rifles, shotguns, crossbows)",
+          "Unarmed fighting and chokeholds",
+          "Stealth takedowns",
+          "Grenades and explosives"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Endurance: kept going after being shot (Uncharted 2)"
+        ]
+      },
+      "weaknesses": [
+        "Can be overwhelmed or overpowered; his self-taught style failed against Nadine",
+        "Gunshot wounds wear him down over time"
+      ],
+      "mobility": [
+        "Free-running and climbing",
+        "Long jumps without harnesses"
+      ],
+      "limitations": [
+        "Ordinary human durability"
+      ],
+      "sources": [
+        {
+          "url": "https://uncharted.fandom.com/wiki/Nathan_Drake",
+          "supports": "Main proficiency is guns (handguns, semi-automatic rifles, shotguns, crossbows); very capable unarmed, close to a one-man army; stealth takedowns and chokeholds; good with grenades and explosives; skilled free runner and climber; defeated Navarro, Lazarević (explosive resin), Rafe (treasure pile) and Talbot (pistol after knife fight); shot by Flynn in Uncharted 2 and kept going; survived a fall from a plane; not invincible, beaten quickly by Nadine; pinned down by Marlowe's agents."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived a fall from a plane by catching a cargo container mid-air and deploying its parachute.",
+          "citation": "Uncharted 3: Drake's Deception",
+          "source": 0
+        },
+        {
+          "claim": "Kept climbing a derailed train after being shot by Harry Flynn.",
+          "citation": "Uncharted 2: Among Thieves",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Game citations per result are inferred from the story order on the opened page; the page names the events, not always the game.",
+        "Stealth tag not added: stealth takedowns are a gameplay mechanic, not a documented stealth feat (owner ruling)."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Atoq Navarro",
+          "result": "win",
+          "citation": "Uncharted: Drake's Fortune",
+          "note": "Knocked him unconscious, then pushed the helicopter off the tanker; its rope dragged Navarro into the ocean.",
+          "source": 0
+        },
+        {
+          "opponent": "Zoran Lazarević",
+          "result": "win",
+          "citation": "Uncharted 2: Among Thieves",
+          "note": "Detonated explosive resin in the Tree of Life and left him to the Guardians.",
+          "source": 0
+        },
+        {
+          "opponent": "Talbot",
+          "result": "win",
+          "citation": "Uncharted 3: Drake's Deception",
+          "note": "Killed him with his pistol after a knife fight.",
+          "source": 0
+        },
+        {
+          "opponent": "Rafe Adler",
+          "result": "win",
+          "citation": "Uncharted 4: A Thief's End",
+          "note": "Won their duel by dropping a pile of treasure on him.",
+          "source": 0
+        },
+        {
+          "opponent": "Nadine Ross",
+          "result": "loss",
+          "citation": "Uncharted 4: A Thief's End",
+          "note": "Beaten quickly in their first fight.",
+          "source": 0
+        }
+      ],
+      "campaignTags": []
+    },
+    {
+      "id": "games:Ness",
+      "continuity": "EarthBound (Mother 2)",
+      "summary": "Ness is the protagonist of EarthBound, a boy with PSI who fights mostly with baseball bats. His signature offensive PSI, PSI Rockin, hits all enemies; he is a strong healer (Lifeup, Healing) and learns Teleport. He defeated Pokey, Master Belch and Starman DX, and finally vanquished Giygas with help from his friends' prayers.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "PSI Rockin (hits all enemies; α to Ω)",
+          "Baseball bat strikes (SMAAAASH!! criticals)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High HP and Vitality",
+          "Healing PSI (Lifeup, Healing)"
+        ]
+      },
+      "weaknesses": [
+        "Low Speed: often acts last and misses fast enemies such as UFOs"
+      ],
+      "mobility": [
+        "PSI Teleport α/β to previously visited places"
+      ],
+      "limitations": [
+        "PSI costs PP (PSI Rockin α 10 PP up to Ω 98 PP)",
+        "Teleport needs a run-up and fails if he hits something before top speed"
+      ],
+      "sources": [
+        {
+          "url": "https://earthbound.fandom.com/wiki/Ness",
+          "supports": "Ness uses mostly baseball bats; strong healer with Lifeup and Healing; high HP, PP, Offense, Vitality and Guts (SMAAAASH!! chance); low Speed means he often acts last and misses fast enemies; defeated Starman Jr., Pokey, Master Belch, Starman DX and others; Giygas vanquished with help from friends' prayers."
+        },
+        {
+          "url": "https://wikibound.info/wiki/PSI_Rockin",
+          "supports": "PSI Rockin is Ness's signature offensive PSI, only in EarthBound; levels α (8), β (22), γ (49), Ω (75); hits all enemies (Ω 320-960 damage); PP cost 10 to 98; only Ness learns it."
+        },
+        {
+          "url": "https://earthbound.fandom.com/wiki/Teleport",
+          "supports": "Ness learns Teleport α (from a monkey in Dusty Dunes Desert) and β (after his nightmare in Magicant); the user runs until top speed then reappears at a previously visited place; colliding first makes it fail and still costs PP."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Uses PSI, including his signature PSI Rockin.",
+          "source": 1
+        },
+        {
+          "tag": "healing",
+          "claim": "Strong healer with Lifeup and Healing PSI.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Learns PSI Teleport α and β.",
+          "source": 2
+        }
+      ],
+      "unknowns": [
+        "The earlier PSI Fire claim was wrong for Ness (not on his opened pages); fire tag not added.",
+        "Homesickness status and PSI Shield were not covered by the opened pages."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Giygas",
+          "result": "win",
+          "citation": "EarthBound",
+          "note": "Vanquished with help from his friends' prayers (Paula prays for strength).",
+          "source": 0
+        },
+        {
+          "opponent": "Pokey",
+          "result": "win",
+          "citation": "EarthBound",
+          "note": "Listed among the enemies Ness defeats.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Pac-Man",
+      "continuity": "Pac-Man (1980 arcade)",
+      "summary": "Pac-Man must eat every dot in an enclosed maze while four ghosts (Blinky, Pinky, Inky and Clyde) chase him with distinct pursuit styles. A power pellet turns the ghosts blue and vulnerable so he can eat them; otherwise a ghost catching him costs a life. The power pellet effect shrinks and eventually disappears at higher levels.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Eating vulnerable (blue) ghosts after a power pellet"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "A ghost catching him costs a life"
+      ],
+      "mobility": [
+        "Maze movement; side warp tunnels slow the ghosts"
+      ],
+      "limitations": [
+        "Power pellet effect decreases in duration with levels and eventually disappears",
+        "Level 256 cannot be completed (kill screen)"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pac-Man",
+          "supports": "Pac-Man eats all dots in an enclosed maze; ghosts Blinky, Pinky, Inky and Clyde chase him with different styles; energizers make ghosts temporarily blue and vulnerable so he can eat them; effect decreases with levels and eventually disappears; caught by a ghost he loses a life; ghosts slow in the warp tunnels; level 256 is impossible to complete."
+        }
+      ],
+      "feats": [],
+      "unknowns": [
+        "Pac-Man World and later platformer abilities (and the earlier Spooky claim) were not covered by the opened page."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Eating ghosts",
+          "dependsOn": "Power pellet (energizer) active",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Pikachu",
+      "continuity": "Pokémon core series games",
+      "summary": "Pikachu is a small (0.4 m) Electric-type Mouse Pokémon that stores electricity in its cheek pouches and discharges it when angered; its Static ability can paralyze on contact. It learns Thunder Shock, Thunder Wave, Quick Attack, Agility, Thunderbolt and Thunder, and is weak only to Ground.",
+      "offense": {
+        "domains": [
+          "electric",
+          "physical"
+        ],
+        "techniques": [
+          "Thunder Shock",
+          "Thunderbolt",
+          "Thunder",
+          "Thunder Wave",
+          "Quick Attack"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Static: contact may paralyze the attacker",
+          "Resists Electric, Flying and Steel"
+        ]
+      },
+      "weaknesses": [
+        "Ground attacks are super effective"
+      ],
+      "mobility": [
+        "Quick Attack",
+        "Agility"
+      ],
+      "limitations": [
+        "Low base stats (total 320; HP 35, Defense 40)"
+      ],
+      "sources": [
+        {
+          "url": "https://pokemondb.net/pokedex/pikachu",
+          "supports": "Pikachu: Electric type, Static / Lightning Rod, 0.4 m, base stats total 320 (Speed 90); weak to Ground; resists Electric, Flying, Steel; Pokédex: stores electricity in cheek sacs, discharges it when angered, groups can cause lightning storms."
+        },
+        {
+          "url": "https://pokemondb.net/pokedex/pikachu/moves/1",
+          "supports": "Gen 1 learnset: ThunderShock, Thunder Wave, Quick Attack, Agility, Thunderbolt (TM24; level in Yellow), Thunder, Flash; no Surf, Fly or Teleport."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Pokédex: when several gather, their electricity can build and cause lightning storms.",
+          "citation": "Pokémon Red/Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Electric-type that stores and discharges electricity.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Directs electrical attacks such as Thunderbolt and Thunder.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Bulbapedia species page could not be opened in review; replaced by PokémonDB pages.",
+        "The earlier Volt Tackle and Iron Tail claims were not checked against an opened page."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
