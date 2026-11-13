@@ -1,0 +1,743 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-215654 #32",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Landroval",
+      "continuity": "J.R.R. Tolkien Legendarium (The Lord of the Rings, The Silmarillion)",
+      "summary": "Landroval is a giant Eagle of the Misty Mountains, fighting primarily with aerial dives, talons, and beak strikes. He possesses immense natural flight capabilities and great physical strength.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Aerial dive",
+          "Talon strike",
+          "Beak strike"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Areal evasion",
+          "Thick plumage and robust avian constitution"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ranged weaponry such as bows and arrows when exposed in flight"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Physical stamina limits continuous high-load carriage over massive continental distances."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Eagles_in_Middle-earth",
+          "supports": "Landroval as a notable giant Eagle of the Misty Mountains who aids in battles."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Landroval",
+          "supports": "Participation in historical battles including the rescue of Frodo and Sam from Mordor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew to Mount Doom alongside Gwaihir and Meneldor to rescue Frodo Baggins and Samwise Gamgee.",
+          "citation": "The Return of the King, The Field of Cormallen",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron's Nazgûl (aerial combat)",
+          "result": "win",
+          "citation": "The Return of the King",
+          "note": "Aided by Gwaihir and Meneldor in driving off the Nazgûl during the eruption of Mount Doom.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Landroval is a giant Eagle possessing wings and native flight.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Landroval is described as a giant eagle capable of carrying heavy burdens.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact wingspan and maximum lifting capacity beyond carrying two adult hobbits and gear are not precisely quantified."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Legolas",
+      "continuity": "J.R.R. Tolkien Legendarium (The Lord of the Rings)",
+      "summary": "Legolas is a Sindar elf prince of Mirkwood who fights primarily as a master archer and skilled dual-blade swordsman. He relies on exceptional elf agility, keen senses, and swift ranged attacks.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Rapid archer barrage",
+          "Dual white knives close-quarters combat",
+          "Elven combat acrobatics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced elf agility and reflexes",
+          "Light elven mail armor",
+          "Acclimatized evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelming numbers of heavy melee combatants if cornered in close quarters"
+      ],
+      "mobility": [
+        "Superhuman running speed over snow and terrain",
+        "Elven agility and balance"
+      ],
+      "limitations": [
+        "Limited quiver capacity requiring careful arrow conservation during prolonged sieges."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Legolas",
+          "supports": "Legolas's role as an elf of Mirkwood, master archer, and member of the Fellowship."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Legolas",
+          "supports": "Feats of combat, weapons used, and notable engagements throughout the War of the Ring."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shot down a Nazgûl's mount with a single arrow shot from a great distance at night.",
+          "citation": "The Fellowship of the Ring, The Great River",
+          "source": 1
+        },
+        {
+          "claim": "Slain a Mumakil (Olog-hai/Oliphant) single-handedly by climbing it and shooting its eye.",
+          "citation": "The Return of the King, The Battle of the Pelennor Fields",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orc warrior chieftain",
+          "result": "win",
+          "citation": "The Fellowship of the Ring, The Bridge of Khazad-dûm",
+          "note": "Standard skirmish engagement during the escape from Moria.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of elf endurance over multi-day forced marches without rest."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Lúthien Tinúviel",
+      "continuity": "J.R.R. Tolkien Legendarium (The Silmarillion)",
+      "summary": "Lúthien is an Elf-maid of royal birth whose power is rooted in potent magic, song, and sleep-inducing enchantments. She avoids direct physical combat, instead neutralizing foes through powerful spells and illusions.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Enchanting sleep song",
+          "Shapeshifting illusions",
+          "Cloaking magic"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magic wards",
+          "Evasion",
+          "Enchanting opponents to prevent attacks"
+        ]
+      },
+      "weaknesses": [
+        "Physically vulnerable without her magical preparations or protective spells"
+      ],
+      "mobility": [
+        "Standard foot travel",
+        "Disguise and stealth"
+      ],
+      "limitations": [
+        "Spellcasting requires concentration and vocal/musical execution."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/L%C3%BAthien",
+          "supports": "Lúthien's lineage as daughter of Thingol and Melian, and her magical powers."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/L%C3%BAthien",
+          "supports": "Feats including putting Morgoth to sleep and entering Angband."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Put Morgoth and his entire court into a deep magical sleep using her song and spellcraft.",
+          "citation": "The Silmarillion, Of Beren and Lúthien",
+          "source": 1
+        },
+        {
+          "claim": "Enchanted and dismantled Sauron's fortress of Tol-in-Gaurhoth.",
+          "citation": "The Silmarillion, Of Beren and Lúthien",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Morgoth",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Successfully put the Dark Lord to sleep to steal a Silmaril from his iron crown.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Lúthien wields potent elven and Maia-derived magic through song and glamour.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Cast spells of profound sleep and illusion that affected even Dark Lords.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "The absolute limits of her song against beings entirely devoid of hearing or mind."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Mablung",
+      "continuity": "J.R.R. Tolkien Legendarium (The Silmarillion)",
+      "summary": "Mablung of the Heavy Hand is a renowned Elven captain of Doriath, fighting as an expert swordsman and tracker. He is stalwart in defense and experienced in forest warfare.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Elven swordplay",
+          "Tactical ambush",
+          "Spear combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy elven mail",
+          "Shield defense",
+          "Parrying"
+        ]
+      },
+      "weaknesses": [
+        "Mortally susceptible to overwhelming force or betrayal by allies"
+      ],
+      "mobility": [
+        "Standard foot travel"
+      ],
+      "limitations": [
+        "Human-level physical attributes compared to Maia or high-tier lords."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Mablung",
+          "supports": "Mablung's role as chief captain of Thingol and defender of Doriath."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led guards of Doriath in tracking and capturing the mischievous Orc bands and guarding the borders.",
+          "citation": "The Silmarillion, Of Turin Turambar",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orc raiding parties",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Successful skirmishes protecting Doriath's borders.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full record of individual combat victories outside general campaign mentions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Maedhros",
+      "continuity": "J.R.R. Tolkien Legendarium (The Silmarillion)",
+      "summary": "Maedhros the Tall is an Eldar prince of the House of Fëanor, renowned as a peerless warrior and commander. He fights with sword and spear, famously continuing to fight fiercely even after losing his right hand.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Ambidextrous swordplay",
+          "Spear thrusts",
+          "Vanguard cavalry charges"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Master-crafted elven armor",
+          "Shield wall coordination",
+          "Unyielding resolve"
+        ]
+      },
+      "weaknesses": [
+        "Psychological torment stemming from the Oath of Fëanor and previous torture"
+      ],
+      "mobility": [
+        "Horseback riding",
+        "Elven foot travel"
+      ],
+      "limitations": [
+        "Missing his right hand, relying solely on left-handed or modified grips."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Maedhros",
+          "supports": "Maedhros's status as eldest son of Fëanor, his rescue from Thangorodrim, and military leadership."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Maedhros",
+          "supports": "Combat feats, leadership in the Wars of Beleriand, and ambidextrous fighting style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived hanging by the wrist from Thangorodrim for years before amputation of his right hand, later learning to fight effectively with his left hand.",
+          "citation": "The Silmarillion, Of the Flight of the Noldor",
+          "source": 0
+        },
+        {
+          "claim": "Commanded the Union of Maedhros in the massive Battle of Unnumbered Tears (Nirnaeth Arnoediad).",
+          "citation": "The Silmarillion, Of the Nirnaeth Arnoediad",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Morgoth's Orc armies",
+          "result": "loss",
+          "citation": "The Silmarillion, Nirnaeth Arnoediad",
+          "note": "Defeated due to betrayal by Easterlings during the battle.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Precise tally of individual duels against major Orc commanders."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Maglor",
+      "continuity": "J.R.R. Tolkien Legendarium (The Silmarillion)",
+      "summary": "Maglor is a Noldorin prince, poet, singer, and warrior, son of Fëanor. He fights with sword and bow, combining martial prowess with legendary musical and vocal skill.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Elven blade combat",
+          "Archery",
+          "Mighty voice/song of lament"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven armor",
+          "Evasion and tactical positioning"
+        ]
+      },
+      "weaknesses": [
+        "Tormented by remorse over the Oath of Fëanor"
+      ],
+      "mobility": [
+        "Standard elven travel",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Bound by the cursed Oath of Fëanor, driving self-destructive actions."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Maglor",
+          "supports": "Participation in the Kinslayings and Wars of Beleriand."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defended the Gap of Maglor and fought in all major battles of the First Age of Beleriand.",
+          "citation": "The Silmarillion, Of the Return of the Noldor",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Defenders of the Havens of Sirion",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Kinslaying engagement to recover a Silmaril.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact fate after casting himself into the sea with a Silmaril.",
+        "Unverified (cited source failed the automatic check): Fostered Elros and Elrond after the sack of the Havens of Sirion."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Melian",
+      "continuity": "J.R.R. Tolkien Legendarium (The Silmarillion)",
+      "summary": "Melian is a Maia of Valinor and Queen of Doriath, wielding immense divine and magical power. She creates impenetrable protective barriers (the girdle of Melian) and possesses supreme foresight and mind-speech.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Divine protective wards",
+          "Telepathic communication",
+          "Foresight and illusion"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine Maia essence",
+          "Impenetrable magical barrier (Girdle of Melian)",
+          "Illusionary maze"
+        ]
+      },
+      "weaknesses": [
+        "Gained physical form and vulnerability through love for Thingol, leading to grief and sorrow upon his death."
+      ],
+      "mobility": [
+        "Flight or spiritual transport in Valinor, standard physical movement in Middle-earth"
+      ],
+      "limitations": [
+        "Bound within physical form in Middle-earth, restricting direct divine intervention."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Melian_(Middle-earth)",
+          "supports": "Melian's nature as a Maia, Queen of Doriath, and creator of the Girdle of Melian."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Melian",
+          "supports": "Powers of enchantment, telepathy, and defensive warding of the forest."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created the Girdle of Melian, an impenetrable labyrinth of shadow and bewilderment that protected the entire realm of Doriath for millennia.",
+          "citation": "The Silmarillion, Of Thingol and Melian",
+          "source": 1
+        },
+        {
+          "claim": "Perceived the approach of evil and communicated warnings telepathically across Beleriand.",
+          "citation": "The Silmarillion",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ungoliant",
+          "result": "inconclusive",
+          "citation": "The Silmarillion, Of the Darkening of Valinor",
+          "note": "Combined efforts with Oromë drove away Ungoliant, though Melian's wards later contained her entry into Doriath.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Melian is a Maia possessing divine magical and spiritual power.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Wove the magical Girdle of Melian around Doriath.",
+          "source": 1
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Communicated over vast distances using thought and mind-speech.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full extent of her combat capabilities if forced into direct physical offense."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Meriadoc Brandybuck",
+      "continuity": "J.R.R. Tolkien Legendarium (The Lord of the Rings)",
+      "summary": "Meriadoc 'Merry' Brandybuck is a Hobbit of the Shire who rises to become a warrior of Rohan and knight of Gondor. He fights with a short sword, barrow-blade, and dagger, relying on stealth, courage, and specialized anti-magic weaponry.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Barrow-blade sneak attack",
+          "Dagger thrusts",
+          "Foot skirmishing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Rohan leather and mail armor",
+          "Stealth and concealment"
+        ]
+      },
+      "weaknesses": [
+        "Standard hobbit physical strength and fragility against direct heavy attacks"
+      ],
+      "mobility": [
+        "Pony riding",
+        "Hobbit stealth"
+      ],
+      "limitations": [
+        "Hobbit stature limits reach and raw striking power against large opponents."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Merry_Brandybuck",
+          "supports": "Merry's background as hobbit of the Shire, squire of Rohan, and participant in the War of the Ring."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Meriadoc_Brandybuck",
+          "supports": "Use of the barrow-blade to stab the Witch-king of Angmar."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stabbed the Witch-king of Angmar behind the knee with an ancient westernesse blade, breaking the spell protecting the wraith from mortal harm.",
+          "citation": "The Return of the King, The Battle of the Pelennor Fields",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Witch-king of Angmar",
+          "result": "win",
+          "citation": "The Return of the King",
+          "note": "Assisted Éowyn by striking the Witch-king's hamstring from behind, enabling his destruction.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Piercing the invulnerability of the Witch-king",
+          "dependsOn": "Using a Barrow-blade enchanted specifically against Angmar",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields a barrow-blade forged by Westernesse with anti-magic properties against wraiths.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Combat effectiveness against standard armored human soldiers without surprise."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Morgoth (Melkor)",
+      "continuity": "J.R.R. Tolkien Legendarium (The Silmarillion)",
+      "summary": "Morgoth, formerly Melkor, is the supreme Dark Lord and a fallen Vala. He fights with colossal physical strength, a massive war-hammer called Grond, elemental fire, and overwhelming dark sorcery, though he has diminished his native power by pouring it into the matter of Arda.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Grond war-hammer ground slams",
+          "Elemental fire and lightning",
+          "Dark sorcery and curse infliction"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Iron crown and impenetrable armor",
+          "Valian divine durability",
+          "Shield of dark might"
+        ]
+      },
+      "weaknesses": [
+        "Permanently bound to physical form, capable of feeling pain, fatigue, and permanent scarring from wounds."
+      ],
+      "mobility": [
+        "Dark teleportation / movement within Angband",
+        "Standard divine movement"
+      ],
+      "limitations": [
+        "Significantly diminished in personal combat agility and total energy compared to his original stature due to dispersing his power into Arda."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Morgoth",
+          "supports": "Morgoth's status as the chief antagonist, fallen Vala, and master of Angband."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Morgoth",
+          "supports": "Use of Grond, combat with Fingolfin, and elemental powers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Fingolfin in single combat, ultimately crushing him after sustaining several severe sword wounds.",
+          "citation": "The Silmarillion, Of the Ruin of Beleriand",
+          "source": 1
+        },
+        {
+          "claim": "Created dragons, balrogs, and hordes of Orcs through corruption and dark power.",
+          "citation": "The Silmarillion, Of the Coming of the Elves",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Fingolfin",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Won the duel, but received permanent foot and facial scars from Fingolfin's sword Ringil.",
+          "source": 1
+        },
+        {
+          "opponent": "Thorondor",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Face scarred by the giant eagle Thorondor when Thorondor rescued Fingolfin's body.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Morgoth wields supreme dark divine magic as a fallen Vala.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts curses and binds wills through dark sorcery.",
+          "source": 1
+        },
+        {
+          "tag": "fire",
+          "claim": "Emits elemental fire and breath of dragons.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "The exact upper limit of his power output at his peak prior to creating Arda Marred."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Morgoth (Melkor)|Melkor Unbound",
+      "continuity": "J.R.R. Tolkien Legendarium (The Silmarillion / History of Middle-earth)",
+      "summary": "Melkor Unbound represents Melkor at a primordial, cosmic scale before he scattered his native power into the physical matter of Arda. He fights with unimaginable divine might, elemental cataclysms, and absolute cosmic supremacy.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Primordial tectonic cataclysms",
+          "Divine energy projection",
+          "Cosmic darkness manipulation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Supreme Valian invulnerability",
+          "Primal divine aura"
+        ]
+      },
+      "weaknesses": [
+        "Pride and discord leading to eventual rebuff by united Valar"
+      ],
+      "mobility": [
+        "Cosmic flight and divine teleportation across stellar/universal realms"
+      ],
+      "limitations": [
+        "Subject to the collective ruling authority of Eru Ilúvatar and the combined Valar."
+      ],
+      "formDifferences": "This form represents Melkor at his absolute primordial peak before dispersing his divine essence into the physical fabric of Middle-earth (Arda), granting him vastly greater energy, scale, and invulnerability than his later 'Morgoth' persona.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Melkor",
+          "supports": "Melkor's original status as the most powerful Ainur created by Eru Ilúvatar."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Melkor",
+          "supports": "Description of his unminished state during the shaping of Arda before his power was poured into the earth."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Valar (collective)",
+          "result": "loss",
+          "citation": "The Silmarillion, Ainulindalë and Valaquenta",
+          "note": "Subdued and bound by Tulkas and the host of Valar during the early shaping of Arda.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Melkor wields supreme primordial divine power as the most powerful of the Ainur.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Manipulates reality and elemental forces on a cosmic scale.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of his pre-Arda combat engagements against individual Valar prior to recorded history."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
