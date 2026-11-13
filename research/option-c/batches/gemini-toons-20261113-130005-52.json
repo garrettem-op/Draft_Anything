@@ -1,0 +1,586 @@
+{
+  "batchId": "Gemini V2 research toons 20261113-130005 #52",
+  "schemaVersion": 1,
+  "pool": "toons",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "toons:Peter Pan",
+      "continuity": "Disney Animated Canon (Peter Pan, 1953)",
+      "summary": "Peter Pan is a youthful, arrogant, and flying trickster who relies on aerial mobility, pixie dust, and a dagger to defeat enemies like Captain Hook.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Dagger combat",
+          "Aerial dogfighting",
+          "Psychological taunts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High-speed aerial evasion",
+          "Elusiveness and small size"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence",
+        "Loss of belief or separation from pixie dust removes flight"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Flight requires pixie dust and happy thoughts."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Peter_Pan_(1953_film)",
+          "supports": "Peter Pan's flight, abilities, and fights against Captain Hook."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought and defeated Captain Hook in a sword and dagger duel.",
+          "citation": "Peter Pan (1953 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Captain Hook",
+          "result": "win",
+          "citation": "Peter Pan (1953 film)",
+          "note": "Defeated him in combat and made him flee from the crocodile.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Flies using pixie dust.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Flies naturally once imbued with pixie dust and happy thoughts.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his durability beyond surviving falls and cartoon physics."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Phil",
+      "continuity": "Disney Animated Canon (Hercules, 1997)",
+      "summary": "Philoctetes is a seasoned satyr trainer who relies on martial training, staff combat, and tactical instruction rather than overt magical powers.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Staff strikes",
+          "Tactical coaching"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility",
+          "Quick reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Short stature limits reach against large opponents",
+        "Easily frustrated"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Relies mostly on coaching and standard physical strikes."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hercules_(1997_film)",
+          "supports": "Phil's role as a trainer and his physical attributes as a satyr."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Trained Hercules from an uncoordinated youth into a legendary hero.",
+          "citation": "Hercules (1997 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat record in solo direct combat without training duties."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Phoebus",
+      "continuity": "Disney Animated Canon (The Hunchback of Notre Dame, 1996)",
+      "summary": "Captain Phoebus is a skilled military swordsman and archer who uses standard medieval weaponry, tactical acumen, and his armored warhorse.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Swordplay",
+          "Archery",
+          "Mounted combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Plate armor",
+          "Shield block",
+          "Combat proficiency"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to standard human injuries and overwhelming numbers."
+      ],
+      "mobility": [
+        "Riding (Achilles)",
+        "Running"
+      ],
+      "limitations": [
+        "Human physical limitations."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Hunchback_of_Notre_Dame_(1996_film)",
+          "supports": "Phoebus's role as captain of the guard, swordsmanship, and use of his horse Achilles."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated multiple guards in sword combat and broke Frollo's orders.",
+          "citation": "The Hunchback of Notre Dame (1996 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Frollo's guards",
+          "result": "win",
+          "citation": "The Hunchback of Notre Dame (1996 film)",
+          "note": "Fought off guards to protect civilians.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Rides his trained warhorse Achilles into battle.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Plankton",
+      "continuity": "SpongeBob SquarePants (Series)",
+      "summary": "Sheldon J. Plankton is a microscopic evil genius who relies on towering robotic suits, high-tech weaponry, and elaborate schemes to steal the Krabby Patty formula.",
+      "offense": {
+        "domains": [
+          "tech",
+          "control"
+        ],
+        "techniques": [
+          "Mecha piloting",
+          "Mind control devices",
+          "Laser weaponry"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Powered armor",
+          "Extremely small natural size making him hard to target without a suit"
+        ]
+      },
+      "weaknesses": [
+        "Extremely fragile and weak in direct physical confrontations without his machinery",
+        "Arrogance and predictable failures"
+      ],
+      "mobility": [
+        "Walking",
+        "Vehicle piloting"
+      ],
+      "limitations": [
+        "Physically minuscule without machinery."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Plankton_(SpongeBob_SquarePants)",
+          "supports": "Plankton's inventions, robotic suits, and repeated attempts to steal the formula."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Took over Bikini Bottom using a bucket-helmet mind control system.",
+          "citation": "The SpongeBob SquarePants Movie",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mr. Krabs",
+          "result": "loss",
+          "citation": "SpongeBob SquarePants series",
+          "note": "Schemes are continually foiled.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Enhanced strength and destructive capability",
+          "dependsOn": "Piloting a robotic mecha suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses various high-tech devices and computers.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Invents complex machinery and mind-control gadgets.",
+          "source": 0
+        },
+        {
+          "tag": "powered-armor",
+          "claim": "Pilots various robotic battle suits.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Pluto",
+      "continuity": "Disney Classic Cartoons",
+      "summary": "Pluto is a loyal and energetic dog who relies on animal instincts, biting, and sheer tenacity when getting into cartoon altercations.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Biting",
+          "Tackling",
+          "Chasing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Quadrupedal agility",
+          "Cartoon durability"
+        ]
+      },
+      "weaknesses": [
+        "Easily distracted",
+        "Lack of human reasoning or tools"
+      ],
+      "mobility": [
+        "Running",
+        "Swimming"
+      ],
+      "limitations": [
+        "Can only use canine physical attributes."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pluto_(Disney)",
+          "supports": "Pluto's characteristics as Mickey Mouse's pet dog and his cartoon antics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully outmaneuvered and chased various pests like chipmunks and cats.",
+          "citation": "Classic Disney Shorts",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Po",
+      "continuity": "DreamWorks Animation (Kung Fu Panda)",
+      "summary": "Po is the Dragon Warrior, a giant panda master of Kung Fu who combines immense physical durability, Wuxi Finger Hold techniques, and inner peace to overcome powerful foes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Wuxi Finger Hold",
+          "Panda Style Kung Fu",
+          "Chi redirection"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Substantial body fat absorbing blunt impacts",
+          "Chi aura",
+          "High resilience"
+        ]
+      },
+      "weaknesses": [
+        "Prone to distraction by food and self-doubt under high stress"
+      ],
+      "mobility": [
+        "Running",
+        "Leaping"
+      ],
+      "limitations": [
+        "Requires physical contact for the Wuxi Finger Hold."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kung_Fu_Panda_(franchise)",
+          "supports": "Po's martial arts mastery, the Wuxi Finger Hold, and his role as the Dragon Warrior."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Tai Lung by banishing him with the Wuxi Finger Hold.",
+          "citation": "Kung Fu Panda",
+          "source": 0
+        },
+        {
+          "claim": "Mastered chi manipulation to defeat Kai in the spirit realm.",
+          "citation": "Kung Fu Panda 3",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Tai Lung",
+          "result": "win",
+          "citation": "Kung Fu Panda",
+          "note": "Overcame initial struggles using the Dragon Warrior techniques.",
+          "source": 0
+        },
+        {
+          "opponent": "Lord Shen",
+          "result": "win",
+          "citation": "Kung Fu Panda 2",
+          "note": "Used inner peace to deflect cannon fire.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Is a large anthropomorphic giant panda.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Popeye",
+      "continuity": "Classic Fleischer/Famous Studios Cartoons",
+      "summary": "Popeye is a rugged, pipe-smoking sailor who relies on conventional brawling, incredible durability, and street fighting when unpowered.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Bare-knuckle boxing",
+          "Sucker punches"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cartoons durability",
+          "Stubborn resilience"
+        ]
+      },
+      "weaknesses": [
+        "Without spinach, can be overwhelmed by exceptionally strong or numerous opponents"
+      ],
+      "mobility": [
+        "Running",
+        "Swimming"
+      ],
+      "limitations": [
+        "Relies on normal human-tier strength until consuming spinach."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Popeye",
+          "supports": "Popeye's baseline fighting style as a sailor and brawler."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought various tough sailors and dockworkers using standard fisticuffs.",
+          "citation": "Classic Fleischer Cartoons",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bluto",
+          "result": "loss",
+          "citation": "Various classic cartoons",
+          "note": "Often beaten down early in a fight before getting access to spinach.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Popeye|Spinach-Powered Popeye",
+      "continuity": "Classic Fleischer/Famous Studios Cartoons",
+      "summary": "When powered by canned spinach, Popeye gains boundless cosmic-defying strength, reality-bending feats, and near-invulnerability, allowing him to effortlessly punch out opponents or reshape the environment.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Spinach-fueled haymakers",
+          "Environment reshaping via punches",
+          "Fast-spinning uppercuts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Absolute invulnerability",
+          "Toon force endurance"
+        ]
+      },
+      "weaknesses": [
+        "Must consume spinach to activate this form"
+      ],
+      "mobility": [
+        "Super-speed",
+        "Flight via sheer velocity"
+      ],
+      "formDifferences": "Transforms Popeye from a standard brawler into a reality-warping powerhouse with limitless strength and near-invulnerability upon eating spinach.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Popeye",
+          "supports": "Popeye's spinach-powered transformations and reality-warping feats."
+        }
+      ],
+      "unknowns": [
+        "Exact upper bound of his reality-bending strength."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Porky Pig",
+      "continuity": "Looney Tunes Cartoons",
+      "summary": "Porky Pig is a mild-mannered, stuttering pig who mostly tries to avoid danger, occasionally using whatever heavy objects or basic items are nearby.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Improvised object throwing",
+          "Fumbler brawling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dodging",
+          "Hiding"
+        ]
+      },
+      "weaknesses": [
+        "Timidity",
+        "Easily startled and physically unthreatening"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "No formal combat skills."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Porky_Pig",
+          "supports": "Porky Pig's timid nature and classic cartoon appearances."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully outran or evaded crazed antagonists in various shorts.",
+          "citation": "Looney Tunes Cartoons",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Professor Utonium",
+      "continuity": "The Powerpuff Girls (Series)",
+      "summary": "Professor Utonium is a brilliant scientist and inventor who relies on laboratory equipment, chemical formulas, and scientific ingenuity rather than direct combat prowess.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Chemical mixtures",
+          "Scientific gadgets"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Laboratory shields",
+          "Evasion"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability"
+      ],
+      "mobility": [
+        "Walking",
+        "Driving"
+      ],
+      "limitations": [
+        "Lacks innate superhuman combat abilities."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Professor_Utonium",
+          "supports": "Professor Utonium's background as a scientist and creator of the Powerpuff Girls."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created the Powerpuff Girls using Sugar, Spice, Everything Nice, and Chemical X.",
+          "citation": "The Powerpuff Girls (Series)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Created the Powerpuff Girls and various advanced scientific devices.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
