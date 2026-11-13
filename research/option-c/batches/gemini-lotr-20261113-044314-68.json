@@ -1,0 +1,243 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-044314 #68",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Varda (Elbereth)",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Varda is the Queen of the Valar, dwelling in Valinor above Ilmen. She wields supreme light and power, shaping the stars and hearing all sounds made within Eä, and her name is invoked as a supreme defense against darkness.",
+      "offense": {
+        "domains": [
+          "light",
+          "cosmic",
+          "divine"
+        ],
+        "techniques": [
+          "Creation and placement of new stars",
+          "Blinding light of divine presence",
+          "Purifying holy invocation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine invulnerability within Valinor",
+          "Immaterial celestial existence",
+          "Rejection of darkness and evil"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Cosmic omnipresence"
+      ],
+      "limitations": [
+        "Bound by Eru Ilúvatar's decrees regarding direct physical intervention in Middle-earth"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Varda",
+          "supports": "Varda's role as Queen of the Valar, her creation of the stars, and her association with light and sound."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rekindled the greatest stars in the heavens to prepare for the coming of the Elves.",
+          "citation": "The Silmarillion, Of the Valar",
+          "source": 0
+        },
+        {
+          "claim": "Can hear all voices, cries, and sounds from east to west of Arda.",
+          "citation": "The Silmarillion, Of the Valar",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Varda exists as a celestial power above the spheres of the world.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of direct physical combat abilities outside of cosmic creation and divine light is unquantified."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Witch-king of Angmar",
+      "continuity": "The Lord of the Rings / The Silmarillion",
+      "summary": "The Witch-king is the Lord of the Nazgûl, wielding terrifying psychological dread, dark sorcery, and a flaming sword or morgul blade. He relies on spectral terror, shadow-steeds, and undead resilience to break his foes.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "fear"
+        ],
+        "techniques": [
+          "Morgul blade stabbing",
+          "Spell of destruction breaking gates",
+          "Aura of the Black Breath (fear and despair)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Undead spectral form resistant to normal mortal weapons",
+          "Fell beast mount",
+          "Prophetic protection from death by ordinary men"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to blades forged with spells against Angmar (such as Westernesse daggers)",
+        "Vulnerable to fire and sunlight",
+        "Destruction by those possessing specific ancestry or destiny (Eowyn and Merry)"
+      ],
+      "mobility": [
+        "Winged fell beast",
+        "Shadow-steed"
+      ],
+      "limitations": [
+        "Power wanes in daylight or under direct sunlight without dark clouds",
+        "Bound to the will of Sauron via the One Ring"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Witch-king_of_Angmar",
+          "supports": "History, abilities, weapons, and defeat of the Witch-king of Angmar."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stabbed Frodo Baggins with a Morgul blade on Weathertop.",
+          "citation": "The Fellowship of the Ring",
+          "source": 0
+        },
+        {
+          "claim": "Used the spell Grond-amplified sorcery to shatter the great gates of Minas Tirith.",
+          "citation": "The Return of the King",
+          "source": 0
+        },
+        {
+          "claim": "Defeated King Earnur of Gondor and forced him to flee.",
+          "citation": "The Appendices of The Lord of the Rings",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Frodo Baggins",
+          "result": "win",
+          "citation": "The Fellowship of the Ring",
+          "note": "Ambushed Frodo on Weathertop and inflicted a near-fatal wound with a Morgul blade.",
+          "source": 0
+        },
+        {
+          "opponent": "Éowyn and Merry Brandybuck",
+          "result": "loss",
+          "citation": "The Return of the King",
+          "note": "Destroyed after Merry disrupted his invulnerability with a Barrow-blade and Éowyn delivered the fatal strike.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight across long distances",
+          "dependsOn": "Riding a winged fell beast",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Rides a winged fell beast in battle.",
+          "source": 0
+        },
+        {
+          "tag": "mount",
+          "claim": "Fights while riding a winged fell beast.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Wields dark sorcery, including the spell that shattered the gates of Minas Tirith.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Wields a sword that can be filled with fire.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of the prophecy regarding his death ('not by the hand of man will he fall')."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Yavanna",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Yavanna is the Valier of Earth and growth, mother of all things that grow in Arda. She commands immense nature magic, bringing flora and forests to life and creating the Ents to protect her trees.",
+      "offense": {
+        "domains": [
+          "nature",
+          "magic",
+          "creation"
+        ],
+        "techniques": [
+          "Awakening flora and fauna",
+          "Singing trees and living plants into rapid growth"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine resilience as one of the Valar",
+          "Protection by Oromë and the other Valar"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Divine movement within Valinor"
+      ],
+      "limitations": [
+        "Cannot restore the Two Trees of Valinor once their light was drained by Ungoliant without the light of the Silmarils."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Yavanna",
+          "supports": "Yavanna's identity as the Vala of Earth, creator of plants, and mother of the Ents."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created the Two Trees of Valinor (Telperion and Laurelin) through her song.",
+          "citation": "The Silmarillion, Of the Beginning of Time",
+          "source": 0
+        },
+        {
+          "claim": "Conceived the Ents and the Eagles to guard her beloved creations against the depravations of Aulë and Morgoth.",
+          "citation": "The Silmarillion, Of Aulë and Yavanna",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Uses divine songs and powers to create and nurture plant life.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific combat engagements or offensive spellcasting outside of creation and life-giving."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
