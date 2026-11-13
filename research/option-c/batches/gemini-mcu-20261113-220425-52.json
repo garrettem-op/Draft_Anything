@@ -1,0 +1,616 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-220425 #52",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Hawkeye",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Hawkeye is an expert marksman, master archer, and close-quarters combatant who relies on tactical precision, advanced trick arrows, and peak human conditioning rather than superhuman abilities.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Trick arrows (explosive, grappling, scatter, pulse)",
+          "Archery barrage",
+          "Hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility and evasion",
+          "Tactical cover",
+          "Standard protective tactical gear"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to superhuman physical attacks due to ordinary human biology",
+        "Limited supply of ammunition and specialized arrows"
+      ],
+      "mobility": [
+        "Acrobatic movement",
+        "Utilization of standard vehicles and grappling lines"
+      ],
+      "limitations": [
+        "Relies on physical endurance and finite ammunition supply"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hawkeye_(Marvel_Cinematic_Universe)",
+          "supports": "General background, weapons, and tactical role in the Avengers."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hawkeye",
+          "supports": "Abilities, trick arrows, and combat feats across MCU films and series."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully defended a position against an army of Chitauri using standard and trick arrows.",
+          "citation": "The Avengers (2012)",
+          "source": 0
+        },
+        {
+          "claim": "Fought evenly against Black Widow during close-quarters combat.",
+          "citation": "The Avengers (2012)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Black Widow",
+          "result": "win",
+          "citation": "The Avengers (2012)",
+          "note": "Fought while under mind control by Loki, later freed.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses specialized trick arrows with various tactical effects.",
+          "source": 1
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Heimdall",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Heimdall is an almighty Asgardian sentry possessing superhuman physical attributes, enhanced sensory perception capable of viewing trillions of souls across the cosmos, and mastery of the Hofund sword.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Hofund sword combat",
+          "Cosmic sensory projection",
+          "Bifrost initiation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Asgardian durability",
+          "Heavy golden armor",
+          "Enhanced reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to severe physical trauma from exceptionally powerful entities",
+        "Senses can be obscured by powerful concealment magic"
+      ],
+      "mobility": [
+        "Superhuman running speed",
+        "Teleportation via Bifrost"
+      ],
+      "limitations": [
+        "Sensory range requires immense focus"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Heimdall",
+          "supports": "Heimdall's sensory powers, Asgardian physiology, and combat feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Perceived invisible Dark Elves infiltrating Asgard.",
+          "citation": "Thor: The Dark World (2013)",
+          "source": 0
+        },
+        {
+          "claim": "Killed multiple Frost Giants during the raid on Jotunheim.",
+          "citation": "Thor (2011)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War (2018)",
+          "note": "Killed after attempting an ambush on Thanos.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Bifrost teleportation",
+          "dependsOn": "Access to Hofund and connection to the Observatory",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields mystical perception and controls the Bifrost bridge.",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Can summon the Bifrost to transport individuals across space.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hela",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Hela is the Asgardian Goddess of Death, possessing immense physical strength, near-limitless generation of Necrosword weapons, self-regeneration linked to Asgard, and mastery over dark magic.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Necrosword projectile barrage",
+          "Giant blade manifestation",
+          "Undead army summoning"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Asgardian divine physiology",
+          "Rapid self-healing",
+          "Invulnerability to conventional weapons"
+        ]
+      },
+      "weaknesses": [
+        "Power diminishes significantly if separated from Asgard for extended periods"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Leaping"
+      ],
+      "limitations": [
+        "Power draws directly from the existence of Asgard"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hela",
+          "supports": "Hela's powers, weapons, Necrosword creation, and Asgardian dependency."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caught and crushed Thor's enchanted hammer Mjolnir with one hand.",
+          "citation": "Thor: Ragnarok (2017)",
+          "source": 0
+        },
+        {
+          "claim": "Slaughtered the entire Valkyrie army single-handedly.",
+          "citation": "Thor: Ragnarok (2017)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thor",
+          "result": "win",
+          "citation": "Thor: Ragnarok (2017)",
+          "note": "Easily overpowered Thor and gouged out his eye.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Infinite power and regeneration",
+          "dependsOn": "Presence on Asgard",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Commands dark Asgardian magic to manifest weapons and raise the dead.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Demonstrates the ability to levitate and fly during combat.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hercules",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Hercules is an Olympian warrior introduced in post-credits media, possessing mythological divine strength, durability, and proficiency with ancient weaponry.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Divine strikes",
+          "Melee weapon combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Olympian god physiology",
+          "High physical durability"
+        ]
+      },
+      "weaknesses": [
+        "Not established in current cinematic appearances"
+      ],
+      "mobility": [
+        "Superhuman running speed",
+        "Leaping"
+      ],
+      "limitations": [
+        "Limited combat screen time shown"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hercules",
+          "supports": "Hercules' introduction and divine background in the MCU."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tasked by Zeus to hunt down Thor and prove the superiority of Olympian gods.",
+          "citation": "Thor: Love and Thunder (2022)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Possesses divine Olympian stature and vast physical strength.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of MCU capabilities and specific magical abilities remain unexplored."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Howard Stark",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Howard Stark is a brilliant industrialist, scientist, and engineer who relies on his intellect, advanced conventional weaponry, and technological inventions rather than direct combat skills.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Conventional firearms",
+          "Tactical deployment of inventions"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bodyguards",
+          "Armed security"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable human biology with no superhuman defensive capabilities"
+      ],
+      "mobility": [
+        "Standard vehicular transport"
+      ],
+      "limitations": [
+        "Ordinary human physical condition"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Howard_Stark",
+          "supports": "Howard Stark's background as an inventor and scientist."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Assisted in discovering a new chemical element using holographic projection models.",
+          "citation": "Iron Man 2 (2010)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Invented numerous advanced technologies and contributed to early arc reactor designs.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Master of advanced mid-20th-century technology and experimental physics.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Hulk is the massive, gamma-mutated alter ego of Bruce Banner who relies on extreme brute strength, shockwave thunderclaps, and unyielding rage that increases his power during combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Thunderclap shockwaves",
+          "Slamming and grappling",
+          "Improvised weapon strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme physical durability",
+          "Regenerative healing factor",
+          "Immunity to conventional ordinance"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to psychological calming techniques (like Natasha Romanoff's lullaby)",
+        "Susceptible to powerful neurotoxins or extreme electrical shock"
+      ],
+      "mobility": [
+        "Massive leaps spanning miles",
+        "Superhuman running speed"
+      ],
+      "limitations": [
+        "Transforms back into Bruce Banner when calm or exhausted"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hulk_(Marvel_Cinematic_Universe)",
+          "supports": "General overview of Hulk's strength, origin, and appearances in the MCU."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hulk",
+          "supports": "Hulk's feats, abilities, and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stopped a leviathan Chitauri warship with a single punch.",
+          "citation": "The Avengers (2012)",
+          "source": 1
+        },
+        {
+          "claim": "Carried the collapsed Avengers facility rubble off trapped heroes.",
+          "citation": "Avengers: Endgame (2019)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War (2018)",
+          "note": "Overpowered in a brief hand-to-hand brawl.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands well over 8 feet tall with enormous muscular mass.",
+          "source": 1
+        },
+        {
+          "tag": "healing",
+          "claim": "Possesses a rapid regenerative healing factor.",
+          "source": 1
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hulk|Green Scar Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Representing the gladiatorial champion persona seen on Sakaar, this form of Hulk combines brutal combat efficiency, weapon proficiency, and sustained rage without reverting to Banner.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Gladiatorial battle axe and war hammer combat",
+          "Leaping ground smashes",
+          "Relentless onslaughts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gladiatorial armor plating",
+          "Maximum gamma durability",
+          "Accelerated healing"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to emotional manipulation or holographic triggers (like Natasha's video message)"
+      ],
+      "formDifferences": "Retains higher cognitive speech, tactical awareness, and utilizes gladiatorial weapons instead of raw chaotic smashing.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hulk",
+          "supports": "Hulk's gladiatorial persona and combat capabilities on Sakaar."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Maintains a massive muscular giant stature.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of this form's upper rage threshold compared to comic variants."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hulk|Immortal Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Drawing from thematic undead resilience, this variant emphasizes supernatural persistence and absolute physical reconstruction after catastrophic trauma.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Brutal crushing strikes",
+          "Unyielding advance"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme supernatural healing",
+          "Resilience against fatal trauma"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to specialized gamma-draining or soul-based neutralization"
+      ],
+      "formDifferences": "Focuses entirely on horrifying regenerative persistence and relentless forward momentum.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hulk",
+          "supports": "Underlying gamma regeneration principles."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-regeneration",
+          "claim": "Instantly heals from catastrophic tissue damage.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct cinematic adaptation specifics differ from print continuity."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hulk|Maestro Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Representing a ruthless, highly intelligent fusion of Hulk's immense physical power with cunning strategy and accumulated weaponry.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Strategic brawling",
+          "Advanced weapon mastery",
+          "Calculated shockwaves"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Supreme gamma durability",
+          "Tactical positioning"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence in tactical superiority"
+      ],
+      "formDifferences": "Combines Banner's tactical intellect with Hulk's peak physical frame.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hulk",
+          "supports": "General baseline Hulk strength metrics."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Retains the massive size of the Hulk.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific MCU timeline implementation of Maestro is inferred."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Hulk|World Breaker Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Representing the absolute peak of destructive potential where gamma radiation emanates constantly from the body, shattering the surrounding environment.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Gamma-burst shockwaves",
+          "Cataclysmic ground stomps",
+          "Devastating punches"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Maximum impenetrable gamma durability",
+          "Continuous energy dissipation shield"
+        ]
+      },
+      "weaknesses": [
+        "Risk of environmental collateral damage affecting allies"
+      ],
+      "formDifferences": "Surrounded by a permanent aura of destructive gamma energy capable of passive devastation.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Hulk",
+          "supports": "Maximum upper limits of MCU Hulk gamma output."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Enhanced physical size driven by extreme gamma output.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Emits powerful bursts of gamma energy and shockwaves.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration limit of the World Breaker state in live-action."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
