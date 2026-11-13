@@ -1,0 +1,789 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125623 #39",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Padmé Amidala",
+      "continuity": "Star Wars Canon (Films and The Clone Wars)",
+      "summary": "Padmé Amidala is a resourceful politician, diplomat, and combatant trained in royal security protocols. She primarily fights using standard blaster pistols, tactical positioning, and improvised environmental usage, relying on agility rather than superhuman attributes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster marksmanship",
+          "Tactical retreat and ambush",
+          "Hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic evasion",
+          "Standard combat attire/armor",
+          "Cover-based gunfights"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical injury and standard blasters due to lacking superhuman durability"
+      ],
+      "mobility": [
+        "Acrobatic running",
+        "Standard piloting vehicles"
+      ],
+      "limitations": [
+        "Human physical limits with no Force abilities or technological enhancements"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Padm%C3%A9_Amidala",
+          "supports": "Basic character overview and role in Star Wars."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Padm%C3%A9_Amidala",
+          "supports": "Combat feats, blaster proficiency, and tactical skills."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off Geonosian beasts and battle droids in the Geonosis arena.",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Geonosian execution creatures",
+          "result": "win",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "note": "Used pole and surrounding chains to escape execution post.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots starfighters and various transport vessels during conflicts.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full extent of her formal Naboo security training details in canon versus Legends."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Plo Koon",
+      "continuity": "Star Wars Canon (The Clone Wars and Films)",
+      "summary": "Plo Koon is a wise and formidable Jedi Master of the Kel Dor species. He utilizes a distinctive orange lightsaber, expert Lightsaber combat forms, and Telekinesis, alongside his innate Kel Dor physiological traits.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Lightsaber combat (Form V style traits)",
+          "Force push",
+          "Electric Judgment (Alt-continuity/Legends; focused Force lightning in canon variations)",
+          "Telekinetic manipulation"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "The Force precognition and barrier",
+          "Protective mask and breathers (physiological necessity)"
+        ]
+      },
+      "weaknesses": [
+        "Requires a specialized anti-toxin mask and protective goggles in oxygen-rich atmospheres"
+      ],
+      "mobility": [
+        "Force-enhanced leaps",
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Cannot breathe standard oxygen environments without protective gear"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Plo_Koon",
+          "supports": "Kel Dor biology, Jedi Master status, abilities, and feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived deep-space vacuum conditions temporarily using the Force.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Savage Opress",
+          "result": "loss",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Overpowered by Opress during an investigation.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Atmospheric survival",
+          "dependsOn": "Antox breathers and protective mask",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Natural Jedi levitation and piloting starfighters in battle.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Elite Jedi starfighter pilot commanding the 104th Battalion.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Uses the Force to sense thoughts, emotions, and intentions.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Demonstrated powerful Force pushes and object manipulation.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact canonical power scaling relative to Grand Master Yoda in direct combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Poe Dameron",
+      "continuity": "Star Wars Sequel Trilogy Canon",
+      "summary": "Poe Dameron is a premier Resistance pilot and tactical ground leader. He relies on expert starfighter maneuvering, blaster marksmanship, and quick-witted improvisation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Advanced starfighter dogfighting",
+          "Blaster precision shooting",
+          "Tactical guerrilla warfare"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Flight helmet and pilot suit",
+          "Cover and concealment tactics"
+        ]
+      },
+      "weaknesses": [
+        "Lacks supernatural defenses or superhuman physical traits"
+      ],
+      "mobility": [
+        "Starfighter flight",
+        "Terrestrial vehicle driving"
+      ],
+      "limitations": [
+        "Standard human physical constraints"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Poe_Dameron",
+          "supports": "Pilot status, military background, and combat feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed multiple First Order TIE fighters and dreadnought surface defenses during critical runs.",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "First Order Dreadnought defenses",
+          "result": "win",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "note": "Led a costly bombing run that successfully destroyed the target.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Regarded as the finest pilot in the Resistance, flying X-wings and tactical craft.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact extent of his undercover smuggling background before joining the New Republic."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Qi'ra",
+      "continuity": "Star Wars Canon (Solo: A Star Wars Story and Comics)",
+      "summary": "Qi'ra is a high-ranking operative of Crimson Dawn, trained in Teräs Käsi martial arts and armed with concealed weaponry and blaster pistols.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Teräs Käsi martial arts",
+          "Blaster combat",
+          "Assassination and covert takedowns"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Close-quarters combat counters",
+          "Stealth positioning"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to superior force users and heavy firearms"
+      ],
+      "mobility": [
+        "Standard athletic movement",
+        "Terrestrial transport piloting"
+      ],
+      "limitations": [
+        "Normal human biology without mystical powers"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Qi%27ra",
+          "supports": "Crimson Dawn training, Teräs Käsi combat skills, and weaponry."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Dryden Vos in close-quarters combat using martial arts.",
+          "citation": "Solo: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dryden Vos",
+          "result": "win",
+          "citation": "Solo: A Star Wars Story",
+          "note": "Ambushed and killed Vos during a power struggle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Operates effectively in high-society espionage and criminal underworld syndicates.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capability limits of her long-term secret planning against the Sith."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Qui-Gon Jinn",
+      "continuity": "Star Wars Canon (Films and The Clone Wars)",
+      "summary": "Qui-Gon Jinn is a Maverick Jedi Master who relies on Ataru lightsaber combat, deep spiritual connection to the Living Force, and pragmatic wisdom.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Ataru lightsaber form (Form IV)",
+          "Force push",
+          "Mind trick",
+          "Force speed"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Force reflexes and barrier"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to aggressive multi-opponent encirclement in constrained environments"
+      ],
+      "mobility": [
+        "Force-enhanced speed bursts",
+        "Acrobatic leaps"
+      ],
+      "limitations": [
+        "Stamina drain when sustaining high-intensity Ataru acrobatics in cramped spaces"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Qui-Gon_Jinn",
+          "supports": "Jedi Master background, lightsaber form, and Force capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Discovered the technique of conscious identity preservation after death (becoming a Force ghost).",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Maul",
+          "result": "loss",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "note": "Killed by Maul after being separated from Obi-Wan by energy barriers.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Natural Jedi levitation and spatial jumps.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Uses Jedi Mind Tricks to manipulate sentient behavior.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Senses the thoughts and emotions of others through the Force.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Manipulates objects and pushes adversaries with the Force.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat potential had he achieved a seat on the Jedi High Council."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:R2-D2",
+      "continuity": "Star Wars Canon (Films and Series)",
+      "summary": "R2-D2 is an astromech droid equipped with numerous internal tools, computer-slicing interfaces, rocket thrusters, and defensive electro-shock prods.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Electro-shock prod",
+          "Internal fire extinguisher jet",
+          "Computer slicing and system override"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored titanium-alloy chassis",
+          "Defensive shock discharge"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ion weapons, EMPs, and physical tipping over on uneven terrain"
+      ],
+      "mobility": [
+        "Wheeled tread movement",
+        "Powered rocket flight"
+      ],
+      "limitations": [
+        "Limited mobility on stairs or rocky ground without treads or thrusters"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/R2-D2",
+          "supports": "Astromech capabilities, tools, rocket thrusters, and tech feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Sliced into Imperial and Separatist mainframes to unlock doors and disable shields.",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Super Battle Droids",
+          "result": "win",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Blinded droids with oil slick and ignited them.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Rocket flight",
+          "dependsOn": "Retractable rocket thruster attachments",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Uses retractable rocket thrusters for powered flight.",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "An independent R2-series astromech droid.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with buzz saws, computer interfaces, fire extinguishers, and thrusters.",
+          "source": 0
+        },
+        {
+          "tag": "electric-weapon",
+          "claim": "Defensive electro-shock prod.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Why the rocket thrusters were apparently unused during the original trilogy era."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Rancor",
+      "continuity": "Star Wars Canon (Films and The Book of Boba Fett)",
+      "summary": "A Rancor is a massive, heavily armored reptilian beast possessing immense physical strength, sharp claws, and thick hide capable of shrugging off standard blaster fire.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Claw slashes",
+          "Bite attack",
+          "Ground-shaking charge"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick natural hide resistant to light attacks",
+          "Massive bulk"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy ordnance, explosives inside the mouth, and targeted attacks on soft tissue (like eyes)"
+      ],
+      "mobility": [
+        "Quadrupedal running and charging"
+      ],
+      "limitations": [
+        "Low intelligence making it susceptible to environmental traps and handler control"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Rancor",
+          "supports": "Rancor biology, size, strength, and combat behavior."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rampaged through Mos Espa destroying buildings and fighting rival mechanized forces.",
+          "citation": "The Book of Boba Fett",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gamorrean guards",
+          "result": "win",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "note": "Swallowed or crushed opponents effortlessly in Jabba's palace pit.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands well over 5 meters tall with immense predatory mass.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of weight it can lift or throw."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Reva",
+      "continuity": "Star Wars Canon (Obi-Wan Kenobi)",
+      "summary": "Reva Sevander is an ambitious and ruthless Inquisitor trained in aggressive lightsaber combat, dark side Force powers, and psychological manipulation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Inquisitor spinning double-bladed lightsaber combat",
+          "Force choke",
+          "Force push"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Dark side tenacity and endurance"
+        ]
+      },
+      "weaknesses": [
+        "Emotionally driven by vengeance, making her reckless and prone to manipulation"
+      ],
+      "mobility": [
+        "Acrobatic leaps",
+        "Force-enhanced sprinting"
+      ],
+      "limitations": [
+        "Relies on dark-side passion which can falter when confronting past trauma"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Reva_Sevander",
+          "supports": "Inquisitorius training, abilities, and lightsaber skills."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived being impaled by a lightsaber twice in her lifetime and continued fighting.",
+          "citation": "Obi-Wan Kenobi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Vader",
+          "result": "loss",
+          "citation": "Obi-Wan Kenobi",
+          "note": "Overpowered effortlessly and disarmed during a betrayal attempt.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Uses the Force for powerful vertical jumps.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Manipulates objects and throws opponents using the dark side.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Senses fear and extracts thoughts through interrogation.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her combat growth after abandoning the Inquisitorius."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Rey",
+      "continuity": "Star Wars Sequel Trilogy Canon",
+      "summary": "Rey is a scavenger-turned-Jedi who combines staff-fighting agility with powerful Force abilities, telekinesis, healing, and lightsaber combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "control",
+          "magic"
+        ],
+        "techniques": [
+          "Lightsaber combat",
+          "Staff striking",
+          "Force lightning (uncontrolled surge)",
+          "Force push and pull"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber parry and deflection",
+          "Force barrier"
+        ]
+      },
+      "weaknesses": [
+        "Prone to emotional turbulence and internal conflict over her lineage"
+      ],
+      "mobility": [
+        "Force-enhanced running",
+        "Acrobatic leaps"
+      ],
+      "limitations": [
+        "Force healing drains a portion of her own vital life force"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Rey_Skywalker",
+          "supports": "Jedi training, Force powers, and combat history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Healed a mortally wounded serpent creature and Kylo Ren using Force healing.",
+          "citation": "Star Wars: Episode IX - The Rise of Skywalker",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Kylo Ren",
+          "result": "win",
+          "citation": "Star Wars: Episode VII - The Force Awakens",
+          "note": "Defeated Kylo Ren on Starkiller Base by tapping into the Force.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Force leaps and spatial acrobatics.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Transfers life energy to heal physical wounds in living creatures.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Communicates across interstellar distances and reads minds.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Lifts massive boulder arrays and catches falling starships.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential of her yellow lightsaber crafting techniques."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Rey|Rey with Dyad Empowerment",
+      "continuity": "Star Wars Sequel Trilogy Canon",
+      "summary": "Rey empowered by the Force Dyad connection with Ben Solo possesses amplified telekinetic strength, immediate access to ancestral Jedi power, and heightened resilience.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Dyad energy channeling",
+          "Dual lightsaber reflection",
+          "Advanced Force barrier"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced Force barrier",
+          "Dyad life-sharing resilience"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable if the dyad bond is strained or if opponents separate the linked individuals"
+      ],
+      "mobility": [
+        "Force-enhanced speed",
+        "Acrobatic leaping"
+      ],
+      "limitations": [
+        "Overexertion can lead to temporary physical collapse"
+      ],
+      "formDifferences": "Amplifies all base Force abilities, durability, and offensive output through the mystical dyad bond with Ben Solo.",
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Force_dyad",
+          "supports": "Dyad mechanics, power amplification, and connection feats."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Rey_Skywalker",
+          "supports": "Rey's baseline abilities enhanced through the dyad."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Channelized the combined power of past Jedi generations to defeat Emperor Palpatine.",
+          "citation": "Star Wars: Episode IX - The Rise of Skywalker",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Emperor Palpatine",
+          "result": "win",
+          "citation": "Star Wars: Episode IX - The Rise of Skywalker",
+          "note": "Used ancestral Jedi energy and dyad resilience to deflect Palpatine's lightning.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Dyad Empowerment",
+          "dependsOn": "Active Force Dyad link with Ben Solo",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Enhanced Force levitation and leaps via dyad power.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Exerts immense telekinetic force capable of overpowering dark-side nexus energy.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Maintains instantaneous deep mind connection across galaxies.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The permanent stability of dyad power amplification after the death of Ben Solo."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
