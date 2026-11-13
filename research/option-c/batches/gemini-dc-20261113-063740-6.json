@@ -1,0 +1,581 @@
+{
+  "batchId": "Gemini V2 research dc 20261113-063740 #6",
+  "schemaVersion": 1,
+  "pool": "dc",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "dc:Green Lantern (Hal Jordan)",
+      "continuity": "DC Comics Post-Crisis / Modern Era",
+      "summary": "Hal Jordan relies on his Green Lantern power ring to construct virtually any weapon or device imaginable through sheer willpower. He engages opponents in ranged and melee combat while maintaining protective energy fields and high-speed flight.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical",
+          "constructs"
+        ],
+        "techniques": [
+          "Energy blast",
+          "Hard-light construct creation",
+          "Energy net"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy aura force fields",
+          "Automatic ring hazard protection"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to yellow color impurity (historical depending on era)",
+        "Ring requires periodic recharging via power battery"
+      ],
+      "mobility": [
+        "Interstellar flight via power ring"
+      ],
+      "limitations": [
+        "Power ring charge lasts 24 hours standard and depletes with intensive construct usage",
+        "Requires conscious willpower and focus to maintain constructs"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Green_Lantern_(Hal_Jordan)",
+          "supports": "General character abilities, history, and Green Lantern ring mechanics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created complex hard-light machinery and heavy ordinance during combat patrols.",
+          "citation": "Green Lantern comics",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sinestro",
+          "result": "win",
+          "citation": "Green Lantern comics",
+          "note": "Standard encounter featuring ring combat",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Hal Jordan uses his power ring for self-propelled flight across planetary and interstellar distances.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "The Green Lantern ring functions as a versatile tool generating hard-light technological constructs.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of ring capabilities during timeline retcons regarding the yellow impurity and Parallax entity influence."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Green Lantern (Hal Jordan)|The Spectre (Hal Jordan)",
+      "continuity": "DC Comics (Day of Judgment / Modern Era)",
+      "summary": "Bound to the divine Spirit of Vengeance, Hal Jordan wields near-limitless cosmic and divine power capable of altering reality, manipulating matter, and passing judgment on sinners.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "cosmic",
+          "reality alteration"
+        ],
+        "techniques": [
+          "Divine retribution",
+          "Reality warping",
+          "Matter transmutation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invulnerability to conventional physical harm",
+          "Divine protection"
+        ]
+      },
+      "weaknesses": [
+        "Requires a human host to channel his full power and act effectively",
+        "Subject to divine mandates and restrictions"
+      ],
+      "formDifferences": "Replaces the Green Lantern ring with the divine cosmic might of the Spectre, elevating power levels to reality-warping and divine judgment status.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Spectre_(DC_Comics)",
+          "supports": "Spectre host bond, divine powers, and reality-altering capabilities."
+        }
+      ],
+      "unknowns": [
+        "Exact limitations of Hal Jordan's control over the Spectre entity compared to other hosts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Harley Quinn",
+      "continuity": "DC Comics Modern Era",
+      "summary": "Harley Quinn fights using acrobatic agility, a mallet, firearms, and unpredictable melee tactics. She frequently leverages improvised weaponry and high pain tolerance.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Mallet smash",
+          "Firearm volley",
+          "Acrobatic melee strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic evasion",
+          "Enhanced durability and immunity to various toxins via Poison Ivy's serum"
+        ]
+      },
+      "weaknesses": [
+        "Relies primarily on physical gear and human endurance without superhuman physical strength",
+        "Psychologically volatile"
+      ],
+      "mobility": [
+        "Acrobatic movement",
+        "Motorcycles and standard vehicles"
+      ],
+      "limitations": [
+        "Limited to standard human physical strength without heavy weapons"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Harley_Quinn",
+          "supports": "Abilities, weapons, agility, and toxin resistance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged armed guards in close quarters using gymnastics and a mallet.",
+          "citation": "Batman comics",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "loss",
+          "citation": "Batman comics",
+          "note": "Standard street-level confrontation",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Enhanced healing properties from Poison Ivy's toxin immunity serum.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Hawkgirl",
+      "continuity": "DC Comics Modern Era",
+      "summary": "Hawkgirl uses Nth metal wings for flight and fights with melee weapons such as maces and swords, possessing enhanced strength and durability from her alien physiology.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Nth metal mace strike",
+          "Aerial dive attack"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Nth metal armor",
+          "Enhanced durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to specific anti-Nth metal or high-tier cosmic suppression",
+        "Relies heavily on close-quarters combat"
+      ],
+      "mobility": [
+        "Flight via Nth metal wings"
+      ],
+      "limitations": [
+        "Flight speed limited to wing-propelled velocity"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hawkgirl",
+          "supports": "Nth metal properties, flight, strength, and weapon usage."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew in combat and engaged superpowered opponents with an Nth metal mace.",
+          "citation": "JLA comics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Wings powered by Nth metal grant natural flight capabilities.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Hawkman",
+      "continuity": "DC Comics Modern Era",
+      "summary": "Hawkman engages in brutal close-quarters combat utilizing ancient weapons, Nth metal flight harness wings, and centuries of reincarnated tactical experience.",
+      "offense": {
+        "domains": [
+          "physical",
+          "weapons"
+        ],
+        "techniques": [
+          "Mace strike",
+          "Aerial blitz"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Nth metal density control",
+          "Enhanced healing factor"
+        ]
+      },
+      "weaknesses": [
+        "Prone to berserker rage during combat",
+        "Vulnerable to anti-Nth metal dampeners"
+      ],
+      "mobility": [
+        "Flight via Nth metal wings"
+      ],
+      "limitations": [
+        "Relies on physical melee engagement"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hawkman",
+          "supports": "Nth metal abilities, weapons, reincarnation background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived severe trauma and regenerated via Nth metal properties.",
+          "citation": "Hawkman comics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Nth metal wings allow winged flight.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Nth metal grants accelerated healing from wounds.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Huntress",
+      "continuity": "DC Comics Modern Era",
+      "summary": "Huntress is a street-level vigilante who fights using crossbows, firearms, staff weapons, and martial arts, relying on tactical stealth and aggressive offense.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Crossbow bolt sniper shot",
+          "Staff strike",
+          "Hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Ballistic body armor",
+          "Stealth tactics"
+        ]
+      },
+      "weaknesses": [
+        "Human physical limits",
+        "Prone to lethal force methods which conflict with allies"
+      ],
+      "mobility": [
+        "Grappling hook",
+        "Standard motorcycles"
+      ],
+      "limitations": [
+        "Normal human durability and speed"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Huntress_(Helena_Bertinelli)",
+          "supports": "Weapons, martial arts background, and vigilante tactics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated enemy strongholds and subdued guards using crossbow and martial arts.",
+          "citation": "Birds of Prey comics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Employs vigilante stealth and urban infiltration techniques.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses crossbows, grappling hooks, and specialized tactical gear.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:John Constantine",
+      "continuity": "DC Comics Vertigo / Modern Era",
+      "summary": "John Constantine is a master occultist and con artist who defeats powerful supernatural entities through quick thinking, trickery, protective circles, and esoteric magic rather than raw firepower.",
+      "offense": {
+        "domains": [
+          "magic",
+          "intellect"
+        ],
+        "techniques": [
+          "Occult rituals",
+          "Sigil magic",
+          "Exorcism"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protective wards",
+          "Magical runes"
+        ]
+      },
+      "weaknesses": [
+        "Physically fragile human body",
+        "Heavy chain smoker with compromised lung health"
+      ],
+      "mobility": [
+        "Walking",
+        "Occult teleportation methods"
+      ],
+      "limitations": [
+        "Relies on preparation and knowledge rather than direct physical combat prowess"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Constantine",
+          "supports": "Occult knowledge, magic abilities, and con artist fighting style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Outsmarted and banished high-ranking demons through strategic deception and ritual magic.",
+          "citation": "Hellblazer comics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Performs esoteric rituals, spells, and magic wards.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts spells to bind demons and banish supernatural entities.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Joker",
+      "continuity": "DC Comics Modern Era",
+      "summary": "The Joker is an unpredictable criminal mastermind who fights using lethal gag items, toxin gas, firearms, and ruthless psychological warfare.",
+      "offense": {
+        "domains": [
+          "tech",
+          "chemistry",
+          "physical"
+        ],
+        "techniques": [
+          "Joker venom gas",
+          "Acid-squirting flower",
+          "Explosive gag props"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Unpredictable erratic movement",
+          "Body armor concealed beneath clothing"
+        ]
+      },
+      "weaknesses": [
+        "Normal human physical conditioning",
+        "Mental instability leads to erratic tactical errors"
+      ],
+      "mobility": [
+        "Standard vehicles",
+        "Foot movement"
+      ],
+      "limitations": [
+        "Subject to standard human vulnerabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Joker_(character)",
+          "supports": "Joker venom, weapons, and criminal tactics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Subdued crowds using aerosolized Joker venom.",
+          "citation": "Batman comics",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "loss",
+          "citation": "Batman comics",
+          "note": "Frequent defeats despite elaborate planning",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Deploys customized lethal gag weaponry and chemical toxins.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Joker|Emperor Joker",
+      "continuity": "DC Comics (Emperor Joker Storyline)",
+      "summary": "Having stolen nearly 99 percent of Mister Mxyzptlk's fifth-dimensional reality-warping power, Emperor Joker possesses godlike omnipotence, able to reshape the universe on a whim.",
+      "offense": {
+        "domains": [
+          "reality alteration",
+          "cosmic",
+          "magic"
+        ],
+        "techniques": [
+          "Reality restructuring",
+          "Matter creation and destruction"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Omnipotent reality shielding",
+          "Conceptual immortality"
+        ]
+      },
+      "weaknesses": [
+        "Obsession with Batman prevents him from stabilizing his own reality completely",
+        "Power source can be extracted by fifth-dimensional magic experts"
+      ],
+      "formDifferences": "Replaces standard human Joker gear and physical limits with fifth-dimensional godlike reality-warping powers.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Emperor_Joker",
+          "supports": "Fifth-dimensional power theft from Mxyzptlk and reality-warping feats."
+        }
+      ],
+      "unknowns": [
+        "Full extent of the stolen power compared to the genuine full might of Mister Mxyzptlk."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Jon Kent",
+      "continuity": "DC Comics Modern Era (Superman: Son of Kal-El)",
+      "summary": "Jon Kent inherits kryptonian physiology granting him flight, super strength, invulnerability, heat vision, and solar flare energy discharge, augmented by half-human empathy.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Heat vision",
+          "Super-strength punch",
+          "Solar flare burst"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Kryptonian invulnerability",
+          "Bio-electric aura"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to kryptonite",
+        "Vulnerability to red solar radiation"
+      ],
+      "mobility": [
+        "Super-speed flight"
+      ],
+      "limitations": [
+        "Powers depend on absorption of yellow sunlight"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jonathan_Samuel_Kent",
+          "supports": "Kryptonian powers, half-human heritage, and abilities as Superman."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew across atmosphere and restrained heavy machinery using super-strength.",
+          "citation": "Superman: Son of Kal-El comics",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Innate Kryptonian flight capabilities.",
+          "source": 0
+        },
+        {
+          "tag": "electric",
+          "claim": "Emits bio-electric solar flare discharges.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capacity of his hybrid physiology compared to his father Kal-El at peak age."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
