@@ -1,0 +1,636 @@
+{
+  "batchId": "Gemini V2 research games 20261113-043219 #31",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Mario|Ice Mario",
+      "continuity": "Super Mario series (Ice Mario debuts in New Super Mario Bros. Wii)",
+      "summary": "Ice Mario, introduced in New Super Mario Bros. Wii, throws Ice Balls that trap normal enemies in ice blocks. Frozen enemies can be ground-pounded, or lifted and thrown into other enemies, and frozen flyers become temporary platforms. Very solid enemies such as Thwomps are unaffected, and in NSMB Wii bosses cannot be frozen.",
+      "offense": {
+        "domains": [
+          "elemental",
+          "physical"
+        ],
+        "techniques": [
+          "Ice Ball throw (freezes normal enemies in ice blocks)",
+          "Ground-pounding frozen enemies",
+          "Throwing frozen enemies into other enemies"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Very solid enemies (e.g. Thwomps) cannot be frozen; some large enemies break out at once and take no harm"
+      ],
+      "mobility": [
+        "Standard Mario jumping and movement"
+      ],
+      "limitations": [
+        "Ice Balls bounce off the ground only once before shattering (NSMB Wii onward)",
+        "In NSMB Wii bosses can be neither hurt nor frozen; in NSMB U most bosses can be frozen but break out immediately"
+      ],
+      "formDifferences": "Replaces standard attacks with iceball projections and grants ice elemental properties.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Ice_Mario",
+          "supports": "Ice Mario first appears in New Super Mario Bros. Wii; Ice Balls trap normal enemies in ice blocks; frozen enemies can be ground-pounded or lifted and thrown; frozen flying enemies can be jumped off; Thwomps are unaffected; bosses cannot be hurt or frozen in NSMB Wii, and in NSMB U most bosses can be frozen but break out immediately."
+        },
+        {
+          "url": "https://www.mariowiki.com/Ice_Flower",
+          "supports": "In New Super Mario Bros. Wii and later games, Ice Balls bounce off the ground only once (a high bounce) before shattering."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Freezes normal enemies into ice blocks with Ice Balls, then throws the frozen enemies into other enemies.",
+          "citation": "New Super Mario Bros. Wii",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Ice Ball projection and freezing",
+          "dependsOn": "Ice Flower power-up",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "ice",
+          "claim": "Throws Ice Balls that trap enemies in ice blocks.",
+          "source": 0
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Freezes enemies solid with thrown Ice Balls.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "What happens when Ice Mario takes a hit is not stated on the opened pages (the earlier claim that the power-up is lost on damage is unverified).",
+        "The Super Mario Galaxy Ice Mario is a different form (walks on water by freezing it) and is not covered here."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mario|Mega Mario",
+      "continuity": "Super Mario series (New Super Mario Bros. and later)",
+      "summary": "Mega Mario, from a Mega Mushroom, grows to around seven blocks tall (about 3.5 times Super Mario) and destroys almost any enemy or obstacle on contact, smashing through pipes and blocks and even the flagpole in New Super Mario Bros. Pits, lava, poison water, the timer and being crushed still cost him a life.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Contact destruction of enemies and obstacles",
+          "Smashing through pipes and blocks"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Defeats enemies on contact while giant"
+        ]
+      },
+      "weaknesses": [
+        "Falling into a pit, lava or poison water still costs a life",
+        "Being crushed reverts him to Super Mario and costs a life"
+      ],
+      "mobility": [
+        "Standard Mario jumping and movement"
+      ],
+      "limitations": [
+        "Temporary: reverts to Super Mario when the Mega Mushroom wears off"
+      ],
+      "formDifferences": "Grows to around seven blocks tall (about 3.5 times Super Mario) and destroys enemies, pipes and blocks on contact; temporary.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Mega_Mario",
+          "supports": "Mega Mario is around the size of seven blocks, about 3.5 times Super Mario; destroys every enemy in his path and smashes pipes and blocks; destroys the flagpole in New Super Mario Bros.; reverts to Super Mario when the Mega Mushroom wears off; if crushed he reverts and loses a life; pits, poison water, lava and the timer still cost a life."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Smashed through pipes and blocks and destroyed the goal flagpole while giant.",
+          "citation": "New Super Mario Bros. / New Super Mario Bros. 2",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Giant size and contact destruction",
+          "dependsOn": "Mega Mushroom",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Around seven blocks tall, about 3.5 times Super Mario's size.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of the Mega Mushroom is not given on the opened page.",
+        "On-screen size is inconsistent (box art shows him at least thirteen blocks tall)."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mario|Metal Mario",
+      "continuity": "Super Mario 64",
+      "summary": "Metal Mario is the form Mario takes with a Metal Cap in Super Mario 64. He is invincible to enemies (running into them destroys them), does not need to breathe, walks along the bottom of water and through poison gas, and resists strong winds and currents. Falls still hurt him and the cap times out.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Destroys enemies by running into them"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invincible to enemies while the Metal Cap lasts",
+          "Does not need to breathe (water, poison gas)"
+        ]
+      },
+      "weaknesses": [
+        "Still takes falling damage",
+        "Sinks faster in quicksand"
+      ],
+      "mobility": [
+        "Walks along the bottom of water",
+        "Resists strong winds and currents"
+      ],
+      "limitations": [
+        "Metal Cap expires after a set time",
+        "Cannot run underwater"
+      ],
+      "formDifferences": "Metal Cap form: invincible to enemies, no need to breathe, heavy enough to walk on the bottom of water; temporary.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Metal_Mario",
+          "supports": "Metal Cap form in Super Mario 64: Mario is invincible (though he can still take falling damage), running into enemies destroys them, he does not need to breathe so can stay underwater and walk through poisonous gas, his weight lets him resist winds and currents; the power-up expires after a time; he sinks in quicksand faster and cannot run underwater."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Walked along the bottom of water and through poisonous gas without needing to breathe.",
+          "citation": "Super Mario 64",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Invincibility and no need to breathe",
+          "dependsOn": "Metal Cap",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Interaction with magical or reality-warping attacks is not documented.",
+        "The separate character Metal Mario (Smash Bros. boss, Mario Kart racer) is not covered by this record."
+      ],
+      "researchStatus": "provisional",
+      "campaignTags": [
+        {
+          "tag": "water-breathing",
+          "claim": "Does not need to breathe, so can stay underwater.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Mario|Starman Mario",
+      "continuity": "Super Mario series",
+      "summary": "With a Super Star (first in Super Mario Bros.), Mario becomes temporarily invulnerable to all damage, defeats almost any enemy on contact and moves substantially faster. Lava, poison, pits, the timer and being crushed still defeat him.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Contact defeat of enemies"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Temporary invulnerability to damage"
+        ]
+      },
+      "weaknesses": [
+        "Lava, poison, pits and being crushed still defeat him while invincible"
+      ],
+      "mobility": [
+        "Substantially increased speed"
+      ],
+      "limitations": [
+        "Effect wears off after several seconds"
+      ],
+      "formDifferences": "Grants temporary invulnerability and fast movement speed.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Super_Star",
+          "supports": "Super Star (first in Super Mario Bros., 1985): user becomes temporarily invulnerable to all damage and can defeat almost any enemy, enemies are destroyed on contact, speed increases substantially, effect wears off after several seconds; lava, poison, pits, the timer and being crushed still defeat the player."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed enemies on contact while invincible.",
+          "citation": "Super Mario Bros.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Invulnerability and contact defeat",
+          "dependsOn": "Super Star",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Duration varies by game."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mario|Tanooki Mario",
+      "continuity": "Super Mario series (debut in Super Mario Bros. 3; also Super Mario 3D Land)",
+      "summary": "Tanooki Mario, first seen in Super Mario Bros. 3, attacks with his tail and floats down gently. He can turn into an invulnerable stone statue (about five seconds in SMB3), during which he cannot move, and landing on enemies as a statue defeats many of them.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tail attack",
+          "Statue landing on enemies"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Statue form: cannot be hurt"
+        ]
+      },
+      "weaknesses": [
+        "As a statue he cannot move (SMB3); in Super Mario 3D Land some enemies wait for the statue to wear off"
+      ],
+      "mobility": [
+        "Floats down gently (slow descent)"
+      ],
+      "limitations": [
+        "Statue reverts to Tanooki form after about five seconds (SMB3; about twelve in Super Mario 3D Land)",
+        "Cannot fly in Super Mario 3D Land"
+      ],
+      "formDifferences": "Adds a tail attack, slow descent and an invulnerable but immobile statue form.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Tanooki_Mario",
+          "supports": "Tanooki Mario first appears in Super Mario Bros. 3; uses his tail to attack enemies and float down gently; as a statue cannot be hurt and can slam down like a Thwomp if used in the air; statue reverts after five seconds; cannot fly in Super Mario 3D Land."
+        },
+        {
+          "url": "https://www.mariowiki.com/Statue_Mario",
+          "supports": "In Super Mario Bros. 3 Tanooki Mario as a statue can neither move nor be hurt; lasts about five seconds (about twelve in Super Mario 3D Land); can defeat many enemies by landing on them; in 3D Land most enemies ignore him but some wait for it to wear off."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Turned into an invulnerable statue and defeated enemies by landing on them.",
+          "citation": "Super Mario Bros. 3",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Tail attack, slow descent and statue form",
+          "dependsOn": "Tanooki Suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "glide",
+          "claim": "Floats down gently using his tail.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full flight in Super Mario Bros. 3 was not confirmed on the opened pages.",
+        "Whether taking a hit removes the suit is not stated on the opened pages."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Master Chief",
+      "continuity": "Halo games (Halo: Combat Evolved through Halo 4 events)",
+      "summary": "John-117, the Master Chief, is a SPARTAN-II super-soldier whose augmentations boosted his strength, reflexes and eyesight and made his bones nearly unbreakable. He fights in MJOLNIR powered assault armor with recharging energy shields and a strength-amplifying layer, using UNSC and Covenant weapons, grenades and vehicles. He destroyed Installation 04 by detonating the Pillar of Autumn's fusion reactors and defeated the Didact with a pulse grenade.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Firearms (carries two weapons; dual wields one-handed weapons in Halo 2)",
+          "Frag, plasma and pulse grenades",
+          "Melee strike",
+          "Vehicle combat and hijacking"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Recharging energy shields (MJOLNIR)",
+          "MJOLNIR armor: strength amplification and fusion-powered systems, hardened against EMP and radiation",
+          "SPARTAN-II augmentations (nearly unbreakable bones)"
+        ]
+      },
+      "weaknesses": [
+        "Mark VI armor plating is compromised by one or two direct plasma hits"
+      ],
+      "mobility": [
+        "Very high jump height",
+        "Ground and air vehicles"
+      ],
+      "limitations": [
+        "Moves slower than arena-shooter characters (gameplay)",
+        "Dual wielding prevents grenade throws and melee (Halo 2)"
+      ],
+      "sources": [
+        {
+          "url": "https://www.halopedia.org/John-117",
+          "supports": "SPARTAN-II augmentations boosted reflexes, strength and eyesight and made bones nearly unbreakable; wears Mjolnir armor (218 cm in armor); destroyed the Halo with the Covenant and Flood forces on it; defeated the Didact during the New Phoenix Incident and again at Installation 03."
+        },
+        {
+          "url": "https://www.halopedia.org/Master_Chief_(gameplay)",
+          "supports": "Gameplay: recharging energy shields and very high jump height, slower movement than arena shooters; carries two weapons and grenades; dual wielding in Halo 2 costs grenades and melee; drives and hijacks vehicles."
+        },
+        {
+          "url": "https://www.halopedia.org/MJOLNIR_Powered_Assault_Armor/Mark_VI",
+          "supports": "Mark VI Mjolnir (worn by John-117): liquid crystal layer increases wearer strength by a factor of five; improved energy shielding powered by a fusion pack; hardened against EMP and radiation; one or two direct plasma hits compromise the armor plating."
+        },
+        {
+          "url": "https://www.halopedia.org/Installation_04",
+          "supports": "John-117 detonated the Pillar of Autumn's fusion reactors to destroy Installation 04, shattering the ring."
+        },
+        {
+          "url": "https://www.halopedia.org/H4:Midnight",
+          "supports": "Halo 4 finale: the Didact pins John with telekinesis; Cortana's hard-light copies free him; John plants a pulse grenade in the Didact's armor, sending him into a slipspace portal below the Composer; John detonates a HAVOK nuke, destroying Mantle's Approach and the Composer."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed Installation 04 by detonating the Pillar of Autumn's fusion reactors.",
+          "citation": "Halo: Combat Evolved",
+          "source": 3
+        },
+        {
+          "claim": "Detonated a HAVOK nuke to destroy Mantle's Approach and the Composer.",
+          "citation": "Halo 4 (Midnight)",
+          "source": 4
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ur-Didact",
+          "result": "win",
+          "citation": "Halo 4 (Midnight)",
+          "note": "Pinned by the Didact's telekinesis, freed by Cortana's hard-light copies, then planted a pulse grenade that sent the Didact into a slipspace portal.",
+          "source": 4
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears MJOLNIR Powered Assault Armor that multiplies his strength and carries fusion-powered shields.",
+          "source": 2
+        },
+        {
+          "tag": "tech",
+          "claim": "Advanced powered armor (Mjolnir) with energy shielding.",
+          "source": 2
+        }
+      ],
+      "unknowns": [
+        "The earlier claims that he \"survived deep space exposure\" and that the ring was a \"Covenant\" installation are not supported (Installation 04 is a Forerunner Halo); removed.",
+        "Energy-shield weakness to EMP was not supported: the opened Mark VI page says the suit is hardened against EMP.",
+        "Physiological limits without armor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mega Man",
+      "continuity": "Classic Mega Man series",
+      "summary": "Mega Man (Rock) is a robot Dr. Light built as a lab assistant who volunteered to become a fighting robot. He fires solar energy shots from the Mega Buster (charged shots from Mega Man 4), copies Robot Masters' Special Weapons, and slides to dodge. He has defeated Dr. Wily in game after game and beaten Bass in Mega Man 7 and 8.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech",
+          "elemental"
+        ],
+        "techniques": [
+          "Mega Buster (solar energy shots)",
+          "Charged Mega Buster shot (from Mega Man 4)",
+          "Copied Robot Master Special Weapons (Weapon Copy System)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armor that bends under severe impacts and retains its shape rather than shattering",
+          "Slide to dodge (from Mega Man 3)"
+        ]
+      },
+      "weaknesses": [
+        "Naive: fooled by Wily more than once (fake Dr. Light trap in Mega Man 9)",
+        "Vulnerable to Evil Energy (taken over in Mega Man 8)",
+        "Pits, spikes and substantial lava can kill him"
+      ],
+      "mobility": [
+        "Running and jumping",
+        "Slide (from Mega Man 3)"
+      ],
+      "limitations": [
+        "Special Weapons have limited ammunition; stronger ones have less"
+      ],
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Mega_Man_(character)",
+          "supports": "Rock was built by Dr. Light and converted into a fighting robot; Mega Buster fires solar energy bullets, charged shots from Mega Man 4; copies Robot Master Special Weapons; slide from Mega Man 3; armor bends rather than shatters; holds up the collapsing Wily Castle in Mega Man 5; defeats Wily across the series; beats Bass in Mega Man 7 and in a duel in Mega Man 8; naive, fooled by the fake Dr. Light in Mega Man 9; vulnerable to Evil Energy; Special Weapons have limited ammunition; pits, spikes and lava can kill him."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Held up the collapsing Wily Castle long enough for Dr. Light to escape.",
+          "citation": "Mega Man 5",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dr. Wily",
+          "result": "win",
+          "citation": "Mega Man, Mega Man 2 and later",
+          "note": "Defeats Wily and his robots in most mainline games; Wily often escapes or is spared.",
+          "source": 0
+        },
+        {
+          "opponent": "Bass",
+          "result": "win",
+          "citation": "Mega Man 7; Mega Man 8",
+          "note": "Beat Bass in a short battle in Mega Man 7 and in a duel in Mega Man 8 after Bass used Evil Energy.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "A robot built by Dr. Light.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether he can copy abilities from organic beings is never shown in canon.",
+        "The earlier Proto Man result was not supported: Mega Man 5's \"Proto Man\" was a fake (Dark Man 4).",
+        "Original citation (megaman.fandom.com/wiki/Mega_Man) replaced with the character page that was opened in review."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mega Man|Super Adapter Mega Man",
+      "continuity": "Classic Mega Man series (Mega Man 7)",
+      "summary": "In Mega Man 7, Mega Man combines with Rush through the Super Adaptor to become Super Mega Man. His charge shot becomes the Rocket Buster, a rocket punch (upgraded to a homing Hyper Rocket Buster), and he gains a Booster Jump double jump. The suit is too bulky to slide. The rocket punch is Bass's weakness.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Rocket Buster (rocket punch replacing the charge shot)",
+          "Hyper Rocket Buster (homing)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Cannot slide to dodge while equipped (too bulky)"
+      ],
+      "mobility": [
+        "Booster Jump (double jump using rocket plates)"
+      ],
+      "limitations": [
+        "Only appears in Mega Man 7",
+        "Booster Jump is a double jump, not sustained flight"
+      ],
+      "formDifferences": "Merges the Power and Jet Adaptors from Mega Man 6: rocket-punch Rocket Buster and a double-jump Booster Jump, but no slide.",
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Super_Mega_Man",
+          "supports": "Super Adaptor appears only in Mega Man 7; Mega Man combines with Rush; Charge Shot replaced by the Rocket Buster rocket punch, upgraded to a homing Hyper Rocket Buster; Jet flight replaced by the Booster Jump double jump; cannot slide because it is too bulky; the rocket punch is Bass's weakness."
+        }
+      ],
+      "feats": [],
+      "conditional": [
+        {
+          "ability": "Rocket Buster and Booster Jump",
+          "dependsOn": "Fusing with Rush via the Super Adaptor",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Mega Man (a robot) combined with the robot dog Rush.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The earlier flight claim was wrong: the Super Adaptor replaces Jet flight with a double jump.",
+        "Original citation (megaman.fandom.com/wiki/Super_Adapter) replaced with the Super Mega Man page opened in review.",
+        "Defensive gains from the armor are not documented on the opened page."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Meta Knight",
+      "continuity": "Kirby series (games)",
+      "summary": "Meta Knight is a masked swordsman known for expert swordsmanship and unparalleled aerial mobility: his cape becomes bat wings (from Kirby Super Star). He uses the unguardable Mach Tornado, the Dimensional Strike (vanishing with his cape and reappearing to strike) and Galaxia Darkness. He commands the battleship Halberd and lost to Kirby on its bridge in Revenge of Meta Knight.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Swordsmanship (Galaxia)",
+          "Mach Tornado (cannot be guarded)",
+          "Dimensional Strike",
+          "Galaxia Darkness"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vanishes with his cape and reappears elsewhere (Dimensional Strike)"
+        ]
+      },
+      "weaknesses": [
+        "Leaves the battlefield at once if his mask breaks",
+        "Insists on fair, equal duels (offers opponents a sword); short-tempered"
+      ],
+      "mobility": [
+        "Flight on bat-like wings formed from his cape"
+      ],
+      "limitations": [
+        "Mostly melee range"
+      ],
+      "sources": [
+        {
+          "url": "https://wikirby.com/wiki/Meta_Knight",
+          "supports": "Wields Galaxia; cape turns into two bat wings (from Kirby Super Star), unparalleled aerial mobility; Dimensional Strike vanishes with the cape and reappears to strike; Galaxia Darkness; Mach Tornado cannot be guarded; loses to Kirby on the Halberd's bridge in Revenge of Meta Knight and is defeated again in Kirby: Squeak Squad; flees if his mask breaks; insists on fair fights and offers Kirby a sword; short-tempered."
+        }
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "opponent": "Kirby",
+          "result": "loss",
+          "citation": "Kirby Super Star (Revenge of Meta Knight)",
+          "note": "Dueled Kirby on the Halberd's bridge after Kirby wrecked the ship; lost, and the Halberd crashed into the ocean.",
+          "source": 0
+        },
+        {
+          "opponent": "Kirby",
+          "result": "loss",
+          "citation": "Kirby: Squeak Squad",
+          "note": "Boss fight beneath the Secret Sea; defeated.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies on bat-like wings formed from his cape.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "stealth tag removed: the cape vanish is a strike/repositioning move, not a documented stealth or invisibility feat (owner ruling).",
+        "The earlier feat (\"fought evenly against cosmic warriors\") was too vague to verify and was removed.",
+        "Biological origins relative to Kirby's species."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
