@@ -1,0 +1,271 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-215712 #33",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Mouth of Sauron",
+      "continuity": "The Lord of the Rings: The Return of the King",
+      "summary": "The Mouth of Sauron acts as the chief ambassador and herald of the Dark Lord. He relies primarily on intimidation, cruel diplomacy, and dark sorcery rather than direct martial combat.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "control"
+        ],
+        "techniques": [
+          "Diplomatic intimidation",
+          "Commanding Orc and Easterling armies",
+          "Psychological warfare"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored protection",
+          "Sauron's authority and fear shield"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence",
+        "Absolute dependence on Sauron's power and favor"
+      ],
+      "mobility": [
+        "Rides a fierce, monstrous horse"
+      ],
+      "limitations": [
+        "Limited physical combat prowess compared to elite warriors",
+        "Power and status derive entirely from serving Sauron"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mouth_of_Sauron",
+          "supports": "Role as herald, diplomatic role at the Black Gate, and general characteristics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rode out to the Black Gate of Mordor to parley with the Captains of the West, displaying Frodo's mithril coat and gear as proof of capture.",
+          "citation": "The Return of the King, Book V, Chapter 10: The Black Gate Opens",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Aragorn",
+          "result": "inconclusive",
+          "citation": "The Return of the King, Book V, Chapter 10: The Black Gate Opens",
+          "note": "Parley ended before a fight occurred; Aragorn silently stared him down until he retreated back into Mordor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True personal name and mortal origin (though noted as a Black Númenórean)"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Peregrin Took",
+      "continuity": "The Lord of the Rings",
+      "summary": "Peregrin 'Pippin' Took is a hobbit of the Shire who grows from a curious youth into a hardened soldier of Gondor and Knight of Citadel. He relies on bravery, small stature, and tactical timing.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Sword fighting with small blade (Barrow-blade)",
+          "Guerrilla tactics and stealth",
+          "Using small size to bypass defenses"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mail-shirt of Mithril (in later stages)",
+          "Stealth and small size"
+        ]
+      },
+      "weaknesses": [
+        "Physical vulnerability due to small stature",
+        "Impulsive curiosity"
+      ],
+      "mobility": [
+        "Standard foot travel"
+      ],
+      "limitations": [
+        "Limited physical reach and strength compared to men and larger monsters"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pippin_Took",
+          "supports": "Biographical details, role in the War of the Ring, and participation at the Black Gate."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew a mountain troll during the battle at the Morannon, stabbing it in the vital area before being crushed beneath it.",
+          "citation": "The Return of the King, Book V, Chapter 10: The Black Gate Opens",
+          "source": 0
+        },
+        {
+          "claim": "Looked into the Palantír of Orthanc and withstood Sauron's direct mental interrogation.",
+          "citation": "The Two Towers, Book III, Chapter 11: The Palantír",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mountain Troll",
+          "result": "win",
+          "citation": "The Return of the King, Book V, Chapter 10",
+          "note": "Slew the troll in single combat at the cost of being knocked unconscious.",
+          "source": 0
+        },
+        {
+          "opponent": "Sauron",
+          "result": "loss",
+          "citation": "The Two Towers, Book III, Chapter 11",
+          "note": "Mentally dominated and interrogated through the Palantír before Gandalf intervened.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Excels at quiet movement and escaping notice due to hobbit nature.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat capabilities without enchanted weapons"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Quickbeam",
+      "continuity": "The Lord of the Rings: The Two Towers",
+      "summary": "Quickbeam (Bregalad) is an Ent known for his unusual haste and responsiveness. He is physically powerful, capable of uprooting small orc bands swiftly, and deeply grieved by the destruction of rowan trees.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Uprooting trees and hurling boulders",
+          "Crushing melee strikes with massive wooden limbs"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dense wooden bark skin providing high resistance to normal weapons"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to fire and chopping axes"
+      ],
+      "mobility": [
+        "Heavy bipedal walking with surprising speed when enraged"
+      ],
+      "limitations": [
+        "Slow to initiate action unless provoked, though faster than other Ents"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ent",
+          "supports": "Quickbeam's identity as an Ent, personality, and participation in the attack on Isengard."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in the Ent assault on Isengard, tearing down stone walls and routing Orcs.",
+          "citation": "The Two Towers, Book III, Chapter 4: Treebeard",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orcs of Isengard",
+          "result": "win",
+          "citation": "The Two Towers, Book III, Chapter 9",
+          "note": "Crushed isolated orc raiding parties near Fangorn.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Massive tree-giant Ent stature well exceeding standard human size.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of physical strength compared to Treebeard"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Radagast",
+      "continuity": "The Lord of the Rings",
+      "summary": "Radagast the Brown is one of the Istari (Wizards) sent to Middle-earth. He is deeply attuned to animals and plants, capable of shape-shifting, swift travel via birds, and nature magic.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Summoning and commanding birds and beasts",
+          "Nature-based sorcery",
+          "Shapeshifting and tracking"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Maia spiritual resilience",
+          "Evasion via animal allies"
+        ]
+      },
+      "weaknesses": [
+        "Preoccupation with worldly ecology over geopolitical conflicts"
+      ],
+      "mobility": [
+        "Riding giant eagles or utilizing swift animal messengers for flight and travel"
+      ],
+      "limitations": [
+        "Bound to physical form as an Istar with restricted direct divine power"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Radagast",
+          "supports": "Identity as one of the Istari, association with birds and beasts, and residence at Rhosgobel."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Acted as chief messenger for the Free Peoples using vast networks of birds and beasts across Wilderland.",
+          "citation": "The Fellowship of the Ring, Book II, Chapter 2: The Council of Elrond",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields Wizard (Maia) magic focused on nature and beasts.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts spells and commands animal messengers.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct combat potency in major warfare compared to Gandalf or Saruman"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
