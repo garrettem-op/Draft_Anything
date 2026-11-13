@@ -7,8 +7,8 @@
   "characters": [
     {
       "id": "games:Arthas Menethil|Death Knight Arthas",
-      "continuity": "Warcraft III: Reign of Chaos / The Frozen Throne",
-      "summary": "As a Death Knight, Arthas combines martial prowess with necrotic magic, wielding the runeblade Frostmourne and raising the dead to overwhelm his enemies.",
+      "continuity": "Warcraft III: Reign of Chaos and The Frozen Throne, from taking Frostmourne in Northrend until he reached the Frozen Throne",
+      "summary": "Death knight Arthas fights with the soul-stealing runeblade Frostmourne and necromantic power drawn from the Lich King. In this era he killed Uther and his father Terenas and defeated Illidan at Icecrown.",
       "offense": {
         "domains": [
           "physical",
@@ -16,7 +16,8 @@
           "necromancy"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Frostmourne strikes; the blade steals souls",
+          "Necromancy: raised his dead horse Invincible into undeath"
         ],
         "range": "melee"
       },
@@ -26,123 +27,273 @@
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Sylvanas shot him with a paralyzing arrow",
+        "His power faltered as the Lich King's power waned; he suffered a seizure while fighting in Lordaeron"
       ],
-      "mobility": [],
-      "limitations": [],
-      "formDifferences": "The cited source never mentions the \"Death Knight Arthas\" form; variant-specific claims could not be verified and powers are inherited from the base form. (Gemini originally claimed: Represents Arthas after taking up Frostmourne and turning traitor, abandoning his paladin powers for death knight abilities.)",
+      "mobility": [
+        "Rides the undead horse Invincible"
+      ],
+      "limitations": [
+        "His power depended on the Lich King's; it was replenished only when Ner'zhul restored it in Azjol-Nerub"
+      ],
+      "formDifferences": "Arthas after taking up Frostmourne and serving the Lich King as a death knight, before he donned Ner'zhul's helm. The Stratholme purge came earlier, while he was still a paladin, and is not part of this form.",
       "sources": [
         {
           "url": "https://wowpedia.fandom.com/wiki/Arthas_Menethil",
-          "supports": "Abilities, history, and status as a Death Knight."
+          "supports": "Death knight era: killing Uther at Andorhal and Terenas in Lordaeron, the Illidan duel at Icecrown, raising Invincible, the waning of his power, and Sylvanas's paralyzing arrow"
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Exact limits of Frostmourne's soul-stealing capabilities in standard combat.",
-        "Removed by review (not supported by the cited source): technique: Frostmourne slash; technique: Death Coil; technique: Death Pact; technique: Animate Dead; defense: Heavy plate armor; defense: Life draining via Death Pact; defense: Undeath resilience; weakness: Loss of connection to the Light; weakness: Psychological vulnerability regarding his past; limitation: Dependent on Frostmourne for his continued empowered state; mobility: Mounted on a skeletal warhorse; feat: Slaughtered the population of Stratholme and defeated Uther the Lightbringer.; result: Uther the Lightbringer; result: Illidan Stormrage; tag: Wields necrotic magic and spells like Death Coil.; tag: Casts death knight combat spells.",
-        "Flagged needs-review: variant not covered by its source; most claims unsupported by sources."
+      "feats": [
+        {
+          "claim": "Ran Frostmourne through his father King Terenas's heart",
+          "citation": "Warcraft III: Reign of Chaos",
+          "source": 0
+        },
+        {
+          "claim": "Raised his horse Invincible into undeath at Balnir Farmstead",
+          "citation": "Warcraft lore",
+          "source": 0
+        }
       ],
-      "researchStatus": "needs-review"
+      "notableResults": [
+        {
+          "opponent": "Uther the Lightbringer",
+          "result": "win",
+          "citation": "Warcraft III: Reign of Chaos, Andorhal",
+          "note": "Uther knocked Frostmourne from his hands before Arthas recovered it and struck the killing blow",
+          "source": 0
+        },
+        {
+          "opponent": "Illidan Stormrage",
+          "result": "win",
+          "citation": "Warcraft III: The Frozen Throne, Icecrown",
+          "note": "Illidan left himself open and Arthas slashed his chest; he took Illidan's dagger Stormfury",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields the soul-stealing runeblade Frostmourne",
+          "source": 0
+        },
+        {
+          "tag": "mount",
+          "claim": "Rides his raised undead horse Invincible",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Named Warcraft III death knight abilities (Death Coil, Death Pact, Animate Dead) are not on the cited page; not claimed",
+        "Reviewed by Claude (2026-11-13): Gemini's Stratholme feat belongs to his paladin era and was removed. The 'urn' detail in the Uther result is not in the source. `magic` and `spellcaster` were removed because the page names no death knight spells; `magic-item` and `mount` were added."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "His full death knight power",
+          "dependsOn": "The Lich King's strength, which was waning in this period",
+          "source": 0
+        }
+      ]
     },
     {
       "id": "games:Arthas Menethil|The Lich King",
-      "continuity": "World of Warcraft: Wrath of the Lich King",
-      "summary": "As the Lich King, Arthas commands vast undead armies, devastating frost magic, and the absolute power of the runeblade Frostmourne.",
+      "continuity": "World of Warcraft: Wrath of the Lich King (Arthas as the Lich King, ending at Icecrown Citadel)",
+      "summary": "The Lich King commands frost and shadow magic, plagues and the risen dead. At the climax of the Icecrown Citadel fight, Fury of Frostmourne kills the entire raid; he is beaten only after Tirion shatters Frostmourne.",
       "offense": {
         "domains": [
           "physical",
           "magic",
           "necromancy",
-          "elemental"
+          "ice"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Soul Reaper (delayed heavy shadow strike on his main foe)",
+          "Defile (spreading, growing shadow pool)",
+          "Remorseless Winter (45-yard frost storm)",
+          "Necrotic Plague and Infest",
+          "Ice Sphere / Ice Burst knockback",
+          "Summon Val'kyr to carry foes off the platform",
+          "Harvest Soul (pulls survivors into Frostmourne)",
+          "Raise Dead",
+          "Fury of Frostmourne (kills all enemies and blocks resurrection)"
         ],
         "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Not established by the cited sources"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Shattering Frostmourne frees the trapped souls, which immobilize him",
+        "Arrogance: he gloats over his fallen foes, and at the Wrathgate revealing himself exposed him to Putress's plague"
       ],
       "mobility": [],
       "limitations": [],
-      "formDifferences": "Merger of Arthas and Ner'zhul, wearing the Helm of Domination and wielding Frostmourne with vastly magnified power.",
+      "formDifferences": "Arthas after donning Ner'zhul's helm and becoming the Lich King, still wielding Frostmourne, as fought in Icecrown Citadel.",
       "sources": [
         {
-          "url": "https://wowpedia.fandom.com/wiki/The_Lich_King",
-          "supports": "Abilities, status as the Lich King, and feats from Wrath of the Lich King."
+          "url": "https://wowpedia.fandom.com/wiki/Lich_King_(tactics)",
+          "supports": "Icecrown Citadel abilities (Soul Reaper, Defile, Remorseless Winter, Necrotic Plague, Infest, Ice Sphere, Val'kyr, Harvest Soul, Raise Dead, Fury of Frostmourne) and the ending in which Tirion shatters Frostmourne"
+        },
+        {
+          "url": "https://wowpedia.fandom.com/wiki/Arthas_Menethil",
+          "supports": "Ner'zhul's helm, freezing Tirion, the arrogance at the Wrathgate, and his death"
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Full extent of his power if he had successfully fully consumed Azeroth's defenders.",
-        "Removed by review (not supported by the cited source): technique: Frostmourne cleave; technique: Soul Reaper; technique: Defile; technique: Raise Dead; defense: Saronite armor; defense: Immunity to normal biological vulnerabilities due to undeath; defense: Magical barriers; weakness: The destruction of Frostmourne disrupts his absolute control and drains his power; limitation: Arrogance leading to underestimated opponents; mobility: Walking; mobility: Undead flight via frostwyrms; feat: Instantly killed a raid party of twenty-five champions with a single spell before being resurrected by Tirion.; result: Tirion Fordring; tag: Wields massive frost and necrotic magic.; tag: Commands powerful frost magic and ice-based attacks.; tag: Manipulates ice and frost to create hazards and projectiles.; tag: Casts raid-ending spells and curses.",
-        "Flagged needs-review: cited page never mentions the character; most claims unsupported by sources."
+      "feats": [
+        {
+          "claim": "Fury of Frostmourne killed every member of the attacking raid and prevented their resurrection, until Terenas's spirit revived them",
+          "citation": "WoW: Wrath of the Lich King, Icecrown Citadel",
+          "source": 0
+        },
+        {
+          "claim": "Froze Tirion Fordring in ice during the final battle",
+          "citation": "WoW: Wrath of the Lich King, Icecrown Citadel",
+          "source": 1
+        }
       ],
-      "researchStatus": "needs-review"
+      "notableResults": [
+        {
+          "opponent": "Tirion Fordring and the heroes of Azeroth",
+          "result": "loss",
+          "citation": "WoW: Wrath of the Lich King, Icecrown Citadel",
+          "note": "Tirion shattered Frostmourne with the Ashbringer; the freed souls immobilized him and the revived raid finished him",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Casts Defile, Remorseless Winter, Necrotic Plague, Raise Dead and Fury of Frostmourne",
+          "source": 0
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Remorseless Winter frost storm and Ice Sphere frost bursts",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields Frostmourne and wears Ner'zhul's helm",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Encounter numbers (e.g. 1,000,000 damage) are game mechanics and should not be read as literal lore scaling",
+        "Reviewed by Claude (2026-11-13): the cited page (wowpedia /wiki/The_Lich_King) never came up in a search and was not opened. It is replaced with Lich King (tactics) and Arthas Menethil, both opened. Removed as unsupported: 'immunity to biological vulnerabilities', 'magical barriers', frostwyrm flight, and '25 champions'. Arrogance is now a weakness instead of a limitation. The broad `magic` and `ice` tags are narrowed to `spellcaster` and `ice-control`, and `magic-item` was added."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Freedom of action in the final phase",
+          "dependsOn": "Frostmourne remaining intact; its destruction freed souls that immobilized him",
+          "source": 0
+        }
+      ]
     },
     {
       "id": "games:Ash Ketchum",
-      "continuity": "Pokémon anime",
-      "summary": "Ash Ketchum is a persistent and resourceful Pokémon Trainer who commands a diverse team of partners, relying on tactical adaptability and deep bonds.",
+      "continuity": "Pokémon anime (Pokémon the Series, through Pokémon Journeys)",
+      "summary": "A Trainer who battles by commanding his Pokémon with a versatile, unpredictable style. He uses type matchups and the environment, and turns opponents' moves against them. He became Alola's first Champion and the World Coronation Series Monarch.",
       "offense": {
         "domains": [
-          "physical",
-          "energy",
-          "elemental",
-          "magic"
+          "strategic"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Commands his Pokémon, exploiting type advantages and the environment",
+          "Turns opponents' moves against them (Lycanroc vs Gladion's Counter)",
+          "Z-Moves, including Pikachu's 10,000,000 Volt Thunderbolt with his self-made Pikashunium Z",
+          "Mega Evolution with Lucario",
+          "Bond Phenomenon with Greninja (XY)",
+          "Dynamax and Gigantamax, including Gigantamax Pikachu without a Poké Ball"
         ],
-        "range": "ranged (via Pokémon)"
+        "range": "ranged / strategic"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Can survive Pokémon attacks for long periods without much damage, depending on the situation"
         ]
       },
       "weaknesses": [
         "Not established by the cited source"
       ],
       "mobility": [],
-      "limitations": [],
+      "limitations": [
+        "His offense comes through the Pokémon he commands"
+      ],
       "sources": [
         {
-          "url": "https://bulbapedia.bulbagarden.net/wiki/Ash_Ketchum",
-          "supports": "History, achievements, and capabilities as a Pokémon trainer."
+          "url": "https://pokemon.fandom.com/wiki/Ash_Ketchum",
+          "supports": "Battle style, Z-Moves, Mega Evolution, Dynamax/Gigantamax, durability, and league results (Manalo Conference champion, Monarch after beating Leon, Lumiose runner-up to Alain)"
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Won the Manalo Conference and became the Alola League's first Champion",
+          "citation": "Pokémon the Series: Sun & Moon",
+          "source": 0
+        },
+        {
+          "claim": "Won the Masters Eight Tournament and became Monarch",
+          "citation": "Pokémon Journeys",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Leon",
+          "result": "win",
+          "citation": "Pokémon Journeys, World Coronation Series final",
+          "note": "Became Monarch",
+          "source": 0
+        },
+        {
+          "opponent": "Gladion",
+          "result": "win",
+          "citation": "Pokémon the Series: Sun & Moon, Manalo Conference final",
+          "note": "Pokémon battle",
+          "source": 0
+        },
+        {
+          "opponent": "Alain",
+          "result": "loss",
+          "citation": "Pokémon the Series: XY, Lumiose Conference final",
+          "note": "Pokémon battle",
+          "source": 0
+        },
+        {
+          "opponent": "Tobias",
+          "result": "loss",
+          "citation": "Pokémon: Diamond and Pearl, Sinnoh League semifinal",
+          "note": "Pokémon battle",
+          "source": 0
+        }
+      ],
       "campaignTags": [],
       "unknowns": [
-        "Limits of his aura sensitivity observed in certain episodes.",
-        "Removed by review (not supported by the cited source): technique: Commanding Pokémon moves; technique: Z-Moves; technique: Gigantamax; technique: Mega Evolution; defense: Relying on Pokémon to intercept attacks; defense: Physical durability and endurance unusual for a normal human; weakness: Physically human and vulnerable if separated from his Pokémon; limitation: Dependent on his Pokémon team for offensive and defensive power in battle; mobility: Running; mobility: Riding Pokémon; feat: Won the Manalo Conference becoming the first-ever Pokémon League Champion of Alola.; feat: Won the Masters Eight Tournament, becoming the World Monarch.; result: Leon; tag: Commands Pikachu, an electric-type Pokémon.; tag: Directs Pikachu's electric attacks.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "Owner ruling needed: should a Trainer earn tags (e.g. electric) for powers that belong to his Pokémon?",
+        "Reviewed by Claude (2026-11-13): Bulbapedia's Ash Ketchum and Ash's achievements pages failed to load, so they were replaced by the Pokémon Wiki page, which was opened. Removed as unsupported: 'Pokémon intercept attacks', the 'vulnerable if separated' weakness, and running or riding mobility (the page says only Pikachu rides on him). `electric` and `electric-control` were removed because they are Pikachu's powers, pending a ruling."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Atreus",
-      "continuity": "God of War Ragnarök",
-      "summary": "Atreus is an agile archer and spellcaster who combines bow combat, magical summons, and shapeshifting abilities in battle.",
+      "continuity": "God of War (2018) and God of War Ragnarök (2022), Norse saga",
+      "summary": "Kratos's son. He fights with the Talon Bow and magic-imbued arrows, summoned Jörmungandr by speaking the Jötnar language, and in Ragnarök shapeshifts into a wolf and the massive bear Björn.",
       "offense": {
         "domains": [
           "physical",
           "magic"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Talon Bow archery",
+          "Lightning-imbued bow and mistletoe arrows (2018)",
+          "Light, Sonic and Sigil-imbued arrows (Ragnarök)",
+          "Summoned Jörmungandr by speaking the Jötnar language",
+          "Shapeshifting into a wolf, and into the massive bear Björn",
+          "Spartan Rage (first triggered against Modi)"
         ],
         "range": "ranged / melee"
       },
@@ -152,125 +303,282 @@
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Illness: strong emotions bring on coughing fits and can make him pass out (2018)",
+        "Blinding rage and loss of control; as Björn he rampaged until Kratos subdued him",
+        "Overconfident and reckless after learning of his godhood",
+        "Outclassed by Heimdall, who deflected his attacks and caught his arrow"
       ],
       "mobility": [
-        "Climbing"
+        "Wolf form (Ragnarök)"
       ],
-      "limitations": [],
+      "limitations": [
+        "His transformations are triggered by panic or overwhelming emotion rather than chosen freely (Ragnarök)"
+      ],
       "sources": [
         {
           "url": "https://godofwar.fandom.com/wiki/Atreus",
-          "supports": "Abilities, weapons, and combat style of Atreus."
+          "supports": "Talon Bow and imbued arrows, summoning Jörmungandr, shapeshifting, Spartan Rage, fights with Modi, Baldur and Heimdall, and his illness, rage and overconfidence"
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Full potential of his giant soul manipulation.",
-        "Removed by review (not supported by the cited source): technique: Talon Bow archery; technique: Sonic arrows; technique: Runic summons; technique: Jotunn shapeshifting; defense: Evasion; defense: Magical barriers; defense: Shapeshifting into animal forms to dodge; weakness: Inexperience compared to seasoned gods; limitation: Physical strength is lower than full-grown gods until he utilizes certain forms; mobility: Running; mobility: Animal shapeshifting; feat: Fought alongside Kratos against various Norse gods and monsters, including Thor and Odin.; result: Thrud; tag: Uses runic magic and magic-based combat summons.; tag: Casts runic spells and magical projections.",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Bayonetta",
-      "continuity": "Bayonetta series",
-      "summary": "Bayonetta is an Umbra Witch who utilizes bullet arts, wicked weaves, and time dilation to effortlessly dismantle angelic and demonic foes.",
-      "offense": {
-        "domains": [
-          "physical",
-          "magic",
-          "energy"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "melee / ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [],
-      "limitations": [],
-      "sources": [
+      "feats": [
         {
-          "url": "https://bayonetta.fandom.com/wiki/Bayonetta",
-          "supports": "Abilities, weapons, and combat feats of Bayonetta."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Exact upper limits of her summoned infernal entities.",
-        "Removed by review (not supported by the cited source): technique: Bullet Arts; technique: Wicked Weaves; technique: Torture Attacks; technique: Umbran Climax; defense: Witch Time (dodging to slow time); defense: Magical barriers; defense: Agility; weakness: Vulnerable if caught off guard when Witch Time fails to trigger; limitation: Requires precise dodging to activate Witch Time; mobility: Running; mobility: Jumping; mobility: Flight via transformation; mobility: Grappling; feat: Punched the creator god Jubileers from the Earth into the sun.; result: Balder; tag: Wields Umbran witchcraft and summons infernal demons.; tag: Casts complex magical rituals and spells.; tag: Can transform into a crow or use magical flight capabilities.",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Big Boss",
-      "continuity": "Metal Gear Solid series",
-      "summary": "Big Boss is a legendary master of CQC (Close Quarters Combat), stealth, and military tactics, utilizing high-tech gear and infiltration expertise.",
-      "offense": {
-        "domains": [
-          "physical",
-          "tech"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "melee / ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [],
-      "limitations": [],
-      "sources": [
+          "claim": "Summoned Jörmungandr in the Jötnar language during the fight with Baldur",
+          "citation": "God of War (2018)",
+          "source": 0
+        },
         {
-          "url": "https://metalgear.fandom.com/wiki/Big_Boss",
-          "supports": "History, CQC mastery, and military achievements of Big Boss."
+          "claim": "Transformed into the massive bear Björn and rampaged until Kratos beat him back to human form",
+          "citation": "God of War Ragnarök",
+          "source": 0
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "notableResults": [
+        {
+          "opponent": "Modi",
+          "result": "win",
+          "citation": "God of War (2018)",
+          "note": "Modi had already been beaten and was injured",
+          "source": 0
+        }
+      ],
       "campaignTags": [
         {
-          "tag": "gadgets",
-          "claim": "Uses CQC knife, Fulton device, and tactical equipment.",
+          "tag": "spellcaster",
+          "claim": "Summoned Jörmungandr by speaking the Jötnar language; uses runic and Sigil magic through his bow",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact extent of his durability against heavy superhuman assaults.",
-        "Removed by review (not supported by the cited source): technique: CQC (Close Quarters Combat); technique: Stun arm; technique: Fulton surface-to-air recovery; technique: Assault rifle and tranquilizer gun marksmanship; defense: Stealth camouflage; defense: Combat roll evasion; defense: Tactical cover; weakness: Physically human with standard human biological limits; limitation: Limited to peak human physical strength and endurance; mobility: Running; mobility: Crouching; mobility: Crawling; mobility: Driving military vehicles; feat: Defeated The Boss in hand-to-hand combat.; feat: Built Militaires Sans Frontières and Outer Heaven into global military superpowers.; result: The Boss; tag: Master of infiltration and stealth operations.; tag: Utilizes advanced military technology and prosthetics.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "Outcome of Odin's defeat: the page excerpt credits Atreus with extracting Odin's soul, but Ragnarök's finale was a group effort. No result is recorded.",
+        "Reviewed by Claude (2026-11-13): Removed as unsupported: Gemini's win over Thrúd (the page has her hold him at swordpoint and then befriend him), 'magical barriers' (the page's barrier is the home grove's protective ward), evasion, the strength limitation, and running and climbing. The broad `magic` tag was removed in favor of `spellcaster`. Page read to about 100k of 126k characters."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
-      "id": "games:Blinky",
-      "continuity": "Pac-Man series",
-      "summary": "Blinky is the aggressive red ghost who relentlessly pursues Pac-Man across mazes, speeding up when a threshold of dots is cleared.",
+      "id": "games:Bayonetta",
+      "continuity": "Bayonetta series (Bayonetta, Bayonetta 2, Bayonetta 3)",
+      "summary": "An Umbra Witch who combines Bullet Arts gunplay with hair-summoned demons (Wicked Weaves), Enochian Torture Attacks and Witch Time. She sent Jubileus into the sun, and she was overpowered by Loptr and by Singularity Definition.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Bullet Arts",
+          "Wicked Weaves: hair-summoned demon limbs",
+          "Infernal Weaves: full demon finishers during Umbran Climax",
+          "Torture Attacks summoned by Enochian chanting",
+          "Demon Slave: summons and directs Infernal Demons (Bayonetta 3)",
+          "Demon Masquerade: humanoid demon forms (Bayonetta 3)",
+          "Freezes moisture in the air into a spear"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Witch Time: slows time around her; counters a Sage's Light Speed and can be stacked against another witch or an angel",
+          "Superhuman perception that anticipates enemy movements",
+          "Health recovery during Umbran Climax"
+        ]
+      },
+      "weaknesses": [
+        "Her Umbran Watch is essential; its breaking led to her death (Bayonetta 3)",
+        "Fixed in place and vulnerable while controlling a Demon Slave summon",
+        "Overpowered by Loptr and Singularity Definition; weakened after a Deadly Sin ritual"
+      ],
+      "mobility": [
+        "Witch Walk on walls and ceilings (conditional)",
+        "Beast Within: crow and panther forms"
+      ],
+      "limitations": [
+        "Her normal attacks struggled against big bosses (the reason Serious Mode was created)",
+        "Witch Walk works only under a full moon or on certain devices made by Aesir"
+      ],
+      "sources": [
+        {
+          "url": "https://bayonetta.fandom.com/wiki/Bayonetta_(character)",
+          "supports": "Bullet Arts, Wicked and Infernal Weaves, Torture Attacks, Witch Time, Beast Within, Witch Walk, demon summoning, and fights with Jubileus, Balder, Loptr, Aesir and Singularity"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Summoned Queen Sheba with Jeanne's help and sent Jubileus hurtling into the sun",
+          "citation": "Bayonetta (2009)",
+          "source": 0
+        },
+        {
+          "claim": "Redirected a satellite at Aesir using only her lower body",
+          "citation": "Bayonetta 2",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jubileus",
+          "result": "win",
+          "citation": "Bayonetta (2009)",
+          "note": "With Jeanne's aid",
+          "source": 0
+        },
+        {
+          "opponent": "Balder",
+          "result": "win",
+          "citation": "Bayonetta (2009), Ithavoll Tower",
+          "note": "He later rose unhurt",
+          "source": 0
+        },
+        {
+          "opponent": "Loptr",
+          "result": "loss",
+          "citation": "Bayonetta 2",
+          "note": "Beaten in their first fight; at Fimbulventr he subdued her and took the Left Eye",
+          "source": 0
+        },
+        {
+          "opponent": "Singularity",
+          "result": "inconclusive",
+          "citation": "Bayonetta 3",
+          "note": "She fell to Singularity Definition; Luka and Gomorrah destroyed him, and she died when her Umbran Watch broke",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Summons Torture Attacks by Enochian chanting and summons demons through Wicked Weaves",
+          "source": 0
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Freezes moisture in the air into a spear",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether her crow form flies: the page does not describe flight explicitly, so natural-flight is not proposed",
+        "Reviewed by Claude (2026-11-13): the cited /wiki/Bayonetta URL never came up in search; the character page /wiki/Bayonetta_(character) was opened instead. Gemini's 'punched Jubileus into the sun' is corrected: Queen Sheba did it, with Jeanne's help. Removed: 'magical barriers' and the Witch Time trigger limitation (not on the page). The broad `magic` and `natural-flight` tags were removed; `ice-control` was added."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Survival and Umbran power",
+          "dependsOn": "Her Umbran Watch staying intact",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "games:Big Boss",
+      "continuity": "Metal Gear series: Naked Snake / Big Boss himself (MGS3: Snake Eater through Metal Gear 2: Solid Snake), not Venom Snake",
+      "summary": "Legendary soldier who trained under The Boss, matched her CQC mastery, and infiltrated bases in disguise. He founded FOXHOUND, Militaires Sans Frontières, Outer Heaven and Zanzibar Land, and was finally defeated by Solid Snake.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "CQC, matching The Boss's mastery in their final duel",
+          "Marksmanship, including urban and maritime sniping",
+          "Hand-to-hand combat"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Disguises and concealment, including the cardboard box",
+          "Resilience to torture"
+        ]
+      },
+      "weaknesses": [
+        "Underestimates opponents: lost to an initially unarmed Solid Snake in Zanzibar Land, and misjudged Chico in Peace Walker",
+        "Lost his right eye to Ocelot's gunfire"
+      ],
+      "mobility": [],
+      "limitations": [
+        "Ordinary human: badly burned in Zanzibar Land and left in a coma for nine years"
+      ],
+      "sources": [
+        {
+          "url": "https://metalgear.fandom.com/wiki/Big_Boss",
+          "supports": "CQC, sniping, disguised infiltration, torture resilience, fights with The Boss, Ocelot, Volgin, Gray Fox and Solid Snake, the organizations he founded, and the distinction from Venom Snake"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Incapacitated The Boss in their final duel, his CQC by then matching hers",
+          "citation": "Metal Gear Solid 3: Snake Eater",
+          "source": 0
+        },
+        {
+          "claim": "Infiltrated Graniny Gorki disguised as a scientist and Groznyj Grad in a stolen officer's uniform",
+          "citation": "Metal Gear Solid 3: Snake Eater",
+          "source": 0
+        },
+        {
+          "claim": "Founded FOXHOUND and Militaires Sans Frontières, and established Outer Heaven and Zanzibar Land",
+          "citation": "Metal Gear series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Boss",
+          "result": "win",
+          "citation": "Metal Gear Solid 3: Snake Eater",
+          "note": "Final CQC duel",
+          "source": 0
+        },
+        {
+          "opponent": "Volgin",
+          "result": "win",
+          "citation": "Metal Gear Solid 3: Snake Eater, Groznyj Grad",
+          "source": 0
+        },
+        {
+          "opponent": "Gray Fox",
+          "result": "win",
+          "citation": "Metal Gear 2: Solid Snake, Zanzibar Land",
+          "note": "Hand-to-hand",
+          "source": 0
+        },
+        {
+          "opponent": "Ocelot",
+          "result": "inconclusive",
+          "citation": "Metal Gear Solid 3: Snake Eater",
+          "note": "Their duels were often inconclusive",
+          "source": 0
+        },
+        {
+          "opponent": "Solid Snake",
+          "result": "loss",
+          "citation": "Metal Gear 2: Solid Snake, Zanzibar Land",
+          "note": "Underestimated an unarmed Snake; defeated with a makeshift flamethrower",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Infiltrated Graniny Gorki disguised as a scientist and Groznyj Grad in a stolen officer's uniform",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Cybernetic parts: the page only says he was rumored to have received them from Dr. Madnar after Outer Heaven",
+        "Reviewed by Claude (2026-11-13): removed Gemini's stun arm and Fulton recovery, which are Venom Snake's MGSV gear and belong to a different person. Also removed: tranquilizer marksmanship, stealth camouflage, combat roll and tactical cover. The Outer Heaven loss was Venom Snake's, so it is not recorded here. `stealth` is narrowed to `infiltration`; `gadgets` and `tech` were removed. Page read to about 100k of 170k characters."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Blinky",
+      "continuity": "Pac-Man (1980 arcade)",
+      "summary": "The red ghost, nicknamed Shadow: the most persistent and aggressive of the four ghosts. In chase mode he always targets Pac-Man directly, and he accelerates continuously as Cruise Elroy once enough dots are eaten.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Direct pursuit: always targets Pac-Man's position in chase mode",
+          "Cruise Elroy: continuous acceleration after Pac-Man eats a set number of dots"
         ],
         "range": "melee"
       },
@@ -280,70 +588,90 @@
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "After Pac-Man eats a Power Pellet he can be eaten; trying to flee does not save him"
       ],
       "mobility": [],
-      "limitations": [],
+      "limitations": [
+        "In scatter mode he retreats toward the top-right corner instead of chasing"
+      ],
       "sources": [
         {
           "url": "https://pacman.fandom.com/wiki/Blinky",
-          "supports": "Behavior patterns, speed mechanics, and characteristics of Blinky."
+          "supports": "Chase and scatter behavior, Cruise Elroy, and vulnerability after a Power Pellet in the arcade original"
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "unknowns": [
-        "Exact biological or spiritual nature of the ghost entity.",
-        "Removed by review (not supported by the cited source): technique: Direct pursuit; technique: Cruising Spurt speed increase; defense: Intangibility (except when Pac-Man eats a Power Pellet); weakness: Vulnerable to being eaten when Pac-Man consumes a Power Pellet; limitation: Bound to the layout of the maze; mobility: Floating through maze corridors; feat: Consistently hunted Pac-Man across hundreds of standard mazes.; result: Pac-Man",
-        "Flagged needs-review: most claims unsupported by sources."
+      "feats": [
+        {
+          "claim": "Most persistent and aggressive of the original four ghosts, accelerating continuously as Cruise Elroy",
+          "citation": "Pac-Man (1980)",
+          "source": 0
+        }
       ],
-      "researchStatus": "needs-review"
+      "notableResults": [
+        {
+          "opponent": "Pac-Man",
+          "result": "loss",
+          "citation": "Pac-Man (1980)",
+          "note": "Eaten after Pac-Man takes a Power Pellet",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether ghosts are intangible: the page does not say",
+        "Reviewed by Claude (2026-11-13): Gemini's intangibility defense, maze-bound limitation, floating mobility and 'hundreds of mazes' feat are unsupported. They were replaced with what the page states."
+      ],
+      "researchStatus": "provisional",
+      "campaignTags": []
     },
     {
       "id": "games:Bowser",
-      "continuity": "Super Mario series",
-      "summary": "Bowser is a massive, fire-breathing turtle-dragon who relies on brute strength, heavy shell defenses, and dark magic to capture Princess Peach.",
+      "continuity": "Super Mario main series (Nintendo)",
+      "summary": "King of the Koopas, portrayed with great physical strength. He breathes fire in many forms, attacks with his spiked shell and ground pounds, and uses dark magic. Mario defeats him constantly.",
       "offense": {
         "domains": [
           "physical",
-          "elemental",
+          "fire",
           "magic"
         ],
         "techniques": [
-          "Fire breath",
-          "Shell dash",
-          "Ground pound",
-          "Dark magic spells"
+          "Fire breath: continuous flares, fireball flurries, blue homing flames",
+          "Spiked-shell spins and rolls",
+          "Ground pound, punches, stomps and body slams",
+          "Dark magic (turned Mushroom Kingdom citizens into blocks)",
+          "Lightning (Hotel Mario, Super Mario Galaxy opening)"
         ],
         "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
-          "Lava resistance",
-          "Immense physical mass"
+          "Great physical strength and mass; one pamphlet gives his weight as 10 tons",
+          "Resistant to lava in some games (New Super Mario Bros. Wii)"
         ]
       },
       "weaknesses": [
-        "Vulnerable to falling into lava or bridge collapse mechanisms"
+        "Lava defeats him in many games, including the original Super Mario Bros."
       ],
       "mobility": [
-        "Walking",
-        "Jumping",
-        "Flight via Clown Car or airships"
+        "Teleportation"
       ],
       "limitations": [
-        "Low agility due to heavy mass"
+        "His size varies widely by game: about twice Mario's height usually, but up to five times in Super Mario Odyssey"
       ],
       "sources": [
         {
           "url": "https://www.mariowiki.com/Bowser",
-          "supports": "Abilities, physical attributes, and history of Bowser."
+          "supports": "Strength, fire breath, shell attacks, ground pound, dark magic, lightning, teleportation, size and weight, lava vulnerability, and his constant defeats by Mario"
         }
       ],
       "feats": [
         {
-          "claim": "Survived being plunged into active lava pits and falling from castles multiple times.",
-          "citation": "Wikipedia: ",
+          "claim": "Breaks boulders and topples enemies many times his size",
+          "citation": "Super Mario series",
+          "source": 0
+        },
+        {
+          "claim": "Used dark magic to turn Mushroom Kingdom citizens into blocks and other items",
+          "citation": "Super Mario Bros. instruction booklet",
           "source": 0
         }
       ],
@@ -351,79 +679,85 @@
         {
           "opponent": "Mario",
           "result": "loss",
-          "citation": "Wikipedia: ",
-          "note": "Defeated repeatedly when Mario triggers bridge collapse switches.",
+          "citation": "Super Mario series (e.g. Super Mario Odyssey ending)",
+          "note": "Mario defeats him constantly",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "fire",
-          "claim": "Breathes destructive fire.",
-          "source": 0
-        },
-        {
           "tag": "fire-control",
-          "claim": "Controls and directs large streams of fire breath.",
+          "claim": "Breathes continuous flares, fireball flurries and homing flames",
           "source": 0
         },
         {
-          "tag": "giant-sized",
-          "claim": "Naturally stands well over eight feet tall with massive bulk.",
+          "tag": "spellcaster",
+          "claim": "Used dark magic to turn citizens into blocks (Super Mario Bros. booklet)",
           "source": 0
         },
         {
-          "tag": "magic",
-          "claim": "Uses dark magic for transformations and spellcasting.",
+          "tag": "self-teleport",
+          "claim": "The page states he can teleport",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Shows lightning powers in Hotel Mario and the Super Mario Galaxy opening",
           "source": 0
         }
       ],
       "unknowns": [
-        "Limits of his durability against non-Mario universe cosmic threats.",
-        "Removed by review (not supported by the cited source): defense: Spiked shell durability"
+        "Height in feet is not documented on the page, so giant-sized is not proposed under the owner's 8 ft ruling",
+        "Koopa Clown Car flight is not mentioned in the portion read",
+        "Reviewed by Claude (2026-11-13): Gemini's giant-sized claim ('well over eight feet') is not in the source, so the tag was removed. Also removed: 'low agility', Clown Car flight, and the bridge-switch note. The broad `fire` and `magic` tags are narrowed to `fire-control` and `spellcaster`; `self-teleport` and `electric-control` were added. Page read to about 100k of 557k characters."
       ],
       "researchStatus": "provisional"
     },
     {
       "id": "games:Bowser|Dreamy Bowser",
-      "continuity": "Mario & Luigi: Dream Team",
-      "summary": "Empowered by the Dream Stone, Dreamy Bowser gains reality-warping control, colossal size, and immense magical might.",
+      "continuity": "Mario & Luigi: Dream Team (2013)",
+      "summary": "Dream Stone-empowered Bowser, final boss of Dream Team. He fires giant rainbow fireballs, clones himself, grows to giant size, and summons Dreamy minions and an airship. He heals while his minions fight.",
       "offense": {
         "domains": [
           "physical",
-          "magic",
-          "energy"
+          "fire",
+          "magic"
         ],
         "techniques": [
-          "Dream Stone reality warping",
-          "Giant fire blasts",
-          "召唤 minions"
+          "Giant rainbow fireballs; clones himself to double them",
+          "Giant hammer strike",
+          "Grows to giant size and chases with fire streams and shockwaves",
+          "Summons the Shy Guy Airtub DX",
+          "Summons Dreamy Goombas, Shy Guys, Bob-ombs and Paratroopas"
         ],
-        "range": "melee / ranged / strategic"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Right arm blocks attacks to his head; left arm grabs a brother",
+          "Regenerates 200 HP per arm and 150 HP on his body each turn while in the background",
+          "Heals by eating meat"
         ]
       },
       "weaknesses": [
-        "Destruction or separation from the Dream Stone strips him of his empowered state"
+        "Weak to Jump, Bye-Bye Cannon, Dropchopper and Star Rocket",
+        "Defeat makes him expel the Dream Stone's remains, leaving him weakened in normal form"
       ],
-      "mobility": [
-        "Flight"
+      "mobility": [],
+      "limitations": [
+        "The form depends on the Dream Stone's remains inside him"
       ],
-      "limitations": [],
-      "formDifferences": "Enhanced version of Bowser fused with the Dream Stone, granting reality-warping powers and colossal size.",
+      "formDifferences": "Bowser after inhaling the shards of the destroyed Dream Stone: much larger, glowing, with Dream Stone-like growths. He expels the shards and reverts to normal when defeated.",
       "sources": [
         {
           "url": "https://www.mariowiki.com/Dreamy_Bowser",
-          "supports": "Dreamy Bowser abilities, stats, and appearance in Mario & Luigi: Dream Team."
+          "supports": "Formation from the Dream Stone shards, attacks, defenses, healing, weaknesses, and the Neo Bowser Castle battle and its outcome"
         }
       ],
       "feats": [
         {
-          "claim": "Warped reality within the Dream World and fought Mario and Luigi to their absolute limits.",
-          "citation": "Wikipedia: ",
+          "claim": "Grew to giant size and cloned himself during the final battle",
+          "citation": "Mario & Luigi: Dream Team",
           "source": 0
         }
       ],
@@ -431,36 +765,39 @@
         {
           "opponent": "Mario and Luigi",
           "result": "loss",
-          "citation": "Wikipedia: ",
-          "note": "Defeated after the brothers destroyed the Dream Stone's power source.",
+          "citation": "Mario & Luigi: Dream Team, Neo Bowser Castle balcony",
+          "note": "Expelled the Dream Stone remains and reverted, after which the brothers hammered him",
           "source": 0
         }
       ],
       "conditional": [
         {
-          "ability": "Reality-warping and colossal stats",
-          "dependsOn": "The Dream Stone",
+          "ability": "Dreamy Bowser form and its power",
+          "dependsOn": "The Dream Stone's remains inside him",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "fire-control",
-          "claim": "Controls massive waves of elemental fire.",
+          "claim": "Fires giant rainbow fireballs and fire streams",
           "source": 0
         },
         {
-          "tag": "giant-sized",
-          "claim": "Grows to colossal proportions using the Dream Stone.",
+          "tag": "size-change",
+          "claim": "Grows to giant size mid-battle",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Regenerates arm and body HP each turn while in the background",
           "source": 0
         }
       ],
       "unknowns": [
-        "Whether the Dream Stone's power functions outside of the Dream World.",
-        "Removed by review (not supported by the cited source): technique: Star-powered shockwaves; defense: Dream Stone invulnerability barrier; defense: Massive size and magical shields; limitation: Form is contingent on the stability and presence of the Dream Stone; mobility: Teleportation within the Dream World; tag: Breathes empowered magical fire.; tag: Wields the reality-bending magic of the Dream Stone.; tag: Casts reality-altering magical attacks.",
-        "Flagged needs-review: most claims unsupported by sources; extreme or conceptual power scaling needs owner ruling."
+        "Reviewed by Claude (2026-11-13): Removed as unsupported: 'reality warping', 'invulnerability barrier', 'star-powered shockwaves', flight, teleportation and a garbled technique. The broad `fire` and `magic` tags, `spellcaster` and `giant-sized` (no documented size) were removed. `size-change` and `self-regeneration` were added from the page. Page read to about 100k of 155k characters."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     }
   ]
 }
