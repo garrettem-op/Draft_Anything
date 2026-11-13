@@ -1,0 +1,617 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-215751 #35",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Samwise Gamgee",
+      "continuity": "The Lord of the Rings (Books / Film Trilogy)",
+      "summary": "Samwise Gamgee is a steadfast Hobbit who fights with a simple Elven dagger (Sting) and his trusty frying pan when necessary. Though physically small, his immense loyalty and refusal to surrender give him remarkable endurance against physical and psychological corruption.",
+      "offense": {
+        "domains": [
+          "physical",
+          "melee"
+        ],
+        "techniques": [
+          "Sting strikes",
+          "improvised melee with sword or pan"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven cloak for camouflage",
+          "exceptional mental resilience against the One Ring"
+        ]
+      },
+      "weaknesses": [
+        "standard mortal hobbit physical vulnerability",
+        "limited reach and lack of heavy armor"
+      ],
+      "mobility": [
+        "foot travel"
+      ],
+      "limitations": [
+        "mortal endurance and strength limitations of a hobbit"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Samwise_Gamgee",
+          "supports": "Basic summary of Samwise Gamgee, weapons, and endurance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wounded the giant spider Shelob using the Elven dagger Sting.",
+          "citation": "The Two Towers / The Return of the King",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Shelob",
+          "result": "win",
+          "citation": "The Two Towers",
+          "note": "Fought defensively with Sting and the Phial of Galadriel to drive the creature away.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Uses an Elven-made cloak granted by Galadriel that aids in concealment.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his resistance to magical corruption over long periods."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Saruman",
+      "continuity": "The Lord of the Rings (Books / Film Trilogy)",
+      "summary": "Saruman the White is a powerful Istar (Wizard) wielding potent magic, voice-based persuasion, and a vast network of spies and orc armies. He relies on spellcasting, telekinesis, and his Staff of Power.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Voice of persuasion and command",
+          "elemental weather manipulation spells",
+          "staff-based energy blasts"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical barriers",
+          "authority and overwhelming presence"
+        ]
+      },
+      "weaknesses": [
+        "loss of magical potency when his staff is broken",
+        "pride and overconfidence"
+      ],
+      "mobility": [
+        "foot travel",
+        "palantir scrying"
+      ],
+      "limitations": [
+        "power tied to his staff and spiritual station as an Istar"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Saruman",
+          "supports": "Saruman's status as a wizard, his staff, and his defeat by Gandalf."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cast a spell on the mountain pass of Caradhras causing severe weather disruption.",
+          "citation": "The Fellowship of the Ring",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gandalf the Grey",
+          "result": "loss",
+          "citation": "The Fellowship of the Ring (Orthanc confrontation)",
+          "note": "Defeated and stripped of his formal office by Gandalf the White.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields potent Istari magic and spellcasting abilities.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full extent of his mechanical crafting abilities compared to Sauron."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Saruman|Saruman of Many Colours",
+      "continuity": "The Lord of the Rings (Books / Film Trilogy)",
+      "summary": "Having rejected his white mantle, Saruman adopts multi-colored robes that shift and dazzle the eye, reflecting his complete embrace of self-declared supremacy and fragmented magical pursuits.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Dazzling multi-colored aura",
+          "enhanced voice manipulation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shifting iridescent robes that confuse observers"
+        ]
+      },
+      "weaknesses": [
+        "increased arrogance and psychological instability"
+      ],
+      "formDifferences": "Replaces white robes with shifting multi-colored garments symbolizing his abandonment of the White Council's mission.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Saruman",
+          "supports": "Saruman proclaiming himself Saruman of Many Colours."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Retains all wizardly spellcasting capacities with altered manifestation.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether the multi-colored robes grant any specific physical defense beyond optical confusion."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Sauron",
+      "continuity": "The Lord of the Rings (Books / Film Trilogy)",
+      "summary": "Sauron is a fallen Maia and the Dark Lord of Mordor, commanding terrifying dark magic, immense physical strength in armored form, and overwhelming telepathic influence. He dominates through fear, armies, and lingering spiritual malice.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "control",
+          "energy"
+        ],
+        "techniques": [
+          "Massive mace strikes",
+          "dark sorcery",
+          "mental domination via the Palantir or direct will"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy black armor",
+          "near-immortal spirit form unless his essence is completely dispersed"
+        ]
+      },
+      "weaknesses": [
+        "reliance on the existence of the One Ring to anchor his full power",
+        "vulnerability of his physical body to overwhelming force"
+      ],
+      "mobility": [
+        "foot travel",
+        "shadow form"
+      ],
+      "limitations": [
+        "cannot easily manifest a physical form without anchors of power"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sauron",
+          "supports": "Sauron's nature as a Dark Lord, his combat capabilities, and his armor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slain Elendil and Gil-galad during the siege of Barad-dûr, though sustaining mortal injury in return.",
+          "citation": "The Fellowship of the Ring prologue",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Elendil and Gil-galad",
+          "result": "win",
+          "citation": "The Silmarillion / Fellowship of the Ring prologue",
+          "note": "Killed both kings in single combat before being overthrown by Isildur.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Possesses ancient and powerful dark magic as a corrupted Maia.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact details of his physical combat capabilities prior to the forging of the One Ring."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Sauron|Annatar, Lord of Gifts",
+      "continuity": "The Silmarillion / The Lord of the Rings (History)",
+      "summary": "In his fair guise as Annatar, Sauron acts as a master craftsman and deceptive diplomat, manipulating the Elves of Eregion through advanced knowledge of metallurgy and magic rather than open warfare.",
+      "offense": {
+        "domains": [
+          "magic",
+          "tech"
+        ],
+        "techniques": [
+          "Persuasive discourse",
+          "magical craft instruction",
+          "subtle corruption"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Disguise as an emissary of the Valar"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to exposure if his true identity is verified by high authorities like Gil-galad or Elrond"
+      ],
+      "formDifferences": "Adopts a fair, charismatic physical appearance to deceive opponents rather than wearing terrifying dark battle armor.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sauron",
+          "supports": "Annatar persona and the deception of the Elves of Eregion."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Masterminded the advanced craft and lore behind the Rings of Power.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Utilizes subtle magical craft and illusion to maintain his fair form.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact combative potency of the Annatar form compared to his armored Dark Lord manifestation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Sauron|Sauron with the One Ring",
+      "continuity": "The Lord of the Rings (Books / Film Trilogy)",
+      "summary": "Equipped with the One Ring, Sauron's innate power is vastly amplified, allowing him to dominate the wills of others, project overwhelming intimidation, and command absolute authority over all lesser ring-bearers.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "control"
+        ],
+        "techniques": [
+          "Amplified dark sorcery",
+          "direct mind control",
+          "devastating melee strikes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invulnerability to ordinary weapons",
+          "amplified spiritual resilience"
+        ]
+      },
+      "weaknesses": [
+        "the Ring remains a physical point of vulnerability if severed from his hand"
+      ],
+      "formDifferences": "Wears the One Ring on his hand, which multiplies his native power and dominion over Middle-earth.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/One_Ring",
+          "supports": "The One Ring's amplification of Sauron's power."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Channeling the One Ring maximizes his innate dark magic and dominion.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether any single mortal combatant could match him one-on-one while he wields the Ring without divine intervention."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Shagrat",
+      "continuity": "The Lord of the Rings (Books / Film Trilogy)",
+      "summary": "Shagrat is a brutal Uruk-hai captain of the Tower of Cirith Ungol, fighting with cruel blade weapons and commanding subordinate orcs through fear and violence.",
+      "offense": {
+        "domains": [
+          "physical",
+          "melee"
+        ],
+        "techniques": [
+          "Scimitar slashing",
+          "brutal close-quarters brawling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy crude iron armor",
+          "thick orcish hide"
+        ]
+      },
+      "weaknesses": [
+        "blind obedience to authority",
+        "prone to infighting and greed"
+      ],
+      "mobility": [
+        "foot travel"
+      ],
+      "limitations": [
+        "limited tactical vision outside of brute force"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Shagrat",
+          "supports": "Shagrat's role as an orc captain at Cirith Ungol."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought and killed Gorbag in a fierce dispute over Frodo's mithril coat.",
+          "citation": "The Two Towers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gorbag",
+          "result": "win",
+          "citation": "The Two Towers",
+          "note": "Killed Gorbag during a brutal clash between rival orc factions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact fate after escaping with the mithril coat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Shelob",
+      "continuity": "The Lord of the Rings (Books / Film Trilogy)",
+      "summary": "Shelob is an ancient, giant spider monster who preys on living things by injecting paralyzing venom and binding victims in thick webbing.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Venomous sting",
+          "web-spinning traps",
+          "crushing pounce"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely tough chitinous hide resistant to normal swords"
+        ]
+      },
+      "weaknesses": [
+        "extreme vulnerability to bright light (such as the Phial of Galadriel) and sharp Elven steel (Sting)"
+      ],
+      "mobility": [
+        "wall-crawling",
+        "fast spider locomotion"
+      ],
+      "limitations": [
+        "blinded or repelled by intense magical illumination"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Shelob",
+          "supports": "Shelob's nature as a giant spider, her venom, and her lair."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully paralyzed Frodo Baggins with her venomous sting in her lair.",
+          "citation": "The Two Towers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Frodo Baggins",
+          "result": "win",
+          "citation": "The Two Towers",
+          "note": "Ambushed and paralyzed Frodo before being driven off by Samwise.",
+          "source": 0
+        },
+        {
+          "opponent": "Samwise Gamgee",
+          "result": "loss",
+          "citation": "The Two Towers",
+          "note": "Repelled and severely wounded by Sam wielding Sting and the Phial of Galadriel.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "An enormous primordial spider monster far larger than ordinary animals.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Her exact age and origin prior to settling in the Ephel Dúath."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Smaug",
+      "continuity": "The Hobbit (Books / Film Trilogy)",
+      "summary": "Smaug the Magnificent is a colossal, intelligent, fire-breathing dragon possessing devastating offensive power, armored scales, and hypnotic speech.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Torrential fire-breath",
+          "tail sweeps",
+          "crushing claw attacks",
+          "hypnotic conversation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Impenetrable armored scales covering almost his entire body"
+        ]
+      },
+      "weaknesses": [
+        "a single bare patch on his underbelly unprotected by armor"
+      ],
+      "mobility": [
+        "natural-flight",
+        "ground crawling"
+      ],
+      "limitations": [
+        "arrogance and excessive pride in his invulnerability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Smaug",
+          "supports": "Smaug's status as a fire-drake, his armored scales, and his weakness."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed the city of Dale and conquered the Lonely Mountain in a single surprise attack.",
+          "citation": "The Hobbit",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bard the Bowman",
+          "result": "loss",
+          "citation": "The Hobbit",
+          "note": "Slain when Bard shot a black arrow into his unprotected chest gap.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire-control",
+          "claim": "Produces devastating torrents of dragon-fire from his mouth.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses massive wings allowing powerful flight.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "A gigantic dragon large enough to demolish buildings and mountainsides.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full extent of his magical persuasion abilities beyond standard dragon-spells."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Tar-Aldarion",
+      "continuity": "The Silmarillion / Unfinished Tales",
+      "summary": "Tar-Aldarion was the sixth King of Númenor and a legendary mariner who excelled in navigation, shipbuilding, and maritime exploration, relying on exceptional leadership and seafaring expertise.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Expert swordsmanship",
+          "command of maritime fleets"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Númenórean steel armor",
+          "exceptional physical conditioning of the Dunedain"
+        ]
+      },
+      "weaknesses": [
+        "mortal limitations despite extended lifespan"
+      ],
+      "mobility": [
+        "foot travel",
+        "royal sailing ships"
+      ],
+      "limitations": [
+        "bound by mortal constraints and political duties to his realm"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tar-Aldarion",
+          "supports": "Tar-Aldarion's history as a Númenórean king and master mariner."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Established extensive tree-planting and conservation policies to support Númenor's shipbuilding industry.",
+          "citation": "Unfinished Tales",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gil-galad (Allies)",
+          "result": "win",
+          "citation": "Unfinished Tales",
+          "note": "Successfully forged strategic alliances with the Elves of Lindon during his voyages.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Master mariner and captain of great royal fleets.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific combat engagements against named adversaries in minor skirmishes."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
