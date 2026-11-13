@@ -103,3 +103,17 @@ test('scan reports without writing, and --fix writes only changed files', async 
   assert.equal(fs.readFileSync(path.join(dir, 'good.json'), 'utf8'), goodBefore, 'unchanged files are not rewritten');
   assert.match(s.markdown(rep, false), /report only/);
 });
+
+test('rate limits are retried, other failures report a reason, hosts are throttled', async () => {
+  let calls = 0;
+  const flaky = async () => (++calls < 3 ? res(429, 'slow') : res(200, html('Bane broke the back of Batman')));
+  const ok = await s.fetchDetailed('https://a.test/x', flaky, { retries: 2, waitMs: 1 });
+  assert.equal(calls, 3); assert.equal(ok.reason, 'ok'); assert.ok(ok.page);
+  assert.equal((await s.fetchDetailed('https://a.test/x', async () => res(403, 'no'), { retries: 2, waitMs: 1 })).reason, 'HTTP 403');
+  assert.equal((await s.fetchDetailed('https://a.test/x', async () => res(429, 'no'), { retries: 1, waitMs: 1 })).reason, 'HTTP 429');
+  let live = 0, peak = 0;
+  const slow = async () => { live++; peak = Math.max(peak, live); await new Promise((r) => setTimeout(r, 5)); live--; return res(200, html('x')); };
+  const reasons = new Map();
+  const pages = await s.loadPages(Array.from({ length: 8 }, (_, i) => 'https://same.test/' + i), slow, { perHost: 2, reasons });
+  assert.equal(pages.size, 8); assert.ok(peak <= 2, 'at most 2 at once per host, saw ' + peak); assert.equal(reasons.get('https://same.test/0'), 'ok');
+});

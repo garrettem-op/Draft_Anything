@@ -116,33 +116,59 @@ function safeUrl(u) {
     return true;
   } catch { return false; }
 }
-async function fetchPage(url, fetchImpl = fetch, timeoutMs = 20000) {
-  if (!safeUrl(url)) return null;
-  try {
-    const res = await fetchImpl(url, { redirect: 'follow', signal: AbortSignal.timeout(timeoutMs), headers: { 'user-agent': UA } });
-    if (res.status >= 400) return null;
-    const type = (res.headers && res.headers.get && res.headers.get('content-type')) || '';
-    if (!/html|text/i.test(type)) return null;
-    return pageIndex(await res.text());
-  } catch { return null; }
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/* Returns {page, reason}. page is null when unreadable; reason says why (for the report). */
+async function fetchDetailed(url, fetchImpl = fetch, { timeoutMs = 20000, retries = 2, waitMs = 4000 } = {}) {
+  if (!safeUrl(url)) return { page: null, reason: 'not a public https url' };
+  let reason = 'unknown';
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetchImpl(url, { redirect: 'follow', signal: AbortSignal.timeout(timeoutMs), headers: { 'user-agent': UA, accept: 'text/html,text/plain;q=0.9' } });
+      if (res.status === 429 || res.status >= 500) {
+        reason = 'HTTP ' + res.status;
+        if (attempt < retries) { await sleep(waitMs * (attempt + 1)); continue; }
+        return { page: null, reason };
+      }
+      if (res.status >= 400) return { page: null, reason: 'HTTP ' + res.status };
+      const type = (res.headers && res.headers.get && res.headers.get('content-type')) || '';
+      if (!/html|text/i.test(type)) return { page: null, reason: 'non-HTML (' + (type.split(';')[0] || 'no type') + ')' };
+      return { page: pageIndex(await res.text()), reason: 'ok' };
+    } catch (e) {
+      reason = 'network (' + (e && e.name ? e.name : 'error') + ')';
+      if (attempt < retries) await sleep(waitMs);
+    }
+  }
+  return { page: null, reason };
 }
-async function loadPages(urls, fetchImpl = fetch, concurrency = 6) {
+async function fetchPage(url, fetchImpl = fetch, opts) { return (await fetchDetailed(url, fetchImpl, opts)).page; }
+/* At most `perHost` requests at once to any one host; different hosts run in parallel. */
+async function loadPages(urls, fetchImpl = fetch, { perHost = 2, reasons = new Map(), opts } = {}) {
   const pages = new Map();
-  const queue = [...urls];
-  await Promise.all(Array.from({ length: Math.min(concurrency, queue.length) }, async () => {
-    while (queue.length) { const u = queue.pop(); pages.set(u, await fetchPage(u, fetchImpl)); }
-  }));
+  const byHost = new Map();
+  for (const u of urls) { let h; try { h = new URL(u).hostname; } catch { h = ''; } if (!byHost.has(h)) byHost.set(h, []); byHost.get(h).push(u); }
+  const workers = [];
+  for (const queue of byHost.values()) {
+    for (let i = 0; i < Math.min(perHost, queue.length); i++) {
+      workers.push((async () => {
+        while (queue.length) { const u = queue.pop(); const r = await fetchDetailed(u, fetchImpl, opts); pages.set(u, r.page); reasons.set(u, r.reason); }
+      })());
+    }
+  }
+  await Promise.all(workers);
   return pages;
 }
 
 /* ---------- batches ---------- */
-async function scan(dir, { fix = false, fetchImpl = fetch } = {}) {
+async function scan(dir, { fix = false, fetchImpl = fetch, scanOpts } = {}) {
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
   const batches = files.map((f) => ({ f, data: JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) }));
   const urls = new Set();
   for (const b of batches) for (const r of b.data.characters || []) for (const s of r.sources || []) if (s && s.url) urls.add(s.url);
-  const pages = await loadPages(urls, fetchImpl);
-  const report = { files: files.length, records: 0, urls: urls.size, unreadable: [...pages.values()].filter((p) => !p).length, claimsKept: 0, claimsUnchecked: 0, claimsRemoved: 0, needsReview: [], changedFiles: [], detail: [] };
+  const reasons = new Map();
+  const pages = await loadPages(urls, fetchImpl, { reasons, opts: scanOpts });
+  const failures = new Map();
+  for (const [u, why] of reasons) if (!pages.get(u)) { let h = ''; try { h = new URL(u).hostname; } catch {} const k = h + ' — ' + why; failures.set(k, (failures.get(k) || 0) + 1); }
+  const report = { unreadableBy: [...failures].sort((a, b) => b[1] - a[1]).slice(0, 12), files: files.length, records: 0, urls: urls.size, unreadable: [...pages.values()].filter((p) => !p).length, claimsKept: 0, claimsUnchecked: 0, claimsRemoved: 0, needsReview: [], changedFiles: [], detail: [] };
   for (const b of batches) {
     let changed = false;
     b.data.characters = (b.data.characters || []).map((rec) => {
@@ -173,6 +199,10 @@ function markdown(rep, fixed) {
     '',
     'This pass checks that a claim\'s key terms appear on its cited page. It does not judge whether the prose is semantically right.',
   ];
+  if (rep.unreadableBy && rep.unreadableBy.length) {
+    lines.push('', 'Why pages were unreadable (host — reason: URLs):');
+    for (const [k, n] of rep.unreadableBy) lines.push(`- ${k}: ${n}`);
+  }
   if (rep.detail.length) {
     lines.push('', '<details><summary>Records with removed claims (' + rep.detail.length + ')</summary>', '');
     for (const d of rep.detail.slice(0, 400)) lines.push(`- \`${d.id}\` (${d.file}): ${d.removed} removed → ${d.status}`);
@@ -195,4 +225,4 @@ async function main(argv) {
 }
 if (require.main === module) main(process.argv.slice(2)).catch((e) => { console.error(e); process.exit(1); });
 
-module.exports = { keyTerms, htmlToText, pageIndex, support, evidence, reviewRecord, safeUrl, fetchPage, loadPages, scan, markdown, nameWords };
+module.exports = { keyTerms, htmlToText, pageIndex, support, evidence, reviewRecord, safeUrl, fetchPage, fetchDetailed, loadPages, scan, markdown, nameWords };
