@@ -3,173 +3,263 @@
   "schemaVersion": 1,
   "pool": "games",
   "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
-  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional. Independent Claude review (2026-11-13): every record rebuilt from pages opened in review; Wikipedia citations replaced with fan-wiki pages where needed; records stay provisional.",
   "characters": [
     {
       "id": "games:Rayman",
-      "continuity": "Rayman series",
-      "summary": "Rayman is a limbless hero who relies on acrobatic movement, helicopter-like hair hovering, and throwing his detachable fists as ranged energy punches. He can also use various magical powers and physical combat techniques acquired across his adventures.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "magic"
-        ],
-        "techniques": [
-          "Spin attack",
-          "Super helicopter"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Helicopter hair slow fall"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Rayman_(character)",
-          "supports": "Basic summary, powers, history, and limbless physiology."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "flight",
-          "claim": "Rayman uses his hair as a helicopter to glide and slow his descent.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact limits of his magical transformations in spinoffs versus core platformers.",
-        "Removed by review (not supported by the cited source): technique: Telescopic fist punch; technique: Helicopter hover; defense: Agility and evasion; defense: Health restoration via Lums or hearts; weakness: Vulnerable to hazards such as water/drowning in early titles; weakness: Fragile defense requiring health pickups; limitation: Cannot sustain permanent flight, only helicopter gliding/hovering; limitation: Fists must return before striking again; mobility: Running; mobility: Helicopter hovering; mobility: Swimming; feat: Uses his telescopic fist to strike enemies from a distance.; feat: Spins his hair to hover and cross large gaps.; result: Mr. Dark",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Reinhardt",
-      "continuity": "Overwatch series",
-      "summary": "Reinhardt Wilhelm is a heavily armored crusader who uses a massive rocket hammer for devastating close-range melee strikes and a large energy barrier shield to protect allies. He can also propel himself forward in a rapid charge to pin enemies against walls.",
-      "offense": {
-        "domains": [
-          "physical",
-          "tech"
-        ],
-        "techniques": [
-          "Rocket Hammer",
-          "Fire Strike",
-          "Charge",
-          "Earthshatter"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Barrier Field energy shield"
-        ]
-      },
-      "weaknesses": [
-        "Vulnerable to attacks from behind when his barrier is deployed",
-        "Large target with limited ranged offense outside of Fire Strike"
-      ],
-      "mobility": [
-        "Rocket-propelled charge"
-      ],
-      "limitations": [
-        "Barrier Field has a finite health pool and breaks under heavy fire",
-        "Charge locks him into a linear path"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/List_of_Overwatch_characters",
-          "supports": "Reinhardt's general abilities, weapon loadout, and crusader role."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Slams the ground with Earthshatter, knocking down all enemies in a cone in front of him.",
-          "citation": "Wikipedia: List of Overwatch characters",
-          "source": 0
-        },
-        {
-          "claim": "Charges forward to pin an enemy and crash them into a wall.",
-          "citation": "Wikipedia: List of Overwatch characters",
-          "source": 0
-        }
-      ],
-      "campaignTags": [
-        {
-          "tag": "powered-armor",
-          "claim": "Wears advanced Crusader power armor.",
-          "source": 0
-        },
-        {
-          "tag": "fire-weapon",
-          "claim": "Launches a flaming projectile wave via Fire Strike.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact durability limits of his Crusader armor against high-end sci-fi weaponry.",
-        "Removed by review (not supported by the cited source): defense: Crusader armor"
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "games:Ryu",
-      "continuity": "Street Fighter series",
-      "summary": "Ryu is a dedicated martial artist who travels the world to test his skills, utilizing traditional Ansatsuken karate techniques. He fights using projectile energy blasts (Hadoken), upper-cut anti-airs (Shoryuken), and forward-advancing kicks (Tatsumaki Senpukyaku).",
+      "continuity": "Rayman series (Ubisoft): Rayman (1995), Rayman 2: The Great Escape, Rayman 3: Hoodlum Havoc, Origins/Legends",
+      "summary": "Rayman is a limbless hero whose head, hands and feet float unattached to his torso. His signature attack is the telescopic fist, first granted by Betilla the fairy, which he hurls at enemies; he spins his hair like a helicopter rotor to glide, and temporary power-ups (the super helicopter) let him fly under control.",
       "offense": {
         "domains": [
           "physical",
           "energy"
         ],
         "techniques": [
-          "Hadoken",
-          "Shoryuken",
-          "Tatsumaki Senpukyaku",
-          "Shinku Hadoken"
+          "Telescopic fist (chargeable; gold and speed fist upgrades)",
+          "Grappling fist",
+          "Energy-ball shots (Rayman 2)",
+          "Punches and kicks (Origins/Legends)"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Not established by the cited sources beyond mobility (gliding away from hazards)"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "His powers can be taken from him: Mr Dark magically stole his telescopic fist power before their final battle, leaving him unable to punch until Electoons returned it"
       ],
       "mobility": [
-        "Running",
-        "High jumps"
+        "Helicopter-hair glide",
+        "Super helicopter flight (temporary power-up)",
+        "Grappling fist swings"
       ],
       "limitations": [
-        "Relies on physical stamina and spiritual focus",
-        "Projectile attacks require brief startup motions"
+        "The normal helicopter ability is a glide, not sustained flight; controlled flight needs the temporary super helicopter power-up"
       ],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Ryu_(Street_Fighter)",
-          "supports": "Ryu's background, Ansatsuken fighting style, and signature moves like Hadoken and Shoryuken."
+          "url": "https://en.wikipedia.org/wiki/Rayman_(character)",
+          "supports": "Limbless body with head, hands and feet 'invisibly linked to his torso'; throwing his fists as projectiles; spinning his hair like a helicopter rotor to slow his descent; Rabbids taking his fists in the handheld Raving Rabbids."
+        },
+        {
+          "url": "https://www.raymanpc.com/wiki/en/Fist",
+          "supports": "Telescopic fist granted by Betilla in Rayman (1995); gold fists double its power, speed fists throw faster, charging increases power; grappling fist; replaced by energy-ball shooting in Rayman 2; returns in Rayman 3 and Origins/Legends."
+        },
+        {
+          "url": "https://www.raymanpc.com/wiki/en/Mr_dark",
+          "supports": "Final battle of Rayman (1995): Mr Dark steals Rayman's fist power, Electoons return it, and Rayman defeats Mr Dark's three hybrid-monster forms, the last with a final punch to the head."
+        },
+        {
+          "url": "https://raymanpc.com/wiki/en/Super_Helicopter",
+          "supports": "The super helicopter is a temporary power-up (Musician's flask in Rayman, Ly in Rayman 2) that 'allows you to fly while retaining control of your direction', as opposed to the normal helicopter glide."
         }
       ],
       "feats": [
         {
-          "claim": "Projects concentrated spiritual energy as a Hadoken projectile.",
-          "citation": "Wikipedia: Ryu (Street Fighter)",
+          "claim": "Hurls his telescopic fist to defeat enemies at range; gold fists double its power and charging increases it.",
+          "citation": "Rayman (1995)",
+          "source": 1
+        },
+        {
+          "claim": "Flew through lava corridors in Rayman 2 using the super helicopter power granted by Ly.",
+          "citation": "Rayman 2: The Great Escape",
+          "source": 3
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mr Dark",
+          "result": "win",
+          "citation": "Rayman (1995), Candy Château",
+          "note": "Mr Dark first stole Rayman's fist power and attacked with walls of flame and fireballs; after Electoons returned the fist, Rayman beat his three hybrid-monster transformations, finishing him with a punch to the head of the third.",
+          "source": 2
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Controlled flight",
+          "dependsOn": "Temporary super helicopter power-up (Musician's flask, other potions, or Ly in Rayman 2)",
+          "source": 3
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "glide",
+          "claim": "Spins his hair like a helicopter rotor to glide and slow his descent.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Gemini's 'flight' tag was replaced by 'glide': the normal helicopter is a glide, and true flight needs a temporary power-up.",
+        "No documented height, durability feats, or results against Razorbeard, Andre or Reflux were verified in the opened sources."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Reinhardt",
+      "continuity": "Overwatch / Overwatch 2 (Blizzard): game kit plus official story media",
+      "summary": "Reinhardt Wilhelm is a veteran German crusader clad in powered Crusader armor. He fights at close range with a rocket hammer, protects allies with a deployable energy Barrier Field, charges to pin enemies into walls, throws flaming Fire Strike projectiles, and knocks foes down with the Earthshatter shockwave.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech",
+          "fire"
+        ],
+        "techniques": [
+          "Rocket Hammer",
+          "Charge",
+          "Fire Strike",
+          "Earthshatter"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Barrier Field energy shield (1500 health; regenerates after 2 seconds down)",
+          "Powered Crusader armor"
+        ]
+      },
+      "weaknesses": [
+        "Lost sight in his left eye at the Battle of Eichenwalde after an OR14 unit slashed him with a heat blade, so his left side is a blind side"
+      ],
+      "mobility": [
+        "Charge: rushes forward up to about 50 m"
+      ],
+      "limitations": [
+        "Cannot attack while holding Barrier Field, and it slows him by 30%",
+        "Barrier Field has finite health and breaks under sustained fire",
+        "Rocket Hammer reach is about 4 m"
+      ],
+      "sources": [
+        {
+          "url": "https://overwatch.fandom.com/wiki/Reinhardt",
+          "supports": "Ability kit (Rocket Hammer, Barrier Field 1500 health and 30% slow, Charge pin, Fire Strike flaming projectile, Earthshatter knockdown); described as 'Clad in powered armor' (Crusader armor, upgraded by Brigitte and Winston); lore: Eichenwalde eye wound, Asuncion hostage rescue, Romania Dragons, Paris Null Sector Titan."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Charges and pins the first enemy hit; a wall impact deals heavy damage.",
+          "citation": "Overwatch ability kit",
           "source": 0
         },
         {
-          "claim": "Executes a rising flaming dragon punch (Shoryuken) to defeat opponents.",
-          "citation": "Wikipedia: Ryu (Street Fighter)",
+          "claim": "Earthshatter knocks down enemies in a 50-degree cone in front of him for 3 seconds.",
+          "citation": "Overwatch ability kit",
+          "source": 0
+        },
+        {
+          "claim": "Charged into a hostage situation at the Palacio de Lopez in Asuncion against orders and saved 47 of 50 hostages.",
+          "citation": "Overwatch lore (Asuncion)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Dragons",
+          "result": "loss",
+          "citation": "Overwatch lore (Romania)",
+          "note": "The Dragons beat Reinhardt badly at first.",
+          "source": 0
+        },
+        {
+          "opponent": "The Dragons",
+          "result": "win",
+          "citation": "Overwatch lore (Romania)",
+          "note": "He returned in new armor and drove them out of the area.",
+          "source": 0
+        },
+        {
+          "opponent": "Null Sector Titan",
+          "result": "win",
+          "citation": "Overwatch lore (Paris, Zero Hour)",
+          "note": "Team result: Reinhardt and Brigitte held it off until Tracer finished it.",
+          "source": 0
+        },
+        {
+          "opponent": "Hivemind",
+          "result": "inconclusive",
+          "citation": "Overwatch lore (Asuncion)",
+          "note": "He saved 47 hostages, but Hivemind escaped with the data.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "The Overwatch Wiki describes him as 'Clad in powered armor' (Crusader armor).",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Powered Crusader armor and rocket hammer; under the owner ruling, powered armor earns tech.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Fire Strike launches a flaming projectile from his hammer.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "No documented height was verified, so giant-sized is not proposed.",
+        "Durability limits of the Crusader armor against high-end weaponry are not documented in the opened source."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ryu",
+      "continuity": "Street Fighter series (Capcom) main canon: Street Fighter through Street Fighter V",
+      "summary": "Ryu is a wandering Ansatsuken martial artist trained by Gouken. He fights with the Hadoken energy projectile, the rising Shoryuken and the spinning Tatsumaki Senpukyaku, plus super combos such as the Shinku Hadoken and Shin Shoryuken. He constantly struggles against the Satsui no Hado, the murderous dark side of his art.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "fire"
+        ],
+        "techniques": [
+          "Hadoken",
+          "Shoryuken",
+          "Tatsumaki Senpukyaku",
+          "Shinku Hadoken",
+          "Shin Shoryuken",
+          "Shakunetsu Hadoken",
+          "Denjin Hadoken (charged)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "The Shoryuken's start-up can evade projectiles"
+        ]
+      },
+      "weaknesses": [
+        "The Satsui no Hado inside him can be exploited: M. Bison used it to brainwash him by comparing it to his own Psycho Power (Alpha)"
+      ],
+      "mobility": [],
+      "limitations": [
+        "Refuses to use the Satsui no Hado, so he fights without its power unless it takes over"
+      ],
+      "sources": [
+        {
+          "url": "https://streetfighter.fandom.com/wiki/Ryu",
+          "supports": "Ansatsuken style, Hadouken/Shoryuken/Tatsumaki, super combos (Shinkuu Hadouken, Shin Shoryuken, charged Denjin Hadouken), Shakunetsu Hadouken without setting himself on fire; results vs Sagat, Akuma, Ken, M. Bison (Alpha brainwashing), Oro, Alex, Hugo; Satsui no Hadou struggle."
+        },
+        {
+          "url": "https://streetfighter.fandom.com/wiki/Main_Story",
+          "supports": "Street Fighter V 'A Shadow Falls': Ryu controls the Satsui no Hado to deliver the final blow that reverts Necalli; Ken loses to Ryu at the end."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Has the most concentrated Hadouken of Gouken's students; only Akuma matches or surpasses it in some cases.",
+          "citation": "Street Fighter Wiki",
+          "source": 0
+        },
+        {
+          "claim": "Can use the Shakunetsu Hadouken (a burning Hadoken) without setting himself on fire.",
+          "citation": "Street Fighter Wiki",
           "source": 0
         }
       ],
@@ -177,186 +267,370 @@
         {
           "opponent": "Sagat",
           "result": "win",
-          "citation": "Wikipedia: Ryu (Street Fighter)",
-          "note": "Won the first World Warrior tournament final, though scarred Sagat in the process.",
+          "citation": "Street Fighter (first World Warrior tournament)",
+          "note": "Ryu nearly lost; later games show him giving in to the Satsui no Hado for the Metsu Shoryuken that scarred Sagat's chest.",
           "source": 0
-        }
-      ],
-      "unknowns": [
-        "The full extent of his spiritual potential without succumbing to the Satsui no Hado.",
-        "Removed by review (not supported by the cited source): defense: Martial arts blocking; defense: Parrying; defense: Dodging; weakness: Human physiological limits; weakness: Vulnerable to zoning and overwhelming psychic or magical attacks; mobility: Dash",
-        "Flagged needs-review: cited page never mentions the character."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Ryu|Evil Ryu",
-      "continuity": "Street Fighter series",
-      "summary": "Evil Ryu is the form Ryu takes when consumed by the Satsui no Hado, trading emotional control and defense for vastly amplified offensive power, speed, and lethal dark ki techniques.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "magic"
-        ],
-        "techniques": [
-          "Metsu Hadoken",
-          "Shun Goku Satsu (Raging Demon)",
-          "Red Hadoken"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "Enhanced running speed"
-      ],
-      "formDifferences": "Replaces standard disciplined moves with murderous dark ki variants, including the Raging Demon and teleportation dashes.",
-      "sources": [
+        },
         {
-          "url": "https://en.wikipedia.org/wiki/Ryu_(Street_Fighter)",
-          "supports": "Evil Ryu persona, Satsui no Hado corruption, and altered moveset."
-        }
-      ],
-      "unknowns": [
-        "Whether Evil Ryu can permanently maintain this form without completely destroying his own body.",
-        "Removed by review (not supported by the cited source): technique: Ashura Senku; defense: Aggressive counter-attacking; defense: Intimidating pressure; weakness: Mental instability and self-destructive reliance on dark energy; weakness: Lower defensive resilience than base Ryu; mobility: Teleportation dash (Ashura Senku)",
-        "Flagged needs-review: cited page never mentions the character."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Ryu|Power of Nothingness Ryu",
-      "continuity": "Street Fighter series",
-      "summary": "This form represents Ryu having mastered the Mu no Ken (Power of Nothingness), allowing him to counter the Satsui no Hado with supreme inner peace, clarity, and devastating enlightened spiritual attacks.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "magic"
-        ],
-        "techniques": [
-          "Shin Shoryuken",
-          "Denjin Hadoken",
-          "Mu no Ken strikes"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [],
-      "formDifferences": "Replaces dark ki with enlightened spiritual energy (Mu no Ken), granting immunity to the Satsui no Hado and enhanced luminous attacks.",
-      "sources": [
+          "opponent": "Akuma",
+          "result": "loss",
+          "citation": "Street Fighter Alpha",
+          "note": "Akuma beat him on Gokuentou but was only testing him.",
+          "source": 0
+        },
         {
-          "url": "https://en.wikipedia.org/wiki/Ryu_(Street_Fighter)",
-          "supports": "Mu no Ken mastery and enlightened state surpassing Evil Ryu."
+          "opponent": "Ken",
+          "result": "loss",
+          "citation": "Street Fighter Alpha",
+          "note": "Ken won and gave Ryu his red headband; Ryu won the rematch in Third Strike.",
+          "source": 0
+        },
+        {
+          "opponent": "Ken",
+          "result": "win",
+          "citation": "Street Fighter III: 3rd Strike",
+          "note": "Rematch win.",
+          "source": 0
+        },
+        {
+          "opponent": "M. Bison",
+          "result": "loss",
+          "citation": "Street Fighter Alpha",
+          "note": "Bison defeated and brainwashed him; Sagat's challenge broke it and Ryu, Ken and Sakura forced Bison to retreat.",
+          "source": 0
+        },
+        {
+          "opponent": "Oro",
+          "result": "loss",
+          "citation": "Street Fighter III",
+          "note": "Lost in the third World Warrior tournament.",
+          "source": 0
+        },
+        {
+          "opponent": "Alex",
+          "result": "win",
+          "citation": "Street Fighter III",
+          "note": "",
+          "source": 0
+        },
+        {
+          "opponent": "Hugo",
+          "result": "win",
+          "citation": "Street Fighter III",
+          "note": "",
+          "source": 0
+        },
+        {
+          "opponent": "Necalli",
+          "result": "win",
+          "citation": "Street Fighter V: A Shadow Falls",
+          "note": "Dhalsim intervened while the Hado took hold; Ryu then controlled the Satsui no Hado to land the final blow.",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
-          "tag": "electric-control",
-          "claim": "Channels concentrated electrical energy through Denjin techniques.",
+          "tag": "fire",
+          "claim": "Uses the Shakunetsu Hadouken, a burning fireball, without setting himself on fire.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Upper limits of the Power of Nothingness against cosmic-level threats.",
-        "Removed by review (not supported by the cited source): defense: Absolute spiritual composure; defense: Advanced parrying and counter-attacks; weakness: Requires extreme mental discipline to maintain; mobility: Enhanced footwork and reflexes",
-        "Flagged needs-review: cited page never mentions the character."
+        "The Denjin Hadouken's electrical nature is not stated in the opened source, so no electric tag is proposed.",
+        "Results vs Seth and Gill were not verified."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
-      "id": "games:Sam Fisher",
-      "continuity": "Tom Clancy's Splinter Cell series",
-      "summary": "Sam Fisher is a master covert ops operative specializing in stealth, infiltration, close-quarters combat, and the tactical use of high-tech gadgets and night vision equipment.",
+      "id": "games:Ryu|Evil Ryu",
+      "continuity": "Street Fighter Alpha series and later appearances (Alpha 2, Capcom vs. SNK, Super Street Fighter IV Arcade Edition), plus Street Fighter Alpha manga/anime",
+      "formDifferences": "Ryu fully consumed by the Satsui no Hado: physically demonic (red glowing eyes, fangs, darkened skin) and far more powerful, gaining Akuma-style lethal techniques such as the Shun Goku Satsu (Raging Demon), the Metsu Hadoken and the Ashura Senku, at the cost of his humanity and self-control.",
+      "summary": "Evil Ryu is a hypothetical version of Ryu who has embraced the Satsui no Hado. He is much more powerful than base Ryu and uses Akuma's Raging Demon, but loses his compassion and finds his dark side very hard to control.",
       "offense": {
         "domains": [
           "physical",
-          "tech"
+          "energy"
         ],
         "techniques": [
-          "Not established by the cited source"
+          "Shun Goku Satsu (Raging Demon)",
+          "Metsu Hadoken",
+          "Metsu Shoryuken"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Stealth and shadow concealment",
-          "Goggles (night vision/thermal)"
+          "Ashura Senku: glides across the battlefield while temporarily invulnerable"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "The Power of Nothingness counters the Satsui no Hado: Gouken used it to seal Ryu's dark power in Street Fighter IV",
+        "The Shun Goku Satsu does not affect soulless foes such as Seth"
       ],
-      "mobility": [],
-      "limitations": [],
+      "mobility": [
+        "Ashura Senku invulnerable glide-dash"
+      ],
+      "limitations": [
+        "Power comes at the expense of his humanity; he struggles to control his dark side mid-fight",
+        "Prolonged full use risks permanent possession by the Satsui no Hado"
+      ],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Sam_Fisher_(Splinter_Cell)",
-          "supports": "Sam Fisher's background as a Third Echelon agent, stealth tactics, and gadget usage."
+          "url": "https://streetfighter.fandom.com/wiki/Satsui_no_Hado",
+          "supports": "Evil Ryu as a version of Ryu who embraced the Satsui no Hado (Alpha 2, Capcom vs. SNK, SSFIV AE); physical changes; loss of humanity; prolonged use leads to permanent possession; Gouken sealed it with the Power of Nothingness in SFIV; Evil Ryu defeats Sagat, Birdie and Adon (Alpha manga), destroys Rosanov (Alpha: The Animation), and is defeated by Asura (Asura's Wrath)."
+        },
+        {
+          "url": "https://characterprofile.fandom.com/wiki/Ryu_(Street_Fighter)",
+          "supports": "Evil Ryu is much more powerful and can use the Raging Demon, at the cost of his humanity; Metsu Hadoken; Ashura Senku invulnerable glide; Shun Goku Satsu does not affect soulless foes like Seth."
+        },
+        {
+          "url": "https://streetfighter.fandom.com/wiki/Ryu",
+          "supports": "Ryu gave in to the Satsui no Hadou during the Sagat fight and landed the Metsu Shoryuken that scarred Sagat."
         }
       ],
-      "feats": [],
+      "feats": [
+        {
+          "claim": "Landed a near-fatal Metsu Shoryuken on Sagat after giving in to the Satsui no Hadou, leaving his chest scar.",
+          "citation": "Street Fighter (as retold in later games)",
+          "source": 2
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sagat",
+          "result": "win",
+          "citation": "Street Fighter Alpha manga",
+          "note": "Also defeated Birdie and Adon in the same manga.",
+          "source": 0
+        },
+        {
+          "opponent": "Rosanov",
+          "result": "win",
+          "citation": "Street Fighter Alpha: The Animation",
+          "note": "Destroyed Rosanov.",
+          "source": 0
+        },
+        {
+          "opponent": "Asura",
+          "result": "loss",
+          "citation": "Asura's Wrath (crossover DLC)",
+          "note": "Asura defeats Evil Ryu.",
+          "source": 0
+        }
+      ],
       "campaignTags": [],
       "unknowns": [
-        "Effectiveness against supernatural or highly magical entities.",
-        "Removed by review (not supported by the cited source): technique: Mark and Execute; technique: Knife takedowns; technique: CQC neck break; technique: Suppressed pistol and rifle fire; defense: Body armor; weakness: Human durability without heavy cover; weakness: Vulnerable if caught in open combat against heavily armed or superhuman foes; limitation: Limited ammunition and gadget charges; limitation: Physical strength is peak human rather than superhuman; mobility: Climbing; mobility: Rappelling; mobility: Silent movement; mobility: Parkour; feat: Infiltrates heavily guarded enemy compounds undetected.; feat: Eliminates multiple targets in rapid succession using Mark and Execute.; tag: Employs advanced stealth tactics, shadows, and concealment.; tag: Uses night vision goggles, cameras, and specialized tactical gear.; tag: Operates as a black-ops infiltration specialist.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "The Satsui no Hado page says users in general gain telekinesis and flight; this is not shown for Evil Ryu specifically, so no tags are proposed.",
+        "Manga, anime and crossover results are separate continuities from the games."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
-      "id": "games:Samus Aran",
-      "continuity": "Metroid series",
-      "summary": "Samus Aran is a galactic bounty hunter equipped with Chozo-derived powered armor featuring an arm cannon that fires energy beams, missiles, and the ability to morph into a small spherical bomb-dropping shape.",
+      "id": "games:Ryu|Power of Nothingness Ryu",
+      "continuity": "Street Fighter V (2016) and Arcade Edition: Ryu's Mu no Ken",
+      "formDifferences": "Ryu with the Power of Nothingness (Mu no Ken), the counterpart of the Satsui no Hado. In Street Fighter V he converts the dark Hado into it; his attacks become much more powerful and he can separate his soul from his body to avoid attacks like the Raging Demon, but the state has a time limit and needs concentration.",
+      "summary": "Power of Nothingness Ryu has reached the Mu no Ken state that Gouken first mastered. In Street Fighter V he converts the Satsui no Hado into it, and his Hadoken infused with the Power of Nothingness destroyed M. Bison's body at the end of A Shadow Falls.",
       "offense": {
         "domains": [
           "physical",
-          "energy",
-          "tech"
+          "energy"
         ],
         "techniques": [
-          "Power Beam",
-          "Missiles",
-          "Morph Ball Bombs"
+          "Power of Nothingness-infused Hadoken",
+          "Shin Shoryuken",
+          "Shinku Hadoken"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Power Suit energy shields"
+          "Can separate his soul from his body to avoid attacks like the Raging Demon"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited sources"
+      ],
+      "mobility": [],
+      "limitations": [
+        "The form has a time limit and cannot last for long periods",
+        "Holding it requires concentration that is hard to find mid-fight"
+      ],
+      "sources": [
+        {
+          "url": "https://streetfighter.fandom.com/wiki/Satsui_no_Hado",
+          "supports": "The Satsui no Hado is the antithesis of the Power of Nothingness; in Street Fighter V Ryu completely converted the Dark Hado into the Power of Nothingness via Hado Kakusei."
+        },
+        {
+          "url": "https://streetfighter.fandom.com/wiki/Main_Story",
+          "supports": "A Shadow Falls finale: Ryu hits Bison with a Hadoken infused with the Power of Nothingness and Bison's body cracks and falls apart; his Denjin Hadoken shields Chun-Li and Li-Fen from debris."
+        },
+        {
+          "url": "https://characterprofile.fandom.com/wiki/Ryu_(Street_Fighter)",
+          "supports": "Power of Nothingness form: much more powerful attacks, greater awareness, separating soul from body to avoid the Raging Demon; time limit and concentration requirement."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed M. Bison's body with a Power of Nothingness-infused Hadoken.",
+          "citation": "Street Fighter V: A Shadow Falls",
+          "source": 1
+        },
+        {
+          "claim": "Shielded Chun-Li and Li-Fen from reactor debris with his Denjin Hadoken.",
+          "citation": "Street Fighter V: A Shadow Falls",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "M. Bison",
+          "result": "win",
+          "citation": "Street Fighter V: A Shadow Falls",
+          "note": "Final battle; Bison had already collapsed on one knee when Ryu's infused Hadoken destroyed his body.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "Gemini's electric-control tag was removed: the opened sources do not describe the Denjin Hadoken as electric.",
+        "How exactly Ryu attains the state in SFV (beyond Hado Kakusei conversion) is not detailed in the opened sources."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Sam Fisher",
+      "continuity": "Tom Clancy's Splinter Cell series (Ubisoft), Splinter Cell through Blacklist",
+      "summary": "Sam Fisher is a former Navy SEAL and the first Splinter Cell field operative of the NSA's Third Echelon, later commander of Fourth Echelon. He is a stealth infiltrator trained in Krav Maga, knife fighting and ambidextrous shooting, using the SC-20K rifle, the Five-seveN pistol and gadgets such as sticky cameras, sonar goggles and a portable EMP generator.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Krav Maga and knife takedowns",
+          "SC-20K rifle with 40mm launcher (sticky shockers, gas grenades)",
+          "Five-seveN pistol",
+          "Mark and execute from concealment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Stealth and concealment, especially in darkness"
         ]
       },
       "weaknesses": [
         "Not established by the cited source"
       ],
       "mobility": [
-        "Space Jump"
+        "Climbing and parkour movement",
+        "Split Jump",
+        "Swims and stays underwater for long periods"
       ],
       "limitations": [],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Samus_Aran",
-          "supports": "Samus Aran's Power Suit, arm cannon, Morph Ball, and bounty hunter capabilities."
+          "url": "https://splintercell.fandom.com/wiki/Sam_Fisher",
+          "supports": "Navy SEAL and Third Echelon/Fourth Echelon background; stealth (silent movement, concealment, marking multiple targets); Krav Maga, knife fighting, ambidextrous shooting; SC-20K, Five-seveN, knives, portable EMP generator and sonar goggles (Conviction); named targets Kombayn Nikoladze, Admiral Otomo, Emile Dufraisne, Tom Reed, Andriy Kobin, Majid Sadiq."
         }
       ],
       "feats": [
         {
-          "claim": "Tanks massive energy blasts and physical impacts within her Power Suit.",
-          "citation": "Wikipedia: Samus Aran",
+          "claim": "Moves silently, conceals himself and marks multiple targets for takedown from concealment.",
+          "citation": "Splinter Cell series",
+          "source": 0
+        },
+        {
+          "claim": "Captured Majid Sadiq at Site F.",
+          "citation": "Splinter Cell: Blacklist",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Emile Dufraisne",
+          "result": "win",
+          "citation": "Splinter Cell: Double Agent",
+          "note": "Killed during the JBA deep-cover operation.",
+          "source": 0
+        },
+        {
+          "opponent": "Majid Sadiq",
+          "result": "win",
+          "citation": "Splinter Cell: Blacklist",
+          "note": "Defeated and imprisoned, not killed.",
+          "source": 0
+        },
+        {
+          "opponent": "Andriy Kobin",
+          "result": "win",
+          "citation": "Splinter Cell: Conviction and Blacklist",
+          "note": "Captured and interrogated.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Documented stealth skills: silent movement, concealment, and marking targets from concealment in the dark.",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "First Splinter Cell field operative; served undercover inside the JBA terrorist group.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses sticky cameras, sticky shockers, sonar goggles and a portable EMP generator.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The opened source does not mention the trademark tri-focal night-vision goggles, so they are not listed.",
+        "Several assassinations (Nikoladze, Masse, Soth) are not tied to a named game on the page and are not recorded as results."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Samus Aran",
+      "continuity": "Metroid series (Nintendo), Metroid through Metroid Dread",
+      "summary": "Samus Aran is a bounty hunter raised by the Chozo, who integrated their DNA into hers. She wears the Chozo Power Suit, a bio-mechanical armor that can assimilate many weapons and functions, including an arm cannon, missiles, the Morph Ball and bombs. She has defeated Mother Brain, Ridley, Kraid, Metroid Prime and Raven Beak.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Arm cannon beams",
+          "Missiles",
+          "Morph Ball bombs"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Chozo Power Suit bio-mechanical armor"
+        ]
+      },
+      "weaknesses": [
+        "After the Metroid-based vaccine in Metroid Fusion she inherits the Metroids' weakness to cold"
+      ],
+      "mobility": [
+        "Morph Ball"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://metroidwiki.org/wiki/Samus",
+          "supports": "Power Suit as 'a bio-mechanical armor with the ability to assimilate many weapons and functions' given by the Chozo; Chozo DNA integration; missiles, Morph Ball and bombs; victories over Mother Brain, Ridley (incl. Meta Ridley and X-infected Ridley), Kraid, Metroid Prime, Dark Samus, SA-X and Raven Beak; inherited Metroid weakness to cold after the Fusion vaccine."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbed the SA-X after it helped her defeat the Omega Metroid.",
+          "citation": "Metroid Fusion",
           "source": 0
         }
       ],
@@ -364,175 +638,296 @@
         {
           "opponent": "Mother Brain",
           "result": "win",
-          "citation": "Wikipedia: Samus Aran",
-          "note": "Defeated the Zebesian leader with assistance from the infant Metroid.",
+          "citation": "Metroid; Super Metroid",
+          "note": "In Super Metroid the Metroid Hatchling drained Mother Brain's energy before Samus destroyed her.",
+          "source": 0
+        },
+        {
+          "opponent": "Ridley",
+          "result": "win",
+          "citation": "Metroid; Super Metroid; Metroid Prime; Metroid Prime 3; Metroid Fusion",
+          "note": "Repeated victories, including Meta Ridley and an X-infected Ridley.",
+          "source": 0
+        },
+        {
+          "opponent": "Kraid",
+          "result": "win",
+          "citation": "Metroid; Super Metroid",
+          "note": "",
+          "source": 0
+        },
+        {
+          "opponent": "Metroid Prime",
+          "result": "win",
+          "citation": "Metroid Prime",
+          "note": "",
+          "source": 0
+        },
+        {
+          "opponent": "Raven Beak",
+          "result": "win",
+          "citation": "Metroid Dread",
+          "note": "Destroyed his X Parasite form.",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-armor",
-          "claim": "Wears the Chozo Power Suit.",
+          "claim": "Wears the Chozo Power Suit, a bio-mechanical armor that assimilates weapons and functions.",
           "source": 0
         },
         {
-          "tag": "gadgets",
-          "claim": "Uses Morph Ball, bombs, and grappling beams.",
+          "tag": "tech",
+          "claim": "Advanced Chozo powered armor; under the owner ruling, powered armor earns tech.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Full extent of her Chozo-infused DNA capabilities outside of her suit.",
-        "Removed by review (not supported by the cited source): technique: Screw Attack; defense: Energy tanks; defense: Agile dodging; weakness: Vulnerable to extreme parasitic drains (like Metroids) without specific suit upgrades; weakness: Limited defense if armor is severely compromised; limitation: Requires energy refills and ammunition pickups for missiles; limitation: Certain environments require specific suit upgrades to survive; mobility: Speed Booster running; mobility: Morph Ball rolling; feat: Destroys entire planetary ecosystems and alien fortresses single-handedly.; tag: Performs high-speed aerial spins and Space Jump maneuvers.",
-        "Flagged needs-review: most claims unsupported by sources."
+        "Gemini's 'gadgets' tag was removed: the weapons are integrated suit functions, already covered by powered-armor and tech.",
+        "Space Jump, Screw Attack and Speed Booster are not described in the opened source.",
+        "The fabricated feat 'destroys entire planetary ecosystems single-handedly' was not restored."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     },
     {
       "id": "games:Samus Aran|Gravity Suit Samus",
-      "continuity": "Metroid series",
-      "summary": "Equipped with the Gravity Suit upgrade, Samus gains immunity to environmental movement penalties in liquids like water or lava, alongside a major reduction in damage taken from enemy attacks.",
+      "continuity": "Super Metroid (1994)",
+      "formDifferences": "Samus in the Gravity Suit, found outside the Wrecked Ship after Phantoon is defeated. It lets her move freely underwater and cuts damage taken by 25% (75% combined with the Varia Suit).",
+      "summary": "Gravity Suit Samus is Samus Aran in Super Metroid's Gravity Suit, which removes the underwater movement penalty needed to explore Maridia and Ridley's Hideout and adds damage reduction on top of the Varia Suit.",
       "offense": {
         "domains": [
-          "physical",
           "energy",
-          "tech"
+          "tech",
+          "physical"
         ],
         "techniques": [
-          "Enhanced Beam attacks"
+          "Arm cannon beams",
+          "Missiles",
+          "Morph Ball bombs"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Not established by the cited source"
+          "Gravity Suit: 25% damage reduction, 75% combined with the Varia Suit"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Not established by the cited sources"
       ],
       "mobility": [
-        "Space Jump"
+        "Moves freely underwater"
       ],
-      "formDifferences": "Reduces damage taken by half and eliminates water/liquid movement friction compared to the standard Power Suit.",
+      "limitations": [],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Samus_Aran",
-          "supports": "Gravity Suit properties granting resistance and fluid movement underwater."
+          "url": "https://www.metroidwiki.org/wiki/Gravity_Suit",
+          "supports": "Super Metroid: acquired outside the Wrecked Ship after Phantoon restores power; lets Samus 'move freely underwater', required for Maridia and Ridley's Hideout; reduces damage by 25%, 75% combined with the Varia Suit."
+        },
+        {
+          "url": "https://metroidwiki.org/wiki/Samus",
+          "supports": "Super Metroid victories over Ridley, Kraid and Mother Brain (after the Metroid Hatchling drained her energy)."
+        }
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "opponent": "Ridley",
+          "result": "win",
+          "citation": "Super Metroid",
+          "note": "Fought in Ridley's Hideout, which requires the Gravity Suit.",
+          "source": 1
+        },
+        {
+          "opponent": "Mother Brain",
+          "result": "win",
+          "citation": "Super Metroid",
+          "note": "The Metroid Hatchling drained Mother Brain's energy before Samus destroyed her.",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-armor",
-          "claim": "Wears the upgraded Gravity Suit.",
+          "claim": "Wears the Chozo Power Suit in its Gravity Suit configuration.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Advanced powered armor; under the owner ruling, powered armor earns tech.",
+          "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "The Gravity Suit lets her move freely underwater and is required to explore Maridia.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact thermal threshold in extreme magmas.",
-        "Removed by review (not supported by the cited source): technique: Gravity Boost; technique: Screw Attack; defense: Gravity Suit damage reduction; defense: Unaltered mobility in liquids; weakness: Still vulnerable to specialized corruption agents like Phazon without further upgrades; mobility: Unimpeded underwater movement; tag: Operates fully submerged without movement hindrance."
+        "Lava or magma protection is not confirmed for Super Metroid in the opened source, so it is not listed."
       ],
       "researchStatus": "provisional"
     },
     {
       "id": "games:Samus Aran|Metroid Suit Samus",
-      "continuity": "Metroid Dread",
-      "summary": "In her Metroid Suit form, Samus manifests organic Metroid traits across her armor, granting her the ability to drain life energy directly from foes and neutralize dangerous X Parasites.",
+      "continuity": "Metroid Dread (2021): Metroid DNA awakening",
+      "formDifferences": "During the final fight with Raven Beak, Samus's Metroid DNA fully awakens and her Gravity Suit turns into the Metroid Suit. It drains a large amount of energy from Raven Beak and his ship and gives her the Hyper Beam, a terrain-penetrating laser that is the only weapon able to kill X Parasites outright.",
+      "summary": "Metroid Suit Samus is Samus after her Metroid DNA awakens during the Raven Beak fight. Her raw Metroid-style suit drains energy and fires the Hyper Beam, with which she destroyed Raven Beak X. The suit was neutralized when she absorbed the X Parasite carrying Quiet Robe's DNA.",
       "offense": {
         "domains": [
-          "physical",
           "energy",
-          "magic"
+          "tech"
         ],
         "techniques": [
-          "Life energy drain",
-          "Melee counter drain"
+          "Hyper Beam",
+          "Metroid energy drain"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Organic Metroid energy absorption"
+          "Drains energy from attackers and their machinery (absorbed energy from Raven Beak and his ship)"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited sources"
+      ],
+      "mobility": [],
+      "limitations": [
+        "Its energy drain would have stopped her ship from leaving the planet intact",
+        "The Hyper Beam reportedly disables missiles, the Grapple Beam and the Omega Cannon"
+      ],
+      "sources": [
+        {
+          "url": "https://metroid.fandom.com/wiki/Hyper_Beam_(Metroid_Dread)",
+          "supports": "After fully awakening her Metroid DNA while fighting Raven Beak, Samus's Gravity Suit turns into the Metroid Suit; the Hyper Beam penetrates terrain, is the only weapon that kills X Parasites outright, and was used twice to destroy Raven Beak X; absorbing the X with Quiet Robe's DNA neutralized the suit."
+        },
+        {
+          "url": "https://www.dualshockers.com/metroid-dread-samus-final-suit-in-the-ending-mission-explained/",
+          "supports": "Awakened 'full Metroid ability' drains a large amount of energy from Raven Beak and his spaceship; the energy-draining suit would stop her jet from leaving intact; Quiet Robe's sacrifice returns her suit to normal."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Drained a large amount of energy from Raven Beak and his spaceship.",
+          "citation": "Metroid Dread",
+          "source": 1
+        },
+        {
+          "claim": "Fired the Hyper Beam, a terrain-penetrating laser that kills X Parasites outright.",
+          "citation": "Metroid Dread",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Raven Beak X",
+          "result": "win",
+          "citation": "Metroid Dread",
+          "note": "Raven Beak had nearly suffocated her before the awakening; she destroyed his X-mutated form with two Hyper Beam shots.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Metroid Suit and Hyper Beam",
+          "dependsOn": "Awakened Metroid DNA; neutralized when she absorbed the X Parasite carrying Quiet Robe's DNA",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "The Metroid Suit is her Power Suit transformed by awakened Metroid DNA.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Advanced powered armor with an arm cannon; under the owner ruling, powered armor earns tech.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether she stole Raven Beak's beam is fan speculation; the in-game Samus Screen says the Hyper Beam combines her own Arm Cannon abilities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Samus Aran|Phazon Suit Samus",
+      "continuity": "Metroid Prime (2002)",
+      "formDifferences": "Samus's suit after the Omega Pirate falls on her and Phazon seeps in, causing viral corruption. It gives complete protection from Blue Phazon, dramatically increases shielding, and enables Hyper-Mode and the Phazon Beam needed to defeat Metroid Prime.",
+      "summary": "Phazon Suit Samus is Samus in the corrupted suit she gains from the Omega Pirate battle in Metroid Prime. It shields her from Blue Phazon and enables the Phazon Beam, which she used to defeat Metroid Prime, who then tore the suit off her and later became Dark Samus.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Phazon Beam (Hyper-Mode)",
+          "Arm cannon beams",
+          "Missiles"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dramatically increased shielding",
+          "Complete protection from Blue Phazon"
         ]
       },
       "weaknesses": [
         "Not established by the cited source"
       ],
       "mobility": [],
-      "formDifferences": "Replaces standard suit aesthetic with organic Metroid elements and grants energy-draining melee capabilities.",
+      "limitations": [
+        "Protects fully only against Blue Phazon; more potent types of Phazon still damage her"
+      ],
       "sources": [
         {
-          "url": "https://en.wikipedia.org/wiki/Metroid_Dread",
-          "supports": "Metroid Suit acquisition and energy-draining powers in Metroid Dread."
+          "url": "https://www.metroidwiki.org/wiki/Phazon_Suit",
+          "supports": "Formed when the Omega Pirate fell on Samus and Phazon seeped into her suit; complete protection from Blue Phazon but more potent Phazon still damages; dramatically increased shielding; enables Hyper-Mode and the Phazon Beam required to defeat Metroid Prime; Metroid Prime pulls the suit off after its defeat and later becomes Dark Samus."
+        }
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "opponent": "Omega Pirate",
+          "result": "win",
+          "citation": "Metroid Prime",
+          "note": "The suit formed when the Omega Pirate fell on her during their battle.",
+          "source": 0
+        },
+        {
+          "opponent": "Metroid Prime",
+          "result": "win",
+          "citation": "Metroid Prime",
+          "note": "The Phazon Beam was required to defeat it; after its defeat it pulled the Phazon Suit off her, leaving her in the Gravity Suit.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Phazon Beam / Hyper-Mode",
+          "dependsOn": "The Phazon Suit's corruption",
+          "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-armor",
-          "claim": "Wears the organic Metroid-infused Suit.",
+          "claim": "Wears the Phazon-corrupted Chozo Power Suit.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Advanced powered armor; under the owner ruling, powered armor earns tech.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Long-term mental and physical consequences of full Metroid transformation.",
-        "Removed by review (not supported by the cited source): technique: Enhanced arm cannon blasts; defense: Enhanced resilience; weakness: Instability of raw Metroid DNA urges; weakness: Vulnerable to extreme cold if traditional Metroid weaknesses apply; mobility: Space Jump; mobility: Flash Shift; mobility: Spider Magnet; tag: Drains life force from enemies to sustain herself.",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Samus Aran|Phazon Suit Samus",
-      "continuity": "Metroid Prime",
-      "summary": "Empowered by radioactive Phazon corruption, Samus wears the Phazon Suit which grants total immunity to blue Phazon hazards and unleashes devastating hyper-mode energy attacks.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "tech"
-        ],
-        "techniques": [
-          "Phazon Beam",
-          "Phazon-infused missiles"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "Space Jump",
-        "Morph Ball boost"
-      ],
-      "formDifferences": "Changes suit coloration to dark blue/black and grants immunity to Phazon hazards along with the lethal Phazon Beam.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Metroid_Prime",
-          "supports": "Phazon Suit attributes and Phazon beam weaponry in Metroid Prime."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Absorbs concentrated Phazon energy to overload enemy targets.",
-          "citation": "Wikipedia: Metroid Prime",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "powered-armor",
-          "claim": "Wears the Phazon-infused Power Suit.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Complete permanence of Phazon corruption after the destruction of Phaaze.",
-        "Removed by review (not supported by the cited source): technique: Hyper Mode; defense: Phazon Suit radiation shielding; defense: Immunity to standard Phazon pools; weakness: Risk of corruption overtaking Samus if Hyper Mode is overused; weakness: Vulnerable to concentrated anti-phazon forces; conditional: Hyper Mode / Phazon Beam"
+        "Gemini's feat 'absorbs concentrated Phazon energy to overload enemy targets' is not described in the opened source and was not kept.",
+        "Exact conditions for activating the Phazon Beam are not described in the opened source."
       ],
       "researchStatus": "provisional"
     }
