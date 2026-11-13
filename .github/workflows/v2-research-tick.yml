@@ -22,9 +22,9 @@ concurrency:
   cancel-in-progress: false
 env:
   BASE: develop/v2-option-c
-  # Pin to the merge commit of #100 on develop/v2-option-c once merged. Empty = scheduler idle.
+  # Merge commit of #100 on develop/v2-option-c (2026-11-13). Empty = scheduler idle.
   # Every change to this line needs a reviewed PR to main.
-  TOOLS_SHA: ''
+  TOOLS_SHA: 'ba86f095ac5f8e223f42cc4be919e9d941868b8c'
 jobs:
   snapshot:
     if: github.repository == 'garrettem-op/Draft_Anything'
