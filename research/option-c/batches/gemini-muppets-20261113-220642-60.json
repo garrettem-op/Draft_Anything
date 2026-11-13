@@ -1,0 +1,381 @@
+{
+  "batchId": "Gemini V2 research muppets 20261113-220642 #60",
+  "schemaVersion": 1,
+  "pool": "muppets",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "muppets:Lefty the Salesman",
+      "continuity": "Sesame Street",
+      "summary": "Lefty the Salesman is a shady, trench-coated Muppet who famously tries to sell bizarre or useless items to Ernie in Sesame Street sketches. He relies on persuasion, stealthy approaches, and door-to-door sales tactics rather than physical combat.",
+      "offense": {
+        "domains": [
+          "social",
+          "stealth"
+        ],
+        "techniques": [
+          "Door-to-door sales pitch",
+          "Whispered persuasion",
+          "Unusual merchandise presentation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Trench coat and hat disguise",
+          "Quick retreat when recognized"
+        ]
+      },
+      "weaknesses": [
+        "Easily recognized by regular customers like Ernie",
+        "Lacks physical combat capability"
+      ],
+      "mobility": [
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Lefty_the_Salesman",
+          "supports": "Summary of Lefty the Salesman's characteristics, recurring sketches with Ernie, and his signature trench coat appearance."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Lew Zealand",
+      "continuity": "The Muppet Show",
+      "summary": "Lew Zealand is a specialized comedy act who performs by throwing boomerang fish across the stage. While humorous, his only practical method of engagement involves hurling raw seafood that reliably returns to him.",
+      "offense": {
+        "domains": [
+          "physical",
+          "ranged"
+        ],
+        "techniques": [
+          "Boomerang fish throw"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dodging off-stage"
+        ]
+      },
+      "weaknesses": [
+        "Relies entirely on throwing fish",
+        "Fish can be caught or avoided by alert targets"
+      ],
+      "mobility": [
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Lew_Zealand",
+          "supports": "Lew Zealand's signature boomerang fish act and performance history on The Muppet Show."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Link Hogthrob",
+      "continuity": "The Muppet Show",
+      "summary": "Link Hogthrob is a pompous, self-absorbed pig who frequently portrays heroic space captains or military officers in sketches like Pigs in Space. He poses as a capable commander but is usually cowardly and incompetent in actual danger.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Blaster pistol handling",
+          "Pompous posturing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hiding behind subordinates",
+          "Spaceship bulkheads"
+        ]
+      },
+      "weaknesses": [
+        "Cowardly under pressure",
+        "Excessive vanity"
+      ],
+      "mobility": [
+        "pilot",
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Link_Hogthrob",
+          "supports": "Link Hogthrob's roles in Pigs in Space and general personality traits."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Serves as the captain and pilot of the Swinetrek in Pigs in Space sketches.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Lips",
+      "continuity": "The Muppet Show",
+      "summary": "Lips is the laid-back, trumpet-playing member of the Electric Mayhem band. He communicates primarily through his trumpet and musical performance rather than aggressive action.",
+      "offense": {
+        "domains": [
+          "energy"
+        ],
+        "techniques": [
+          "Trumpet playing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Musical distraction"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Lips",
+          "supports": "Lips' role as the trumpet player for Dr. Teeth and the Electric Mayhem."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Little Bird",
+      "continuity": "Sesame Street",
+      "summary": "Little Bird is a tiny yellow bird character on Sesame Street who speaks in a high-pitched squeak and interacts with Big Bird. Possesses no combat abilities.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Pecking",
+          "Fluttering"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Flight to safety"
+        ]
+      },
+      "weaknesses": [
+        "Extremely small size and fragile build"
+      ],
+      "mobility": [
+        "natural-flight"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Little_Bird",
+          "supports": "Little Bird's appearance and characteristics on Sesame Street."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies as a small bird on Sesame Street.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Ma Gorg",
+      "continuity": "Fraggle Rock",
+      "summary": "Ma Gorg is one of the giant Gorgs who rule over Fraggle Rock, wielding a makeshift scepter and tending to her garden. She possesses immense physical size and strength relative to smaller creatures like Fraggles.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Club swinging",
+          "Stomping"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive physical durability"
+        ]
+      },
+      "weaknesses": [
+        "Clumsy",
+        "Easily outsmarted by Fraggles"
+      ],
+      "mobility": [
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Ma_Gorg",
+          "supports": "Ma Gorg's size, role as queen of the Gorgs, and home environment in Fraggle Rock."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands as a giant Gorg towering over Fraggles.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Ma Otter",
+      "continuity": "Emmet Otter's Jug-Band Christmas",
+      "summary": "Ma Otter is a hardworking river otter who struggles to make ends meet in Fraggle Rock / Christmas continuity. She relies on domestic resourcefulness and musical talent rather than combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Washing board percussion",
+          "Domestic tools"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion"
+        ]
+      },
+      "weaknesses": [
+        "Aged and frail"
+      ],
+      "mobility": [
+        "swimming",
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Ma_Otter",
+          "supports": "Ma Otter's role in Emmet Otter's Jug-Band Christmas."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "An otter who lives by and navigates rivers.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Mahna Mahna",
+      "continuity": "The Muppet Show",
+      "summary": "Mahna Mahna is an energetic, scat-singing wildman accompanied by the Snowicorns. He overwhelms opponents and audiences with chaotic musical numbers and erratic dancing.",
+      "offense": {
+        "domains": [
+          "sonic",
+          "physical"
+        ],
+        "techniques": [
+          "Scat singing",
+          "Erratic chaotic dancing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Unpredictable movement"
+        ]
+      },
+      "weaknesses": [
+        "Easily distracted by musical rhythms"
+      ],
+      "mobility": [
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Mahna_Mahna_(character)",
+          "supports": "Mahna Mahna's musical sketches and chaotic performance style."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Marjory the Trash Heap",
+      "continuity": "Fraggle Rock",
+      "summary": "Marjory the Trash Heap is an ancient, wise oracle living in Fraggle Rock who possesses mystical insight, garbage manipulation, and the ability to offer prophetic advice.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Prophecy",
+          "Garbage telekinesis / summoning"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immobile trash pile structure",
+          "Rat defense force"
+        ]
+      },
+      "weaknesses": [
+        "Completely stationary",
+        "Dependent on her heap for survival"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Marjory_the_Trash_Heap",
+          "supports": "Marjory the Trash Heap's oracle abilities and role in Fraggle Rock."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "muppets:Marvin Suggs",
+      "continuity": "The Muppet Show",
+      "summary": "Marvin Suggs is a musical performer who plays unusual instruments, most notably the 'Marrows'—a collection of squeaking creatures that he strikes with mallets to produce notes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mallet strikes",
+          "Animal percussion"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Stage presence"
+        ]
+      },
+      "weaknesses": [
+        "Relies entirely on handheld props and animals"
+      ],
+      "mobility": [
+        "walking"
+      ],
+      "sources": [
+        {
+          "url": "https://muppet.fandom.com/wiki/Marvin_Suggs",
+          "supports": "Marvin Suggs' musical acts with the Marrows on The Muppet Show."
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
