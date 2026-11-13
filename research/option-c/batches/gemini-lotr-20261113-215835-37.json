@@ -1,0 +1,535 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-215835 #37",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Théoden",
+      "continuity": "The Lord of the Rings (Books / Films)",
+      "summary": "Théoden is the King of Rohan, leading his cavalry (the Rohirrim) into battle with a sword and shield, inspiring his men through charismatic leadership.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sword strike",
+          "Cavalry charge"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Plate/Mail armor",
+          "Shield",
+          "Royal guards"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to aging and manipulation when weakened by dark magic"
+      ],
+      "mobility": [
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Peak physical capability restricted by mortal human biology and aging"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Th%C3%A9oden",
+          "supports": "Basic biographical details, role as King of Rohan, and participation in major battles."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led the charge of the Rohirrim at the Battle of the Pelennor Fields.",
+          "citation": "The Return of the King",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Witch-king of Angmar",
+          "result": "loss",
+          "citation": "The Return of the King",
+          "note": "Théoden was crushed beneath his fallen horse and fatally wounded.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Rides a horse into battle as a cavalry leader.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Thingol",
+      "continuity": "The Silmarillion",
+      "summary": "Elu Thingol is the King of Doriath, wielding the powerful sword Aranrúth and defended by the Girdle of Melian, possessing immense ancient Elven might.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Swordsmanship with Aranrúth"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Girdle of Melian (protective barrier around Doriath)",
+          "Elven armor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical assassination when isolated from his guard and magical defenses"
+      ],
+      "mobility": [
+        "Foot travel"
+      ],
+      "limitations": [
+        "Subject to physical harm and death despite high status among the Eldar"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Thingol",
+          "supports": "Thingol's status as King of Doriath, wielded Aranrúth, and encounters with dwarves."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought against Orcs and established the realm of Doriath.",
+          "citation": "The Silmarillion",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dwarves of Nogrod",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Ambushed and slain in Menegroth over the Naugláfir dispute.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Possesses immense innate power and rules over magical realms protected by Melian.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Thranduil",
+      "continuity": "The Hobbit / The Lord of the Rings",
+      "summary": "Thranduil is the Elvenking of the Woodland Realm, fighting with an elven blade and bow, commanding elite woodland guards and riding an elk.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Elven swordsmanship",
+          "Archery"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven armor",
+          "Agility"
+        ]
+      },
+      "weaknesses": [
+        "Prone to isolationism and cautious regarding losses among his people"
+      ],
+      "mobility": [
+        "Elk mount",
+        "Foot travel"
+      ],
+      "limitations": [
+        "Mortal physical vulnerabilities characteristic of high elves in Middle-earth"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Thranduil",
+          "supports": "Thranduil's background as King of Northern Mirkwood and involvement in the Battle of the Five Armies."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought in the Battle of the Five Armies protecting his realm.",
+          "citation": "The Hobbit",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bolg's Orc army",
+          "result": "win",
+          "citation": "The Hobbit",
+          "note": "Victorious alongside dwarves and men at the Battle of the Five Armies.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Rides a giant elk into combat.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Treebeard",
+      "continuity": "The Lord of the Rings",
+      "summary": "Treebeard (Fangorn) is the oldest of the Ents, possessing immense superhuman strength, able to shatter stone and hurl boulders with ease.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Boulder throwing",
+          "Crushing/pounding attacks with limbs"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tree-like bark skin",
+          "Massive size and durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to fire and burning agents like liquid fire"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Slow to anger and deliberate in action",
+        "Vulnerable to fire"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Treebeard",
+          "supports": "Treebeard's characteristics as an Ent, strength, and assault on Isengard."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led the Ents to demolish the stone walls and dams of Isengard.",
+          "citation": "The Two Towers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Saruman's Orcs / Isengard defenses",
+          "result": "win",
+          "citation": "The Two Towers",
+          "note": "Overwhelmed Isengard alongside fellow Ents.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Ents stand roughly fourteen feet tall or higher.",
+          "source": 0
+        },
+        {
+          "tag": "giants",
+          "claim": "Belongs to the race of giant tree-herders.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Troll Chieftain",
+      "continuity": "The Lord of the Rings (Films)",
+      "summary": "A massive armored cave troll serving Sauron's forces, wielding a colossal hammer and possessing immense brutish strength and durability.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Heavy hammer strikes",
+          "Trampling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy plate armor",
+          "Thick troll hide"
+        ]
+      },
+      "weaknesses": [
+        "Low intelligence, vulnerable to targeted strikes in unarmored areas"
+      ],
+      "mobility": [
+        "Walking/Running"
+      ],
+      "limitations": [
+        "Susceptible to sunlight turning standard trolls to stone (though Olog-hai resist this)"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Troll_(Middle-earth)",
+          "supports": "General characteristics of trolls in Middle-earth, including size and strength."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Nearly killed Aragorn during the skirmish at the Black Gate / Moria.",
+          "citation": "The Return of the King",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Aragorn",
+          "result": "inconclusive",
+          "citation": "The Return of the King",
+          "note": "Fought fiercely before being defeated by concerted effort.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Extremely tall and bulky humanoid monster.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Tulkas",
+      "continuity": "The Silmarillion",
+      "summary": "Tulkas the Wrestler is a Valar champion of physical might, fighting unarmed with unmatched strength, speed, and endurance, laughing in combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Unarmed wrestling",
+          "Overwhelming physical strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine resilience",
+          "Invulnerability to normal weapons"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Superhuman running speed",
+        "Flight/travel across Arda"
+      ],
+      "limitations": [
+        "None within his mythological scope"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Valar",
+          "supports": "Tulkas's role as one of the Valar, noted for physical strength and wrestling prowess."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wrestled and overthrew Melkor prior to the creation of the Sun.",
+          "citation": "The Silmarillion",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Melkor",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Subdued Melkor single-handedly during the Days of Arda's shaping.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "A supreme angelic being capable of assuming towering physical forms.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Tuor",
+      "continuity": "The Silmarillion",
+      "summary": "Tuor of the Edain is a hero of men who wields the axe Dramborleg, guided by Ulmo to find Gondolin and fight against Morgoth's forces.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Axe combat with Dramborleg"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven/Man armor",
+          "Shield"
+        ]
+      },
+      "weaknesses": [
+        "Mortal limitations"
+      ],
+      "mobility": [
+        "Foot travel"
+      ],
+      "limitations": [
+        "Subject to mortal fatigue and injury"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tuor",
+          "supports": "Tuor's heritage, wielding of Dramborleg, and journey to Gondolin."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew several Orc captains during the Fall of Gondolin.",
+          "citation": "The Fall of Gondolin / The Silmarillion",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orc captains",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Defended refugees during the sack of Gondolin.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Túrin Turambar",
+      "continuity": "The Silmarillion",
+      "summary": "Túrin Turambar is a tragic and formidable human warrior, wielding the black sword Gurthang and wearing dragon-helm armor, known for legendary prowess against monsters and men.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Swordsmanship with Gurthang"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dragon-helm of Hador",
+          "Plate armor and exceptional parrying skill"
+        ]
+      },
+      "weaknesses": [
+        "Plagued by tragic curse, deception, and psychological despair"
+      ],
+      "mobility": [
+        "Foot travel"
+      ],
+      "limitations": [
+        "Mortal human endurance and vulnerability to psychological manipulation"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/T%C3%BArin_Turambar",
+          "supports": "Túrin's feats including slaying Glaurung and wielding Gurthang."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew the great dragon Glaurung from beneath using Gurthang.",
+          "citation": "The Silmarillion / The Children of Húrin",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Glaurung",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Fatally stabbed the dragon from the ravine of Cabed Naeramarth, though Túrin died shortly after.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Uglúk",
+      "continuity": "The Lord of the Rings",
+      "summary": "Uglúk is an uruk-hai captain in service to Saruman, wielding a broadsword and shield, characterized by brutal discipline and ruthless combat effectiveness.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sword strikes",
+          "Shield bash"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Iron-studded leather and crude metal armor",
+          "Shield"
+        ]
+      },
+      "weaknesses": [
+        "Overconfident and dismissive of lesser orcs and external riders"
+      ],
+      "mobility": [
+        "Running at high endurance speeds"
+      ],
+      "limitations": [
+        "Subject to standard physical damage and death from bladed weapons"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ugl%C3%Bak",
+          "supports": "Uglúk's role as Uruk-hai captain leading the captive-taking party across Rohan."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led a band of Uruk-hai across Rohan carrying Merry and Pippin.",
+          "citation": "The Two Towers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Éomer",
+          "result": "loss",
+          "citation": "The Two Towers",
+          "note": "Slain by Éomer during the ambush by the Rohirrim at Fangorn forest edge.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
