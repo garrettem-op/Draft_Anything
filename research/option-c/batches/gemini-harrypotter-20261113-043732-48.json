@@ -1,0 +1,660 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-043732 #48",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Kingsley Shacklebolt",
+      "continuity": "Harry Potter books and films",
+      "summary": "Kingsley Shacklebolt is an elite Auror and high-ranking member of the Order of the Phoenix who excels in dueling multiple opponents simultaneously. He relies on advanced combat spells, protective enchantments, and rapid wandwork.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Stunners",
+          "Shield Charms",
+          "Duelling spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protean shield charms",
+          "Apparition evasion"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Apparition",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Requires verbal or somatic wand gestures for most high-level combat spells."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Kingsley_Shacklebolt",
+          "supports": "Duelling skills as an Auror, membership in the Order of the Phoenix, and magical capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought against multiple Death Eaters simultaneously during the Battle of the Department of Mysteries and the Battle of Hogwarts.",
+          "citation": "Harry Potter and the Order of the Phoenix / Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Multiple Death Eaters",
+          "result": "win",
+          "citation": "Battle of the Department of Mysteries",
+          "note": "Fought alongside other Order members against Death Eater forces.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields a wand to cast complex protective and offensive magic",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Able to magically apparate to relocate during combat",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his non-verbal magic mastery compared to Albus Dumbledore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Kreacher",
+      "continuity": "Harry Potter books and films",
+      "summary": "Kreacher is a house-elf possessing potent innate magic independent of a wand, allowing him to bypass standard anti-apparition wards. He uses stealth, speed, and house-elf magic to overwhelm adversaries.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "House-elf wandless magic",
+          "Physical strikes with heavy objects"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Wandless Apparition",
+          "Enhanced house-elf resilience"
+        ]
+      },
+      "weaknesses": [
+        "Bound by servitude to masters unless explicitly freed or commanded otherwise."
+      ],
+      "mobility": [
+        "Wandless Apparition"
+      ],
+      "limitations": [
+        "Psychologically and magically compelled to obey direct commands from rightful masters."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Kreacher",
+          "supports": "House-elf magic capabilities, wandless teleportation, and combat during the Battle of Hogwarts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led the house-elves of Hogwarts into battle against the Death Eaters.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters at Hogwarts",
+          "result": "win",
+          "citation": "Battle of Hogwarts",
+          "note": "Led house-elves in attacking Death Eaters.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-teleport",
+          "claim": "Able to teleport without a wand via house-elf apparition",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capacity of house-elf offensive magic when not restricted by master commands."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Lavender Brown",
+      "continuity": "Harry Potter books and films",
+      "summary": "Lavender Brown is a student at Hogwarts and member of Dumbledore's Army who possesses standard scholastic magical training. She participates in defensive skirmishes but lacks elite combat experience.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Basic hexes and jinxes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Basic Shield Charms"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical and magical attacks due to standard human durability and limited combat experience."
+      ],
+      "mobility": [
+        "Running",
+        "Standard movement"
+      ],
+      "limitations": [
+        "Limited repertory of advanced combat magic."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Lavender_Brown",
+          "supports": "Membership in Dumbledore's Army and participation in the Battle of Hogwarts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Practiced defensive spells and jinxes as a member of Dumbledore's Army.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Fenrir Greyback",
+          "result": "loss",
+          "citation": "Battle of Hogwarts",
+          "note": "Attacked and severely injured by the werewolf.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Casts standard wizarding spells using a wand",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact extent of injuries and recovery outcome in the book versus film continuities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Lee Jordan",
+      "continuity": "Harry Potter books and films",
+      "summary": "Lee Jordan is a Hogwarts student and member of Dumbledore's Army who utilizes standard wand combat and tactical coordination. He later runs underground radio resistance broadcasting.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Standard dueling spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard Shield Charms"
+        ]
+      },
+      "weaknesses": [
+        "Standard human durability."
+      ],
+      "mobility": [
+        "Standard movement"
+      ],
+      "limitations": [
+        "Relies on standard wizarding capabilities without exceptional combat prowess."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Lee_Jordan",
+          "supports": "Dumbledore's Army membership and participation in the Battle of Hogwarts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside resistance members during the Second Wizarding War.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters",
+          "result": "win",
+          "citation": "Battle of Hogwarts",
+          "note": "Participated in defending the castle alongside other Dumbledore's Army members.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Able to cast spells with a wand",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific individual dueling victories during the final battle."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Leta Lestrange",
+      "continuity": "Fantastic Beasts films",
+      "summary": "Leta Lestrange is a powerful witch from an ancient magical family, proficient in dark arts, protective magic, and dynamic wand combat.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Powerful offensive curses",
+          "Defensive barrier casting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced Shield Charms"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability."
+      ],
+      "mobility": [
+        "Standard movement",
+        "Apparition"
+      ],
+      "limitations": [
+        "Dependent on wand-based spellcasting."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Leta_Lestrange",
+          "supports": "Magical abilities, family background, and confrontation with Gellert Grindelwald."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Struggled against and distracted Gellert Grindelwald's gathered followers at Père Lachaise Cemetery.",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gellert Grindelwald",
+          "result": "loss",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "note": "Sacrificed herself after being consumed by Grindelwald's blue fire curse.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Casts advanced magic using a wand",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her magical training outside of Hogwarts and Ministry work."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Lily Potter",
+      "continuity": "Harry Potter books and films",
+      "summary": "Lily Potter was a highly accomplished witch known for her proficiency in charms and potions. Her defining magical feat is the creation of a powerful sacrificial blood protection charm.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Charms",
+          "Protective enchantments"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sacrificial protective magic"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability to direct attacks when unprotected."
+      ],
+      "mobility": [
+        "Standard movement"
+      ],
+      "limitations": [
+        "Physical combat abilities were limited compared to frontline Aurors."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Lily_Potter",
+          "supports": "Academic prowess, membership in the Order of the Phoenix, and sacrificial magic."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Generated an ancient, impenetrable love-protection barrier through her self-sacrifice that repelled Lord Voldemort's killing curse.",
+          "citation": "Harry Potter and the Sorcerer's Stone",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lord Voldemort",
+          "result": "win",
+          "citation": "Godric's Hollow flashback",
+          "note": "Her sacrifice caused Voldemort's killing curse to rebound upon himself.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields a wand and casts protective charms",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of her active combat engagements during the First Wizarding War."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Lord Voldemort",
+      "continuity": "Harry Potter books and films",
+      "summary": "Lord Voldemort is the most feared and powerful dark wizard of his era, specializing in lethal dark magic, non-verbal spellcasting, flight without support, and horcrux-based immortality.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Killing Curse (Avada Kedavra)",
+          "Fiendfyre",
+          "Dark magical constructs",
+          "Mind invasion (Legilimency)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced Shield Charms",
+          "Horcrux anchor resurrection",
+          "Serpentine transfiguration"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance",
+        "Vulnerability to sacrificial protection and substances that destroy horcruxes (such as basilisk venom)"
+      ],
+      "mobility": [
+        "Unassisted flight",
+        "Apparition"
+      ],
+      "limitations": [
+        "Dependent on his wand's core compatibility or acquiring an external master wand for maximum efficacy."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Tom_Riddle",
+          "supports": "Mastery of dark arts, unassisted flight, Horcruxes, and dueling capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Albus Dumbledore to a stalemate at the Ministry of Magic.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        },
+        {
+          "claim": "Killed numerous powerful witches and wizards over multiple decades.",
+          "citation": "Harry Potter series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Albus Dumbledore",
+          "result": "inconclusive",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "note": "Intense duel in the Atrium resulting in a standoff.",
+          "source": 0
+        },
+        {
+          "opponent": "Harry Potter",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Final defeat when his killing curse rebounded due to wand ownership mechanics.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Master of advanced dark magic and wand-based spells",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Capable of independent human flight without broom or support",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Able to apparate and disappear across vast distances",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how he created his physical rebirth potion in Goblet of Fire."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Lord Voldemort|Voldemort with Elder Wand",
+      "continuity": "Harry Potter books and films",
+      "summary": "Empowered by the Elder Wand, Lord Voldemort possesses enhanced magical potency, magnified destructive spell output, and supreme confidence in dueling.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Amplified Killing Curses",
+          "Massive destructive blasts"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Impenetrable magical barriers",
+          "Horcrux resilience"
+        ]
+      },
+      "weaknesses": [
+        "The Elder Wand refuses to truly harm its rightful master, creating a fatal vulnerability against Harry Potter."
+      ],
+      "mobility": [
+        "Unassisted flight",
+        "Apparition"
+      ],
+      "limitations": [
+        "Subject to the unique allegiance laws of the Elder Wand."
+      ],
+      "formDifferences": "Wields the Elder Wand, increasing his raw spell output and destructive capability, though allegiance limitations create a fatal flaw against the true master of the wand.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Elder_Wand",
+          "supports": "Properties of the Elder Wand and its allegiance rules."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Harry Potter",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Defeated because the Elder Wand refused to kill its true master, causing the curse to rebound.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether the Elder Wand granted any unique powers beyond amplified spellcasting."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Lucius Malfoy",
+      "continuity": "Harry Potter books and films",
+      "summary": "Lucius Malfoy is a wealthy and influential Death Eater skilled in dark artifacts, dueling curses, and political manipulation.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Dark curses",
+          "Wand-based combat spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard Shield Charms",
+          "Magical cane concealment"
+        ]
+      },
+      "weaknesses": [
+        "Cowardice under pressure and overconfidence in status."
+      ],
+      "mobility": [
+        "Standard movement",
+        "Apparition"
+      ],
+      "limitations": [
+        "Relies heavily on artifacts and allies rather than elite standalone dueling skill."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Lucius_Malfoy",
+          "supports": "Death Eater status, usage of a wand concealed in a cane, and participation in major battles."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led a group of Death Eaters into the Department of Mysteries to retrieve the prophecy.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Order of the Phoenix members",
+          "result": "loss",
+          "citation": "Battle of the Department of Mysteries",
+          "note": "Arrested and imprisoned in Azkaban after the skirmish.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Cane-concealed wand casting",
+          "dependsOn": "Holding his serpent-headed walking stick",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capability of specific dark artifacts stored in his manor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Luna Lovegood",
+      "continuity": "Harry Potter books and films",
+      "summary": "Luna Lovegood is a perceptive witch and member of Dumbledore's Army who employs unconventional charms, creature knowledge, and steady composure in dangerous situations.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Stunning Spells",
+          "Disarming Charms",
+          "Patronus Charm"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield Charms",
+          "Corporeal Patronus defense against dark entities"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability."
+      ],
+      "mobility": [
+        "Thestral flight",
+        "Standard movement"
+      ],
+      "limitations": [
+        "Lacks heavy offensive destructive spells."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Luna_Lovegood",
+          "supports": "Membership in Dumbledore's Army, magical achievements, and combat participation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought through the Battle of the Department of Mysteries, Astronomy Tower, and Battle of Hogwarts without major injury.",
+          "citation": "Harry Potter series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters",
+          "result": "win",
+          "citation": "Battle of the Department of Mysteries",
+          "note": "Successfully defended herself and allies alongside Dumbledore's Army.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Casts combat spells and charms with a wand",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The complete extent of her magical research into obscure magical creatures."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
