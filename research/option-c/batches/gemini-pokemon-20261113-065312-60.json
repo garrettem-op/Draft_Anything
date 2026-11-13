@@ -1,0 +1,641 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-065312 #60",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Eevee|Gigantamax Eevee",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Gigantamax Eevee fights by overwhelming opponents with its massive physical size, fluffy fur that makes foes fall for its charm, and normal-type energy attacks like G-Max Cuddle.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "G-Max Cuddle",
+          "Normal-type attacks"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive size and increased health pool typical of Gigantamax forms",
+          "Fluffy fur that can infatuate opponents of the opposite gender"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type moves"
+      ],
+      "mobility": [
+        "Walking",
+        "Leaping"
+      ],
+      "limitations": [
+        "Gigantamax effect wears off after three turns."
+      ],
+      "formDifferences": "Changes Eevee into a massive 59-foot-tall Pokémon with extra fluffy neck fur and gives it the ability to use G-Max Cuddle instead of standard Gigantamax moves.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Eevee_(Pok%C3%A9mon)",
+          "supports": "Gigantamax Eevee form characteristics, abilities, and G-Max Cuddle."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses its fluffy fur to infatuate opponents and utilizes the exclusive G-Max Cuddle move in its Gigantamax state.",
+          "citation": "Pokémon Sword and Shield",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gigantamax transformations, including the use of G-Max Cuddle",
+          "dependsOn": "Gigantamax factor and Dynamax energy in specific regions such as Galar",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Gigantamax Eevee grows to a massive height of 59'00\".",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact endurance limits of Gigantamax fur outside of standard battle conditions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Ekans",
+      "continuity": "Pokémon standard video game and anime continuity",
+      "summary": "Ekans is a serpentine Pokémon that strikes from stealth using its stealthy slither and constricts foes with its body or poisons them with fangs.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison"
+        ],
+        "techniques": [
+          "Poison Sting",
+          "Wrap",
+          "Bite",
+          "Glare"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shed Skin ability allowing recovery from status conditions",
+          "Intimidate ability to lower opponent attack power"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type moves",
+        "Psychic-type moves"
+      ],
+      "mobility": [
+        "Slithering ground movement"
+      ],
+      "limitations": [
+        "Short physical reach compared to larger serpentine Pokémon."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Ekans_(Pok%C3%A9mon)",
+          "supports": "Ekans abilities, moveset, and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Constricts prey with its flexible body and poisons foes using sharp fangs.",
+          "citation": "Pokémon anime and game canon",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Silently slithers through grass to ambush prey.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact maximum length of constriction pressure."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Electabuzz",
+      "continuity": "Pokémon standard video game and anime continuity",
+      "summary": "Electabuzz fights by channeling and discharging high-voltage electricity at opponents while utilizing close-combat punches.",
+      "offense": {
+        "domains": [
+          "electric",
+          "physical"
+        ],
+        "techniques": [
+          "Thunderbolt",
+          "Thunder Punch",
+          "Quick Attack",
+          "Discharge"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Static ability which can paralyze attackers on contact",
+          "Agility to dodge incoming attacks"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type moves"
+      ],
+      "mobility": [
+        "Running",
+        "Jumping"
+      ],
+      "limitations": [
+        "Vulnerable to grounding effects that neutralize electricity."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Electabuzz_(Pok%C3%A9mon)",
+          "supports": "Electabuzz electric attacks, abilities, and combat characteristics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbs electricity from power plants to fuel its energy levels.",
+          "citation": "Pokémon anime",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Naturally generates and fires powerful electrical discharges.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Manipulates ambient electricity and absorbs electrical currents to heal.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of voltage output."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Electrode",
+      "continuity": "Pokémon standard video game and anime continuity",
+      "summary": "Electrode relies on explosive speed and volatile self-destruction tactics, utilizing electric shocks and high mobility to overwhelm targets.",
+      "offense": {
+        "domains": [
+          "electric",
+          "physical"
+        ],
+        "techniques": [
+          "Self-Destruct",
+          "Explosion",
+          "Thunderball",
+          "Spark"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme movement speed making it difficult to target",
+          "Soundproof ability preventing sound-based attacks"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type moves"
+      ],
+      "mobility": [
+        "Rolling at high speed"
+      ],
+      "limitations": [
+        "Self-Destruct and Explosion moves incapacitate Electrode upon use."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Electrode_(Pok%C3%A9mon)",
+          "supports": "Electrode high speed, electric moves, and self-destruction mechanics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rolls at extreme speeds to ram opponents and detonates itself when agitated.",
+          "citation": "Pokémon games and anime",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Stores vast amounts of electrical energy inside its body, causing it to detonate easily.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Emits powerful electric pulses and sparks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how it stores electricity without constant detonation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Exeggcute",
+      "continuity": "Pokémon standard video game and anime continuity",
+      "summary": "Exeggcute fights collectively as a cluster of six seed-like beings, utilizing psychic waves and status-inflicting spores to confound enemies.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "grass"
+        ],
+        "techniques": [
+          "Confusion",
+          "Bullet Seed",
+          "Hypnosis",
+          "Leech Seed"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Telepathic coordination between all six bodies to evade attacks",
+          "Chlorophyll ability in sunlight"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type moves",
+        "Flying-type moves",
+        "Bug-type moves"
+      ],
+      "mobility": [
+        "Rolling",
+        "Floating slightly via psychic power"
+      ],
+      "limitations": [
+        "Fragile individual components easily damaged if separated."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggcute_(Pok%C3%A9mon)",
+          "supports": "Exeggcute psychic and grass moves, group telepathy, and vulnerabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Maintains constant telepathic connection so that if one is separated, the others quickly rejoin it.",
+          "citation": "Pokémon Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Communicates via telepathic waves linking all six members.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether each egg possesses a distinct individual consciousness or shares a single hive mind."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Exeggutor",
+      "continuity": "Pokémon standard video game and anime continuity",
+      "summary": "Exeggutor uses towering height, heavy psychic waves, and grass-type barrage attacks from its multiple coconut-like heads.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "grass"
+        ],
+        "techniques": [
+          "Seed Bomb",
+          "Psychic",
+          "Hypnosis",
+          "Solar Beam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sturdy trunks and thick foliage shielding core body",
+          "Harvest ability to reuse berries"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type moves",
+        "Fire-type moves",
+        "Flying-type moves",
+        "Ice-type moves",
+        "Poison-type moves",
+        "Ghost-type moves",
+        "Dark-type moves"
+      ],
+      "mobility": [
+        "Walking on stout legs"
+      ],
+      "limitations": [
+        "Heads can occasionally argue with each other, creating tactical openings."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggutor_(Pok%C3%A9mon)",
+          "supports": "Exeggutor baseline stats, moves, typing, and abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Each of its three heads thinks independently, allowing it to overwhelm opponents with varied attacks.",
+          "citation": "Pokémon Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Fires concentrated psychic beams from its multiple heads.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Stands at an impressive height of over 6 feet.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact distribution of cognitive control among the three heads."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Exeggutor|Alolan Exeggutor",
+      "continuity": "Pokémon Sun and Moon",
+      "summary": "Alolan Exeggutor utilizes its extreme dragon-like neck and tail head to sweep opponents with physical momentum and heavy dragon energy.",
+      "offense": {
+        "domains": [
+          "grass",
+          "dragon",
+          "physical"
+        ],
+        "techniques": [
+          "Dragon Hammer",
+          "Seed Bomb",
+          "Draco Meteor",
+          "Wood Hammer"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Frisk ability to inspect opponent items",
+          "Height advantage keeping main body out of melee range"
+        ]
+      },
+      "weaknesses": [
+        "Ice-type moves",
+        "Dragon-type moves",
+        "Fairy-type moves",
+        "Bug-type moves",
+        "Poison-type moves",
+        "Fire-type moves",
+        "Flying-type moves"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Tail head operates independently to protect the rear, but the long neck is unwieldy in tight spaces."
+      ],
+      "formDifferences": "Adds Dragon typing, removes Psychic typing, drastically increases height to over 35 feet, and adds a fourth head on its tail.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggutor_(Pok%C3%A9mon)",
+          "supports": "Alolan Exeggutor regional form, Dragon typing, and unique height."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses its long neck like a whip to strike opponents with massive physical force via Dragon Hammer.",
+          "citation": "Pokémon Sun and Moon",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Grows to an immense height of 35'09\" due to strong Alolan sunlight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The precise evolutionary trigger in Alola that caused its neck to lengthen so drastically."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Farfetch'd",
+      "continuity": "Pokémon standard video game and anime continuity",
+      "summary": "Farfetch'd engages in martial combat using a leek stalk as both a sword and a shield, relying on sharp reflexes and precise strikes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Slash",
+          "Air Cutter",
+          "Nite Slash",
+          "Swords Dance"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Parrying attacks with its leek stalk",
+          "Inner Focus ability to prevent flinching"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type moves",
+        "Ice-type moves",
+        "Rock-type moves"
+      ],
+      "mobility": [
+        "Flight",
+        "Running"
+      ],
+      "limitations": [
+        "Helpless if disarmed of its leek stalk, forced to search for a replacement."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Farfetch%27d_(Pok%C3%A9mon)",
+          "supports": "Farfetch'd leek weapon usage, moveset, and typing."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses its leek stalk with master precision to slice through objects and defend against blows.",
+          "citation": "Pokémon anime and game canon",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Advanced weapon techniques utilizing the leek stalk",
+          "dependsOn": "Possession of its vital leek stalk",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Has wings and can fly short distances.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "How it determines which leek stalk is suitable for combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Farfetch'd|Galarian Farfetch'd",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Galarian Farfetch'd fights with a heavy leek stalk and shield, charging opponents with brutal momentum and high critical-hit frequency.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Meteor Assault",
+          "Brutal Swing",
+          "Detect",
+          "Close Combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield formed from thick leek leaves",
+          "Steadfast ability increasing speed when flinched"
+        ]
+      },
+      "weaknesses": [
+        "Flying-type moves",
+        "Psychic-type moves",
+        "Fairy-type moves"
+      ],
+      "mobility": [
+        "Flight",
+        "Running"
+      ],
+      "limitations": [
+        "Must rest after executing heavy attacks like Meteor Assault due to weapon recoil."
+      ],
+      "formDifferences": "Changes typing from Normal/Flying to pure Fighting, replaces the thin leek with a massive leek stalk and leaf shield, and alters its evolution path.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Farfetch%27d_(Pok%C3%A9mon)",
+          "supports": "Galarian Farfetch'd Fighting type, heavy leek usage, and signature moves."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Charges opponents with the force of its heavy leek, culminating in retiring from battle after executing Meteor Assault.",
+          "citation": "Pokémon Sword and Shield",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Meteor Assault heavy charge",
+          "dependsOn": "Wielding its massive leek stalk",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Retains wings capable of flight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact structural weight of the Galarian leek stalk."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Fearow",
+      "continuity": "Pokémon standard video game and anime continuity",
+      "summary": "Fearow dominates aerial combat by diving from high altitudes with razor-sharp beak strikes and sweeping wing attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "aerial"
+        ],
+        "techniques": [
+          "Drill Peck",
+          "Agility",
+          "Pluck",
+          "Focus Energy"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Keen Eye ability preventing accuracy reduction",
+          "High aerial velocity to evade ground-based attacks"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type moves",
+        "Ice-type moves",
+        "Rock-type moves"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Vulnerable to close-range counterattacks if its high-speed dive misses."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Fearow_(Pok%C3%A9mon)",
+          "supports": "Fearow aerial combat capabilities, Drill Peck, and stats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Spins its long, sharp beak like a drill to pierce targets during high-speed dives.",
+          "citation": "Pokémon anime and game canon",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses large wings capable of soaring in the sky for entire days without resting.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum diving speed achievable in a terminal velocity descent."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
