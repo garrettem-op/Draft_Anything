@@ -1,0 +1,548 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-220551 #56",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Killmonger",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "Erik Killmonger is a highly trained military operative and martial artist who utilizes peak physical conditioning, vibranium weapons, and the synthetic Heart-Shaped Herb to dominate close-quarters combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Vibranium Sword and Spear combat",
+          "Hand-to-hand combat",
+          "Firearms proficiency"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium Habit suit absorbing kinetic energy",
+          "Enhanced durability from the Heart-Shaped Herb"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability in the suit's sonic stabilizer panel"
+      ],
+      "mobility": [
+        "running",
+        "jumping",
+        "aircraft piloting"
+      ],
+      "limitations": [
+        "Relies on physical proximity or standard weaponry without advanced energy projection"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Killmonger",
+          "supports": "Abilities, equipment, feats, and combat style of Erik Killmonger."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated T'Challa in ceremonial combat at Warrior Falls.",
+          "citation": "Black Panther (2018)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:T'Challa",
+          "result": "win",
+          "citation": "Black Panther (2018)",
+          "note": "First duel at Warrior Falls, threw T'Challa over the waterfall.",
+          "source": 0
+        },
+        {
+          "opponent": "mcu:T'Challa",
+          "result": "loss",
+          "citation": "Black Panther (2018)",
+          "note": "Rematch in the Vibranium Mines where T'Challa exploited the suit's stabilizer.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Enhanced physical strength, speed, and reflexes",
+          "dependsOn": "Heart-Shaped Herb ingestion",
+          "source": 0
+        },
+        {
+          "ability": "Kinetic energy discharge and bulletproof protection",
+          "dependsOn": "Vibranium Habit suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears a Vibranium Habit suit with energy absorption capabilities.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Kingo",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "Kingo is an immortal Eternal who channels cosmic energy through his hands to project powerful energy blasts and projectiles, fighting with the flair of a Bollywood star.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Cosmic energy finger blasts",
+          "Hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Eternal physiology with enhanced durability and regenerative healing"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "flight"
+      ],
+      "limitations": [
+        "Energy projection relies on hand gestures"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Kingo",
+          "supports": "Eternal powers, cosmic energy manipulation, and history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Deviants across thousands of years using cosmic energy projections.",
+          "citation": "Eternals (2021)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Can fly using cosmic energy.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Kingpin",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "Wilson Fisk is a massive, immensely strong crime lord who relies on brutal physical violence, extreme durability, and extensive criminal resources.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Brutal brawling",
+          "Grappling and crushing attacks"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive muscular bulk",
+          "High pain tolerance"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to psychological triggers regarding his childhood"
+      ],
+      "mobility": [
+        "running"
+      ],
+      "limitations": [
+        "Lacks supernatural powers or ranged energy attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Wilson_Fisk",
+          "supports": "Physical attributes, criminal empire, and combat encounters."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overpowered multiple armed security guards and police officers with bare hands.",
+          "citation": "Daredevil Season 1",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:Daredevil",
+          "result": "loss",
+          "citation": "Daredevil Season 1, Episode 13",
+          "note": "Defeated after a brutal street fight.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Korg",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "Korg is a Kronan gladiator made of durable rock-like physiology who possesses immense physical strength and wields heavy weapons in battle.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mace strikes",
+          "Heavy physical throwing and crushing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sturdy Kronan rock skin providing high physical resistance"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to losing limbs if detached, though they can reattach"
+      ],
+      "mobility": [
+        "walking",
+        "running"
+      ],
+      "limitations": [
+        "Slow movement speed due to heavy body mass"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Korg",
+          "supports": "Kronan physiology, strength, and weapons."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought in the Grandmaster's Contest of Champions on Sakaar.",
+          "citation": "Thor: Ragnarok (2017)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands significantly taller than average humans as a Kronan.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Loki",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "Loki is the God of Mischief, utilizing illusion casting, duplication, telekinesis, magical dagger projection, and advanced intellect to deceive and defeat opponents.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Illusion creation",
+          "Projection of magical daggers",
+          "Mind control via scepter"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Frost Giant durability",
+          "Illusion decoys"
+        ]
+      },
+      "weaknesses": [
+        "arrogance",
+        "vulnerable to being outsmarted by powerful cosmic entities"
+      ],
+      "mobility": [
+        "teleport",
+        "running"
+      ],
+      "limitations": [
+        "Magic requires focus and gestures"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Loki",
+          "supports": "Magical abilities, frost giant heritage, and combat history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Conquered the mind of Erik Selvig and Clint Barton using the Scepter.",
+          "citation": "The Avengers (2012)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:Thor",
+          "result": "loss",
+          "citation": "The Avengers (2012)",
+          "note": "Subdued by Thor during their encounters.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mind control and energy projection",
+          "dependsOn": "Mind Stone Scepter",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Casts complex illusions and magical projections.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Uses Asgardian and Jotun magic.",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Teleports short distances using magic.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Loki|God of Stories Loki",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "God of Stories Loki represents an evolved, transcendent form of Loki who wields temporal manipulation and time-weaving powers to hold the multiverse together.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Time-slipping",
+          "Temporal web manipulation",
+          "Reality reweaving"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Temporal immortality",
+          "Multiversal awareness"
+        ]
+      },
+      "weaknesses": [
+        "bound to an eternal solitary duty holding the timelines"
+      ],
+      "formDifferences": "Transcends standard magic to manipulate time streams directly, acquiring multiversal scale power at the cost of being bound to the End of Time.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Loki",
+          "supports": "God of Stories transformation and temporal powers."
+        }
+      ],
+      "unknowns": [
+        "Full offensive combat limits in direct physical skirmishes while maintaining the timeline tree"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Loki|God of Stories Loki (TVA)",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "God of Stories Loki operating within or originating from the TVA framework, combining temporal authority with newly awakened god-tier timeline manipulation.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Pruning tech integration",
+          "Time-slipping",
+          "Timeline weaving"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Pruning resistance",
+          "Temporal resilience"
+        ]
+      },
+      "weaknesses": [
+        "requires temporal mastery to avoid paradoxes"
+      ],
+      "formDifferences": "Integrates TVA operational knowledge and temporal technology with his ultimate God of Stories ascent.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Loki",
+          "supports": "TVA association and God of Stories evolution."
+        }
+      ],
+      "unknowns": [
+        "Exact separation between TVA administrative tech and inherent divine temporal powers"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Luke Cage",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "Luke Cage possesses impenetrable skin and superhuman strength granted by cellular regeneration experiments, allowing him to shrug off bullets and throw heavy objects with ease.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Heavy punches",
+          "Improvised weapon throwing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Unbreakable skin impervious to standard ballistics and blade attacks"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to high-grade alien metals or specialized Judas bullets powered by Chitauri tech"
+      ],
+      "mobility": [
+        "running"
+      ],
+      "limitations": [
+        "Cannot fly or project ranged energy attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Luke_Cage",
+          "supports": "Superhuman strength, unbreakable skin, and background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stood unfazed while being shot point-blank with multiple handguns.",
+          "citation": "Jessica Jones Season 1",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Advanced cellular regeneration and healing factor.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:M'Baku",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "M'Baku is the leader of the Jabari Tribe, utilizing peak human conditioning, traditional wooden staves, and immense physical stature in combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Staff strikes",
+          "Wrestling and grappling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Jabari armor",
+          "High physical resilience"
+        ]
+      },
+      "weaknesses": [
+        "lacks supernatural powers or ranged technology"
+      ],
+      "mobility": [
+        "running"
+      ],
+      "limitations": [
+        "Limited to traditional melee weaponry"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/M%27Baku",
+          "supports": " Jabari tribe combat style and physical feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought T'Challa evenly for a significant portion of their ritual combat before conceding.",
+          "citation": "Black Panther (2018)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:T'Challa",
+          "result": "loss",
+          "citation": "Black Panther (2018)",
+          "note": "Defeated in ritual combat at Warrior Falls.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Makkari",
+      "continuity": "Marvel Cinematic Universe (Earth-199999)",
+      "summary": "Makkari is an Eternal possessing superhuman speed, allowing her to run across continents in seconds and generate shockwaves through her velocity.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Super-speed punch barrages",
+          "High-velocity debris throwing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Eternal durability and rapid reflexes"
+        ]
+      },
+      "weaknesses": [
+        "deafness (though compensated by heightened vibration sensitivity)"
+      ],
+      "mobility": [
+        "super-speed"
+      ],
+      "limitations": [
+        "Melee range focus relying entirely on speed"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Makkari",
+          "supports": "Super-speed powers, Eternal physiology, and combat feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Circumnavigated the globe in seconds.",
+          "citation": "Eternals (2021)",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
