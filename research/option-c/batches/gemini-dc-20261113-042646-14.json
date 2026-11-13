@@ -1,0 +1,609 @@
+{
+  "batchId": "Gemini V2 research dc 20261113-042646 #14",
+  "schemaVersion": 1,
+  "pool": "dc",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "dc:Superman|Superman Blue",
+      "continuity": "DC Comics Modern Age",
+      "summary": "Superman Blue is an energy-based form of Superman who trades his physical strength for pure electromagnetic energy manipulation, allowing him to absorb various forms of energy and fire devastating electrical blasts.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Electromagnetic blasts",
+          "Energy absorption",
+          "Intangibility"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy absorption to heal",
+          "Phase shifting / Intangibility"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to anti-energy devices",
+        "Energy depletion if overexerted"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Requires containment suit to maintain physical cohesion",
+        "Can be drained of energy by anti-energy technology"
+      ],
+      "formDifferences": "Replaces standard Kryptonian physical attributes with pure energy physiology, granting energy projection, absorption, and intangibility at the cost of vulnerability to energy-draining tech and the need for a containment suit.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Superman_Blue",
+          "supports": "Superman Blue origin, energy powers, and containment suit."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbed massive amounts of energy to shut down an energy-based threat.",
+          "citation": "Superman Vol. 2 #135",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Electromagnetic energy projection and phase shifting",
+          "dependsOn": "Containment suit required to hold the energy form together",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Transformed into a being of pure electromagnetic energy capable of projecting electricity.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Controls and projects electromagnetic fields and lightning.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Retains the ability to fly as an energy being.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of energy absorption capacity before overload"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Superman|Superman Red",
+      "continuity": "DC Comics Modern Age",
+      "summary": "Superman Red is the intellectual and energetic split counterpart of Superman Blue, focusing on high-level mental acuity, telekinetic applications, and focused energy constructs.",
+      "offense": {
+        "domains": [
+          "energy",
+          "telekinesis"
+        ],
+        "techniques": [
+          "Energy constructs",
+          "Telekinetic manipulation",
+          "Focused thermal beams"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy shielding",
+          "Intangibility/phase defense"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to anti-energy tech",
+        "Requires containment suit"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Must remain within containment suit",
+        "Energy depletion risks form dissolution"
+      ],
+      "formDifferences": "Focuses the split energy form on telekinesis, logic, and construct generation rather than pure electrical blasts.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Superman_Red/Superman_Blue",
+          "supports": "Superman Red splitting process and energy-based attributes."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Constructed complex energy devices on the fly using red electrical fields.",
+          "citation": "Superman Vol. 2 #135",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Energy projection and maintenance of red energy form",
+          "dependsOn": "Containment suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Composed of red electromagnetic energy.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Controls red electrical energy fields.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Retains flight capabilities.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Exhibits advanced telekinetic manipulation.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Interactions between Red and Blue energy forms when combined"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Swamp Thing",
+      "continuity": "DC Comics Mainstream",
+      "summary": "Swamp Thing is the avatar of the Green, wielding absolute control over plant life across the planet. He can regenerate endlessly from any vegetation, alter his size, and manipulate flora to ensnare or overwhelm opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Plant manipulation and growth",
+          "Bovine and arboreal crushing strength",
+          "Spore projection"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Regeneration from any plant matter on Earth",
+          "Form shifting and dispersal"
+        ]
+      },
+      "weaknesses": [
+        "Severe pollution or chemical defoliants",
+        "Disconnection from the Green"
+      ],
+      "mobility": [
+        "Self-teleport via the Green"
+      ],
+      "limitations": [
+        "Power is severely limited in barren environments devoid of plant life"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Swamp_Thing",
+          "supports": "Swamp Thing origin, connection to the Green, and plant manipulation powers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Reconstituted his entire body from a swamp after being completely incinerated.",
+          "citation": "Saga of the Swamp Thing #21",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "win",
+          "citation": "Swamp Thing Vol. 2 #53",
+          "note": "Easily bypassed Batman's defenses by possessing wooden structures.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-breathing",
+          "claim": "Can survive indefinitely underwater using plant biology.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Regenerates instantly using surrounding plant life.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of control over alien plant life outside Earth's Green"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Swamp Thing|Parliament of Trees Swamp Thing",
+      "continuity": "DC Comics Mainstream",
+      "summary": "As a member of the Parliament of Trees, this version of Swamp Thing holds deep ancestral wisdom and elevated dominion over the Green, operating as a planetary elder of plant elemental forces.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "physical"
+        ],
+        "techniques": [
+          "Planetary flora manipulation",
+          "Ancient elemental magic",
+          "Root entrapment"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immortal plant physiology",
+          "Instantaneous regeneration through global root networks"
+        ]
+      },
+      "weaknesses": [
+        "Destruction of the Parliament of Trees ecosystem",
+        "Heavy chemical pollutants"
+      ],
+      "mobility": [
+        "Self-teleport via global plant roots"
+      ],
+      "limitations": [
+        "Tied to the well-being of the global plant ecosystem"
+      ],
+      "formDifferences": "Gains deeper mystical connection and authority over the Green as a member of the Parliament of Trees, sacrificing individual mobility for planetary elemental awareness.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Swamp_Thing",
+          "supports": "Parliament of Trees lore and Swamp Thing's status as an elder elemental."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Communed with and drew power directly from the collective consciousness of past plant avatars.",
+          "citation": "Swamp Thing Vol. 2 #147",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields elemental magic tied to the Parliament of Trees.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Regenerates using global plant networks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Degree of separation from physical form while integrated into the Parliament"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Talia al Ghul",
+      "continuity": "DC Comics Mainstream",
+      "summary": "Talia al Ghul is a master tactician, martial artist, and assassin who commands the resources of the League of Assassins, utilizing advanced technology, poisons, and lethal hand-to-hand combat skills.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Advanced martial arts",
+          "Hidden blade weapons",
+          "Lazarus-derived toxins"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evocative stealth",
+          "Bodyguard intervention",
+          "Defensive counter-strikes"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical durability",
+        "Conflicting loyalties regarding Batman"
+      ],
+      "mobility": [
+        "Acrobatics"
+      ],
+      "limitations": [
+        "Subject to normal human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Talia_al_Ghul",
+          "supports": "Talia al Ghul background as daughter of Ra's al Ghul, League of Assassins leader."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully infiltrated heavily guarded Batcave security systems.",
+          "citation": "Detective Comics #790",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "loss",
+          "citation": "Batman: Son of the Demon",
+          "note": "Defeated in combat during strategic disagreements.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes standard assassin gear and tracking devices.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Trained in League of Assassins stealth and infiltration techniques.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full current extent of access to Lazarus Pit resources"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:The Atom (Ray Palmer)",
+      "continuity": "DC Comics Mainstream",
+      "summary": "Ray Palmer is a physicist who can shrink himself and other objects down to subatomic levels using white dwarf star material, retaining his full physical mass to deliver devastating microscopic punches.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Subatomic miniaturization",
+          "High-mass microscopic strikes",
+          "Circuit infiltration"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Microscopic size making him exceptionally difficult to target",
+          "White dwarf density durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to attacks while miniaturized if opponent detects him",
+        "Dependence on bio-belt technology"
+      ],
+      "mobility": [
+        "Glide via air currents while tiny",
+        "Riding on projectiles"
+      ],
+      "limitations": [
+        "Requires bio-belt to alter size"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Atom_(Ray_Palmer)",
+          "supports": "Ray Palmer origin, white dwarf belt, and shrinking powers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Traveled inside computer circuits and rewired electronic systems at the microscopic level.",
+          "citation": "Sword of the Atom #1",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Subatomic shrinking and mass manipulation",
+          "dependsOn": "Bio-belt powered by white dwarf star fragment",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "size-change",
+          "claim": "Can shrink from normal human size down to subatomic levels.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Uses advanced bio-belt harnessing white dwarf star matter.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with miniaturization harness and scientific tools.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum duration of prolonged subatomic dimensional travel"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:The Flash (Barry Allen)",
+      "continuity": "DC Comics Mainstream",
+      "summary": "Barry Allen is the Fastest Man Alive, drawing power from the Speed Force to run at lightspeed, time travel, phase through solid matter, and generate infinite mass punches.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Infinite mass punch",
+          "Lightning throws",
+          "Speed Force tunneling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Speed Force aura protecting against friction and G-forces",
+          "Phase shifting through attacks"
+        ]
+      },
+      "weaknesses": [
+        "Speed Force disruption",
+        "Absolute zero temperatures slowing molecular movement"
+      ],
+      "mobility": [
+        "Super-speed",
+        "Time travel",
+        "Dimensional travel"
+      ],
+      "limitations": [
+        "Requires continuous physical motion or connection to Speed Force to maintain extreme feats"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Flash_(Barry_Allen)",
+          "supports": "Barry Allen Speed Force connection, time travel, and phasing."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ran across the globe and outran the gravitational pull of a collapsing black hole.",
+          "citation": "The Flash Vol. 5 #40",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Reverse-Flash",
+          "result": "win",
+          "citation": "The Flash Rebirth #1",
+          "note": "Overcame Eobard Thawne by outrunning his paradox manipulation.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Generates Speed Force lightning during movement.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Projects and redirects Speed Force lightning bolts.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Can run on air currents to simulate flight.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Can cross dimensional barriers via sheer velocity.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper velocity limit before completely merging with the Speed Force"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:The Flash (Barry Allen)|Black Racer Barry Allen",
+      "continuity": "DC Comics New 52 / Darkseid War",
+      "summary": "When merged with the Black Racer, Barry Allen becomes the embodiment of death for gods and speedsters, wielding the Grim Reaper's touch that instantly ends immortal lives.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Death touch",
+          "God-slaying speed strike",
+          "Death avatar projection"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invulnerability granted by the Black Racer entity",
+          "Intangibility"
+        ]
+      },
+      "weaknesses": [
+        "Separation from the Black Racer entity",
+        "Mind control or psychic separation techniques"
+      ],
+      "mobility": [
+        "Super-speed",
+        "Flight",
+        "Dimensional teleportation"
+      ],
+      "limitations": [
+        "Temporary fusion tied to specific crisis events"
+      ],
+      "formDifferences": "Merges Barry Allen with the physical embodiment of death (Black Racer), replacing standard Speed Force lightning with lethal death-attuned energy capable of killing New Gods.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Black_Racer_(DC_Comics)",
+          "supports": "Black Racer merging with Barry Allen during the Darkseid War."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Used the Black Racer's touch to kill Darkseid during the Darkseid War.",
+          "citation": "Justice League Vol. 2 #42",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darkseid",
+          "result": "win",
+          "citation": "Justice League Vol. 2 #42",
+          "note": "Used as a living weapon by Anti-Monitor to slay Darkseid.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Instant death touch for gods and immortals",
+          "dependsOn": "Active integration with the Black Racer entity",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Floats and moves with divine airborne agility.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term psychological strain of housing the death avatar"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
