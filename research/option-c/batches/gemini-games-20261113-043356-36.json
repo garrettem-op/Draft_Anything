@@ -1,0 +1,655 @@
+{
+  "batchId": "Gemini V2 research games 20261113-043356 #36",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Rayman",
+      "continuity": "Rayman series",
+      "summary": "Rayman is a limbless hero who relies on acrobatic movement, helicopter-like hair hovering, and throwing his detachable fists as ranged energy punches. He can also use various magical powers and physical combat techniques acquired across his adventures.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Telescopic fist punch",
+          "Helicopter hover",
+          "Spin attack",
+          "Super helicopter"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility and evasion",
+          "Helicopter hair slow fall",
+          "Health restoration via Lums or hearts"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to hazards such as water/drowning in early titles",
+        "Fragile defense requiring health pickups"
+      ],
+      "mobility": [
+        "Running",
+        "Helicopter hovering",
+        "Swimming"
+      ],
+      "limitations": [
+        "Cannot sustain permanent flight, only helicopter gliding/hovering",
+        "Fists must return before striking again"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Rayman_(character)",
+          "supports": "Basic summary, powers, history, and limbless physiology."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses his telescopic fist to strike enemies from a distance.",
+          "citation": "Rayman (1995)",
+          "source": 0
+        },
+        {
+          "claim": "Spins his hair to hover and cross large gaps.",
+          "citation": "Rayman (1995)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mr. Dark",
+          "result": "win",
+          "citation": "Rayman (1995)",
+          "note": "Defeated the primary antagonist to save the Electoons.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Rayman uses his hair as a helicopter to glide and slow his descent.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his magical transformations in spinoffs versus core platformers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Reinhardt",
+      "continuity": "Overwatch series",
+      "summary": "Reinhardt Wilhelm is a heavily armored crusader who uses a massive rocket hammer for devastating close-range melee strikes and a large energy barrier shield to protect allies. He can also propel himself forward in a rapid charge to pin enemies against walls.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Rocket Hammer",
+          "Fire Strike",
+          "Charge",
+          "Earthshatter"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Crusader armor",
+          "Barrier Field energy shield"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to attacks from behind when his barrier is deployed",
+        "Large target with limited ranged offense outside of Fire Strike"
+      ],
+      "mobility": [
+        "Rocket-propelled charge"
+      ],
+      "limitations": [
+        "Barrier Field has a finite health pool and breaks under heavy fire",
+        "Charge locks him into a linear path"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/List_of_Overwatch_characters",
+          "supports": "Reinhardt's general abilities, weapon loadout, and crusader role."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slams the ground with Earthshatter, knocking down all enemies in a cone in front of him.",
+          "citation": "Overwatch",
+          "source": 0
+        },
+        {
+          "claim": "Charges forward to pin an enemy and crash them into a wall.",
+          "citation": "Overwatch",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears advanced Crusader power armor.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Launches a flaming projectile wave via Fire Strike.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability limits of his Crusader armor against high-end sci-fi weaponry."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ryu",
+      "continuity": "Street Fighter series",
+      "summary": "Ryu is a dedicated martial artist who travels the world to test his skills, utilizing traditional Ansatsuken karate techniques. He fights using projectile energy blasts (Hadoken), upper-cut anti-airs (Shoryuken), and forward-advancing kicks (Tatsumaki Senpukyaku).",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Hadoken",
+          "Shoryuken",
+          "Tatsumaki Senpukyaku",
+          "Shinku Hadoken"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Martial arts blocking",
+          "Parrying",
+          "Dodging"
+        ]
+      },
+      "weaknesses": [
+        "Human physiological limits",
+        "Vulnerable to zoning and overwhelming psychic or magical attacks"
+      ],
+      "mobility": [
+        "Running",
+        "Dash",
+        "High jumps"
+      ],
+      "limitations": [
+        "Relies on physical stamina and spiritual focus",
+        "Projectile attacks require brief startup motions"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ryu_(Street_Fighter)",
+          "supports": "Ryu's background, Ansatsuken fighting style, and signature moves like Hadoken and Shoryuken."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Projects concentrated spiritual energy as a Hadoken projectile.",
+          "citation": "Street Fighter series",
+          "source": 0
+        },
+        {
+          "claim": "Executes a rising flaming dragon punch (Shoryuken) to defeat opponents.",
+          "citation": "Street Fighter series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sagat",
+          "result": "win",
+          "citation": "Street Fighter",
+          "note": "Won the first World Warrior tournament final, though scarred Sagat in the process.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full extent of his spiritual potential without succumbing to the Satsui no Hado."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ryu|Evil Ryu",
+      "continuity": "Street Fighter series",
+      "summary": "Evil Ryu is the form Ryu takes when consumed by the Satsui no Hado, trading emotional control and defense for vastly amplified offensive power, speed, and lethal dark ki techniques.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Metsu Hadoken",
+          "Shun Goku Satsu (Raging Demon)",
+          "Ashura Senku",
+          "Red Hadoken"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Aggressive counter-attacking",
+          "Intimidating pressure"
+        ]
+      },
+      "weaknesses": [
+        "Mental instability and self-destructive reliance on dark energy",
+        "Lower defensive resilience than base Ryu"
+      ],
+      "mobility": [
+        "Teleportation dash (Ashura Senku)",
+        "Enhanced running speed"
+      ],
+      "formDifferences": "Replaces standard disciplined moves with murderous dark ki variants, including the Raging Demon and teleportation dashes.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ryu_(Street_Fighter)",
+          "supports": "Evil Ryu persona, Satsui no Hado corruption, and altered moveset."
+        }
+      ],
+      "unknowns": [
+        "Whether Evil Ryu can permanently maintain this form without completely destroying his own body."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ryu|Power of Nothingness Ryu",
+      "continuity": "Street Fighter series",
+      "summary": "This form represents Ryu having mastered the Mu no Ken (Power of Nothingness), allowing him to counter the Satsui no Hado with supreme inner peace, clarity, and devastating enlightened spiritual attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Shin Shoryuken",
+          "Denjin Hadoken",
+          "Mu no Ken strikes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Absolute spiritual composure",
+          "Advanced parrying and counter-attacks"
+        ]
+      },
+      "weaknesses": [
+        "Requires extreme mental discipline to maintain"
+      ],
+      "mobility": [
+        "Enhanced footwork and reflexes"
+      ],
+      "formDifferences": "Replaces dark ki with enlightened spiritual energy (Mu no Ken), granting immunity to the Satsui no Hado and enhanced luminous attacks.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ryu_(Street_Fighter)",
+          "supports": "Mu no Ken mastery and enlightened state surpassing Evil Ryu."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-control",
+          "claim": "Channels concentrated electrical energy through Denjin techniques.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limits of the Power of Nothingness against cosmic-level threats."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Sam Fisher",
+      "continuity": "Tom Clancy's Splinter Cell series",
+      "summary": "Sam Fisher is a master covert ops operative specializing in stealth, infiltration, close-quarters combat, and the tactical use of high-tech gadgets and night vision equipment.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Mark and Execute",
+          "Knife takedowns",
+          "CQC neck break",
+          "Suppressed pistol and rifle fire"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Stealth and shadow concealment",
+          "Body armor",
+          "Goggles (night vision/thermal)"
+        ]
+      },
+      "weaknesses": [
+        "Human durability without heavy cover",
+        "Vulnerable if caught in open combat against heavily armed or superhuman foes"
+      ],
+      "mobility": [
+        "Climbing",
+        "Rappelling",
+        "Silent movement",
+        "Parkour"
+      ],
+      "limitations": [
+        "Limited ammunition and gadget charges",
+        "Physical strength is peak human rather than superhuman"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sam_Fisher_(Splinter_Cell)",
+          "supports": "Sam Fisher's background as a Third Echelon agent, stealth tactics, and gadget usage."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrates heavily guarded enemy compounds undetected.",
+          "citation": "Tom Clancy's Splinter Cell",
+          "source": 0
+        },
+        {
+          "claim": "Eliminates multiple targets in rapid succession using Mark and Execute.",
+          "citation": "Tom Clancy's Splinter Cell: Conviction",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Employs advanced stealth tactics, shadows, and concealment.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses night vision goggles, cameras, and specialized tactical gear.",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Operates as a black-ops infiltration specialist.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Effectiveness against supernatural or highly magical entities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Samus Aran",
+      "continuity": "Metroid series",
+      "summary": "Samus Aran is a galactic bounty hunter equipped with Chozo-derived powered armor featuring an arm cannon that fires energy beams, missiles, and the ability to morph into a small spherical bomb-dropping shape.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Power Beam",
+          "Missiles",
+          "Morph Ball Bombs",
+          "Screw Attack"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Power Suit energy shields",
+          "Energy tanks",
+          "Agile dodging"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to extreme parasitic drains (like Metroids) without specific suit upgrades",
+        "Limited defense if armor is severely compromised"
+      ],
+      "mobility": [
+        "Space Jump",
+        "Speed Booster running",
+        "Morph Ball rolling"
+      ],
+      "limitations": [
+        "Requires energy refills and ammunition pickups for missiles",
+        "Certain environments require specific suit upgrades to survive"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Samus_Aran",
+          "supports": "Samus Aran's Power Suit, arm cannon, Morph Ball, and bounty hunter capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroys entire planetary ecosystems and alien fortresses single-handedly.",
+          "citation": "Metroid series",
+          "source": 0
+        },
+        {
+          "claim": "Tanks massive energy blasts and physical impacts within her Power Suit.",
+          "citation": "Super Metroid",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mother Brain",
+          "result": "win",
+          "citation": "Super Metroid",
+          "note": "Defeated the Zebesian leader with assistance from the infant Metroid.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the Chozo Power Suit.",
+          "source": 0
+        },
+        {
+          "tag": "flight",
+          "claim": "Performs high-speed aerial spins and Space Jump maneuvers.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses Morph Ball, bombs, and grappling beams.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her Chozo-infused DNA capabilities outside of her suit."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Samus Aran|Gravity Suit Samus",
+      "continuity": "Metroid series",
+      "summary": "Equipped with the Gravity Suit upgrade, Samus gains immunity to environmental movement penalties in liquids like water or lava, alongside a major reduction in damage taken from enemy attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Gravity Boost",
+          "Enhanced Beam attacks",
+          "Screw Attack"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gravity Suit damage reduction",
+          "Unaltered mobility in liquids"
+        ]
+      },
+      "weaknesses": [
+        "Still vulnerable to specialized corruption agents like Phazon without further upgrades"
+      ],
+      "mobility": [
+        "Unimpeded underwater movement",
+        "Space Jump"
+      ],
+      "formDifferences": "Reduces damage taken by half and eliminates water/liquid movement friction compared to the standard Power Suit.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Samus_Aran",
+          "supports": "Gravity Suit properties granting resistance and fluid movement underwater."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the upgraded Gravity Suit.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Operates fully submerged without movement hindrance.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact thermal threshold in extreme magmas."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Samus Aran|Metroid Suit Samus",
+      "continuity": "Metroid Dread",
+      "summary": "In her Metroid Suit form, Samus manifests organic Metroid traits across her armor, granting her the ability to drain life energy directly from foes and neutralize dangerous X Parasites.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Life energy drain",
+          "Melee counter drain",
+          "Enhanced arm cannon blasts"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Organic Metroid energy absorption",
+          "Enhanced resilience"
+        ]
+      },
+      "weaknesses": [
+        "Instability of raw Metroid DNA urges",
+        "Vulnerable to extreme cold if traditional Metroid weaknesses apply"
+      ],
+      "mobility": [
+        "Space Jump",
+        "Flash Shift",
+        "Spider Magnet"
+      ],
+      "formDifferences": "Replaces standard suit aesthetic with organic Metroid elements and grants energy-draining melee capabilities.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Metroid_Dread",
+          "supports": "Metroid Suit acquisition and energy-draining powers in Metroid Dread."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the organic Metroid-infused Suit.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Drains life force from enemies to sustain herself.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term mental and physical consequences of full Metroid transformation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Samus Aran|Phazon Suit Samus",
+      "continuity": "Metroid Prime",
+      "summary": "Empowered by radioactive Phazon corruption, Samus wears the Phazon Suit which grants total immunity to blue Phazon hazards and unleashes devastating hyper-mode energy attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Phazon Beam",
+          "Hyper Mode",
+          "Phazon-infused missiles"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Phazon Suit radiation shielding",
+          "Immunity to standard Phazon pools"
+        ]
+      },
+      "weaknesses": [
+        "Risk of corruption overtaking Samus if Hyper Mode is overused",
+        "Vulnerable to concentrated anti-phazon forces"
+      ],
+      "mobility": [
+        "Space Jump",
+        "Morph Ball boost"
+      ],
+      "formDifferences": "Changes suit coloration to dark blue/black and grants immunity to Phazon hazards along with the lethal Phazon Beam.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Metroid_Prime",
+          "supports": "Phazon Suit attributes and Phazon beam weaponry in Metroid Prime."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbs concentrated Phazon energy to overload enemy targets.",
+          "citation": "Metroid Prime",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Hyper Mode / Phazon Beam",
+          "dependsOn": "Exposure to or storage of Phazon energy",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the Phazon-infused Power Suit.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Complete permanence of Phazon corruption after the destruction of Phaaze."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
