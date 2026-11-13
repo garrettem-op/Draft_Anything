@@ -1,0 +1,598 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-065817 #73",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Machoke",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Machoke is a formidable Fighting-type Pokémon that relies on its heavily muscled physique, superhuman strength, and martial arts strikes to overwhelm opponents in close combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Dynamic Punch",
+          "Karate Chop",
+          "Submission"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Durable muscular frame that resists physical blows",
+          "Trained stamina"
+        ]
+      },
+      "weaknesses": [
+        "Psychic-type attacks",
+        "Flying-type attacks",
+        "Fairy-type attacks"
+      ],
+      "mobility": [
+        "Walking and running at high athletic speeds"
+      ],
+      "limitations": [
+        "Relies strictly on close-quarters physical combat",
+        "Vulnerable to special attacks, particularly Psychic and Fairy types"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Machoke_(Pok%C3%A9mon)",
+          "supports": "Abilities, typing, moves, and physical description of Machoke."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Possesses enough physical strength to effortlessly lift a sumo wrestler.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact lifting limits in metric tons vary slightly across different Pokédex entries."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Machop",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Machop is a compact Fighting-type Pokémon that builds its muscles by lifting heavy boulders and sparring constantly, utilizing close-range physical martial arts.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Karate Chop",
+          "Low Kick",
+          "Seismic Toss"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tough, compact body capable of absorbing heavy impacts"
+        ]
+      },
+      "weaknesses": [
+        "Psychic-type attacks",
+        "Flying-type attacks",
+        "Fairy-type attacks"
+      ],
+      "mobility": [
+        "Standard foot movement"
+      ],
+      "limitations": [
+        "Limited exclusively to close-range combat",
+        "Prone to being outmaneuvered by flying or aerial opponents"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Machop_(Pok%C3%A9mon)",
+          "supports": "Abilities, physical attributes, and movepool of Machop."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Capable of throwing up to a hundred adult humans at once.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Magikarp",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Magikarp is widely known as a notoriously weak Water-type Pokémon that can barely move on land, relying mostly on frantic splashing until it evolves.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Splash",
+          "Tackle",
+          "Flail"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy scales that provide minimal baseline physical defense"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks"
+      ],
+      "mobility": [
+        "Swimming",
+        "Flop-jumping"
+      ],
+      "limitations": [
+        "Almost entirely defenseless and immobile on dry land",
+        "Attacks like Splash inflict no direct damage"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Magikarp_(Pok%C3%A9mon)",
+          "supports": "Stats, baseline moves like Splash, and evolutionary background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Can leap high over mountains using its Splash technique despite its weak appearance.",
+          "citation": "Pokémon Sapphire Pokédex entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Magikarp is a water-dwelling Pokémon capable of swimming in rivers and oceans.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Magikarp breathes underwater naturally.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Magmar",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Magmar is a Fire-type Pokémon with a body temperature reaching thousands of degrees, scorching opponents with intense flames and fireballs from a distance.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Flamethrower",
+          "Fire Punch",
+          "Smokescreen"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Radiates extreme heat that acts as a thermal barrier against physical strikes"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Ground-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Bipedal running and agile leaping"
+      ],
+      "limitations": [
+        "Vulnerable to water-based environments and attacks",
+        "Body heat can inadvertently damage surrounding objects"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Magmar_(Pok%C3%A9mon)",
+          "supports": "Magmar typing, base stats, and move pool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Heals its wounds by dipping injured body parts into molten lava.",
+          "citation": "Pokémon Diamond and Pearl Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Magmar is a natural Fire-type Pokémon.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Magmar creates and projects intense fireballs from its body.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Magnemite",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Magnemite is an Electric/Steel-type robotic Pokémon that defies gravity to float, launching magnetic energy bursts and electrical shocks at targets.",
+      "offense": {
+        "domains": [
+          "electric",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Thunder Shock",
+          "Spark",
+          "Flash Cannon"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Metallic outer chassis providing broad resistance to physical and non-elemental conditions"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks",
+        "Fire-type attacks",
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Continuous airborne hovering via anti-gravity"
+      ],
+      "limitations": [
+        "Extremely vulnerable to Ground-type maneuvers",
+        "Susceptible to magnetic interference"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Magnemite_(Pok%C3%A9mon)",
+          "supports": "Magnemite typing, levitation ability, and electric attacks."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Emits electromagnetic waves from the units on its sides to float effortlessly in the air.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Magnemite possesses innate Electric-type attacks.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Magnemite generates and discharges powerful electric currents.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Magnemite floats continuously using anti-gravity electromagnetic waves.",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Magnemite is an artificial, inorganic robotic life form.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Magnemite has mechanical and electronic components.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Magneton",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Magneton is a linked cluster of three Magnemite that generates powerful magnetic fields, firing heavy electrical discharges and piercing beams.",
+      "offense": {
+        "domains": [
+          "electric",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Thunderbolt",
+          "Tri Attack",
+          "Flash Cannon"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Reinforced linked metallic bodies"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks",
+        "Fire-type attacks",
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Airborne levitation"
+      ],
+      "limitations": [
+        "Quadruple vulnerability to Ground-type attacks",
+        "Restricted mobility dependent on stable electromagnetic fields"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Magneton_(Pok%C3%A9mon)",
+          "supports": "Magneton evolution, stats, and electromagnetic attributes."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Creates a powerful magnetic field that raises temperatures within a 3,300-foot radius.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Magneton uses Electric-type attacks.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Magneton generates intense magnetic fields and electric bolts.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Magneton hovers constantly using electromagnetic forces.",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Magneton is a mechanical, linked artificial Pokémon.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Magneton is composed of advanced mechanical and magnetic units.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Mankey",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Mankey is an easily angered Fighting-type primate Pokémon that attacks with wild, unpredictable physical fury and swift martial arts strikes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Scratch",
+          "Low Kick",
+          "Thrash"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile reflexes to dodge oncoming attacks"
+        ]
+      },
+      "weaknesses": [
+        "Psychic-type attacks",
+        "Flying-type attacks",
+        "Fairy-type attacks"
+      ],
+      "mobility": [
+        "Running",
+        "Tree climbing"
+      ],
+      "limitations": [
+        "Prone to emotional outbursts that compromise tactical strategy",
+        "Lacks ranged offensive options"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mankey_(Pok%C3%A9mon)",
+          "supports": "Mankey behavior, typing, and move list."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Can fly into an uncontrollable rage without warning, attacking anything nearby.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Marowak",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Marowak is a Ground-type Pokémon that wields a bone as a club and projectile weapon, utilizing bone-based combat techniques with skilled precision.",
+      "offense": {
+        "domains": [
+          "physical",
+          "ground"
+        ],
+        "techniques": [
+          "Bone Club",
+          "Bonemerang",
+          "Bone Rush"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sturdy skeletal skull helmet protecting its head"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Grass-type attacks",
+        "Ice-type attacks"
+      ],
+      "mobility": [
+        "Bipedal running"
+      ],
+      "limitations": [
+        "Dependent on retaining its bone weapon for maximum offensive output",
+        "Vulnerable to moisture and plant-based attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Marowak_(Pok%C3%A9mon)",
+          "supports": "Marowak stats, bone-themed attacks, and typing."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Skillfully throws its bone club like a boomerang to strike targets from behind.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Marowak|Alolan Marowak",
+      "continuity": "Pokémon Sun and Moon / Ultra Sun and Ultra Moon",
+      "summary": "Alolan Marowak is a Fire/Ghost-type regional variant that dances while igniting its bone with spiritual flame, wielding it as a magical torch and throwing weapon.",
+      "offense": {
+        "domains": [
+          "fire",
+          "magic",
+          "physical",
+          "ghost"
+        ],
+        "techniques": [
+          "Shadow Bone",
+          "Flame Wheel",
+          "Hex"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Ghost-type immunity to normal and fighting attacks",
+          "Spiritual flame ward"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Ground-type attacks",
+        "Rock-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks"
+      ],
+      "mobility": [
+        "Bipedal running"
+      ],
+      "limitations": [
+        "Susceptible to multiple elemental vulnerabilities including Ground, Water, Ghost, and Dark",
+        "Requires its bone club to perform specialized spiritual attacks"
+      ],
+      "formDifferences": "Changes typing from pure Ground to Fire/Ghost, alters appearance, replaces Ground-type traits with spectral fire attacks and ghost immunities.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Marowak_(Pok%C3%A9mon)",
+          "supports": "Alolan Marowak typing, regional differences, and Shadow Bone move."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Sets its bone ablaze by rubbing it against its forehead and dances to ward off enemies.",
+          "citation": "Pokémon Sun Pokédex entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Alolan Marowak utilizes Fire-type attacks.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Alolan Marowak ignites and controls spiritual flames on its bone weapon.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Alolan Marowak uses Ghost-type spectral magic and curse techniques.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Meowth",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Meowth is a nimble Normal-type feline Pokémon that relies on agile scratch attacks, stealth, and its obsession with shiny objects to fight and survive.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Scratch",
+          "Pay Day",
+          "Bite"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High agility and quick reflexes to evade physical strikes"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Quadrupedal running and leaping"
+      ],
+      "limitations": [
+        "Vulnerable to Fighting-type combatants",
+        "Limited physical mass makes it weak against heavy physical impacts"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Meowth_(Pok%C3%A9mon)",
+          "supports": "Meowth stats, signature Pay Day move, and characteristics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Collects shiny coins during the day and hides them away in its lair.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Meowth moves silently without making a sound while stalking prey.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
