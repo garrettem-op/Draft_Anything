@@ -1,0 +1,635 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-064007 #13",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Mister Fantastic",
+      "continuity": "Marvel Cinematic Universe (Earth-838)",
+      "summary": "Reed Richards of Earth-838 is a brilliant scientist and leader of the Illuminati who possesses immense elasticity and malleable physiology, allowing him to stretch his body into various shapes. In combat, he relies heavily on his intellect and analytical approach, though he can engage in flexible melee combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Elongated strikes",
+          "Tactical analysis"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elastic durability",
+          "Malleable form that absorbs blunt trauma"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to matter manipulation or disintegration"
+      ],
+      "mobility": [
+        "Elongated movement"
+      ],
+      "limitations": [
+        "Overconfident in his intellect and scientific solutions against magic"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mister_Fantastic",
+          "supports": "General character background and alternate universe appearances in the MCU."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Reed_Richards_(Earth-838)",
+          "supports": "Abilities, combat actions, and fate against the Scarlet Witch in Doctor Strange in the Multiverse of Madness."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stretched his body during deliberations with the Illuminati and attempted to counter Wanda Maximoff.",
+          "citation": "Doctor Strange in the Multiverse of Madness",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Scarlet Witch",
+          "result": "loss",
+          "citation": "Doctor Strange in the Multiverse of Madness",
+          "note": "Killed when his body was unraveled by reality-warping magic.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full combat limits of his elasticity compared to his Earth-616 counterpart are not shown in the MCU."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:MJ",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Michelle Jones-Watson (MJ) is a sharp-witted, resourceful high school student and ally to Spider-Man. She does not possess superhuman abilities and relies on quick thinking, improvisational defensive maneuvers, and throwing objects when caught in combat situations.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Improvised throwing attacks"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Hiding behind cover"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability"
+      ],
+      "mobility": [
+        "Standard human movement"
+      ],
+      "limitations": [
+        "Lacks superpowers, advanced training, or specialized combat gear."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/MJ_(Marvel_Cinematic_Universe)",
+          "supports": "Character overview and role in the Spider-Man MCU trilogy."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Michelle_Jones-Watson",
+          "supports": "Involvement in battles and encounters with villains."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Struck villains with a mace and various heavy objects to defend herself.",
+          "citation": "Spider-Man: Far From Home",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Green Goblin",
+          "result": "loss",
+          "citation": "Spider-Man: No Way Home",
+          "note": "Captured during the final battle at the Statue of Liberty.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Future combat training developments post-trilogy."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Monica Rambeau",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Monica Rambeau is a physicist and former S.W.A.R.D. agent who gained energy-manipulation powers after passing through the Hex energy barrier. She can absorb, manipulate, and project various types of electromagnetic radiation and energy, allowing her to phase through physical attacks and fly.",
+      "offense": {
+        "domains": [
+          "energy"
+        ],
+        "techniques": [
+          "Energy projection",
+          "Absorption of ballistic and energy fire"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy phase-shifting to let projectiles pass through her body",
+          "Energy absorption"
+        ]
+      },
+      "weaknesses": [
+        "Exhaustion from absorbing massive energy loads"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Power limits when handling high-intensity entangled light fields"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Monica_Rambeau",
+          "supports": "General character background in the MCU."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Monica_Rambeau",
+          "supports": "Powers, energy manipulation feats, and appearances in WandaVision and The Marvels."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbed bullet impacts harmlessly by phase-shifting her body.",
+          "citation": "WandaVision",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wanda Maximoff",
+          "result": "loss",
+          "citation": "WandaVision",
+          "note": "Subdued during direct confrontation within Westview.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies using inherent energy manipulation abilities.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full offensive destructive capacity following events in The Marvels."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Moon Knight",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Marc Spector is a mercenary empowered by the Egyptian moon god Khonshu as the Moon Knight. He utilizes peak human conditioning, expert martial arts training, tactical gear, crescent darts, and a mystical ceremonial suit that provides high durability against physical damage.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Crescent dart throwing",
+          "Brutal close-quarters combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mystical regenerative suit",
+          "High pain tolerance"
+        ]
+      },
+      "weaknesses": [
+        "Mental instability and dissociative identity disorder"
+      ],
+      "mobility": [
+        "Acrobatic movement",
+        "Gliding via cape"
+      ],
+      "limitations": [
+        "Vulnerable to psychological manipulation and conflicts between alters"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Moon_Knight",
+          "supports": "General character background."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Moon_Knight",
+          "supports": "Abilities, equipment, and combat history in the Disney+ series Moon Knight."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off multiple armed jackal creatures in close quarters.",
+          "citation": "Moon Knight Episode 1",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Arthur Harrow's disciples",
+          "result": "win",
+          "citation": "Moon Knight Episode 1",
+          "note": "Overcame attackers in a museum setting.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Suit manifestation and superhuman durability",
+          "dependsOn": "Connection to Khonshu",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Empowered by the deity Khonshu with mystical suit generation.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Extent of healing capabilities without Khonshu's direct intervention."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Moon Knight|Jake Lockley (Moon Knight)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Jake Lockley is the third, more ruthless alter of Marc Spector. Operating in secret, he utilizes the Moon Knight suit and abilities with extreme lethality and zero hesitation, catching opponents off guard.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Ruthless execution style close-quarters combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mystical suit durability"
+        ]
+      },
+      "weaknesses": [
+        "Mental compartmentalization and shared body vulnerabilities"
+      ],
+      "mobility": [
+        "Acrobatic movement"
+      ],
+      "limitations": [
+        "Acts under the direct orders of Khonshu unbeknownst to the other alters"
+      ],
+      "formDifferences": "Represents the lethal third alter taking control of the body, characterized by speaking Spanish and showing no mercy in combat.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Jake_Lockley",
+          "supports": "Appearance, combat actions, and relationship with Khonshu in Moon Knight."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Arthur Harrow",
+          "result": "win",
+          "citation": "Moon Knight Episode 6",
+          "note": "Executed a surprise ambush ending the conflict.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Suit manifestation",
+          "dependsOn": "Khonshu's avatar connection",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Empowered by Khonshu through the Moon Knight identity.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his separate combat training compared to Marc Spector."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Moon Knight|Mr. Knight",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Steven Grant's persona manifestation of the suit, known as Mr. Knight, features a tailored three-piece white suit. While Steven initially lacks Marc's lethal combat efficiency, he relies on improvised weapon use, flexibility, and the magical durability of the avatar suit.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Improvised melee strikes",
+          "Baton combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mystical white suit durability"
+        ]
+      },
+      "weaknesses": [
+        "Lack of formal combat training compared to Marc Spector"
+      ],
+      "mobility": [
+        "Standard agile movement"
+      ],
+      "limitations": [
+        "Inexperienced in combat maneuvers during early appearances"
+      ],
+      "formDifferences": "A distinct white business-suit aesthetic reflecting Steven Grant's personality, initially less violent and more analytical.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Mr._Knight",
+          "supports": "Abilities, appearance, and combat style in Moon Knight."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jackal creatures",
+          "result": "win",
+          "citation": "Moon Knight Episode 2",
+          "note": "Won after adapting to the physical demands of the suit.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Suit manifestation",
+          "dependsOn": "Steven Grant being in control of the body",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Magical suit manifestation tied to Khonshu.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether Mr. Knight possesses unique magical properties distinct from the standard Moon Knight suit."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Mordo",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Karl Mordo is a master of the mystic arts trained in Kamar-Taj. He is a disciplined and lethal combatant who utilizes mystical weapons, dimensional energy whips, shields, and spellcasting to subdue opponents.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Staff of the Living Tribunal creation",
+          "Mystical energy blades",
+          "Dimensional manipulation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Eldritch magic shields",
+          "Counter-spells"
+        ]
+      },
+      "weaknesses": [
+        "Rigid adherence to dogmatic rules leaving him vulnerable to ideological shocks"
+      ],
+      "mobility": [
+        "Portal creation",
+        "Leaping agility enhanced by magic"
+      ],
+      "limitations": [
+        "Relies on somatic gestures and magical focus for spellcasting"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Baron_Mordo",
+          "supports": "General character background in Marvel media."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Karl_Mordo",
+          "supports": "Spellcasting techniques, magical artifacts, and combat history in Doctor Strange."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created mystical staffs and energy blades to fight zealots.",
+          "citation": "Doctor Strange",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Kaecilius' zealots",
+          "result": "win",
+          "citation": "Doctor Strange",
+          "note": "Successfully fought off multiple zealots using martial arts and magic.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Practices Eldritch magic and conjures mystical weapons.",
+          "source": 1
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts complex mystic spells and creates dimensional artifacts.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact activities and power scaling following the events of Doctor Strange."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Ms. Marvel",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Kamala Khan is a teenager who unlocks hard-light construct powers using a mysterious family bangle. She can project solid crystalline light structures, create stepping platforms in mid-air, and elongate her limbs or grow her fist for heavy impacts.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Hard-light constructs",
+          "Gigantic glowing fist strikes",
+          "Energy shields"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hard-light energy shields",
+          "Dodge maneuvers"
+        ]
+      },
+      "weaknesses": [
+        "Inexperience in high-stakes combat"
+      ],
+      "mobility": [
+        "Hard-light stepping disc flight"
+      ],
+      "limitations": [
+        "Power control is tied to emotional state and physical endurance"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ms._Marvel_(Kamala_Khan)",
+          "supports": "General character background in the MCU."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Kamala_Khan",
+          "supports": "Hard-light powers, usage of the Bangle, and feats in Ms. Marvel and The Marvels."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created hard-light shields to block gunfire and projectiles.",
+          "citation": "Ms. Marvel Episode 4",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Damage Control agents",
+          "result": "win",
+          "citation": "Ms. Marvel Episode 6",
+          "note": "Defended her school using traps and hard-light constructs.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Hard-light projection and manipulation",
+          "dependsOn": "Wearing the cosmic Bangle",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Creates hard-light stepping platforms to traverse the air.",
+          "source": 1
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Powers stem from the ancient cosmic Bangle.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full potential of her genetic mutation unlocked by the bangle."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Mysterio",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Quentin Beck is a former Stark Industries disgruntled employee who uses an elaborate network of combat drones, holographic projectors, and chemical illusions to simulate superhuman powers, monsters, and widespread destruction.",
+      "offense": {
+        "domains": [
+          "tech",
+          "control"
+        ],
+        "techniques": [
+          "Drone swarms",
+          "Advanced holographic projections",
+          "Mind-bending illusion environments"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Holographic decoy projection",
+          "Stealth camouflage"
+        ]
+      },
+      "weaknesses": [
+        "Relies entirely on external technology and drones; fragile without his tech support crew"
+      ],
+      "mobility": [
+        "Standard human movement supported by drone transport"
+      ],
+      "limitations": [
+        "Tech can be disrupted by EMPs or direct physical destruction of projectors"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mysterio",
+          "supports": "General character overview."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Quentin_Beck",
+          "supports": "EDITH drone control, illusion technology, and feats in Spider-Man: Far From Home."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Trapped Spider-Man in a complex sequence of disorienting holographic illusions.",
+          "citation": "Spider-Man: Far From Home",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Spider-Man",
+          "result": "loss",
+          "citation": "Spider-Man: Far From Home",
+          "note": "Defeated when Spider-Man bypassed his illusions using Spider-Sense.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Massive scale illusion and drone bombardment",
+          "dependsOn": "Access to EDITH satellite system and drone fleet",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced drone networks and holographic projectors.",
+          "source": 1
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Employs projection suits and tactical drones.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Whether any backup drone systems survived his apparent death."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
