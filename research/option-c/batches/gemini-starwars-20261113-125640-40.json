@@ -1,0 +1,656 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125640 #40",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Rose Tico",
+      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "summary": "Rose Tico is a Resistance maintenance worker and combatant who relies on standard blasters, stun batons, and specialized tools. She fights with pragmatic determination rather than elite combat training.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster rifle combat",
+          "Stun baton melee"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Resistance combat armor",
+          "Cover and tactical positioning"
+        ]
+      },
+      "weaknesses": [
+        "Lacks innate supernatural abilities",
+        "Standard human physical vulnerabilities"
+      ],
+      "mobility": [
+        "Standard foot movement",
+        "Ground vehicles and starship transport"
+      ],
+      "limitations": [
+        "Normal human endurance and capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Rose_Tico",
+          "supports": "Basic combat capabilities, equipment, and Resistance affiliation"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in the defense of the Resistance fleet and mission to Canto Bight",
+          "citation": "Star Wars: Episode VIII The Last Jedi",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots speeders and assists with Resistance craft",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Skilled maintenance technician and mechanic",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Sabine Wren",
+      "continuity": "Star Wars Canon (Rebels & Ahsoka)",
+      "summary": "Sabine Wren is a Mandalorian warrior, artist, and explosives expert proficient in ranged firefights, heavy weaponry, and eventually rudimentary lightsaber combat. She employs diverse high-tech gadgetry and tactical versatility.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Dual blasters",
+          "Explosives and wrist gauntlet weaponry",
+          "Jetpack-assisted aerial combat",
+          "Darksaber/lightsaber combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Beskar armor",
+          "Energy shields",
+          "Evasive jetpack movement"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in close quarters when disarmed",
+        "Initially untrained in Force abilities despite later training"
+      ],
+      "mobility": [
+        "Powered flight via jetpack",
+        "Standard ground movement"
+      ],
+      "limitations": [
+        "Limited ammunition and explosive supplies",
+        "Jetpack fuel capacity"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Sabine_Wren",
+          "supports": "Mandalorian armor, weapons, combat training, and gadgetry"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought imperial forces and duelists using custom weapons and explosives across multiple star systems",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Lightsaber combat",
+          "dependsOn": "Access to the Darksaber or a lightsaber",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Uses a Mandalorian jetpack for aerial mobility",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Employs custom wrist gauntlets, explosives, and grappling lines",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Experienced starfighter and transport pilot",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Savage Opress",
+      "continuity": "Star Wars Canon (The Clone Wars)",
+      "summary": "Savage Opress is a powerful Nightbrother enhanced by Nightsister magic, possessing immense physical strength, durability, and aggressive dual-bladed lightsaber combat skills. He overwhelms opponents through sheer brute force and relentless assaults.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Double-bladed lightsaber combat",
+          "Force push and pull",
+          "Brute force physical strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Nightsister magic-enhanced physical durability",
+          "Heavy armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Prone to emotional instability and rage",
+        "Vulnerable to coordinated attacks from master duelists"
+      ],
+      "mobility": [
+        "Superhuman leaping and standard ground movement"
+      ],
+      "limitations": [
+        "Reliance on raw fury rather than refined tactical discipline"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Savage_Opress",
+          "supports": "Nightsister enhancement, lightsaber skills, and Force abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated multiple Jedi Masters in single combat during the Clone Wars",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Maul",
+          "result": "win",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Fought and allied with Maul after finding him",
+          "source": 0
+        },
+        {
+          "opponent": "Darth Sidious",
+          "result": "loss",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Killed in combat alongside Maul against Sidious",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Enhanced and empowered by Nightsister sorcery",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Utilizes dark side Force abilities channeled through magic",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Demonstrated powerful Force push and choke capabilities",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Saw Gerrera",
+      "continuity": "Star Wars Canon",
+      "summary": "Saw Gerrera is a hardened insurgent leader who employs guerrilla warfare, heavy weapons, and extreme interrogation tactics. He fights with ruthless pragmatism honed across decades of rebellion.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Heavy blaster rifle combat",
+          "Guerrilla ambush tactics",
+          "Explosives"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Combat armor",
+          "Fortified defensive positions",
+          "Respiratory support equipment in later years"
+        ]
+      },
+      "weaknesses": [
+        "Impaired physical health and respiratory dependence in later years",
+        "Paranoid and uncompromising leadership style"
+      ],
+      "mobility": [
+        "Standard ground movement",
+        "Transport vehicles"
+      ],
+      "limitations": [
+        "Compromised physical stamina due to injuries and age"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Saw_Gerrera",
+          "supports": "Insurgent background, combat tactics, and physical condition"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led partisan cells against the Galactic Republic, Confederacy, and Galactic Empire across multiple decades",
+          "citation": "Rogue One: A Star Wars Story / Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Master of guerrilla warfare and insurgent infiltration",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Stormtrooper",
+      "continuity": "Star Wars Canon",
+      "summary": "Standard infantry units of the Galactic Empire equipped with standardized armor and blaster rifles. They operate in squad formations to overwhelm opponents through coordinated volume of fire.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "E-11 blaster rifle volleys",
+          "Squad suppression tactics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Plastoid armor plating designed to disperse energy bolt trauma"
+        ]
+      },
+      "weaknesses": [
+        "Armor offers limited protection against direct heavy impacts or close-range blaster fire",
+        "Restricted peripheral vision through standard helmets"
+      ],
+      "mobility": [
+        "Standard infantry marching and running"
+      ],
+      "limitations": [
+        "Dependent on central command and squad cohesion"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Stormtrooper",
+          "supports": "Standard equipment, tactics, and armor specifications"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully suppressed insurgent cells and secured imperial installations across the galaxy",
+          "citation": "Star Wars Original Trilogy",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Supreme Leader Snoke",
+      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "summary": "Supreme Leader Snoke is a dark side master wielding immense telekinetic power and lightning manipulation without needing a lightsaber in standard combat. He commands subordinates and dominates foes through sheer force presence.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Advanced Force manipulation",
+          "Force lightning",
+          "Telekinetic projection and restraint"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Force barrier",
+          "Elite Praetorian Guard protection"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence leading to blind spots regarding apprentices",
+        "Physically frail body susceptible to surprise physical attacks"
+      ],
+      "mobility": [
+        "Standard walking"
+      ],
+      "limitations": [
+        "Physical body is severely damaged and fragile"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Snoke",
+          "supports": "Dark side Force mastery, abilities, and status as First Order leader"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tortured and manipulated Rey and Kylo Ren simultaneously using dark side abilities",
+          "citation": "Star Wars: Episode VIII The Last Jedi",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "telekinesis",
+          "claim": "Demonstrated effortless mass telekinesis and torture via the Force",
+          "source": 0
+        },
+        {
+          "tag": "electric",
+          "claim": "Wields powerful Force lightning",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Capable of advanced mental domination and bridging minds across space",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Tech",
+      "continuity": "Star Wars Canon (The Bad Batch)",
+      "summary": "Tech is a genetically enhanced clone commando specializing in slicing, engineering, linguistic analysis, and piloting. He utilizes advanced technological tools rather than brute force.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol combat",
+          "Slicing and electronic warfare",
+          "Improvised gadget deployment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Clone commando-derived armor",
+          "Tactical computing and sensor analysis"
+        ]
+      },
+      "weaknesses": [
+        "Relies primarily on intellect and equipment over raw physical confrontation",
+        "Prone to distraction when analyzing complex technical data"
+      ],
+      "mobility": [
+        "Standard ground movement",
+        "Piloted starships and speeders"
+      ],
+      "limitations": [
+        "Standard clone physiology without specialized supernatural enhancements"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/CT-9902",
+          "supports": "Abilities as engineer, slicer, and pilot of Clone Force 99"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated secure imperial databanks and bypassed complex security systems across multiple missions",
+          "citation": "Star Wars: The Bad Batch",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Expert pilot of the Marauder and various imperial vessels",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Advanced computer slicer and technological inventor/modifier",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Constructs and repairs specialized equipment and decrypts encrypted codes",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:The Mandalorian",
+      "continuity": "Star Wars Canon (The Mandalorian)",
+      "summary": "Din Djarin is a battle-hardened Mandalorian bounty hunter equipped with impenetrable beskar armor, a versatile arsenal of integrated weaponry, and expert hand-to-hand and gunfighting skills.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol and rifle marksmanship",
+          "Flamethrower gauntlet",
+          "Whistling birds micro-missiles",
+          "Vibroblade melee combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Full-body Beskar steel armor impervious to most blaster bolts and lightsaber glancing blows",
+          "Energy shield bracer"
+        ]
+      },
+      "weaknesses": [
+        "Joints and gaps in armor remain vulnerable to precise attacks",
+        "Relies heavily on equipment functionality"
+      ],
+      "mobility": [
+        "Powered flight via jetpack",
+        "Ground movement",
+        "Starship piloting"
+      ],
+      "limitations": [
+        "Ammunition limits for specialized weapons like whistling birds"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Din_Djarin",
+          "supports": "Mandalorian armor, weapons, bounty hunting feats, and combat style"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated numerous bounty targets, Imperial Remnant forces, and dangerous beasts in combat",
+          "citation": "The Mandalorian",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Utilizes a Mandalorian jetpack for aerial mobility",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Employs flamethrowers, grappling hooks, and whistling birds",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Equipped with a wrist-mounted flamethrower",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Experienced pilot of the Razor Crest and N-1 starfighter",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Tobias Beckett",
+      "continuity": "Star Wars Canon (Solo: A Star Wars Story)",
+      "summary": "Tobias Beckett is a cynical professional criminal, expert marksman, and heist planner who relies on dual blasters, dirty tricks, and cold tactical calculation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Dual blaster quick-draw marksmanship",
+          "Ambushes and deception"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy coat and concealment",
+          "Preemptive strikes"
+        ]
+      },
+      "weaknesses": [
+        "Normal human vulnerabilities",
+        "Prone to betrayal and untrustworthiness"
+      ],
+      "mobility": [
+        "Standard ground movement",
+        "Transport vehicles"
+      ],
+      "limitations": [
+        "Standard human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Tobias_Beckett",
+          "supports": "Criminal background, marksmanship, and heist expertise"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully planned and executed multiple high-risk coaxium heists",
+          "citation": "Solo: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Executes complex criminal heists and covert infiltrations",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Capable starship pilot and crew leader",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Wampa",
+      "continuity": "Star Wars Canon",
+      "summary": "The Wampa is a large, predatory ice beast native to Hoth possessing immense physical strength, sharp claws, and natural camouflage in snowy environments.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Claw slashes",
+          "Physical crushing and mauling",
+          "Ambush hunting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick fur and blubber offering resistance to cold and minor physical blows"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to extreme heat or lightsaber strikes",
+        "Low intelligence compared to sentient combatants"
+      ],
+      "mobility": [
+        "Quadrupedal and bipedal snow running and climbing"
+      ],
+      "limitations": [
+        "Lacks ranged attacks or advanced tactics"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Wampa",
+          "supports": "Physical characteristics, predatory behavior, and native environment"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ambushed and incapacitated Luke Skywalker in his ice cave on Hoth",
+          "citation": "Star Wars: Episode V The Empire Strikes Back",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Luke Skywalker",
+          "result": "win",
+          "citation": "Star Wars: Episode V The Empire Strikes Back",
+          "note": "Ambushed Luke in the snow wastes",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Massive predatory beast standing well over 2 meters tall",
+          "source": 0
+        },
+        {
+          "tag": "giants",
+          "claim": "Classified as a large monstrous creature",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
