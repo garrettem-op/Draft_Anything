@@ -1,0 +1,560 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-215028 #13",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Fluffy",
+      "continuity": "Harry Potter and the Philosopher's Stone (Books/Films)",
+      "summary": "Fluffy is a massive three-headed dog kept as a guard beast by Rubeus Hagrid. He attacks intruders with brute physical force using all three heads and can be lulled into a deep sleep through music.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Bite with three heads",
+          "Trampling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive size and durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to music, which puts all three heads to sleep"
+      ],
+      "mobility": [
+        "Walking/running"
+      ],
+      "limitations": [
+        "Lacks intelligence beyond basic guard animal instincts"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Fluffy",
+          "supports": "Fluffy's nature as a three-headed dog, guarding duties, and weakness to music."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Guarded the trapdoor leading to the Philosopher's Stone beneath Hogwarts.",
+          "citation": "Harry Potter and the Philosopher's Stone",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Fred Weasley",
+      "continuity": "Harry Potter series (Books/Films up to Deathly Hallows)",
+      "summary": "Fred Weasley is a skilled prankster, co-founder of Weasleys' Wizard Wheezes, and a capable duellist who fights in the Second Wizarding War. He specializes in magical gadgets, defensive spells, and practical combat magic.",
+      "offense": {
+        "domains": [
+          "magic",
+          "tech"
+        ],
+        "techniques": [
+          "Standard duelling spells",
+          "U-No-Poo and Skiving Snackboxes",
+          "Puking Pastilles"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield Charms (Protego)",
+          "Decoy Detonators"
+        ]
+      },
+      "weaknesses": [
+        "Human biological vulnerability to standard lethal curses and physical debris"
+      ],
+      "mobility": [
+        "Broomstick flight",
+        "Apparition"
+      ],
+      "limitations": [
+        "Relies on standard human physical and magical stamina"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Fred_Weasley",
+          "supports": "Fred Weasley's magical abilities, Weasleys' Wizard Wheezes inventions, and participation in the Battle of Hogwarts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside the Order of the Phoenix and Hogwarts defenders in multiple skirmishes.",
+          "citation": "Harry Potter and the Order of the Phoenix / Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters",
+          "result": "win",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "note": "Fought alongside Order members at the Department of Mysteries.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Invented and utilized specialized magical items and practical joke devices for combat and distraction.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Gellert Grindelwald",
+      "continuity": "Fantastic Beasts and Where to Find Them film series",
+      "summary": "Gellert Grindelwald is a dark wizard of immense power, charisma, and duelling skill. He employs devastating arcane attacks, widespread pyrokinesis, and persuasive manipulation without relying solely on specialized items.",
+      "offense": {
+        "domains": [
+          "magic",
+          "fire",
+          "control"
+        ],
+        "techniques": [
+          "Protego Diabólica",
+          "Powerful elemental fire manifestation",
+          "Advanced transfiguration and curses"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced Shield Charms",
+          "Magical barriers"
+        ]
+      },
+      "weaknesses": [
+        "Prone to ideological arrogance and underestimating personal loyalties of opponents"
+      ],
+      "mobility": [
+        "Apparition",
+        "Flight via magical transport"
+      ],
+      "limitations": [
+        "Cannot easily overcome magical blood pacts without external breaking methods"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Gellert_Grindelwald",
+          "supports": "Grindelwald's magical capabilities, mastery of dark arts, and use of blue fire spells."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Generated the Protego Diabólica ritual fire in Paris that required multiple skilled wizards to contain.",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Aurors of MACUSA and the British Ministry of Magic",
+          "result": "win",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "note": "Overpowered numerous aurors during escape attempts.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire-control",
+          "claim": "Creates and controls complex sentient blue flame rings that incinerate enemies and test loyalty.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Master dark wizard capable of wide-scale spellcasting.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Gellert Grindelwald|Grindelwald with Elder Wand",
+      "continuity": "Harry Potter and the Deathly Hallows / Fantastic Beasts",
+      "summary": "Grindelwald wielding the Elder Wand possesses vastly amplified spellcasting potency, capable of overwhelming multiple opponents and shattering powerful protective enchantments with ease.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Elder Wand boosted projectile spells",
+          "Massive destructive blasts"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced Shield Charms powered by the Elder Wand"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to disarming if the wand's master is defeated in direct combat"
+      ],
+      "formDifferences": "Wields the Elder Wand, granting significantly heightened spell velocity, destructive output, and magical penetration compared to his standard wand use.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Elder_Wand",
+          "supports": "The power enhancement provided by the Elder Wand to its wielder."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:George Weasley",
+      "continuity": "Harry Potter series (Books/Films up to Deathly Hallows)",
+      "summary": "George Weasley is a co-founder of Weasleys' Wizard Wheezes and an experienced combatant in the Second Wizarding War. He fights using standard magical duelling techniques and specialized joke-shop inventions.",
+      "offense": {
+        "domains": [
+          "magic",
+          "tech"
+        ],
+        "techniques": [
+          "Standard duelling charms",
+          "Invented tactical distractions"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego Shield Charms"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical injury and lost his left ear during the Battle of the Seven Potters"
+      ],
+      "mobility": [
+        "Broomstick flight",
+        "Apparition"
+      ],
+      "limitations": [
+        "Standard human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/George_Weasley",
+          "supports": "George Weasley's involvement in magical pranks, the Order of the Phoenix, and loss of his ear."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought as a member of the Order of the Phoenix and defended Hogwarts.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Injured by Severus Snape's Sectumsempra during the Battle of the Seven Potters.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes tactical magical devices and trick items created for Weasleys' Wizard Wheezes.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Gilderoy Lockhart",
+      "continuity": "Harry Potter and the Chamber of Secrets (Books/Films)",
+      "summary": "Gilderoy Lockhart is a celebrity author and fraudulent wizard who relies almost entirely on the Memory Charm (Obliviate) to steal the achievements of others. In actual combat, he is exceptionally incompetent.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Obliviate (Memory Modification Charm)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dodge and panic"
+        ]
+      },
+      "weaknesses": [
+        "Utterly lacking in practical combat skills or defensive magic; easily disarmed or incapacitated"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Fails at nearly all standard spells outside of memory modifications"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Gilderoy_Lockhart",
+          "supports": "Lockhart's reliance on Obliviate and incompetence in duelling."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully wiped the memories of numerous accomplished wizards and witches over his career.",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ron Weasley",
+          "result": "loss",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "note": "Backfired his own Memory Charm due to using a broken wand.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Proficient in casting the Memory Charm (Obliviate).",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Ginny Weasley",
+      "continuity": "Harry Potter series (Books/Films)",
+      "summary": "Ginny Weasley is a formidable witch, skilled duellist, and member of Dumbledore's Army. She specializes in aggressive offensive hexes, Bat-Bogey Hexes, and proficient broomstick flight.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Bat-Bogey Hex",
+          "Reducto (Reductor Curse)",
+          "Petrificus Totalus"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego Shield Charm"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability"
+      ],
+      "mobility": [
+        "Broomstick flight",
+        "Apparition"
+      ],
+      "limitations": [
+        "Standard human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Ginny_Weasley",
+          "supports": "Ginny's duelling prowess, proficiency with the Bat-Bogey Hex, and Dumbledore's Army membership."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought in the Department of Mysteries battle and survived the Battle of Hogwarts.",
+          "citation": "Harry Potter and the Order of the Phoenix / Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters",
+          "result": "win",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "note": "Fought alongside D.A. members against Death Eaters in the Ministry.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Skilled witch capable of offensive curses, hexes, and defensive magic.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Godric Gryffindor",
+      "continuity": "Harry Potter series history and lore",
+      "summary": "Godric Gryffindor was one of the four legendary founders of Hogwarts, renowned as an elite duellist and swordsman. He combined master-level wandcraft with physical combat using enchanted weaponry.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Advanced medieval wizard duelling",
+          "Sword combat with Gryffindor's Sword"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Master-level magical barriers",
+          "Physical armor"
+        ]
+      },
+      "weaknesses": [
+        "Not established in accessible historical text"
+      ],
+      "mobility": [
+        "Magical transit",
+        "Walking"
+      ],
+      "limitations": [
+        "Subject to mortal mortality as a historical human wizard"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Godric_Gryffindor",
+          "supports": "Godric Gryffindor's status as a founder, duellist, and creator of his sword."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Co-founded Hogwarts School of Witchcraft and Wizardry and mastered goblin-made enchanted steel weaponry.",
+          "citation": "Harry Potter history lore",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "One of the most powerful wizards of his era, proficient in all branches of magic.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Gregory Goyle",
+      "continuity": "Harry Potter series (Books/Films)",
+      "summary": "Gregory Goyle is a Slytherin student and frequent enforcer for Draco Malfoy. He relies on brute physical intimidation, heavy-handed combat, and later learns dark arts including Fiendfyre.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "fire"
+        ],
+        "techniques": [
+          "Physical brawling",
+          "Fiendfyre curse"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Physical bulk and rudimentary shielding"
+        ]
+      },
+      "weaknesses": [
+        "Poor academic aptitude and low strategic intellect"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Unable to control the Fiendfyre he summoned, leading to his own defeat"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Gregory_Goyle",
+          "supports": "Goyle's role as Malfoy's henchman and casting of Fiendfyre in the Room of Requirement."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cast Fiendfyre inside the Room of Requirement during the Battle of Hogwarts.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Harry Potter",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Defeated in the Room of Requirement when his own Fiendfyre consumed him.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire-control",
+          "claim": "Summoned and attempted to control destructive sentient dark fire (Fiendfyre).",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Capable of casting advanced dark magic curses.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Griphook",
+      "continuity": "Harry Potter series (Books/Films)",
+      "summary": "Griphook is a goblin of Gringotts Wizarding Bank. He is knowledgeable in goblin metallurgy, vault security, and underground navigation, though he fights with a goblin-made blade when necessary.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Goblin blade combat",
+          "Vault security knowledge exploitation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bank security understanding and cunning"
+        ]
+      },
+      "weaknesses": [
+        "Lacks advanced wizarding magic or wand access"
+      ],
+      "mobility": [
+        "Gringotts cart transit",
+        "Walking"
+      ],
+      "limitations": [
+        "Cannot wield standard wizard wands effectively"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Griphook",
+          "supports": "Griphook's background as a Gringotts goblin and familiarity with magical vaults."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Navigated Gringotts security systems and helped break into Bellatrix Lestrange's vault.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
