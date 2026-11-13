@@ -1,0 +1,759 @@
+{
+  "batchId": "Gemini V2 research games 20261113-043003 #24",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Duke Nukem",
+      "continuity": "Duke Nukem Franchise",
+      "summary": "Duke Nukem relies on a vast arsenal of high-explosive weaponry, ballistic firearms, and overwhelming physical strength to mow down alien invaders. He utilizes sheer bravado, steroids for enhanced resilience, and various futuristic gadgets to dominate close-quarters and ranged combat alike.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "M1911 Pistol",
+          "Shotgun",
+          "RPG",
+          "Devastator",
+          "Freezethrower",
+          "Pipe Bombs"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Holo-Duke decoy",
+          "Protective armor",
+          "Steroid-boosted durability"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance",
+        "Vulnerable to environmental hazards if caught off guard"
+      ],
+      "mobility": [
+        "running",
+        "jetpack flight"
+      ],
+      "limitations": [
+        "Ammunition limits for heavy weapons",
+        "Jetpack fuel is limited"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Duke_Nukem",
+          "supports": "General background, weaponry, and persona of Duke Nukem."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated the alien overlord Cycloid Emperor and saved Earth multiple times",
+          "citation": "Duke Nukem 3D",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Cycloid Emperor",
+          "result": "win",
+          "citation": "Duke Nukem 3D",
+          "note": "Standard combat encounter",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight",
+          "dependsOn": "Jetpack item",
+          "source": 0
+        },
+        {
+          "ability": "Holographic decoy",
+          "dependsOn": "Holo-Duke item",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses Holo-Duke and jetpack items in combat",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Uses a jetpack for sustained flight",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact canon sequence across spin-offs and 2D precursors remains inconsistent."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ellie",
+      "continuity": "The Last of Us Part II",
+      "summary": "Ellie is a resourceful and lethal survivor who specializes in stealth, tactical tracking, and brutal close-quarters combat with improvised weapons and firearms. She utilizes switchblades, bows, and crafted traps to eliminate both infected and human adversaries efficiently.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Switchblade slashes",
+          "Silent bow takedowns",
+          "Crafted molotov cocktails",
+          "Pistol and rifle marksmanship"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Stealth concealment in tall grass",
+          "Dodge maneuvers",
+          "Improvised cover"
+        ]
+      },
+      "weaknesses": [
+        "Human physical limits",
+        "Vulnerable to overwhelming numbers of infected"
+      ],
+      "mobility": [
+        "running",
+        "climbing",
+        "swimming"
+      ],
+      "limitations": [
+        "Limited ammunition and crafting resources",
+        "Switchblade can break or require maintenance depending on game mechanics"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Last_of_Us_Part_II",
+          "supports": "Ellie's combat abilities, stealth mechanics, and weapons."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived and eliminated numerous heavily armed Washington Liberation Front soldiers and infected hordes",
+          "citation": "The Last of Us Part II",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Abby Anderson",
+          "result": "inconclusive",
+          "citation": "The Last of Us Part II",
+          "note": " Brutal personal duel ending in a ceasefire of exhaustion.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Extensive utilization of stealth takedowns and camouflage",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Uses crafted molotov cocktails to produce fire",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term progression of her immunity effects outside documented events."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ezio Auditore",
+      "continuity": "Assassin's Creed II / Brotherhood / Revelations",
+      "summary": "Ezio Auditore da Firenze is a master assassin who excels in free-running acrobatics, stealth assassinations, and dual-wielded blade combat. He employs smoke bombs, hidden blades, crossbows, and a deep arsenal of Renaissance weaponry to dismantle targets before they realize he is there.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hidden Blade counters",
+          "Smoke bomb ambushes",
+          "Crossbow sniping",
+          "Swordplay"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Parry and counter-attack systems",
+          "Crowd blending",
+          "Acrobatic rooftop escapes"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy ballistic or firearms damage if caught in the open in later settings",
+        "Relies on human physical conditioning"
+      ],
+      "mobility": [
+        "free-running",
+        "horse riding",
+        "gliding via parachute"
+      ],
+      "limitations": [
+        "Human endurance limits",
+        "Dependent on specialized Assassin tools for advanced utility"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ezio_Auditore_da_Firenze",
+          "supports": "Ezio's background, hidden blades, and assassin skillset."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated the Vatican and defeated Rodrigo Borgia in single combat",
+          "citation": "Assassin's Creed II",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rodrigo Borgia",
+          "result": "win",
+          "citation": "Assassin's Creed II",
+          "note": "Hand-to-hand combat outside the Vault.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Master assassin specializing in stealth and blending into crowds",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes hidden blades, smoke bombs, and poison darts",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of Apple of Eden usage without suffering physical drain."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ezreal",
+      "continuity": "League of Legends",
+      "summary": "Ezreal is a nimble magic-wielding marksman who fights from a distance using arcane energy projectiles channeled through his Shuriman gauntlet. He relies on blink-like teleportation to maintain spacing and constantly pepper opponents with mystical barrages.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Mystic Shot",
+          "Essence Flux",
+          "Arcane Shift",
+          "Trueshot Barrage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Arcane Shift teleportation escape",
+          "Kiting at range"
+        ]
+      },
+      "weaknesses": [
+        "Fragile defense if caught without Arcane Shift",
+        "Relies entirely on precision aiming"
+      ],
+      "mobility": [
+        "teleportation via Arcane Shift",
+        "running"
+      ],
+      "limitations": [
+        "Gauntlet is necessary to channel his innate magical potential effectively",
+        "Physically unarmored"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/League_of_Legends",
+          "supports": "General context of League of Legends champions and universe."
+        },
+        {
+          "url": "https://leagueoflegends.fandom.com/wiki/Ezreal",
+          "supports": "Ezreal's abilities including Mystic Shot, Arcane Shift, and his Shuriman gauntlet."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Navigated perilous ancient tombs and utilized the Ascended gauntlet to fight monsters and rivals",
+          "citation": "League of Legends Lore",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Arcane energy projection and teleportation",
+          "dependsOn": "Shuriman Gauntlet",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels raw magical energy through a Shuriman gauntlet",
+          "source": 1
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Instantly teleports short distances using Arcane Shift",
+          "source": 1
+        },
+        {
+          "tag": "flight",
+          "claim": "Not applicable",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "The full extent of the Shuriman gauntlet's ancient precursor powers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Falco Lombardi",
+      "continuity": "Star Fox Series",
+      "summary": "Falco Lombardi is an ace pilot and sharpshooter who fights primarily from the cockpit of his Arwing starfighter, utilizing high-speed aerial maneuvers and laser cannons. On foot, he employs standard blasters and acrobatic jumps to engage enemies.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Arwing twin lasers",
+          "Barrel roll deflection",
+          "Smart Bomb deployment",
+          "Hand blaster"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Arwing G-deflector shields",
+          "High-speed aerial evasive barrel rolls"
+        ]
+      },
+      "weaknesses": [
+        "Arrogant disposition",
+        "Vulnerable outside his vehicle against heavily armored ground combatants"
+      ],
+      "mobility": [
+        "starfighter flight",
+        "space travel"
+      ],
+      "limitations": [
+        "Starfighter shields can be overwhelmed by sustained fire",
+        "Limited Smart Bomb inventory"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Star_Fox",
+          "supports": "Star Fox universe, Arwing capabilities, and character roles."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside Fox McCloud to destroy the Aparoid homeworld and defeat Andross's forces",
+          "citation": "Star Fox: Assault",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Advanced flight and cosmic combat",
+          "dependsOn": "Arwing Starfighter",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots the Arwing starfighter in dogfights",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Flies advanced starfighters equipped with anti-gravity tech",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his solo piloting skills compared to Fox McCloud."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Fox McCloud",
+      "continuity": "Star Fox Series",
+      "summary": "Fox McCloud is the leader of Star Fox, combining elite piloting skills in his Arwing with proficient ground combat using blasters, landmasters, and reflectors. He relies on tactical precision, quick reflexes, and advanced spacecraft technology to overcome interstellar threats.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster rifle",
+          "Reflector shield",
+          "Landmaster tank cannon",
+          "Arwing laser barrage"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Reflector shield that deflects projectiles",
+          "Arwing energy shields"
+        ]
+      },
+      "weaknesses": [
+        "Reliant on high-tech equipment and vehicles for peak effectiveness"
+      ],
+      "mobility": [
+        "starfighter flight",
+        "running",
+        "Landmaster hover"
+      ],
+      "limitations": [
+        "Vehicle dependence for deep space travel and heavy combat",
+        "Shield energy depletes under heavy enemy fire"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Fox_McCloud",
+          "supports": "Fox McCloud's equipment, leadership of Star Fox, and piloting feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated the evil scientist Andross in combat across multiple star systems",
+          "citation": "Star Fox 64",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Andross",
+          "result": "win",
+          "citation": "Star Fox 64",
+          "note": "Defeated Andross in his core chamber after an aerial dogfight.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Interstellar flight and heavy bombardment",
+          "dependsOn": "Arwing Starfighter",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Commands and pilots the Arwing and Landmaster tank",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Pilots flight-capable starfighters",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses Reflector shields and specialized survival gear",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True extent of his hand-to-hand combat capabilities without his blaster or equipment."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ganondorf",
+      "continuity": "The Legend of Zelda: Ocarina of Time",
+      "summary": "Ganondorf is the master of dark magic and the wielder of the Triforce of Power, capable of casting powerful curse spells, projecting energy blasts, and wielding giant swords. He possesses immense physical resilience and commands dark minions to overwhelm his foes.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Dark energy spheres",
+          "Levitation",
+          "Giant sword strikes",
+          "Curse projection"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Triforce of Power invulnerability barrier",
+          "Dark magic shields"
+        ]
+      },
+      "weaknesses": [
+        "Holy weapons such as the Master Sword",
+        "Arrogance leading to fatal openings"
+      ],
+      "mobility": [
+        "levitation",
+        "running"
+      ],
+      "limitations": [
+        "Vulnerable when channeling massive dark spells",
+        "Requires artifacts or dark magic to sustain his greatest feats"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ganondorf",
+          "supports": "Ganondorf's history, dark magic, and Triforce of Power association."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Conquered and ruled Hyrule Castle for seven years after seizing the Triforce of Power",
+          "citation": "The Legend of Zelda: Ocarina of Time",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Link",
+          "result": "loss",
+          "citation": "The Legend of Zelda: Ocarina of Time",
+          "note": "Defeated by Link and sealed away by the Seven Sages.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Near-absolute durability",
+          "dependsOn": "Triforce of Power",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields potent dark magic and energy projection",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts complex curses and dark rituals",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact mechanics of how the Triforce of Power interacts with different magical seals."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ganondorf|Demon Dragon Ganondorf",
+      "continuity": "The Legend of Zelda: Tears of the Kingdom",
+      "summary": "Demon Dragon Ganondorf is a colossal draconic incarnation formed after swallowing his secret stone, possessing devastating aerial breath attacks, immense scale, and corrupting gloom emissions.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Gloom fire breath",
+          "Colossal tail swipes",
+          "Aerial dive bomb"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive durable dragon scales",
+          "Gloom aura barrier"
+        ]
+      },
+      "weaknesses": [
+        "Exposed vulnerable weak points on his body",
+        "Light dragon intervention"
+      ],
+      "formDifferences": "Transforms Ganondorf from a humanoid dark sorcerer into a colossal, flying dragon infused with gloom.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
+          "supports": "Demon Dragon form details, lore, and final battle mechanics."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Draconic transformation and flight",
+          "dependsOn": "Swallowing a Secret Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Transforms into a massive dragon towering over landscapes",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Flies naturally using giant draconic wings",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Emits corrupting gloom and magical draconic energy",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether any humanoid cognitive function remains in this mindless draconic state."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ganondorf|Demon King Ganondorf",
+      "continuity": "The Legend of Zelda: Tears of the Kingdom",
+      "summary": "Demon King Ganondorf fights with master-level weapon proficiency using gloom swords, spears, and clubs, while manipulating ancient gloom to degrade his opponents' vitality and summon phantom minions.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Gloom sword slashes",
+          "Phantom avatar summons",
+          "Shockwave generation",
+          "Gloom arrow barrage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Perfect dodging and countering",
+          "Gloom armor absorption"
+        ]
+      },
+      "weaknesses": [
+        "Pure light attacks",
+        "Master Sword strikes"
+      ],
+      "formDifferences": "Represents Ganondorf in his restored mummified-to-prime humanoid Demon King state, wielding physical weapons and gloom magic rather than pure sorcery.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
+          "supports": "Demon King Ganondorf's combat style, gloom abilities, and weapon mastery."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Restored prime physical form",
+          "dependsOn": "Absorption of Rauru's sealed energy / Secret Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Manipulates ancient gloom and dark energy",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Summons phantom minions and warps reality around the battlefield",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact upper limit of his gloom corruption range across Hyrule."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Garrus Vakarian",
+      "continuity": "Mass Effect Series",
+      "summary": "Garrus Vakarian is an expert Turian marksman and tactical combatant who specializes in sniper rifle execution, overload tech powers, and defensive squad positioning.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Sniper rifle headshots",
+          "Concussive Shot",
+          "Overload shield stripping",
+          "Proximity mine placement"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Turian kinetic barriers",
+          "Taking tactical cover"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in close-quarters melee without distance",
+        "Turian biology susceptible to heavy toxins or raw physical trauma"
+      ],
+      "mobility": [
+        "running",
+        "tactical rolling"
+      ],
+      "limitations": [
+        "Ammunition thermal clips required for sustained firing",
+        "Kinetic barriers require recharge time after breaking"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mass_Effect",
+          "supports": "Mass Effect universe, Turian biology, and Garrus Vakarian's combat profile."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Independently held off multiple mercenary gangs on Omega as 'Archangel' and served as Commander Shepard's elite squadmate against the Reapers",
+          "citation": "Mass Effect 2",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses Overload tech powers to disrupt shields and electronics",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Discharges localized electrical Overload pulses",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact recovery timeline from his near-fatal rocket injury on Omega without medical aid."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
