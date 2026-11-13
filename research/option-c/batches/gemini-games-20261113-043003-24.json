@@ -1,569 +1,884 @@
 {
-  "batchId": "Gemini V2 research games 20261113-043003 #24",
-  "schemaVersion": 1,
-  "pool": "games",
-  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
-  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
-  "characters": [
+ "batchId": "Gemini V2 research games 20261113-043003 #24",
+ "schemaVersion": 1,
+ "pool": "games",
+ "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+ "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Independently reviewed by Claude on 2026-11-13: every record was re-checked against pages opened in that run, replacing an earlier keyword-only pass. Sources that could not be opened were replaced with pages that were; claims, results and campaign tags that no opened page supports were removed or listed in unknowns. All records provisional.",
+ "characters": [
+  {
+   "id": "games:Duke Nukem",
+   "continuity": "Duke Nukem 3D (1996), episodes 1-4 (Atomic Edition)",
+   "summary": "Duke Nukem fights an alien invasion of Earth with conventional firearms and exotic weapons: the Devastator double rocket launcher, the RPG, the Freezethrower, the Shrink Ray and remote pipe bombs. Inventory items add a jetpack, a Holoduke decoy, speed-boosting steroids and body armor. He defeats the Battlelord, the Overlord, the Cycloid Emperor and the Alien Queen.",
+   "offense": {
+    "domains": [
+     "physical",
+     "energy",
+     "tech"
+    ],
+    "techniques": [
+     "Pistol and shotgun",
+     "Devastator (double-barrelled automatic rocket launcher)",
+     "RPG",
+     "Freezethrower (freezes victims solid)",
+     "Shrink Ray (shrinks enemies to be stomped)",
+     "Remote-detonated pipe bombs"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Body armor that absorbs damage",
+     "Holoduke decoy that confuses enemies"
+    ]
+   },
+   "weaknesses": [
+    "His own RPG can kill him if a rocket misfires or detonates close by"
+   ],
+   "mobility": [
+    "running",
+    "jetpack flight (within a level's boundaries)",
+    "temporary speed boost from steroids"
+   ],
+   "limitations": [
+    "Devastator ammunition is scarce",
+    "Holoduke decoy lasts only a limited time"
+   ],
+   "sources": [
     {
-      "id": "games:Duke Nukem",
-      "continuity": "Duke Nukem Franchise",
-      "summary": "Duke Nukem relies on a vast arsenal of high-explosive weaponry, ballistic firearms, and overwhelming physical strength to mow down alien invaders. He utilizes sheer bravado, steroids for enhanced resilience, and various futuristic gadgets to dominate close-quarters and ranged combat alike.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "tech"
-        ],
-        "techniques": [
-          "Freezethrower"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "running"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Duke_Nukem",
-          "supports": "General background, weaponry, and persona of Duke Nukem."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "gadgets",
-          "claim": "Uses Holo-Duke and jetpack items in combat",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact canon sequence across spin-offs and 2D precursors remains inconsistent.",
-        "Removed by review (not supported by the cited source): technique: M1911 Pistol; technique: Shotgun; technique: RPG; technique: Devastator; technique: Pipe Bombs; defense: Holo-Duke decoy; defense: Protective armor; defense: Steroid-boosted durability; weakness: Arrogance; weakness: Vulnerable to environmental hazards if caught off guard; limitation: Ammunition limits for heavy weapons; limitation: Jetpack fuel is limited; mobility: jetpack flight; feat: Defeated the alien overlord Cycloid Emperor and saved Earth multiple times; result: Cycloid Emperor; conditional: Flight; conditional: Holographic decoy; tag: Uses a jetpack for sustained flight",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Ellie",
-      "continuity": "The Last of Us Part II",
-      "summary": "Ellie is a resourceful and lethal survivor who specializes in stealth, tactical tracking, and brutal close-quarters combat with improvised weapons and firearms. She utilizes switchblades, bows, and crafted traps to eliminate both infected and human adversaries efficiently.",
-      "offense": {
-        "domains": [
-          "physical",
-          "tech"
-        ],
-        "techniques": [
-          "Crafted molotov cocktails"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Stealth concealment in tall grass",
-          "Improvised cover"
-        ]
-      },
-      "weaknesses": [
-        "Human physical limits",
-        "Vulnerable to overwhelming numbers of infected"
-      ],
-      "mobility": [
-        "running",
-        "climbing"
-      ],
-      "limitations": [
-        "Limited ammunition and crafting resources",
-        "Switchblade can break or require maintenance depending on game mechanics"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/The_Last_of_Us_Part_II",
-          "supports": "Ellie's combat abilities, stealth mechanics, and weapons."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "fire",
-          "claim": "Uses crafted molotov cocktails to produce fire",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Long-term progression of her immunity effects outside documented events.",
-        "Removed by review (not supported by the cited source): technique: Switchblade slashes; technique: Silent bow takedowns; technique: Pistol and rifle marksmanship; defense: Dodge maneuvers; mobility: swimming; feat: Survived and eliminated numerous heavily armed Washington Liberation Front soldiers and infected hordes; result: Abby Anderson; tag: Extensive utilization of stealth takedowns and camouflage",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Ezio Auditore",
-      "continuity": "Assassin's Creed II / Brotherhood / Revelations",
-      "summary": "Ezio Auditore da Firenze is a master assassin who excels in free-running acrobatics, stealth assassinations, and dual-wielded blade combat. He employs smoke bombs, hidden blades, crossbows, and a deep arsenal of Renaissance weaponry to dismantle targets before they realize he is there.",
-      "offense": {
-        "domains": [
-          "physical",
-          "tech"
-        ],
-        "techniques": [
-          "Hidden Blade counters"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "free-running",
-        "gliding via parachute"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Ezio_Auditore_da_Firenze",
-          "supports": "Ezio's background, hidden blades, and assassin skillset."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Infiltrated the Vatican and defeated Rodrigo Borgia in single combat",
-          "citation": "Wikipedia: Ezio Auditore da Firenze",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Rodrigo Borgia",
-          "result": "win",
-          "citation": "Wikipedia: Ezio Auditore da Firenze",
-          "note": "Hand-to-hand combat outside the Vault.",
-          "source": 0
-        }
-      ],
-      "campaignTags": [
-        {
-          "tag": "gadgets",
-          "claim": "Utilizes hidden blades, smoke bombs, and poison darts",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact limits of Apple of Eden usage without suffering physical drain.",
-        "Removed by review (not supported by the cited source): technique: Smoke bomb ambushes; technique: Crossbow sniping; technique: Swordplay; defense: Parry and counter-attack systems; defense: Crowd blending; defense: Acrobatic rooftop escapes; weakness: Vulnerable to heavy ballistic or firearms damage if caught in the open in later settings; weakness: Relies on human physical conditioning; limitation: Human endurance limits; limitation: Dependent on specialized Assassin tools for advanced utility; mobility: horse riding; tag: Master assassin specializing in stealth and blending into crowds",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Ezreal",
-      "continuity": "League of Legends",
-      "summary": "Ezreal is a nimble magic-wielding marksman who fights from a distance using arcane energy projectiles channeled through his Shuriman gauntlet. He relies on blink-like teleportation to maintain spacing and constantly pepper opponents with mystical barrages.",
-      "offense": {
-        "domains": [
-          "magic",
-          "energy"
-        ],
-        "techniques": [
-          "Arcane Shift"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "teleportation via Arcane Shift",
-        "running"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/League_of_Legends",
-          "supports": "General context of League of Legends champions and universe."
-        },
-        {
-          "url": "https://leagueoflegends.fandom.com/wiki/Ezreal",
-          "supports": "Ezreal's abilities including Mystic Shot, Arcane Shift, and his Shuriman gauntlet."
-        }
-      ],
-      "feats": [],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "self-teleport",
-          "claim": "Instantly teleports short distances using Arcane Shift",
-          "source": 1
-        }
-      ],
-      "unknowns": [
-        "The full extent of the Shuriman gauntlet's ancient precursor powers.",
-        "Removed by review (not supported by the cited source): technique: Mystic Shot; technique: Essence Flux; technique: Trueshot Barrage; defense: Arcane Shift teleportation escape; defense: Kiting at range; weakness: Fragile defense if caught without Arcane Shift; weakness: Relies entirely on precision aiming; limitation: Gauntlet is necessary to channel his innate magical potential effectively; limitation: Physically unarmored; feat: Navigated perilous ancient tombs and utilized the Ascended gauntlet to fight monsters and rivals; conditional: Arcane energy projection and teleportation; tag: Channels raw magical energy through a Shuriman gauntlet; tag: Not applicable",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Falco Lombardi",
-      "continuity": "Star Fox Series",
-      "summary": "Falco Lombardi is an ace pilot and sharpshooter who fights primarily from the cockpit of his Arwing starfighter, utilizing high-speed aerial maneuvers and laser cannons. On foot, he employs standard blasters and acrobatic jumps to engage enemies.",
-      "offense": {
-        "domains": [
-          "energy",
-          "tech"
-        ],
-        "techniques": [
-          "Hand blaster"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "starfighter flight",
-        "space travel"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Star_Fox",
-          "supports": "Star Fox universe, Arwing capabilities, and character roles."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Fought alongside Fox McCloud to destroy the Aparoid homeworld and defeat Andross's forces",
-          "citation": "Wikipedia: Star Fox",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "pilot",
-          "claim": "Pilots the Arwing starfighter in dogfights",
-          "source": 0
-        },
-        {
-          "tag": "powered-flight",
-          "claim": "Flies advanced starfighters equipped with anti-gravity tech",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact limits of his solo piloting skills compared to Fox McCloud.",
-        "Removed by review (not supported by the cited source): technique: Arwing twin lasers; technique: Barrel roll deflection; technique: Smart Bomb deployment; defense: Arwing G-deflector shields; defense: High-speed aerial evasive barrel rolls; weakness: Arrogant disposition; weakness: Vulnerable outside his vehicle against heavily armored ground combatants; limitation: Starfighter shields can be overwhelmed by sustained fire; limitation: Limited Smart Bomb inventory; conditional: Advanced flight and cosmic combat",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Fox McCloud",
-      "continuity": "Star Fox Series",
-      "summary": "Fox McCloud is the leader of Star Fox, combining elite piloting skills in his Arwing with proficient ground combat using blasters, landmasters, and reflectors. He relies on tactical precision, quick reflexes, and advanced spacecraft technology to overcome interstellar threats.",
-      "offense": {
-        "domains": [
-          "energy",
-          "tech"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "starfighter flight",
-        "Landmaster hover"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Fox_McCloud",
-          "supports": "Fox McCloud's equipment, leadership of Star Fox, and piloting feats."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Defeated the evil scientist Andross in combat across multiple star systems",
-          "citation": "Wikipedia: Fox McCloud",
-          "source": 0
-        }
-      ],
-      "notableResults": [],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "pilot",
-          "claim": "Commands and pilots the Arwing and Landmaster tank",
-          "source": 0
-        },
-        {
-          "tag": "powered-flight",
-          "claim": "Pilots flight-capable starfighters",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "True extent of his hand-to-hand combat capabilities without his blaster or equipment.",
-        "Removed by review (not supported by the cited source): technique: Blaster rifle; technique: Reflector shield; technique: Landmaster tank cannon; technique: Arwing laser barrage; defense: Reflector shield that deflects projectiles; defense: Arwing energy shields; weakness: Reliant on high-tech equipment and vehicles for peak effectiveness; limitation: Vehicle dependence for deep space travel and heavy combat; limitation: Shield energy depletes under heavy enemy fire; mobility: running; result: Andross; conditional: Interstellar flight and heavy bombardment; tag: Uses Reflector shields and specialized survival gear",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Ganondorf",
-      "continuity": "The Legend of Zelda: Ocarina of Time",
-      "summary": "Ganondorf is the master of dark magic and the wielder of the Triforce of Power, capable of casting powerful curse spells, projecting energy blasts, and wielding giant swords. He possesses immense physical resilience and commands dark minions to overwhelm his foes.",
-      "offense": {
-        "domains": [
-          "magic",
-          "physical",
-          "energy"
-        ],
-        "techniques": [
-          "Levitation"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Triforce of Power invulnerability barrier",
-          "Dark magic shields"
-        ]
-      },
-      "weaknesses": [
-        "Holy weapons such as the Master Sword"
-      ],
-      "mobility": [
-        "levitation"
-      ],
-      "limitations": [
-        "Vulnerable when channeling massive dark spells",
-        "Requires artifacts or dark magic to sustain his greatest feats"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Ganondorf",
-          "supports": "Ganondorf's history, dark magic, and Triforce of Power association."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Conquered and ruled Hyrule Castle for seven years after seizing the Triforce of Power",
-          "citation": "Wikipedia: Ganondorf",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Link",
-          "result": "loss",
-          "citation": "Wikipedia: Ganondorf",
-          "note": "Defeated by Link and sealed away by the Seven Sages.",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "magic",
-          "claim": "Wields potent dark magic and energy projection",
-          "source": 0
-        },
-        {
-          "tag": "spellcaster",
-          "claim": "Casts complex curses and dark rituals",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "The exact mechanics of how the Triforce of Power interacts with different magical seals.",
-        "Removed by review (not supported by the cited source): technique: Dark energy spheres; technique: Giant sword strikes; technique: Curse projection; weakness: Arrogance leading to fatal openings; mobility: running; conditional: Near-absolute durability"
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "games:Ganondorf|Demon Dragon Ganondorf",
-      "continuity": "The Legend of Zelda: Tears of the Kingdom",
-      "summary": "Demon Dragon Ganondorf is a colossal draconic incarnation formed after swallowing his secret stone, possessing devastating aerial breath attacks, immense scale, and corrupting gloom emissions.",
-      "offense": {
-        "domains": [
-          "magic",
-          "physical",
-          "energy"
-        ],
-        "techniques": [
-          "Gloom fire breath"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Massive durable dragon scales"
-        ]
-      },
-      "weaknesses": [
-        "Light dragon intervention"
-      ],
-      "formDifferences": "Transforms Ganondorf from a humanoid dark sorcerer into a colossal, flying dragon infused with gloom.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
-          "supports": "Demon Dragon form details, lore, and final battle mechanics."
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Draconic transformation and flight",
-          "dependsOn": "Swallowing a Secret Stone",
-          "source": 0
-        }
-      ],
-      "campaignTags": [
-        {
-          "tag": "giant-sized",
-          "claim": "Transforms into a massive dragon towering over landscapes",
-          "source": 0
-        },
-        {
-          "tag": "natural-flight",
-          "claim": "Flies naturally using giant draconic wings",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Whether any humanoid cognitive function remains in this mindless draconic state.",
-        "Removed by review (not supported by the cited source): technique: Colossal tail swipes; technique: Aerial dive bomb; defense: Gloom aura barrier; weakness: Exposed vulnerable weak points on his body; tag: Emits corrupting gloom and magical draconic energy"
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "games:Ganondorf|Demon King Ganondorf",
-      "continuity": "The Legend of Zelda: Tears of the Kingdom",
-      "summary": "Demon King Ganondorf fights with master-level weapon proficiency using gloom swords, spears, and clubs, while manipulating ancient gloom to degrade his opponents' vitality and summon phantom minions.",
-      "offense": {
-        "domains": [
-          "magic",
-          "physical"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "formDifferences": "Represents Ganondorf in his restored mummified-to-prime humanoid Demon King state, wielding physical weapons and gloom magic rather than pure sorcery.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
-          "supports": "Demon King Ganondorf's combat style, gloom abilities, and weapon mastery."
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "spellcaster",
-          "claim": "Summons phantom minions and warps reality around the battlefield",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "The exact upper limit of his gloom corruption range across Hyrule.",
-        "Removed by review (not supported by the cited source): technique: Gloom sword slashes; technique: Phantom avatar summons; technique: Shockwave generation; technique: Gloom arrow barrage; defense: Perfect dodging and countering; defense: Gloom armor absorption; weakness: Pure light attacks; weakness: Master Sword strikes; conditional: Restored prime physical form; tag: Manipulates ancient gloom and dark energy",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "games:Garrus Vakarian",
-      "continuity": "Mass Effect Series",
-      "summary": "Garrus Vakarian is an expert Turian marksman and tactical combatant who specializes in sniper rifle execution, overload tech powers, and defensive squad positioning.",
-      "offense": {
-        "domains": [
-          "tech",
-          "energy",
-          "physical"
-        ],
-        "techniques": [
-          "Concussive Shot"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Taking tactical cover"
-        ]
-      },
-      "weaknesses": [
-        "Vulnerable in close-quarters melee without distance"
-      ],
-      "mobility": [
-        "running"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Mass_Effect",
-          "supports": "Mass Effect universe, Turian biology, and Garrus Vakarian's combat profile."
-        }
-      ],
-      "feats": [],
-      "campaignTags": [
-        {
-          "tag": "electric-control",
-          "claim": "Discharges localized electrical Overload pulses",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact recovery timeline from his near-fatal rocket injury on Omega without medical aid.",
-        "Removed by review (not supported by the cited source): technique: Sniper rifle headshots; technique: Overload shield stripping; technique: Proximity mine placement; defense: Turian kinetic barriers; weakness: Turian biology susceptible to heavy toxins or raw physical trauma; limitation: Ammunition thermal clips required for sustained firing; limitation: Kinetic barriers require recharge time after breaking; mobility: tactical rolling; feat: Independently held off multiple mercenary gangs on Omega as 'Archangel' and served as Commander Shepard's elite squadmate against the Reapers; tag: Uses Overload tech powers to disrupt shields and electronics",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
+     "url": "https://giantbomb.com/wiki/Games/Duke_Nukem_3D",
+     "supports": "Alien invasion plot; pistol, shotgun, Devastator, RPG, Freezethrower, Shrink Ray and pipe bombs; Holoduke, steroids (speed), jetpack (flight within levels) and body armor; episode bosses Battlelord, Overlord, Cycloid Emperor and Alien Queen"
     }
-  ]
+   ],
+   "feats": [
+    {
+     "claim": "Defeated the Cycloid Emperor, the final and most powerful boss of the original three episodes",
+     "citation": "Duke Nukem 3D, Episode 3",
+     "source": 0
+    },
+    {
+     "claim": "Defeated the Alien Queen in an underwater cave while she spawned Protector Drones",
+     "citation": "Duke Nukem 3D: Atomic Edition, Episode 4",
+     "source": 0
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Battlelord",
+     "result": "win",
+     "citation": "Duke Nukem 3D, Episode 1",
+     "note": "Episode 1 boss with a chaingun-grenade launcher and very high health",
+     "source": 0
+    },
+    {
+     "opponent": "Overlord",
+     "result": "win",
+     "citation": "Duke Nukem 3D, Episode 2",
+     "note": "Alien leader on the Moon, armed with a dual rocket launcher",
+     "source": 0
+    },
+    {
+     "opponent": "Cycloid Emperor",
+     "result": "win",
+     "citation": "Duke Nukem 3D, Episode 3",
+     "note": "Final boss of the original three episodes; fires fast missiles and plasma",
+     "source": 0
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Flight",
+     "dependsOn": "Jetpack item",
+     "source": 0
+    },
+    {
+     "ability": "Holographic decoy",
+     "dependsOn": "Holoduke item",
+     "source": 0
+    },
+    {
+     "ability": "Speed boost",
+     "dependsOn": "Steroids item (temporary)",
+     "source": 0
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "gadgets",
+     "claim": "Uses the Holoduke decoy and the jetpack",
+     "source": 0
+    },
+    {
+     "tag": "powered-flight",
+     "claim": "The jetpack lets him fly",
+     "source": 0
+    },
+    {
+     "tag": "ice-weapon",
+     "claim": "The Freezethrower fires ice crystals that freeze victims solid",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Other games (Duke Nukem II, Forever, spin-offs) are not covered by this record.",
+    "Reviewed by Claude (2026-11-13): replaced the unopened Wikipedia cite with Giant Bomb's Duke Nukem 3D page. Corrected steroids from 'resilience' to a temporary speed boost (that is what the source says). Removed the unsourced 'arrogance' and 'environmental hazards' weaknesses and the jetpack-fuel limit, and dropped 'saved Earth multiple times'. Added the four episode bosses and the ice-weapon tag (Freezethrower)."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Ellie",
+   "continuity": "The Last of Us Part II",
+   "summary": "Ellie is a smaller, lighter fighter than Abby who relies on stealth, distance and explosives: she hides prone in tall grass, crafts Molotov cocktails, uses a bow and firearms, and carries her switchblade. She kills dozens of WLF soldiers on her revenge hunt and, in the final fight in Santa Barbara, overpowers Abby and starts drowning her before choosing to let her go.",
+   "offense": {
+    "domains": [
+     "physical",
+     "tech"
+    ],
+    "techniques": [
+     "Switchblade",
+     "Bow",
+     "Crafted Molotov cocktails",
+     "Firearms"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Stealth: crouching or going prone in tall grass to hide",
+     "Small size lets her squeeze through tight gaps"
+    ]
+   },
+   "weaknesses": [
+    "Enemies can still spot her at close range even when she hides in grass"
+   ],
+   "mobility": [
+    "running",
+    "climbing",
+    "swimming"
+   ],
+   "limitations": [
+    "Unenhanced human physicality: smaller and lighter than Abby, so she leans on stealth, distance and explosives"
+   ],
+   "sources": [
+    {
+     "url": "https://tvtropes.org/pmwiki/pmwiki.php/VideoGame/TheLastOfUs2",
+     "supports": "Ellie relies on stealth, distance and explosives; hides prone in tall grass; crafts Molotovs; unbreakable switchblade; bow; can swim; the theater cat-and-mouse with Abby; the Santa Barbara fight in the surf where Ellie loses two fingers"
+    },
+    {
+     "url": "https://www.gamesradar.com/the-last-of-us-part-2-ending",
+     "supports": "Santa Barbara fight: Ellie gains the upper hand and starts drowning Abby, then spares her; WLF members could seek revenge for Ellie killing dozens of their soldiers"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Killed dozens of WLF soldiers during her revenge hunt",
+     "citation": "The Last of Us Part II",
+     "source": 1
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Abby Anderson",
+     "result": "win",
+     "citation": "The Last of Us Part II (Santa Barbara)",
+     "note": "Both badly hurt; Ellie lost two fingers to a bite but gained the upper hand and began drowning Abby, then chose to spare her and let her leave with Lev",
+     "source": 1
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "stealth",
+     "claim": "Hides prone in tall grass and stalks Abby in a stealth cat-and-mouse fight in the theater",
+     "source": 0
+    },
+    {
+     "tag": "fire",
+     "claim": "Crafts and throws Molotov cocktails",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "The earlier theater fight with Abby (played as Abby) is not recorded as a result: the opened pages describe it only as a cat-and-mouse fight and do not state its outcome.",
+    "Reviewed by Claude (2026-11-13): replaced the unopened Wikipedia cite with TV Tropes and GamesRadar pages that cover Ellie's play style and the ending. Changed the Abby result from 'inconclusive ... ceasefire of exhaustion' to a win: Ellie overpowered Abby and spared her. Removed the 'Seraphite/infected hordes' wording, 'dodge maneuvers' and the 'switchblade can break' limit (the source calls it unbreakable). Removed the immunity unknown: it is not a combat factor here."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Ezio Auditore",
+   "continuity": "Assassin's Creed II / Brotherhood / Revelations",
+   "summary": "Ezio is a Renaissance master assassin who fights with the hidden blade(s), the poison blade, a hidden gun, a crossbow, throwing knives and smoke bombs. He blends with crowds to escape guards and flew Leonardo's flying machine over Venice. In the Sistine Chapel he beat Rodrigo Borgia in a bare-handed brawl and spared him.",
+   "offense": {
+    "domains": [
+     "physical",
+     "tech"
+    ],
+    "techniques": [
+     "Hidden blade(s)",
+     "Poison blade / poison darts",
+     "Hidden gun",
+     "Crossbow (silent kills)",
+     "Throwing knives",
+     "Smoke bombs",
+     "Swordplay"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Crowd blending to evade pursuers",
+     "Rooftop free-running escapes",
+     "Medicine to restore health"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the opened sources (an unenhanced human without Piece of Eden protection)"
+   ],
+   "mobility": [
+    "free-running and climbing",
+    "horse riding",
+    "Leonardo's flying machine (heated-air lift, Venice)"
+   ],
+   "limitations": [
+    "Much of his toolkit (second hidden blade, poison blade, hidden gun) depends on devices Leonardo builds from Codex pages",
+    "Consumables (medicine, poison, throwing knives, smoke bombs, bullets) must be restocked"
+   ],
+   "sources": [
+    {
+     "url": "https://iiab.live/kiwix/content/wikipedia_en_all_maxi_2023-05/A/Ezio_Auditore",
+     "supports": "Rodrigo nearly defeated Ezio at their first encounter and fled when Ezio's allies arrived; in the Vatican Ezio emerged victorious over Rodrigo wielding the Staff of Eden and spared him; Apple of Eden"
+    },
+    {
+     "url": "https://assassinscreedwiki.accesstheanimus.com/wiki/Ezio",
+     "supports": "Leonardo built the hidden blade(s), poison blade and hidden gun; flying machine over Venice; blending with crowds and courtesans to evade guards; horse riding; Sistine Chapel fight: Apple creates four copies of Ezio, Rodrigo turns invisible with the Staff, Ezio lays down arms for a brawl and spares him"
+    },
+    {
+     "url": "https://fandomwire.com/remember-throwing-hands-with-one-pope-election-2025-is-not-news-to-true-assassins-creed-fans/",
+     "supports": "Ezio challenges Pope Rodrigo Borgia to a fistfight inside the Sistine Chapel ('No more weapons') and spares him"
+    },
+    {
+     "url": "https://strategywiki.org/wiki/Assassin%27s_Creed:_Brotherhood/Weapons",
+     "supports": "Brotherhood weapons: hidden blade, poison darts, crossbow for silent kills"
+    },
+    {
+     "url": "https://www.gamepressure.com/assassinscreedii/other-equipment/zd22e4",
+     "supports": "AC II equipment: second hidden blade, poison blade, pistol; stocks of medicine, poison, throwing knives and smoke bombs"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "After a Piece-of-Eden duel in the Sistine Chapel, laid down his weapons and beat Rodrigo Borgia (Pope Alexander VI) in a bare-handed brawl",
+     "citation": "Assassin's Creed II",
+     "source": 1
+    },
+    {
+     "claim": "Escaped a guard patrol by blending in with a group of courtesans",
+     "citation": "Assassin's Creed II",
+     "source": 1
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Rodrigo Borgia",
+     "result": "inconclusive",
+     "citation": "Assassin's Creed II (first encounter)",
+     "note": "Rodrigo almost defeated Ezio and fled when Ezio's allies arrived",
+     "source": 0
+    },
+    {
+     "opponent": "Rodrigo Borgia",
+     "result": "win",
+     "citation": "Assassin's Creed II (Vatican)",
+     "note": "Rodrigo used the Staff of Eden (incl. invisibility) and took the Apple; Ezio then won a fist fight and spared him",
+     "source": 1
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Creates illusory copies of himself",
+     "dependsOn": "Apple of Eden",
+     "source": 1
+    },
+    {
+     "ability": "Flight over Venice",
+     "dependsOn": "Leonardo's flying machine lifted by bonfire heat",
+     "source": 1
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "stealth",
+     "claim": "Evaded Dante's patrol by blending in with Teodora's courtesans; crowd blending is part of his training",
+     "source": 1
+    },
+    {
+     "tag": "gadgets",
+     "claim": "Uses Leonardo-built hidden blades, poison blade and hidden gun, plus smoke bombs",
+     "source": 1
+    }
+   ],
+   "unknowns": [
+    "Brotherhood/Revelations gear such as the parachute and hookblade is not covered by the opened pages and was left out.",
+    "Reviewed by Claude (2026-11-13): replaced the unopened Wikipedia cite with an opened Wikipedia mirror, the Assassin's Creed Wiki, FandomWire, StrategyWiki and Gamepressure. Corrected the Rodrigo fight: it happened in the Sistine Chapel (not 'outside the Vault'), after Rodrigo used the Staff of Eden, and Ezio spared him. Added the first encounter (inconclusive: Rodrigo nearly beat Ezio, then fled). Removed 'parachute gliding' and the unsourced firearms weakness. Tags stealth and gadgets kept."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Ezreal",
+   "continuity": "League of Legends (current lore, post-2018 update)",
+   "summary": "Ezreal is an explorer who found a bronze Shuriman gauntlet in the tomb of the tyrant Ne'Zuk. The gauntlet siphons and amplifies his own essence into arcane blasts. In play he fires Mystic Shot, Essence Flux and Trueshot Barrage and blinks short distances with Arcane Shift.",
+   "offense": {
+    "domains": [
+     "magic",
+     "energy"
+    ],
+    "techniques": [
+     "Mystic Shot (energy bolt)",
+     "Essence Flux (energy wave)",
+     "Arcane Shift (blink, then a homing bolt)",
+     "Trueshot Barrage (wide energy barrage that hits every unit it passes through)"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Arcane Shift short-range teleport to escape"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the opened sources"
+   ],
+   "mobility": [
+    "running",
+    "short-range teleport (Arcane Shift)"
+   ],
+   "limitations": [
+    "His arcane blasts are channeled through the gauntlet, which siphons and amplifies his own essence"
+   ],
+   "sources": [
+    {
+     "url": "https://leagueoflegends.com/en-us/champions/ezreal/",
+     "supports": "Official bio: raids catacombs and uses his mystical Shuriman gauntlet to unleash arcane blasts; ability names Mystic Shot, Essence Flux, Arcane Shift, Trueshot Barrage"
+    },
+    {
+     "url": "https://www.surrenderat20.net/2018/09/ezreal-gameplay-preview-new-bio-story.html?m=1",
+     "supports": "2018 bio: found the bronze gauntlet in Ne'Zuk's tomb; it siphons and amplifies his essence; he used it to blast through the tomb's traps"
+    },
+    {
+     "url": "https://www.giantbomb.com/ezreal/3005-14678/",
+     "supports": "Ability descriptions: Mystic Shot energy bolt; E teleports him to a nearby location and fires a homing arrow; Trueshot Barrage energy missiles damage each unit they pass through"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Found the gauntlet in the tomb of the Shuriman tyrant Ne'Zuk and used it at once to blast through the tomb's traps",
+     "citation": "League of Legends 2018 biography",
+     "source": 1
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Arcane energy blasts",
+     "dependsOn": "Shuriman gauntlet",
+     "source": 0
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "magic",
+     "claim": "Unleashes arcane blasts through a mystical Shuriman gauntlet",
+     "source": 0
+    },
+    {
+     "tag": "self-teleport",
+     "claim": "Arcane Shift teleports him to a nearby location",
+     "source": 2
+    }
+   ],
+   "unknowns": [
+    "Whether Ezreal can teleport without the gauntlet is not stated by the opened sources.",
+    "Giant Bomb's lore section is the pre-2018 'amulet' biography; only its ability descriptions are used here.",
+    "Reviewed by Claude (2026-11-13): replaced the unopened fandom and generic League of Legends cites with the official champion page, the 2018 bio and Giant Bomb. Corrected the feat to the tomb of Ne'Zuk. Removed the invalid 'flight: Not applicable' tag and the game-balance weaknesses ('fragile', 'relies on aiming')."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Falco Lombardi",
+   "continuity": "Star Fox series (Star Fox 64, Star Fox: Assault)",
+   "summary": "Falco is Fox McCloud's wingman, a brash, cocky and highly skilled Arwing pilot. In Star Fox: Assault he stays in his Arwing as the team's air support while the Star Fox team fights the Aparoid invasion through to the Aparoid homeworld.",
+   "offense": {
+    "domains": [
+     "energy",
+     "tech"
+    ],
+    "techniques": [
+     "Arwing lasers",
+     "Barrel roll that deflects enemy fire"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Arwing force-field shields",
+     "Barrel roll deflection"
+    ]
+   },
+   "weaknesses": [
+    "Brash, cocky and sometimes uncooperative"
+   ],
+   "mobility": [
+    "Arwing starfighter flight"
+   ],
+   "limitations": [
+    "Fights from his Arwing; the opened sources describe no on-foot combat in the mainline games"
+   ],
+   "sources": [
+    {
+     "url": "https://ipfs.ssi.eecc.de/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Falco_Lombardi.html",
+     "supports": "Fox's wingman; brash and cocky; one of the most skilled pilots on the team; ace pilot who stays in his Arwing for air support in Assault"
+    },
+    {
+     "url": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Star_Fox_64",
+     "supports": "Star Fox 64: Arwing barrel roll deflects enemy fire; the Arwing has a force field and shields"
+    },
+    {
+     "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Star_Fox_Assault.html",
+     "supports": "Star Fox: Assault: Falco on the team; the team reaches the Aparoid homeworld; Fox destroys the Aparoid Queen"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Flew Arwing air support for the Star Fox team through the Aparoid invasion and the assault on the Aparoid homeworld",
+     "citation": "Star Fox: Assault",
+     "source": 2
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Flight, lasers and shields",
+     "dependsOn": "Arwing starfighter",
+     "source": 1
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "pilot",
+     "claim": "Ace Arwing pilot and Fox's wingman",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "His solo combat record is not documented by the opened sources: the Aparoid Queen and Andross were defeated by Fox.",
+    "Reviewed by Claude (2026-11-13): replaced the generic Star Fox cite with opened pages on Falco, Star Fox 64 and Star Fox: Assault. Corrected the feat: Falco provided air support while Fox destroyed the Aparoid Queen, and the 'defeated Andross's forces' wording was dropped. Removed Smart Bombs and the hand blaster (Smash-only on the opened pages) and the unsourced on-foot weakness. powered-flight removed: his flight comes from piloting a vehicle, which the pilot tag already covers."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Fox McCloud",
+   "continuity": "Star Fox series (Star Fox 64, Star Fox: Assault)",
+   "summary": "Fox leads the Star Fox team in the Arwing, and in Star Fox 64 also drives the Landmaster tank and the Blue-Marine submarine. He confronts and defeats Andross alone on Venom. In Star Fox: Assault he fights on foot with a blaster and picked-up weapons and destroys the Aparoid Queen.",
+   "offense": {
+    "domains": [
+     "energy",
+     "tech"
+    ],
+    "techniques": [
+     "Arwing lasers and barrel roll",
+     "Landmaster tank cannon",
+     "Blaster and picked-up weapons on foot (Assault)"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Arwing force-field shields and barrel-roll deflection"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the opened sources"
+   ],
+   "mobility": [
+    "Arwing starfighter flight",
+    "Landmaster tank",
+    "Blue-Marine submarine",
+    "running (on-foot missions in Assault)"
+   ],
+   "limitations": [
+    "The Landmaster's barrel roll cannot reflect fire because it lacks the Arwing's force field"
+   ],
+   "sources": [
+    {
+     "url": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Star_Fox_64",
+     "supports": "Fox confronts and defeats Andross alone on Venom; on the hard route kills Andross's true brain form; Arwing, Landmaster and Blue-Marine; barrel roll deflects fire; Landmaster lacks the force field"
+    },
+    {
+     "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Star_Fox_Assault.html",
+     "supports": "Fox shoots a program into the Aparoid Queen, pursues and defeats her; on-foot run-and-gun with a blaster and picked-up weapons; Arwing and Landmaster"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Confronted and defeated Andross alone on Venom, killing his true brain form on the hard route",
+     "citation": "Star Fox 64",
+     "source": 0
+    },
+    {
+     "claim": "Pursued and defeated the Aparoid Queen, ending the Aparoid invasion",
+     "citation": "Star Fox: Assault",
+     "source": 1
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Andross",
+     "result": "win",
+     "citation": "Star Fox 64",
+     "note": "Fought alone on Venom; easy route robotic Andross, hard route his brain form",
+     "source": 0
+    },
+    {
+     "opponent": "Aparoid Queen",
+     "result": "win",
+     "citation": "Star Fox: Assault",
+     "note": "Fox shot a self-destruct program into her and defeated her",
+     "source": 1
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Flight, lasers and shields",
+     "dependsOn": "Arwing starfighter",
+     "source": 0
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "pilot",
+     "claim": "Pilots the Arwing and drives the Landmaster tank and Blue-Marine submarine",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "His Reflector and the Fire Fox move are documented on the opened pages only for Super Smash Bros., not the Star Fox games, so they were left out.",
+    "Reviewed by Claude (2026-11-13): replaced the unopened Wikipedia cite with opened Star Fox 64 and Star Fox: Assault pages. Corrected the Andross note: there is no 'core chamber after an aerial dogfight' on the opened page. Added the Aparoid Queen win. Removed the Reflector shield (Smash-only). Tags: gadgets removed (it rested on the Reflector); powered-flight removed (vehicle flight is covered by pilot)."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Ganondorf",
+   "continuity": "The Legend of Zelda: Ocarina of Time",
+   "summary": "Ganondorf claims the Triforce, keeps the Triforce of Power, and turns Hyrule into a wasteland of fear during the seven years Link sleeps. He has potent magic, can fly and generate waves of darkness. In the final battle he is wounded, uses the Triforce of Power to become the beast Ganon and knocks the Master Sword from Link's hands, but Zelda holds Ganon at bay, Link lands the final blow, and the Seven Sages seal him away.",
+   "offense": {
+    "domains": [
+     "magic",
+     "physical",
+     "energy"
+    ],
+    "techniques": [
+     "Waves of darkness",
+     "Dark magic",
+     "Ganon form melee (knocked the Master Sword from Link's hands)"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Transforms into Ganon after apparent defeat"
+    ]
+   },
+   "weaknesses": [
+    "The Master Sword (Link's final blow in Ocarina of Time)",
+    "Zelda's sacred power held Ganon at bay"
+   ],
+   "mobility": [
+    "flight/levitation",
+    "running"
+   ],
+   "limitations": [
+    "The Ganon transformation depends on the Triforce of Power"
+   ],
+   "sources": [
+    {
+     "url": "https://gamicus.fandom.com/wiki/Ganondorf",
+     "supports": "OoT: claims the Triforce, keeps the Triforce of Power, usurps Hyrule's throne; seven years later Link awakens; potent magic, waves of darkness, flight; final battle: transforms into Ganon with the Triforce of Power, knocks away the Master Sword, Zelda holds him at bay, Link lands the final blow, the Seven Sages seal him"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Usurped Hyrule's throne and turned the kingdom into a wasteland of fear for the seven years Link was sealed away",
+     "citation": "The Legend of Zelda: Ocarina of Time",
+     "source": 0
+    },
+    {
+     "claim": "As Ganon, knocked the Master Sword out of Link's hands",
+     "citation": "The Legend of Zelda: Ocarina of Time",
+     "source": 0
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Link",
+     "result": "loss",
+     "citation": "The Legend of Zelda: Ocarina of Time",
+     "note": "Zelda held Ganon at bay while Link landed the final blow with the Master Sword; the Seven Sages then sealed him away",
+     "source": 0
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Transformation into the beast Ganon",
+     "dependsOn": "Triforce of Power",
+     "source": 0
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "magic",
+     "claim": "Has potent magical abilities and generates waves of darkness",
+     "source": 0
+    },
+    {
+     "tag": "spellcaster",
+     "claim": "Uses dark magic, e.g. freezing Zoras in red ice",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "The opened source does not describe a Triforce of Power invulnerability barrier or near-absolute durability, so both were removed.",
+    "Reviewed by Claude (2026-11-13): replaced the unopened Wikipedia cite with the opened Codex Gamicus Ganondorf page. Removed 'dark energy spheres', 'giant sword strikes', 'curse projection', the invulnerability barrier and 'arrogance' (not on the opened page). The conditional now says the Ganon transformation depends on the Triforce of Power. Tags magic and spellcaster kept."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Ganondorf|Demon Dragon Ganondorf",
+   "continuity": "The Legend of Zelda: Tears of the Kingdom",
+   "formDifferences": "After his second Demon King form is beaten, Ganondorf swallows his Secret Stone and loses his sense of self, becoming a gloom-filled dragon that flies and carries Link into the sky in its jaws. Its weak points are four eye clusters and the Secret Stone on its head.",
+   "summary": "The Demon Dragon is the draconified form Ganondorf takes by swallowing his Secret Stone. It carries Link into the sky and fights him there with Gloom and homing magical orbs. Link, with the Light Dragon's help, dives onto it, destroys its eye clusters, and shatters the Secret Stone on its head with the Master Sword.",
+   "offense": {
+    "domains": [
+     "magic",
+     "physical",
+     "energy"
+    ],
+    "techniques": [
+     "Gloom contact (each hit permanently removes a heart until healed by sunlight)",
+     "Magical orbs launched at a diving Link"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Large health pool (6000 HP) with weak points (four eye clusters, 1200 HP each) that must be destroyed before the Secret Stone is exposed"
+    ]
+   },
+   "weaknesses": [
+    "Four eye clusters on its body and the Secret Stone on its head",
+    "The Master Sword deals 10x damage to its weak points"
+   ],
+   "mobility": [
+    "flight"
+   ],
+   "limitations": [
+    "Moves and attacks slowly"
+   ],
+   "sources": [
+    {
+     "url": "https://www.zeldadungeon.net/wiki/Demon_Dragon",
+     "supports": "Created when Ganondorf swallows his Secret Stone; carries Link upward in its jaws; Gloom contact costs hearts; slow; weak points: four eye clusters and the Secret Stone; Master Sword 10x damage; destroyed when Link shatters the stone; 'No trace of the original form remains'"
+    },
+    {
+     "url": "https://zeldawiki.wiki/wiki/Demon_King_Ganondorf",
+     "supports": "After his second form is defeated Ganondorf swallows his Secret Stone, loses his sense of self, becomes the Demon Dragon and carries Link into the sky"
+    },
+    {
+     "url": "https://www.nintendolife.com/guides/zelda-tears-of-the-kingdom-how-to-defeat-the-final-boss-best-strategy",
+     "supports": "Demon Dragon launches magical orbs; Link dives onto its back, fights in a gloom pool there, destroys the glowing weak points, then attacks the Secret Stone; the Light Dragon catches him"
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Link",
+     "result": "loss",
+     "citation": "The Legend of Zelda: Tears of the Kingdom",
+     "note": "Link shattered the Secret Stone with the Master Sword; the dragon died in an explosion of light",
+     "source": 0
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Draconic transformation and flight",
+     "dependsOn": "Swallowing his Secret Stone",
+     "source": 1
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "giant-sized",
+     "claim": "Big enough to carry Link in its jaws and for Link to land and fight on its back, around a pool of gloom",
+     "source": 2
+    },
+    {
+     "tag": "natural-flight",
+     "claim": "Flies as a dragon, carrying Link up into the sky",
+     "source": 0
+    },
+    {
+     "tag": "magic",
+     "claim": "Launches magical orbs and is filled with Gloom",
+     "source": 2
+    }
+   ],
+   "unknowns": [
+    "No opened page gives a measured size. giant-sized rests on the documented scale (Link lands and fights on its back); the owner should confirm this meets the 'documented size' ruling.",
+    "Mind: Zelda Wiki says he loses his sense of self and the in-game description says 'No trace of the original form remains'.",
+    "Reviewed by Claude (2026-11-13): replaced the unopened Tears of the Kingdom Wikipedia cite with Zelda Dungeon, Zelda Wiki and Nintendo Life. Removed 'gloom fire breath', 'tail swipes', 'dive bomb', 'durable scales' and 'gloom aura barrier' (not on the opened pages). The Light Dragon is Link's helper, not this form's weakness, so it was replaced by the documented weak points. Added the loss to Link."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Ganondorf|Demon King Ganondorf",
+   "continuity": "The Legend of Zelda: Tears of the Kingdom",
+   "formDifferences": "His humanoid Gerudo form, restored from the mummified body sealed under Hyrule Castle. He fights with Gloom weapons (sword, spear, club, Demon King's Bow), perfect dodges, and in the second phase four Phantom Ganons. It is distinct from the mindless Demon Dragon.",
+   "summary": "Demon King Ganondorf awakens when Rauru's arm and Secret Stone fall near his sealed, mummified body, then uses his Gloom to restore a healthy Gerudo form. He fights Link with Gloom weapons and projectiles and perfect dodges. In his second phase he summons four Phantom Ganons, absorbs their Gloom and knocks out the Sages with a Gloom wave. Beaten, he swallows his Secret Stone to become the Demon Dragon.",
+   "offense": {
+    "domains": [
+     "magic",
+     "physical"
+    ],
+    "techniques": [
+     "Gloom Sword, Gloom Spear, Gloom Club",
+     "Demon King's Bow Gloom bursts",
+     "Gloom projectiles and homing magic orbs that permanently remove hearts",
+     "Four Phantom Ganons (second phase)",
+     "Gloom wave that knocks out the Sages",
+     "Updraft slam that erupts Gloom from the floor"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Perfect dodges, including against parries and Flurry Rush",
+     "Knocks away arrows (first phase); not stunned by arrows in the second",
+     "Absorbs the Phantom Ganons' Gloom at half health"
+    ]
+   },
+   "weaknesses": [
+    "The Master Sword can deflect his Gloom projectiles (other weapons are destroyed by Gloom)"
+   ],
+   "mobility": [
+    "running",
+    "dashing strikes"
+   ],
+   "limitations": [
+    "Not established by the opened sources"
+   ],
+   "sources": [
+    {
+     "url": "https://zeldawiki.wiki/wiki/Demon_King_Ganondorf",
+     "supports": "Awakened by Rauru's arm and Secret Stone falling near his mummified body; restores a healthy form with Gloom; Gloom weapons and bow; perfect dodges; four Phantom Ganons; Gloom wave knocks out the Sages; Master Sword deflects Gloom projectiles; swallows his Secret Stone after his second form is defeated"
+    },
+    {
+     "url": "https://www.nintendolife.com/guides/zelda-tears-of-the-kingdom-how-to-defeat-the-final-boss-best-strategy",
+     "supports": "Phase 1 sword, spin, charge, spear and claymore attacks; phase 2 updraft slam erupting Gloom, Gloom bullets, homing magic orbs that permanently remove hearts"
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Link",
+     "result": "loss",
+     "citation": "The Legend of Zelda: Tears of the Kingdom",
+     "note": "Defeated in both humanoid phases, after which he became the Demon Dragon",
+     "source": 0
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Restored prime physical form",
+     "dependsOn": "Awakening when Rauru's arm and Secret Stone fell near his sealed body, then restoring himself with Gloom",
+     "source": 0
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "magic",
+     "claim": "Fights with Gloom weapons, Gloom projectiles and magic orbs",
+     "source": 0
+    },
+    {
+     "tag": "spellcaster",
+     "claim": "Summons four Phantom Ganons and releases a Gloom wave that knocks out the Sages",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Reviewed by Claude (2026-11-13): replaced the unopened Tears of the Kingdom Wikipedia cite with Zelda Wiki and Nintendo Life. Removed 'pure light attacks' (not on the opened pages) and 'reality warping' from the spellcaster claim. Corrected 'gloom armor absorption' to absorbing the Phantom Ganons' Gloom. Added the documented weapons, Gloom wave and the loss to Link. The range of his Gloom corruption across Hyrule is not covered by the opened pages."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "games:Garrus Vakarian",
+   "continuity": "Mass Effect trilogy (as squadmate; Mass Effect 2 for powers and Archangel)",
+   "summary": "Garrus is a turian ex-C-Sec officer and long-range soldier who uses sniper and assault rifles with the Concussive Shot and Overload tech powers. As 'Archangel' on Omega he killed so many criminals that the Blue Suns, Eclipse and Blood Pack united to kill him. He was badly wounded by a gunship before Shepard's squad finished off the gangs.",
+   "offense": {
+    "domains": [
+     "tech",
+     "energy",
+     "physical"
+    ],
+    "techniques": [
+     "Sniper rifles",
+     "Assault rifles",
+     "Concussive Shot",
+     "Overload (EMP that heavily damages shields and synthetics)",
+     "Armor-Piercing Ammo (after loyalty)"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Not established by the opened sources (fights from long range as squad support)"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the opened sources"
+   ],
+   "mobility": [
+    "running"
+   ],
+   "limitations": [
+    "Overload's stun works only on synthetic foes whose resistances are down"
+   ],
+   "sources": [
+    {
+     "url": "https://masseffect2.wiki.fextralife.com/Garrus+Vakarian",
+     "supports": "Powers Concussive Shot, Overload, Turian Rebel, Armor-Piercing Ammo; assault and sniper rifles; long/mid-range soldier; ex-C-Sec officer"
+    },
+    {
+     "url": "https://masseffect2.wiki.fextralife.com/Dossier:+Archangel",
+     "supports": "Archangel killed many of Omega's criminals and was targeted by the Blue Suns, Eclipse and Blood Pack; wounded by the Blue Suns gunship in the final fight"
+    },
+    {
+     "url": "https://gamebanshee.com/masseffect2/powers/overload.php",
+     "supports": "Overload inflicts massive damage on shields and synthetic enemies through an electromagnetic pulse; rank 2 briefly stuns synthetics whose resistances are down"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "As Archangel, killed so many of Omega's criminals that the Blue Suns, Eclipse and Blood Pack joined to hunt him; survived until Shepard's squad helped him finish the gangs, though a gunship wounded him",
+     "citation": "Mass Effect 2, Dossier: Archangel",
+     "source": 1
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "tech",
+     "claim": "Uses the tech powers Overload and Concussive Shot",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Whether an electromagnetic-pulse power like Overload should count as electric under the fire/ice/electric ruling is an owner call; it is not tagged here.",
+    "Reviewed by Claude (2026-11-13): replaced the generic Mass Effect Wikipedia cite with opened Fextralife and GameBanshee pages. Corrected the Archangel feat: he was rescued alongside Shepard's squad and wounded by a gunship, not holding off the gangs 'independently'. Removed proximity mines, kinetic barriers, thermal clips and the unsourced turian-biology weakness. electric-control removed: the source describes Overload as an EMP tech power, not control of electricity."
+   ],
+   "researchStatus": "provisional"
+  }
+ ]
 }
