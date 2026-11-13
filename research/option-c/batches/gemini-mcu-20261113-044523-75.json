@@ -1,0 +1,660 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-044523 #75",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Falcon|Captain America (Sam Wilson)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Sam Wilson adopts the Captain America mantle using Wakandan-engineered vibranium wings and a specialized suit, combining aerial acrobatics with martial arts, projectile weapons, and the iconic vibranium shield.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Shield throw",
+          "Aerial strike",
+          "Redwing drone deployment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium shield durability",
+          "Vibranium flight suit armor",
+          "Aerial maneuverability"
+        ]
+      },
+      "weaknesses": [
+        "Relies heavily on mechanical flight gear",
+        "Vulnerable to high-voltage electromagnetic interference targeting the wings"
+      ],
+      "mobility": [
+        "Flight via jet-powered vibranium wings",
+        "Acrobatic running and leaping"
+      ],
+      "limitations": [
+        "Wings can be damaged or locked up by specialized tech"
+      ],
+      "formDifferences": "Replaces standard military-issue tactical wings with a Wakandan vibranium flight suit and adds the vibranium shield.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Falcon_(Marvel_Cinematic_Universe)",
+          "supports": "General background and transition into Captain America in the MCU."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Falcon%27s_New_Suit",
+          "supports": "Vibranium components and Redwing drone integration provided by Wakanda."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought against Flag Smashers using the Captain America shield and Wakandan gear",
+          "citation": "The Falcon and the Winter Soldier",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "John Walker",
+          "result": "win",
+          "citation": "The Falcon and the Winter Soldier",
+          "note": "Defeated John Walker to reclaim the Captain America shield.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and aerial combat dominance",
+          "dependsOn": "Wakandan vibranium wings",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Mechanical wings powered by jet thrusters allowing high-speed flight",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Wakandan vibranium suit and Redwing tactical drone",
+          "source": 1
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes a retractable vibranium shield and advanced drone technology",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact top speed and endurance limits of the vibranium wing thrusters"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Gamora",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Gamora is a master assassin and martial artist who utilizes advanced weaponry, exceptional physical conditioning, and relentless combat proficiency acquired through her training under Thanos.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Sword strikes with Godslayer",
+          "Hand-to-hand martial arts combinations",
+          "Firearm proficiency"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced durability and reflexes",
+          "Cybernetic augmentations"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to emotional manipulation concerning her family history"
+      ],
+      "mobility": [
+        "Acrobatic leaping",
+        "Spacecraft piloting"
+      ],
+      "limitations": [
+        "Lacks innate superhuman energy projection or magical powers"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gamora_(Marvel_Cinematic_Universe)",
+          "supports": "Background, training under Thanos, and combat abilities."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Gamora",
+          "supports": "Weapons usage and physical enhancements."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged Nebula in intense hand-to-hand and weapon combat",
+          "citation": "Guardians of the Galaxy Vol. 2",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Nebula",
+          "result": "win",
+          "citation": "Guardians of the Galaxy Vol. 2",
+          "note": "Overpowered Nebula in physical combat.",
+          "source": 1
+        },
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War",
+          "note": "Ambushed and captured by Thanos on Knowhere.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Enhanced physiology and internal cybernetic modifications by Thanos",
+          "source": 1
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots the Milano and various spacecraft",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact extent of her cybernetic upgrades compared to comic version."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Ghost",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Ava Starr, known as Ghost, suffers from molecular instability that grants her quantum phasing capabilities, allowing her to phase through solid matter and become invisible, which she employs for stealth and infiltration.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Intangibility strike",
+          "Stealth assassination",
+          "Close-quarters combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Quantum phasing to pass through incoming attacks"
+        ]
+      },
+      "weaknesses": [
+        "Molecular instability causes chronic pain requiring quantum energy stabilization"
+      ],
+      "mobility": [
+        "Phasing through walls and floors",
+        "Acrobatic movement"
+      ],
+      "limitations": [
+        "Condition causes degenerative pain if left unchecked"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ghost_(Marvel_Cinematic_Universe)",
+          "supports": "Origins of quantum phasing and molecular instability."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Ghost",
+          "supports": "Infiltration tactics and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated heavily guarded facilities and bypassed physical barriers using intangibility",
+          "citation": "Ant-Man and the Wasp",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ant-Man",
+          "result": "inconclusive",
+          "citation": "Ant-Man and the Wasp",
+          "note": "Fought Scott Lang during tactical skirmishes over quantum technology.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Stable quantum phasing without fatal collapse",
+          "dependsOn": "Regular treatments or quantum energy siphoning",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "invisibility",
+          "claim": "Capable of rendering herself effectively invisible and shifting through matter using quantum phasing",
+          "source": 1
+        },
+        {
+          "tag": "stealth",
+          "claim": "Employs quantum phasing for undetected infiltration and surprise attacks",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Long-term effects of Janet van Dyne's quantum healing energy."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Gilgamesh",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Gilgamesh is an immortal Eternal possessing immense physical strength, capable of generating powerful cosmic energy gauntlets around his fists to crush enemies in close combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Cosmic energy gauntlet punches",
+          "Unarmed brute force strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Eternal physiology with high resistance to physical damage",
+          "Cosmic energy reinforcement"
+        ]
+      },
+      "weaknesses": [
+        "Relies almost entirely on close-quarters combat against agile or ranged opponents"
+      ],
+      "mobility": [
+        "Superhuman running and leaping"
+      ],
+      "limitations": [
+        "Lacks long-range projectile attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Eternals_(film)",
+          "supports": "Gilgamesh's role, physical strength, and cosmic energy gauntlets."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Gilgamesh",
+          "supports": "Abilities and combat style as an Eternal."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off hordes of Deviants using enhanced strength and cosmic fists",
+          "citation": "Eternals",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Deviants",
+          "result": "win",
+          "citation": "Eternals",
+          "note": "Defeated numerous Deviants in close combat to protect humans.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Hardened energy gauntlets for striking",
+          "dependsOn": "Eternal cosmic energy manipulation",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Possesses massive physical stature and overwhelming strength compared to standard humans",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full durability limits against concentrated energy weapons."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Gorr the God Butcher",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Gorr wields the corrupting Necrosword, granting him shadow manipulation, terrifying monsters generation, teleportation through shadows, and lethal prowess capable of slaying divine beings.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Necrosword slash",
+          "Shadow monster summoning",
+          "Shadow realm entrapment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Regenerative durability granted by the Necrosword",
+          "Shadow teleportation evasion"
+        ]
+      },
+      "weaknesses": [
+        "The Necrosword slowly corrupts and kills its wielder",
+        "Destruction of the weapon weakens him"
+      ],
+      "mobility": [
+        "Shadow teleportation",
+        "Flight/levitation via dark magic"
+      ],
+      "limitations": [
+        "Dependent on the Necrosword for his supernatural capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Thor:_Love_and_Thunder",
+          "supports": "Gorr's powers, All-Black the Necrosword, and shadow abilities."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Gorr",
+          "supports": "Combat feats against gods and shadow manipulation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slaughtered numerous gods across various realms using the Necrosword",
+          "citation": "Thor: Love and Thunder",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thor",
+          "result": "inconclusive",
+          "citation": "Thor: Love and Thunder",
+          "note": "Fought Thor to a standstill in the Shadow Realm before being disarmed.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Shadow manipulation and god-slaying strength",
+          "dependsOn": "All-Black the Necrosword",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields All-Black the Necrosword, granting divine-slaying powers",
+          "source": 1
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Teleports through shadows and the Shadow Realm",
+          "source": 1
+        },
+        {
+          "tag": "portals",
+          "claim": "Creates shadow pathways and dimensional shifts",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of shadow monster creation scale."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Grandmaster",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "The Grandmaster is an Elder of the Universe who relies on political authority, high-tech compliance discs, guards, and gladiatorial arenas rather than personal combat skill.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Melting stick compliance device",
+          "Commanding armed guards"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Surrounded by armed security forces and automated defenses"
+        ]
+      },
+      "weaknesses": [
+        "Lacks physical combat training or superhuman combat durability"
+      ],
+      "mobility": [
+        "Standard walking",
+        "Hoverchair transportation"
+      ],
+      "limitations": [
+        "Physically fragile and completely dependent on subordinates"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Grandmaster_(Marvel_Cinematic_Universe)",
+          "supports": "Role as ruler of Sakaar and reliance on technology and guards."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Grandmaster",
+          "supports": "Use of melting sticks and security forces."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Paralyzed opponents instantly using the melting stick",
+          "citation": "Thor: Ragnarok",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thor",
+          "result": "loss",
+          "citation": "Thor: Ragnarok",
+          "note": "Overthrown by a revolution on Sakaar.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes the melting stick compliance tool",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "True extent of his Elder of the Universe longevity and mysterious powers in the MCU."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Green Goblin",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Norman Osborn, enhanced by a performance-enhancing serum that grants superhuman physical attributes alongside a severe psychotic alternate personality, fights using advanced glider technology, razor bats, and pumpkin bombs.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Pumpkin bomb detonation",
+          "Razor bat slashing",
+          "Glider ramming attacks",
+          "Brutal hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Goblin armor plating",
+          "Superhuman resilience and fast recovery"
+        ]
+      },
+      "weaknesses": [
+        "Psychological instability and split personality",
+        "Glider can be sabotaged or disabled"
+      ],
+      "mobility": [
+        "Goblin Glider flight",
+        "Superhuman leaping"
+      ],
+      "limitations": [
+        "Mental vulnerability to emotional pleas or psychological triggers"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Green_Goblin",
+          "supports": "Appearance and combat feats in Spider-Man: No Way Home."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overpowered Spider-Man in brutal physical combat inside Happy Hogan's apartment",
+          "citation": "Spider-Man: No Way Home",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Spider-Man (MCU)",
+          "result": "win",
+          "citation": "Spider-Man: No Way Home",
+          "note": "Brutally defeated Peter Parker in an apartment brawl.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and aerial maneuverability",
+          "dependsOn": "Goblin Glider",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Pilots an advanced personal hover glider",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses pumpkin bombs, razor bats, and glider weapons",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Engineered his own combat glider, armor, and chemical enhancers",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact chemical composition of the original Oscorp serum."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Groot",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Groot is a sentient flora colossus capable of rapid cellular regeneration, elongation of tree-like limbs to form shields, weapons, or bridging structures, and extreme physical strength.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Branch elongation strike",
+          "Impalement vines",
+          "Wooden clubbing sweeps"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dense wooden hide",
+          "Regeneration from severed twigs or saplings"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to fire and severe fragmentation if not allowed to regenerate"
+      ],
+      "mobility": [
+        "Walking",
+        "Stretching branches for swinging and climbing"
+      ],
+      "limitations": [
+        "Limited vocabulary restricts complex tactical communication"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Groot_(Marvel_Cinematic_Universe)",
+          "supports": "Physiology, regeneration, and limb manipulation."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Groot",
+          "supports": "Combat applications of tree branches."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Impaled multiple enemy soldiers simultaneously using extended wooden spikes",
+          "citation": "Guardians of the Galaxy",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Kree soldiers",
+          "result": "win",
+          "citation": "Guardians of the Galaxy",
+          "note": "Impaled and tossed multiple guards during the battle of Xandar.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Regenerates lost limbs and entire body mass from small remnants",
+          "source": 1
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Rebuilds his entire form from a twig or sapling",
+          "source": 1
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Can grow to massive heights and expand his bulk significantly",
+          "source": 1
+        },
+        {
+          "tag": "size-change",
+          "claim": "Grows from sapling to full adult or giant tree form",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Whether teenage Groot retains all adult combat capacities."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
