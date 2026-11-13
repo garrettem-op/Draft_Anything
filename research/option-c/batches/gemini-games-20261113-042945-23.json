@@ -1,0 +1,774 @@
+{
+  "batchId": "Gemini V2 research games 20261113-042945 #23",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Dante|Devil Trigger Dante",
+      "continuity": "Devil May Cry 3 / Devil May Cry 5",
+      "summary": "Devil Trigger Dante unlocks his inner demonic power, granting enhanced speed, health regeneration, and demonic aerial flight capabilities while wielding his legendary weapons.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Demonic melee combos",
+          "Stinger",
+          "Summoned Swords"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Passive health regeneration",
+          "Increased durability",
+          "Demonic aura"
+        ]
+      },
+      "weaknesses": [
+        "Devil Trigger gauge is finite and depletes over time"
+      ],
+      "mobility": [
+        "flight",
+        "super-speed"
+      ],
+      "limitations": [
+        "Limited duration based on the Devil Trigger gauge"
+      ],
+      "formDifferences": "Unlocks a demonic form that drastically boosts physical strength, speed, durability, adds passive regeneration, and grants flight.",
+      "sources": [
+        {
+          "url": "https://devilmaycry.fandom.com/wiki/Devil_Trigger",
+          "supports": "Devil Trigger abilities, health regeneration, and flight capabilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transformed into Devil Trigger to overpower Vergil in their final clash",
+          "citation": "Devil May Cry 3: Dante's Awakening",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Vergil",
+          "result": "win",
+          "citation": "Devil May Cry 3",
+          "note": "Achieved after unlocking full Devil Trigger power.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Demonic flight and enhanced strength",
+          "dependsOn": "Activating the Devil Trigger transformation",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Dante sprouts demonic wings allowing him to fly in Devil Trigger form",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Devil Trigger grants rapid health regeneration during combat",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact structural limitations of Devil Trigger durability across different game engines"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dante|Sin Devil Trigger Dante",
+      "continuity": "Devil May Cry 5",
+      "summary": "Sin Devil Trigger Dante represents his ultimate demonic evolution, unleashing cataclysmic dark energy blasts, instantaneous flight, and overwhelming melee devastation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Demonic flight",
+          "Sin Stinger",
+          "Demonic energy beams"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme durability",
+          "Superhuman health regeneration"
+        ]
+      },
+      "weaknesses": [
+        "Requires building up extreme demonic energy to activate"
+      ],
+      "mobility": [
+        "flight",
+        "teleport",
+        "super-speed"
+      ],
+      "limitations": [
+        "Drains rapidly and cannot be maintained indefinitely without sufficient demonic power"
+      ],
+      "formDifferences": "Massive evolution beyond standard Devil Trigger, granting supreme power, altered appearance, and devastating ultimate attacks.",
+      "sources": [
+        {
+          "url": "https://devilmaycry.fandom.com/wiki/Sin_Devil_Trigger",
+          "supports": "Sin Devil Trigger transformation abilities and stats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Urizen effortlessly upon first awakening Sin Devil Trigger",
+          "citation": "Devil May Cry 5",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Urizen",
+          "result": "win",
+          "citation": "Devil May Cry 5",
+          "note": "Urizen was overwhelmed by the newly unlocked Sin Devil Trigger.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Cataclysmic energy attacks and extreme stat boost",
+          "dependsOn": "Awakening the Sin Devil Trigger using the Rebellion and Sparda swords",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Sin Devil Trigger grants true flight and aerial agility",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Rapidly regenerates vitality while in Sin Devil Trigger",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The absolute ceiling of Sin Devil Trigger's destructive capacity"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Diddy Kong",
+      "continuity": "Donkey Kong Country series / Super Smash Bros.",
+      "summary": "Diddy Kong is an agile, acrobatic primate who relies on his Rocketbarrel Boost, peanut popguns, and clever mobility to outmaneuver adversaries.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Peanut Popgun",
+          "Rocketbarrel Boost",
+          "Cartwheel attack"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High agility",
+          "Aerial evasion"
+        ]
+      },
+      "weaknesses": [
+        "Low physical mass makes him susceptible to heavy knockback"
+      ],
+      "mobility": [
+        "powered-flight",
+        "super-speed"
+      ],
+      "limitations": [
+        "Rocketbarrel can malfunction or crash if overused"
+      ],
+      "sources": [
+        {
+          "url": "https://donkeykong.fandom.com/wiki/Diddy_Kong",
+          "supports": "Diddy Kong abilities, weapons, and Rocketbarrel Boost"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew across jungle canyons using the Rocketbarrel Boost",
+          "citation": "Donkey Kong Country Returns",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "King K. Rool",
+          "result": "win",
+          "citation": "Donkey Kong Country 2: Diddy's Kong Quest",
+          "note": "Fought alongside Dixie Kong to defeat King K. Rool.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight via jetpack",
+          "dependsOn": "Equipped Rocketbarrel backpack",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Uses the Rocketbarrel backpack for flight and recovery",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Employs Peanut Popguns and Rocketbarrel gear in combat",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact payload capacity of his peanut popguns"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Donkey Kong",
+      "continuity": "Donkey Kong Country series / Super Smash Bros.",
+      "summary": "Donkey Kong is a powerhouse gorilla who utilizes brute physical strength, ground pounds, and a massive punch to overwhelm opponents.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Giant Punch",
+          "Handstand Slap",
+          "Ground Pound"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Exceptional physical durability",
+          "Heavy mass resistance"
+        ]
+      },
+      "weaknesses": [
+        "Limited ranged options against airborne or distant targets"
+      ],
+      "mobility": [
+        "swimmer"
+      ],
+      "limitations": [
+        "Slow recovery times on heavy wind-up attacks like the Giant Punch"
+      ],
+      "sources": [
+        {
+          "url": "https://donkeykong.fandom.com/wiki/Donkey_Kong",
+          "supports": "Donkey Kong physical attributes and Giant Punch ability"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Punched the moon out of orbit into a volcano",
+          "citation": "Donkey Kong Country Returns",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "King K. Rool",
+          "result": "win",
+          "citation": "Donkey Kong Country",
+          "note": "Defeated King K. Rool to reclaim his stolen banana hoard.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Possesses massive gorilla stature and enormous physical strength",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum lifting capacity under extreme conditions"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Doomguy",
+      "continuity": "Doom series (Classic / Modern)",
+      "summary": "Doomguy is an unstoppable supersoldier equipped with heavy armor, a massive arsenal of firearms, and an unyielding rage against demonic forces.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Super Shotgun",
+          "BFG 9000",
+          "Chainsaw"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Praetor Suit durability",
+          "Absorbing health and armor from fallen enemies via Glory Kills"
+        ]
+      },
+      "weaknesses": [
+        "Relies on ammunition availability for high-end weaponry"
+      ],
+      "mobility": [
+        "super-speed"
+      ],
+      "limitations": [
+        "Requires ammunition replenishment for heavy firearms"
+      ],
+      "sources": [
+        {
+          "url": "https://doom.fandom.com/wiki/Doomguy",
+          "supports": "Doomguy arsenal, Praetor suit specifications, and combat feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slaughtered the Icon of Sin and countless legions of hell single-handedly",
+          "citation": "Doom Eternal",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Icon of Sin",
+          "result": "win",
+          "citation": "Doom Eternal",
+          "note": "Destroyed the titan demon to save Earth.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Argent energy empowerment",
+          "dependsOn": "Divinity Machine enhancement",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the virtually indestructible Praetor Suit",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries advanced heavy weaponry including the BFG 9000",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limits of his post-Divinity Machine durability"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dovahkiin",
+      "continuity": "The Elder Scrolls V: Skyrim",
+      "summary": "The Dovahkiin is the Dragonborn, capable of shouting reality-bending Thu'um, wielding enchanted weaponry, and utilizing destruction magic.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Unrelenting Force Shout",
+          "Fire Breath",
+          "Dragonrend"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical wards",
+          "Enchanted armor",
+          "Alteration spells"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to sustained magical drain and heavy physical ambushes if unprepared"
+      ],
+      "mobility": [
+        "self-teleport"
+      ],
+      "limitations": [
+        "Shouts require cooldown periods between uses"
+      ],
+      "sources": [
+        {
+          "url": "https://elderscrolls.fandom.com/wiki/Dragonborn_(Skyrim)",
+          "supports": "Dragonborn Shouts, magic usage, and combat capabilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Alduin the World-Eater in Sovngarde",
+          "citation": "The Elder Scrolls V: Skyrim",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Alduin",
+          "result": "win",
+          "citation": "The Elder Scrolls V: Skyrim",
+          "note": "Defeated the apocalyptic dragon with help from ancient heroes.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Dragon soul absorption and advanced Shouts",
+          "dependsOn": "Defeating dragons to unlock Thu'um words",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Casts destructive and defensive magic",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Uses Fire Breath shout to incinerate foes",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Canon equipment loadout and exact level at time of major feats"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Eggman",
+      "continuity": "Sonic the Hedgehog series",
+      "summary": "Dr. Eggman is a megalomaniacal genius inventor who commands vast armies of badnik robots, giant mechs, and technological superweapons.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Egg Mobile weaponry",
+          "Death Egg Robot",
+          "Energy laser arrays"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy shields",
+          "Piloted armored mechs"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and physical vulnerability when separated from his machinery"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Mechs have structural weak points that Sonic and others regularly exploit"
+      ],
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Doctor_Eggman",
+          "supports": "Dr. Eggman robotics, mechs, and intelligence"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Harnesses the power of Chaos Emeralds to power massive robotic armadas",
+          "citation": "Sonic Adventure",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sonic the Hedgehog",
+          "result": "loss",
+          "citation": "Sonic the Hedgehog series",
+          "note": "Constantly thwarted by Sonic despite advanced technological preparations.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Direct combat capability",
+          "dependsOn": "Piloting a combat mech or the Egg Mobile",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Designs and builds advanced robotics, mechs, and world-ending superweapons",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Commands an entire automated army of Badniks and robotic drones",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots the Egg Mobile and massive combat mechs",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact IQ level in official canon scaling"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Light",
+      "continuity": "Mega Man series",
+      "summary": "Dr. Light is a brilliant robotics pioneer who creates advanced artificial intelligence and specialized combat technology, most notably Mega Man and X.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Deploying support drones and upgraded equipment",
+          "Energy capsule delivery"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Laboratory security systems",
+          "Shielded robotic creations"
+        ]
+      },
+      "weaknesses": [
+        "Advanced in age and lacks personal combat capabilities"
+      ],
+      "limitations": [
+        "Physically fragile human with no direct combat prowess"
+      ],
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Thomas_Light",
+          "supports": "Dr. Light's inventions and contributions to robotics"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully created fully sentient humanoid robotics capable of free will and combat",
+          "citation": "Mega Man",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dr. Wily",
+          "result": "win",
+          "citation": "Mega Man series",
+          "note": "His creations repeatedly defeated Dr. Wily's robotic plots.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Providing upgraded armor parts and weapons",
+          "dependsOn": "Access to his laboratory and upgrade capsules",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Invented Mega Man, Rush, and advanced robotic enhancement systems",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of experimental tech stored in his secret vaults"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Neo Cortex",
+      "continuity": "Crash Bandicoot series",
+      "summary": "Dr. Neo Cortex is an evil mad scientist who uses genetic mutation, ray guns, and mechanical minions to conquer the islands and eliminate Crash Bandicoot.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Ray gun blasts",
+          "Hoverboard combat",
+          "Mutated mutant minions"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hovercraft evasion",
+          "Energy forcefields"
+        ]
+      },
+      "weaknesses": [
+        "Prone to panicked retreats and flawed mechanical designs"
+      ],
+      "mobility": [
+        "glide",
+        "pilot"
+      ],
+      "limitations": [
+        "Inventions frequently backfire due to rushed manufacturing"
+      ],
+      "sources": [
+        {
+          "url": "https://crashbandicoot.fandom.com/wiki/Doctor_Neo_Cortex",
+          "supports": "Dr. Cortex inventions, ray gun, and hoverboard usage"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Mutated local wildlife into intelligent humanoid warriors using the Evolvo-Ray",
+          "citation": "Crash Bandicoot",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Crash Bandicoot",
+          "result": "loss",
+          "citation": "Crash Bandicoot series",
+          "note": "Consistently defeated by Crash despite numerous elaborate traps.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and rapid mobility",
+          "dependsOn": "Hoverboard or jetpack equipment",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Invented the Evolvo-Ray and numerous robotic minions",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Wields a personal ray gun and hovercraft",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True stability of his genetic mutation formulas over long periods"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Wily",
+      "continuity": "Mega Man series",
+      "summary": "Dr. Albert Wily is a genius roboticist driven by jealousy who builds massive armies of Robot Masters and fortress fortresses to conquer the world.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Wily Capsule attack patterns",
+          "Robot Master deployment",
+          "Energy projectiles"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Wily Capsule cloaking",
+          "Massive fortified battle fortresses"
+        ]
+      },
+      "weaknesses": [
+        "Cowardly demeanor when cornered; relies entirely on his technology"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Physically frail and completely helpless without his machines"
+      ],
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Albert_W._Wily",
+          "supports": "Dr. Wily's inventions, Wily Capsule, and fortress designs"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Reprogrammed Dr. Light's industrial robots to conquer the world",
+          "citation": "Mega Man",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mega Man",
+          "result": "loss",
+          "citation": "Mega Man series",
+          "note": "His fortresses and Robot Masters are consistently dismantled by Mega Man.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and energy projection",
+          "dependsOn": "Piloting the Wily Capsule or custom battle machines",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Designed and built hundreds of Robot Masters and combat fortresses",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Commands an extensive automated army of robotic combatants",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Source of endless funding for his massive underground fortresses"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
