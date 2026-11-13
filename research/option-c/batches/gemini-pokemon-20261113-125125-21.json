@@ -1,0 +1,616 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125125 #21",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Golem",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Golem is a massive Rock and Ground-type Pokémon that relies on its extremely durable boulder-like shell to withstand attacks while launching heavy physical blows and seismic movements. It can hurl its entire body or roll at enemies to crush them.",
+      "offense": {
+        "domains": [
+          "physical",
+          "earth"
+        ],
+        "techniques": [
+          "Earthquake",
+          "Rock Slide",
+          "Rollout",
+          "Explosion"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick stone shell providing high physical durability",
+          "Ability to shed its skin once a year to grow larger"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Grass-type attacks",
+        "Ice-type attacks",
+        "Fighting-type attacks",
+        "Ground-type attacks",
+        "Steel-type attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Rolling"
+      ],
+      "limitations": [
+        "Slow movement speed outside of rolling attacks",
+        "Vulnerable to elemental weaknesses like Water and Grass"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Golem_(Pok%C3%A9mon)",
+          "supports": "Basic stats, typing, evolution, and abilities for Golem."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Can trigger an explosion that levels surrounding areas when it feels threatened.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Golem is documented as standing 4'07\" tall and weighing a massive 661.4 lbs, featuring a bulky boulder body.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact capabilities in competitive formats versus in-universe lore may vary."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Graveler",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Graveler is a Rock and Ground-type Pokémon that moves primarily by rolling down mountain paths, unconcerned with obstacles or collisions. It strikes opponents using massive physical slams and earth-based moves.",
+      "offense": {
+        "domains": [
+          "physical",
+          "earth"
+        ],
+        "techniques": [
+          "Rock Throw",
+          "Rollout",
+          "Magnitude",
+          "Self-Destruct"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hard rock body that absorbs heavy impacts"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Grass-type attacks",
+        "Ice-type attacks",
+        "Fighting-type attacks",
+        "Ground-type attacks",
+        "Steel-type attacks"
+      ],
+      "mobility": [
+        "Rolling"
+      ],
+      "limitations": [
+        "Limbs are stubby and inefficient for fine manipulation or fast walking",
+        "Vulnerable to common elemental types"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Graveler_(Pok%C3%A9mon)",
+          "supports": "Basic information, typing, and traits for Graveler."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rolls down mountain slopes to travel, smashing through boulders and trees without stopping.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific intelligence level during independent travel."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Grimer",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Grimer is a Poison-type Pokémon composed of toxic sludge, capable of polluting its surroundings and dissolving materials on contact. It engulfs targets or strikes with viscous sludge attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison"
+        ],
+        "techniques": [
+          "Pound",
+          "Sludge",
+          "Mud-Slap",
+          "Toxic"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Amorphous semi-liquid body that absorbs physical impacts"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks",
+        "Psychic-type attacks"
+      ],
+      "mobility": [
+        "Creeping"
+      ],
+      "limitations": [
+        "Slow movement speed due to creeping liquid form",
+        "Emits a powerful stench that alerts enemies"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Grimer_(Pok%C3%A9mon)",
+          "supports": "Basic stats, typing, and lore for Grimer."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Leaves a trail of germs and toxic sludge wherever it crawls, preventing plants from growing.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Chemical composition variations across polluted regions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Growlithe",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Growlithe is a Fire-type canine Pokémon that displays fierce loyalty and bravery, using high-speed dashes and intense flames to deter opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "fire"
+        ],
+        "techniques": [
+          "Bite",
+          "Ember",
+          "Flame Wheel",
+          "Take Down"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile movement to dodge attacks",
+          "Thick fur coat"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Ground-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Relies on physical stamina and proximity for many attacks",
+        "Vulnerable to water and ground hazards"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Growlithe_(Pok%C3%A9mon)",
+          "supports": "Basic profile, typing, and fire abilities for Growlithe."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Barks and roars to drive away enemies that trespass on its territory, braving larger foes to protect its trainer.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Growlithe can generate internal flames and use Fire-type moves like Ember and Flame Wheel.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact threshold of heat resistance."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Gyarados",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Gyarados is a massive Water and Flying-type Pokémon known for its ferocious temper and destructive capabilities. It demolishes surroundings with powerful water pressure, biting attacks, and raging dragon-like fury.",
+      "offense": {
+        "domains": [
+          "physical",
+          "water",
+          "flying",
+          "dragon"
+        ],
+        "techniques": [
+          "Hydro Pump",
+          "Hyper Beam",
+          "Dragon Rage",
+          "Bite"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy scales resistant to physical impacts",
+          "Intimidating presence that can reduce enemy morale"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Swimming",
+        "Flight"
+      ],
+      "limitations": [
+        "Extreme susceptibility to electrical attacks",
+        "Prone to blind rage reducing tactical precision"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Gyarados_(Pok%C3%A9mon)",
+          "supports": "Basic stats, typing, and evolution details for Gyarados."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Once it begins rampaging, a Gyarados will burn down and destroy entire cities without stopping, even if it takes a month.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Gyarados is categorized as a Water and Flying-type Pokémon capable of sustained flight.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Gyarados measures 21'04\" in length, qualifying as a giant-sized combatant.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Gyarados naturally inhabits deep bodies of water and excels at swimming.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact degree of self-control during prolonged rampages."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Gyarados|Mega Gyarados",
+      "continuity": "Pokémon X and Y / Standard Video Game Continuity",
+      "summary": "Mega Gyarados is the temporary Mega-Evolved form of Gyarados, replacing its Flying typing with Dark typing, gaining increased bulk, and channeling its violent energy into overwhelming physical momentum.",
+      "offense": {
+        "domains": [
+          "physical",
+          "water",
+          "dark"
+        ],
+        "techniques": [
+          "Waterfall",
+          "Crunch",
+          "Iron Head",
+          "Dragon Dance"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Reinforced body armor from excess energy",
+          "Mold Breaker ability ignoring certain enemy defensive traits"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks",
+        "Fighting-type attacks",
+        "Bug-type attacks"
+      ],
+      "formDifferences": "Replaces the Water/Flying typing with Water/Dark typing, significantly boosts physical attack and bulk, and alters body shape to resemble a jet-propelled sea dragon.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mega_Gyarados_(Pok%C3%A9mon)",
+          "supports": "Mega Evolution stats, typing changes, and abilities for Mega Gyarados."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution form changes and stat boosts",
+          "dependsOn": "Gyaradosite item and Mega Bracelet resonance during battle",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Mega Gyarados retains aquatic mobility and can jet through water at high speeds.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Mega Gyarados maintains a massive length of 21'04\".",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Strain of Mega Evolution on the trainer-Pokémon bond over extended durations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Haunter",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Haunter is a Ghost and Poison-type Pokémon that utilizes intangible phasing, stealth, and paralyzing curse techniques to drain the life force of opponents from the shadows.",
+      "offense": {
+        "domains": [
+          "physical",
+          "ghost",
+          "poison"
+        ],
+        "techniques": [
+          "Lick",
+          "Night Shade",
+          "Shadow Ball",
+          "Hypnosis"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intangible gaseous body allowing physical attacks to pass right through"
+        ]
+      },
+      "weaknesses": [
+        "Ghost-type attacks",
+        "Dark-type attacks",
+        "Psychic-type attacks"
+      ],
+      "mobility": [
+        "Floating",
+        "Phasing through solid matter"
+      ],
+      "limitations": [
+        "Low physical durability if hit by effective supernatural or mental attacks",
+        "Dependent on stealth and status conditions"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Haunter_(Pok%C3%A9mon)",
+          "supports": "Basic stats, typing, and ghostly characteristics for Haunter."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Licks victims with a gaseous tongue, causing continuous shivering and eventual death.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "invisibility",
+          "claim": "Haunter can hide in walls and become completely invisible while stalking prey.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of its gaseous tongue length."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Hitmonchan",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Hitmonchan is a Fighting-type Pokémon specialized in professional boxing techniques, delivering lightning-fast punches infused with elemental properties.",
+      "offense": {
+        "domains": [
+          "physical",
+          "fire",
+          "ice",
+          "electric"
+        ],
+        "techniques": [
+          "Comet Punch",
+          "Fire Punch",
+          "Ice Punch",
+          "Thunder Punch"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High evasiveness and defensive weaving",
+          "Trained stamina"
+        ]
+      },
+      "weaknesses": [
+        "Flying-type attacks",
+        "Psychic-type attacks",
+        "Fairy-type attacks"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Stamina limit requiring rest after extended punching frenzies",
+        "Limited to close-quarters combat"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Hitmonchan_(Pok%C3%A9mon)",
+          "supports": "Basic stats, typing, and punch moves for Hitmonchan."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Throws punches at lightning speed that can split the air, though it requires a brief rest after three minutes of continuous action.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire-weapon",
+          "claim": "Hitmonchan can channel fire through its fists to execute Fire Punch.",
+          "source": 0
+        },
+        {
+          "tag": "ice-weapon",
+          "claim": "Hitmonchan can channel freezing energy through its fists to execute Ice Punch.",
+          "source": 0
+        },
+        {
+          "tag": "electric-weapon",
+          "claim": "Hitmonchan can channel electricity through its fists to execute Thunder Punch.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against non-humanoid opponents with irregular hitboxes."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Hitmonlee",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Hitmonlee is a Fighting-type Pokémon that fights exclusively with its exceptionally flexible and powerful legs, capable of stretching and launching devastating kicks.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mega Kick",
+          "Rolling Kick",
+          "Jump Kick",
+          "Hi Jump Kick"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Spring-like leg muscles that absorb shocks and allow sudden leaping evasions"
+        ]
+      },
+      "weaknesses": [
+        "Flying-type attacks",
+        "Psychic-type attacks",
+        "Fairy-type attacks"
+      ],
+      "mobility": [
+        "Running",
+        "Leaping"
+      ],
+      "limitations": [
+        "Missing a high-jump kick causes recoil damage to itself",
+        "Lacks upper-body striking options"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Hitmonlee_(Pok%C3%A9mon)",
+          "supports": "Basic stats, typing, and kicking traits for Hitmonlee."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Freely contracts and stretches its legs to deliver high-altitude kicks from unexpected angles.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum stretch distance of its legs."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Horsea",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Horsea is a small Water-type Pokémon that swims skillfully using its dorsal fin and defends itself by spitting ink or precision streams of water.",
+      "offense": {
+        "domains": [
+          "physical",
+          "water"
+        ],
+        "techniques": [
+          "Bubble",
+          "Water Gun",
+          "Smokescreen",
+          "Agility"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Anchoring its tail to coral or rocks in strong currents",
+          "Releasing thick ink to obscure vision and escape"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks"
+      ],
+      "mobility": [
+        "Swimming"
+      ],
+      "limitations": [
+        "Helpless if stranded out of water for too long",
+        "Low physical strength against large opponents"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Horsea_(Pok%C3%A9mon)",
+          "supports": "Basic profile, typing, and aquatic abilities for Horsea."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shoots precise blasts of ink to knock down flying bugs out of the air while hiding among seaweed.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Horsea is a fully aquatic Pokémon that excels at swimming.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum pressure of its water gun."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
