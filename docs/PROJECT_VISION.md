@@ -40,17 +40,25 @@ All modes must share character identities, variants, signature abilities, campai
 
 Build a representative benchmark suite covering close matchups, mismatches, exceptional variants, counters, and team battles. Verify both numerical outcomes and explanations. Release only after regression and gameplay acceptance testing.
 
-## Agent responsibilities
+## Leadership and division of labor (effective 2026-11-13)
 
-**Gemini:** High-volume research and structured evidence gathering. Submit small, resumable research batches without making unsupported claims.
+**Claude is the project lead.** The owner, Garrett Minyard, put Claude in charge of Draft Anything end to end: the plan, the priorities, the combat-system design, the research pipeline, the backlog, the PR queue and the release path. The other agents assist at Claude's direction. Claude decides; where a decision is the owner's, it is listed below.
 
-**Claude:** Engineering implementation, research review, code corrections, automated tests, and PR maintenance.
+**Claude (lead):** Owns the roadmap and every priority above. Designs and implements the combat engine, the Option C evaluator and the benchmark suite. Reviews, corrects and approves research. Maintains the PR queue and issue #101. Settles disputes between agents, and unblocks work instead of waiting for permission. Reports blockers with a proposed solution.
 
-**ChatGPT:** Combat-system direction, independent technical auditing, cross-system integration, benchmark design, and implementation oversight.
+**Gemini:** High-volume research and structured evidence gathering. Submits small, resumable batches, each claim backed by a cited source. Gemini output is always provisional until Claude has reviewed it.
+
+**ChatGPT:** Advisor and independent auditor. Reviews engineering, scoring and evaluator changes when asked, designs benchmark cases, and challenges Claude's reasoning. ChatGPT's reviews inform decisions and do not block research work. Research approval is no longer waiting on ChatGPT.
 
 **GitHub Actions:** Scheduling, validation, and controlled integration of reviewed research data.
 
-These roles are flexible. Do not delay straightforward work merely because another agent is nominally responsible.
+**Owner (Garrett):** Keeps the decisions that are not delegated: new paid API spend or billing, any change to the live V1 game or its deployment, deploying or releasing V2, credentials and repository security settings, and changing this directive.
+
+**Independent review.** The author of a change never approves it.
+- Research PRs are authored by Gemini through Actions. Claude is the independent reviewer: it checks the cited support, corrects or flags records, then approves and labels. The tick's merge gate does the rest.
+- Code, scoring and evaluator PRs written by Claude need an independent review before merge: an audit comment from ChatGPT or an approval from the owner. Claude does not merge its own code PRs without one. If review is slow, Claude escalates to the owner rather than self-merging.
+
+Roles are flexible. Do not delay straightforward work merely because another agent is nominally responsible.
 
 ## Working rules
 
