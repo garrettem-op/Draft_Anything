@@ -1,0 +1,560 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-201756 #18",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Vision",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Vision fights using density manipulation to phase through attacks or become diamond-hard, alongside energy projection from the Mind Stone on his forehead and native flight. He possesses superhuman strength, durability, and a synthetic body that can calculate complex data instantly.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Mind Stone energy beam",
+          "Density manipulation strike",
+          "Phasing disruption"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intangibility (phasing)",
+          "Superhuman durability",
+          "Vibranium composition"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to Mind Stone extraction",
+        "Corvus Glaive's blade disrupting density powers"
+      ],
+      "mobility": [
+        "flight"
+      ],
+      "limitations": [
+        "Power source is entirely dependent on the Mind Stone",
+        "Severely weakened when ambushed and stabbed by Corvus Glaive"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Vision_(Marvel_Cinematic_Universe)",
+          "supports": "General abilities, Vibranium body, Mind Stone, and phasing powers in MCU."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Vision",
+          "supports": "Specific combat techniques, density manipulation, and vulnerabilities against Corvus Glaive."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lifts Thor's hammer Mjolnir effortlessly.",
+          "citation": "Avengers: Age of Ultron",
+          "source": 0
+        },
+        {
+          "claim": "Fires a concentrated energy beam from the Mind Stone on his forehead.",
+          "citation": "Captain America: Civil War",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Clint Barton",
+          "result": "win",
+          "citation": "Captain America: Civil War",
+          "note": "Vision easily restrains Hawkeye during the airport battle.",
+          "source": 1
+        },
+        {
+          "opponent": "Corvus Glaive",
+          "result": "loss",
+          "citation": "Avengers: Infinity War",
+          "note": "Vision is ambushed in Edinburgh and incapacitated by Corvus Glaive's special blade.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Vision flies naturally using his internal mechanics and Mind Stone connection.",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Vision is a synthetic android created by Ultron and JARVIS.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his vibranium density changes against cosmic-level attacks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Vulture",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Adrian Toomes uses an advanced mechanical flight suit equipped with articulated mechanical wings, projectile weapons, and sharp talon-like feet. He relies on aerial mobility, stealth in dark environments, and high-speed dive attacks.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Aerial dive bombing",
+          "Wing-blade strikes",
+          "Chitauri tech energy weapons"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored flight suit",
+          "Helmet with HUD and environmental protection"
+        ]
+      },
+      "weaknesses": [
+        "Suit is vulnerable to structural overload and explosive combustion of Chitauri power cores"
+      ],
+      "mobility": [
+        "powered-flight"
+      ],
+      "limitations": [
+        "Power source relies on volatile Chitauri energy cores that can detonate under damage"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Vulture",
+          "supports": "Adrian Toomes, Vulture suit capabilities, Chitauri tech, and combat style in Spider-Man: Homecoming."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Hijacks a Stark cargo plane mid-air using his flight harness and specialized cutting equipment.",
+          "citation": "Spider-Man: Homecoming",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Spider-Man",
+          "result": "win",
+          "citation": "Spider-Man: Homecoming",
+          "note": "Vulture collapses a building roof on Spider-Man, nearly killing him.",
+          "source": 0
+        },
+        {
+          "opponent": "Spider-Man",
+          "result": "loss",
+          "citation": "Spider-Man: Homecoming",
+          "note": "Vulture's suit malfunctions and explodes during a fight on a cargo plane, leading to his arrest.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Vulture flies using a mechanical wing harness powered by Chitauri energy cores.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Suit is built from salvaged Chitauri and Stark Industries technology.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability of the wings against continuous heavy artillery."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:War Machine",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "James Rhodes uses heavily armored military-grade exoskeleton suits loaded with conventional ballistic weaponry, missiles, and shoulder-mounted cannons. He fights as a flying heavy gunner utilizing overwhelming firepower and sustained flight.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Ex-Wife missile",
+          "Gatling gun fire",
+          "Repulsor blasts",
+          "Cluster bombs"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy titanium-alloy powered armor",
+          "Countermeasures and flares"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to high-voltage energy attacks that can short-circuit suit systems"
+      ],
+      "mobility": [
+        "powered-flight"
+      ],
+      "limitations": [
+        "Limited ammunition reserves requiring reloading or resupply",
+        "Susceptible to electronic disabling"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/War_Machine_(Marvel_Cinematic_Universe)",
+          "supports": "James Rhodes, War Machine suit iterations, heavy weaponry, and MCU history."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/War_Machine_Armor:_Mark_IV",
+          "supports": "Mark IV armor specifications and heavy ordnance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Decimates a swarm of Outriders using heavy carpet bombing and shoulder turrets.",
+          "citation": "Avengers: Infinity War",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Falcon",
+          "result": "loss",
+          "citation": "Captain America: Civil War",
+          "note": "Rhodes is accidentally shot down by Vision while engaging Falcon during the airport battle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Rhodes wears advanced military mechanized armor suites.",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "War Machine armor provides supersonic powered flight.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Armor utilizes advanced Stark and military weapons technology.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Rhodes is a trained United States Air Force colonel and expert pilot.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance limits of the Mark IV armor without military supply lines."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:War Machine|Iron Patriot (Rhodey)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Operating as the Iron Patriot, James Rhodes wears a red, white, and blue repainted War Machine armor to serve as the official government mascot and heavy combatant.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Shoulder-mounted cannon fire",
+          "Repulsor blasts",
+          "Wrist-mounted guns"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Titanium alloy powered armor",
+          "Kinetic impact resistance"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to remote password override and security bypasses"
+      ],
+      "mobility": [
+        "powered-flight"
+      ],
+      "formDifferences": "Changes the armor paint scheme to a red, white, and blue patriotic design commissioned by the US government, while retaining standard War Machine weapon systems.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Iron_Patriot_Armor",
+          "supports": "Iron Patriot armor specifications, paint scheme, and usage in Iron Man 3."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Extremis soldiers",
+          "result": "win",
+          "citation": "Iron Man 3",
+          "note": "Fights modified Extremis combatants alongside Tony Stark.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Any internal hardware upgrades compared to the standard Mark II/III War Machine armor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Winter Soldier",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Bucky Barnes fights as a ruthless assassin using peak human physical conditioning, extensive martial arts proficiency, firearms, tactical knives, and a vibranium-reinforced cybernetic left arm.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Cybernetic arm punch",
+          "Assassination firearms",
+          "Knife combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superhuman physical resilience",
+          "Vibranium cybernetic arm block"
+        ]
+      },
+      "weaknesses": [
+        "Psychological conditioning trigger words that can temporarily incapacitate or control him"
+      ],
+      "limitations": [
+        "Relies on standard military firearms and tactical equipment requiring ammunition"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bucky_Barnes_(Marvel_Cinematic_Universe)",
+          "supports": "Bucky Barnes, Winter Soldier background, cybernetic arm, and combat skills."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Winter_Soldier",
+          "supports": "Tactical abilities, weapons, and enhancements."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Catches Captain America's vibranium shield mid-throw with his cybernetic arm.",
+          "citation": "Captain America: The Winter Soldier",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Captain America",
+          "result": "inconclusive",
+          "citation": "Captain America: The Winter Soldier",
+          "note": "Fights Steve Rogers to a standstill on a highway bridge before intervention occurs.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Bucky possesses a cybernetic left arm grafted onto his body.",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Trained as a covert operative and assassin for the Soviet Union and Hydra.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Complete extent of the super-soldier serum variants administered to him by Hydra."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Winter Soldier|Captain America (Bucky Barnes)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Using the iconic shield and tactical expertise, Bucky Barnes adopts the mantle of Captain America to lead teams in combat with enhanced vibranium shielding and martial arts.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Shield ricochet toss",
+          "Super-soldier combat strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium shield block",
+          "Superhuman durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to being disarmed of the shield"
+      ],
+      "formDifferences": "Wields Captain America's signature vibranium shield instead of relying solely on firearms and his cybernetic arm.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Winter_Soldier",
+          "supports": "Bucky wielding Captain America's shield temporarily during Endgame."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos' army",
+          "result": "win",
+          "citation": "Avengers: Endgame",
+          "note": "Participates in the final battle wielding the shield.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether he formally accepted the permanent mantle of Captain America in the main timeline."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Winter Soldier|White Wolf (Bucky Barnes)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Cleansed of his Hydra programming in Wakanda, Bucky operates as the White Wolf, utilizing advanced Wakandan weaponry, a pristine vibranium arm, and tactical guerrilla combat.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Wakandan energy assault rifle",
+          "Vibranium arm strike"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium cybernetic arm",
+          "Wakandan tactical combat gear"
+        ]
+      },
+      "weaknesses": [
+        "None significantly noted beyond human vulnerability outside of armor"
+      ],
+      "formDifferences": "Replaces his old Hydra cybernetic arm with a seamless Wakandan vibranium replacement and equips Wakandan military hardware.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/White_Wolf",
+          "supports": "Bucky Barnes' designation as the White Wolf and Wakandan gear in Infinity War."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Outriders",
+          "result": "win",
+          "citation": "Avengers: Infinity War",
+          "note": "Fights in the Battle of Wakanda using advanced Wakandan firearms.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capabilities of the Wakandan arm energy discharge functions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Wolverine|Old Man Logan",
+      "continuity": "Marvel Cinematic Universe / Fox X-Men Universe",
+      "summary": "An aging, weary Logan whose healing factor has degraded, leaving him with chronic pain and physical scarring. He fights with brutal, desperate claw work and pragmatic lethality.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Adamantium claw melee strikes",
+          "Ambush tactics"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Slowing mutant healing factor",
+          "Adamantium skeleton"
+        ]
+      },
+      "weaknesses": [
+        "Degraded healing factor leading to slow recovery from major wounds",
+        "Physical exhaustion"
+      ],
+      "formDifferences": "Depicts Logan in advanced age with a malfunctioning healing factor, physical scars, and diminished stamina compared to his prime.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Logan_(film)",
+          "supports": "Logan character details, aging condition, degraded healing factor, and combat style in Logan (2017)."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "X-24",
+          "result": "loss",
+          "citation": "Logan",
+          "note": "Logan is fatally impaled by an enraged clone of himself (X-24) after his healing factor fails.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact rate of healing factor decay over time."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Wolverine|Weapon X Wolverine",
+      "continuity": "Marvel Cinematic Universe / Fox X-Men Universe",
+      "summary": "Feral and enraged, Logan in his Weapon X program state fights with absolute unbridled savagery after having his skeleton bonded with adamantium, possessing peak mutant regeneration and retracted claws.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Feral berserker slash",
+          "Adamantium claw disembowelment"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Peak mutant healing factor",
+          "Indestructible adamantium-laced skeletal structure"
+        ]
+      },
+      "weaknesses": [
+        "Prone to blind berserker rage without tactical restraint"
+      ],
+      "formDifferences": "Logan immediately following the Weapon X procedure, stripped of clothing, operating in a feral, memory-wiped state with maximum regeneration speed.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/X-Men_Origins:_Wolverine",
+          "supports": "Weapon X procedure, adamantium bonding, and feral breakout in X-Men Origins: Wolverine."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Weapon X facility guards",
+          "result": "win",
+          "citation": "X-Men Origins: Wolverine",
+          "note": "Escapes the facility by slaughtering numerous armed guards and tearing through walls.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full psychological recovery timeline following the memory wipe."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
