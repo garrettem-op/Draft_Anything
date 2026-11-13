@@ -1,0 +1,74 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125333 #30",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Zubat",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Zubat is a flying/poison-type bat Pokémon that fights by navigating via echolocation, attacking from the air with biting techniques like Leech Life, and disorienting foes with status-inflicting moves such as Confuse Ray.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison"
+        ],
+        "techniques": [
+          "Leech Life",
+          "Bite",
+          "Supersonic",
+          "Confuse Ray",
+          "Wing Attack",
+          "Venoshock"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion through erratic flight patterns",
+          "Type resistances to fighting, bug, grass, poison, and fairy-type moves"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to psychic, ice, rock, and electric-type attacks"
+      ],
+      "mobility": [
+        "Natural flight via wings"
+      ],
+      "limitations": [
+        "Blind and relies entirely on echolocation, rendering it vulnerable to sound-dampening effects",
+        "Fragile physical build before evolving into Golbat"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Zubat_(Pok%C3%A9mon)",
+          "supports": "Zubat's abilities, typing, evolutionary line, and known moveset across generations."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses echolocation and ultrasonic waves like Supersonic to disorient or confuse targets in battle.",
+          "citation": "Pokémon Red and Blue game manuals / Pokédex entries",
+          "source": 0
+        },
+        {
+          "claim": "Absorbs life force to recover its own health using Leech Life.",
+          "citation": "Pokémon standard battle mechanics across generations",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Zubat possesses natural wings and flies constantly in caves and dark environments.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact strength variance between wild Zubat and trained trainer-owned Zubat outside standard game scaling."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
