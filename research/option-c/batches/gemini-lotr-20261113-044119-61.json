@@ -1,0 +1,604 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-044119 #61",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Gandalf|Gandalf the White",
+      "continuity": "The Lord of the Rings (Books)",
+      "summary": "Gandalf the White possesses vastly increased power, authority, and resilience compared to his previous form, wielding the white staff and inspiring allies while intimidating foes. He fights with a combination of high-tier angelic presence, potent spellcasting, and expert swordsmanship with Glamdring.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Swordplay with Glamdring",
+          "Spells of commanding and repelling",
+          "Aura of blinding light and authority"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced spiritual and physical durability",
+          "Magical wards and barrier creation",
+          "Immunity to ordinary weapons through angelic nature"
+        ]
+      },
+      "weaknesses": [
+        "Physical embodiment limits the direct output of angelic power",
+        "Bound by the rules and limitations imposed by the Valar regarding direct domination"
+      ],
+      "mobility": [
+        "Rides Shadowfax, the chief of the Mearas",
+        "Standard foot movement with greatly enhanced vigor"
+      ],
+      "limitations": [
+        "Forbidden from matching Sauron in raw force or dominating free wills directly"
+      ],
+      "formDifferences": "Upgraded from Gandalf the Grey with heightened spiritual power, authority, endurance, and dressed entirely in white.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gandalf",
+          "supports": "General overview of Gandalf the White, his return, and his enhanced abilities in Tolkien's works."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cast down Saruman's staff and broke his authority over Isengard.",
+          "citation": "The Two Towers, The White Rider",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Saruman",
+          "result": "win",
+          "citation": "The Two Towers, The White Rider",
+          "note": "Stripped Saruman of his staff and expelled him from the Order of Wizards.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Enhanced angelic power and white raiment",
+          "dependsOn": "Sent back by Eru Ilúvatar with upgraded status",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Possesses inherent angelic magic and spellcasting capabilities as one of the Maiar.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts potent spoken spells and commands opponents using his staff and voice.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his power when fully unconstrained outside of his physical guise."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gandalf|Olórin (Uncloaked Maia)",
+      "continuity": "The Silmarillion and Tolkien's Legendarium",
+      "summary": "Olórin in his uncloaked, divine form as a Maia in Valinor operates as a pure spiritual being of immense wisdom, pity, and light. Without the physical and mental limitations imposed by an aged human guise, his capabilities reflect his full angelic nature.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Insubstantial spiritual influence",
+          "Conferring courage and insight"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Incorporeal spiritual form immune to conventional physical harm"
+        ]
+      },
+      "weaknesses": [
+        "Cannot directly use overt military force or physical violence to conquer evil in Arda according to the decrees of the Valar"
+      ],
+      "mobility": [
+        "Spiritual flight and omnipresent wandering in Valinor"
+      ],
+      "limitations": [
+        "Subject to the counsel and hierarchy of the Valar"
+      ],
+      "formDifferences": "Represents the character's primordial divine state before taking on the physical limitations of an old man as a Wizard in Middle-earth.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gandalf",
+          "supports": "Background on Olórin as a Maia of Valinor before his incarnation as a wizard."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Resided in Valinor and walked among the Vanyar and Noldor, inspiring wisdom and love.",
+          "citation": "The Silmarillion, Of the Maiar",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Full incorporeal divine manifestation",
+          "dependsOn": "Operating outside of a physical incarnate body",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Is a Maia, an angelic immortal being possessing innate divine power.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full scope of combat capabilities before descending into physical form."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gil-galad",
+      "continuity": "The Lord of the Rings and The Silmarillion",
+      "summary": "Gil-galad was the last High King of the Noldor in Middle-earth, a legendary warrior-king who wielded the mighty spear Aeglos. He fought at the forefront of the Last Alliance of Elves and Men against Sauron.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Spear combat with Aeglos",
+          "Royal command and martial leadership"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Master-crafted elven armor and shield",
+          "Exceptional elven agility and resilience"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to extreme heat and physical trauma as an incarnate Elf"
+      ],
+      "mobility": [
+        "Standard elven foot movement and mounted riding"
+      ],
+      "limitations": [
+        "Bounded by mortal physical limits of Middle-earth Elves"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gil-galad",
+          "supports": "Details on Gil-galad, his role as High King, and his spear Aeglos."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside Elendil to defeat Sauron at the slopes of Mount Doom, though at the cost of his own life.",
+          "citation": "The Fellowship of the Ring / The Silmarillion",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Slain in single combat alongside Elendil, though Sauron was also overthrown.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact magical properties of his spear Aeglos beyond legend."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gimli",
+      "continuity": "The Lord of the Rings (Books)",
+      "summary": "Gimli son of Glóin is a fierce and steadfast Dwarven warrior who relies on heavy armor, a broadaxe, and immense endurance. He excels in close-quarters melee combat, particularly in confined spaces like caves and fortifications.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Heavy battleaxe strikes",
+          "Shield wall defense and counter-attacks"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dwarven mail armor and helm",
+          "Natural dwarven resistance to fatigue and physical punishment"
+        ]
+      },
+      "weaknesses": [
+        "Limited mobility and lack of ranged attacks aside from throwing weapons or a borrowed bow",
+        "Low speed compared to elves or mounted foes"
+      ],
+      "mobility": [
+        "Standard running and marching on foot"
+      ],
+      "limitations": [
+        "Cannot traverse long distances as quickly as Elves or mounted combatants"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gimli_(Middle-earth)",
+          "supports": "Overview of Gimli's weaponry, heritage, and role in the War of the Ring."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew forty-two Orcs during the Battle of Helm's Deep.",
+          "citation": "The Two Towers, The Helm's Deep",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Uruk-hai",
+          "result": "win",
+          "citation": "The Two Towers, Helm's Deep",
+          "note": "Fought successfully in the Hornburg alongside Aragorn and Legolas.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against high-tier magical entities without magical assistance."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Glaurung",
+      "continuity": "The Silmarillion",
+      "summary": "Glaurung, the Father of Dragons, is a massive, wingless reptile of immense physical strength who employs crushing jaws, devastating fire-breath, and powerful hypnotic psychological manipulation (\"the glamour of Glaurung\").",
+      "offense": {
+        "domains": [
+          "physical",
+          "fire",
+          "control"
+        ],
+        "techniques": [
+          "Torrential fire-breath",
+          "Hypnotic trance and mental domination",
+          "Physical crushing with massive bulk and tail sweeps"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Impenetrable thick scales impervious to ordinary swords",
+          "Massive size and vitality"
+        ]
+      },
+      "weaknesses": [
+        "The soft underbelly is vulnerable to powerful thrusts from legendary weapons wielded by exceptional heroes"
+      ],
+      "mobility": [
+        "Heavy crawling and walking speed across terrain"
+      ],
+      "limitations": [
+        "Wingless and therefore lacks flight mobility"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Glaurung",
+          "supports": "Details on Glaurung's nature as the first dragon, fire-breath, and mind control abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Racked and burned Eithel Sirion and drove back the Noldor forces during the Dagor Bragollach.",
+          "citation": "The Silmarillion, Of the Ruin of Beleriand",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Túrin Turambar",
+          "result": "win",
+          "citation": "The Silmarillion, The Children of Húrin",
+          "note": "Successfully manipulated Túrin through psychological deception, though eventually slain by Túrin with Gurthang.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Is a gargantuan dragon capable of crushing armies and structures.",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Produces and breathes devastating dragon-fire.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Uses powerful hypnotic spells and gaze to control and deceive minds.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Resistance to high-level angelic or divine magic."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Glorfindel",
+      "continuity": "The Lord of the Rings and The Silmarillion",
+      "summary": "Glorfindel is a mighty Elf-lord of Rivendell restored to life with power akin to the Maiar. He moves with supernatural grace, fights with peerless swordsmanship, and possesses terrifying presence in the unseen spirit world.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Expert elven swordsmanship",
+          "Spiritual aura that strikes fear into Nazgûl"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven plate and mail armor",
+          "Dual existence in physical and spiritual realms"
+        ]
+      },
+      "weaknesses": [
+        "Bound by the physical laws of Middle-earth despite his elevated spiritual status"
+      ],
+      "mobility": [
+        "Rides Asfaloth without a saddle at high speed",
+        "Supernatural elven running speed and agility"
+      ],
+      "limitations": [
+        "Cannot be everywhere at once; deployed strategically by Elrond"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Glorfindel",
+          "supports": "Details on Glorfindel's resurrection, power, and encounter with the Nazgûl."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew a Balrog of Morgoth in single combat during the fall of Gondolin, dying in the process before being re-embodied.",
+          "citation": "The Silmarillion, Of the Fall of Gondolin",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Nazgûl",
+          "result": "win",
+          "citation": "The Fellowship of the Ring, Flight to the Ford",
+          "note": "Single-handedly drove the Nazgûl into the Bruinen river through his terrifying presence.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Possesses elevated spiritual power and presence comparable to the Eldar of Valinor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limits of his combat output when fully unleashed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gollum (Sméagol)",
+      "continuity": "The Lord of the Rings (Books)",
+      "summary": "Gollum is a wretched, corrupted creature who relies on stealth, surprise, biting, and strangulation. He avoids direct fair fights, preferring ambushes, shadows, and treacherous terrain.",
+      "offense": {
+        "domains": [
+          "physical",
+          "infiltration"
+        ],
+        "techniques": [
+          "Throat-slitting or strangulation from behind",
+          "Vicious biting and clawing",
+          "Stealthy ambushes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme agility",
+          "Climbing ability on vertical rock faces to escape combat"
+        ]
+      },
+      "weaknesses": [
+        "Physically frail in direct combat against armed opponents",
+        "Weakened and burned by Elven rope and sunlight"
+      ],
+      "mobility": [
+        "Scrambling on all fours",
+        "Expert wall-climbing and swimming"
+      ],
+      "limitations": [
+        "Hates and is physically debilitated by direct sunlight and elven items"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gollum",
+          "supports": "Overview of Gollum's physical traits, combat style, and reliance on stealth."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Strangled Déagol to take the One Ring.",
+          "citation": "The Fellowship of the Ring, The Shadow of the Past",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Déagol",
+          "result": "win",
+          "citation": "The Fellowship of the Ring",
+          "note": "Amushed and strangled his companion over the Ring.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Invisibility",
+          "dependsOn": "Possession and wearing of the One Ring",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Moves silently in the dark and stalks prey undetected for days.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Expert swimmer capable of catching fish in deep dark lakes.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance in open-field conventional warfare."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gollum (Sméagol)|Sméagol (Before the Ring)",
+      "continuity": "The Lord of the Rings (Books)",
+      "summary": "Before taking the One Ring, Sméagol was a curious, river-dwelling hobbit-kindred creature who spent his time swimming, burrowing, and tracking secrets in dark places. He was not a combatant, relying on stealth and evasion.",
+      "offense": {
+        "domains": [
+          "physical",
+          "infiltration"
+        ],
+        "techniques": [
+          "Sneaking and gathering hidden lore",
+          "Basic wrestling or grappling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Concealment in burrows and shadows"
+        ]
+      },
+      "weaknesses": [
+        "Lack of combat training or martial weapons"
+      ],
+      "mobility": [
+        "Swimming and foot travel"
+      ],
+      "limitations": [
+        "No combat prowess or offensive magic"
+      ],
+      "formDifferences": "Represents Sméagol prior to his complete physical and mental corruption by the One Ring.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gollum",
+          "supports": "Description of Sméagol's life among the River-folk before finding the Ring."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Explored deep tunnels and roots under the mountains before corruption set in.",
+          "citation": "The Fellowship of the Ring, The Shadow of the Past",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Lived by the river and was skilled at swimming and diving.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Prone to prying into secrets and moving unseen among his kin.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Any documented physical combat wins prior to killing Déagol."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gorbag",
+      "continuity": "The Lord of the Rings (Books)",
+      "summary": "Gorbag is an Orc captain from Minas Morgul who fights with brutal, practical ruthlessness, utilizing a jagged blade, vicious cruelty, and tactical cunning typical of Mordor uruk-captains.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Scimitar slash and thrust",
+          "Ambush and treacherous betrayal"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Iron collar and heavy orc-mail",
+          "Rough combat resilience"
+        ]
+      },
+      "weaknesses": [
+        "Prone to infighting and distrust with rival orc factions",
+        "Dislikes bright sunlight"
+      ],
+      "mobility": [
+        "Standard orc running and marching speed"
+      ],
+      "limitations": [
+        "Limited discipline outside of immediate fear of Sauron or the Nazgûl"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Orc_(Middle-earth)",
+          "supports": "General background on Orc captains like Gorbag and Shagrat during the War of the Ring."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led a band of Mordor uruks in skirmishes and captured Frodo Baggins at Cirith Ungol.",
+          "citation": "The Return of the King, The Choices of Master Samwise",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Shagrat",
+          "result": "loss",
+          "citation": "The Return of the King, The Choices of Master Samwise",
+          "note": "Slain by Shagrat during a bloody dispute over the mithril coat in the tower of Cirith Ungol.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat feats outside of the skirmish at Cirith Ungol."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
