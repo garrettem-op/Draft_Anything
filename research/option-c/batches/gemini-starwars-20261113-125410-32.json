@@ -1,0 +1,756 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125410 #32",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Baze Malbus",
+      "continuity": "Star Wars Canon (Rogue One)",
+      "summary": "Baze Malbus is a heavy-weapons specialist and former Guardian of the Whills who relies on massive repeating cannons, explosive ordnance, and stubborn tactical defense.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Heavy repeating cannon fire",
+          "Grenade throwing",
+          "Close-quarters tactical combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy tactical armor",
+          "Durable physical resilience",
+          "Cover-based positioning"
+        ]
+      },
+      "weaknesses": [
+        "Lacks supernatural or mystical defenses",
+        "Slow mobility due to heavy weaponry"
+      ],
+      "mobility": [
+        "Foot movement"
+      ],
+      "limitations": [
+        "Heavy weaponry reduces movement speed"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Baze_Malbus",
+          "supports": "Abilities, weapons, and feats from Rogue One"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed multiple Imperial stormtroopers and an AT-ST walker using his heavy repeating cannon during the Battle of Scarif",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Galactic Empire stormtroopers",
+          "result": "win",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Engaged in prolonged firefights during the Rebel assault on Scarif",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses advanced heavy repeating cannons and military equipment",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat history before joining the Guardians of the Whills"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:BB-8",
+      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "summary": "BB-8 is an agile astromech droid capable of quick maneuvers, slicing into computer terminals, and utilizing built-in tools to assist allies.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Arc welder shock",
+          "Cable projection",
+          "Piloting assistance"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Spherical rolling mobility",
+          "Compact and hard-to-hit profile",
+          "Improvised cover usage"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to EMP and ion weaponry",
+        "Limited physical combat capability against large opponents"
+      ],
+      "mobility": [
+        "Spherical rolling locomotion"
+      ],
+      "limitations": [
+        "Dependent on mechanical tools and slicing interfaces"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/BB-8",
+          "supports": "Abilities, tools, and technical specifications"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Piloted an AT-ST walker temporarily with Finn during the battle on Crait",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "First Order Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "note": "Operated an AT-ST walker to clear out enemy troops",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Autonomous astromech droid",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with integrated arc welder, tools, and slicing cables",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Operates starship controls and assists starfighter pilots",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of modifications made by Poe Dameron"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Bo-Katan Kryze",
+      "continuity": "Star Wars Canon (The Mandalorian / The Clone Wars)",
+      "summary": "Bo-Katan Kryze is a veteran Mandalorian warrior and leader who combines advanced powered armor, a jetpack, and a diverse arsenal of ranged and melee weapons.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol fire",
+          "Wrist-mounted flamethrower and rocket",
+          "Jetpack-assisted aerial combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Beskar armor plating",
+          "Energy shields",
+          "Aerial maneuverability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable when jetpack or armor systems are compromised"
+      ],
+      "mobility": [
+        "Powered flight via jetpack",
+        "Foot movement"
+      ],
+      "limitations": [
+        "Jetpack fuel is limited during prolonged engagements"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Bo-Katan_Kryze",
+          "supports": "Combat skills, Mandalorian armor, and weapon loadout"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought multiple Imperial loyalists and creatures using her jetpack and beskar armor",
+          "citation": "The Mandalorian",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Watch and Imperial forces",
+          "result": "win",
+          "citation": "The Clone Wars / The Mandalorian",
+          "note": "Led tactical strikes and guerrilla operations",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears custom Mandalorian beskar armor",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Equipped with a combat jetpack",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Uses wrist-mounted flamethrower",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Expert pilot of starfighters and gauntlets",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact longevity granted by Mandalorian training"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Boba Fett",
+      "continuity": "Star Wars Canon (Original Trilogy / The Mandalorian / The Book of Boba Fett)",
+      "summary": "Boba Fett is a legendary bounty hunter who utilizes customized Mandalorian armor, a versatile jetpack, flamethrowers, wrist lasers, and precise marksmanship.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "EE-3 carbine rifle fire",
+          "Rocket launcher",
+          "Wrist flamethrower",
+          "CQC combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Beskar armor",
+          "Helmet sensory suite",
+          "Evasive jetpack maneuvers"
+        ]
+      },
+      "weaknesses": [
+        "Blind spots in jetpack controls can be exploited",
+        "Physical vulnerability if armor gaps are targeted"
+      ],
+      "mobility": [
+        "Powered flight via jetpack",
+        "Foot movement"
+      ],
+      "limitations": [
+        "Jetpack relies on fuel and mechanical integrity"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Boba_Fett",
+          "supports": "Weapons, armor capabilities, and tactical history"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tracked down and captured high-value targets across the galaxy",
+          "citation": "The Empire Strikes Back",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Han Solo",
+          "result": "win",
+          "citation": "The Empire Strikes Back",
+          "note": "Captured Solo with help from the Empire",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears durable Mandalorian armor",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Uses a jetpack for aerial mobility",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Equipped with wrist flamethrower",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Expert pilot of the Slave I",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of modifications to his armor over the decades"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Bossk",
+      "continuity": "Star Wars Canon (The Clone Wars / Original Trilogy Era)",
+      "summary": "Bossk is a Trandoshan bounty hunter possessing natural reptilian regeneration, sharp claws, and heavy ordnance including a concussive rifle.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Relby-v10 micro-grenade launcher fire",
+          "Claw slashes",
+          "Thermal detonators"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Natural Trandoshan healing factor",
+          "Thick reptilian hide"
+        ]
+      },
+      "weaknesses": [
+        "Prone to aggressive overconfidence",
+        "Susceptible to extreme cold and specialized toxins"
+      ],
+      "mobility": [
+        "Foot movement"
+      ],
+      "limitations": [
+        "Relies on heavy physical strength and brutal tactics over finesse"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Bossk",
+          "supports": "Trandoshan physiology, weaponry, and bounty hunting history"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Hunted Jedi younglings and other targets across hostile planets",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Republic clone cadets",
+          "result": "inconclusive",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Engaged in protracted tracking on Wasskah",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Possesses rapid Trandoshan biological regeneration",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Heals from severe physical trauma naturally",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limits of his regenerative healing rate"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:C-3PO",
+      "continuity": "Star Wars Canon (Main Saga)",
+      "summary": "C-3PO is a protocol droid fluent in millions of forms of communication, typically serving non-combat roles while occasionally operating machinery or translating complex systems.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Verbal negotiation",
+          "System translation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Metal chassis",
+          "Stealth evasion (when functional)"
+        ]
+      },
+      "weaknesses": [
+        "Deals no direct combat damage",
+        "Prone to panic and dismemberment",
+        "Lacks combat programming"
+      ],
+      "mobility": [
+        "Bipedal walking"
+      ],
+      "limitations": [
+        "Completely unequipped for direct physical combat"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/C-3PO",
+          "supports": "Protocol droid specifications and lack of combat capability"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Translated ancient Sith language using his programmed memory banks",
+          "citation": "Star Wars: Episode IX - The Rise of Skywalker",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Battle Droids",
+          "result": "loss",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "note": "Head swapped onto a battle droid body accidentally",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Protocol droid artificial intelligence",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capability of mind-wipe memory restoration"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Cad Bane",
+      "continuity": "Star Wars Canon (The Clone Wars / The Bad Batch)",
+      "summary": "Cad Bane is a cold, calculated Duros bounty hunter armed with dual blaster pistols, rocket boots, flamethrowers, and specialized anti-Jedi tactics.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Dual LL-30 blaster pistol rapid fire",
+          "Wrist gauntlet stun blasts",
+          "Breathing apparatus manipulation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Wide-brimmed hat deflection",
+          "Rocket boots evasion",
+          "Tactical trap setting"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Force attacks when caught off guard"
+      ],
+      "mobility": [
+        "Rocket boots",
+        "Foot movement"
+      ],
+      "limitations": [
+        "Dependent on specialized breathing tubes and technical gear"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Cad_Bane",
+          "supports": "Bounty hunter weapons, gadgets, and feats against Jedi"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully infiltrated the Jedi Temple and stole a holocron",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Obi-Wan Kenobi",
+          "result": "inconclusive",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Fought evenly before escaping custody",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses rocket boots, wrist gauntlets, and breath control devices",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Uses rocket boots for short aerial propulsion",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Equipped with wrist flamethrower",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Expert pilot of the Justifier",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact lifespan and survival limits of Duros physiology"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Cal Kestis",
+      "continuity": "Star Wars Canon (Jedi: Fallen Order / Jedi: Survivor)",
+      "summary": "Cal Kestis is a Jedi survivor who combines lightsaber combat forms, Force powers such as push, pull, and slow, and agile acrobatic movement.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Lightsaber strikes",
+          "Force Push and Pull",
+          "Force Slow",
+          "Dual-wielding and blaster stance"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber blade deflection",
+          "Force barrier",
+          "Acrobatic dodging"
+        ]
+      },
+      "weaknesses": [
+        "Struggles against overwhelming dark side forces without focus",
+        "Vulnerable when Force energy is depleted"
+      ],
+      "mobility": [
+        "Acrobatic wall-running",
+        "Grapple hook",
+        "Foot movement"
+      ],
+      "limitations": [
+        "Force abilities require concentration and energy reserve"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Cal_Kestis",
+          "supports": "Jedi training, lightsaber stances, and Force abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Second Sister Trilla Suduri in lightsaber combat",
+          "citation": "Star Wars Jedi: Fallen Order",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Trilla Suduri (Second Sister)",
+          "result": "win",
+          "citation": "Star Wars Jedi: Fallen Order",
+          "note": "Defeated the Inquisitor in single combat",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Performs extended aerial jumps and grapple-assisted mobility",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Uses Stim canisters and Force healing techniques",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Utilizes Force Push, Pull, and Lift",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots the Stinger Mantis starship",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential of his dark-side channeling state"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Captain Phasma",
+      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "summary": "Captain Phasma is a ruthless First Order commander clad in chromium-coated armor, wielding a blaster rifle and spear with brutal efficiency.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "F-11D blaster rifle fire",
+          "Quarterstaff melee strikes",
+          "Tactical command"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Crater-resistant chromium armor",
+          "Close-quarters melee blocking"
+        ]
+      },
+      "weaknesses": [
+        "Overconfident in authority",
+        "Armor can be bypassed by targeted heavy explosives"
+      ],
+      "mobility": [
+        "Foot movement"
+      ],
+      "limitations": [
+        "Relies primarily on standard military equipment and foot mobility"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Phasma",
+          "supports": "Chromium armor durability, weapons, and combat record"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Finn in close-quarters combat using a quarterstaff on the crashing Supremacy",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Finn",
+          "result": "loss",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "note": "Defeated after her armor integrity was breached in a duel",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears high-grade chromium-coated armor",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat background before rising within the First Order"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Captain Rex",
+      "continuity": "Star Wars Canon (The Clone Wars / Rebels)",
+      "summary": "Captain Rex is an elite clone trooper commander who excels in tactical marksmanship, dual blaster pistol combat, and military leadership.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Dual DC-17 blaster pistol fire",
+          "DC-15A rifle combat",
+          "Thermal detonator deployment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard clone trooper armor plating",
+          "Tactical cover utilization"
+        ]
+      },
+      "weaknesses": [
+        "Human physiological limitations against extreme environments or heavy weapons"
+      ],
+      "mobility": [
+        "Foot movement"
+      ],
+      "limitations": [
+        "Subject to standard human stamina and physical aging constraints"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/CT-7567",
+          "supports": "Clone captain combat feats, weapons, and leadership record"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led clone battalions against droid armies across numerous hostile planets",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Battle Droids",
+          "result": "win",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Successfully completed numerous tactical campaigns",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots gunships and starfighters during campaign operations",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term health effects of accelerated clone aging in later years"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
