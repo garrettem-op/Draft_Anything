@@ -1,0 +1,729 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125542 #37",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Jyn Erso",
+      "continuity": "Star Wars Canon (Rogue One)",
+      "summary": "Jyn Erso is a skilled rebel soldier, brawler, and survivor who utilizes improvised firearms, explosives, and melee combat. She relies on agility and guerrilla tactics rather than formal military training.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol combat",
+          "Melee combat",
+          "Thermal detonators"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cover-based evasion",
+          "Durability as a human combatant"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to conventional physical damage and blaster fire as an unenhanced human"
+      ],
+      "mobility": [
+        "Running",
+        "Climbing",
+        "Piloting via standard transport"
+      ],
+      "limitations": [
+        "Human physical limitations and standard stamina"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jyn_Erso",
+          "supports": "Overview of Jyn Erso's role, weapons, and combat feats in Rogue One."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off multiple stormtroopers in hand-to-hand combat and using captured blasters.",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Stormtroopers",
+          "result": "win",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Engaged in guerrilla skirmishes during the Battle of Scarif.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Infiltrated the Imperial citadel on Scarif using forged credentials and disguise.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact proficiency with heavy Imperial weaponry outside of standard rifles."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:K-2SO",
+      "continuity": "Star Wars Canon (Rogue One)",
+      "summary": "K-2SO is a reprogrammed Imperial KX-series security droid possessing exceptional physical strength and tactical calculation. He excels at subduing multiple armed opponents simultaneously through brute force and precision.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat",
+          "Blaster suppression",
+          "Slicing Imperial systems"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy durasteel chassis",
+          "Resistance to standard blaster fire"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy ordinance and targeted structural destruction"
+      ],
+      "mobility": [
+        "Walking",
+        "Running"
+      ],
+      "limitations": [
+        "Cannot regenerate damaged mechanical components without workshop tools"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/K-2SO",
+          "supports": "Details on K-2SO's physical strength, droid chassis, and abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tore open a locked security door and defeated multiple stormtroopers barehanded.",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Stormtroopers",
+          "result": "win",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Secured corridors and held off waves of guards during the infiltration of the Scarif vault.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "K-2SO is an Imperial security droid.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Capable of interfacing with and slicing Imperial computer systems.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his programming restrictions before being wiped by Cassian Andor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Kanan Jarrus",
+      "continuity": "Star Wars Canon (Star Wars Rebels)",
+      "summary": "Kanan Jarrus is a Jedi Knight who survived Order 66, combining traditional lightsaber forms with the Force. Despite losing his sight, he developed heightened Force perception to continue fighting effectively.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Lightsaber combat",
+          "Force push",
+          "Force pull",
+          "Telekinesis"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Force barrier",
+          "Enhanced senses replacing physical sight"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to specialized anti-Jedi tactics and overwhelming physical attacks"
+      ],
+      "mobility": [
+        "Running",
+        "Force-enhanced leaping",
+        "Starship piloting"
+      ],
+      "limitations": [
+        "Physical blindness requires total reliance on the Force for spatial awareness"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Star_Wars_Rebels",
+          "supports": "Kanan Jarrus's role as a Jedi and combat capabilities in Star Wars Rebels."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought and defeated Imperial Inquisitors in lightsaber combat.",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Grand Inquisitor",
+          "result": "win",
+          "citation": "Star Wars Rebels, Season 1",
+          "note": "Won a prolonged lightsaber duel after tapping deeper into the Force.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Utilizes Force levitation and jump enhancement.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots the Ghost starship.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The upper limits of his telekinetic strength under extreme duress."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Kit Fisto",
+      "continuity": "Star Wars Canon (Star Wars: The Clone Wars)",
+      "summary": "Kit Fisto was a Nautolan Jedi Master known for his mastery of Form I (Shii-Cho), an infectious smile, and high adaptability in aquatic environments due to his biology.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Shii-Cho lightsaber combat",
+          "Force push",
+          "Underwater combat maneuvers"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber blade deflection",
+          "Force reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to exceptional mastery of dark side combat forms by top-tier Sith Lords"
+      ],
+      "mobility": [
+        "Running",
+        "Force-enhanced leaping",
+        "Swimming"
+      ],
+      "limitations": [
+        "Requires access to water or specialized gear if operating indefinitely outside suitable atmospheres, though standard atmosphere is fine."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/List_of_Star_Wars_characters",
+          "supports": "General background and combat role of Jedi Master Kit Fisto."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought evenly with General Grievous and cut off several of his hands.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Sidious",
+          "result": "loss",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Defeated swiftly alongside other Jedi Masters during the arrest attempt.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Nautolan biology grants natural proficiency in water environments.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Capable of breathing underwater indefinitely via head-tentacles.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his powers outside standard Jedi training regimens."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Kuiil",
+      "continuity": "Star Wars Canon (The Mandalorian)",
+      "summary": "Kuiil was an Ugnaught moisture farmer and mechanic who utilized practical trade skills, machinery repair, and blaster self-defense. He was resourceful and adept at reconditioning droids.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Rifle marksmanship",
+          "Mechanical reprogramming"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cover and positioning"
+        ]
+      },
+      "weaknesses": [
+        "Elderly Ugnaught with standard biological vulnerability to weapons and injury"
+      ],
+      "mobility": [
+        "Walking",
+        "Riding Blurrg mounts"
+      ],
+      "limitations": [
+        "Advanced age limits strenuous physical endurance"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Mandalorian",
+          "supports": "Background on Kuiil, his trade skills, and role in The Mandalorian."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully reprogrammed IG-11 from a bounty hunter into a nurse and protector droid.",
+          "citation": "The Mandalorian, Season 1",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Scout Troopers",
+          "result": "loss",
+          "citation": "The Mandalorian, Season 1",
+          "note": "Ambushed and killed while protecting the Child.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Expert mechanic capable of completely rebuilding and reprogramming an IG-series assassin droid.",
+          "source": 0
+        },
+        {
+          "tag": "mount",
+          "claim": "Expert at taming and riding Blurrg mounts across Arvala-7.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat capabilities beyond basic self-defense rifle shooting."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Kylo Ren",
+      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "summary": "Kylo Ren is a powerful dark side warrior wielding an unstable crossguard lightsaber and utilizing devastating telekinetic and mind-probing abilities. He relies on raw, aggressive emotion in combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Crossguard lightsaber combat",
+          "Force freeze",
+          "Force mind probe",
+          "Telekinetic slam"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber defense",
+          "Force barrier",
+          "Pain tolerance fueled by dark side rage"
+        ]
+      },
+      "weaknesses": [
+        "Emotional instability and inner conflict weaken his dark side resolve"
+      ],
+      "mobility": [
+        "Running",
+        "Force-enhanced leaping",
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Prone to reckless aggression when provoked"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kylo_Ren",
+          "supports": "Kylo Ren's abilities, lightsaber, and Force powers in the Sequel Trilogy."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Frosted a live blaster bolt mid-air and held it suspended indefinitely.",
+          "citation": "Star Wars: Episode VII - The Force Awakens",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rey",
+          "result": "loss",
+          "citation": "Star Wars: Episode IX - The Rise of Skywalker",
+          "note": "Fatally exhausted during their duel on the wreckage of the Death Star II.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Utilizes Force-enhanced leaps and bounds.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Extracts memories and paralyzes targets using the Force.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots his customized TIE silencer.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential if he had fully committed to the dark side without internal division."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Lando Calrissian",
+      "continuity": "Star Wars Canon (Original Trilogy / Solo)",
+      "summary": "Lando Calrissian is a charismatic smuggler, gambler, and pilot who relies on blaster pistols, cunning diplomacy, and tactical escapes rather than direct military force.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol marksmanship",
+          "Improvised tactical subterfuge"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Diplomatic deflection",
+          "Armored vest (situational)"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical capabilities with no supernatural defenses"
+      ],
+      "mobility": [
+        "Running",
+        "Piloting starships"
+      ],
+      "limitations": [
+        "Relies heavily on having access to a ship, allies, or an escape route"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Lando_Calrissian",
+          "supports": "Overview of Lando Calrissian's history, piloting skills, and role across Star Wars films."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Piloted the Millennium Falcon through the narrow tunnels of the second Death Star's core to destroy it.",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back",
+          "note": "Evacuated Cloud City under fire with the assistance of rebel loyalists.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Famous captain and pilot of the Millennium Falcon.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Proficiency in prolonged hand-to-hand combat against trained martial artists."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Leia Organa",
+      "continuity": "Star Wars Canon (Original & Sequel Trilogies)",
+      "summary": "Leia Organa is a rebel leader, politician, and trained Jedi who combines tactical command experience with blaster proficiency and latent Force abilities.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Blaster pistol marksmanship",
+          "Basic Force manipulation",
+          "Strategic leadership"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cover-based combat",
+          "Force intuition"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical injury and standard weaponry"
+      ],
+      "mobility": [
+        "Running",
+        "Space travel via Force manipulation",
+        "Piloting"
+      ],
+      "limitations": [
+        "Formal Jedi training was cut short, limiting active combat applications of the Force compared to masters"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Princess_Leia",
+          "supports": "Leia Organa's combat history, leadership, and Force capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived exposure to the vacuum of space by utilizing the Force to guide her body back inside a starship.",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "note": "Fought off Imperial forces on the forest moon of Endor.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Used the Force to pull herself through the vacuum of space back to a ship.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Experienced pilot of various transports and speeders.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Communicated telepathically with Luke Skywalker across interstellar distances.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her combat capabilities during her active Jedi training period."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Luke Skywalker",
+      "continuity": "Star Wars Canon (Original Trilogy)",
+      "summary": "Luke Skywalker is a legendary Jedi Master who combines master-level lightsaber proficiency with immense telekinetic and empathetic Force powers, capable of turning the tide of galactic conflicts.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Lightsaber combat",
+          "Telekinetic push and pull",
+          "Mind trick",
+          "Force intuition"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Force barrier",
+          "Precognitive reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to intense dark side corruption if tempted or overwhelmed emotionally"
+      ],
+      "mobility": [
+        "Running",
+        "Force-enhanced leaping",
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Human physical endurance can be strained by prolonged, intense combat"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Luke_Skywalker",
+          "supports": "Luke Skywalker's Jedi abilities, lightsaber combat, and feats in the Original Trilogy."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed the first Death Star by using the Force to guide a proton torpedo into an unshielded thermal exhaust port.",
+          "citation": "Star Wars: Episode IV - A New Hope",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Vader",
+          "result": "win",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "note": "Overpowered Darth Vader in a fit of rage aboard the second Death Star before sparing him.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Performs extraordinary jumps using Force augmentation.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Uses Jedi mind tricks to influence sentient minds.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Expert ace pilot of X-wing starfighters.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Communicates telepathically with family and peers.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The absolute ceiling of his raw Force potential during his prime years."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Luke Skywalker|Dark Empire Luke",
+      "continuity": "Star Wars Legends (Dark Empire comic series)",
+      "summary": "Dark Empire Luke is a formidable iteration of Luke Skywalker who temporarily fell to the dark side under Emperor Palpatine, wielding devastating dark side force techniques including Force lightning.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy",
+          "electric"
+        ],
+        "techniques": [
+          "Lightsaber combat",
+          "Force lightning",
+          "Dark side telekinesis",
+          "Mind domination"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber defense",
+          "Dark side Force shield"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to psychological appeals to his former light side nature by loved ones"
+      ],
+      "mobility": [
+        "Running",
+        "Force-enhanced leaping",
+        "Starfighter piloting"
+      ],
+      "formDifferences": "Embarks on a dark side path, gaining access to offensive Force lightning and heightened aggressive combat prowess compared to his standard Jedi Knight incarnation.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Dark_Empire",
+          "supports": "Details on Luke Skywalker's fall to the dark side and acquisition of dark side powers in Dark Empire."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Leia Organa",
+          "result": "inconclusive",
+          "citation": "Dark Empire comic series",
+          "note": "Fought Leia until she appealed to his inner light, prompting his turnaround.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether he could maintain complete stability while wielding Palpatine's teachings indefinitely."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
