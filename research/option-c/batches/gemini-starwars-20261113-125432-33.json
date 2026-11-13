@@ -1,0 +1,788 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125432 #33",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Cara Dune",
+      "continuity": "Star Wars Canon (The Mandalorian)",
+      "summary": "Cara Dune is a seasoned former Rebel shock trooper who excels in brutal hand-to-hand combat and heavy infantry firefights. She utilizes brute force, heavy weaponry, and disciplined military tactics.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Heavy Blaster Rifle fire",
+          "Close-quarters combat and grappling",
+          "Explosives and heavy ordnance"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Durable combat armor",
+          "Tactical cover utilization",
+          "Exceptional physical resilience in close combat"
+        ]
+      },
+      "weaknesses": [
+        "Lacks supernatural or energy projection abilities",
+        "Vulnerable to superior numbers or heavy armored vehicles without anti-armor gear"
+      ],
+      "mobility": [
+        "Standard running and combat movement",
+        "Pilots speeder bikes and starships"
+      ],
+      "limitations": [
+        "Relies entirely on physical stamina and standard military gear"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Carasynthia_Dune",
+          "supports": "Basic biography, role as a former Rebel shock trooper, and combat style in The Mandalorian."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off Imperial remnants alongside the Mandalorian using heavy blasters and tactical defense.",
+          "citation": "The Mandalorian, Season 1",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Stormtroopers",
+          "result": "win",
+          "citation": "The Mandalorian",
+          "note": "Engaged in multiple successful skirmishes against Imperial forces.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses advanced blasters and military equipment.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact post-Season 2 status and engagements after actress departure from the franchise."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Cassian Andor",
+      "continuity": "Star Wars Canon (Andor, Rogue One)",
+      "summary": "Cassian Andor is a resourceful Rebel intelligence officer, spy, and assassin. He relies heavily on stealth, precision marksmanship, improvised tactics, and psychological survival skills rather than overt superhuman combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol marksmanship",
+          "Stealth assassination",
+          "Improvised explosives and traps"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cover and concealment",
+          "Disguise and infiltration",
+          "Evasive maneuvering"
+        ]
+      },
+      "weaknesses": [
+        "Physically vulnerable without armor against direct heavy firepower",
+        "Lacks superhuman durability or powers"
+      ],
+      "mobility": [
+        "Standard human mobility",
+        "Stealth movement",
+        "Piloting transport craft"
+      ],
+      "limitations": [
+        "Human physiological limits",
+        "Dependent on available equipment and intelligence"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Cassian_Andor",
+          "supports": "Role as a Rebel intelligence officer, spy, and skilled marksman."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated secure Imperial installations on multiple planets and successfully extracted intelligence.",
+          "citation": "Andor / Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial security personnel",
+          "result": "win",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Successfully completed missions against high-security Imperial targets through stealth and precision.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Operates extensively as an undercover spy and infiltrator within Imperial facilities.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Executes missions using covert movement and stealth tactics.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes standard-issue rebel blasters, datapad slicers, and espionage tools.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his pre-Rebellion operations as 'Fulcrum' agent."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Chewbacca",
+      "continuity": "Star Wars Canon (Films and TV Series)",
+      "summary": "Chewbacca is a towering Wookiee warrior possessing immense physical strength, durability, and fierce loyalty. He specializes in ferocious close-quarters combat and devastating firepower using his signature bowcaster.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Bowcaster energy projectile firing",
+          "Brute force limb-mangling and tearing",
+          "Heavy crew-served weaponry operation"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Natural Wookiee physical resilience and dense musculature",
+          "Thick fur coat offering minor environmental protection"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to emotional distress over losing companions",
+        "Vulnerable to coordinated heavy stun fire or overwhelming technological suppression"
+      ],
+      "mobility": [
+        "Standard running and agile climbing",
+        "Starship piloting"
+      ],
+      "limitations": [
+        "Prone to berserker rages that can bypass tactical caution",
+        "Cannot speak Basic (English) fluently"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Chewbacca",
+          "supports": "Biography, physical characteristics, weapon usage, and role as Han Solo's co-pilot."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ripped the arms off opponents in cantenas and overpowered multiple Stormtroopers in melee combat.",
+          "citation": "Star Wars: Episode IV - A New Hope",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Stormtroopers",
+          "result": "win",
+          "citation": "Original Star Wars Trilogy",
+          "note": "Fought in numerous successful ground engagements against Imperial forces.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Serves as the co-pilot and mechanic of the Millennium Falcon.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Expertly wields and repairs bowcasters, ship systems, and advanced technology.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full upper limit of Wookiee strength thresholds under extreme stress."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Chirrut Îmwe",
+      "continuity": "Star Wars Canon (Rogue One)",
+      "summary": "Chirrut Îmwe is a blind spiritual warrior and a devotee of the Guardians of the Whills. He utilizes heightened sensory awareness, profound attunement to the Force, and expert martial arts with a staff and bow.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Staff striking and martial arts",
+          "Lightbow precision shooting",
+          "Force-guided sensory perception"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion through enhanced sensory prediction",
+          "Martial blocking and parrying"
+        ]
+      },
+      "weaknesses": [
+        "Physically blind, relying entirely on hearing and Force attunement",
+        "Lacks body armor or energy shielding"
+      ],
+      "mobility": [
+        "Acrobatic martial arts movement",
+        "Standard walking and running"
+      ],
+      "limitations": [
+        "Physical mortality and vulnerability to standard lethal projectiles",
+        "Complete reliance on non-visual senses"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Rogue_One",
+          "supports": "Description of Chirrut Îmwe as a blind warrior monk attuned to the Force."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated a squad of Stormtroopers in close combat using only a staff while relying on sensory perception.",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        },
+        {
+          "claim": "Walked across an active battlefield through heavy crossfire guided by his spiritual connection.",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Stormtroopers",
+          "result": "win",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Successfully cleared a path through enemy soldiers in close quarters.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels spiritual attunement closely tied to the Force to achieve supernatural awareness.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether he was officially a trained Jedi or solely a Guardian of the Whills."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Chopper",
+      "continuity": "Star Wars Canon (Star Wars Rebels)",
+      "summary": "Chopper (C1-10P) is an eccentric and brutally effective astromech droid equipped with a wide variety of hidden tools, electric shockers, rocket boosters, and aggressive weaponry. He fights with complete disregard for rules.",
+      "offense": {
+        "domains": [
+          "tech",
+          "electric"
+        ],
+        "techniques": [
+          "Integrated electro-shock prod",
+          "Built-in circular saws and welding torches",
+          "Rocket booster flight and ramming"
+        ],
+        "range": "melee / ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy durasteel droid plating",
+          "Magnetic adherence",
+          "Self-repair and field improvisation"
+        ]
+      },
+      "weaknesses": [
+        "Prone to mechanical glitches and stubborn behavior",
+        "Vulnerable to ion weapons and strong magnetic fields"
+      ],
+      "mobility": [
+        "Tread-based rolling",
+        "Rocket booster flight"
+      ],
+      "limitations": [
+        "Limited battery and fuel for rocket boosters",
+        "Small physical stature restricts heavy physical lifting"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Star_Wars_Rebels",
+          "supports": "Role of Chopper as the primary astromech droid of the Ghost crew with distinct combat capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated Imperial systems, disabled security grids, and electrocuted enemy troopers.",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Imperial security droids",
+          "result": "win",
+          "citation": "Star Wars Rebels",
+          "note": "Successfully sabotaged and defeated rival droids using integrated tools and shock weapons.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Chopper is a sentient astromech droid.",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Equipped with rocket boosters allowing short bursts of flight.",
+          "source": 0
+        },
+        {
+          "tag": "electric-weapon",
+          "claim": "Utilizes an integrated electro-shock prod in combat.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Advanced astromech droid with extensive hacking and slicing tools.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact manufacturer history prior to the Clone Wars crash."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Cobb Vanth",
+      "continuity": "Star Wars Canon (The Mandalorian, The Book of Boba Fett)",
+      "summary": "Cobb Vanth is a skilled gunslinger and local lawman who protects Mos Pelgo using Boba Fett's legendary Mandalorian armor. He fights with precise quick-draw pistol marksmanship and tactical rural defense.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster quick-draw and marksmanship",
+          "Rocket-assisted jetpack strikes",
+          "Missile launcher deployment from armor"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mandalorian armor plating (beskar)",
+          "Energy shielding and kinetic absorption"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in areas unprotected by his borrowed Mandalorian armor",
+        "Prone to taking personal risks to protect civilians"
+      ],
+      "mobility": [
+        "Standard running",
+        "Jetpack flight",
+        "Speeder bike piloting"
+      ],
+      "limitations": [
+        "Limited jetpack fuel capacity",
+        "Human physical limitations outside of armor protection"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Cobb_Vanth",
+          "supports": "Biography, role as marshal of Mos Pelgo, and utilization of Mandalorian armor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Killed a krayt dragon with coordinated explosive charges and blaster fire while wearing Mandalorian armor.",
+          "citation": "The Mandalorian, Season 2",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mining Collective thugs",
+          "result": "win",
+          "citation": "The Mandalorian, Season 2",
+          "note": "Cleared out armed criminal gangs from settlement territory.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears authentic Mandalorian beskar armor.",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Utilizes the jetpack attached to his Mandalorian armor.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Wields advanced blasters and integrated armor weaponry.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full recovery status after being shot by Cad Bane."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Commander Cody",
+      "continuity": "Star Wars Canon (The Clone Wars, Revenge of the Sith)",
+      "summary": "Commander Cody (CC-2224) is a highly disciplined clone marshal commander who specializes in large-scale military strategy, tactical coordination, and heavy blaster combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "DC-15 blaster rifle marksmanship",
+          "Tactical bombardment coordination",
+          "Close-quarters tactical combat"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Phase II Clone Trooper armor plating",
+          "Tactical formation defense"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to neurological override commands (inhibitor chip)",
+        "Standard human physical limitations"
+      ],
+      "mobility": [
+        "Standard military running and movement",
+        "Piloting LAAT gunships and walkers"
+      ],
+      "limitations": [
+        "Strict adherence to military chain of command and orders",
+        "Inhibitor chip vulnerability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Commander_Cody",
+          "supports": "Role as a Grand Army of the Republic clone commander, tactics, and equipment."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led clone battalions through complex sieges against separatist droid armies on numerous worlds.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Separatist Droid Army",
+          "result": "win",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Won multiple large-scale military engagements across the galaxy.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced clone trooper armor, tactical HUDs, and standard Republic blasters.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots gunships and command starfighters during campaigns.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact post-Clone Wars military career under the Galactic Empire."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Count Dooku",
+      "continuity": "Star Wars Canon (Star Wars: The Clone Wars, Episode III)",
+      "summary": "Count Dooku is a powerful Sith Lord and former Jedi Master who masters Makashi lightsaber combat and devastating Force lightning. He fights with extreme elegance, precision, and overwhelming dark side prowess.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Form II Makashi lightsaber fencing",
+          "Force Lightning projection",
+          "Telekinetic choking and throwing"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber blade deflection",
+          "Force barrier and telekinetic deflection"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence in his mastery over opponents",
+        "Vulnerable to relentless, heavy physical onslaughts that strain Makashi's weak multi-opponent parrying"
+      ],
+      "mobility": [
+        "Acrobatic Force-enhanced leaping and running",
+        "Starship piloting"
+      ],
+      "limitations": [
+        "Form II is optimized for one-on-one dueling rather than crowded melee battlefields"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Count_Dooku",
+          "supports": "Biography, Sith status, lightsaber combat style, and Force abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Obi-Wan Kenobi and Anakin Skywalker simultaneously in single combat.",
+          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Obi-Wan Kenobi",
+          "result": "win",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Successfully defeated Kenobi in a lightsaber duel by incapacitating him.",
+          "source": 0
+        },
+        {
+          "opponent": "Anakin Skywalker",
+          "result": "loss",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Overpowered when Skywalker tapped into unbridled dark side fury.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels the dark side of the Force for supernatural powers.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Generates and projects powerful arcs of Force lightning.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Uses advanced dark side Force powers in combat.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Manipulates heavy objects and opponents using the Force.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact timeline of his recruitment of Asajj Ventress and Savage Opress."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Crosshair",
+      "continuity": "Star Wars Canon (The Bad Batch)",
+      "summary": "Crosshair is an elite clone commando sniper possessing exceptional genetic modifications granting peerless marksmanship and spatial calculation. He fights from extreme distance with calculated precision.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Sniper rifle precision shots",
+          "Ricochet trajectory calculations",
+          "Suppressive blaster fire"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elite Imperial sniper armor",
+          "Long-range concealment and sniper nests"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in close-quarters brawls without support",
+        "Inhibitor chip behavioral conditioning dependencies"
+      ],
+      "mobility": [
+        "Standard tactical movement",
+        "Positioning into elevated sniper vantages"
+      ],
+      "limitations": [
+        "Relies on clear lines of sight for long-range elimination",
+        "Standard human clone stamina"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Bad_Batch_(TV_series)",
+          "supports": "Description of Crosshair as a member of Clone Force 99 with exceptional sniper capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Hit targets over extreme distances by calculating atmospheric conditions and ricochets off walls.",
+          "citation": "Star Wars: The Bad Batch",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Insurgents and rival marksmen",
+          "result": "win",
+          "citation": "Star Wars: The Bad Batch",
+          "note": "Successfully neutralized target groups from afar with minimal expenditure of ammunition.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Utilizes customized high-powered sniper rifles and imperial weaponry.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full long-term physical toll of prolonged nerve damage to his hand."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Darth Maul",
+      "continuity": "Star Wars Canon (The Phantom Menace, The Clone Wars, Rebels)",
+      "summary": "Darth Maul is a lethal Sith Lord and master of Juyo/Ataru lightsaber combat, wielding a double-bladed lightsaber. He combines acrobatic martial arts, relentless offense, and dark side Force abilities.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Double-bladed lightsaber combat",
+          "Force push and telekinetic strike",
+          "Darksaber combat"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection and parrying",
+          "Exceptional acrobatic dodging and agility"
+        ]
+      },
+      "weaknesses": [
+        "Extreme arrogance and vengeful obsession clouding tactical judgment",
+        "Vulnerable to emotional provocation"
+      ],
+      "mobility": [
+        "Superhuman acrobatic leaping and flips",
+        "Force-enhanced running"
+      ],
+      "limitations": [
+        "Relies heavily on aggressive momentum; can be countered by disciplined defensive styles",
+        "Cybernetic legs can be targeted by ion weapons"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Maul_(Star_Wars)",
+          "supports": "Biography, lightsaber style, Sith training, and survival feats across canon series."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought and killed Jedi Master Qui-Gon Jinn while simultaneously battling Obi-Wan Kenobi.",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "source": 0
+        },
+        {
+          "claim": "Survived bisection and fell down a reactor shaft, later rebuilding his lower body with cybernetics.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Qui-Gon Jinn",
+          "result": "win",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "note": "Defeated and fatally stabbed the Jedi Master in single combat.",
+          "source": 0
+        },
+        {
+          "opponent": "Obi-Wan Kenobi",
+          "result": "loss",
+          "citation": "Star Wars Rebels",
+          "note": "Quickly defeated and killed in a brief duel on Tatooine.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels the dark side of the Force to enhance physical attributes and powers.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Uses dark side telekinesis and sensory manipulation.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Throws heavy objects and chokes opponents with the Force.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact nature of his resurgence through Nightsister magic on Lotho Minor."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
