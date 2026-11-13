@@ -1,0 +1,588 @@
+{
+  "batchId": "Gemini V2 research dc 20261113-042428 #7",
+  "schemaVersion": 1,
+  "pool": "dc",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "dc:Harley Quinn",
+      "continuity": "DC Comics, Modern Age",
+      "summary": "Harley Quinn combines erratic, unpredictable melee combat, gymnast agility, and an array of customized gag-themed weapons and firearms.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Giant mallet strikes",
+          "Acrobatic close quarters combat",
+          "Firearm and explosive usage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic evasion",
+          "Poison Ivy's toxin immunity enhancement"
+        ]
+      },
+      "weaknesses": [
+        "Mentally erratic and emotionally impulsive"
+      ],
+      "mobility": [
+        "Gymnastic movement",
+        "Motorcycles"
+      ],
+      "limitations": [
+        "Relies primarily on physical prowess and standard gear"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Harley_Quinn",
+          "supports": "Background, weapon choices, and superhuman toxin immunities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought evenly against trained combatants like Batman using unpredictability and gymnastics",
+          "citation": "Batman: The Animated Series / Detective Comics",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "loss",
+          "citation": "Various Batman comics",
+          "note": "Usually overpowered in prolonged direct combat without traps.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Enhanced durability and toxin immunity",
+          "dependsOn": "Poison Ivy's serum",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Enhanced healing factor granted by Poison Ivy's toxin treatment",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses trick firearms, explosives, and novelty weapons",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Consistency of unpredictable tactical advantages"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Hawkgirl",
+      "continuity": "DC Comics, Modern Age / Post-Crisis",
+      "summary": "Hawkgirl is an aggressive warrior armed with a Nth metal mace, possessing winged flight and centuries of reincarnated combat experience.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Nth metal mace strikes",
+          "Aerial dive attacks",
+          "Melee weapon mastery"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Nth metal armor granting enhanced durability and thermal protection",
+          "Accelerated healing"
+        ]
+      },
+      "weaknesses": [
+        "Prone to berserker rage in combat"
+      ],
+      "mobility": [
+        "Natural-looking winged flight"
+      ],
+      "limitations": [
+        "Dependent on her wings and Nth metal gear for mobility advantages"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hawkgirl",
+          "supports": "Nth metal properties, wings, and warrior background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought toe-to-toe with seasoned powerhouses like Wonder Woman using Nth metal weaponry",
+          "citation": "JLA comics",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Superman",
+          "result": "loss",
+          "citation": "Justice League animated series / comics",
+          "note": "Overpowered by sheer strength disparity despite Nth metal weapons.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and enhanced durability",
+          "dependsOn": "Nth metal harness and wings",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flight via organic-looking artificial wings powered by Nth metal",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Reincarnation memories vary by continuity era"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Hawkman",
+      "continuity": "DC Comics, Modern Age",
+      "summary": "Hawkman is a fierce, reincarnated warrior who uses Nth metal to fly and wields ancient weaponry with ruthless tactical experience.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mace and ax melee combat",
+          "Aerial blitz attacks",
+          "Brutal close-quarters grappling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Nth metal armor and physiological healing factor",
+          "Enhanced durability"
+        ]
+      },
+      "weaknesses": [
+        "Reluctance to avoid direct, brutal confrontations"
+      ],
+      "mobility": [
+        "Winged flight"
+      ],
+      "limitations": [
+        "Fighter mindset can lead to ignoring defensive maneuvers"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hawkman_(Carter_Hall)",
+          "supports": "Nth metal traits, weaponry, and reincarnation history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Withstood heavy blows from top-tier bruisers in hand-to-hand combat",
+          "citation": "JSA comics",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Black Adam",
+          "result": "loss",
+          "citation": "JSA: Black Reign",
+          "note": "Defeated in a brutal physical confrontation.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and accelerated healing",
+          "dependsOn": "Nth metal connection",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flight via Nth metal wings",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of past life skill retention"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Huntress",
+      "continuity": "DC Comics, Post-Crisis",
+      "summary": "Huntress is a lethal and uncompromising vigilante specializing in crossbow marksmanship, stealth, and street-level martial arts.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Crossbow sniping",
+          "Staff and hand-to-hand combat",
+          "Ambush tactics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vigilante body armor",
+          "Tactical evasion"
+        ]
+      },
+      "weaknesses": [
+        "Prone to lethal solutions and tactical rashness"
+      ],
+      "mobility": [
+        "Grappling hooks",
+        "Motorcycles"
+      ],
+      "limitations": [
+        "Standard human physical limitations without superhuman durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Huntress_(Helena_Bertinelli)",
+          "supports": "Weapons, background, and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully infiltrated heavily guarded criminal compounds",
+          "citation": "Birds of Prey",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lady Shiva",
+          "result": "loss",
+          "citation": "Birds of Prey comics",
+          "note": "Outmatched in pure martial arts skill.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Utilizes urban stealth and rooftop infiltration",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses crossbows, grappling hooks, and smoke pellets",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact proficiency variations across different editorial eras"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:John Constantine",
+      "continuity": "DC Comics, Vertigo / Modern Age",
+      "summary": "John Constantine is an occult con artist and master magician who relies on cunning, ritual magic, deception, and psychological manipulation to defeat supernatural foes.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Occult rituals",
+          "Binding spells",
+          "Psychological manipulation",
+          "Sigils and curses"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protective talismans",
+          "Warding circles",
+          "Deception and misdirection"
+        ]
+      },
+      "weaknesses": [
+        "Human physical fragility and heavy chain-smoking habit"
+      ],
+      "mobility": [
+        "Walking",
+        "Occult portals"
+      ],
+      "limitations": [
+        "Physically vulnerable ordinary human without active magical wards"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Constantine",
+          "supports": "Occult expertise, magical manipulation, and human vulnerabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Outsmarted high-level demons and lords of Hell using pure bluffing and preparation",
+          "citation": "Hellblazer",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "First of the Fallen",
+          "result": "win",
+          "citation": "Hellblazer #40",
+          "note": "Won via a complex contract loophole and deception.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Advanced spellcasting",
+          "dependsOn": "Preparation time and magical components",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Practices ritualistic occult magic and spells",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts complex binding and warding spells",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Utilizes various occult talismans and artifacts",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact extent of raw magical power versus sheer trickery"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Joker",
+      "continuity": "DC Comics, Modern Age",
+      "summary": "The Joker is an anarchic, sadistic criminal mastermind who utilizes chemical toxins, joke-themed lethal gadgets, and total unpredictability to terrorize opponents.",
+      "offense": {
+        "domains": [
+          "tech",
+          "control"
+        ],
+        "techniques": [
+          "Joker Venom toxin gas",
+          "Exploding cigars and novelty trick items",
+          "Hidden firearms and blades"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Pain tolerance",
+          "Bulletproof vests and chaotic ambushes"
+        ]
+      },
+      "weaknesses": [
+        "Mentally unstable and lacks traditional physical discipline"
+      ],
+      "mobility": [
+        "Walking",
+        "Joker mobile"
+      ],
+      "limitations": [
+        "Relies heavily on premeditated traps and psychological warfare"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Joker_(character)",
+          "supports": "Joker Venom usage, criminal mastermind background, and gear."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Killed or crippled prominent heroes and civilians through psychological traps and surprise attacks",
+          "citation": "Batman: The Killing Joke",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "loss",
+          "citation": "Detective Comics #27 onwards",
+          "note": "Almost always subdued when Batman closes into hand-to-hand range.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses lethal trick gadgets and chemical weapons",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True origins and psychological depth"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Joker|Emperor Joker",
+      "continuity": "DC Comics, Emperor Joker Storyline",
+      "summary": "Emperor Joker possesses nearly 99% of Mr. Mxyzptlk's fifth-dimensional reality-warping powers, allowing him to reshape reality on a whim with chaotic malice.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "energy"
+        ],
+        "techniques": [
+          "Reality warping",
+          "Matter transmute",
+          "Cosmic annihilation",
+          "Conceptual rewriting"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Absolute reality immunity",
+          "Instantaneous regeneration from conceptual destruction"
+        ]
+      },
+      "weaknesses": [
+        "Psychologically unstable mind holding godlike power; obsession with Batman"
+      ],
+      "mobility": [
+        "Omnipresence",
+        "Instantaneous fifth-dimensional teleportation"
+      ],
+      "formDifferences": "Replaces standard human physical limitations with fifth-dimensional godhood, granting total control over space, time, and matter.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Emperor_Joker",
+          "supports": "Stealing Mxyzptlk's powers and reality-warping feats."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Superman",
+          "result": "win",
+          "citation": "Superman #161",
+          "note": "Tortured and repeatedly killed/resurrected Superman with reality powers.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how Superman broke his psychological control"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Jon Kent",
+      "continuity": "DC Comics, Infinite Frontier / Superman (Son of Kal-El)",
+      "summary": "Jon Kent is the son of Superman, possessing a full Kryptonian-Human hybrid set of powers including solar energy absorption, flight, heat vision, and bio-electric outbursts.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Super-strength punches",
+          "Heat vision",
+          "Solar flare / bio-electric burst",
+          "Super-breath"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Kryptonian invulnerability",
+          "Regenerative healing factor under yellow sun"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to Kryptonite and magic"
+      ],
+      "mobility": [
+        "Super-speed",
+        "Flight"
+      ],
+      "limitations": [
+        "Can experience energy depletion when utilizing massive bio-electric discharges"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jon_Kent_(DC_Comics)",
+          "supports": "Hybrid powers, lineage, and Superman mantle inheritance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside the Justice League and held his own against powerful cosmic threats",
+          "citation": "Superman: Son of #1",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ultraman",
+          "result": "loss",
+          "citation": "Superman comics",
+          "note": "Imprisoned and tortured for years by Ultraman on Earth-3 as a youth.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Superpowers",
+          "dependsOn": "Yellow sun radiation absorption",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Innate Kryptonian flight",
+          "source": 0
+        },
+        {
+          "tag": "electric",
+          "claim": "Demonstrates bio-electric flare and lightning abilities",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Controls and projects bio-electric energy",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full upper limit of hybrid bio-electric potential compared to original Kal-El"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
