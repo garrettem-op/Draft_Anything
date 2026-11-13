@@ -1,0 +1,52 @@
+name: V2 research tick
+# Scheduler only. GitHub runs scheduled workflows from the default branch, so this file lives
+# on main, but it never touches main or V1: it checks out develop/v2-option-c and runs that
+# branch's tools/v2-research-tick.cjs. It does not build, test or deploy the game.
+# Owner approved a scheduler-only file on main on 2026-11-12.
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write        # push gemini/v2-research/* branches and merge approved research PRs
+  pull-requests: write   # open research PRs, read reviews
+  issues: write          # "Needs manual research" list
+  checks: write          # post validate-research on bot-opened PRs
+  actions: write         # gate may dispatch the V2 queue workflow
+concurrency:
+  group: v2-research-tick
+  cancel-in-progress: false
+jobs:
+  tick:
+    if: github.repository == 'garrettem-op/Draft_Anything'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop/v2-option-c
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check the V2 pipeline is installed
+        id: ready
+        run: |
+          if [ -f tools/v2-research-tick.cjs ]; then echo "ok=true" >> "$GITHUB_OUTPUT"
+          else echo "::notice::tools/v2-research-tick.cjs is not on develop/v2-option-c yet (merge #98 and #100). Nothing to do."; fi
+      - name: Reconcile open research PRs (validate, gate, merge)
+        if: steps.ready.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node tools/v2-research-tick.cjs reconcile
+      - name: Generate research with Gemini (free tier, opt-in)
+        if: steps.ready.outputs.ok == 'true' && vars.GEMINI_FREE_TIER_CONFIRMED == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: node tools/v2-research-tick.cjs generate --budget-minutes 25 --batch-size 10
+      - name: Reconcile again (validate PRs opened this tick)
+        if: always() && steps.ready.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node tools/v2-research-tick.cjs reconcile
