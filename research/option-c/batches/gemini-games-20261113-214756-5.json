@@ -1,0 +1,439 @@
+{
+  "batchId": "Gemini V2 research games 20261113-214756 #5",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Tails",
+      "continuity": "Sonic the Hedgehog series (Main Canon)",
+      "summary": "Miles 'Tails' Prower fights using his twin tails for flight and propulsion, alongside various custom technological gadgets and explosives. He is exceptionally intelligent, serving as Sonic's mechanic and tactical planner while utilizing custom weaponry and vehicles in combat.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Tail Swipe",
+          "Piko Piko Hammer (occasionally)",
+          "Blaster and Energy Cannon usage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic evasion",
+          "Shield items",
+          "Energy barrier usage"
+        ]
+      },
+      "weaknesses": [
+        "Relies heavily on equipment and mechanical devices",
+        "Prone to hesitation or self-doubt when separated from mentors or friends"
+      ],
+      "mobility": [
+        "Flight via twin tails",
+        "Running",
+        "Piloting aircraft"
+      ],
+      "limitations": [
+        "Flight endurance is limited by fatigue when using tails continuously",
+        "Physical strength in close combat is lower compared to power-type characters like Knuckles"
+      ],
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Miles_%22Tails%22_Prower",
+          "supports": "Overview of Tails' abilities, twin tails flight, mechanical genius, and general combat style."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dr. Eggman",
+          "result": "win",
+          "citation": "Sonic Adventure",
+          "note": "Defeated Eggman's Walker mecha independently.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Tails can use his twin tails to fly freely through the air.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Innate ability to fly using his two tails as helicopter rotors.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Master pilot of the Tornado biplane and various other vehicles.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Exceptional mechanical genius who creates advanced technology and weapons.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes a variety of custom high-tech gadgets in battle.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact top flight speed without mechanical enhancements."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Tails|Super Tails",
+      "continuity": "Sonic the Hedgehog series (Classic / Mania / 3 & Knuckles)",
+      "summary": "Super Tails is an invincible empowered state achieved by collecting all seven Chaos Emeralds, accompanied by invincible Flicky birds that attack nearby enemies automatically.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Super Dash",
+          "Invincible Flicky Swarm Attack"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Absolute invulnerability to standard attacks",
+          "Automatic destruction of nearby foes by companion Flickies"
+        ]
+      },
+      "weaknesses": [
+        "Time-limited transformation dependent on Ring count",
+        "Loses form when Rings are depleted"
+      ],
+      "mobility": [
+        "Enhanced flight",
+        "Super speed"
+      ],
+      "formDifferences": "Gains absolute invulnerability, glowing golden fur, flight speed boost, and an escort of invincible Super Flickies that obliterate nearby enemies.",
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Super_Tails",
+          "supports": "Super Tails mechanics, Chaos Emerald requirement, and Flicky summon ability."
+        }
+      ],
+      "unknowns": [
+        "Exact duration of the transformation outside of gameplay mechanics."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Thrall",
+      "continuity": "World of Warcraft / Warcraft III",
+      "summary": "Thrall is a powerful Orc shaman and warrior who wields the legendary hammer Doomhammer and commands the elemental forces of nature, including lightning, wind, and earth.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "electric"
+        ],
+        "techniques": [
+          "Chain Lightning",
+          "Earthquake",
+          "Doomhammer Melee Strikes",
+          "Windfury"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elemental shields",
+          "Heavy plate armor",
+          "Healing spells"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable when spiritually disconnected from the elements",
+        "Dependent on his weapon for certain focused strikes"
+      ],
+      "mobility": [
+        "Running",
+        "Riding mounts",
+        "Elemental levitation"
+      ],
+      "limitations": [
+        "Elemental cooperation can be lost or diminished in blighted or unnatural environments"
+      ],
+      "sources": [
+        {
+          "url": "https://wowpedia.fandom.com/wiki/Thrall",
+          "supports": "Thrall's background as Warchief, Shamanistic powers, elemental control, and Doomhammer usage."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Garrosh Hellscream",
+          "result": "win",
+          "citation": "Warlords of Draenor cinematic",
+          "note": "Defeated Garrosh in mak'gora using elemental shamanism.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Commands powerful lightning and chain lightning spells.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Channels elemental lightning against enemies.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Practices potent Shamanistic magic.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts elemental spells and healing incantations.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Utilizes shamanistic healing magic.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of his shamanic powers after the events of Battle for Azeroth."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Tifa Lockhart",
+      "continuity": "Final Fantasy VII Remake / Original",
+      "summary": "Tifa Lockhart is a master martial artist who fights using her fists and feet, employing high-speed combos, staggering strikes, and powerful limit break techniques.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Omnistrike",
+          "Rise and Fall",
+          "Whirling Uppercut",
+          "Dolphin Blow"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dodge rolling",
+          "Counterattacks",
+          "Materia-based barrier spells"
+        ]
+      },
+      "weaknesses": [
+        "Limited range against long-distance opponents",
+        "Relies on physical endurance"
+      ],
+      "mobility": [
+        "Acrobatic leaps",
+        "Sprinting",
+        "Dodge dashing"
+      ],
+      "limitations": [
+        "Melee-exclusive combat range without projectile Materia equipped"
+      ],
+      "sources": [
+        {
+          "url": "https://finalfantasy.fandom.com/wiki/Tifa_Lockhart",
+          "supports": "Tifa's fighting style, martial arts techniques, limit breaks, and magic usage."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rufus Shinra",
+          "result": "win",
+          "citation": "Final Fantasy VII Remake",
+          "note": "Fought alongside party members against Shinra executives.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Equips and casts magic via Materia.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts elemental and healing spells through Materia slots.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of physical strength scaling."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Toad",
+      "continuity": "Super Mario series",
+      "summary": "Toad is a swift and agile Mushroom Kingdom resident who relies on speed, items, and team support in battles and sports events.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Dash Attack",
+          "Spore Puff",
+          "Item usage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High acceleration dodging",
+          "Power-up shields"
+        ]
+      },
+      "weaknesses": [
+        "Low physical durability compared to heavier fighters like Bowser",
+        "Relies on external items for offensive escalation"
+      ],
+      "mobility": [
+        "Running",
+        "Jumping"
+      ],
+      "limitations": [
+        "Lacks innate supernatural offensive powers without items"
+      ],
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Toad_(species)",
+          "supports": "Toad's physical traits, general capabilities in spin-offs, and agility."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes various Mario universe power-up items.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Individual combat feats outside of group sports and platforming assistance."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Tom Nook",
+      "continuity": "Animal Crossing series",
+      "summary": "Tom Nook is a business-minded raccoon who manages real estate and economic infrastructure. He does not engage in traditional combat, instead utilizing financial leverage and contracts.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Loan Issuance",
+          "Debt Enforcement"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Economic deterrence",
+          "Tanooki corporate backing"
+        ]
+      },
+      "weaknesses": [
+        "Completely lacks combat training or offensive physical attacks",
+        "Vulnerable to direct physical assault"
+      ],
+      "mobility": [
+        "Walking",
+        "Running"
+      ],
+      "limitations": [
+        "Non-combatant in all official gameplay contexts"
+      ],
+      "sources": [
+        {
+          "url": "https://nookipedia.com/wiki/Tom_Nook",
+          "supports": "Tom Nook's role as a store owner and loan provider with no combat background."
+        }
+      ],
+      "unknowns": [
+        "Any hidden combat capabilities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Wreck-It Ralph",
+      "continuity": "Wreck-It Ralph films",
+      "summary": "Wreck-It Ralph is a massive, immensely strong arcade game villain who specializes in smashing obstacles, structures, and opponents with his giant hands.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Giant Fist Smash",
+          "Ground Pound",
+          "Building Demolition"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme physical durability",
+          "Thick arcade-character hide"
+        ]
+      },
+      "weaknesses": [
+        "Clumsy movement speed",
+        "Low agility against fast opponents"
+      ],
+      "mobility": [
+        "Heavy running",
+        "Climbing"
+      ],
+      "limitations": [
+        "Lacks ranged attacks or magical abilities",
+        "Poor dexterity for fine manipulation"
+      ],
+      "sources": [
+        {
+          "url": "https://disney.fandom.com/wiki/Wreck-It_Ralph",
+          "supports": "Ralph's immense physical strength, durability, and role as a wrecking antagonist."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "King Candy / Turbo",
+          "result": "win",
+          "citation": "Wreck-It Ralph (Film)",
+          "note": "Destroyed the Diet Cola Mountain beacon, defeating Turbo.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Possesses massive physical bulk and towering stature compared to normal humans.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact lifting and striking force limits in tons."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
