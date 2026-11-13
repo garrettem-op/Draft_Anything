@@ -1,0 +1,677 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-064102 #16",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Sandman",
+      "continuity": "Spider-Man 3 (2007) / Spider-Man: No Way Home (2021)",
+      "summary": "Flint Marko can transform his entire body into and manipulate a massive quantity of sand, granting him immense physical strength, density, and modularity in combat. He fights primarily through close-quarters bludgeoning, throwing abrasive sandstorms, and reshaping his limbs into dense hammers or spikes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "control"
+        ],
+        "techniques": [
+          "Sandstorms",
+          "Reshaping limbs into weapons",
+          "Giant sand monster form",
+          "Flinging dense sand projectiles"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Body dispersion to avoid kinetic impacts",
+          "Regeneration by absorbing surrounding sand or earth",
+          "High density mass scaling"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to water which clumps his sand and restricts his movement and cohesion"
+      ],
+      "mobility": [
+        "Ground movement with sand dispersion"
+      ],
+      "limitations": [
+        "Becomes sluggish and immobilized when completely drenched in water"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sandman_(Marvel_Comics)",
+          "supports": "General character abilities and vulnerabilities across film and comic adaptations"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbed massive quantities of sand and grew to towering proportions to fight Spider-Man.",
+          "citation": "Spider-Man 3 (2007)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Spider-Man",
+          "result": "inconclusive",
+          "citation": "Spider-Man 3 (2007)",
+          "note": "Fought to a standstill before mutual reconciliation.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Full body dispersion and reconstruction",
+          "dependsOn": "Presence of loose sand or earth nearby",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "size-change",
+          "claim": "Can grow into a giant towering sand monster.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits on the maximum volume of sand he can control simultaneously."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Scarlet Witch|Darkhold Scarlet Witch",
+      "continuity": "Doctor Strange in the Multiverse of Madness (2022)",
+      "summary": "Corrupted by the Darkhold, Wanda operates with ruthless efficiency, utilizing dreamwalking, reality warping, and lethal magical constructs. She uses psychic projection across dimensions and decimates entire teams with effortless telekinesis and energy blasts.",
+      "offense": {
+        "domains": [
+          "magic",
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Dreamwalking",
+          "Reality erasure",
+          "Lethal telekinetic snaps",
+          "Portal creation"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Impenetrable chaos magic barriers",
+          "Self-regeneration and durability"
+        ]
+      },
+      "weaknesses": [
+        "Destruction of the physical copy of the Darkhold disrupts her spell momentum"
+      ],
+      "mobility": [
+        "Flight",
+        "Self-teleport / Dreamwalking"
+      ],
+      "limitations": [
+        "Vulnerable to emotional appeals regarding her children"
+      ],
+      "formDifferences": "Significantly more aggressive, lethal, and durable due to Darkhold corruption, gaining dreamwalking and advanced multiversal casting.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Strange_in_the_Multiverse_of_Madness",
+          "supports": "Darkhold-empowered feats and abilities in Multiverse of Madness"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated the Illuminati of Earth-838 with overwhelming telekinetic force.",
+          "citation": "Doctor Strange in the Multiverse of Madness (2022)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Professor X (Earth-838)",
+          "result": "win",
+          "citation": "Doctor Strange in the Multiverse of Madness (2022)",
+          "note": "Invaded his mental plane and killed him.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Multiversal dreamwalking and heightened reality warping",
+          "dependsOn": "The Darkhold text and mountain temple",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Empowered by the Darkhold to cast advanced chaos magic.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Levitates and flies during combat.",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Opens dimensional paths using the Darkhold.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Uses dreamwalking to control alternate bodies.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether her physical body truly perished beneath Mount Wundagore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Scarlet Witch|House of M Scarlet Witch",
+      "continuity": "Marvel Comics (House of M continuity adaptation)",
+      "summary": "Possessing planetary-scale reality warping, this version can rewrite entire timelines and strip superhuman powers globally with a single phrase.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "psychic"
+        ],
+        "techniques": [
+          "Reality rewrite",
+          "Power negation",
+          "Global illusion casting"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Probability shielding"
+        ]
+      },
+      "weaknesses": [
+        "Mentally unstable and susceptible to psychological manipulation by family members"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Prone to severe psychological trauma and catatonia following massive reality rewrites"
+      ],
+      "formDifferences": "Possesses planetary and universal reality alteration capabilities vastly exceeding standard cinematic manifestations.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/House_of_M",
+          "supports": "House of M reality-altering feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Altered the entire Earth timeline into a mutant-dominant world and depowered millions of mutants with three words.",
+          "citation": "House of M #7",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Avengers and X-Men combined",
+          "result": "win",
+          "citation": "House of M #1",
+          "note": "Reshaped reality around all heroes simultaneously.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields planetary reality-warping magic.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact trigger mechanisms for her mental breakdowns."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Scarlet Witch|Scarlet Witch of Wundagore",
+      "continuity": "Marvel Comics (Classic / Wundagore lore)",
+      "summary": "Grounded in her magical origins tied to Mount Wundagore and the Elder God Chthon, she channels primal earth and chaos magic for curses and hex spheres.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Chaos hexes",
+          "Elemental curses",
+          "Chthonic energy blasts"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical wards"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to anti-magic fields and bindings tied to Mount Wundagore"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Magic output fluctuates based on mystical exhaustion"
+      ],
+      "formDifferences": "Emphasizes traditional spellcasting and ties to Chthon rather than modern cinematic chaos magic.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Scarlet_Witch",
+          "supports": "Wundagore origin and magical baseline"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Channelled the ambient magical energy of Wundagore to repel demonic entities.",
+          "citation": "Avengers #187",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Agatha Harkness",
+          "result": "win",
+          "citation": "Avengers #128",
+          "note": "Overcame magical corruption during training.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Enhanced chthonic possession resistance",
+          "dependsOn": "Proximity to Mount Wundagore",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Born under magical circumstances at Mount Wundagore.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts complex magical rituals and hexes.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact nature of Chthon's dormant influence over her bloodline."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Sentry",
+      "continuity": "Marvel Comics / Potential MCU Adaptations",
+      "summary": "Robert Reynolds possesses the power of a million exploding suns, granting him godlike physical strength, invulnerability, super-speed, and photokinetic energy projection. He fights as a powerhouse brawler capable of leveling landscapes with casual blows.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "psychic"
+        ],
+        "techniques": [
+          "Solar energy beams",
+          "Super-speed blitz",
+          "God-level physical strikes"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Molecular reconstitution",
+          "Invulnerability to conventional weaponry",
+          "Energy absorption"
+        ]
+      },
+      "weaknesses": [
+        "Severe psychological instability and agoraphobia linked to his alter ego, the Void"
+      ],
+      "mobility": [
+        "Flight",
+        "Super-speed"
+      ],
+      "limitations": [
+        "Power levels fluctuate wildly based on his mental stability and self-doubt"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sentry_(Robert_Reynolds)",
+          "supports": "Core abilities, powers of a million suns, and psychological traits"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ripped Carnage in half and threw him into outer space.",
+          "citation": "New Avengers #2",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Absorbing Man",
+          "result": "win",
+          "citation": "Mighty Avengers #24",
+          "note": "Easily overpowered him by ripping through his molecular structure.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies at faster-than-light speeds.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The true upper limit of his reality manipulation sub-powers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Sentry|Death Seed Sentry",
+      "continuity": "Marvel Comics (Uncanny Avengers era)",
+      "summary": "Empowered by a Celestial Death Seed, Sentry channels cosmic and death-based energies with zero psychological restraint, allowing him to contend directly with Celestials and planetary threats.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Celestial energy manipulation",
+          "Molecular tearing",
+          "Death-seed shockwaves"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Celestial durability",
+          "Instantaneous regeneration"
+        ]
+      },
+      "weaknesses": [
+        "Dependent on the Death Seed's corruption; can be overwhelmed by high-tier cosmic entities"
+      ],
+      "mobility": [
+        "Flight",
+        "Super-speed"
+      ],
+      "limitations": [
+        "Subject to the command of whoever controls the Apocalypse Twins or equivalent cosmic anchors"
+      ],
+      "formDifferences": "Removes human psychological hesitation, operating with ruthless cosmic authority and enhanced Celestial durability.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sentry_(Robert_Reynolds)",
+          "supports": "Death Seed Sentry incarnation and Uncanny Avengers feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tear a Celestial apart in mid-air.",
+          "citation": "Uncanny Avengers #11",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thor",
+          "result": "inconclusive",
+          "citation": "Uncanny Avengers #11",
+          "note": "Fought evenly before departing.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Celestial-tier energy projection and regeneration",
+          "dependsOn": "Celestial Death Seed infusion",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies across galaxies instantly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term stability of the Death Seed within a mortal vessel."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Sentry|The Void (Sentry)",
+      "continuity": "Marvel Comics (Dark Avengers era)",
+      "summary": "The dark counterpart and repressed half of Robert Reynolds, The Void can manipulate darkness, reshape its physical form into monstrous giants, and unleash city-wide plagues and storms.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Darkness manipulation",
+          "Monstrous shape-shifting",
+          "Necrotic shockwaves"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shapeshifting evasion",
+          "Regeneration from pure darkness"
+        ]
+      },
+      "weaknesses": [
+        "Weakens when Robert Reynolds acknowledges his sanity and integrates his psyche"
+      ],
+      "mobility": [
+        "Flight",
+        "Darkness teleportation"
+      ],
+      "limitations": [
+        "Bound to the life force and mental state of Robert Reynolds"
+      ],
+      "formDifferences": "Replaces golden heroic aesthetics with black shadowy monstrous forms, gaining dark elemental control and immense size-shifting.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sentry_(Robert_Reynolds)",
+          "supports": "The Void persona and dark entity feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Pummeled Ares, the Greek god of war, and ripped him in half.",
+          "citation": "Siege #2",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thor",
+          "result": "loss",
+          "citation": "Siege #4",
+          "note": "Killed by Thor after Iron Man dropped the Helicarrier on him and Reynolds regained control.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Complete manifestation of dark apocalyptic storms",
+          "dependsOn": "Sentry's psychological breakdown or defeat",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies in dark storm forms.",
+          "source": 0
+        },
+        {
+          "tag": "size-change",
+          "claim": "Transforms into a towering monstrous entity.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact boundaries between Sentry and Void minds."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Sersi",
+      "continuity": "Marvel Cinematic Universe (Eternals)",
+      "summary": "An immortal Eternal with the ability to transmutate matter on contact or at close range. Sersi fights defensively and creatively, turning hostile objects into water, crystal, or harmless materials.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "tech"
+        ],
+        "techniques": [
+          "Matter transmutation",
+          "Cosmic energy projection"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cosmic energy shields",
+          "Regenerative Eternal physiology"
+        ]
+      },
+      "weaknesses": [
+        "Cannot transmute sentient organic life forms without touching them directly or requiring massive energy output"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Requires physical proximity or direct line of sight for complex molecular transformations"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Eternals_(film)",
+          "supports": "Sersi's transmutation powers and Eternal feats in the MCU"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transmutated a falling meteor into flower petals and turned a Deviant into a tree.",
+          "citation": "Eternals (2021)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ikaris",
+          "result": "inconclusive",
+          "citation": "Eternals (2021)",
+          "note": "Briefly subdued him using transmutation during their final confrontation.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Levitates and flies using cosmic energy.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The absolute limit of mass she can transmute simultaneously."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Shang-Chi",
+      "continuity": "Marvel Cinematic Universe (Shang-Chi and the Legend of the Ten Rings)",
+      "summary": "A master martial artist trained from childhood, Shang-Chi combines fluid hand-to-hand combat styles with the mystical Ten Rings, allowing him to project energy blasts, create shields, and deliver devastating strikes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Kung Fu martial arts",
+          "Ten Rings energy whips",
+          "Energy shockwave punches"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Ten Rings energy barriers",
+          "Acrobatic evasion and parrying"
+        ]
+      },
+      "weaknesses": [
+        "Relies on physical conditioning and tactical positioning; lacks innate superhuman durability without the rings"
+      ],
+      "mobility": [
+        "Acrobatic leaps",
+        "Ring-propelled flight"
+      ],
+      "limitations": [
+        "Must maintain precise mental concentration to command multiple rings effectively in combat"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Shang-Chi_and_the_Legend_of_the_Ten_Rings",
+          "supports": "Shang-Chi combat style and Ten Rings usage"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated the Dweller-in-Darkness with a combined strike using the Ten Rings and traditional martial arts.",
+          "citation": "Shang-Chi and the Legend of the Ten Rings (2021)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wenwu",
+          "result": "win",
+          "citation": "Shang-Chi and the Legend of the Ten Rings (2021)",
+          "note": "Disarmed his father and claimed control of the Ten Rings.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Energy projection and flight-like propulsion",
+          "dependsOn": "Possession and mastery of the Ten Rings",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields the mystical Ten Rings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The origin signal transmitted by the Ten Rings at the film's conclusion."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
