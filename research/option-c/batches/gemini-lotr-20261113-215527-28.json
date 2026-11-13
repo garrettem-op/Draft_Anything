@@ -1,0 +1,734 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-215527 #28",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Elrond",
+      "continuity": "The Lord of the Rings (Books / Legendarium)",
+      "summary": "Elrond is an Elf-lord of Rivendell, master of healing, and wielder of Vilya, the Ring of Air. He fights with sword and magic, leveraging defensive wards, healing abilities, and weather control to protect his realm.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Summoning floodwaters via the Bruinen river to wash away Ringwraiths",
+          "Swordsmanship using his blade Hadhafang"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Ring of Air (Vilya) protective wards",
+          "Elven physical resilience and skill in combat",
+          "Rivendell stronghold defenses"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to the ultimate sway of the One Ring if worn, though he resists it",
+        "Mortal wounds or severe exhaustion can overwhelm Elven endurance"
+      ],
+      "mobility": [
+        "Elven athletic movement",
+        "Riding horses"
+      ],
+      "limitations": [
+        "Power over nature and defense is tied to the protection and boundaries of Rivendell and the Ring Vilya."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Elrond",
+          "supports": "General background, role as wielder of Vilya, lord of Rivendell, and leadership abilities."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Elrond",
+          "supports": "Abilities with Vilya, ownership of Hadhafang, and magical defense of Rivendell."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caused the waters of the Bruinen to rise and sweep away the Nazgûl pursuing Frodo.",
+          "citation": "The Fellowship of the Ring, Book I, Chapter 12",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Last Alliance of Elves and Men against Sauron.",
+          "citation": "The Silmarillion / The Fellowship of the Ring",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Nazgûl",
+          "result": "win",
+          "citation": "The Fellowship of the Ring (Bruinen encounter)",
+          "note": "Used environmental magic to overwhelm and disperse the Ringwraiths.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Control over weather and river torrents (e.g., Bruinen flood)",
+          "dependsOn": "Proximity to Rivendell and the power of Vilya",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields powerful Elven magic and the Ring of Air, Vilya.",
+          "source": 1
+        },
+        {
+          "tag": "healing",
+          "claim": "Renowned healer who saved Frodo from the Morgul blade wound.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat feats during the Last Alliance compared to Gil-galad and Elendil are sparse in text."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Elwing",
+      "continuity": "The Silmarillion",
+      "summary": "Elwing is an Elf of Doriath and Gondolin who possessed the Silmaril. Transformed into a white bird by Ulmo, she flew across the sea to deliver the jewel to Eärendil, utilizing avian flight and the light of the Silmaril.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Carrying the power of the Silmaril to blind or deter enemies"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Flight in avian form",
+          "Protection of the Silmaril and divine intervention by Ulmo"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in physical combat without her bird transformation or divine aid"
+      ],
+      "mobility": [
+        "Natural bird flight"
+      ],
+      "limitations": [
+        "Lacks offensive martial training; relies on evasion, flight, and divine items."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Elwing",
+          "supports": "Lineage, possession of the Silmaril, and transformation into a bird by Ulmo."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Elwing",
+          "supports": "Flight across the Belegaer to find Eärendil."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew in the form of a seabird across the Great Sea to reach Eärendil's ship.",
+          "citation": "The Silmarillion, Of the Voyage of Eärendil",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight across vast oceans",
+          "dependsOn": "Swan-white bird form granted by Ulmo",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Transformed into a white bird with the power of flight.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Bearer of the Silmaril.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of Ulmo's transformation magic are not detailed beyond mythic description."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Éomer",
+      "continuity": "The Lord of the Rings (Books / Legendarium)",
+      "summary": "Éomer is a proud and fierce Marshal of the Riddermark and later King of Rohan. He fights primarily as a heavily armored cavalryman, wielding spears and swords with exceptional martial prowess.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mounted spear charges",
+          "Melee combat with sword Gúthwinë"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy chain mail armor",
+          "Shield",
+          "Exceptional physical endurance and morale"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to infantry formations or ranged fire when unhorsed, though still formidable on foot"
+      ],
+      "mobility": [
+        "Warhorse riding",
+        "Running / marching stamina"
+      ],
+      "limitations": [
+        "Relies heavily on his horse and open terrain for maximum tactical effectiveness."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/%C3%89omer",
+          "supports": "Role as Marshal of the Riddermark, King of Rohan, and military feats."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/%C3%89omer",
+          "supports": "Wielding Gúthwinë and commanding Rohirrim cavalry."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slaughtered a band of Orcs who ambushed the Three Hunters' path near Fangorn.",
+          "citation": "The Two Towers, The Riders of Rohan",
+          "source": 0
+        },
+        {
+          "claim": "Fought valiantly at the Battle of the Pelennor Fields and the Battle of the Morannon.",
+          "citation": "The Return of the King",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Uglúk's Orc band",
+          "result": "win",
+          "citation": "The Two Towers",
+          "note": "Ambushed and wiped out the Orcs holding Merry and Pippin.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Fights mounted as a premier commander of the Rohirrim cavalry.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Detailed weapon stats or magic interactions are absent since he is purely a mortal warrior."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Éowyn",
+      "continuity": "The Lord of the Rings (Books / Legendarium)",
+      "summary": "Éowyn is a shieldmaiden of Rohan who possesses great courage and sword skill. Disguised as 'Dernhelm', she famously slew the Witch-king of Angmar with the help of Merry Brandybuck.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sword and shield combat",
+          "Mounted cavalry charges"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mail shirt and helm",
+          "Shield",
+          "Unyielding resolve and fierce determination"
+        ]
+      },
+      "weaknesses": [
+        "Exposed to dark magic and Black Breath exposure during her fight with the Witch-king"
+      ],
+      "mobility": [
+        "Warhorse riding",
+        "Agile foot movement"
+      ],
+      "limitations": [
+        "Suffered severe physical poisoning (the Black Breath) after close contact with the Witch-king."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/%C3%89owyn",
+          "supports": "Role as shieldmaiden, disguise as Dernhelm, and slaying of the Witch-king."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/%C3%89owyn",
+          "supports": "Combat capabilities and use of sword and shield."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew the Witch-king of Angmar on the Pelennor Fields.",
+          "citation": "The Return of the King, The Battle of the Pelennor Fields",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Witch-king of Angmar",
+          "result": "win",
+          "citation": "The Return of the King",
+          "note": "Aided by Merry's stab with a barrow-blade that broke the spell protecting the Nazgûl lord.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact extent of training prior to her secret departure to war is not deeply quantified."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Estë",
+      "continuity": "The Silmarillion",
+      "summary": "Estë is one of the Valar, the spouse of Lórien, known as the healer of hurts and weariness. Her power is restorative and calming, residing in the gardens of Lórien where she brings sleep and repose.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Soothing presence and restorative sleep magic"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine Vala constitution and sanctuary of Lórien"
+        ]
+      },
+      "weaknesses": [
+        "Not oriented toward direct offensive combat or physical destruction"
+      ],
+      "mobility": [
+        "Divine omnipresence/travel typical of Valar"
+      ],
+      "limitations": [
+        "Does not engage in battlefield combat or wage offensive wars."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Valar",
+          "supports": "Listing of Estë as one of the Valar and her role of healing."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Est%C3%AB",
+          "supports": "Details on her dwelling in Lórien and healing powers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Heals weariness and physical/mental exhaustion of Valar, Maiar, and elves in her gardens.",
+          "citation": "The Silmarillion, Valaquenta",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Possesses divine Vala abilities of healing and rest.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "The Vala responsible for healing weariness and hurt.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific feats outside of restorative domain interactions are not recorded in the legendarium."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Faramir",
+      "continuity": "The Lord of the Rings (Books / Legendarium)",
+      "summary": "Faramir is a Prince of Ithilien, Captain of the Rangers of Gondor, and a wise leader. He combines stealth, archery, and swordplay with tactical brilliance and strong willpower.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Ranged archery with great bow of Gondor",
+          "Melee combat with sword",
+          "Guerrilla ambushes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Chain mail and leather armor",
+          "Stealth and woodland cover",
+          "Exceptional mental resistance to the Ring"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy overwhelming force in prolonged close-quarters melee without support"
+      ],
+      "mobility": [
+        "Stealthy foot movement",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Bound by duty to Gondor's desperate military campaigns."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Faramir",
+          "supports": "Role as Captain of the Rangers, character traits, and military leadership."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Faramir",
+          "supports": "Combat skills in Ithilien and defense of Osgiliath."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led successful guerrilla ambushes against Haradrim forces in Ithilien.",
+          "citation": "The Two Towers, Of Herbs and Stewed Rabbit",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Haradrim soldiers",
+          "result": "win",
+          "citation": "The Two Towers",
+          "note": "Ambushed a Southron company traveling north.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Master of concealment and guerrilla tactics as leader of the Rangers of Ithilien.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact details of minor skirmishes prior to the War of the Ring are brief."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Fingolfin",
+      "continuity": "The Silmarillion",
+      "summary": "Fingolfin was the High King of the Noldor in Middle-earth, renowned as the mightiest and most valiant of the Elven kings. He fought with the sword Ringil and caused Morgoth permanent physical injury in single combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Swordsmanship with the icy-cold blade Ringil",
+          "Leaping strikes and relentless offensive pressure"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Exquisite Noldorin armor and silver shield",
+          "Supreme Elven agility, speed, and endurance"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelming divine endurance and crushing blows from titanic foes like Morgoth over extended combat"
+      ],
+      "mobility": [
+        "Superhuman Elven speed",
+        "Riding his steed Rochallor"
+      ],
+      "limitations": [
+        "Eventually tired from relentless combat against a literal deity, leading to his defeat."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Fingolfin",
+          "supports": "Status as High King of the Noldor, duel with Morgoth, and wielding of Ringil."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Fingolfin",
+          "supports": "Battle feats, riding to Angband alone, and wounding Morgoth seven times."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Frode across the Helcaraxë with his host and rode alone to the gates of Angband to challenge Morgoth.",
+          "citation": "The Silmarillion, Chapter 18: Of the Ruin of Beleriand",
+          "source": 0
+        },
+        {
+          "claim": "Inflicted seven wounds upon the Vala Morgoth and permanently lamed him in single combat.",
+          "citation": "The Silmarillion, Chapter 18",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Morgoth",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Fought valiantly and wounded the Vala before being beaten down by Grond and trampled.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact mystical nature of Ringil's chill is not fully detailed beyond poetic description."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Finrod Felagund",
+      "continuity": "The Silmarillion",
+      "summary": "Finrod Felagund was King of Nargothrond, wise, noble, and a master of song and mind-craft. He fought in close combat with orcs and used song-duel magic and physical prowess.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Song-duels of magic and willpower",
+          "Swordplay"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven armor and shield",
+          "Mental fortitude and song defenses"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to superior dark sorcery and direct binding spells, such as Sauron's wolf-magic"
+      ],
+      "mobility": [
+        "Elven agility and foot travel"
+      ],
+      "limitations": [
+        "Overpowered by Sauron's greater sorcerous might during their song-duel."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Finrod_Felagund",
+          "supports": "Background as King of Nargothrond, song-duel with Sauron, and martial prowess."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Finrod_Felagund",
+          "supports": "Protection of Beren and confrontation with Sauron's werewolves."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Sauron in a magical song-duel of spells and counter-spells.",
+          "citation": "The Silmarillion, Chapter 19: Of Beren and Lúthien",
+          "source": 0
+        },
+        {
+          "claim": "Slew a werewolf with his bare hands and teeth to protect Beren in Sauron's dungeons.",
+          "citation": "The Silmarillion, Chapter 19",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Defeated in a magical song-duel of minds and stripped of power before imprisonment.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Engaged in powerful magical song-duels.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Possessed deep knowledge of thought-reading and communication of minds among elves.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of Elven song-magic are depicted in mythological rather than systematic terms."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Finwë",
+      "continuity": "The Silmarillion",
+      "summary": "Finwë was the first High King of the Noldor, leading his people on the Great Journey to Valinor. He was a great leader and warrior, though his life ended defending the Silmarils against Melkor.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Traditional Noldorin martial combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Early Elven armor and shield"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to sudden betrayal by a divine Vala (Melkor) due to lack of defense against primordial malice"
+      ],
+      "mobility": [
+        "Standard Elven movement"
+      ],
+      "limitations": [
+        "Stood alone at the doors of Formenos against Melkor without adequate magical defense."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Finw%C3%AB",
+          "supports": "Role as first High King of the Noldor and his death at the hands of Melkor."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Finw%C3%AB",
+          "supports": "Leadership during the Great Journey to Valinor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led the Noldor safely across Middle-earth during the Great Journey.",
+          "citation": "The Silmarillion, Of the Coming of the Elves",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Melkor",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Stood bravely at Formenos defending his home and was slain by the dark Vala.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific individual duel records prior to his confrontation with Melkor are minimal."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Frodo Baggins",
+      "continuity": "The Lord of the Rings (Books / Legendarium)",
+      "summary": "Frodo Baggins is a Hobbit of the Shire who undertook the quest to destroy the One Ring in Mount Doom. He relies primarily on stealth, the invisibility granted by the Ring, and magical items like the Phial of Galadriel and Sting.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Stab attacks with the Elven dagger Sting",
+          "Wielding the light of Earendil via the Phial"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mithril shirt (absorbs heavy physical blows)",
+          "Invisibility via the One Ring",
+          "Hobbit stealth"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical exhaustion, poison, and mental corruption by the One Ring",
+        "Using the Ring alerts Sauron and the Nazgûl"
+      ],
+      "mobility": [
+        "Walking / running on foot"
+      ],
+      "limitations": [
+        "Physically small and lacks superhuman strength; burdened heavily by the psychic weight of the Ring."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Frodo_Baggins",
+          "supports": "Role as Ring-bearer, ownership of Sting and Mithril coat, and quest to Mount Doom."
+        },
+        {
+          "url": "https://lotr.fandom.com/wiki/Frodo_Baggins",
+          "supports": "Encounters with creatures, use of the Phial of Galadriel against Shelob."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stabbed a cave troll's foot in Moria with Sting, saving himself from being crushed.",
+          "citation": "The Fellowship of the Ring, The Bridge of Khazad-dûm",
+          "source": 0
+        },
+        {
+          "claim": "Used the Phial of Galadriel to blind and repel Shelob in her lair.",
+          "citation": "The Two Towers, Shelob's Lair",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Shelob",
+          "result": "loss",
+          "citation": "The Two Towers",
+          "note": "Paralyzed by Shelob's venom after fighting past her initial defenses with the Phial.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Invisibility and ethereal sight",
+          "dependsOn": "Putting on the One Ring",
+          "source": 0
+        },
+        {
+          "ability": "Blinding light projection",
+          "dependsOn": "Uncorking the Phial of Galadriel",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Proficient in Hobbit stealth and uses the One Ring for invisibility.",
+          "source": 0
+        },
+        {
+          "tag": "invisibility",
+          "claim": "Becomes invisible when putting on the One Ring.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields the Phial of Galadriel and the One Ring.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of the One Ring's domination capabilities outside of Mordor's influence."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
