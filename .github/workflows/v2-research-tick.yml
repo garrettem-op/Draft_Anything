@@ -1,52 +1,145 @@
 name: V2 research tick
-# Scheduler only. GitHub runs scheduled workflows from the default branch, so this file lives
-# on main, but it never touches main or V1: it checks out develop/v2-option-c and runs that
-# branch's tools/v2-research-tick.cjs. It does not build, test or deploy the game.
+# Scheduler only. GitHub runs scheduled workflows from the default branch, so this file lives on
+# main, but it never changes main or V1 and never builds, tests or deploys the game.
 # Owner approved a scheduler-only file on main on 2026-11-12.
+#
+# Trust boundary (ChatGPT review of #102):
+# - Code from develop/v2-option-c runs ONLY in the `snapshot` job: read-only token, no secrets.
+#   It outputs a JSON roster snapshot (data, not code).
+# - Privileged jobs run tools from TOOLS_SHA, a reviewed commit already merged into
+#   develop/v2-option-c. Changing TOOLS_SHA requires a reviewed PR to main. They load the
+#   snapshot as validated data, never check out the development branch, and write via REST only.
+# - Each job gets only the permissions it needs; only `generate` sees GEMINI_API_KEY.
 on:
   schedule:
     - cron: '7,37 * * * *'
   workflow_dispatch:
-permissions:
-  contents: write        # push gemini/v2-research/* branches and merge approved research PRs
-  pull-requests: write   # open research PRs, read reviews
-  issues: write          # "Needs manual research" list
-  checks: write          # post validate-research on bot-opened PRs
-  actions: write         # gate may dispatch the V2 queue workflow
+permissions: {}
 concurrency:
   group: v2-research-tick
   cancel-in-progress: false
+env:
+  BASE: develop/v2-option-c
+  # Pin to the merge commit of #100 on develop/v2-option-c once merged. Empty = scheduler idle.
+  TOOLS_SHA: ''
 jobs:
-  tick:
+  snapshot:
     if: github.repository == 'garrettem-op/Draft_Anything'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      ready: ${{ steps.pin.outputs.ready }}
+    steps:
+      - name: Check TOOLS_SHA is pinned and already merged into develop/v2-option-c
+        id: pin
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! [[ "$TOOLS_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::notice::TOOLS_SHA is not pinned yet; the scheduler is idle."; echo "ready=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          status="$(gh api "repos/$GITHUB_REPOSITORY/compare/$TOOLS_SHA...$BASE" --jq .status)"
+          case "$status" in
+            ahead|identical) echo "ready=true" >> "$GITHUB_OUTPUT" ;;
+            *) echo "::error::TOOLS_SHA $TOOLS_SHA is not merged into $BASE (compare status: $status)"; exit 1 ;;
+          esac
+      - uses: actions/checkout@v4
+        if: steps.pin.outputs.ready == 'true'
+        with:
+          ref: ${{ env.BASE }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        if: steps.pin.outputs.ready == 'true'
+        with:
+          node-version: '22'
+      - name: Build roster snapshot (unprivileged; executes development-branch data)
+        if: steps.pin.outputs.ready == 'true'
+        run: node tools/v2-research-pipeline.cjs --snapshot > "$RUNNER_TEMP/snapshot.json"
+      - uses: actions/upload-artifact@v4
+        if: steps.pin.outputs.ready == 'true'
+        with:
+          name: v2-roster-snapshot
+          path: ${{ runner.temp }}/snapshot.json
+          retention-days: 1
+
+  reconcile:
+    needs: snapshot
+    if: needs.snapshot.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write        # merge gate-approved research JSON into develop/v2-option-c
+      pull-requests: write   # read reviews/files, merge
+      checks: write          # post validate-research on bot-opened PRs
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: develop/v2-option-c
+          ref: ${{ env.TOOLS_SHA }}
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check the V2 pipeline is installed
-        id: ready
-        run: |
-          if [ -f tools/v2-research-tick.cjs ]; then echo "ok=true" >> "$GITHUB_OUTPUT"
-          else echo "::notice::tools/v2-research-tick.cjs is not on develop/v2-option-c yet (merge #98 and #100). Nothing to do."; fi
+      - uses: actions/download-artifact@v4
+        with:
+          name: v2-roster-snapshot
+          path: ${{ runner.temp }}/snap
       - name: Reconcile open research PRs (validate, gate, merge)
-        if: steps.ready.outputs.ok == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: node tools/v2-research-tick.cjs reconcile
+        run: node tools/v2-research-tick.cjs reconcile --snapshot "$RUNNER_TEMP/snap/snapshot.json"
+
+  generate:
+    needs: [snapshot, reconcile]
+    if: needs.snapshot.outputs.ready == 'true' && vars.GEMINI_FREE_TIER_CONFIRMED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write        # create gemini/v2-research/* branches and their batch file
+      pull-requests: write   # open research PRs
+      issues: write          # "Needs manual research" list
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TOOLS_SHA }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: v2-roster-snapshot
+          path: ${{ runner.temp }}/snap
       - name: Generate research with Gemini (free tier, opt-in)
-        if: steps.ready.outputs.ok == 'true' && vars.GEMINI_FREE_TIER_CONFIRMED == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-        run: node tools/v2-research-tick.cjs generate --budget-minutes 25 --batch-size 10
-      - name: Reconcile again (validate PRs opened this tick)
-        if: always() && steps.ready.outputs.ok == 'true'
+        run: node tools/v2-research-tick.cjs generate --snapshot "$RUNNER_TEMP/snap/snapshot.json" --budget-minutes 25 --batch-size 10
+
+  reconcile-new:
+    needs: [snapshot, generate]
+    if: always() && needs.snapshot.outputs.ready == 'true' && needs.generate.result != 'skipped'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TOOLS_SHA }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: v2-roster-snapshot
+          path: ${{ runner.temp }}/snap
+      - name: Validate PRs opened this tick
         env:
           GH_TOKEN: ${{ github.token }}
-        run: node tools/v2-research-tick.cjs reconcile
+        run: node tools/v2-research-tick.cjs reconcile --snapshot "$RUNNER_TEMP/snap/snapshot.json"
