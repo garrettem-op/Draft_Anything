@@ -1,0 +1,574 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-064116 #17",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Sharon Carter",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Sharon Carter is a former S.H.I.E.L.D. (Agent 13) and CIA operative skilled in hand-to-hand combat, firearms and undercover work who, as a fugitive after the Sokovia Accords split, became the Power Broker of Madripoor.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat",
+          "Firearms proficiency",
+          "Tactical espionage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hand-to-hand combat training",
+          "Evasion and cover"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability (was shot by Karli Morgenthau at the GRC; subdued by Bucky Barnes in close combat)"
+      ],
+      "limitations": [
+        "Human physiology lacks superhuman durability or strength"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Power_Broker",
+          "supports": "MCU Wiki page for Sharon Carter: hand-to-hand and firearms skill, undercover work as nurse \"Kate\", being subdued by Barnes in Civil War, beating the Madripoor bounty hunters, shooting Batroc dead at the GRC, and manipulating all sides as the Power Broker."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Sharon_Carter_(Marvel_Cinematic_Universe)",
+          "supports": "MCU character history: S.H.I.E.L.D. Agent 13, CIA, retrieving Rogers' shield and Wilson's wingsuit, fugitive life in Madripoor as the Power Broker, killing Batroc and Morgenthau."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated every member of a group of bounty hunters in Madripoor using her knife and gun.",
+          "citation": "The Falcon and the Winter Soldier",
+          "source": 0
+        },
+        {
+          "claim": "Went undercover as a nurse named \"Kate\" to observe Steve Rogers convincingly enough that Black Widow referred to her by that cover.",
+          "citation": "Captain America: The Winter Soldier",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Worked undercover as nurse \"Kate\" observing Steve Rogers, and as the Power Broker played Wilson, Barnes and the Flag Smashers without her identity being exposed.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact extent of her operations during her time in exile in Madripoor.",
+        "Her later actions after being pardoned and returning to the U.S. government are not covered by the sources opened.",
+        "MCU Wiki notes excellent firearms accuracy on a CIA shooting range test, but the film/scene was not confirmed, so it is not listed as a feat."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Madripoor bounty hunters",
+          "result": "win",
+          "citation": "The Falcon and the Winter Soldier",
+          "note": "Beat every one of them with knife and gun while helping Wilson, Barnes and Zemo escape.",
+          "source": 0
+        },
+        {
+          "opponent": "Bucky Barnes",
+          "result": "loss",
+          "citation": "Captain America: Civil War",
+          "note": "At the Joint Counter Terrorist Centre, Barnes (under HYDRA programming) countered her attack and threw her onto a table, subduing her.",
+          "source": 0
+        },
+        {
+          "opponent": "Georges Batroc",
+          "result": "win",
+          "citation": "The Falcon and the Winter Soldier",
+          "note": "During the GRC attack Batroc tried to blackmail her; she shot him dead without hesitation. Not a prolonged fight.",
+          "source": 0
+        },
+        {
+          "opponent": "Karli Morgenthau",
+          "result": "win",
+          "citation": "The Falcon and the Winter Soldier",
+          "note": "Morgenthau shot and wounded Carter; the wounded Carter then shot and killed Morgenthau to protect her Power Broker identity.",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "id": "mcu:She-Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Jennifer Walters gained Hulk powers after Bruce Banner's blood contaminated her wounds in a car accident; as She-Hulk she has superhuman strength and durability while keeping her own mind.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Superhuman punches",
+          "Throwing heavy objects",
+          "Ground impacts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superhuman durability"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "limitations": [
+        "Needed training from Bruce Banner to control her Hulk form; rage can still trigger destructive outbursts (destroyed the gala stage when provoked)"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/She-Hulk",
+          "supports": "Tatiana Maslany plays Jennifer Walters in She-Hulk: Attorney at Law (2022); in the MCU she is contaminated by Bruce Banner's blood after a car accident; she is much taller in She-Hulk form (no figure given)."
+        },
+        {
+          "url": "https://disney.fandom.com/wiki/She-Hulk:_Attorney_at_Law",
+          "supports": "Episode summaries: origin via Banner's blood, handling Banner's training, easily defeating Titania in the courtroom, fighting off four attackers with Asgardian construction equipment, a later brief fight with Titania, destroying the gala stage in a rage, and the finale fight."
+        },
+        {
+          "url": "https://wikiwand.com/en/articles/Smart_Hulk",
+          "supports": "Bruce Banner trains Walters to control her Hulk form; the two get into a fight before he accepts her leaving."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transformed and easily defeated Titania when Titania burst into the courtroom.",
+          "citation": "She-Hulk: Attorney at Law, episode 1",
+          "source": 1
+        },
+        {
+          "claim": "Fought off four men armed with Asgardian construction equipment who tried to steal a sample of her blood.",
+          "citation": "She-Hulk: Attorney at Law, episode 3",
+          "source": 1
+        },
+        {
+          "claim": "Effortlessly handled Bruce Banner's training regime.",
+          "citation": "She-Hulk: Attorney at Law, episode 1",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Superhuman strength and durability",
+          "dependsOn": "Gamma-induced transformation into She-Hulk form",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full upper limit of her strength scaling compared to Hulk.",
+        "Healing/regeneration in the MCU: the original claim of a rapid healing factor could not be verified on any page opened (removed healing and self-regeneration tags).",
+        "Superhuman leaping was claimed but not verified on any page opened.",
+        "Height in She-Hulk form: sources only say she is much taller; no figure of about 8 ft is documented, so giant-sized was removed.",
+        "Lifting boulders and tearing through doors was claimed but not verified on any page opened."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Titania",
+          "result": "win",
+          "citation": "She-Hulk: Attorney at Law, episode 1",
+          "note": "Titania attacked the courtroom; Walters transformed and easily defeated her. They fought briefly again in episode 6.",
+          "source": 1
+        },
+        {
+          "opponent": "Bruce Banner (Smart Hulk)",
+          "result": "inconclusive",
+          "citation": "She-Hulk: Attorney at Law, episode 1",
+          "note": "Fight at the end of her training; the sources opened name no winner, and Banner then accepts her leaving.",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "id": "mcu:Shuri",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Shuri is Wakanda's leading scientist who fights with vibranium energy-blast gauntlets and invents Wakandan tech; in Black Panther: Wakanda Forever she gains Black Panther powers from a synthetic heart-shaped herb and takes up the mantle.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Vibranium gauntlet energy blasts",
+          "Advanced tactical weaponry",
+          "Hand-to-hand combat (as Black Panther)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Black Panther suit (Wakanda Forever)"
+        ]
+      },
+      "weaknesses": [
+        "Without the herb's powers she had ordinary human durability: Corvus Glaive knocked her unconscious and Killmonger nearly killed her"
+      ],
+      "limitations": [
+        "Before Wakanda Forever she had no superhuman abilities and relied on her gauntlets and other technology"
+      ],
+      "sources": [
+        {
+          "url": "https://wikiwand.com/en/articles/Shuri_(Marvel_Cinematic_Universe)",
+          "supports": "Wikipedia article on MCU Shuri: designs T'Challa's vibration-absorbent suit, heals Everett Ross with vibranium technology, cuts power to N'Jadaka's suit, interrupted by Corvus Glaive, gains Black Panther powers via the synthetic herb and defeats then spares Namor."
+        },
+        {
+          "url": "https://www.marvel.com/characters/shuri/on-screen",
+          "supports": "Official Marvel on-screen profile: no superhuman abilities, vibranium gauntlets firing concentrated energy blasts, kinetic-absorbing Black Panther suit, nearly killed by Killmonger, knocked unconscious by Corvus Glaive."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought with vibranium gauntlets capable of firing concentrated energy blasts.",
+          "citation": "Black Panther",
+          "source": 1
+        },
+        {
+          "claim": "Designed a Black Panther suit that absorbs kinetic energy and can release it on command.",
+          "citation": "Black Panther",
+          "source": 1
+        },
+        {
+          "claim": "Healed a gravely injured Everett Ross using vibranium technology.",
+          "citation": "Black Panther",
+          "source": 0
+        },
+        {
+          "claim": "Separated Namor from his warriors to dry him out and gained the upper hand in their final duel.",
+          "citation": "Black Panther: Wakanda Forever",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses vibranium gauntlets that fire concentrated energy blasts.",
+          "source": 1
+        },
+        {
+          "tag": "inventor",
+          "claim": "Designed T'Challa's kinetic-energy-absorbing Black Panther suit and other Wakandan technology.",
+          "source": 1
+        },
+        {
+          "tag": "heals-others",
+          "claim": "Healed a gravely injured Everett Ross using vibranium technology.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Original claim of sonic gauntlets: sources opened describe energy blasts, not sonic blasts.",
+        "Energy shields were claimed but not verified on any page opened.",
+        "Exact power level of her herb-granted Black Panther abilities compared with T'Challa's."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Killmonger",
+          "result": "loss",
+          "citation": "Black Panther",
+          "note": "Fought Killmonger's forces and was nearly killed by Killmonger; she later cut power to his suit with a maglev train, helping T'Challa defeat him.",
+          "source": 1
+        },
+        {
+          "opponent": "Corvus Glaive",
+          "result": "loss",
+          "citation": "Avengers: Infinity War",
+          "note": "Interrupted while removing the Mind Stone from Vision; tried to stop him with a gauntlet and was knocked unconscious.",
+          "source": 1
+        },
+        {
+          "opponent": "Namor",
+          "result": "win",
+          "citation": "Black Panther: Wakanda Forever",
+          "note": "As Black Panther, gained the upper hand on a desert beach, spared his life and offered an alliance.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Black Panther powers",
+          "dependsOn": "Synthetic heart-shaped herb she created (Wakanda Forever onward)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "mcu:Sif",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Lady Sif is an Asgardian warrior and ally of Thor who fights with a double-bladed sword and a small heater shield.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Double-bladed sword (staff form)",
+          "Shield bash and blocking",
+          "Asgardian martial arts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Asgardian durability",
+          "Shield blocking (blocked Frost Giant ice missiles and a missile aimed at Thor)"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "limitations": [
+        "Her sword had little effect when she impaled the Destroyer"
+      ],
+      "sources": [
+        {
+          "url": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Sif_(Marvel_Cinematic_Universe)",
+          "supports": "Wikipedia article on MCU Sif (mirror): accompanies Thor to attack Jotunheim, fights the armies of Asgard to a standstill so Thor and Loki can escape, retrieves Lorelei in Agents of S.H.I.E.L.D."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Sif%27s_Sword_and_Shield",
+          "supports": "MCU Wiki page on her weapons: double-bladed sword and heater shield, used against Frost Giants on Jotunheim, the Destroyer, Marauders on Vanaheim, Lorelei and Vin-Tak."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Frost Giants on Jotunheim alongside Thor, using her shield against their ice missiles.",
+          "citation": "Thor",
+          "source": 1
+        },
+        {
+          "claim": "Blocked a missile on Vanaheim that would have killed or seriously wounded Thor.",
+          "citation": "Thor: The Dark World",
+          "source": 1
+        },
+        {
+          "claim": "Defeated Lorelei and recovered the stolen half of her broken sword.",
+          "citation": "Agents of S.H.I.E.L.D.",
+          "source": 1
+        },
+        {
+          "claim": "Cut through an Inertial Confinement Laser Barrier with her sword.",
+          "citation": "Agents of S.H.I.E.L.D.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of her durability against heavy energy attacks.",
+        "Outcome of her fight with the Destroyer is not stated on the pages opened (her sword had little effect).",
+        "Outcome of her fight with the Kree Vin-Tak is not stated on the pages opened.",
+        "Superhuman running speed was claimed but not verified on any page opened."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Lorelei",
+          "result": "win",
+          "citation": "Agents of S.H.I.E.L.D.",
+          "note": "Their bout broke Sif's sword in half; Sif defeated her and recovered the stolen half.",
+          "source": 1
+        },
+        {
+          "opponent": "Einherjar (armies of Asgard)",
+          "result": "draw",
+          "citation": "Thor: The Dark World",
+          "note": "Held them to a standstill so Thor and Loki could escape Asgard; a stalling action, not a victory.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "mcu:Smart Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Smart Hulk (Professor Hulk) is Bruce Banner's reconciled form that combines the Hulk's strength with Banner's intelligence, first seen in Avengers: Endgame.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Superhuman strikes",
+          "Ground slams",
+          "Throwing massive objects"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immense physical durability",
+          "High injury tolerance"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Superhuman leaps"
+      ],
+      "limitations": [
+        "His right arm was seriously injured by using the Infinity Stones in the Nano Gauntlet"
+      ],
+      "sources": [
+        {
+          "url": "https://wikiwand.com/en/articles/Smart_Hulk",
+          "supports": "Wikipedia article on MCU Bruce Banner: merging into Professor Hulk, reversing the Blip with the Nano Gauntlet at the cost of a serious arm injury, the final battle against alternate Thanos, training and fighting Jennifer Walters."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Used the Infinity Stones in the Nano Gauntlet to restore trillions of lives, surviving with a seriously injured right arm.",
+          "citation": "Avengers: Endgame",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the final battle against the alternate Thanos and his army.",
+          "citation": "Avengers: Endgame",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether his anger can still trigger a loss of intellectual control similar to earlier Hulk states.",
+        "Height: no height is documented for Smart Hulk on the page opened (the 9 ft figure there refers to The Incredible Hulk's design), so giant-sized was removed.",
+        "Superhuman leaping was claimed but not verified on the page opened."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Jennifer Walters (She-Hulk)",
+          "result": "inconclusive",
+          "citation": "She-Hulk: Attorney at Law, episode 1",
+          "note": "The two fight at the end of her training; the source names no winner and Banner then accepts her leaving.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "mcu:Spider-Man",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Tom Holland's Peter Parker uses superhuman strength and agility, a precognitive spider-sense, wall-crawling and web-shooters (homemade and Stark-built suits) to fight.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Web-shooting",
+          "Acrobatic martial arts",
+          "Web-pulling and binding"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Spider-Sense pre-cognitive reflex warning",
+          "Agility and acrobatics"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability to lethal force if hit"
+      ],
+      "mobility": [
+        "Swinging via webs",
+        "Acrobatic wall-crawling"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Peter_Parker_(Marvel_Cinematic_Universe)",
+          "supports": "Wikipedia article on Tom Holland's Peter Parker: web-shooters, precognitive spider-sense, Iron Spider armor, and fight outcomes in Civil War, Homecoming, Infinity War, Far From Home and No Way Home."
+        },
+        {
+          "url": "https://tvtropes.org/pmwiki/pmwiki.php/Characters/MCUSpiderMan",
+          "supports": "Character page: catching Bucky Barnes's metal-arm punch, stopping a speeding car by strength, spider-sense warning of threats, Iron Spider suit."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caught a punch from Bucky Barnes's metal arm.",
+          "citation": "Captain America: Civil War",
+          "source": 1
+        },
+        {
+          "claim": "Stopped a car moving at high speed dead in its tracks with his strength.",
+          "citation": "Captain America: Civil War",
+          "source": 1
+        },
+        {
+          "claim": "Lifted the debris the Vulture had buried him under.",
+          "citation": "Spider-Man: Homecoming",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses web-shooters built into his suits and Stark-built suits including the Iron Spider.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of web-shooter capacity during prolonged combat (the claim that web fluid is finite was not verified on the pages opened).",
+        "The Wikipedia page cites a 2026 report that Holland's Spider-Man shoots organic webs (Spider-Man: Brand New Day); whether he still relies on mechanical web-shooters is unconfirmed.",
+        "The original claim that he caught a punch from Cull Obsidian in Infinity War was not supported; the punch catch was Bucky Barnes's in Civil War.",
+        "Whether the Iron Spider suit should earn powered-armor was not assessed."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Ant-Man (Giant-Man)",
+          "result": "win",
+          "citation": "Captain America: Civil War",
+          "note": "Helped defeat a giant Scott Lang at the airport as part of Stark's team.",
+          "source": 0
+        },
+        {
+          "opponent": "Vulture",
+          "result": "win",
+          "citation": "Spider-Man: Homecoming",
+          "note": "Saved Toomes's life and left him webbed up for arrest.",
+          "source": 0
+        },
+        {
+          "opponent": "Ebony Maw",
+          "result": "win",
+          "citation": "Avengers: Infinity War",
+          "note": "With Stark, rescued Strange and killed Maw by blowing him out of his ship.",
+          "source": 0
+        },
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War",
+          "note": "Helped subdue him on Titan alongside Stark, Strange, Quill, Drax and Mantis, but Thanos broke free, took the Time Stone and the Blip erased Peter.",
+          "source": 0
+        },
+        {
+          "opponent": "Mysterio (Quentin Beck)",
+          "result": "win",
+          "citation": "Spider-Man: Far From Home",
+          "note": "Got a drone to shoot Beck and recovered E.D.I.T.H.",
+          "source": 0
+        },
+        {
+          "opponent": "Doctor Strange",
+          "result": "win",
+          "citation": "Spider-Man: No Way Home",
+          "note": "Trapped Strange in the Mirror Dimension and took the spell.",
+          "source": 0
+        },
+        {
+          "opponent": "Green Goblin",
+          "result": "loss",
+          "citation": "Spider-Man: No Way Home",
+          "note": "In their first clash the Goblin fatally wounded May and escaped; their later fight is not scored on the page opened.",
+          "source": 0
+        }
+      ]
+    }
+  ]
+}
