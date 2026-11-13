@@ -1,0 +1,568 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-044211 #64",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Mouth of Sauron",
+      "continuity": "The Lord of the Rings (Book/Legendarium)",
+      "summary": "The Mouth of Sauron serves as the chief emissary and lieutenant of the Dark Lord, using diplomatic arrogance, psychological intimidation, and dark authority. He fights primarily through commanding the forces of Mordor and wielding his dark status rather than personal martial supremacy.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Diplomatic intimidation",
+          "Commanding military forces"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protected by the authority of Sauron and large armies of Mordor"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence",
+        "Physically vulnerable compared to major combatants when confronted by resolute heroes like Aragorn"
+      ],
+      "mobility": [
+        "Mounted on a great horse"
+      ],
+      "limitations": [
+        "Power and authority are entirely derived from Sauron rather than inherent godlike might"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Mouth_of_Sauron",
+          "supports": "Role as lieutenant of Sauron, emissary, and interactions at the Black Gate."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Negotiated with the Captains of the West at the Black Gate, displaying extreme arrogance and displaying Frodo's gear to demoralize them.",
+          "citation": "The Return of the King, The Black Gate Opens",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Aragorn",
+          "result": "loss",
+          "citation": "The Return of the King",
+          "note": "Intimidated and forced to retreat back into the Black Gate after Aragorn silently stared him down and confronted him.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True personal name and precise origins before entering the service of the Dark Tower remain unrecorded."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Námo (Mandos)",
+      "continuity": "The Silmarillion (Legendarium)",
+      "summary": "Mandos is one of the Aratar, the Valar of greatest power, serving as the keeper of the Houses of the Dead and the pronouncer of the dooms of Eru. He wields absolute authority over the spirits of the dead and possesses unerring foresight into the music of fate.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Pronouncing dooms and fates",
+          "Summoning and detaining disembodied spirits"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine Valar constitution",
+          "Absolute metaphysical dominion over death and spirits"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Divine incorporeal travel and omnipresence within his domain"
+      ],
+      "limitations": [
+        "Bound by the decrees and overall design of Eru Ilúvatar"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Mandos",
+          "supports": "Role as Vala, keeper of the dead, and proclaimer of the Doom of the Noldor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Pronounced the Doom of the Noldor, detailing their future sorrows and exile from Valinor.",
+          "citation": "The Silmarillion, Of the Flight of the Noldor",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Pronounces irrevocable dooms and exercises divine magic as one of the Valar.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his combat capabilities outside of his authority over fate and the dead are not detailed in the texts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Nessa",
+      "continuity": "The Silmarillion (Legendarium)",
+      "summary": "Nessa is a Valier, the sister of Oromë, known for her incredible swiftness and love of deer and running. She fights with unmatched agility and physical grace, easily outrunning fleet animals.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Swift physical pursuit",
+          "Agile evasion"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme speed and evasive agility"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Superhuman running speed and agility"
+      ],
+      "limitations": [
+        "Primarily focused on agility, dance, and swiftness rather than martial combat or elemental destruction"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Nessa",
+          "supports": "Description as a Valier, swiftness, and association with Oromë."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Outran the deer in the wild woods of Valinor before her dwelling in Valmar was established.",
+          "citation": "The Silmarillion, Valaquenta",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct combat engagements against opponents are not recorded in the legendarium."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Nienna",
+      "continuity": "The Silmarillion (Legendarium)",
+      "summary": "Nienna is one of the Valier, sister to the Fëanturi (Mandos and Lôtrien), embodying sorrow, grief, and pity. She does not fight with physical weapons, but her lamentation and mourning possess profound spiritual and restorative power.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Spiritual endurance",
+          "Lamentation that turns sorrow to wisdom"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Resilience rooted in profound spiritual endurance and divine nature"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Divine movement"
+      ],
+      "limitations": [
+        "Focuses entirely on grief, healing, and patience rather than aggressive warfare"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Nienna",
+          "supports": "Description as Valier, sister of Mandos, and wielder of pity and mourning."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Watered the Trees of Valinor with her tears and aided in softening the malice of Melkor through pity.",
+          "citation": "The Silmarillion, Valaquenta",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Possesses divine spiritual power that heals and instructs through sorrow.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific direct offensive capabilities in standard combat scenarios are unrecorded."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Nienor Níniel",
+      "continuity": "The Silmarillion (Legendarium)",
+      "summary": "Nienor Níniel is a tragic mortal woman of the House of Hador, sister of Túrin Turambar. She possesses no combat training or supernatural powers, suffering instead from amnesia caused by the dragon Glaurung.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "None notable in combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "None; entirely vulnerable to physical and psychological harm"
+        ]
+      },
+      "weaknesses": [
+        "Severe psychological trauma",
+        "Amnesia induced by dragon-spell",
+        "Utter lack of combat capability"
+      ],
+      "mobility": [
+        "Standard foot travel"
+      ],
+      "limitations": [
+        "Mortally fragile with no fighting skills"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Nienor",
+          "supports": "Her tragic background, relation to Túrin, and encounter with Glaurung."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Endured the psychological spell cast by Glaurung the dragon, which wiped her memory and left her wandering.",
+          "citation": "The Silmarillion, Of Túrin Turambar",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Glaurung",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Victimized by the dragon's gaze, resulting in total memory loss and subsequent tragedy.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Had no involvement in formal combat or warfare."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Oromë",
+      "continuity": "The Silmarillion (Legendarium)",
+      "summary": "Oromë is one of the Valar, the great hunter, rider of Nahar, and lover of hounds and trees. He fights with immense physical might, supernatural prowess in tracking, and formidable martial weapons.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Mounted combat",
+          "Hunting with divine bow and spear (Valaróma)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine Valar durability",
+          "Mounted mobility"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Riding Nahar, capable of extraordinary swiftness across all terrain"
+      ],
+      "limitations": [
+        "Bound by the limitations of the Valar's stewardship over Arda"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Orom%C3%AB",
+          "supports": "Role as Vala of the hunt, wielder of Valaróma, and rider of Nahar."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Hunted the monsters and fell creatures of Melkor in the darkness of Middle-earth before the awakening of the Elves.",
+          "citation": "The Silmarillion, Of the Coming of the Elves",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Fights while riding his great divine steed Nahar.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Possesses inherent divine power and majesty as a Vala.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Detailed blow-by-blow duels against individual named entities outside of broad monster hunting are sparse."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Ossë",
+      "continuity": "The Silmarillion (Legendarium)",
+      "summary": "Ossë is a Maia of Uinen and a vassal of Ulmo, holding dominion over the seas and storms that wash the shores of Middle-earth. He fights by commanding violent waters, tempests, and waves.",
+      "offense": {
+        "domains": [
+          "elemental",
+          "magic"
+        ],
+        "techniques": [
+          "Summoning tempests",
+          "Raising immense waves",
+          "Controlling coastal waters"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Maia spirit constitution",
+          "Immunity to drowning"
+        ]
+      },
+      "weaknesses": [
+        "Prone to wild and violent impulses unless restrained by Uinen or Ulmo"
+      ],
+      "mobility": [
+        "Aquatic travel and rapid movement through seas and storms"
+      ],
+      "limitations": [
+        "Bound by the authority of Ulmo and pacified by the songs of Uinen"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Oss%C3%AB",
+          "supports": "Role as Maia of the seas, storms, and vassal of Ulmo."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Raised violent storms and tempests that shattered ships and shaped the coasts of Middle-earth.",
+          "citation": "The Silmarillion, Valaquenta",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-control",
+          "claim": "Exerts complete dominion over oceanic storms, waves, and coastal waters.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Channels profound Maia elemental magic.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of his conflicts against other Maiar are not elaborated."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Peregrin Took",
+      "continuity": "The Lord of the Rings (Book/Legendarium)",
+      "summary": "Pippin Took is a Hobbit of the Shire who evolves from an adventurous youth into a seasoned soldier of Gondor and knight of the Citadel. He fights with a small sword, steadfast courage, and unexpected resourcefulness.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Barrow-blade swordplay",
+          "Guerrilla distraction"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Small target profile",
+          "Standard armor of the Citadel of Gondor"
+        ]
+      },
+      "weaknesses": [
+        "Physically diminutive compared to large adversaries",
+        "Prone to impulsive curiosity"
+      ],
+      "mobility": [
+        "Standard foot travel, mounted riding when provided a horse"
+      ],
+      "limitations": [
+        "Physical strength and reach are limited by his small stature"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Peregrin_Took",
+          "supports": "Role as Hobbit of the Fellowship, Knight of Gondor, and wielder of a barrow-blade."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew a troll captain during the Battle of the Morannon using his barrow-blade.",
+          "citation": "The Return of the King, The Black Gate Opens",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Troll Captain",
+          "result": "win",
+          "citation": "The Return of the King",
+          "note": "Killed the troll captain during the desperate final stand at the Morannon, though he was crushed underneath its body.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Utilizes hobbit stealth to move quietly and evade notice.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term stamina against heavy infantry remains untested outside of desperate skirmishes."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Quickbeam",
+      "continuity": "The Lord of the Rings (Book/Legendarium)",
+      "summary": "Quickbeam (Bregalad) is an Ent known for being hasty by Entish standards, impulsive, and deeply sympathetic to rowan trees. He fights with massive physical arboreal strength, crushing opponents with giant tree-limbs and brute force.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tree-herding",
+          "Brute arboreal smashing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick wooden Ent hide resistant to ordinary weapons"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to fire, axes, and intense heat like all Ents"
+      ],
+      "mobility": [
+        "Giant pedestrian movement"
+      ],
+      "limitations": [
+        "Extremely slow-moving when not roused to sudden action"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Quickbeam",
+          "supports": "Identity as an Ent, association with rowan trees, and participation in the destruction of Isengard."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in the assault on Isengard, helping to break the stone walls and machinery of Saruman.",
+          "citation": "The Two Towers, Treebeard",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands as a towering Ent well over fourteen feet tall.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Individual combat feats against named Orc champions are not explicitly detailed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Radagast",
+      "continuity": "The Lord of the Rings / Unfinished Tales (Legendarium)",
+      "summary": "Radagast the Brown is one of the Istari (Wizards), sent to Middle-earth to aid against Sauron, though he became deeply absorbed in the study of birds, beasts, and botany. He fights using nature-based magic, animal allies, and herbal lore.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Animal communication and summoning",
+          "Nature magic"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Wizard resilience",
+          "Animal espionage and warnings"
+        ]
+      },
+      "weaknesses": [
+        "Prone to distraction by worldly cares of nature and animals rather than the immediate political conflict against Sauron"
+      ],
+      "mobility": [
+        "Standard foot travel and extensive utilization of avian messengers"
+      ],
+      "limitations": [
+        "Restricted by the physical limitations of his mortal body as an Istar"
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Radagast",
+          "supports": "Role as one of the Istari, friend of birds and beasts, and resident of Rhosgobel."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Acted as a master of shapes and changes of hue, and gathered intelligence across Eriador using flocks of birds as spies.",
+          "citation": "The Fellowship of the Ring, The Ring Sets Out",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields Istari magic, particularly attuned to beasts and birds.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct participation in martial frontline combat is absent from canonical texts, leading to debate over his combat effectiveness."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
