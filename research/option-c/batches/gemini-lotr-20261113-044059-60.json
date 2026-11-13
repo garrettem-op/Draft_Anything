@@ -1,0 +1,420 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-044059 #60",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Estë",
+      "continuity": "The Silmarillion / J.R.R. Tolkien Legendarium",
+      "summary": "Estë the Gentle is one of the Valar, the Vala of healing, rest, and peace. She does not fight in conventional physical battles, instead residing in the gardens of Lórien where she heals weariness and hurt.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Valar",
+          "supports": "Estë's status as one of the Valar and Queen of Lórien."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [],
+      "unknowns": [
+        "Specific active combat applications of her healing or power beyond restorative rest are not detailed in the texts.",
+        "Removed by review (not supported by the cited source): technique: Restorative healing; technique: Soothing presence; defense: Divine resilience as a Vala; defense: Residing in the protected sanctuary of Valinor; weakness: not established; limitation: Not a combatant; her power is directed toward healing and rest rather than offensive combat.; mobility: Standard Valian movement / teleportation across realms; feat: Heals weariness and hurt of body and spirit in the gardens of Lórien.; tag: Estë is the Vala of healing and rest, restoring weariness.",
+        "Flagged needs-review: cited page never mentions the character; most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Faramir",
+      "continuity": "The Lord of the Rings / J.R.R. Tolkien Legendarium",
+      "summary": "Faramir is a skilled Captain of Gondor, combining martial prowess, tactical leadership, and deep wisdom. He fights with sword, bow, and stealthy guerrilla tactics against the forces of Mordor.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Swordplay"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          " Tactical defensive positioning"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Faramir",
+          "supports": "Faramir's role as Captain of Gondor and combat background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led the Rangers of Ithilien in harassing attacks against Haradrim and Orc forces.",
+          "citation": "Wikipedia: Faramir",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orcs of Mordor",
+          "result": "win",
+          "citation": "Wikipedia: Faramir",
+          "note": "Successful ambushes in Ithilien with his rangers.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "Exact number of individual combat victories.",
+        "Removed by review (not supported by the cited source): technique: Archery; technique: Guerrilla ambushes; defense: Plate armor; defense: Shield; weakness: Vulnerable to ordinary mortal harm and severe illness like the Black Breath.; limitation: Human physical limits and endurance.; mobility: Foot travel; mobility: Horseback riding; result: Nazgûl (fell beast aerial assault); tag: Leads the Rangers of Ithilien in covert operations and tracking behind enemy lines.; tag: Expert in stealth and guerrilla tactics in the woods of Ithilien.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Fingolfin",
+      "continuity": "The Silmarillion / J.R.R. Tolkien Legendarium",
+      "summary": "Fingolfin was High King of the Noldor, renowned as the most valiant and steadfast of the elven princes. He fought a legendary single combat against Morgoth, wounding the Dark Lord seven times.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Ringil (swordplay)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Elven running speed"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Fingolfin",
+          "supports": "Fingolfin's duel with Morgoth and his status as High King."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wounded Morgoth seven times with his sword Ringil and caused the Dark Lord to limp permanently.",
+          "citation": "Wikipedia: Fingolfin",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Morgoth",
+          "result": "loss",
+          "citation": "Wikipedia: Fingolfin",
+          "note": "Single combat at the gates of Angband; Fingolfin was slain after exhausting himself and being crushed.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Rode his great horse Rochallor into combat against Morgoth.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of Ringil's enchantments beyond cold and brightness.",
+        "Removed by review (not supported by the cited source): technique: Mounted combat on Rochallor; defense: Silver mail and enchanted helm; defense: Incomparable elven agility and resolve; weakness: Exhaustion from single combat against a cosmic-tier adversary.; limitation: Mortal elven endurance against divine physical might.; mobility: Mounted on Rochallor"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Finrod Felagund",
+      "continuity": "The Silmarillion / J.R.R. Tolkien Legendarium",
+      "summary": "Finrod Felagund was King of Nargothrond, wise, noble, and a master of song and mind-craft. He fought fiercely with bare hands against a werewolf in Sauron's dungeons to protect Beren.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Elven running and agility"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Finrod_Felagund",
+          "supports": "Finrod's duel of song against Sauron and defense of Beren."
+        }
+      ],
+      "feats": [],
+      "notableResults": [],
+      "campaignTags": [],
+      "unknowns": [
+        "The exact limits of his song-craft outside of direct confrontation with Sauron.",
+        "Removed by review (not supported by the cited source): technique: Song-duel of power; technique: Unarmed combat; technique: Elven blade work; defense: Mental fortitude; defense: Elven armor and resilience; weakness: Bound by oath and honor, vulnerable to physical overpower without weapons.; limitation: Cannot withstand the combined sorcery and physical might of Sauron indefinitely without aid.; feat: Fought and killed a werewolf barehanded in the dungeons of Tol-in-Gaurhoth.; result: Sauron; tag: Communicated silently and resisted Sauron's mental assaults through song and willpower.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Finwë",
+      "continuity": "The Silmarillion / J.R.R. Tolkien Legendarium",
+      "summary": "Finwë was the first High King of the Noldor, leading his people on the Great Journey to Valinor. He was a wise ruler and father to Fëanor, Fingolfin, and Finarfin.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Finw%C3%AB",
+          "supports": "Finwë's status as High King of the Noldor and his death defending his home."
+        }
+      ],
+      "feats": [],
+      "notableResults": [],
+      "unknowns": [
+        "His combat prowess during his younger days in Valinor.",
+        "Removed by review (not supported by the cited source): technique: Standard elven weaponry and martial defense; defense: Elven armor and royal guard protection; weakness: Relatively aged and isolated during the assault by Melkor.; limitation: Limited active combat feats late in life.; mobility: Standard Elven locomotion; feat: Refused to flee and stood alone at the doors of Formenos to defend against Melkor before being slain.; result: Melkor"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Frodo Baggins",
+      "continuity": "The Lord of the Rings / J.R.R. Tolkien Legendarium",
+      "summary": "Frodo Baggins is a Hobbit of the Shire who undertook the quest to destroy the One Ring. He relies primarily on stealth, endurance, and the protective or corruptive powers of the Ring rather than direct combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mithril coat"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Frodo_Baggins",
+          "supports": "Frodo's role, use of Sting, Mithril coat, and the One Ring."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stabbed a cave troll's foot in Moria with Sting.",
+          "citation": "Wikipedia: Frodo Baggins",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "conditional": [],
+      "campaignTags": [
+        {
+          "tag": "invisibility",
+          "claim": "Becomes invisible to normal sight when putting on the One Ring.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Bears the One Ring and wears a shirt of Mithril mail.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his resistance to mental domination without external help.",
+        "Removed by review (not supported by the cited source): technique: Sting (short sword usage); technique: Barrow-blade usage; defense: The One Ring (invisibility at the cost of corruption); weakness: Hobbit physical frailty, vulnerability to psychological corruption by the One Ring, and susceptibility to mortal wounds.; limitation: Limited physical strength and stamina compared to Men, Elves, or Orcs.; mobility: Foot travel; result: Cave Troll; result: Witch-king of Angmar; conditional: Invisibility and heightened spiritual perception; conditional: Near-invulnerability against ordinary piercing/blunt strikes to the torso; tag: Utilizes hobbit natural stealth and the One Ring to evade enemies.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Galadriel",
+      "continuity": "The Lord of the Rings / J.R.R. Tolkien Legendarium",
+      "summary": "Galadriel is one of the mightiest and fairest of the Elves in Middle-earth, possessing immense wisdom, telepathic power, and mastery over magic. She can protect realms, peer into minds, and break enemy fortifications.",
+      "offense": {
+        "domains": [
+          "magic",
+          "psychic"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Nenya (Ring of Power providing concealment and preservation)"
+        ]
+      },
+      "weaknesses": [
+        "Bound by the limitations of Middle-earth and the fading of elven power without her ring."
+      ],
+      "mobility": [],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Galadriel",
+          "supports": "Galadriel's magical powers, role in Lothlórien, and dismantling of Dol Guldur."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Pulled down the walls of Dol Guldur and laid bare its pits during the War of the Ring.",
+          "citation": "Wikipedia: Galadriel",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "conditional": [],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Bears Nenya, one of the Three Elven Rings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her direct combat offensive spellcasting in physical duels.",
+        "Removed by review (not supported by the cited source): technique: Telepathy; technique: Mind-reading; technique: Starlight manipulation; technique: Destruction of fortress walls; defense: Impenetrable mental barriers; limitation: Power is primarily defensive and preservative within Middle-earth unless amplified or applied strategically.; mobility: Elven swiftness; mobility: Teleportation-like presence in lore; result: Sauron's forces at Dol Guldur; conditional: Preservation and warding of Lothlórien against outside evil; tag: Wields potent elven magic and bears Nenya, the Ring of Adamant.; tag: Communicates telepathically and reads the minds of the Fellowship.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Gandalf",
+      "continuity": "The Lord of the Rings / J.R.R. Tolkien Legendarium",
+      "summary": "Gandalf the Grey / White is an Istar (Maiar spirit incarnate) wielding fire, light, and powerful spellcasting alongside mastery of the sword Glamdring. He is a primary tactician and combatant against Sauron's forces.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Glamdring (swordplay)",
+          "Staff spellcasting"
+        ],
+        "range": "melee / ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Foot travel"
+      ],
+      "limitations": [
+        "Bound by the Valar not to match Sauron's power with direct tyranny; physical fatigue in mortal form."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gandalf",
+          "supports": "Gandalf's identity as a Maiar, spellcasting, swordplay, and battle feats."
+        }
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "opponent": "Balrog of Moria (Durin's Bane)",
+          "result": "win",
+          "citation": "Wikipedia: Gandalf",
+          "note": "Fought from the depths of Moria to the peak of Zirakzigil, resulting in both their physical deaths (though Gandalf was sent back as Gandalf the White).",
+          "source": 0
+        }
+      ],
+      "conditional": [],
+      "campaignTags": [
+        {
+          "tag": "fire-control",
+          "claim": "Controls and commands fire for offensive blasts and signals.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields Glamdring and Narya, the Ring of Fire.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts spells including light seals, locking charms, and fire bursts.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full extent of his unconstrained Maiar power outside his Istar bodily limits.",
+        "Removed by review (not supported by the cited source): technique: Fire creation and pyrotechnics; technique: Light generation; defense: Maiar spiritual resilience; defense: Magical barriers and shields; defense: Elven blade warding; weakness: Restricted by the physical limitations of his mortal old-man body as an Istar.; mobility: Riding Shadowfax; mobility: Magical speed enhancements; feat: Defeated the Balrog of Moria after a multi-day subterranean battle.; result: Nazgûl (at Weathertop); conditional: Inspiring allies and resisting fatigue; tag: Produces lightning and dazzling flashes during combat.; tag: Wields the Ring of Fire Narya and generates magical fire and explosions.; tag: Is an Istar wizard capable of wide-ranging spellcasting and enchantments.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    }
+  ]
+}
