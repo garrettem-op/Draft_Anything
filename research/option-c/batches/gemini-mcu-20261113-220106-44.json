@@ -1,0 +1,684 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-220106 #44",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Bill Foster",
+      "continuity": "Marvel Cinematic Universe (Ant-Man and the Wasp)",
+      "summary": "Bill Foster is a brilliant scientist and former S.H.I.E.L.D. researcher who possesses advanced knowledge of Pym Particles, allowing him to assist in quantum research and support in tactical operations.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Scientific analysis",
+          "Technological support",
+          "Physical confrontation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Scientific intellect",
+          "Advanced laboratory equipment"
+        ]
+      },
+      "weaknesses": [
+        "Human physical limitations",
+        "Aging"
+      ],
+      "mobility": [
+        "Standard human movement",
+        "Vehicles"
+      ],
+      "limitations": [
+        "Normal human physical vulnerability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bill_Foster_(character)",
+          "supports": "Role as a scientist and former S.H.I.E.L.D. researcher in the MCU"
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Bill_Foster",
+          "supports": "Background, association with Goliath project, and scientific expertise"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Assisted in stabilizing Ghost using quantum energy research.",
+          "citation": "Ant-Man and the Wasp (2018)",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Advanced scientist and researcher with expertise in Pym Particles and quantum technology.",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced scientific equipment and quantum technology.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Whether Foster ever deployed the Goliath giant-form in active MCU combat outside of technical research contexts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Black Panther",
+      "continuity": "Marvel Cinematic Universe (Captain America: Civil War, Black Panther, Avengers: Infinity War, Avengers: Endgame)",
+      "summary": "T'Challa is the King of Wakanda, utilizing a kinetic-energy absorbing Vibranium suit and superhuman attributes granted by the Heart-Shaped Herb to engage in martial arts combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Vibranium claw strikes",
+          "Kinetic energy discharge",
+          "Acrobatic martial arts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium armor that absorbs and redirects kinetic energy",
+          "Enhanced durability"
+        ]
+      },
+      "weaknesses": [
+        "Heart-Shaped Herb power source can be neutralized or stripped away"
+      ],
+      "mobility": [
+        "Acrobatic leaping",
+        "Sprinting at superhuman speeds",
+        "Advanced Wakandan aircraft pilot"
+      ],
+      "limitations": [
+        "Suit's kinetic storage can reach capacity if overloaded too rapidly"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Black_Panther_(Marvel_Cinematic_Universe)",
+          "supports": "T'Challa's background, abilities, and Vibranium suit"
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/T%27Challa",
+          "supports": "Feats, martial arts prowess, and notable combat results"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought evenly with Bucky Barnes (Winter Soldier) in hand-to-hand combat.",
+          "citation": "Captain America: Civil War (2016)",
+          "source": 1
+        },
+        {
+          "claim": "Absorbed explosive impacts and redirected kinetic energy to repel attackers.",
+          "citation": "Black Panther (2018)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:Bucky Barnes",
+          "result": "inconclusive",
+          "citation": "Captain America: Civil War (2016)",
+          "note": "Interrupted by authorities.",
+          "source": 1
+        },
+        {
+          "opponent": "mcu:Killmonger",
+          "result": "loss",
+          "citation": "Black Panther (2018)",
+          "note": "Defeated in ritual combat after being stripped of the Heart-Shaped Herb effects.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Superhuman strength, speed, and reflexes",
+          "dependsOn": "Ingestion of the Heart-Shaped Herb",
+          "source": 0
+        },
+        {
+          "ability": "Kinetic energy absorption and shockwave release",
+          "dependsOn": "Wearing the Wakandan Habit Vibranium suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears an advanced Vibranium weave suit.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses Kimoyo Beads and Kimoyo beads technology.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of the Vibranium suit's kinetic energy storage capacity."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Black Panther|Black Panther with Infinity Gauntlet",
+      "continuity": "Marvel Cinematic Universe (What If...?)",
+      "summary": "T'Challa wielding the Infinity Gauntlet possesses absolute control over reality, time, space, mind, power, and soul.",
+      "offense": {
+        "domains": [
+          "energy",
+          "control",
+          "physical"
+        ],
+        "techniques": [
+          "Reality warping",
+          "Infinity Stone energy blasts"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Reality manipulation",
+          "Cosmic durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to severe cosmic energy backlash from using all six stones"
+      ],
+      "formDifferences": "Equipped with the Infinity Gauntlet, granting universal cosmic control far beyond standard physical and technological limits.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Infinity_Gauntlet",
+          "supports": "Capabilities of the Infinity Gauntlet in the MCU"
+        }
+      ],
+      "unknowns": [
+        "Full extent of T'Challa's personal endurance against the gauntlet's feedback in this specific variant continuity."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Black Panther|King of the Dead Black Panther",
+      "continuity": "Marvel Cinematic Universe (Comic/What If/Tie-in lore)",
+      "summary": "King of the Dead Black Panther commands the collective knowledge, combat experience, and spiritual power of all previous Wakandan monarchs.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Ancestral spiritual enhancement",
+          "Enhanced martial arts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Spiritual resilience",
+          "Vibranium armor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to spiritual disruptions or separation from the Ancestral Plane"
+      ],
+      "formDifferences": "Gains access to ancestral spirits, heightened spiritual awareness, and communion with past Black Panthers.",
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Black_Panther",
+          "supports": "Wakandan ancestral connection and spiritual mantle of the King of the Dead"
+        }
+      ],
+      "unknowns": [
+        "Precise combat boosts conferred directly by the King of the Dead title within strictly filmed MCU media versus extended lore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Black Widow",
+      "continuity": "Marvel Cinematic Universe (The Avengers, Black Widow, Avengers: Endgame)",
+      "summary": "Natasha Romanoff is a master spy, martial artist, and tactical expert trained in the Red Room, utilizing specialized weaponry, widow's bite electroshock bracelets, and firearms.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Widow's Bite electroshock stuns",
+          "Hand-to-hand martial arts combat",
+          "Firearms and tactical gear"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Tactical stealth",
+          "Body armor"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physiology with no superhuman durability"
+      ],
+      "mobility": [
+        "Acrobatic movement",
+        "Vehicles",
+        "Grappling equipment"
+      ],
+      "limitations": [
+        "Vulnerable to blunt trauma and ballistic damage like any normal human"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Black_Widow_(Natasha_Romanova)",
+          "supports": "Background as a Red Room assassin and S.H.I.E.L.D. agent"
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Natasha_Romanoff",
+          "supports": "Combat skills, equipment, and notable matchups"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off multiple Chitauri infantry soldiers in close-quarters combat.",
+          "citation": "The Avengers (2012)",
+          "source": 1
+        },
+        {
+          "claim": "Subdued armed guards using stealth and joint-lock takedowns.",
+          "citation": "Iron Man 2 (2010)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:Hawkeye",
+          "result": "win",
+          "citation": "The Avengers (2012)",
+          "note": "Broke Loki's mind control over Clint Barton during combat.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-weapon",
+          "claim": "Uses Widow's Bite bracelets to deliver high-voltage electrical shocks.",
+          "source": 1
+        },
+        {
+          "tag": "stealth",
+          "claim": "Trained master spy and infiltrator proficient in covert operations.",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Expert in deep undercover work and stealth infiltration.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes specialized batons, grappling hooks, and concealed weaponry.",
+          "source": 1
+        },
+        {
+          "tag": "pilot",
+          "claim": "Capable of piloting Quinjets and various aircraft.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full extent of physiological conditioning received during her Red Room tenure."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Bruce Banner",
+      "continuity": "Marvel Cinematic Universe (The Incredible Hulk, The Avengers, Avengers: Endgame)",
+      "summary": "Bruce Banner is a genius physicist whose gamma-radiation exposure transforms him into the Hulk when angered, though Banner himself fights using intellect, hacking, and scientific equipment.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Scientific instrumentation",
+          "Hulk transformation (conditional)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gamma-induced transformation into the Hulk for durability",
+          "Scientific intellect"
+        ]
+      },
+      "weaknesses": [
+        "Normal human vulnerability when in human form"
+      ],
+      "mobility": [
+        "Standard human movement",
+        "Hulk massive leaping (when transformed)"
+      ],
+      "limitations": [
+        "Banner lacks superhuman physical capabilities when not transformed",
+        "Hulk transformation can be unpredictable or difficult to trigger at will"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bruce_Banner_(Marvel_Cinematic_Universe)",
+          "supports": "Bruce Banner's scientific background and gamma radiation origin"
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Bruce_Banner",
+          "supports": "Abilities, intelligence, and transformation mechanics"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Designed advanced containment systems and collaborated with Tony Stark on artificial intelligence.",
+          "citation": "Avengers: Age of Ultron (2015)",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Massive superhuman strength, durability, and leaping mobility",
+          "dependsOn": "Emotional trigger such as anger or stress causing transformation into the Hulk",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "World-class physicist and expert in gamma radiation and biotechnology.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Transforms into the massive Hulk, standing over 8 feet tall with immense physical power.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact threshold of emotional distress required to trigger transformation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Bullseye",
+      "continuity": "Marvel Cinematic Universe (Daredevil Season 3)",
+      "summary": "Benjamin 'Dex' Poindexter is an FBI agent with exceptional psychopathic marksmanship and spatial calculation skills, capable of turning virtually any everyday object into a lethal projectile.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Improvised projectile throwing",
+          "Precision firearms marksmanship",
+          "Close-quarters combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility",
+          "Tactical positioning",
+          "FBI SWAT protective gear"
+        ]
+      },
+      "weaknesses": [
+        "Psychological instability and reliance on external mental anchors"
+      ],
+      "mobility": [
+        "Acrobatic dodging",
+        "Standard human running and tactical movement"
+      ],
+      "limitations": [
+        "Human physical durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bullseye_(character)",
+          "supports": "General character concept and marksmanship traits"
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Benjamin_Poindexter",
+          "supports": "MCU Daredevil Season 3 feats, FBI background, and lethal throwing accuracy"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ricocheted multiple bullets and small objects around corners to hit targets out of direct line of sight.",
+          "citation": "Daredevil Season 3 (2018)",
+          "source": 1
+        },
+        {
+          "claim": "Eliminated multiple targets in rapid succession using standard firearms and thrown items.",
+          "citation": "Daredevil Season 3 (2018)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:Daredevil",
+          "result": "inconclusive",
+          "citation": "Daredevil Season 3 (2018)",
+          "note": "Fought to a standstill in multiple brutal encounters.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes coins, pens, and miscellaneous objects as lethal throwing projectiles.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Whether Dex maintained his sharpshooting proficiency following his spinal injury and experimental surgery."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Captain America",
+      "continuity": "Marvel Cinematic Universe (Captain America: The First Avenger, The Avengers, Captain America: Civil War)",
+      "summary": "Steve Rogers is a Super-Soldier possessing peak human strength, agility, and tactical genius, fighting with martial arts and a nearly indestructible Vibranium-alloy shield.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Shield throws and ricochets",
+          "Hand-to-hand combat brawling",
+          "Tactical leadership"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium-alloy shield blocks",
+          "Super-soldier enhanced healing and durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelming artillery or heavy kinetic impact if shield is bypassed"
+      ],
+      "mobility": [
+        "Sprinting at high speeds",
+        "Acrobatic leaps",
+        "Military vehicles and motorcycles"
+      ],
+      "limitations": [
+        "Cannot fly unassisted",
+        "Susceptible to extreme physical trauma surpassing super-soldier durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Captain_America_(Marvel_Cinematic_Universe)",
+          "supports": "Steve Rogers' origin as a super-soldier, shield usage, and feats"
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Steve_Rogers",
+          "supports": "Combat skills, physical attributes, and notable battles"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Restrained a taking-off helicopter with physical strength and leverage.",
+          "citation": "Captain America: Civil War (2016)",
+          "source": 1
+        },
+        {
+          "claim": "Fought evenly against Loki and multiple Chitauri warriors in close combat.",
+          "citation": "The Avengers (2012)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "mcu:Iron Man",
+          "result": "win",
+          "citation": "Captain America: Civil War (2016)",
+          "note": "Fought alongside Bucky Barnes against Tony Stark, disabling Iron Man's armor.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Peak human strength, agility, stamina, and accelerated cellular regeneration",
+          "dependsOn": "Erskine's Super-Soldier Serum and Vita-Ray treatment",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Trained to pilot military aircraft and Quinjets.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact maximum weight Steve can press lift at peak exertion."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Captain America|Worthy Captain America",
+      "continuity": "Marvel Cinematic Universe (Avengers: Endgame)",
+      "summary": "Worthy Captain America wields Mjolnir alongside his Vibranium shield, granting him the power of thunder and lightning in addition to super-soldier attributes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "electric",
+          "magic"
+        ],
+        "techniques": [
+          "Mjolnir hammer strikes",
+          "Lightning summoning and projection",
+          "Enhanced shield and hammer combos"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium shield blocks",
+          "Magical durability and enhanced resilience"
+        ]
+      },
+      "weaknesses": [
+        "If separated from Mjolnir, loses lightning manipulation capabilities"
+      ],
+      "formDifferences": "Wields Mjolnir, granting flight (via hammer throw), lightning control, and enhanced magical striking power.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Captain_America_(Marvel_Cinematic_Universe)",
+          "supports": "Steve Rogers lifting Mjolnir in Avengers: Endgame"
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Mjolnir",
+          "supports": "Abilities granted to those deemed worthy, including storm manipulation"
+        }
+      ],
+      "unknowns": [
+        "Whether Worthy Captain America retained permanent worthiness and access to Mjolnir outside of the battle against Thanos."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Captain Carter",
+      "continuity": "Marvel Cinematic Universe (What If...?, Doctor Strange in the Multiverse of Madness)",
+      "summary": "Peggy Carter, having received the Super-Soldier Serum instead of Steve Rogers, fights with peak physical conditioning, a Union Jack shield, and expert tactical prowess.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Shield combat",
+          "Military martial arts",
+          "Tactical strike maneuvers"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield blocks",
+          "Super-soldier durability"
+        ]
+      },
+      "weaknesses": [
+        "Normal human vulnerability to overwhelming anti-personnel firepower if caught unshielded"
+      ],
+      "mobility": [
+        "Superhuman running speed",
+        "Acrobatic agility",
+        "Military vehicles and aircraft"
+      ],
+      "limitations": [
+        "Cannot fly unassisted"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Peggy_Carter_(Earth-838)",
+          "supports": "Captain Carter's super-soldier abilities, shield, and combat feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged heavily armored combatants and supernatural threats in close-quarters melee combat.",
+          "citation": "What If...?. Season 1 (2021)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Super-soldier enhanced strength, speed, and durability",
+          "dependsOn": "British Super-Soldier Serum injection",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Proficient military pilot and tactician.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact performance variance between the American and British super-soldier serum variants."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
