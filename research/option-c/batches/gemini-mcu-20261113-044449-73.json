@@ -1,0 +1,699 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-044449 #73",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Doc Ock",
+      "continuity": "Marvel Cinematic Universe (Spider-Man: No Way Home)",
+      "summary": "Otto Octavius fights using four highly durable, telepathically controlled mechanical tentacles mounted to his spine. He combines brilliant scientific intellect with brutal physical restraint and crushing strikes from his appendages.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Tentacle crushing",
+          "Environment manipulation/throwing debris",
+          "Precision restraint"
+        ],
+        "range": "melee / ranged via tentacles"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mechanical tentacles acting as physical shields",
+          "Durable metallic structure"
+        ]
+      },
+      "weaknesses": [
+        "Inhibitor chip failure leading to psychological influence by the arms",
+        "Vulnerable to having his mechanical appendages overridden or hacked with Stark/Stark-level tech"
+      ],
+      "mobility": [
+        "Tentacle-assisted wall-crawling and walking"
+      ],
+      "limitations": [
+        "Dependent on his spinal harness and mechanical arms for superhuman capability."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Octopus",
+          "supports": "General character history, mechanical arms, and appearances."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Restrained Peter Parker using his mechanical tentacles during their highway clash.",
+          "citation": "Spider-Man: No Way Home (2021)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Spider-Man (Tom Holland)",
+          "result": "win",
+          "citation": "Spider-Man: No Way Home (2021)",
+          "note": "Ambushed Spider-Man on the highway and extracted nanotech.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Mechanical tentacles controlled via neural interface.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Genius nuclear physicist and inventor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of the nanotech absorption capabilities when interfaced with Stark tech."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Doom",
+      "continuity": "Marvel Cinematic Universe / Multiverse contexts",
+      "summary": "Doctor Doom is not officially a prominent character in the primary MCU continuity as of current major releases, though his multiversal presence and legacy are referenced.",
+      "offense": {
+        "domains": [
+          "magic",
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Energy projection",
+          "Mystical wards"
+        ],
+        "range": "ranged / melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Powered armor",
+          "Force fields"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence in his own superiority"
+      ],
+      "mobility": [
+        "Powered flight"
+      ],
+      "limitations": [
+        "Human physical body underneath the armor."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Doom",
+          "supports": "General character overview and capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Combines advanced science and sorcery to challenge major heroes.",
+          "citation": "General Marvel continuity overview",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears high-tech advanced armor.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Practices sorcery and dark arts.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific canonical MCU feat roster pending full integration in upcoming films."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Doom|Beyonder-Powered Doom",
+      "continuity": "Marvel Comics / Multiversal Adaptations",
+      "summary": "Doctor Doom wielding the immense cosmic might of the Beyonders, granting near-omnipotent reality-warping capabilities.",
+      "offense": {
+        "domains": [
+          "energy",
+          "control",
+          "magic"
+        ],
+        "techniques": [
+          "Reality warping",
+          "Cosmic energy blasts"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cosmic durability",
+          "Reality-level force fields"
+        ]
+      },
+      "weaknesses": [
+        "Unstable control over absolute power"
+      ],
+      "mobility": [
+        "Self-teleport",
+        "Flight"
+      ],
+      "limitations": [
+        "Power source relies entirely on captured cosmic entities."
+      ],
+      "formDifferences": "Replaces standard armor and sorcery limits with absolute reality-warping control derived from the Beyonders.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Secret_Wars_(2015_comic_book)",
+          "supports": "God Emperor / Beyonder-powered Doom capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created Battleworld out of the remnants of destroyed universes.",
+          "citation": "Secret Wars #1 (2015)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "win",
+          "citation": "Secret Wars #8 (2015)",
+          "note": "Killed Thanos effortlessly by ripping out his skeleton.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Reality warping and cosmic power",
+          "dependsOn": "Beyonder power source",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "portals",
+          "claim": "Can tear open dimensional rifts with cosmic power.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limitations of his omnipotence without external disruptions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Doom|Doom 2099",
+      "continuity": "Marvel Comics (2099 Universe)",
+      "summary": "A futuristic incarnation of Victor von Doom operating in the year 2099, utilizing advanced cyberpunk technology, digital consciousness transfer, and futuristic armor.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Laser weaponry",
+          "Hacking and digital manipulation"
+        ],
+        "range": "ranged / melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced 2099 powered armor",
+          "Holographic decoys"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to advanced futuristic software exploits and EMPs"
+      ],
+      "mobility": [
+        "Powered flight"
+      ],
+      "limitations": [
+        "Dependent on futuristic energy supplies and network access."
+      ],
+      "formDifferences": "Replaces medieval-style sorcery and classic armor with 2099 cyberpunk technology and digital consciousness backup.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doom_2099",
+          "supports": "Doom 2099 background, abilities, and setting."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Conquered the United States of the future using advanced technology and tactical brilliance.",
+          "citation": "Doom 2099 #1",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Advanced 2099 cybernetic armor.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Futuristic cyberpunk gadgets and computer systems.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his interaction with mainstream Marvel timelines."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Doom|God Emperor Doom",
+      "continuity": "Marvel Comics (Secret Wars)",
+      "summary": "God Emperor Doom rules Battleworld as an absolute deity with the combined power of the Beyonders, holding total life-and-death authority over his domain.",
+      "offense": {
+        "domains": [
+          "energy",
+          "control",
+          "magic"
+        ],
+        "techniques": [
+          "Absolute reality command",
+          "Matter creation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Godlike invulnerability",
+          "Omnipresent awareness within Battleworld"
+        ]
+      },
+      "weaknesses": [
+        "Psychological blind spots regarding his own secret doubts and guilt"
+      ],
+      "mobility": [
+        "Self-teleport",
+        "Flight"
+      ],
+      "limitations": [
+        "Power can be stripped if the source conduit (Molecule Man) is separated from him."
+      ],
+      "formDifferences": "Elevates Doctor Doom to supreme deity status with universal creation powers, far exceeding standard armor and magic.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Secret_Wars_(2015_comic_book)",
+          "supports": "God Emperor Doom status, domain over Battleworld, and powers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Reshaped the fragmented remnants of the multiverse into a single planet, Battleworld.",
+          "citation": "Secret Wars #1 (2015)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Doctor Strange (Sheriff Strange)",
+          "result": "win",
+          "citation": "Secret Wars #3 (2015)",
+          "note": "Killed Doctor Strange when Strange challenged his authority.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Absolute omniscience and omnipotence",
+          "dependsOn": "Power derived from the Beyonders",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "portals",
+          "claim": "Creates dimensional boundaries and portals across realms.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether his godhood could function outside the structured reality of Battleworld."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Doom|Infamous Iron Man (Victor von Doom)",
+      "continuity": "Marvel Comics",
+      "summary": "Victor von Doom adopts the mantle of the Infamous Iron Man, using high-tech armor and a fusion of science and sorcery to fight crime and redeem his legacy.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Repulsor blasts",
+          "Mystical warding mixed with tech"
+        ],
+        "range": "ranged / melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Iron Man-style powered armor",
+          "Energy shields"
+        ]
+      },
+      "weaknesses": [
+        "Distrust from heroes and public due to his past villainy"
+      ],
+      "mobility": [
+        "Powered flight"
+      ],
+      "limitations": [
+        "Relies on suit power levels and internal diagnostics."
+      ],
+      "formDifferences": "Replaces traditional monarchical green tunic and cloak with a sleek Iron Man-inspired armor suit carrying both repulsors and magic.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Infamous_Iron_Man",
+          "supports": "Infamous Iron Man series premise, armor, and Victor von Doom's redemption arc."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated various criminal syndicates while operating publicly as the Infamous Iron Man.",
+          "citation": "Infamous Iron Man #1",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears advanced Iron Man-style powered armor.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Utilizes mystic arts alongside advanced armor systems.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term stability of his reformation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Doom|Sorcerer Supreme Doctor Doom",
+      "continuity": "Marvel Comics",
+      "summary": "Doctor Doom trains extensively in the mystic arts, nearly becoming the Sorcerer Supreme of Earth, combining supreme magical prowess with his intellect and armor.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Eldritch bolts",
+          "Dimensional banishment spells"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mystical barriers",
+          "Powered armor enchanted with protective runes"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to powerful cosmic entities and magical backslash"
+      ],
+      "mobility": [
+        "Powered flight",
+        "Self-teleport"
+      ],
+      "limitations": [
+        "Requires verbal incantations and somatic gestures for advanced spells."
+      ],
+      "formDifferences": "Enhances base magical capabilities to rival top-tier sorcerers like Doctor Strange.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Doom",
+          "supports": "Doctor Doom's proficiency in magic and competition for Sorcerer Supreme."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Traveled to hell annually to attempt to rescue his mother's soul, mastering complex dark magic.",
+          "citation": "Doctor Strange and Doctor Doom: Triumph and Torment",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Master of mystic arts and contender for Sorcerer Supreme.",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Opens mystical gateways to other dimensions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full duration of his tenure as official Sorcerer Supreme in alternate runs."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Strange",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Stephen Strange is a master of the mystic arts who wields eldritch magic, dimensional portals, and powerful magical artifacts like the Cloak of Levitation to manipulate reality and subdue foes.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Eldritch whips and blades",
+          "Mirror Dimension entrapment",
+          "Mandala shields"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Eldritch energy shields",
+          "Cloak of Levitation evasion and active blocking"
+        ]
+      },
+      "weaknesses": [
+        "Human physical durability when magical defenses are bypassed"
+      ],
+      "mobility": [
+        "Flight via Cloak of Levitation",
+        "Sling Ring teleportation"
+      ],
+      "limitations": [
+        "Requires hand gestures and focus to weave complex spells."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Strange_(Marvel_Cinematic_Universe)",
+          "supports": "MCU Doctor Strange abilities, mystic arts, and magical items."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Trapped Thanos in temporary restraints using mystical serpents on Titan.",
+          "citation": "Avengers: Infinity War (2018)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War (2018)",
+          "note": "Fought fiercely using multiple magical clones and artifacts but was ultimately overwhelmed.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and independent defense",
+          "dependsOn": "Cloak of Levitation",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Master of the Mystic Arts casting various spells.",
+          "source": 0
+        },
+        {
+          "tag": "flight",
+          "claim": "Flight granted by the sentient Cloak of Levitation.",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Opens sling ring portals for instant travel across dimensions.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields the Cloak of Levitation and various mystical artifacts.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential of darkhold-corrupted spellcasting limits."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Strange|Black Priest Doctor Strange",
+      "continuity": "Marvel Comics",
+      "summary": "Doctor Strange operating as a member of the Black Priests, utilizing destructive words of power capable of annihilating entire universes and wielding reality-shattering authority.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Destructive words of power",
+          "Reality-tearing invocations"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Black Priest conceptual shielding",
+          "Multiversal wards"
+        ]
+      },
+      "weaknesses": [
+        "Strain of uttering catastrophic universal words"
+      ],
+      "mobility": [
+        "Self-teleport",
+        "Multiversal transit"
+      ],
+      "limitations": [
+        "Dependent on specialized esoteric knowledge of universal syntax."
+      ],
+      "formDifferences": "Replaces standard mystic arts and Hand gestures with silent or spoken multiversal concepts and words of absolute destruction.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Strange",
+          "supports": "Black Priests storyline and Doctor Strange's involvement."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed an alternate Earth by speaking a single catastrophic word.",
+          "citation": "New Avengers #24 (2014)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Universe-destroying voice attacks",
+          "dependsOn": "Black Priest methodology and vocabulary",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields high-tier multiversal words of power.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Permanent effects on Strange's human psyche after using Black Priest magic."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Doctor Strange|Defender Strange",
+      "continuity": "Marvel Cinematic Universe (Doctor Strange in the Multiverse of Madness)",
+      "summary": "An alternate variant of Stephen Strange known as Defender Strange, who fights with agile physical movements, magical blades, and portal combat.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Magical sword creation",
+          "Energy projectile blasts"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mystical shields",
+          "Agile evasive maneuvers"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to lethal piercing attacks and overwhelming dark magic"
+      ],
+      "mobility": [
+        "Sling Ring teleportation"
+      ],
+      "limitations": [
+        "Standard human physical limitations."
+      ],
+      "formDifferences": "Features a distinct ponytail, darker tunic styling, and an emphasis on direct melee magical weapon deployment rather than the Cloak of Levitation.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Strange_in_the_Multiverse_of_Madness",
+          "supports": "Defender Strange appearance and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Battled a multiversal demon across dimension-spanning ruins alongside America Chavez.",
+          "citation": "Doctor Strange in the Multiverse of Madness (2022)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Multiversal Demon",
+          "result": "loss",
+          "citation": "Doctor Strange in the Multiverse of Madness (2022)",
+          "note": "Mortally wounded while attempting to protect America Chavez.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Casts dimensional spells and magical weaponry.",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Utilizes sling ring portals in combat.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of Defender Strange's spell repertoire compared to main continuity Strange."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
