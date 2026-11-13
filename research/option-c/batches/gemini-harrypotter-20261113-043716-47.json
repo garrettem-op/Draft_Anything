@@ -1,0 +1,675 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-043716 #47",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Harry Potter",
+      "continuity": "Harry Potter books and films",
+      "summary": "Harry Potter is a versatile wizard specializing in defensive and disarming magic, utilizing the Expelliarmus charm and the Patronus Charm. He fights using a holly wand containing a phoenix feather core, backed by high resilience and courage.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Expelliarmus",
+          "Expecto Patronum",
+          "Stupefy",
+          "Expulso"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego charm",
+          "Invisibility Cloak",
+          "Physical agility and dueling evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to the Killing Curse and dark magic",
+        "Deep emotional connection that can be exploited (Occlumency is imperfect)"
+      ],
+      "mobility": [
+        "Running",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Spells require precise wand movements and clear incantations",
+        "Physical stamina is that of a normal human teenager"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Harry_Potter_(character)",
+          "supports": "General biographical data, core magical abilities, and wand details."
+        },
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Harry_Potter",
+          "supports": "Specific spells used, dueling feats, and magical items."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Produced a full corporeal Patronus against hundreds of Dementors.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        },
+        {
+          "claim": "Disarmed Voldemort in their final duel using Expelliarmus.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lord Voldemort",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Voldemort's Killing Curse rebounded due to ownership of the Elder Wand.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "True Invisibility",
+          "dependsOn": "Wearing the Invisibility Cloak",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Harry is a trained wizard capable of casting complex spells including the Patronus Charm.",
+          "source": 0
+        },
+        {
+          "tag": "invisibility",
+          "claim": "Harry possesses the Invisibility Cloak which grants true invisibility.",
+          "source": 1
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Possesses the Invisibility Cloak and the Marauder's Map.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of resistance to mental intrusion under high stress"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Harry Potter|Harry Potter with Elder Wand",
+      "continuity": "Harry Potter books and films",
+      "summary": "This form represents Harry Potter wielding the Elder Wand, greatly amplifying the power of his spells and overcoming magical bounds.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Expelliarmus",
+          "Expecto Patronum",
+          "Advanced defensive and offensive charms"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced Protego charm powered by the Elder Wand"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to physical attacks if caught off guard",
+        "Allegiance of the wand can shift if the user is disarmed"
+      ],
+      "mobility": [
+        "Running",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Subject to the inherent rules and history of the Elder Wand's allegiance"
+      ],
+      "formDifferences": "Replaces standard holly wand with the Elder Wand, vastly increasing spell power and changing wand lore interactions.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Elder_Wand",
+          "supports": "Properties of the Elder Wand and its master relationship."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lord Voldemort",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Elder Wand refused to harm its true master, causing Voldemort's spell to backfire.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mastery over all wands and heightened spell potency",
+          "dependsOn": "Holding the Elder Wand and possessing its true allegiance",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields the Elder Wand to cast exceptionally powerful spells.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Equipped with the Elder Wand, one of the Deathly Hallows.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether the Elder Wand increases non-combat magic efficacy"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Hedwig",
+      "continuity": "Harry Potter books and films",
+      "summary": "Hedwig is Harry Potter's pet snowy owl, acting primarily as a reliable courier and messenger with standard avian capabilities.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Talent for claw strikes and distraction"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Aerial agility"
+        ]
+      },
+      "weaknesses": [
+        "Fragile biological body vulnerable to standard spells and physical trauma"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Animal intelligence; cannot cast spells or use items"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Hedwig",
+          "supports": "Characteristics and fate of Hedwig."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Consistently delivered mail across long distances without getting lost.",
+          "citation": "Harry Potter and the Sorcerer's Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Hedwig is an owl possessing natural wings and flight capabilities.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact maximum payload capacity for long-distance flight"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Helga Hufflepuff",
+      "continuity": "Wizarding World lore",
+      "summary": "Helga Hufflepuff was one of the four legendary founders of Hogwarts, renowned for her mastery of food-related charms and dedication to fair inclusion.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Founders' magic",
+          "Loyalty and culinary enchantments"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced magical wards"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Standard magical travel"
+      ],
+      "limitations": [
+        "Historical figure with limited direct combat records"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Helga_Hufflepuff",
+          "supports": "Historical lore and known capabilities of Helga Hufflepuff."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Co-founded Hogwarts School of Witchcraft and Wizardry.",
+          "citation": "Wizarding World History",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "A medieval witch and Hogwarts founder skilled in advanced magic.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific dueling record and combat repertoire"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Hermione Granger",
+      "continuity": "Harry Potter books and films",
+      "summary": "Hermione Granger is an exceptionally gifted witch relying on vast theoretical knowledge, rapid spellcasting, and utilitarian charm work to solve conflicts.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Confundus Charm",
+          "Petrificus Totalus",
+          "Glisseo",
+          "Protego Totalum"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego charms",
+          "Quick defensive shielding"
+        ]
+      },
+      "weaknesses": [
+        "Initial reliance on established rules and book learning under extreme surprise"
+      ],
+      "mobility": [
+        "Running",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Human physical durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hermione_Granger",
+          "supports": "Character overview and magical aptitude."
+        },
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Hermione_Granger",
+          "supports": "Detailed spell list and feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully brewed Polyjuice Potion at age twelve.",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "source": 1
+        },
+        {
+          "claim": "Wiped her parents' memories with Obliviate to protect them.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Antonin Dolohov",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Defeated Dolohov in magical combat alongside Harry and Ron.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Time manipulation and extra time for tasks",
+          "dependsOn": "Using a Time-Turner",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Mastered a vast array of complex spells far above her age level.",
+          "source": 1
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries and utilizes magical items such as Time-Turners and beaded bags with Undetectable Extension Charms.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full extent of her combat capabilities outside of academic magic"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Horace Slughorn",
+      "continuity": "Harry Potter books and films",
+      "summary": "Horace Slughorn is a skilled potions master and skilled duelist who favors concealment, transformation, and tactical retreat when threatened.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Advanced Potions",
+          "Transfiguration",
+          "Duelling spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced shielding",
+          "Human Transfiguration (turning into an armchair)"
+        ]
+      },
+      "weaknesses": [
+        "Prone to vanity and cautious self-preservation over direct confrontation"
+      ],
+      "mobility": [
+        "Running",
+        "Apparition"
+      ],
+      "limitations": [
+        "Advanced age reduces physical stamina"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Horace_Slughorn",
+          "supports": "Biographical details, potion mastery, and transfiguration feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside Hogwarts defenders and dueled Voldemort alongside McGonagall and Kingsley.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Proficient master of magic and complex potion-making.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Expert creator of specialized potions and magical mixtures.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact success rate in solo high-level combat"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Hungarian Horntail",
+      "continuity": "Harry Potter books and films",
+      "summary": "The Hungarian Horntail is an extremely aggressive dragon boasting powerful fire-breathing capabilities, armored scales, and massive physical strength.",
+      "offense": {
+        "domains": [
+          "physical",
+          "fire"
+        ],
+        "techniques": [
+          "Flamethrower breath reaching up to fifty feet",
+          "Tail spike strikes",
+          "Bite and claw attacks"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavily armored black scales resistant to most low-level spells"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to targeted spells hitting sensitive areas like the eyes"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Quadrupedal running"
+      ],
+      "limitations": [
+        "Low tactical intellect compared to human wizards"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Hungarian_Horntail",
+          "supports": "Physical characteristics, fire breath range, and aggressive behavior."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Harry Potter during the First Task of the Triwizard Tournament.",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses massive leathery wings capable of sustained flight.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "A massive dragon towering over human opponents.",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Breathes intense fire capable of scorching large areas.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability against high-tier Unforgivable Curses"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Jacob Kowalski",
+      "continuity": "Fantastic Beasts films",
+      "summary": "Jacob Kowalski is a No-Maj (Muggle) baker who relies on courage, improvised tools, bakery equipment, and magical artifacts provided by allies.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Bakery tool improvised strikes",
+          "Brawling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard human evasion and protective items given by allies"
+        ]
+      },
+      "weaknesses": [
+        "Lacks any innate magical abilities",
+        "Normal human vulnerability to injury"
+      ],
+      "mobility": [
+        "Running",
+        "Riding in vehicles or magical transports"
+      ],
+      "limitations": [
+        "Entirely non-magical"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Jacob_Kowalski",
+          "supports": "Biographical background as a No-Maj baker and involvement with magical community."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Helped Newt Scamander track and recapture escaped magical creatures in New York.",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Defensive protection via magical charms",
+          "dependsOn": "Assistance and protective items from wizarding companions",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact physical conditioning outside of working in a bakery"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:James Potter",
+      "continuity": "Harry Potter books and films",
+      "summary": "James Potter was an exceptionally talented wizard, an Animagus capable of turning into a stag, and an accomplished duelist during the First Wizarding War.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Advanced Transfiguration",
+          "Offensive duelling charms"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invisibility Cloak",
+          "Magical shields",
+          "Animagus form evasion"
+        ]
+      },
+      "weaknesses": [
+        "Overconfidence in combat situations without his wand"
+      ],
+      "mobility": [
+        "Running",
+        "Broomstick flight",
+        "Animagus stag form"
+      ],
+      "limitations": [
+        "Normal human physical durability when caught without defense"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/James_Potter_I",
+          "supports": "Magical abilities, Animagus status, and historical background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Mastered the Animagus transformation illegally while at Hogwarts to support Remus Lupin.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lord Voldemort",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Killed while unarmed trying to buy time for his family.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Powerful wizard capable of complex magic and transfiguration.",
+          "source": 0
+        },
+        {
+          "tag": "invisibility",
+          "claim": "Possessed the Invisibility Cloak.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact breakdown of all duels fought during the First Wizarding War"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Karkaroff",
+      "continuity": "Harry Potter books and films",
+      "summary": "Igor Karkaroff was a former Death Eater and the headmaster of Durmstrang Institute, proficient in dark arts and defensive wizardry.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Dark Arts",
+          "Standard duel casting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protective charms"
+        ]
+      },
+      "weaknesses": [
+        "Cowardice under severe threat; prone to fleeing rather than fighting"
+      ],
+      "mobility": [
+        "Running",
+        "Apparition"
+      ],
+      "limitations": [
+        "Human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Igor_Karkaroff",
+          "supports": "Background as a Death Eater and Durmstrang Headmaster."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Served as a Death Eater before turning informant for the Ministry of Magic.",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Trained wizard and practitioner of dark magic.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his dark arts repertoire"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
