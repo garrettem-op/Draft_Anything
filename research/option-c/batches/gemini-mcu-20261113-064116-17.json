@@ -1,0 +1,362 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-064116 #17",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Sharon Carter",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Sharon Carter is a highly trained former CIA and S.H.I.E.L.D. operative who relies on advanced firearms, tactical combat proficiency, and espionage skills.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat",
+          "Firearms proficiency",
+          "Tactical espionage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tactical armor",
+          "Evasion and cover"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability"
+      ],
+      "limitations": [
+        "Human physiology lacks superhuman durability or strength"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sharon_Carter",
+          "supports": "Fictional history, skills as a CIA/S.H.I.E.L.D. agent, and combat background in the MCU."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought against multiple armed mercenaries and rival combatants using firearms and close-quarters combat.",
+          "citation": "The Falcon and the Winter Soldier",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Operates as a high-level covert agent and undercover operative.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Maintains covert operations as the Power Broker in Madripoor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact extent of her operations during her time in exile in Madripoor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:She-Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Jennifer Walters transforms into She-Hulk, granting her massive superhuman strength, durability, and a large green form while retaining her intellect.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Superhuman punches",
+          "Throwing heavy objects",
+          "Ground impacts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superhuman durability",
+          "High regenerative healing factor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to specialized gamma-neutralizing weapons or tech"
+      ],
+      "mobility": [
+        "Superhuman leaping ability"
+      ],
+      "limitations": [
+        "Emotional state can trigger or influence transformation triggers"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/She-Hulk",
+          "supports": "Abilities, origin via gamma radiation, and MCU appearance details."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lifts heavy boulders and tears through heavy doors with ease in her She-Hulk form.",
+          "citation": "She-Hulk: Attorney at Law",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Superhuman strength and durability",
+          "dependsOn": "Gamma-induced transformation into She-Hulk form",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Transforms into a towering, muscular green form standing over six feet tall.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Possesses a rapid cellular regeneration rate typical of gamma-mutated entities.",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Recovers quickly from physical injuries due to gamma healing capabilities.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full upper limit of her strength scaling compared to Hulk."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Shuri",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Shuri is a brilliant Wakandan innovator who utilizes advanced vibranium technology, sonic gauntlets, and high-tech weaponry in combat.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Vibranium sonic gauntlet blasts",
+          "Advanced tactical weaponry",
+          "Hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium weave habit armor",
+          "Energy shields"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical attributes without technological augmentation"
+      ],
+      "limitations": [
+        "Relies on external technological devices for offensive and defensive power"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Shuri_(Marvel_Cinematic_Universe)",
+          "supports": "Role as lead scientist of Wakanda, inventions, and combat appearances."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged in combat using twin vibranium blast gauntlets capable of firing sonic energy.",
+          "citation": "Black Panther",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Employs vibranium gauntlets and various specialized technological devices.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Designs and builds advanced Wakandan technology and tactical gear.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Relies entirely on advanced vibranium-based technology and weaponry.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat capabilities without her technological inventory."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Sif",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Lady Sif is an Asgardian warrior of high renown, wielding traditional Asgardian blade weaponry and possessing superhuman Asgardian physiology.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sword fighting",
+          "Polearm combat",
+          "Asgardian martial arts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Asgardian durability",
+          "Armor protection"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to powerful cosmic or divine entities and magical weapons"
+      ],
+      "mobility": [
+        "Running speed and agility exceeding normal humans"
+      ],
+      "limitations": [
+        "Subject to mortal injury despite enhanced Asgardian longevity and durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sif_(character)",
+          "supports": "Asgardian warrior background, weaponry, and appearances in MCU films and television."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought against Frost Giants and Marauders alongside Thor using her signature sword.",
+          "citation": "Thor",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of her durability against heavy energy attacks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Smart Hulk",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Smart Hulk combines Bruce Banner's intellect with the Hulk's massive physical body, strength, and durability.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Superhuman strikes",
+          "Ground slams",
+          "Throwing massive objects"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immense physical durability",
+          "High injury tolerance"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to powerful mystical restraints or overwhelming energy attacks"
+      ],
+      "mobility": [
+        "Superhuman leaps"
+      ],
+      "limitations": [
+        "Physical injury sustained from channeling Infinity Stones"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hulk_(Marvel_Cinematic_Universe)",
+          "supports": "Evolution into Smart Hulk in Avengers: Endgame, merging Banner's mind with Hulk's body."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully channeled the energy of the Nano Gauntlet to restore vanished populations despite sustaining severe arm injury.",
+          "citation": "Avengers: Endgame",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands well over seven feet tall with massive physical proportions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether his anger can still trigger a loss of intellectual control similar to earlier Hulk states."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Spider-Man",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Peter Parker uses spider-like proportional strength, wall-crawling abilities, web-shooters, and a spider-sense to subdue opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Web-shooting",
+          "Acrobatic martial arts",
+          "Web-pulling and binding"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Spider-Sense pre-cognitive reflex warning",
+          "Agility and acrobatics"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability to lethal force if hit"
+      ],
+      "mobility": [
+        "Swinging via webs",
+        "Acrobatic wall-crawling"
+      ],
+      "limitations": [
+        "Web-fluid supply is finite and requires replacement cartridges"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Spider-Man_(Tom_Holland)",
+          "supports": "Abilities, web-shooters, spider-sense, and MCU appearances."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caught a punch from Cull Obsidian and stopped a moving car with his bare hands.",
+          "citation": "Avengers: Infinity War",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes mechanical web-shooters with multiple web-fluid configurations.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of web-shooter capacity during prolonged combat."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
