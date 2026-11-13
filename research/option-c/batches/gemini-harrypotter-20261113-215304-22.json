@@ -1,0 +1,511 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-215304 #22",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Thestral",
+      "continuity": "Harry Potter and the Order of the Phoenix (Film/Novel)",
+      "summary": "Thestrals are winged magical horses visible only to those who have witnessed death. They fight using sharp fangs, powerful hooves, and flight.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Bite",
+          "Kicking with hooves",
+          "Aerial dive"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invisibility to those who have not witnessed death",
+          "Durable skeletal physique"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to standard physical damage and magical attacks"
+      ],
+      "mobility": [
+        "Flight",
+        "Running"
+      ],
+      "limitations": [
+        "Only visible to those who have witnessed and processed death."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Thestral",
+          "supports": "Abilities, invisibility to most, and physical attacks of Thestrals"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew Harry Potter and his friends from Hogwarts to the Ministry of Magic.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Thestrals have leathery, bat-like wings and can fly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact strength threshold in combat relative to other magical beasts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Thunderbird (Frank)",
+      "continuity": "Fantastic Beasts and Where to Find Them (Film)",
+      "summary": "Frank the Thunderbird is an enormous, powerful avian creature capable of creating massive weather phenomena, storms, and wiping memories via rain.",
+      "offense": {
+        "domains": [
+          "elemental",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Storm generation",
+          "Lightning strikes",
+          "Beak and talon attacks"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive size",
+          "High durability against non-magical and magical forces"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to capture by skilled magizoologists and specialized containment spells"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [
+        "Native to Arizona, sensitive to unfamiliar environments without proper care"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Thunderbird",
+          "supports": "Thunderbird abilities including weather manipulation and lightning generation"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created a massive storm over New York City that produced rain containing the obliviating venom to wipe the memories of an entire city.",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Thunderbirds possess powerful wings capable of transcontinental flight.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Thunderbirds are massive creatures much larger than ordinary birds.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Can create storms and summon lightning from its wings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of its combat durability against multiple skilled wizards casting lethal spells"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Tina Goldstein",
+      "continuity": "Fantastic Beasts film series",
+      "summary": "Tina Goldstein is an experienced MACUSA Auror who uses wand magic for disarming, binding, and subduing opponents in combat.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Stupefy",
+          "Full Body-Bind Curse",
+          "Apparition combat positioning"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego shield charms",
+          "Tactical evasion"
+        ]
+      },
+      "weaknesses": [
+        "Human physical vulnerability to standard magical and physical injuries"
+      ],
+      "mobility": [
+        "Teleport (Apparition)"
+      ],
+      "limitations": [
+        "Relies entirely on her wand; disarming renders her severely disadvantaged."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Porpentina_Goldstein",
+          "supports": "Tina Goldstein's career as an Auror and spellcasting abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside Newt Scamander against Credence Barebone's Obscurus in the subway.",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Credence Barebone (Obscurus form)",
+          "result": "inconclusive",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "note": "Assisted by Newt Scamander; subdued temporarily before MACUSA action.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Trained witch capable of casting complex combat and utility spells.",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Can Apparize to instantly travel short or long distances.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limit of her offensive spell power compared to master duelists like Grindelwald"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Viktor Krum",
+      "continuity": "Harry Potter and the Goblet of Fire (Novel/Film)",
+      "summary": "Viktor Krum is a world-class Quidditch Seeker and a formidable duelist, utilizing physical conditioning and advanced curses like the Cruciatus curse in dark wizardry contexts.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Stunners",
+          "Transfiguration",
+          "Cruciatus Curse"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield charms",
+          "Athletic reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to complex mental manipulation (e.g., Imperius Curse)"
+      ],
+      "mobility": [
+        "Flight (Broomstick)",
+        "Running"
+      ],
+      "limitations": [
+        "Relies on a broom for sustained flight; lacks innate flight."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Viktor_Krum",
+          "supports": "Viktor Krum's skills as a Triwizard Tournament champion and duelist"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Competed in the Triwizard Tournament, surviving the dragon task and the maze.",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Harry Potter",
+          "result": "inconclusive",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "note": "Competed as Triwizard champions; match ended cooperatively.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Transfigured shark-head form",
+          "dependsOn": "Partial Transfiguration spell",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Trained wizard of Durmstrang Institute proficient in dark arts and combat spells.",
+          "source": 0
+        },
+        {
+          "tag": "flight",
+          "claim": "World-class broomstick flyer and Seeker.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his combat repertoire outside of school tournaments"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Vincent Crabbe",
+      "continuity": "Harry Potter and the Deathly Hallows (Novel/Film)",
+      "summary": "Vincent Crabbe is a Hogwarts Slytherin student who relies on brute physical force and dark spells taught in the Room of Requirement, notably Fiendfyre.",
+      "offense": {
+        "domains": [
+          "magic",
+          "fire",
+          "physical"
+        ],
+        "techniques": [
+          "Fiendfyre",
+          "Basic hexes and curses",
+          "Physical grappling"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Basic shield charms",
+          "Bulky physical build"
+        ]
+      },
+      "weaknesses": [
+        "Low intelligence, poor spell control, impulsive nature"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Fiendfyre is uncontrollable and ultimately consumed him."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Vincent_Crabbe",
+          "supports": "Vincent Crabbe's magical abilities and use of Fiendfyre"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cast the uncontrollable Fiendfyre curse inside the Room of Requirement.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Able to cast advanced dark magic such as Fiendfyre.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Summoned and directed uncontrolled sentient cursed fire.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact range of standard spells he can cast outside of dark curses"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Winky",
+      "continuity": "Harry Potter and the Goblet of Fire (Novel)",
+      "summary": "Winky is a house-elf possessing powerful innate house-elf magic capable of teleportation and manipulation of objects without a wand.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Wandless apperition",
+          "Telekinetic object manipulation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Innate house-elf magic resistance and evasion"
+        ]
+      },
+      "weaknesses": [
+        "Bound to servitude; severe emotional vulnerability to losing her master"
+      ],
+      "mobility": [
+        "Teleport"
+      ],
+      "limitations": [
+        "Obedience to master or household rules limits independent aggressive action."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Winky",
+          "supports": "Winky's house-elf magic and abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transported Harry Potter's wand and subdued Barty Crouch Jr. with assistance.",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "teleport",
+          "claim": "Can teleport anywhere instantly without needing a wand.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat application of her magic in direct offensive duels against wizards"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Yusuf Kama",
+      "continuity": "Fantastic Beasts: The Crimes of Grindelwald (Film)",
+      "summary": "Yusuf Kama is a French-Senegalese wizard skilled in stealth, stealth-magic, and the Unbreakable Vow.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Spellcasting",
+          "Eye of the Mind mind-magic defense"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield charms",
+          "Stealth and infiltration"
+        ]
+      },
+      "weaknesses": [
+        "Compelled by a life-threatening magical parasite or vow condition relating to his half-brother Credence"
+      ],
+      "mobility": [
+        "Teleport (Apparition)"
+      ],
+      "limitations": [
+        "Prone to severe physical weakness due to a localized magical eye affliction."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Yusuf_Kama",
+          "supports": "Yusuf Kama's magical background and abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated the catacombs of Père Lachaise Cemetery to confront Gellert Grindelwald.",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Trained wizard capable of complex spellwork and curses.",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Capable of Apparition.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his offensive dueling record against top-tier Aurors"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Zouwu",
+      "continuity": "Fantastic Beasts: The Crimes of Grindelwald (Film)",
+      "summary": "The Zouwu is a colossal, cat-like Chinese magical beast possessed of immense strength, speed, and the ability to travel vast distances via spatial distortion.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Claw strikes",
+          "Bite",
+          "Tail lash"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick hide",
+          "Agile evasive reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Can be pacified and subdued using magical toys like a Maledictus-adjusted or magical rattle"
+      ],
+      "mobility": [
+        "Super-speed running",
+        "Spatial leaping"
+      ],
+      "limitations": [
+        "Restricted by specialized magical containment until released."
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Zouwu",
+          "supports": "Zouwu physical strength, speed, and characteristics"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Traveled thousands of miles across continents rapidly and burst through Parisian streets.",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Elephant-sized magical beast with immense scale.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Resistance to high-level offensive spells like Avada Kedavra"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
