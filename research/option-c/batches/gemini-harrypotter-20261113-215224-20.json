@@ -1,0 +1,739 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-215224 #20",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Regulus Black",
+      "continuity": "Harry Potter books and films",
+      "summary": "Regulus Black was a Death Eater who turned against Lord Voldemort, utilizing wizarding magic, potions, and knowledge of dark artifacts to locate and attempt to destroy a Horcrux.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Standard wizarding spells and dark magic"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Wizarding defensive spells and protective enchantments"
+        ]
+      },
+      "weaknesses": [
+        "Human physical vulnerability",
+        "Susceptibility to Inferi and lethal magical environments"
+      ],
+      "mobility": [
+        "Apparition",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Mortal human endurance and vulnerability"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Regulus_Black",
+          "supports": "Regulus Black's history, magical abilities, and death involving the Inferi in the sea cave."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Located Voldemort's sea cave and replaced the Locket Horcrux with a fake one",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Inferi",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Overwhelmed and dragged underwater by a horde of Inferi in the sea cave.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields a wand and performs complex magical spells",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Engages in magical dueling and understands advanced dark magic",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact details of all spells mastered during his time as a Death Eater"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Remus Lupin",
+      "continuity": "Harry Potter books and films",
+      "summary": "Remus Lupin is an experienced wizard, skilled combat instructor, and member of the Order of the Phoenix who specializes in defensive magic, charm work, and countering dark creatures.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Expecto Patronum",
+          "Expelliarmus",
+          "Offensive and defensive duel magic"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego shields",
+          "Expert dueling evasions"
+        ]
+      },
+      "weaknesses": [
+        "Full moon affliction causing involuntary werewolf transformation",
+        "Human physical frailty outside of his werewolf form"
+      ],
+      "mobility": [
+        "Apparition",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Vulnerable to wolfsbane potion requirements and lunar cycles"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Remus_Lupin",
+          "supports": "Remus Lupin's history, spellcasting capabilities, and participation in major conflicts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Taught Defense Against the Dark Arts and successfully produced a corporeal Patronus",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Battle of the Department of Mysteries and the Battle of Hogwarts",
+          "citation": "Harry Potter and the Order of the Phoenix / Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Antonin Dolohov",
+          "result": "inconclusive",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Dozens of duels fought against Death Eaters during the Second Wizarding War.",
+          "source": 0
+        },
+        {
+          "opponent": "Thorfinn Rowle",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Engaged and survived multiple skirmishes before falling to Dolohov.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Proficient wizard capable of casting advanced charms like the Patronus charm",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Expert in defensive magic and dark arts counter-measures",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact upper limits of his magical duel capability compared to top-tier Voldemort followers"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Remus Lupin|Werewolf Remus Lupin",
+      "continuity": "Harry Potter books and films",
+      "summary": "Transformed into a werewolf during the full moon, Remus Lupin loses his human intellect and reason, gaining immense feral physical strength, speed, claws, and heightened predatory instincts.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Feral biting",
+          "Claw slashing",
+          "Brute-force tackle"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick supernatural hide and heightened pain tolerance"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to silver weapons",
+        "Complete lack of rational thought or spellcasting ability",
+        "Reversion to human form leaves him physically exhausted and injured"
+      ],
+      "mobility": [
+        "Superhuman running speed",
+        "Leaping"
+      ],
+      "limitations": [
+        "Transformations are completely involuntary without the Wolfsbane Potion and are restricted entirely to the full moon"
+      ],
+      "formDifferences": "Replaces human intelligence and wand magic with feral werewolf physiology, claws, fangs, and extreme physical strength.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Werewolf",
+          "supports": "Attributes, strengths, and weaknesses of werewolves in the wizarding world."
+        },
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Remus_Lupin",
+          "supports": "Remus Lupin's werewolf transformations and encounters."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overpowered Sirius Black in his dog form during the confrontation at the Shrieking Shack",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Severus Snape",
+          "result": "win",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "note": "Unconscious or cornered Snape before being driven off by Sirius Black and Buckbeak.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Werewolf transformation granting enhanced physical attributes and ferocity",
+          "dependsOn": "Full moon without Wolfsbane Potion",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Originates from a magical curse",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact physical strength ceiling relative to other magical beasts like trolls or giants"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Rita Skeeter",
+      "continuity": "Harry Potter books and films",
+      "summary": "Rita Skeeter is a witch and investigative journalist who employs a Quick-Quotes Quill, stealth interrogation tactics, and illegal Animagus transformation to gather gossip.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Standard witch spellcasting",
+          "Defamatory reporting and information manipulation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Camouflage through Animagus transformation"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability",
+        "Dependence on secrecy for her information gathering"
+      ],
+      "mobility": [
+        "Apparition",
+        "Flight via beetle form"
+      ],
+      "limitations": [
+        "Not a combat-oriented witch; relies entirely on stealth and subversion"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Rita_Skeeter",
+          "supports": "Rita Skeeter's magical capabilities, Quick-Quotes Quill, and Animagus form."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Secretly eavesdropped on private conversations by transforming into an un-registered beetle",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields a wand and casts standard household and writing charms",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Uses unregistered beetle Animagus form to eavesdrop undetected",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Possesses magical transformation ability",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat prowess in a direct duel against trained aurors or dark wizards"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Rita Skeeter|Rita Skeeter (Beetle Animagus)",
+      "continuity": "Harry Potter books and films",
+      "summary": "In her unregistered beetle Animagus form, Rita Skeeter possesses the tiny physical size of an insect, allowing her to hide in plain sight and eavesdrop on private conversations without detection.",
+      "offense": {
+        "domains": [
+          "control"
+        ],
+        "techniques": [
+          "Surveillance and espionage",
+          "Silent movement"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely small target profile for evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical crushing, insect repellents, and containment in glass jars",
+        "Inability to cast spells or speak in animal form"
+      ],
+      "mobility": [
+        "Insect flight",
+        "Crawling"
+      ],
+      "limitations": [
+        "Zero offensive capability while in beetle form"
+      ],
+      "formDifferences": "Replaces human form and wand use with a tiny beetle body capable of flight and complete discretion.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Rita_Skeeter",
+          "supports": "Details of Rita Skeeter's beetle Animagus form and its usage."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated Hogwarts quarters and greenhouses undetected as a beetle",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Insect transformation and flight",
+          "dependsOn": "Unregistered Animagus training and conscious transformation",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Transforms into a beetle to hide and spy invisibly or undetected",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Animagus transformation ability",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact endurance limits of remaining in insect form continuously"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Rodolphus Lestrange",
+      "continuity": "Harry Potter books and films",
+      "summary": "Rodolphus Lestrange is a ruthless and fanatical Death Eater who relies on dark arts, torture curses, and aggressive dueling magic.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Cruciatus Curse",
+          "Killing Curse",
+          "Advanced dark magic dueling"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego and dark magical barriers"
+        ]
+      },
+      "weaknesses": [
+        "Overconfidence and fanaticism",
+        "Mortal human vulnerability"
+      ],
+      "mobility": [
+        "Apparition",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Relies entirely on wand-based magic"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Rodolphus_Lestrange",
+          "supports": "Rodolphus Lestrange's status as a Death Eater, participation in attacks, and spell use."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in the torture of Alice and Frank Longbottom",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Battle of the Department of Mysteries and the Battle of the Seven Potters",
+          "citation": "Harry Potter and the Order of the Phoenix / Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Order of the Phoenix members",
+          "result": "win",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "note": "Engaged in multiple magical skirmishes during the Second Wizarding War.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields a wand and casts complex, lethal, and torturous curses",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Mastery of dark arts and combat spellcasting",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact tally of individual dueling victories against skilled Aurors"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Ron Weasley",
+      "continuity": "Harry Potter books and films",
+      "summary": "Ron Weasley is a resilient wizard who fights alongside Harry Potter using standard combat charms, tactical resourcefulness, and a variety of wizarding items.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Expelliarmus",
+          "Stupefy",
+          "Immobilization charms"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego magical shields",
+          "Evasive combat movement"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability",
+        "Prone to emotional distraction in high-stress situations"
+      ],
+      "mobility": [
+        "Apparition",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Relies on a wand and magical education level; prone to backfiring spells when using broken wands"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Ron_Weasley",
+          "supports": "Ron Weasley's magical education, dueling feats, and participation in major conflicts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Played a giant wizard's chess game and survived numerous encounters with Death Eaters and dark creatures",
+          "citation": "Harry Potter and the Sorcerer's Stone",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Battle of the Department of Mysteries, Astronomy Tower, and Battle of Hogwarts",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Successfully fought off and stunned multiple Death Eaters during the Battle of Hogwarts.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Trained wizard capable of casting combat and utility spells",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Performs wizarding magic and utilizes magical items like the Deluminator",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields Dumbledore's Deluminator",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Mastery level of advanced non-verbal or wandless magic"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Rowena Ravenclaw",
+      "continuity": "Harry Potter lore and historical records",
+      "summary": "Rowena Ravenclaw was one of the legendary four founders of Hogwarts, renowned for her immense intellect, mastery of ancient magic, and creation of a magical diadem.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Ancient spellcraft",
+          "Enchantment creation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced magical wards and protective enchantments"
+        ]
+      },
+      "weaknesses": [
+        "Not established in direct combat records"
+      ],
+      "mobility": [
+        "Standard magical transportation methods of her era"
+      ],
+      "limitations": [
+        "Deceased long before the main series timeline"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Rowena_Ravenclaw",
+          "supports": "Rowena Ravenclaw's historical standing, founding of Hogwarts, and magical expertise."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Co-founded Hogwarts School of Witchcraft and Wizardry and designed its moving architecture",
+          "citation": "Harry Potter history lore",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Master-level ancient witch and co-founder of Hogwarts",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Created legendary magical artifacts like Ravenclaw's Diadem",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Associated with Ravenclaw's Diadem",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific combat feats and dueling records due to ancient history"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Rubeus Hagrid",
+      "continuity": "Harry Potter books and films",
+      "summary": "Rubeus Hagrid is a half-giant wizard whose immense physical size, giant heritage, and resistance to most standard spells make him a formidable brawler, supplemented by an umbrella concealing a broken wand.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Giant-strength physical strikes",
+          "Improvised umbrella wand spellcasting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick half-giant hide offering natural resistance to many spells and physical attacks"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to extreme force or coordinated concentrated attacks",
+        "Extreme susceptibility to magical bindings or stunning spells if hit in high volume"
+      ],
+      "mobility": [
+        "Flying motorcycle",
+        "Walking/running with giant stride"
+      ],
+      "limitations": [
+        "Formal magic use is heavily restricted due to expulsion and broken wand remnants kept in an umbrella"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Rubeus_Hagrid",
+          "supports": "Rubeus Hagrid's half-giant physiology, physical feats, and umbrella wand use."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Broke through a door with bare hands and tossed adult wizards across rooms",
+          "citation": "Harry Potter and the Sorcerer's Stone",
+          "source": 0
+        },
+        {
+          "claim": "Resisted multiple stunning spells cast by Ministry officials due to giant heritage",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ministry Aurors",
+          "result": "win",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "note": "Fought off several aurors sent to arrest him before escaping into the Forbidden Forest.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Stands approximately 11 feet tall as a half-giant",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Uses pink umbrella to perform basic or rudimentary magic",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Possesses half-giant magical heritage and resistance",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of his magical resistance against advanced lethal curses"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Rufus Scrimgeour",
+      "continuity": "Harry Potter books and films",
+      "summary": "Rufus Scrimgeour was the Minister for Magic and a former veteran Auror, trained in combat, tactical apprehension, and high-level defensive wizarding duels.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Advanced Auror combat spells",
+          "Stunning and binding curses"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego shields",
+          "Auror combat training"
+        ]
+      },
+      "weaknesses": [
+        "Mortal human vulnerability to fatal curses under overwhelming odds"
+      ],
+      "mobility": [
+        "Apparition",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Limited by human stamina and vulnerability to assassination"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Rufus_Scrimgeour",
+          "supports": "Rufus Scrimgeour's background as Head Auror, Minister for Magic, and combat history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Served as Head of the Auror Office before becoming Minister for Magic, fighting dark wizards for decades",
+          "citation": "Harry Potter and the Half-Blood Prince",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Death Eaters",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Tortured and killed by Voldemort and Death Eaters after refusing to reveal Harry Potter's location.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Highly trained wizard and veteran Auror",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Expert in combat magic and dark wizard apprehension",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific details of individual duels during his tenure as Head Auror"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
