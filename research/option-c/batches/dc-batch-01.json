@@ -21,18 +21,20 @@
       "support": ["Field medicine: suturing, bullet removal, arthroscopy", "Maintains and builds Batcave technology including the Batcomputer"],
       "feats": [
         {"claim": "Fought two slavers on his own during No Man's Land before Batman rescued him.", "citation": "Legends of the Dark Knight #118", "source": 0},
-        {"claim": "Escaped a cell and knocked out Hush.", "citation": "Batman Eternal #47", "source": 0},
-        {"claim": "Tricked Bane into helping him reach an emergency cave under Arkham, where he called for help.", "citation": "Batman Eternal #31", "source": 0},
-        {"claim": "Shot down the Batwing with Batman flying it, under Two-Face's blackmail.", "citation": "All-Star Batman #11", "source": 0}
+        {"claim": "Got out of his confinement in the Batcave while Julia Pennyworth briefly overrode the Batcomputer, then crept up on Hush and beat him unconscious.", "citation": "Batman Eternal #49", "source": 3},
+        {"claim": "Tricked Bane into following him to a hidden Batcave, then knocked Bane out with gas.", "citation": "Batman Eternal #31", "source": 2}
       ],
       "notableResults": [
         {"result": "loss", "opponent": "Bane (acting for the Flashpoint Thomas Wayne)", "citation": "Batman vol. 3 #77, City of Bane", "note": "Held hostage, then Bane broke his neck.", "source": 0}
       ],
       "weaknesses": ["Ordinary older human with no superhuman durability", "His medical skill was not enough for Batman's broken back (Knightfall) or skull fracture (Hush)"],
-      "unknowns": ["His service branch and role (special forces, intelligence, medic) changes between retellings, so no single military rank is treated as canon here."],
+      "unknowns": ["His service branch and role (special forces, intelligence, medic) changes between retellings, so no single military rank is treated as canon here.", "Wikipedia places the Hush knockout in Batman Eternal #47, but the #47 issue review shows Hush tying Alfred up; the escape and knockout are in the #49 review, so #49 is used.", "Wikipedia says Alfred shot down the Batwing under Two-Face's blackmail and cites All-Star Batman #11. Two reviews of #11 do not mention it and no issue-level source was found, so it was moved out of feats pending a scene check.", "The Legends of the Dark Knight #118 fight with two slavers rests on Wikipedia's specific description ('a rare one-panel fight sequence'); the DCU Guide issue page has no synopsis to corroborate it."],
       "sources": [
         {"url": "https://en.wikipedia.org/wiki/Alfred_Pennyworth", "supports": "Abilities (combat below Bruce's level, shotgun, medic, intelligence, acting), LotDK #118, Batman Eternal #31 and #47, All-Star Batman #11, death in Batman vol. 3 #77"},
-        {"url": "https://www.gamesradar.com/alfred-pennyworth-batman-careers-jobs", "supports": "His military job (medic, commando, special forces) is rarely consistent across versions"}
+        {"url": "https://www.gamesradar.com/alfred-pennyworth-batman-careers-jobs", "supports": "His military job (medic, commando, special forces) is rarely consistent across versions"},
+        {"url": "https://www.aiptcomics.com/2014/11/05/is-it-good-batman-eternal-31-review/", "supports": "Batman Eternal #31 review: Alfred leads Bane to what looks like a dead end, gets into a secret Batcave and knocks Bane out with gas"},
+        {"url": "https://aiptcomics.com/2015/03/11/is-it-good-batman-eternal-49-review/", "supports": "Batman Eternal #49 review: Julia overrides the Batcomputer so Alfred can escape his confinement; Alfred sneaks up behind Hush and beats him until he is knocked out"},
+        {"url": "https://aiptcomics.com/2015/02/25/is-it-good-batman-eternal-47-review/", "supports": "Batman Eternal #47 review: Hush escapes his glass cell and ties up Alfred (the knockout is not in this issue)"}
       ],
       "researchStatus": "provisional"
     },
@@ -92,7 +94,7 @@
         {"result": "loss", "opponent": "Steve Trevor, possessed through the Anti-Life Equation by Grail", "citation": "Justice League vol. 2 #49", "note": "Reduced to a skeleton.", "source": 8}
       ],
       "weaknesses": ["Repeatedly beaten by combined assaults", "Anti-Life Equation wielded against him (Justice League vol. 2 #49)"],
-      "unknowns": ["No single sourced statement of his top speed or reaction time.", "How much of the universe-consuming scale applies in a single arena fight is not established.", "The first draft listed 'Life Shell' armor holding in his leaking life force; only an offline 2023 Wikipedia mirror supported it and current sources do not, so it was dropped.", "The first draft said he killed two Green Lanterns and injured a Daxamite in Green Lantern vol. 4 #25. No opened source supports that; current Wikipedia places the deaths of Ash and Saarek in vol. 4 #42 (2009) without clearly naming him as the killer. Removed pending an issue-level check."],
+      "unknowns": ["No single sourced statement of his top speed or reaction time.", "How much of the universe-consuming scale applies in a single arena fight is not established.", "The first draft listed 'Life Shell' armor holding in his leaking life force; only an offline 2023 Wikipedia mirror supported it and current sources do not, so it was dropped.", "The first draft said he killed two Green Lanterns and injured a Daxamite in Green Lantern vol. 4 #25. No opened source supports that; current Wikipedia places the deaths of Ash and Saarek in vol. 4 #42 (2009) without clearly naming him as the killer. Removed pending an issue-level check.", "His role as the Black Lantern power source (Green Lantern Corps vol. 2 #46; Blackest Night #7-8) rests on Wikipedia alone; the DCU Guide battery page and an issue review checked in this pass do not describe it."],
       "sources": [
         {"url": "https://en.wikipedia.org/wiki/Anti-Monitor", "supports": "Powers list (energy and universe absorption, size manipulation), Qward and Shadow Demon forces, Crisis #12 star finish, GL vol. 4 #25 Superboy-Prime through his armor, GL Corps vol. 2 #46 and Blackest Night #7-8 power source, JL vol. 2 #46-47 energy shell, JL vol. 2 #49 skeleton, JL vol. 4 #19-22 Sixth Dimension regeneration"},
         {"url": "https://www.dc.com/characters/anti-monitor", "supports": "Publisher profile: caused the Crisis on Infinite Earths; destroyer of universes"},
@@ -145,11 +147,11 @@
     {
       "id": "dc:Aquaman|Water-Hand Aquaman",
       "continuity": "Mainline DC Comics, Aquaman vol. 6 (2003) by Rick Veitch and successors, where the Lady of the Lake gives Orin the Hand of the Waterbearer",
-      "formDifferences": "Same Orin with the same Atlantean body, but the harpoon is replaced by a hand of living water from the Secret Sea. The hand adds healing by touch, changing water density, pulling moisture out of objects, scrying, negating magic, controlling water and crossing dimensions, and it can act on its own. Violent use hurts the bearer. The harpoon's line and drill tricks do not carry over.",
+      "formDifferences": "Same Orin with the same Atlantean body, but the harpoon is replaced by a hand of living water from the Secret Sea. The hand adds healing by touch and negating magic (both shown in vol. 6 #3); Comic Vine's power list also gives scrying, controlling water, crossing dimensions, changing water density and pulling moisture out of objects, and says it can act on its own. Density change and moisture drawing have no issue-level support and are not counted as confirmed techniques. Violent use hurts the bearer. The harpoon's line and drill tricks do not carry over.",
       "summary": "Aquaman as the Waterbearer: a mystic water hand turns him into a healer and water-shaper with anti-magic tools, at a real cost whenever the hand is used violently.",
       "offense": {
         "domains": ["physical", "control", "elemental", "magic"],
-        "techniques": ["base Atlantean strength and sea-life command", "water manipulation and density change", "drawing moisture out of objects", "magic negation", "dimensional travel through the hand"],
+        "techniques": ["base Atlantean strength and sea-life command", "water manipulation", "magic negation", "dimensional travel through the hand"],
         "range": "melee to short range; dimensional travel"
       },
       "defense": {
@@ -160,7 +162,7 @@
       ],
       "notableResults": [],
       "weaknesses": ["Violent use or the death touch causes the bearer great pain and could kill him", "Heavy violent use summons the Thirst, which attacks the Secret Sea (Comic Vine says Orin later defeated it)", "Inherits base dehydration limits"],
-      "unknowns": ["Whether the hand stops the dehydration weakness is not stated in the cited pages.", "Offensive hand feats beyond Aquaman vol. 6 #3 were not confirmed in this pass.", "Density change and moisture drawing come from Comic Vine's power list; the #3 issue review does not show them.", "The first draft also had the hand healing the Necromonstrocity in #3; the issue review names only Rodunn, so that was dropped."],
+      "unknowns": ["Whether the hand stops the dehydration weakness is not stated in the cited pages.", "Offensive hand feats beyond Aquaman vol. 6 #3 were not confirmed in this pass.", "Unverified, not confirmed techniques: density change and moisture drawing come only from Comic Vine's power list; the #3 issue review does not show them. Kept out of offense until issue-level evidence exists.", "Water manipulation and dimensional travel also rest on Comic Vine's power list without a named issue in this pass.", "The first draft also had the hand healing the Necromonstrocity in #3; the issue review names only Rodunn, so that was dropped."],
       "sources": [
         {"url": "https://aqua.gjovaag.com/rev/2003/rev_a403.html", "supports": "Aquaman (2003) #3 'Aquamancer!' (Apr 2003) issue review: the hand destroys Rodunn's armor, removes the magic from his lamprey mount and heals Rodunn"},
         {"url": "https://comicvine.gamespot.com/secret-sea/4020-56724/", "supports": "Hand of the Waterbearer: enhances abilities, healing, density change, scrying, magic negation, water manipulation, dimension travel, independent action; violent-use pain and the Thirst"},
@@ -208,7 +210,7 @@
       "summary": "Founder of the Red Lantern Corps. His rage ring makes him a strong, durable flyer whose red energy can corrupt other Lanterns' rings, and unlike most Red Lanterns he keeps his full intellect. He also uses blood-magic divination.",
       "offense": {
         "domains": ["energy", "magic", "physical"],
-        "techniques": ["red ring energy blasts and constructs (constructs learned during Blackest Night)", "rage-tainted blood expelled through the mouth", "red energy that corrupts and can burn away other rings' auras", "blood rituals for divination and tracking", "improvised energy-draining devices (GL vol. 4 #33)"],
+        "techniques": ["red ring energy blasts and constructs (learned by watching other Lanterns during Blackest Night; first shown in Green Lantern vol. 4 #54)", "rage-tainted blood expelled through the mouth", "red energy that corrupts and can burn away other rings' auras", "blood rituals for divination and tracking", "improvised energy-draining devices (GL vol. 4 #33)"],
         "range": "melee to ranged"
       },
       "defense": {
@@ -219,19 +221,19 @@
         {"ability": "Ring powers (blasts, constructs, flight, aura corruption)", "dependsOn": "Wearing a red power ring; he lost it to Guy Gardner in Red Lanterns #34"}
       ],
       "feats": [
-        {"claim": "Threw a 14+ ton construction digger and shrugged off knife attacks.", "citation": "Green Lantern vol. 4 #31", "source": 0},
-        {"claim": "Escaped Ysmault and mortally wounded Abin Sur.", "citation": "Green Lantern vol. 4 #25, #29-30", "source": 0},
+        {"claim": "Threw a construction digger and shrugged off knife attacks.", "citation": "Green Lantern vol. 4 #31", "source": 0},
+        {"claim": "Released from Ysmault by Abin Sur to guide him to Earth, he broke free of Sur's ring bindings aboard the starship, mortally wounded him and escaped.", "citation": "Green Lantern vol. 4 #29-30", "source": 0},
         {"claim": "Crucified Sinestro on Ysmault.", "citation": "Green Lantern vol. 4 #36", "source": 0},
-        {"claim": "Resisted the Spectre's attempt to use his rage.", "citation": "Blackest Night (Green Lantern vol. 4 #45, #48, #50-51)", "source": 0},
-        {"claim": "Stopped the Butcher from possessing him and locked it in his battery.", "citation": "Green Lantern vol. 4 #61", "source": 0}
+        {"claim": "With the Spectre's help, warded off the Butcher's attempt to possess him and imprisoned it in his power battery.", "citation": "Green Lantern vol. 4 #61", "source": 0}
       ],
       "notableResults": [
         {"result": "loss", "opponent": "Sinestro and Hal Jordan", "citation": "Green Lantern vol. 4 #32-34", "note": "Stopped and captured while hunting William Hand.", "source": 0},
-        {"result": "unresolved", "opponent": "Lobo", "citation": "Green Lantern vol. 4 #54-55", "note": "The cited page records the battle but not a clear winner.", "source": 0},
+        {"result": "setback", "opponent": "The Spectre", "citation": "Green Lantern vol. 4 #51", "note": "After Parallax freed the Spectre, Atrocitus tried to make it his own rage entity and failed; the Spectre warned him off.", "source": 0},
+        {"result": "unresolved", "opponent": "Lobo", "citation": "Green Lantern vol. 4 #54-55", "note": "Lobo broke up a brawl between Atrocitus, Hal Jordan, Carol Ferris and Sinestro; the Lanterns then fought him off together. No one-on-one result.", "source": 0},
         {"result": "loss", "opponent": "Guy Gardner", "citation": "Red Lanterns #34", "note": "Lost his ring and command of the Corps; regained control in Green Lanterns #1.", "source": 0}
       ],
       "weaknesses": ["Blue Lantern energy can purify red corruption", "Most of his arsenal depends on the ring"],
-      "unknowns": ["The infobox lists blood portals, mind reading and rage absorption with no explanation in the cited page; they are not counted as confirmed techniques.", "Whether he ever personally killed a Guardian is not supported by the cited page."],
+      "unknowns": ["The infobox lists blood portals, mind reading and rage absorption with no explanation in the cited page; they are not counted as confirmed techniques.", "Whether he ever personally killed a Guardian is not supported by the cited page.", "Wikipedia sizes the GL vol. 4 #31 digger at '14+ ton'; that figure was not checked against the issue, so the feat is kept without the tonnage.", "The first draft said he resisted the Spectre's attempt to use his rage; Wikipedia says the reverse (he tried and failed to convert the Spectre, GL vol. 4 #51). Corrected to a setback."],
       "sources": [
         {"url": "https://en.wikipedia.org/wiki/Atrocitus", "supports": "Ring nature, strength and durability (GL #31), constructs, rituals, intellect (GL #33), ring limitations (Red Lanterns #1, #3), aura corruption (GL #36), blue purification, fight history by issue"},
         {"url": "https://www.comicvine.gamespot.com/red-lantern-corps/65-50747/", "supports": "Red Lantern Corps origin: Atrocitus accessed the red light of rage through blood magic"}
@@ -251,22 +253,24 @@
         "mechanisms": ["Venom-enhanced durability and accelerated healing", "peak-human conditioning without Venom"]
       },
       "conditional": [
-        {"ability": "Superhuman strength, speed, durability and healing (about 15 tonnes of lift per the cited page)", "dependsOn": "Venom fed through tubes into his brain, usually from a dosing tank; he swore off it in Vengeance of Bane II (1995) and later used it again in Secret Six"}
+        {"ability": "Superhuman strength, speed, durability and healing", "dependsOn": "Venom fed through tubes into his brain, usually from a dosing tank; he swore off it in Vengeance of Bane II (1995) and broke that vow in Secret Six #7 (May 2009)"}
       ],
       "feats": [
         {"claim": "Broke Batman's back after wearing him down during Knightfall.", "citation": "Batman #497 (Jul 1993)", "source": 0}
       ],
       "notableResults": [
         {"result": "win", "opponent": "Batman (exhausted)", "citation": "Batman #497", "note": "Batman was already exhausted when Bane attacked.", "source": 1},
-        {"result": "loss", "opponent": "Azrael", "citation": "Knightfall", "note": "Azrael cut his Venom tubes.", "source": 0},
+        {"result": "loss", "opponent": "Azrael (Jean-Paul Valley as Batman)", "citation": "Batman #500, Knightfall Part 19 (Oct 1993)", "note": "Cut off his Venom supply, then beat him.", "source": 2},
         {"result": "loss", "opponent": "Batman", "citation": "Detective Comics #701", "note": "Single-combat defeat.", "source": 0},
-        {"result": "loss", "opponent": "Batman temporarily powered by Superman", "citation": "Superman/Batman #53-56", "note": "Overpowered but survived.", "source": 0}
+        {"result": "loss", "opponent": "Batman temporarily powered by Superman", "citation": "Superman/Batman #53-56 (2008-09)", "note": "Overpowered while guarding a Venom shipment; survived. Neither source names the exact issue.", "source": 3}
       ],
       "weaknesses": ["Venom dependence: doses about every 12 hours", "Severe withdrawal if the supply is cut; the tubes are an exposed target"],
-      "unknowns": ["How strong Bane is without Venom in exact terms is not sourced."],
+      "unknowns": ["How strong Bane is without Venom in exact terms is not sourced.", "Wikipedia's 15-tonne lifting figure is cited to a reference book (DC Comics: Anatomy of a Metahuman, 2018, p. 112), not a comic scene. It is not used as a canon figure here.", "The 12-hour Venom dosing interval is cited by Wikipedia to a character profile, not an issue."],
       "sources": [
         {"url": "https://en.wikipedia.org/wiki/Bane_(DC_Comics)", "supports": "Venom effects and delivery, 15-tonne lift, intellect and languages, dosing interval and withdrawal, Azrael cutting the tubes, Batman #497, Detective Comics #701, Superman/Batman #53-56, swearing off Venom (1995) and relapse in Secret Six"},
-        {"url": "https://www.looper.com/137500/the-untold-truth-of-bane/", "supports": "Batman was exhausted when Bane broke him over his knee in Batman #497"}
+        {"url": "https://www.looper.com/137500/the-untold-truth-of-bane/", "supports": "Batman was exhausted when Bane broke him over his knee in Batman #497"},
+        {"url": "https://azraelonline.net/2017/06/17/knightfall-who-rules-the-night/", "supports": "Batman #500 (Knightfall Part 19, Oct 1993) recap: Jean-Paul as Batman shuts off Bane's Venom, then uses his new suit's arsenal on him until Bane begs to be killed"},
+        {"url": "https://arousinggrammar.com/2014/09/28/batman-and-superman-switch-powers-pt-1", "supports": "Superman/Batman #53-56 recap: the powered-up Batman goes after Bane, the one Venom supplier, in a 'Superman-level beatdown'"}
       ],
       "researchStatus": "provisional"
     },
@@ -284,17 +288,18 @@
       },
       "support": ["Ran the Birds of Prey as head of operations", "Coordinated hero counterstrikes as Oracle (Infinite Crisis, 2005)"],
       "feats": [
-        {"claim": "Foiled Killer Moth's attempted kidnapping of Bruce Wayne in her debut.", "citation": "Detective Comics #359 (Jan 1967)", "source": 0},
-        {"claim": "Defeated the Calculator in Hong Kong and made his Anti-Life Equation fragments useless.", "citation": "Oracle: The Cure (2009)", "source": 0}
+        {"claim": "In her debut, fought Killer Moth's thugs with judo while they held Bruce Wayne, letting him slip away to change into Batman; she later disrupted Killer Moth's plan again. The thugs escaped that first fight.", "citation": "Detective Comics #359 (Jan 1967)", "source": 2},
+        {"claim": "Defeated the Calculator in Hong Kong and made his Anti-Life Equation fragments useless.", "citation": "Oracle: The Cure #1-3 (2009)", "source": 0}
       ],
       "notableResults": [
         {"result": "loss", "opponent": "Joker", "citation": "Batman: The Killing Joke (1988)", "note": "Shot through the spine in an ambush, not a fight.", "source": 0}
       ],
       "weaknesses": ["No superpowers", "Ordinary human durability"],
-      "unknowns": ["No sourced one-on-one wins against superpowered opponents."],
+      "unknowns": ["No sourced one-on-one wins against superpowered opponents.", "The Oracle: The Cure outcome rests on Wikipedia; the DCU Guide #3 page has no synopsis and a series review does not describe the ending."],
       "sources": [
         {"url": "https://en.wikipedia.org/wiki/Barbara_Gordon", "supports": "Abilities (eidetic memory, hacking, black belts, eskrima, batarangs, firearms), Detective Comics #359, The Killing Joke, Oracle debut, New 52 restored mobility, Oracle: The Cure, Infinite Crisis coordination"},
-        {"url": "https://www.britannica.com/topic/Batgirl", "supports": "Barbara Gordon as Batgirl and as Oracle with a photographic memory and hacking skills"}
+        {"url": "https://www.britannica.com/topic/Batgirl", "supports": "Barbara Gordon as Batgirl and as Oracle with a photographic memory and hacking skills"},
+        {"url": "https://weirdsciencedccomics.com/2018/09/retro-review-detective-comics-359-1967.html", "supports": "Detective Comics #359 retro review: Killer Moth's gang grabs Bruce Wayne; Barbara fights them with judo, Bruce slips away to become Batman, the thugs still escape; she later ruins Killer Moth's staged-murder plan"}
       ],
       "researchStatus": "provisional"
     },
