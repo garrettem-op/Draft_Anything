@@ -8,121 +8,145 @@
     {
       "id": "muppets:Abby Cadabby",
       "continuity": "Sesame Street",
-      "summary": "Abby Cadabby is a young fairy-in-training who uses magical spells, floating, and turning things into pumpkins or other objects to affect her surroundings. While her magic is powerful, it is frequently unpredictable or requires consulting her fairy dictionary.",
+      "summary": "Abby Cadabby is a young fairy-in-training on Sesame Street whose magic turns things into pumpkins; she floats when happy and pops in and out of thin air.",
       "offense": {
         "domains": [
           "magic"
         ],
         "techniques": [
-          "Fairy spells",
-          "Transfiguration (turning objects into pumpkins)",
-          "Levitation"
+          "Wand magic (turning things into pumpkins)"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
-          "Flight / hovering",
-          "Magical barriers or evasion"
+          "Popping out of thin air",
+          "Floating"
         ]
       },
       "weaknesses": [
-        "Inexperience with magic often leads to backfiring spells",
-        "Relies heavily on her Fairy Dictionary for complex tasks"
+        "Her wand can overload: it once set off too much lightning and broke, and had to be repaired"
       ],
       "mobility": [
-        "Flight"
+        "Floats (when happy)",
+        "Pops in and out of thin air"
       ],
       "limitations": [
-        "Spells can have unintended side effects due to her age and lack of complete training"
+        "Very young (described as 3, later 4) and still a fairy-in-training"
       ],
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Abby_Cadabby",
-          "supports": "Magic abilities, flying, transfiguration, and fairy dictionary usage."
+          "supports": "Abby Cadabby: fairy-in-training aged 3 then 4; magic includes turning things into pumpkins; pops in and out of thin air and floats when happy; her wand set off too much lightning and broke; casts with 'Zippity-zap!'."
         }
       ],
       "feats": [
         {
-          "claim": "Turned objects and characters into pumpkins using fairy magic",
-          "citation": "Sesame Street episodes featuring Abby Cadabby",
+          "claim": "Turns things into pumpkins with her magic.",
+          "citation": "Sesame Street",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "magic",
-          "claim": "Uses fairy magic and spells",
+          "claim": "Fairy who casts spells with a wand ('Zippity-zap!').",
           "source": 0
         },
         {
           "tag": "spellcaster",
-          "claim": "Casts spells using a wand and fairy dictionary",
+          "claim": "Casts spells, e.g. turning things into pumpkins.",
           "source": 0
         },
         {
           "tag": "natural-flight",
-          "claim": "Can fly or hover using fairy wings",
+          "claim": "Floats innately when happy.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Pops in and out of thin air.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact upper limits of her magical potential as she matures"
+        "How high or far she can fly; the source mentions floating, not sustained flight.",
+        "Upper limits of her magic as she matures."
       ],
       "researchStatus": "provisional"
     },
     {
       "id": "muppets:Animal",
       "continuity": "The Muppet Show",
-      "summary": "Animal is an exceptionally wild and aggressive drummer for Electric Mayhem who attacks his drum kit and opponents with primal ferocity. When restrained by a chain, unleashing him turns him into a chaotic physical combatant.",
+      "summary": "Animal is the Electric Mayhem's crazed drummer, kept chained when not performing in his earliest appearance. He is driven by 'sex, sleep, food, drums, and pain' and once grew to ten times his size from Insta-Grow Pills.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
-          "Frantic drumming",
-          "Savage biting",
-          "Rampaging tackles"
+          "Frenzied drumming",
+          "Wild rampaging"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
-          "High pain tolerance driven by pure adrenaline and rage"
+          "Not established in the source"
         ]
       },
       "weaknesses": [
-        "Easily distracted or calmed by quiet music or the sight of a woman (historically depicted)",
-        "Lacks tactical discipline"
+        "Goes wild at the word 'drums', so he can be set off"
       ],
       "mobility": [
-        "Super-speed running / rushing"
+        "Not established in the source"
       ],
       "limitations": [
-        "Requires a leash or chain when not performing to prevent uncontrolled destruction"
+        "Needed restraint: chained in a basement cell when not performing (1975 pilot); later attends anger management"
       ],
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Animal",
-          "supports": "Wild personality, physical aggression, drumming role, and restraints."
+          "supports": "Animal: crazed percussionist; chained in a basement cell in the 1975 pilot; goes wild at the word 'drums'; ate Bunsen's Insta-Grow Pills in The Muppet Movie, grew ten times his size and scared away Doc Hopper; keen sense of smell in Muppets Most Wanted; anger management in The Muppets."
         }
       ],
       "feats": [
         {
-          "claim": "Smashed drum sets to pieces during intense musical performances",
-          "citation": "The Muppet Show",
+          "claim": "Grew to ten times his size after eating Insta-Grow Pills and scared away Doc Hopper.",
+          "citation": "The Muppet Movie (1979)",
+          "source": 0
+        },
+        {
+          "claim": "Smelled out that Constantine had replaced Kermit.",
+          "citation": "Muppets Most Wanted (2014)",
           "source": 0
         }
       ],
       "unknowns": [
-        "True extent of his physical strength outside of comedic rage"
+        "Physical strength outside comedic rage is not documented.",
+        "No giant-sized tag: the growth is a one-off pill effect, not his normal size."
       ],
-      "researchStatus": "provisional"
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Doc Hopper",
+          "result": "win",
+          "citation": "The Muppet Movie (1979)",
+          "note": "Giant-sized after Insta-Grow Pills; Hopper fled.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Giant size (ten times normal)",
+          "dependsOn": "Dr. Bunsen Honeydew's Insta-Grow Pills",
+          "source": 0
+        }
+      ]
     },
     {
       "id": "muppets:Annie Sue",
       "continuity": "The Muppet Show",
-      "summary": "Annie Sue is a pig performer known primarily for her singing and acting rather than combat. She engages in social situations and musical numbers.",
+      "summary": "Annie Sue is a young female pig singer on The Muppet Show whom Miss Piggy sees as a rival; she is a performer, not a fighter.",
       "offense": {
         "domains": [
           "physical"
@@ -149,13 +173,13 @@
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Annie_Sue",
-          "supports": "Performer background and character attributes on The Muppet Show."
+          "supports": "Annie Sue: young female pig singer on The Muppet Show; Piggy saw her as a rival and Annie Sue saw Piggy as a role model; helped Fozzie with his memory act in episode 302."
         }
       ],
       "feats": [
         {
-          "claim": "Performed musical numbers alongside Kermit the Frog and Miss Piggy",
-          "citation": "The Muppet Show",
+          "claim": "Helped Fozzie Bear with his memory act, easily winning over the crowd.",
+          "citation": "The Muppet Show, episode 302",
           "source": 0
         }
       ],
@@ -167,7 +191,7 @@
     {
       "id": "muppets:Baby Bear",
       "continuity": "Sesame Street",
-      "summary": "Baby Bear is a young bear character who participates in storybooks, porridge-related activities, and interactions with other Sesame Street residents.",
+      "summary": "Baby Bear, of 'The Three Bears', is a young Sesame Street bear with a lisp, a fondness for porridge and art, and a perpetual rivalry with Goldilocks.",
       "offense": {
         "domains": [
           "physical"
@@ -179,11 +203,11 @@
       },
       "defense": {
         "mechanisms": [
-          "Standard durability of a fictional bear cub"
+          "Not established in the source"
         ]
       },
       "weaknesses": [
-        "Childish temperament and easily overwhelmed by conflict"
+        "Not established in the source; no physical feats are documented"
       ],
       "mobility": [
         "Walking"
@@ -194,12 +218,12 @@
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Baby_Bear",
-          "supports": "Character background on Sesame Street."
+          "supports": "Baby Bear: from 'The Three Bears'; lisp; perpetual nemesis Goldilocks; best friend Telly; fond of porridge; interest in art; no physical feats described."
         }
       ],
       "feats": [
         {
-          "claim": "Participated in various Sesame Street sketches and stories",
+          "claim": "Long-running rivalry with Goldilocks, his perpetual nemesis.",
           "citation": "Sesame Street",
           "source": 0
         }
@@ -212,55 +236,45 @@
     {
       "id": "muppets:Barkley",
       "continuity": "Sesame Street",
-      "summary": "Barkley is a very large, shaggy dog who uses his size, weight, and tracking abilities to navigate Sesame Street. He can overwhelm opponents physically purely through large canine mass.",
+      "summary": "Barkley is a large furry Muppet dog on Sesame Street who behaves like a regular dog and communicates only through barks, yelps and physical contact.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
-          "Tackling",
-          "Bite",
-          "Knockdown"
+          "Dog-like physical contact"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
-          "Thick fur coat",
-          "Large physical mass"
+          "Large furry body"
         ]
       },
       "weaknesses": [
-        "Canine vulnerabilities such as distraction by food or loud noises"
+        "Not established in the source"
       ],
       "mobility": [
         "Quadrupedal running"
       ],
       "limitations": [
-        "Lacks ranged attacks or intelligence beyond a trained dog"
+        "Communicates only through barks, yelps and physical contact; understands only simple commands such as 'sit' and 'stay'"
       ],
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Barkley",
-          "supports": "Barkley's large physical size and canine attributes."
+          "supports": "Barkley: large furry full-bodied Muppet dog, no measurements given; communicates through barks, yelps and physical contact; understands ASL 'sit' and 'stay'; went with Big Bird to China (1982) and Japan (1988)."
         }
       ],
       "feats": [
         {
-          "claim": "Interacted with Sesame Street residents using his large physical size to knock over or greet people enthusiastically",
-          "citation": "Sesame Street",
-          "source": 0
-        }
-      ],
-      "campaignTags": [
-        {
-          "tag": "giant-sized",
-          "claim": "Significantly larger than standard dogs and adult humans in height and bulk",
+          "claim": "Accompanied Big Bird on trips to China (1982) and Japan (1988).",
+          "citation": "Big Bird in China; Big Bird in Japan",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact weight and bite force"
+        "Exact height and weight are not documented, so no giant-sized tag (owner ruling: about 8 ft or more, documented)."
       ],
       "researchStatus": "provisional"
     },
@@ -295,13 +309,13 @@
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Beaker",
-          "supports": "Beaker's role as lab assistant and subject of scientific mishaps."
+          "supports": "Beaker: victim of Bunsen's experiments, shrunk, cloned, punched, deflated, zapped, turned invisible and blown up, but always comes back for more; electrocuted in The Great Muppet Caper; lives in constant fear."
         }
       ],
       "feats": [
         {
-          "claim": "Survived numerous laboratory explosions, ray gun hits, and chemical transformations",
-          "citation": "The Muppet Show",
+          "claim": "Has been shrunk, cloned, zapped, turned invisible and blown up in Bunsen's experiments, and always comes back.",
+          "citation": "The Muppet Show and later productions",
           "source": 0
         }
       ],
@@ -312,29 +326,27 @@
     },
     {
       "id": "muppets:Bean Bunny",
-      "continuity": "The Muppet Show / The Muppets Take Manhattan",
-      "summary": "Bean Bunny is a small, timid rabbit who relies on stealth, hiding, and appealing to others' sympathy to survive dangerous situations.",
+      "continuity": "Muppets: The Tale of the Bunny Picnic (1986) onward, including The Muppet Christmas Carol (1992)",
+      "summary": "Bean Bunny is a small, insufferably cute rabbit who starred in The Tale of the Bunny Picnic and later became a routine target of Muppet slapstick violence.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
-          "Hiding",
-          "Evasion"
+          "None documented"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
-          "Small target size",
-          "Burrowing / hiding"
+          "Small size"
         ]
       },
       "weaknesses": [
-        "Very physically weak and easily intimidated"
+        "Routine target of Muppet violence"
       ],
       "mobility": [
-        "Hopping / running"
+        "Hopping"
       ],
       "limitations": [
         "Zero offensive combat capability"
@@ -342,13 +354,18 @@
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Bean_Bunny",
-          "supports": "Bean Bunny's small size, timid nature, and appearances."
+          "supports": "Bean Bunny: debuted in The Tale of the Bunny Picnic (1986), where he helped make peace with the farmer's dog; in The Muppet Christmas Carol he fetched a turkey twice his size for Scrooge; later a routine target of Muppet violence."
         }
       ],
       "feats": [
         {
-          "claim": "Navigated urban hazards and theatrical environments while avoiding danger",
-          "citation": "The Muppets Take Manhattan",
+          "claim": "Fetched a turkey twice his size for Scrooge on Christmas morning.",
+          "citation": "The Muppet Christmas Carol (1992)",
+          "source": 0
+        },
+        {
+          "claim": "Helped make peace with the farmer's dog.",
+          "citation": "The Tale of the Bunny Picnic (1986)",
           "source": 0
         }
       ],
@@ -360,7 +377,7 @@
     {
       "id": "muppets:Beauregard",
       "continuity": "The Muppet Show",
-      "summary": "Beauregard is the gentle, slow-witted maintenance man of the Muppet Theater who possesses surprising raw physical strength, often accidentally destroying sets or moving heavy loads.",
+      "summary": "Beauregard is the dim but lovable janitor of the Muppet Theatre who can effortlessly carry objects far too heavy to carry, though his efforts to help often end in disaster.",
       "offense": {
         "domains": [
           "physical"
@@ -377,10 +394,11 @@
         ]
       },
       "weaknesses": [
-        "Extreme gullibility and lack of tactical awareness"
+        "Slow-witted: others exploit him for their own purposes"
       ],
       "mobility": [
-        "Walking / driving a truck"
+        "Walking",
+        "Drives a taxi (The Great Muppet Caper) and the tour train (Muppets Most Wanted)"
       ],
       "limitations": [
         "Unfocused and slow to react to threats"
@@ -388,12 +406,12 @@
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Beauregard",
-          "supports": "Beauregard's role as janitor and feats of heavy lifting."
+          "supports": "Beauregard: dim janitor at the Muppet Theatre; effortlessly lifts objects far too heavy to carry; his efforts often result in disaster; others exploit his slow wit; taxi driver in The Great Muppet Caper; runs the tour train in Muppets Most Wanted."
         }
       ],
       "feats": [
         {
-          "claim": "Easily carried heavy stage equipment and occasionally demolished theater infrastructure by accident",
+          "claim": "Effortlessly lifts and carries objects far too heavy to carry.",
           "citation": "The Muppet Show",
           "source": 0
         }
@@ -406,7 +424,7 @@
     {
       "id": "muppets:Bernice",
       "continuity": "Sesame Street",
-      "summary": "Bernice is Bert's pet pigeon, capable of flight and participating in pigeon-related activities on Sesame Street.",
+      "summary": "Bernice is Bert's pet pigeon on Sesame Street, played by a real pigeon.",
       "offense": {
         "domains": [
           "physical"
@@ -433,12 +451,12 @@
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Bernice",
-          "supports": "Bernice's identity as Bert's pet pigeon."
+          "supports": "Bernice: Bert's pet pigeon, played by a real pigeon; Bert taught her checkers and she beat him twice in ten games."
         }
       ],
       "feats": [
         {
-          "claim": "Participated in the annual Pigeon-Cooing Championship",
+          "claim": "Beat Bert at checkers twice in ten games.",
           "citation": "Sesame Street",
           "source": 0
         }
@@ -446,19 +464,19 @@
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Flies as a natural bird",
+          "claim": "A real pigeon (a flying bird) plays her.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Any combat utility beyond distraction"
+        "The source does not describe her flying on screen; the tag rests on her being a real pigeon."
       ],
       "researchStatus": "provisional"
     },
     {
       "id": "muppets:Bert",
       "continuity": "Sesame Street",
-      "summary": "Bert is a cautious, orderly resident of Sesame Street who relies on preparation, paperclip collecting, and oatmeal. He avoids physical conflict whenever possible, depending on his structured routines.",
+      "summary": "Bert is Ernie's serious, studious roommate who collects paper clips and bottle caps, studies pigeons and loves oatmeal. He avoids physical conflict.",
       "offense": {
         "domains": [
           "physical"
@@ -470,8 +488,7 @@
       },
       "defense": {
         "mechanisms": [
-          "Caution",
-          "Hiding behind Ernie or sturdy objects"
+          "Not established in the source"
         ]
       },
       "weaknesses": [
@@ -487,12 +504,12 @@
       "sources": [
         {
           "url": "https://muppet.fandom.com/wiki/Bert",
-          "supports": "Bert's personality, hobbies, and cautious demeanor on Sesame Street."
+          "supports": "Bert: serious, studious; collects paper clips and bottle caps (368 bottle caps); eats oatmeal; studies pigeons; pet pigeon Bernice; his nose has come off his face several times."
         }
       ],
       "feats": [
         {
-          "claim": "Maintained extensive collections of paperclips, bottle caps, and rubber bands",
+          "claim": "Collects paper clips and has 368 bottle caps.",
           "citation": "Sesame Street",
           "source": 0
         }
