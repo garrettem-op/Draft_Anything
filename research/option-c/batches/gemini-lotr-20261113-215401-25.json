@@ -1,0 +1,538 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-215401 #25",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Celebrimbor",
+      "continuity": "The Silmarillion / The Lord of the Rings (Tolkien Legendarium)",
+      "summary": "Celebrimbor is the greatest Elvensmith of the Second Age in Eregion, renowned for crafting the Rings of Power with Sauron's guidance. In combat, he relies on elven weaponry, craftsmanship, and leadership rather than overt magical warfare.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Elven blade combat",
+          "Forging of powerful artifacts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven armor",
+          "Fortified defensive positions in Eregion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to psychological manipulation and deception by Sauron"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Over-reliance on his own craft, leaving him susceptible to Sauron's deceit regarding the Rings."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Celebrimbor",
+          "supports": "Role as Elvensmith, creation of the Rings of Power, and fate during the War of the Elves and Sauron."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Forged the Three Rings of the Elves independently of Sauron's direct corruption.",
+          "citation": "The Silmarillion, Of the Rings of Power and the Third Age",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron's forces",
+          "result": "loss",
+          "citation": "The Silmarillion - The War of the Elves and Sauron",
+          "note": "Defended Eregion but was eventually captured and killed when Sauron overran the realm.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat capabilities and martial feats prior to the siege of Eregion are sparsely detailed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Círdan the Shipwright",
+      "continuity": "The Lord of the Rings / The Silmarillion (Tolkien Legendarium)",
+      "summary": "Círdan is one of the oldest and wisest Elves remaining in Middle-earth, Lord of the Havens of Mithlond. He is a master shipbuilder and counselor rather than a frontline combatant, though possessed of great foresight.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Traditional Elven weaponry",
+          "Wisdom and counsel"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven resilience",
+          "Protection of the Grey Havens"
+        ]
+      },
+      "weaknesses": [
+        "Not primarily focused on martial prowess or offensive combat"
+      ],
+      "mobility": [
+        "Walking",
+        "Seafaring vessels"
+      ],
+      "limitations": [
+        "Prefers stewardship and escape routes over direct conquest."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/C%C3%ADrdan",
+          "supports": "Círdan's identity as shipbuilder, bearer of Narya initially, and longevity."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought in the Last Alliance of Elves and Men against Sauron.",
+          "citation": "The Silmarillion / The Fellowship of the Ring",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron's forces",
+          "result": "win",
+          "citation": "The Silmarillion - War of the Last Alliance",
+          "note": "Participated in the successful siege of Barad-dûr alongside Gil-galad and Elendil.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Possession and use of Narya, the Ring of Fire",
+          "dependsOn": "Holding the ring before gifting it to Gandalf",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact details of his personal combat style during the First and Second Ages."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Dáin II Ironfoot",
+      "continuity": "The Hobbit / The Lord of the Rings (Tolkien Legendarium)",
+      "summary": "Dáin II Ironfoot is a formidable Dwarf king of Durin's Folk, wielding a heavy red axe with devastating skill. He is heavily armored and possesses legendary endurance and physical strength.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Two-handed red axe combat",
+          "Dwarven shield-wall tactics"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy dwarven mail and iron boots",
+          "Dwarven resilience"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to flanking and overwhelming numbers despite heavy armor"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Limited mobility due to heavy armor and advanced age in later years."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/D%C3%A1in_II_Ironfoot",
+          "supports": "Dáin's role in the Battle of the Five Armies, combat prowess with an axe, and death at Dale."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew Azog the Defiler outside the gates of Moria as a young dwarf.",
+          "citation": "The Hobbit, Appendix A",
+          "source": 0
+        },
+        {
+          "claim": "Fought fiercely at the Battle of the Five Armies, cutting down numerous goblins and orcs.",
+          "citation": "The Hobbit, Chapter 18",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Azog",
+          "result": "win",
+          "citation": "The Hobbit, Appendix A",
+          "note": "Defeated Azog in single combat during the War of the Dwarves and Orcs.",
+          "source": 0
+        },
+        {
+          "opponent": "Easterlings",
+          "result": "loss",
+          "citation": "The Lord of the Rings, Appendix A",
+          "note": "Slain defending the body of King Brand before the gates of Erebor during the War of the Ring.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact age-related decline during the War of the Ring."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Denethor II",
+      "continuity": "The Lord of the Rings (Tolkien Legendarium)",
+      "summary": "Denethor II is the Ruling Steward of Gondor, a proud, stern leader of great willpower and ancient Númenórean blood. He wields a longsword and has formidable mental fortitude, though broken psychologically by despair and the Palantír.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Longsword combat",
+          "Command authority"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gondorian plate armor",
+          "Strong willpower (prior to despair)"
+        ]
+      },
+      "weaknesses": [
+        "Severe psychological despair and manipulation via the Anorien Palantír"
+      ],
+      "mobility": [
+        "Walking",
+        "Horseback"
+      ],
+      "limitations": [
+        "Prone to fatalistic despair when faced with overwhelming odds."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Denethor_II",
+          "supports": "Denethor's role as Steward, use of the Palantír, and death in Minas Tirith."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Maintained resistance against Sauron's mental domination through the palantír for years before breaking.",
+          "citation": "The Return of the King, The Pyre of Denethor",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron (mental contest)",
+          "result": "loss",
+          "citation": "The Return of the King",
+          "note": "Mentally broken by Sauron's overwhelming displays via the Palantír, leading to suicide.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Active combat feats in field battles during his earlier years as commander."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Durin's Bane",
+      "continuity": "The Lord of the Rings (Tolkien Legendarium)",
+      "summary": "Durin's Bane is a Balrog of Morgoth, an ancient Maia spirit of fire and shadow. It wields a fiery whip and a broad-bladed sword of black flame, possessing immense physical strength, heat, and destructive magic.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic",
+          "fire"
+        ],
+        "techniques": [
+          "Fiery whip strikes",
+          "Black flame sword attacks",
+          "Aura of intense heat and darkness",
+          "Counter-spells against magical seals"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Impenetrable demonic hide",
+          "Warping aura of fire and shadow",
+          "Immortality as a Maia"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to exceptionally powerful divine or magical forces (such as Gandalf's power)"
+      ],
+      "mobility": [
+        "Walking",
+        "Leaping",
+        "Natural flight (implied shadow wings)"
+      ],
+      "limitations": [
+        "Bound to physical form in Middle-earth; susceptible to fatal exhaustion in prolonged magical combat."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Balrog",
+          "supports": "Balrog attributes, weapon usage, status as a Maia, and encounter in Moria."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Drove the Dwarves out of Khazad-dûm, killing King Náin I and King Thrór's grandfather.",
+          "citation": "The Fellowship of the Ring / Appendices",
+          "source": 0
+        },
+        {
+          "claim": "Fought Gandalf the Grey across days from the depths of Moria to the peak of Zirakzigil.",
+          "citation": "The Fellowship of the Ring, The Bridge of Khazad-dûm and The White Rider",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gandalf the Grey",
+          "result": "loss",
+          "citation": "The Two Towers, The White Rider",
+          "note": "Slain by Gandalf on Zirakzigil after an exhaustive multi-day battle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Surrounded by fire, smoke, and wields a fiery whip.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Generates and controls intense magical fire and heat.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Wields a fiery whip and a sword of flame.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether Balrogs possess true powered flight or merely glide/inspire terror with shadow."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Dwalin",
+      "continuity": "The Hobbit / The Lord of the Rings (Tolkien Legendarium)",
+      "summary": "Dwalin is a stout Dwarf of Thorin's company, a veteran warrior skilled with a battleaxe, hammer, and sword. He is heavily armored and fights with fierce frontline aggression.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Battleaxe strikes",
+          "Hammer and sword combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dwarven chainmail",
+          "Heavy helm and shield"
+        ]
+      },
+      "weaknesses": [
+        "Standard physical vulnerabilities of mortal dwarves"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Limited range; relies entirely on close-quarters melee combat."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Thorin_Oakenshield#Dwalin",
+          "supports": "Dwalin's role in Thorin's company and weapon preferences."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived numerous skirmishes during the quest of Erebor, including battles with trolls, goblins, and wargs.",
+          "citation": "The Hobbit",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Battle of the Five Armies.",
+          "citation": "The Hobbit, Chapter 18",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Goblins of the Misty Mountains",
+          "result": "win",
+          "citation": "The Hobbit, Chapter 4",
+          "note": "Successfully fought off goblins in the goblin tunnels alongside his companions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific individual feats during the War of the Ring due to old age."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Eärendil",
+      "continuity": "The Silmarillion (Tolkien Legendarium)",
+      "summary": "Eärendil the Mariner is a half-elven hero who sailed the skies of Arda bearing the Silmaril. He possesses celestial navigation mastery, divine blessing, and fights aboard his flying ship Vingilot.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Radiant light of the Silmaril",
+          "Aerial combat aboard Vingilot"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protection of the Valar",
+          "Blinding brilliance of the Silmaril"
+        ]
+      },
+      "weaknesses": [
+        "Dependent on his ship and the light of the Silmaril for extraordinary cosmic power"
+      ],
+      "mobility": [
+        "Powered-flight (flying ship Vingilot)"
+      ],
+      "limitations": [
+        "Bound to the skies of the upper atmosphere after his transformation."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/E%C3%A4rendil",
+          "supports": "Eärendil's lineage, voyage with the Silmaril, and defeat of Ancalagon the Black."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew the great dragon Ancalagon the Black in aerial combat during the War of Wrath.",
+          "citation": "The Silmarillion, Of the Voyage of Eärendil and the War of Wrath",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ancalagon the Black",
+          "result": "win",
+          "citation": "The Silmarillion - War of Wrath",
+          "note": "Defeated the greatest of Morgoth's dragons in the skies above Thangorodrim with the help of the great eagles.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and blinding starlight attack",
+          "dependsOn": "The flying ship Vingilot and the Silmaril",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Sails the sky aboard the flying ship Vingilot.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how Vingilot achieves sustained celestial flight."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Elendil",
+      "continuity": "The Lord of the Rings / The Silmarillion (Tolkien Legendarium)",
+      "summary": "Elendil the Tall is the High King of Arnor and Gondor, a mighty Númenórean warrior of immense stature and physical strength. He wields the legendary sword Narsil and wears peerless plate armor.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Greatsword combat with Narsil",
+          "Númenórean martial mastery"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Númenórean plate armor and shield",
+          "Exceptional physical durability and height"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to extreme heat and overwhelming magical or physical trauma"
+      ],
+      "mobility": [
+        "Walking",
+        "Horseback"
+      ],
+      "limitations": [
+        "Mortal limits despite exceptional Númenórean lifespan and physique."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Elendil",
+          "supports": "Elendil's role as High King, wielding of Narsil, and death in combat against Sauron."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led the armies of Men alongside Gil-galad in the Last Alliance against Sauron.",
+          "citation": "The Fellowship of the Ring, Council of Elrond",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron",
+          "result": "loss",
+          "citation": "The Silmarillion / The Fellowship of the Ring",
+          "note": "Slain in single combat on the slopes of Orodruin alongside Gil-galad, though Sauron was simultaneously overthrown.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Noted for exceptional height and stature as a high-ranking Númenórean.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact details of his swordplay techniques apart from wielding Narsil."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
