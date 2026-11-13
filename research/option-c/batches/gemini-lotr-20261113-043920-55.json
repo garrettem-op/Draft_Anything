@@ -1,0 +1,472 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-043920 #55",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Anárion",
+      "continuity": "The Silmarillion / The Lord of the Rings / Tolkien Legendarium",
+      "summary": "Anárion was a prince of Númenor and co-founder of the Southern Kingdom of Gondor alongside his brother Isildur. He was a formidable warrior who defended Minas Anor and Osgiliath against Sauron.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Swordplay",
+          "Fortified defense command",
+          "Siege defense"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Númenórean steel armor",
+          "Great helm of Gondor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to siege machinery and overwhelming physical force"
+      ],
+      "mobility": [
+        "Foot movement",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Human mortality"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/An%C3%A1rion",
+          "supports": "Founding of Gondor, defense of Minas Anor, and death during the Siege of Barad-dûr."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defended Minas Anor and Osgiliath against the forces of Mordor during the War of the Last Alliance.",
+          "citation": "The Silmarillion, Of the Rings of Power and the Third Age",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron's forces",
+          "result": "win",
+          "citation": "The Silmarillion - Defense of Osgiliath",
+          "note": "Held the city against initial assaults before the Siege of Barad-dûr.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact details of his personal combat engagements during the Siege of Barad-dûr are sparse."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Ancalagon the Black",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Ancalagon the Black was the greatest of the winged dragons created by Morgoth. He possessed immense physical size, devastating fire breath, and could blot out the sun with his wings.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Dragon-fire",
+          "Massive physical crushing",
+          "Wing buffet"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Impenetrable dragon scales except for vulnerable underbelly",
+          "Enormous physical mass and durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable underbelly and weak spots beneath armor plating"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Massive size makes him a target for aerial combatants"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ancalagon_the_Black",
+          "supports": "Status as the greatest dragon of Morgoth, immense size, and defeat by Eärendil."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Drove back the Host of the Valar from Thangorodrim before being slain.",
+          "citation": "The Silmarillion, The Voyage of Eärendil and the War of Wrath",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Eärendil (flying Vingilot)",
+          "result": "loss",
+          "citation": "The Silmarillion - The War of Wrath",
+          "note": "Slain after a day-long battle in the skies above Thangorodrim.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Had massive wings and flew in the War of Wrath",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Breathed devastating dragon-fire",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Exceeded the size of ordinary dragons and crushed mountains upon falling",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how Eärendil bypassed his defenses in aerial combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Ar-Pharazôn",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Ar-Pharazôn the Golden was the last and most powerful King of Númenor. He humiliated Sauron through military might alone, but was ultimately seduced by Sauron's counsel and led his armada to Valinor, resulting in the drowning of Númenor.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Imperial command",
+          "Massed Númenórean warfare",
+          "Intimidation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Royal Númenórean armor",
+          "Guard forces"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance, fear of death, and susceptibility to psychological manipulation by Sauron"
+      ],
+      "mobility": [
+        "Horseback",
+        "Royal fleet"
+      ],
+      "limitations": [
+        "Human mortality and physical vulnerability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ar-Pharaz%C3%B4n",
+          "supports": "Status as King of Númenor, subjugation of Sauron, and the invasion of Valinor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Land an armada so vast that Sauron's armies surrendered without striking a blow.",
+          "citation": "The Silmarillion, Akallabêth",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron",
+          "result": "win",
+          "citation": "The Silmarillion - Akallabêth",
+          "note": "Sauron submitted voluntarily because Númenor's military force was too overwhelming.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact fate beneath the falling mountains of Aman during the Downfall."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Aragorn",
+      "continuity": "The Lord of the Rings / Tolkien Legendarium",
+      "summary": "Aragorn, son of Arathorn, is the Chieftain of the Dúnedain and rightful King of Gondor and Arnor. He fights with exceptional skill using the sword Andúril, possesses extraordinary stamina, and excels in tracking and wilderness combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Swordsmanship with Andúril",
+          "Tracker stealth and ambushes",
+          "Leadership in battle"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven mail and rugged travel gear",
+          "Exceptional physical resilience and willpower"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to conventional physical damage and overwhelming numbers"
+      ],
+      "mobility": [
+        "Running over long distances",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Human physiological limits despite enhanced Dúnedain longevity and stamina"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Aragorn",
+          "supports": "Lineage as Isildur's heir, combat skills, usage of Andúril, and leadership feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off five Nazgûl at Weathertop using fire and a sword.",
+          "citation": "The Fellowship of the Ring, A Knife in the Dark",
+          "source": 0
+        },
+        {
+          "claim": "Commanded the Army of the Dead at the Battle of the Pelennor Fields.",
+          "citation": "The Return of the King, The Last Debate",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lurtz",
+          "result": "win",
+          "citation": "The Fellowship of the Ring (Film adaptation / Book equivalent)",
+          "note": "Defeated the Uruk-hai leader in brutal hand-to-hand combat.",
+          "source": 0
+        },
+        {
+          "opponent": "The Mouth of Sauron (Negotiation)",
+          "result": "win",
+          "citation": "The Return of the King - Black Gate",
+          "note": "Stared down and unnerved the emissary of Sauron.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Possesses the King's Foil (athelas) healing arts",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Master tracker and ranger skilled in covert movement",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his resistance to dark magic and sorcery."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Aredhel",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Aredhel the White was an Elven princess of the Noldor, sister of Turgon. She was a skilled hunter and horse-rider who ventured into Nan Elmoth and was ensnared by Eöl.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Hunting",
+          "Equestrian combat",
+          "Swordplay"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven agility",
+          "Stealth in woodlands"
+        ]
+      },
+      "weaknesses": [
+        "Overconfidence when traveling alone through perilous domains"
+      ],
+      "mobility": [
+        "Expert horseback riding",
+        "Forest running"
+      ],
+      "limitations": [
+        "Vulnerable to poisoned steel"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Aredhel",
+          "supports": "Lineage as daughter of Fingolfin, skill as a hunter, and entrapment in Nan Elmoth."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rode alongside the sons of Fëanor and hunted in the forests of Beleriand.",
+          "citation": "The Silmarillion, Of Maeglin",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Eöl (Dark Elf)",
+          "result": "loss",
+          "citation": "The Silmarillion - Of Maeglin",
+          "note": "Trapped in Nan Elmoth through Eöl's spells and compelled to marry him.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Known as the White Lady of the Noldor, adept at moving unseen through forests",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her combat record during the migration of the Noldor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Arien",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Arien was a Maia of Valinor chosen to guide the Sun across the skies. She possesses immense fiery power and radiant heat that even Morgoth's servants fear.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Solar radiance",
+          "Fire projection"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine Maia spirit form",
+          "Intense thermal barrier"
+        ]
+      },
+      "weaknesses": [
+        "Bound to her cosmic task of guiding the Sun vessel"
+      ],
+      "mobility": [
+        "Celestial flight"
+      ],
+      "limitations": [
+        "Restrained by the mandates of the Valar regarding direct intervention in Middle-earth"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Arien",
+          "supports": "Nature as a Maia of fire, pilot of the Sun, and superiority over lesser spirits of fire."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scorched dragons and Orcs who attempted to assail the Sun during its early journeys.",
+          "citation": "The Silmarillion, Of the Sun and Moon and the Hiding of Valorin",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Navigates the heavens guiding the vessel of the Sun",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Embodies primeval fire and solar energy",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct combat encounters against major entities like Sauron are unrecorded."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Arwen Undómiel",
+      "continuity": "The Lord of the Rings / Tolkien Legendarium",
+      "summary": "Arwen Undómiel is an Elf-maiden of Rivendell, daughter of Elrond. In some adaptations she wields a blade and commands magical river waters, while in the primary texts she functions primarily through presence, lineage, and spiritual fortitude.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Summoning flood waters (Film adaptation)",
+          "Elven blade combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven grace",
+          "Protective charms"
+        ]
+      },
+      "weaknesses": [
+        "Choosing mortality strips away her immortal Elven advantages"
+      ],
+      "mobility": [
+        "Horseback riding (Asfaloth)",
+        "Running"
+      ],
+      "limitations": [
+        "Physical endurance is subject to mortal limits after choosing mortality"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Arwen",
+          "supports": "Lineage as daughter of Elrond, choice of mortality, and role in the legendarium."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Carried Frodo across the Bruinen to escape the Nine Riders.",
+          "citation": "The Fellowship of the Ring (Film adaptation)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Nazgûl",
+          "result": "win",
+          "citation": "The Fellowship of the Ring - River Bruinen",
+          "note": "Swept them away using channeled river water (Film version).",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-control",
+          "claim": "Summoned the Bruinen river torrent to wash away the Nazgûl in film adaptations",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Discrepancy between her passive role in Tolkien's novels and her active warrior portrayal in Peter Jackson's films."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
