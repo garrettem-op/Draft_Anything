@@ -1,0 +1,676 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-043641 #45",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Credence Barebone|Obscurial Credence",
+      "continuity": "Fantastic Beasts films",
+      "summary": "As an Obscurial, Credence transforms into a massive, highly destructive vortex of dark energy capable of tearing through physical structures and combatting powerful wizards. He relies entirely on overwhelming kinetic force and destructive energy projection when in this form.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Obscurus rampage",
+          "Energy shockwaves",
+          "Physical destruction"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Incorporeal or fluid energy body that shrugs off standard physical attacks",
+          "High speed evasive flight"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to sustained powerful magical suppression",
+        "Emotional instability can destabilize the transformation"
+      ],
+      "mobility": [
+        "Flight as an energy vortex"
+      ],
+      "limitations": [
+        "Lifespan is severely shortened due to the Obscurus parasite",
+        "Lacks fine control over human interactions while in the Obscurial state"
+      ],
+      "formDifferences": "Transforms from an ordinary human wizard into a volatile, superhuman energy parasite capable of massive destruction and flight.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Credence_Barebone",
+          "supports": "Obscurial form capabilities, feats, and combat style"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed parts of New York City while manifesting as an Obscurus.",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "source": 0
+        },
+        {
+          "claim": "Fought evenly against Albus Dumbledore using magical energy blasts.",
+          "citation": "Fantastic Beasts: The Secrets of Dumbledore",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Albus Dumbledore",
+          "result": "loss",
+          "citation": "Fantastic Beasts: The Secrets of Dumbledore",
+          "note": "Defeated in a magical duel.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Transforms into a destructive mass of dark energy",
+          "dependsOn": "Extreme emotional suppression or trauma",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Can fly at high speeds as a swirling mass of dark energy.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Manifests magical energy as an Obscurus.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of durability against high-tier magical spells"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Crookshanks",
+      "continuity": "Harry Potter series",
+      "summary": "Crookshanks is a half-Kneazle cat who possesses exceptional intelligence and a strong instinct for recognizing untrustworthy individuals or animagi. In a fight, he behaves primarily as an aggressive feline with enhanced awareness.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Claw strikes",
+          "Bite",
+          "Tracking by scent"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility",
+          "Quick reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Standard animal durability"
+      ],
+      "mobility": [
+        "Standard feline running and jumping"
+      ],
+      "limitations": [
+        "Lacks human speech and magical spellcasting capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Crookshanks",
+          "supports": "Half-Kneazle traits, intelligence, and feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully attacked and chased Peter Pettigrew in rat form.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Scabbers (Peter Pettigrew)",
+          "result": "win",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "note": "Tracked and cornered Pettigrew with Sirius Black's help.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat utility against armed wizards"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Dean Thomas",
+      "continuity": "Harry Potter series",
+      "summary": "Dean Thomas is a standard Hogwarts student and member of Dumbledore's Army. He fights using a wand for conventional hexes, jinxes, and defensive charms.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Standard wand hexes",
+          "Disarming charms"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield charms (Protego)"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to standard magical attacks due to human durability"
+      ],
+      "mobility": [
+        "Running",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Standard human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Dean_Thomas",
+          "supports": "Dumbledore's Army membership and spellcasting abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in the Battle of Hogwarts, fighting Death Eaters.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Casts standard wizarding spells with a wand.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Performs Hogwarts-level spellcasting.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specialized spell mastery beyond standard curriculum"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Dementor",
+      "continuity": "Harry Potter series",
+      "summary": "Dementors are spectral entities that feed on human happiness, draining hope and warmth from their surroundings. Their primary weapon is the Dementor's Kiss, which consumes a victim's soul.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Aura of despair",
+          "Soul extraction (Dementor's Kiss)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Incorporeal body immune to physical damage",
+          "Invisible to non-magical beings"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to the Patronus Charm"
+      ],
+      "mobility": [
+        "Floating flight"
+      ],
+      "limitations": [
+        "Cannot enter areas protected by a powerful Patronus Charm"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Dementor",
+          "supports": "Incorporeal nature, aura of despair, and Dementor's Kiss"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overwhelmed Harry Potter on multiple occasions by inducing fainting through despair.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Glides through the air without visible means of support.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Effectiveness against non-human magical creatures"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Dobby",
+      "continuity": "Harry Potter series",
+      "summary": "Dobby is a house-elf who possesses potent innate magic that does not require a wand. He specializes in telekinesis, teleportation, and defensive enchantments.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Telekinetic energy blasts",
+          "Object levitation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magic resistance unique to house-elves",
+          "Apparition to dodge attacks"
+        ]
+      },
+      "weaknesses": [
+        "Bound by servitude rules unless freed (though currently free)",
+        "Physical vulnerability if caught off guard"
+      ],
+      "mobility": [
+        "Apparition (teleportation)"
+      ],
+      "limitations": [
+        "Cannot bypass certain specialized anti-Apparition charms"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Dobby",
+          "supports": "House-elf magic, Apparition without a wand, and telekinetic feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Levitated a heavy pudding cake to drop on guests.",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "source": 0
+        },
+        {
+          "claim": "Disarmed Lucius Malfoy with a powerful magical shockwave.",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lucius Malfoy",
+          "result": "win",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "note": "Blasted Malfoy backwards with magic after being freed.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Performs advanced wandless house-elf magic.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Can Apparition instantly without restrictions that apply to wizards.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limits of house-elf combat offensive power"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Dolores Umbridge",
+      "continuity": "Harry Potter series",
+      "summary": "Dolores Umbridge is a Ministry of Magic official who uses standard bureaucratic authority combined with dark and defensive magic. She relies on her wand for cruelty and suppression rather than direct dueling prowess.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Standard Ministry jinxes",
+          "Blood quill torture"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protective shield charms"
+        ]
+      },
+      "weaknesses": [
+        "Cowardly under direct physical assault",
+        "Overreliant on institutional authority"
+      ],
+      "mobility": [
+        "Standard walking"
+      ],
+      "limitations": [
+        "Mediocre combat duelist compared to frontline fighters"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Dolores_Umbridge",
+          "supports": "Ministry background, spellcasting, and weapon use"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tortured students using the Cruciatus Curse (in film adaptation) or blood quills.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Casts standard spells using a wand.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Performs Ministry-approved magical techniques.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Proficiency in advanced duel combat"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Draco Malfoy",
+      "continuity": "Harry Potter series",
+      "summary": "Draco Malfoy is a Slytherin wizard trained in defensive and dark curses. He prefers preemptive strikes, hexes, and psychological intimidation over honorable duels.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Serpensortia (conjuring snakes)",
+          "Impediment Jinx",
+          "Unforgivable Curses (attempted)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield charms"
+        ]
+      },
+      "weaknesses": [
+        "Hesitant under extreme pressure",
+        "Prone to emotional distress during high-stakes combat"
+      ],
+      "mobility": [
+        "Running",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Lacks the resolve to execute lethal spells despite training"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Draco_Malfoy",
+          "supports": "Dark arts training, wand dueling feats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Disarmed Albus Dumbledore using the Elder Wand.",
+          "citation": "Harry Potter and the Half-Blood Prince",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Harry Potter",
+          "result": "loss",
+          "citation": "Harry Potter and the Half-Blood Prince",
+          "note": "Defeated in the bathroom duel by Harry's Sectumsempra.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Casts dark and defensive curses with a wand.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Performs trained Hogwarts-level spellcasting.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full mastery of advanced dark arts"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Fawkes",
+      "continuity": "Harry Potter series",
+      "summary": "Fawkes is Albus Dumbledore's phoenix, possessing immense magical utility including healing tears, fire teleportation, and high-temperature physical attacks.",
+      "offense": {
+        "domains": [
+          "magic",
+          "fire"
+        ],
+        "techniques": [
+          "Flaming dive attacks",
+          "Sonic cry"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Resurrection from ashes upon death",
+          "Innate fire immunity"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to temporary immobilization before rebirth"
+      ],
+      "mobility": [
+        "Flight",
+        "Flame teleportation"
+      ],
+      "limitations": [
+        "Cannot engage in sustained direct physical combat against large magical beasts without support"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Fawkes",
+          "supports": "Phoenix abilities, healing tears, and flame teleportation"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Blinded the Basilisk by striking out its eyes.",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "source": 0
+        },
+        {
+          "claim": "Swallowed a Killing Curse meant for Albus Dumbledore before rebirthing.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies naturally with powerful avian wings.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Heals lethal wounds with phoenix tears.",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Wraps in flame to teleport and resists fire completely.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Offensive limits against powerful human wizards"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Filius Flitwick",
+      "continuity": "Harry Potter series",
+      "summary": "Filius Flitwick is a master dueling champion and Charms professor at Hogwarts. He employs exceptionally refined spellcasting, complex enchantments, and rapid wandwork in combat.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Advanced Charms",
+          "Elemental jinxes",
+          "Stunning spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced shield charms",
+          "Enchanted barrier generation"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical durability"
+      ],
+      "mobility": [
+        "Running",
+        "Magical levitation"
+      ],
+      "limitations": [
+        "Short stature requires reliance on agility and ranged spells"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Filius_Flitwick",
+          "supports": "Dueling champion background and advanced charms mastery"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated numerous Death Eaters during the defense of Hogwarts.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        },
+        {
+          "claim": "Won the Wizarding Dueling Club championship in his youth.",
+          "citation": "Pottermore background",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Yaxley",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Defeated the Death Eater during the Battle of Hogwarts.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Performs master-level wand spellcasting.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Expert in all forms of charm magic.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of non-charms magical combat capabilities"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Fleur Delacour",
+      "continuity": "Harry Potter series",
+      "summary": "Fleur Delacour is a part-Veela champion of the Triwizard Tournament. She utilizes sophisticated charm work, magical persuasion, and standard French school combat spells.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Veela charm allure",
+          "Bubble-Head charm",
+          "Offensive wand curses"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield charms",
+          "Magical evasion"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to physical exhaustion in long endurance trials"
+      ],
+      "mobility": [
+        "Running",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Veela charm loses effectiveness against certain focused opponents"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Fleur_Delacour",
+          "supports": "Triwizard champion status, Veela heritage, and spellcasting"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Competed against dragons and underwater hazards in the Triwizard Tournament.",
+          "citation": "Harry Potter and the Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Casts advanced European magical spells with a wand.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Trained as a tournament champion.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat prowess in direct duels against master wizards"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
