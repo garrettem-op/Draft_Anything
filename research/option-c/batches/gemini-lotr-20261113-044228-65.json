@@ -1,0 +1,506 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-044228 #65",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Samwise Gamgee",
+      "continuity": "The Lord of the Rings (Books/Films)",
+      "summary": "Samwise Gamgee is a loyal and resilient hobbit who fights with a standard elven dagger (Sting) or a simple garden blade. While not a warrior by trade, his exceptional mental fortitude and deep devotion allow him to endure extreme hardships and protect Frodo.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Samwise_Gamgee",
+          "supports": "General profile and role of Samwise Gamgee."
+        }
+      ],
+      "feats": [],
+      "notableResults": [],
+      "unknowns": [
+        "Exact limits of his resilience against supernatural despair compared to other Hobbits.",
+        "Removed by review (not supported by the cited source): technique: Elven dagger strikes; technique: Brawling; defense: High willpower and resistance to corruption; defense: Dodging and hiding; weakness: Normal physical vulnerability of a hobbit; limitation: Lacks superhuman physical strength or specialized martial training; mobility: Walking; feat: Stabbed Shelob in the belly with Sting.; result: Shelob",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Saruman",
+      "continuity": "The Lord of the Rings (Books/Films)",
+      "summary": "Saruman the White is a powerful Maia and leader of the Istari whose power lies in his mastery of voice, persuasion, and arcane lore. In conflict, he relies on spellcasting, telekinesis, and his staff to command elements and influence minds.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "energy"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [
+        "Power diminished significantly after his staff was broken by Gandalf"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Saruman",
+          "supports": "Abilities, role, and history of Saruman."
+        }
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "opponent": "Gandalf",
+          "result": "loss",
+          "citation": "Wikipedia: Saruman",
+          "note": "Defeated and imprisoned in his tower prior to his fall.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Utilizes powerful wizard staff and incantations.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Possesses inherent Maia magic.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his mechanical crafting abilities before focusing entirely on Isengard's industry.",
+        "Removed by review (not supported by the cited source): technique: Voice persuasion and command; technique: Elemental weather manipulation; technique: Staff-based energy blasts; defense: Magical barriers; defense: Subordinate forces and guards; weakness: Vulnerability to physical betrayal when stripped of power; weakness: Arrogance; mobility: Walking; mobility: Riding mounts; feat: Summoned a blizzard on Caradhras using his staff.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Saruman|Saruman of Many Colours",
+      "continuity": "The Lord of the Rings (Books)",
+      "summary": "Having rejected his original order, Saruman rebrands himself as Saruman of Many Colours, boasting an altered robe that shifts hues and reflecting his descent into pride and independent authority.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Wizardry"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "formDifferences": "Replaces his white robes with multicolored garments that shimmer and confound observers, symbolizing his break from the Valar.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Saruman",
+          "supports": "Saruman of Many Colours transition in the text."
+        }
+      ],
+      "unknowns": [
+        "Whether the multicolored robes grant any specific physical defense beyond psychological deterrence.",
+        "Removed by review (not supported by the cited source): technique: Coercive speech; defense: Magical aura; defense: Intimidation; weakness: Increased hubris and moral degradation"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Sauron",
+      "continuity": "The Lord of the Rings (Books/Films)",
+      "summary": "Sauron is a fallen Maia of immense power, functioning as a master sorcerer, commander of armies, and shapeshifter. He relies on overwhelming dark magic, intimidation, and telepathic dominance.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Mind domination"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [
+        "Cannot easily manifest a physical form after the destruction of the Ring"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sauron",
+          "supports": "Abilities, history, and status of Sauron."
+        }
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "opponent": "Elendil and Gil-galad",
+          "result": "win",
+          "citation": "Wikipedia: Sauron",
+          "note": "Killed both leaders, though he was simultaneously mortally wounded/overthrown.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Commands master-level dark sorcery.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact mechanics of how his spirit survived the sinking of Númenor.",
+        "Removed by review (not supported by the cited source): technique: Dark sorcery; technique: Mace combat; defense: Nearly indestructible physical forms without specific weaknesses; defense: Impenetrable armor; defense: Regeneration of spirit; weakness: Dependence on the One Ring to anchor his full power in physical form; mobility: Walking; mobility: Flight (as a shadow or spirit form); feat: Swept away multiple soldiers with a single swing of his mace during the Siege of Barad-dûr.; tag: Inherent Maia divine magic.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Sauron|Annatar, Lord of Gifts",
+      "continuity": "The Silmarillion",
+      "summary": "In his fair guise as Annatar, Sauron operates through deception, manipulation, and supreme craftsmanship to trick the Elves of Eregion into forging the Rings of Power.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "tech"
+        ],
+        "techniques": [
+          "Illusion"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Disguise"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "formDifferences": "Assumes a radiant, beautiful physical form capable of deceiving high elves, contrasting with his later armored dark lord appearance.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sauron",
+          "supports": "Annatar persona and deception of the Elves."
+        }
+      ],
+      "unknowns": [
+        "Exact details of how he taught ring-lore to Celebrimbor.",
+        "Removed by review (not supported by the cited source): technique: Crafting corruptive artifacts; technique: Seductive persuasion; defense: Diplomatic immunity granted by his fair appearance; weakness: Mistrust by specific perceptive entities like Gil-galad and Elrond"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Sauron|Sauron with the One Ring",
+      "continuity": "The Lord of the Rings (Books/Films)",
+      "summary": "Amplified by the One Ring, Sauron channels the entirety of his native power, granting him supreme dominion over wills, heightened physical prowess, and near-absolute control over Middle-earth's dark forces.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "formDifferences": "Wears the One Ring on his hand, concentrating his dispersed power and maximizing his combat effectiveness.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sauron",
+          "supports": "The One Ring connection to Sauron's power."
+        }
+      ],
+      "unknowns": [
+        "Whether he could have defeated Valar intervention directly with the Ring.",
+        "Removed by review (not supported by the cited source): technique: Ring-amplified sorcery; technique: Subjugation of wills; defense: Unyielding armor; defense: Magical invulnerability to ordinary weapons; weakness: Vulnerability to having the Ring forcibly severed from his hand"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Shagrat",
+      "continuity": "The Lord of the Rings (Books)",
+      "summary": "Shagrat is a fierce and brutal Uruk-hai captain of the Mordor garrison at Cirith Ungol. He relies on brute strength, cruel weaponry, and aggressive close-quarters brawling.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Scimitar strikes",
+          "Shield-bashing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy iron armor",
+          "Thick hide"
+        ]
+      },
+      "weaknesses": [
+        "Prone to violent infighting and greed"
+      ],
+      "mobility": [
+        "Running",
+        "Marching"
+      ],
+      "limitations": [
+        "Lacks strategic discipline outside of direct orders from Mordor"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Shagrat",
+          "supports": "Shagrat's role as captain of Cirith Ungol."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought and killed Gorbag during a dispute over Frodo's Mithril coat.",
+          "citation": "The Two Towers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gorbag",
+          "result": "win",
+          "citation": "The Two Towers",
+          "note": "Brutal brawl over loot.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "His exact combat feats against skilled men or elves."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Shelob",
+      "continuity": "The Lord of the Rings (Books/Films)",
+      "summary": "Shelob is an ancient, giant demonic spider residing in the pass of Cirith Ungol. She hunts by stealth, trapping victims in thick webs and subduing them with potent paralyzing venom before feeding.",
+      "offense": {
+        "domains": [
+          "physical",
+          "control"
+        ],
+        "techniques": [
+          "Paralyzing venom sting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Wall-climbing"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Shelob",
+          "supports": "Shelob's nature, abilities, and lair."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Paralyzed Frodo Baggins with a venomous sting in her tunnels.",
+          "citation": "Wikipedia: Shelob",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Frodo Baggins",
+          "result": "win",
+          "citation": "Wikipedia: Shelob",
+          "note": "Ambushed and poisoned Frodo.",
+          "source": 0
+        },
+        {
+          "opponent": "Samwise Gamgee",
+          "result": "loss",
+          "citation": "Wikipedia: Shelob",
+          "note": "Driven off after being severely wounded by Sam with Sting.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Monstrous giant spider of ancient lineage.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full extent of her lineage beyond being a descendant of Ungoliant.",
+        "Removed by review (not supported by the cited source): technique: Web spinning and trapping; technique: Crushing mandibles; defense: Thick, blade-resistant carapaces; defense: Total darkness advantage; weakness: Extreme aversion to bright light (such as the Phial of Galadriel); weakness: Vulnerable underbelly when raised; limitation: Cannot easily withstand concentrated light or magical radiance; mobility: Crawl; mobility: Leaping",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Smaug",
+      "continuity": "The Hobbit (Books/Films)",
+      "summary": "Smaug the Golden is a colossal, fire-breathing dragon possessing immense physical strength, highly intelligent cunning, and an impenetrable armored hide encrusted with gems.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Flight",
+        "Running"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Smaug",
+          "supports": "Smaug's description, abilities, and defeat."
+        }
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "opponent": "Bard the Bowman",
+          "result": "loss",
+          "citation": "Wikipedia: Smaug",
+          "note": "Killed by a Black Arrow shot into his bare chest spot.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire-control",
+          "claim": "Produces massive torrents of dragon-fire.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses massive dragon wings for flight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether his fire is magical in origin or purely biological.",
+        "Removed by review (not supported by the cited source): technique: Torrents of flame breath; technique: Tail swipe; technique: Crushing weight and claw strikes; defense: Impenetrable scale armor encrusted with precious stones; defense: Massive size and durability; weakness: A single unprotected bare spot on his left breast where a scale is missing; weakness: Arrogance and vanity; limitation: Vulnerable if his single missing belly scale is targeted by a specialized projectile; mobility: Burrowing/Slithering; feat: Destroyed the town of Dale and burned Esgaroth (Lake-town) to the ground.; tag: Colossal dragon.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "lotr:Tar-Aldarion",
+      "continuity": "Unfinished Tales / Middle-earth Legendarium",
+      "summary": "Tar-Aldarion was the sixth King of Númenor, renowned primarily as a master mariner, ship-builder, and explorer rather than a frontline warrior. His strengths lie in leadership, navigation, and maritime logistics.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Sailing ships"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tar-Aldarion",
+          "supports": "Biographical details of Tar-Aldarion as a mariner king."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [],
+      "unknowns": [
+        "Specific details of skirmishes he may have fought against local populations in Middle-earth during his explorations.",
+        "Removed by review (not supported by the cited source): technique: Swordplay; technique: Naval command; defense: Númenórean steel armor; defense: Physical conditioning of the Dunedain; weakness: Normal mortal vulnerability despite Númenórean longevity; weakness: Absorbed by maritime duties; limitation: Lacks documented mystical or magical combat abilities; mobility: Walking; mobility: Riding; feat: Successfully navigated uncharted oceanic routes to Middle-earth repeatedly.; tag: Master captain of Númenórean fleets.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    }
+  ]
+}
