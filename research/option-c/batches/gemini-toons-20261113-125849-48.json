@@ -1,0 +1,751 @@
+{
+  "batchId": "Gemini V2 research toons 20261113-125849 #48",
+  "schemaVersion": 1,
+  "pool": "toons",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "toons:Lucy van Pelt",
+      "continuity": "Peanuts comic strip / animation",
+      "summary": "Lucy van Pelt is a cantankerous and bossy human child who relies primarily on psychological intimidation, verbal harassment, and physical shoves rather than supernatural powers.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "football pulling trick",
+          "verbal berating",
+          "slapping or punching"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "human durability",
+          "arguing and shifting blame"
+        ]
+      },
+      "weaknesses": [
+        "easily agitated",
+        "susceptible to dog kisses from Snoopy"
+      ],
+      "mobility": [
+        "running",
+        "walking"
+      ],
+      "limitations": [
+        "limited to human physical strength and capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Lucy_van_Pelt",
+          "supports": "Character traits, behavior, and typical interactions in Peanuts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Consistently pulls the football away just as Charlie Brown attempts to kick it, causing him to fall on his back.",
+          "citation": "Peanuts syndicated comic strip",
+          "source": 0
+        },
+        {
+          "claim": "Operates a psychiatric booth for five cents, offering dubious psychological advice.",
+          "citation": "Peanuts animated specials",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Charlie Brown",
+          "result": "win",
+          "citation": "Peanuts comic strip",
+          "note": "Tricks Charlie Brown into missing the football every time.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact adult capabilities are never shown since the strip focuses entirely on childhood."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Lumière",
+      "continuity": "Beauty and the Beast (Disney Animated Film)",
+      "summary": "Lumière is an enchanted candelabra who can use his lit candles to ignite flammable objects and wields hot wax as a deterrent.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "candle flame ignition",
+          "hot wax flinging"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "mobility of an animate object",
+          "small target profile"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to being doused with water or extinguished",
+        "curse ties his life force to inanimate household objects"
+      ],
+      "mobility": [
+        "walking on candlesticks",
+        "hopping"
+      ],
+      "limitations": [
+        "cannot move independently if separated from his assigned form for too long",
+        "flames can be extinguished"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Lumi%C3%A8re_(Disney)",
+          "supports": "Abilities, animated film appearance, and curse properties."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses his lit candle hands to set things ablaze and defend against intruders in the castle.",
+          "citation": "Beauty and the Beast (1991)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Villagers",
+          "result": "win",
+          "citation": "Beauty and the Beast (1991)",
+          "note": "Participates in the castle defense using household hazards.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Has lit candles for hands that burn and ignite objects",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full durability against heavy military ordinance is untested."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Maleficent",
+      "continuity": "Sleeping Beauty (Disney Animated Film)",
+      "summary": "Maleficent is a powerful dark fairy who combines potent spellcasting, green magical energy projection, and shape-shifting into a giant dragon.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "magical green fire projection",
+          "curse casting",
+          "dragon breath",
+          "teleportation via green fire"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "magical barriers",
+          "flight",
+          "scale durability in dragon form"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to enchanted weapons like the Sword of Truth",
+        "hubris and arrogance"
+      ],
+      "mobility": [
+        "natural-flight",
+        "self-teleport"
+      ],
+      "limitations": [
+        "requires her staff or direct gestures for many major magical workings"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Maleficent",
+          "supports": "Magic powers, dragon transformation, and feats from Sleeping Beauty."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Casts a death curse on infant Princess Aurora triggered by a spinning wheel prick before the sun sets on her sixteenth birthday.",
+          "citation": "Sleeping Beauty (1959)",
+          "source": 0
+        },
+        {
+          "claim": "Transforms into a colossal fire-breathing dragon during the final battle.",
+          "citation": "Sleeping Beauty (1959)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Prince Phillip",
+          "result": "loss",
+          "citation": "Sleeping Beauty (1959)",
+          "note": "Defeated when Prince Phillip hurls the Sword of Truth into her chest while in dragon form.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Dragon form combat and fire breathing",
+          "dependsOn": "Transformation into a giant dragon",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields powerful dark fairy magic and curses",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts complex curses and elemental spells",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses large dark wings enabling flight",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Teleports in a burst of green flame",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Breathes magical green fire in dragon form",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Transforms into a massive dragon",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her magic outside of curses and combat transformations is not fully cataloged."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Marge Simpson",
+      "continuity": "The Simpsons animated series",
+      "summary": "Marge Simpson is an ordinary human homemaker who fights primarily with domestic objects, household tools, or driven persistence when pushed.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "rolling pin strikes",
+          "mob organizing",
+          "driving ramming attacks with vehicles"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "standard human durability",
+          "social influence"
+        ]
+      },
+      "weaknesses": [
+        "human physical limits",
+        "moral hesitation"
+      ],
+      "mobility": [
+        "running",
+        "driving"
+      ],
+      "limitations": [
+        "subject to normal human physical fatigue and injury"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Marge_Simpson",
+          "supports": "General character background and capabilities in The Simpsons."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Subdues unruly individuals and intruders using heavy household items like rolling pins and broomsticks.",
+          "citation": "The Simpsons",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Various Springfield residents",
+          "result": "win",
+          "citation": "The Simpsons",
+          "note": "Overcomes social disputes and occasional physical threats through sheer stubbornness.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots automobiles and various other vehicles",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat effectiveness against armed supernatural entities is negligible."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Marvin the Martian",
+      "continuity": "Looney Tunes / Merrie Melodies",
+      "summary": "Marvin the Martian is an extraterrestrial commander equipped with advanced alien technology, ray guns, and planet-destroying explosives.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Illudium Pew-36 Explosive Space Modulator deployment",
+          "disintegrator ray pistol",
+          "instantaneous matter freezing gun"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "protective Martian helmet and combat skirt",
+          "K-9 guard beast",
+          "force fields"
+        ]
+      },
+      "weaknesses": [
+        "often thwarted by slapstick setbacks and own faulty equipment",
+        "obscured vision through helmet eye slit"
+      ],
+      "mobility": [
+        "powered-flight via rocket pack",
+        "pilot in flying saucer"
+      ],
+      "limitations": [
+        "plans routinely thwarted by cartoon physics and Bugs Bunny"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Marvin_the_Martian",
+          "supports": "Extraterrestrial weapons, flying saucer, and cartoon feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Attempts to blow up the Earth using the Illudium Pew-36 Explosive Space Modulator.",
+          "citation": "Haredevil Hare (1948)",
+          "source": 0
+        },
+        {
+          "claim": "Disintegrates obstacles and enemies instantly with his handheld ray pistol.",
+          "citation": "Duck Dodgers in the 24½th Century (1953)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bugs Bunny",
+          "result": "loss",
+          "citation": "Haredevil Hare (1948)",
+          "note": "Bugs Bunny repeatedly foils his planetary destruction plans.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses advanced Martian ray guns and disintegration technology",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots a Martian flying saucer spacecraft",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability of his helmet against heavy artillery outside of gag physics."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Master Shifu",
+      "continuity": "Kung Fu Panda (DreamWorks Animation)",
+      "summary": "Master Shifu is a red panda kung fu grandmaster who utilizes exceptional martial arts mastery, pressure point strikes, and agile acrobatics.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Wuxi Finger Hold",
+          "advanced paw-of-thunder strikes",
+          "acrobatic staff combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "superior martial arts evasion",
+          "ki redirection",
+          "acrobatic dodging"
+        ]
+      },
+      "weaknesses": [
+        "emotional baggage regarding past students like Tai Lung",
+        "small stature against giant opponents"
+      ],
+      "mobility": [
+        "superhuman leaps",
+        "acrobatic running"
+      ],
+      "limitations": [
+        "physical strength limited by small red panda frame"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Master_Shifu",
+          "supports": "Kung fu mastery, teaching background, and combat skills in Kung Fu Panda."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Trains the Furious Five and Po in advanced kung fu disciplines.",
+          "citation": "Kung Fu Panda (2008)",
+          "source": 0
+        },
+        {
+          "claim": "Executes precision nerve strike attacks to immobilize opponents instantly.",
+          "citation": "Kung Fu Panda (2008)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Tai Lung",
+          "result": "loss",
+          "citation": "Kung Fu Panda (2008)",
+          "note": "Overpowered by Tai Lung in single combat due to emotional hesitation.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Performs superhuman leaps and aerial martial arts maneuvers",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capability against large-scale magical threats without martial arts application."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Master Splinter",
+      "continuity": "Teenage Mutant Ninja Turtles (1987 / IDW / General)",
+      "summary": "Master Splinter is a mutated rat master of ninjutsu who combines stealth, weapon mastery, and martial arts expertise.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "ninjutsu sword and staff combat",
+          "hand-to-hand pressure strikes",
+          "stealth assassination techniques"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "expert parrying",
+          "stealth evasion",
+          "acrobatic reflexes"
+        ]
+      },
+      "weaknesses": [
+        "aging body vulnerable to severe physical trauma",
+        "protective blind spots regarding his adopted turtle sons"
+      ],
+      "mobility": [
+        "acrobatic running",
+        "climbing",
+        "shadow-stepping"
+      ],
+      "limitations": [
+        "human-sized rat physiology subject to physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Splinter_(Teenage_Mutant_Ninja_Turtles)",
+          "supports": "Origin as a mutated rat, ninjutsu master, and combat feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Trains four mutant turtles in advanced ninjutsu to defeat Shredder.",
+          "citation": "Teenage Mutant Ninja Turtles #1 (Mirage Studios)",
+          "source": 0
+        },
+        {
+          "claim": "Defeats multiple Foot Clan ninja simultaneously in close-quarters combat.",
+          "citation": "Teenage Mutant Ninja Turtles (1990 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Shredder",
+          "result": "win",
+          "citation": "Teenage Mutant Ninja Turtles (1990 film)",
+          "note": "Uses tactical awareness to outmaneuver Shredder on a rooftop.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Master of ninjutsu stealth and silent movement",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits against high-tier metahumans with energy projection."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Maui",
+      "continuity": "Moana (Disney Animated Film)",
+      "summary": "Maui is a shape-shifting demigod of the wind and sea who wields a magical fishhook to alter his form and perform legendary feats of strength.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "magical fishhook strikes",
+          "animal shape-shifting",
+          "island pulling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "demigod invulnerability",
+          "rapid shape-shifting evasion"
+        ]
+      },
+      "weaknesses": [
+        "power is heavily reliant on possessing his magical fishhook",
+        "arrogance"
+      ],
+      "mobility": [
+        "natural-flight in hawk form",
+        "swimming",
+        "super-speed running"
+      ],
+      "limitations": [
+        "powerless or severely restricted in shapeshifting if disarmed of his fishhook"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Maui_(Moana)",
+          "supports": "Demigod powers, shape-shifting, and magical fishhook abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Pulled islands from the sea and lassoed the sun.",
+          "citation": "Moana (2016)",
+          "source": 0
+        },
+        {
+          "claim": "Transforms into a giant hawk, shark, or whale at will using his fishhook.",
+          "citation": "Moana (2016)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Te Kā",
+          "result": "inconclusive",
+          "citation": "Moana (2016)",
+          "note": "Fishhook is damaged during initial clash with the lava monster, forcing a retreat.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Shape-shifting and heavy demigod feats",
+          "dependsOn": "Possession of his magical fishhook",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields demigod magic tied to his magical fishhook",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Transforms into a hawk to fly across vast distances",
+          "source": 0
+        },
+        {
+          "tag": "size-change",
+          "claim": "Shapeshifts into various animals and large monsters",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Expert swimmer and master of the ocean currents",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of his durability against cosmic-level energy attacks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Megatron",
+      "continuity": "The Transformers (Generation 1 Animation)",
+      "summary": "Megatron is the ruthless leader of the Decepticons who transforms into a particle beam cannon and wields devastating fusion cannon firepower.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "fusion cannon energy blasts",
+          "laser sniper fire",
+          "hand-to-hand cybertronian combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "heavy cybertronian armor",
+          "energy shields"
+        ]
+      },
+      "weaknesses": [
+        "arrogance and overconfidence",
+        "betrayal-prone subordinates like Starscream"
+      ],
+      "mobility": [
+        "powered-flight",
+        "transformative propulsion"
+      ],
+      "limitations": [
+        "requires energon fuel to maintain operations"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Megatron",
+          "supports": "Decepticon leadership, fusion cannon, and transformation capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fires devastating energy blasts from his arm-mounted fusion cannon capable of leveling buildings.",
+          "citation": "The Transformers (G1 animated series)",
+          "source": 0
+        },
+        {
+          "claim": "Engages Optimus Prime in mortal combat for leadership of Cybertron.",
+          "citation": "The Transformers: The Movie (1986)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Optimus Prime",
+          "result": "loss",
+          "citation": "The Transformers: The Movie (1986)",
+          "note": "Fatally wounded in brutal duel with Optimus Prime before being reformatted into Galvatron.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Cybertronian robotic physiology and advanced weaponry",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Sentient cybertronian robot",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Flies through space and air in robot/alt modes",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact power scaling varies between cartoon episodes and comic adaptations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Megatron|Galvatron (Megatron Reborn)",
+      "continuity": "The Transformers (Generation 1 Animation / The Movie)",
+      "summary": "Galvatron is the upgraded, reborn form of Megatron created by Unicron, possessing vastly superior plasma firepower and unhinged cruelty.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "particle accelerator cannon blasts",
+          "futuristic laser cannon mode firing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Unicron-upgraded heavy armor",
+          "enhanced cybertronian durability"
+        ]
+      },
+      "weaknesses": [
+        "mental instability and psychosis induced by Unicron's reformatting",
+        "rebellious inner personality that sometimes fights its programming"
+      ],
+      "formDifferences": "Replaces Megatron's standard body and fusion cannon with Unicron-upgraded armor, transforming into a futuristic laser cannon/artillery piece instead of a handgun, with significantly increased destructive output and erratic mental stability.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Galvatron",
+          "supports": "Rebirth from Megatron by Unicron and enhanced destructive capabilities."
+        }
+      ],
+      "unknowns": [
+        "Full extent of Unicron's direct mental control over him after the creator's destruction."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
