@@ -1,0 +1,605 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125505 #35",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Ezra Bridger",
+      "continuity": "Star Wars Canon (Rebels, Ahsoka)",
+      "summary": "Ezra Bridger is a Force-sensitive freedom fighter and Jedi Knight who blends traditional lightsaber combat with unorthodox blaster-pistol usage and a unique affinity for connecting with wildlife through the Force.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic",
+          "psychic"
+        ],
+        "techniques": [
+          "Lightsaber combat",
+          "Blaster pistol shooting",
+          "Force push and pull",
+          "Animal taming and telepathic connection"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Force barriers",
+          "Agile evasion and acrobatics"
+        ]
+      },
+      "weaknesses": [
+        "Prone to emotional attachment and recklessness regarding loved ones"
+      ],
+      "mobility": [
+        "flight",
+        "pilot"
+      ],
+      "limitations": [
+        "Exhaustion from extensive Force use"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ezra_Bridger",
+          "supports": "General background, Force sensitivity, and role in Star Wars Rebels."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Used the Force to tame and guide wild Loth-wolves.",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Grand Inquisitor",
+          "result": "win",
+          "citation": "Star Wars Rebels, Season 1",
+          "note": "Fought alongside Kanan Jarrus",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Uses Force abilities such as telekinesis and telepathy.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Connects telepathically with creatures and people.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Pushes and pulls objects using the Force.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots starships for the Ghost crew.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his post-Ahsoka series Force potential"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Fennec Shand",
+      "continuity": "Star Wars Canon (The Mandalorian, The Book of Boba Fett, The Bad Batch)",
+      "summary": "Fennec Shand is an elite mercenary and sniper who relies on precision marksmanship, tactical planning, and cybernetic enhancements to survive and eliminate targets.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Long-range sniper rifle shooting",
+          "Blaster pistol combat",
+          "Hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cybernetic torso reinforcements",
+          "Tactical cover usage",
+          "Stealth and positional advantage"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelming close-quarters physical attacks when cornered without distance"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Relies heavily on equipment and preparation time"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Fennec_Shand",
+          "supports": "Character history, cybernetics, and mercenary background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived near-fatal abdominal injuries after being patched up with cybernetics.",
+          "citation": "The Mandalorian, Season 1",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Cad Bane",
+          "result": "inconclusive",
+          "citation": "The Book of Boba Fett",
+          "note": "Matched in tactical standoff",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Possesses internal cybernetic organ replacements and reinforcements.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses specialized sniper rifles and concealed weaponry.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Operates as a stealthy assassin.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of cybernetic enhancements"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Finn",
+      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "summary": "Finn is a former First Order stormtrooper turned Resistance fighter who utilizes standard infantry weapons, melee combat with energy tonfas and lightsabers, and guerrilla tactics.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster rifle combat",
+          "Melee weapon defense",
+          "Infiltration tactics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard First Order/Resistance armor",
+          "Evade and cover tactics"
+        ]
+      },
+      "weaknesses": [
+        "Lacks formal mystical training despite latent Force sensitivity"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Prone to initial panic when facing overwhelming First Order forces"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Finn_(Star_Wars)",
+          "supports": "Character background as a stormtrooper and Resistance fighter."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Captain Phasma in melee combat during the destruction of the Supremacy.",
+          "citation": "Star Wars: The Last Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Captain Phasma",
+          "result": "win",
+          "citation": "Star Wars: The Last Jedi",
+          "note": "Defeated in single combat aboard a sinking ship",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Infiltrates First Order installations using insider knowledge.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots various transport and military craft.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential of his undeveloped Force sensitivity"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:General Grievous",
+      "continuity": "Star Wars Canon (The Clone Wars, Episode III)",
+      "summary": "General Grievous is a cyborg Supreme Commander of the droid armies who utilizes his multi-armed anatomy, four spinning lightsabers, and relentless aggression to overwhelm Jedi opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Quad-lightsaber spinning attack",
+          "Acrobatic wheel-bike charging",
+          "Brutal bludgeoning and striking"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cyborg armor plating resistant to glancing blows",
+          "Flexible articulation to block from multiple angles"
+        ]
+      },
+      "weaknesses": [
+        "Exposed biological organs in his chest cavity vulnerable to direct penetration or crushing"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Prone to coughing fits from previous internal damage",
+        "Susceptible to being outmaneuvered by skilled Force users"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/General_Grievous",
+          "supports": "Cyborg nature, lightsaber combat capabilities, and role in the Clone Wars."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slaughtered numerous Jedi knights and collected their lightsabers as trophies.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Obi-Wan Kenobi",
+          "result": "loss",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "note": "Defeated after being shot in his exposed chest cavity with a blaster",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Retains only organic organs inside a largely robotic body.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots custom starfighters like the Soulless One.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability limits against sustained heavy artillery"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:General Hux",
+      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "summary": "General Hux is a high-ranking First Order military officer who commands through fear, rigid discipline, and massive technological superweapons rather than personal combat.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Orbital bombardment ordering",
+          "Blaster pistol shooting",
+          "Military command strategy"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "First Order security details",
+          "Armored command centers"
+        ]
+      },
+      "weaknesses": [
+        "Arrogant and lacks personal hand-to-hand combat prowess against skilled fighters"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Entirely dependent on military infrastructure and loyal troops"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/General_Hux",
+          "supports": "Military rank, role in the First Order, and command style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ordered the destruction of the Hosnian System using Starkiller Base.",
+          "citation": "Star Wars: The Force Awakens",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Kylo Ren",
+          "result": "loss",
+          "citation": "Star Wars: The Force Awakens",
+          "note": "Physically choked and incapacitated via the Force",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Commands advanced First Order military technology and superweapons.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True extent of combat training outside of basic officer requirements"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Gonk Droid",
+      "continuity": "Star Wars Canon (General Universe)",
+      "summary": "A Gonk droid is a slow-moving, heavily box-shaped power generator droid with virtually no combat offensive capabilities outside of basic mobility and power supply functions.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Power recharging",
+          "Slow mechanical shuffling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy metal outer casing"
+        ]
+      },
+      "weaknesses": [
+        "Extremely slow movement speed",
+        "No offensive weaponry"
+      ],
+      "limitations": [
+        "Limited vocabulary restricted to repeating its own name",
+        "Inability to run or dodge attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Droid_(Star_Wars)#Power_droids",
+          "supports": "Gonk droid description as a power generator on legs."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Provided vital electrical power to underground resistance operations.",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Completely robotic sentient or semi-sentient machine.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Internal capacity limits for energy storage"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Grand Admiral Thrawn",
+      "continuity": "Star Wars Canon (Rebels, Ahsoka)",
+      "summary": "Grand Admiral Thrawn is a strategic genius who defeats opponents by analyzing their art, culture, and psychological patterns to predict their every tactical move.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Calculated fleet bombardments",
+          "Psychological warfare",
+          "Strategic encirclement"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bodyguard deployment (e.g., Rukh or Night Troopers)",
+          "Command ship shielding"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to unpredictable, non-logical tactics or unforeseen cosmic anomalies"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Relies on subordinate execution for tactical victories"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Grand_Admiral_Thrawn",
+          "supports": "Strategic brilliance, Chiss heritage, and military role."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Systematically dismantled the Phoenix Squadron rebel cell using psychological profile analysis.",
+          "citation": "Star Wars Rebels, Season 3",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hera Syndulla",
+          "result": "win",
+          "citation": "Star Wars Rebels, Season 3",
+          "note": "Successfully bombarded rebel stronghold on Atollon",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Commands imperial fleets and advanced tactical computers.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct personal hand-to-hand combat proficiency"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Grand Moff Tarkin",
+      "continuity": "StarWars Canon (A New Hope, The Clone Wars, Bad Batch)",
+      "summary": "Grand Moff Tarkin is a ruthless Imperial governor who rules through absolute terror, bureaucratic efficiency, and the deployment of planet-destroying superweapons.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Planetary superweapon authorization",
+          "Military execution ordering"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Imperial security forces",
+          "Stormtrooper garrisons"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and supreme overconfidence in technological supremacy"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Relies entirely on subordinates and military assets for defense"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Grand_Moff_Tarkin",
+          "supports": "Character role, political status, and command of the Death Star."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ordered the destruction of Alderaan to demonstrate the power of the Death Star.",
+          "citation": "Star Wars: Episode IV – A New Hope",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Oversees the construction and firing of the Death Star.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Any direct combat feats outside of command authority"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Greedo",
+      "continuity": "Star Wars Canon (A New Hope, The Clone Wars)",
+      "summary": "Greedo is a hot-headed Rodian bounty hunter who relies on a standard blaster pistol and underhanded ambushes to capture targets, though he frequently fails against quicker opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blaster pistol shooting",
+          "Ambush tactics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Basic vest armor",
+          "Taking cover"
+        ]
+      },
+      "weaknesses": [
+        "Impulsive and slow on the draw against skilled marksmen"
+      ],
+      "mobility": [
+        "pilot"
+      ],
+      "limitations": [
+        "Poor situational awareness and overconfidence"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Greedo",
+          "supports": "Character background as a bounty hunter on Tatooine."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cornered Han Solo in the Mos Eisley cantina before being outdrawn.",
+          "citation": "Star Wars: Episode IV – A New Hope",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Han Solo",
+          "result": "loss",
+          "citation": "Star Wars: Episode IV – A New Hope",
+          "note": "Shot dead during a cantina confrontation",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full bounty hunting record outside of failed encounters"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
