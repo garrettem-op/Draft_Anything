@@ -95,23 +95,28 @@ function main(argv) {
   const [repo, n] = argv;
   const dry = argv.includes('--dry-run');
   if (!repo || !/^\d+$/.test(String(n || ''))) throw Error('Usage: v2-research-gate.cjs <owner/repo> <pr> [--dry-run]');
+  return runGate(repo, n, { dry, waits: 20 });
+}
+
+function runGate(repo, n, { dry = false, waits = 0 } = {}) {
   // Wait (bounded) for checks that are still running, so an approval given while CI runs is not lost.
   let state, result;
-  for (let attempt = 0; attempt < 20; attempt++) {
+  for (let attempt = 0; attempt <= waits; attempt++) {
     state = load(repo, n);
     result = evaluate(state);
-    if (!result.pending || dry) break;
+    if (!result.pending || dry || attempt === waits) break;
     console.log('Waiting for running checks: ' + result.reasons.join('; '));
     sleep(30000);
   }
   if (!result.eligible) {
-    console.log('Not eligible for merge: ' + result.reasons.join('; '));
-    return { merged: false };
+    console.log('#' + n + ' not eligible for merge: ' + result.reasons.join('; '));
+    return { merged: false, reasons: result.reasons };
   }
   console.log('Eligible. Independent approval by ' + result.approvers.join(', ') + ' on ' + state.pr.head.sha);
   if (dry) { console.log('Dry run: no merge.'); return { merged: false, eligible: true }; }
   // Pin the merge to the exact head that was approved and validated.
-  gh(['pr', 'merge', String(n), '-R', repo, '--squash', '--match-head-commit', state.pr.head.sha]);
+  // REST merge pinned to the approved head (sha mismatch -> 409, nothing merges).
+  gh(['api', '-X', 'PUT', '/repos/' + repo + '/pulls/' + n + '/merge', '-f', 'merge_method=squash', '-f', 'sha=' + state.pr.head.sha]);
   console.log('Merged #' + n + '.');
   return { merged: true };
 }
@@ -120,4 +125,4 @@ if (require.main === module) {
   const out = main(process.argv.slice(2));
   if (process.env.GITHUB_OUTPUT) require('node:fs').appendFileSync(process.env.GITHUB_OUTPUT, 'merged=' + !!out.merged + '\n');
 }
-module.exports = { evaluate, latestDecisiveReviews, RESEARCH_FILE, GATE_CHECK };
+module.exports = { evaluate, latestDecisiveReviews, runGate, load, apiAll, RESEARCH_FILE, GATE_CHECK };
