@@ -1,0 +1,609 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125155 #23",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Oddish",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Oddish is a grass and poison type Pokémon that buries itself in the ground by day to absorb nutrients and moves about at night to scatter seeds. It fights by discharging toxic spores and powders, or utilizing grass-type vines and energy attacks.",
+      "offense": {
+        "domains": [
+          "plant",
+          "poison",
+          "physical"
+        ],
+        "techniques": [
+          "Absorb",
+          "Poison Powder",
+          "Sleep Powder",
+          "Stun Spore"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Burying underground during daytime to avoid detection",
+          "Paralyzing or putting attackers to sleep with status powders"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type attacks",
+        "Flying-type attacks",
+        "Psychic-type attacks",
+        "Ice-type attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Burrowing"
+      ],
+      "limitations": [
+        "Cannot move around freely during daylight hours due to its plant-like nature"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Oddish_(Pok%C3%A9mon)",
+          "supports": "Basic attributes, types, and standard movepool including status powders."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Emits toxic or sleep-inducing powders from its leaves to incapacitate foes",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Uses the move Absorb to drain HP from opponents and heal itself",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact potency of its nocturnal movements and seed scattering outside of game mechanics."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Omanyte",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Omanyte is an extinct rock and water type Pokémon that has been successfully revived from a Helix Fossil. It protects its soft body inside a heavy spiral shell and swims using ten tentacles.",
+      "offense": {
+        "domains": [
+          "water",
+          "rock",
+          "physical"
+        ],
+        "techniques": [
+          "Water Gun",
+          "Rock Throw",
+          "Constrict",
+          "Bite"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Retreating entirely inside its hard spiral shell for protection"
+        ]
+      },
+      "weaknesses": [
+        "Grass-type attacks",
+        "Electric-type attacks"
+      ],
+      "mobility": [
+        "Swimming"
+      ],
+      "limitations": [
+        "Vulnerable on land due to heavy shell and reliance on aquatic movement"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Omanyte_(Pok%C3%A9mon)",
+          "supports": "Basic stats, types, fossil revival background, and shell defense mechanisms."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Revived from an ancient Helix Fossil discovered in rock layers",
+          "citation": "Pokémon Red and Blue",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Naturally lives in the sea and swims using ten tentacles",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Aquatic organism that breathes underwater",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Propels itself through water using tentacles",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact population numbers in prehistoric eras."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Omastar",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Omastar is the evolved form of Omanyte, featuring a much larger and heavier spiral shell equipped with spikes. It uses its tentacles to capture prey and can pierce enemies with its sharp shell structure.",
+      "offense": {
+        "domains": [
+          "water",
+          "rock",
+          "physical"
+        ],
+        "techniques": [
+          "Hydro Pump",
+          "Ancient Power",
+          "Spike Cannon",
+          "Surf"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy spiked spiral shell that deflects physical impacts"
+        ]
+      },
+      "weaknesses": [
+        "Grass-type attacks",
+        "Electric-type attacks"
+      ],
+      "mobility": [
+        "Swimming"
+      ],
+      "limitations": [
+        "The heavy shell restricts its movement speed significantly out of water"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Omastar_(Pok%C3%A9mon)",
+          "supports": "Evolutionary progression from Omanyte, heavy shell details, and water/rock moves."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Crushes prey with its heavy shell and absorbs fluids using its tentacles",
+          "citation": "Pokémon Yellow Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Aquatic creature that swims in ancient seas",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Breathes underwater",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Swims using tentacles",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Reason for its ancient extinction before modern fossil resurrection technology."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Onix",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Onix is a massive rock and ground type snake-like Pokémon composed of gigantic boulders. It tunnels through the earth at high speeds, crushing obstacles and opponents with immense physical strength.",
+      "offense": {
+        "domains": [
+          "physical",
+          "rock",
+          "ground"
+        ],
+        "techniques": [
+          "Bind",
+          "Rock Slide",
+          "Iron Tail",
+          "Earthquake"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Rock-hard body skin that resists physical blows"
+        ]
+      },
+      "weaknesses": [
+        "Water-type attacks",
+        "Grass-type attacks",
+        "Ice-type attacks"
+      ],
+      "mobility": [
+        "Burrowing",
+        "Slithering"
+      ],
+      "limitations": [
+        "Extremely poor special defense and vulnerable to water and grass attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Onix_(Pok%C3%A9mon)",
+          "supports": "Gigantic serpentine physique, rock/ground typing, and tunneling capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tunnels through the ground at high speeds, shaking the earth",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Exceeds 28 feet in length as a gigantic serpentine rock creature",
+          "source": 0
+        },
+        {
+          "tag": "giants",
+          "claim": "Massive scale and towering stature compared to standard human-scaled opponents",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact internal mechanism that allows magnetic navigation while tunneling."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Paras",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Paras is a bug and grass type Pokémon that carries two large mushroom parasites called tochukaso on its back. It relies on these fungi to sap nutrients and utilizes powder attacks in combat.",
+      "offense": {
+        "domains": [
+          "plant",
+          "bug",
+          "physical"
+        ],
+        "techniques": [
+          "Scratch",
+          "Stun Spore",
+          "Poison Powder",
+          "Absorb"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Releasing status-altering spores to stop attackers before close engagement"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type attacks",
+        "Flying-type attacks",
+        "Bug-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "The mushrooms on its back dictate its overall health and direct its movements"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Paras_(Pok%C3%A9mon)",
+          "supports": "Bug/Grass typing, mushroom back parasites, and status powder movepool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Burrows under tree roots to absorb nutrients alongside its back mushrooms",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Absorbs life force to recover energy using Absorb",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact sentient control level exerted by the tochukaso mushroom over the host insect."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Parasect",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Parasect is the evolved form of Paras, where the mushroom parasite on its back has completely overtaken the host insect's central nervous system. It scatters toxic spores and overwhelms opponents in damp forest environments.",
+      "offense": {
+        "domains": [
+          "plant",
+          "bug",
+          "physical"
+        ],
+        "techniques": [
+          "Spore",
+          "Slash",
+          "Giga Drain",
+          "X-Scissor"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Spreading total-infliction spores like Spore to instantly neutralize foes"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type attacks",
+        "Flying-type attacks",
+        "Ice-type attacks",
+        "Poison-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Extremely vulnerable to fire and aerial assaults due to fungal composition"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Parasect_(Pok%C3%A9mon)",
+          "supports": "Evolutionary details, mushroom control over host, and Spore technique."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scatters toxic spores from the massive mushroom cap to drain tree nutrients and weaken foes",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Drains target energy via Giga Drain",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether any original consciousness of the host Paras remains beneath the giant mushroom."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Persian",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Persian is a sleek, feline normal-type Pokémon known for its extreme agility, sharp claws, and calculating predatory demeanor. It stalks targets silently before striking with lightning-fast physical combos.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Slash",
+          "Bite",
+          "Scratch",
+          "Pay Day"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High evasiveness and flexible feline agility to dodge incoming strikes"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Running",
+        "Super-speed"
+      ],
+      "limitations": [
+        "Lacks ranged energy projection options without technical machine support"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Persian_(Pok%C3%A9mon)",
+          "supports": "Feline traits, normal typing, agility, and claw techniques."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Sneaks up on opponents without making a single sound before slashing with sharp claws",
+          "citation": "Pokémon Yellow Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Stalks prey with noiseless footsteps and calculated stealth",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact temperament variability between wild Persian and domesticated companions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Pidgeot",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Pidgeot is a large normal and flying type bird Pokémon capable of soaring at Mach 2 speeds. It generates powerful gusts with its massive wings and strikes enemies from high-altitude dives.",
+      "offense": {
+        "domains": [
+          "physical",
+          "wind"
+        ],
+        "techniques": [
+          "Wing Attack",
+          "Hurricane",
+          "Quick Attack",
+          "Gust"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High-speed aerial maneuvering to evade ground-based attacks"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Ice-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Super-speed"
+      ],
+      "limitations": [
+        "Requires open airspace to maximize its dive speed and wing-based wind pressure"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgeot_(Pok%C3%A9mon)",
+          "supports": "Normal/Flying typing, wing power, and Mach 2 flight speed."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flies at Mach 2 speed to search for prey from high altitudes",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses large wings capable of sustained high-speed flight",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum sustained duration of Mach 2 flight without resting."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Pidgeot|Mega Pidgeot",
+      "continuity": "Pokémon Omega Ruby and Alpha Sapphire",
+      "summary": "Mega Pidgeot is the temporary Mega-Evolved form of Pidgeot, granting it increased physical bulk, enhanced aerodynamic crest feathers, and the No Guard ability ensuring its attacks never miss.",
+      "offense": {
+        "domains": [
+          "physical",
+          "wind",
+          "energy"
+        ],
+        "techniques": [
+          "Hurricane",
+          "Gale Wing Strike",
+          "Air Slash",
+          "Heat Wave"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superior aerial agility and reinforced muscle mass during Mega Evolution"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Ice-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Super-speed"
+      ],
+      "formDifferences": "Triggers temporary Mega Evolution via Pidgeotite, boosting speed and special attack while granting the No Guard ability.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgeot_(Pok%C3%A9mon)",
+          "supports": "Mega Pidgeot form attributes, increased speed, and No Guard ability."
+        }
+      ],
+      "unknowns": [
+        "Exact metabolic toll of sustaining Mega Evolution over prolonged combat sessions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Pidgeotto",
+      "continuity": "Pokémon Red and Blue / Pokémon anime",
+      "summary": "Pidgeotto is the intermediate normal and flying type bird Pokémon that patrols a large territorial area with sharp claws and strong wingbeats. It fights by swooping down and gripping targets.",
+      "offense": {
+        "domains": [
+          "physical",
+          "wind"
+        ],
+        "techniques": [
+          "Gust",
+          "Quick Attack",
+          "Wing Attack",
+          "Sand-Attack"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Kicking up dust screens with Sand-Attack to lower enemy accuracy"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Ice-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Lacks the extreme Mach 2 speed of its final evolved form Pidgeot"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgeotto_(Pok%C3%A9mon)",
+          "supports": "Normal/Flying typing, territorial nature, and Sand-Attack move."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defends its wide territorial area vigorously by swooping down on intruders",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies continuously using its developed wings",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Territory boundary sizes across different woodland biomes."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
