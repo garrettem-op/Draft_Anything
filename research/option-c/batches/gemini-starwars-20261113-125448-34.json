@@ -1,0 +1,611 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125448 #34",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Darth Vader",
+      "continuity": "Star Wars Canon (Films and Comics)",
+      "summary": "Darth Vader is a cybernetic Sith Lord who relies on overwhelming physical strength, telekinesis, and a relentless lightsaber combat style. He absorbs attacks using his suit and breaks enemies mentally and physically through sheer force projection.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Lightsaber combat (Form V)",
+          "Force choke",
+          "Force push",
+          "Lightsaber throw"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy cybernetic armor resistant to glancing blows",
+          "Lightsaber deflection",
+          "Force barrier"
+        ]
+      },
+      "weaknesses": [
+        "Critical reliance on suit life support systems",
+        "Vulnerability to intense electrical discharges such as Force lightning"
+      ],
+      "mobility": [
+        "Walking",
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Reduced agility and flexibility due to heavy cybernetic suit",
+        "Life support vulnerabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Darth_Vader",
+          "supports": "Abilities, cybernetic suit, weaknesses, and Force powers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rips a doorway apart and pulls opponents with the Force.",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Obi-Wan Kenobi",
+          "result": "loss",
+          "citation": "Star Wars: Episode IV - A New Hope",
+          "note": "Kenobi allowed himself to be struck down to enable escape.",
+          "source": 0
+        },
+        {
+          "opponent": "Luke Skywalker",
+          "result": "loss",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "note": "Defeated when Luke surrendered to anger and overwhelmed him.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Vader's body is heavily replaced by cybernetics and life-support systems.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Expert starfighter pilot who flew in the Battle of Yavin.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Extensive use of Force choke and object manipulation.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his raw power compared to Prime Anakin Skywalker."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Darth Vader|Vader of Mustafar (Fully Restored)",
+      "continuity": "Star Wars Legends / Comic Visions",
+      "summary": "Representing a hypothetical fully restored Vader without suit limitations, this variant combines immense raw Force potential with unrestricted physical mobility.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Unrestricted lightsaber acrobatics",
+          "Advanced telekinetic blasts"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber parrying",
+          "Force deflection"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Acrobatic running",
+        "Natural-flight"
+      ],
+      "formDifferences": "Removes the cybernetic suit limitations, granting full biological movement and eliminating the critical life-support weakness.",
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Darth_Vader",
+          "supports": "Base potential and historical context of Anakin/Vader."
+        }
+      ],
+      "unknowns": [
+        "Purely speculative variant configuration."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Death Trooper",
+      "continuity": "Star Wars Canon (Films and Series)",
+      "summary": "Elite Imperial commandos who utilize advanced tactical gear, encrypted communications, and heavy weaponry to eliminate high-value targets.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Precise squad-based firefights",
+          "SE-14R blaster pistol combat",
+          "D-191 heavy blaster rifle combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Specialized stormtrooper armor",
+          "Tactical helmets with integrated multi-spectral sensors"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelming specialized forces or Jedi intervention"
+      ],
+      "mobility": [
+        "Standard foot movement"
+      ],
+      "limitations": [
+        "Standard human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Death_trooper",
+          "supports": "Equipment, tactical role, and armament details."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Operates effectively in low-visibility jungle conditions on Eadu.",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rogue One squad",
+          "result": "loss",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Engaged during the battle of Scarif.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced encrypted comms and multi-spectral sensors.",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Trained for covert operations and bodyguard duties.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact augmentation procedures used to create death troopers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Director Krennic",
+      "continuity": "Star Wars Canon (Films)",
+      "summary": "Orson Krennic is an Imperial military administrator who relies on standard Imperial security forces and personal sidearms rather than direct frontline combat prowess.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "A-180 blinder pistol usage",
+          "Command authority"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Imperial white tunic and personal bodyguards"
+        ]
+      },
+      "weaknesses": [
+        "Low personal combat durability",
+        "Arrogance"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Not a frontline warrior"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Orson_Krennic",
+          "supports": "Role, equipment, and fate."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shoots rebel soldiers with his blaster on Scarif.",
+          "citation": "Rogue One: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Cassian Andor",
+          "result": "loss",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Shot and incapacitated prior to the Death Star strike.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Droideka",
+      "continuity": "Star Wars Canon (Films and Series)",
+      "summary": "Heavy destroyer droids capable of transforming into a fast wheel form and deploying personal deflector shield generators during combat.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Twin repeating blasters",
+          "Rolling attack mode"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Personal deflector shield generator",
+          "Durable durasteel chassis"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to slow-moving objects penetrating the shield",
+        "Vulnerability to EMP or ion weapons"
+      ],
+      "mobility": [
+        "Wheel form rolling",
+        "Short mechanical strides"
+      ],
+      "limitations": [
+        "Stationary when firing with shields active"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Droideka",
+          "supports": "Shield capabilities, weaponry, and wheel form."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Forces Jedi Knights Qui-Gon Jinn and Obi-Wan Kenobi to retreat.",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Qui-Gon Jinn and Obi-Wan Kenobi",
+          "result": "win",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "note": "Ambushed and out-gunned them on the Trade Federation ship.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Fully automated combat droid.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Dryden Vos",
+      "continuity": "Star Wars Canon (Films)",
+      "summary": "A high-ranking leader of the Crimson Dawn syndicate who combines physical combat with sophisticated weapons and wealth.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Teras Kasi martial arts",
+          "Prattâkar blades"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Personal syndicate bodyguards",
+          "Formal armor plating beneath clothing"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and reliance on subordinates"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Standard biological limits"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Dryden_Vos",
+          "supports": "Combat style, weapons, and criminal status."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engages in hand-to-hand combat using dual blades.",
+          "citation": "Solo: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Han Solo",
+          "result": "loss",
+          "citation": "Solo: A Star Wars Story",
+          "note": "Killed by Solo during a confrontation over coaxial.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Emperor Palpatine",
+      "continuity": "Star Wars Canon (Films and Series)",
+      "summary": "A master of the dark side of the Force who manipulates politics and commands devastating Force lightning alongside exceptional lightsaber skill.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Force lightning",
+          "Lightsaber combat",
+          "Force storm / manipulation"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Force barrier",
+          "Precognition"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance",
+        "Physical frailty of aged body"
+      ],
+      "mobility": [
+        "Force leap",
+        "Walking"
+      ],
+      "limitations": [
+        "Physical body ages and degrades under dark side corruption"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Palpatine",
+          "supports": "Force powers, lightsaber combat, and status."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeats multiple Jedi Masters rapidly in lightsaber combat.",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mace Windu",
+          "result": "loss",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Overpowered in blade lock, though turned the situation with Anakin's help.",
+          "source": 0
+        },
+        {
+          "opponent": "Yoda",
+          "result": "draw",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Senate chamber duel ended inconclusively after Palpatine gained high ground.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Employs devastating Force lightning.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Generates and directs lightning bolts from hands.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Practitioner of ancient and dark side Force rituals.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Emperor Palpatine|Clone Emperor Palpatine",
+      "continuity": "Star Wars Legends (Dark Empire)",
+      "summary": "A cloned vessel housing Palpatine's spirit, possessing even greater mastery over dark side storms and Force energy.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Force storm creation",
+          "Intense Force lightning"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Regenerative clone vats",
+          "Dark side barriers"
+        ]
+      },
+      "weaknesses": [
+        "Clone bodies degrade rapidly due to dark side corruption"
+      ],
+      "mobility": [
+        "Teleportation",
+        "Walking"
+      ],
+      "limitations": [
+        "Requires continuous supply of viable clone bodies"
+      ],
+      "formDifferences": "Utilizes cloned bodies that allow him to cheat death, but suffer from rapid genetic decay.",
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Palpatine/Legends",
+          "supports": "Clone bodies and Dark Empire abilities."
+        }
+      ],
+      "unknowns": [
+        "Exact stability of each cloned host."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Emperor Palpatine|Sith Eternal Palpatine",
+      "continuity": "Star Wars Canon (Rise of Skywalker)",
+      "summary": "A decrepit, life-support-dependent form of Palpatine tethered to massive machinery on Exegol, wielding planetary-scale Force lightning.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Fleet-disabling Force lightning arc",
+          "Life drain"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Machinery life support",
+          "Cultist protection"
+        ]
+      },
+      "weaknesses": [
+        "Immobile without heavy life support equipment",
+        "Vulnerable to his own reflected lightning"
+      ],
+      "mobility": [
+        "Hoisting apparatus",
+        "Limited movement"
+      ],
+      "limitations": [
+        "Tethered to life support apparatus on Exegol"
+      ],
+      "formDifferences": "Extremely physically decayed, hooked to life support on Exegol, but capable of disabling entire fleets with Force lightning.",
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Palpatine",
+          "supports": "Exegol revival state and Exegol fleet lightning."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Enfys Nest",
+      "continuity": "Star Wars Canon (Films)",
+      "summary": "Leader of the Cloud-Riders who uses specialized repulsorlift gear and an electric plasma staff to fight syndicates.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Plasma staff strikes",
+          "Swoop bike combat"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mask and armored raiding gear"
+        ]
+      },
+      "weaknesses": [
+        "Standard biological limits"
+      ],
+      "mobility": [
+        "Swoop bike",
+        "Running"
+      ],
+      "limitations": [
+        "Relies on specialized equipment for mobility advantages"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Enfys_Nest",
+          "supports": "Weapons, armor, and Cloud-Riders leadership."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ambushes shipments of coaxial with the Cloud-Riders.",
+          "citation": "Solo: A Star Wars Story",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Han Solo",
+          "result": "win",
+          "citation": "Solo: A Star Wars Story",
+          "note": "Intercepted and disarmed Solo's crew before revealing true motives.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-weapon",
+          "claim": "Wields an electric plasma staff.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots swoop bikes and specialized repulsorcraft.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
