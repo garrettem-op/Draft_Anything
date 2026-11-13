@@ -1,0 +1,613 @@
+{
+  "batchId": "Gemini V2 research dc 20261113-042507 #9",
+  "schemaVersion": 1,
+  "pool": "dc",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "dc:Lucius Fox",
+      "continuity": "DC Comics, Post-Crisis / Modern",
+      "summary": "Lucius Fox is a brilliant corporate executive, inventor, and engineer who supports Batman by managing Wayne Enterprises and designing high-tech gear, vehicles, and security systems. He generally avoids direct physical combat, relying on his formidable intellect, advanced technology, and business acumen.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Advanced tactical gear provision",
+          "Corporate resource weaponization",
+          "Security system override"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Corporate bodyguards",
+          "High-security safe rooms",
+          "Advanced encryption and security systems"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability",
+        "Lack of direct combat training"
+      ],
+      "mobility": [
+        "Standard human movement",
+        "Corporate transport vehicles"
+      ],
+      "limitations": [
+        "Human physical attributes",
+        "Relies on external operatives for direct physical confrontations"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Lucius_Fox",
+          "supports": "Role as Wayne Enterprises CEO, inventor, and ally to Batman supplying technology."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Designs and oversees the creation of advanced technologies and equipment for Wayne Enterprises and Batman.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Expert in advanced technology, engineering, and corporate computer networks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat proficiency in specific non-canon storylines."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Martian Manhunter",
+      "continuity": "DC Comics, Post-Crisis / Modern",
+      "summary": "J'onn J'onzz is a powerhouse alien refugee possessing superhuman strength, speed, durability, flight, invisibility, intangibility, shape-shifting, and profound telepathic and telekinetic abilities. He is one of the most versatile and powerful members of the Justice League, though historically vulnerable to fire.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "psychic"
+        ],
+        "techniques": [
+          "Super-strength physical strikes",
+          "Heat vision",
+          "Telepathic attack and mental manipulation",
+          "Density manipulation / phasing attacks"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Near-invulnerability",
+          "Intangibility to pass through attacks",
+          "Advanced regeneration and molecular restructuring",
+          "Extreme durability"
+        ]
+      },
+      "weaknesses": [
+        "Psychological or physiological vulnerability to fire"
+      ],
+      "mobility": [
+        "Hypersonic flight",
+        "Intangible phasing",
+        "Super-speed running"
+      ],
+      "limitations": [
+        "Vulnerability to fire can inhibit his powers and cause severe panic or weakness."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Martian_Manhunter",
+          "supports": "Abilities including shape-shifting, flight, telepathy, super-strength, intangibility, and vulnerability to fire."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Superman",
+          "result": "inconclusive",
+          "citation": "Various Justice League comic runs",
+          "note": "Fought to a standstill; their overall power levels are frequently depicted as comparable.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Innate ability to fly at hypersonic speeds.",
+          "source": 0
+        },
+        {
+          "tag": "invisibility",
+          "claim": "Can render his molecular structure invisible at will.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Extremely powerful telepath capable of reading, controlling, and communicating with minds globally.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Demonstrated psionic manipulation of physical objects.",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Can regenerate lost mass and heal from severe physical damage.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of telepathic resistance in various cosmic entities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Martian Manhunter|Fernus the Burning",
+      "continuity": "DC Comics, JLA: Trial by Fire",
+      "summary": "Fernus is the primal, genocidal personality of the Martian race unleashed when J'onn J'onzz overcomes his ancestral fear of fire. Fernus possesses all of Martian Manhunter's vast physical and mental powers, amplified significantly, alongside the terrifying ability to project and control hellfire.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "fire",
+          "psychic"
+        ],
+        "techniques": [
+          "Psychic incineration",
+          "Hellfire projection",
+          "Enhanced shape-shifting and biomass manipulation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immunity to fire",
+          "Massive regenerative capabilities",
+          "Extreme physical durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to specialized psychic countermeasures and extreme telepathic assault"
+      ],
+      "mobility": [
+        "Flight",
+        "Teleportation via advanced psionics"
+      ],
+      "limitations": [
+        "Prone to extreme arrogance and sadistic bloodlust."
+      ],
+      "formDifferences": "Removes the vulnerability to fire, unlocks burning fire-control abilities, and significantly increases aggression and offensive power output.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Martian_Manhunter",
+          "supports": "Fernus persona as the ancient, fire-immune burning Martian form of J'onn J'onzz."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Justice League",
+          "result": "win",
+          "citation": "JLA: Trial by Fire",
+          "note": "Easily overpowered multiple members of the Justice League before being defeated through specific psychological and environmental countermeasures.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Retains all of J'onn's innate flight capabilities at heightened levels.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Projects and weaponizes intense burning Martian fire.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Exerts overwhelming planetary-scale telepathic dominance.",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Advanced biological regeneration capable of recovering from catastrophic trauma.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term stability without external intervention."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Mister Miracle",
+      "continuity": "DC Comics, Post-Crisis / Modern",
+      "summary": "Scott Free is the greatest escape artist in the universe, originating from New Genesis. He utilizes Mother Box technology, high-tech gadgets, exceptional acrobatics, and tactical genius to escape any trap and overcome cosmic adversaries.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Acrobatic martial arts",
+          "Energy blast projection via gauntlets",
+          "Trap dismantling and counter-tactics"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "New God physiology (enhanced durability and strength)",
+          "Energy deflection",
+          "Mother Box healing and life support"
+        ]
+      },
+      "weaknesses": [
+        "Prone to emotional empathy and psychological burdens"
+      ],
+      "mobility": [
+        "Acrobatic running and leaping",
+        "Powered flight via aero-pads",
+        "Boom tube teleportation"
+      ],
+      "limitations": [
+        "Relies heavily on standard New God physical stats rather than raw cosmic-destroying energy projection."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mister_Miracle",
+          "supports": "Escape artist skills, New God physiology, Mother Box utilization, and technological gear."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Granny Goodness",
+          "result": "win",
+          "citation": "New Gods comic arcs",
+          "note": "Overcame her traps and training through superior escape mastery.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Boom tube teleportation and advanced life support",
+          "dependsOn": "Mother Box",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Utilizes aero-pads or Mother Box tech to achieve flight.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries extensive escape tools, energy disruptors, and a sentient Mother Box.",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Uses Mother Box capabilities for boom tube teleportation.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential if completely separated from New Genesis technology."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Mister Mxyzptlk",
+      "continuity": "DC Comics, Modern",
+      "summary": "Mister Mxyzptlk is a mischievous fifth-dimensional imp with near-omnipotent reality-warping powers. He can alter reality, matter, and physics on a whim, limited only by his own whimsical rules and the self-imposed condition that saying his name backwards sends him back to the fifth dimension.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Reality warping",
+          "Transmutation",
+          "Dimensional banishment",
+          "Matter creation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immunity to conventional harm",
+          "Dimensional phase shifting",
+          "Instantaneous regeneration"
+        ]
+      },
+      "weaknesses": [
+        "Compelled by self-imposed or magical rules (such as tricking him into saying his name backwards)"
+      ],
+      "mobility": [
+        "Flight",
+        "Dimensional teleportation",
+        "Reality shifting"
+      ],
+      "limitations": [
+        "Can be tricked into pronouncing his name backwards, which banishes him to the fifth dimension for a designated period."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mister_Mxyzptlk",
+          "supports": "Fifth-dimensional imp status, reality-warping abilities, and the name-backward weakness."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Superman",
+          "result": "loss",
+          "citation": "Superman comic issues",
+          "note": "Defeated repeatedly when Superman tricks him into saying 'Kltpzyxm' (Mxyzptlk backwards).",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Innate ability to hover and fly through space and dimensions.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Instantly teleports across dimensions and locations without restriction.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True limits of his fifth-dimensional power when unleashed without amusement-seeking constraints."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Mr. Freeze",
+      "continuity": "DC Comics, Post-Crisis / Modern",
+      "summary": "Dr. Victor Fries is a cryogenic scientist who uses a specialized refrigerated suit to survive sub-zero temperatures. He commits crimes using powerful freeze guns and cryogenic weaponry to fund his research to cure his frozen wife, Nora.",
+      "offense": {
+        "domains": [
+          "tech",
+          "ice"
+        ],
+        "techniques": [
+          "Cryogenic freeze gun blasts",
+          "Ice wall creation",
+          "Absolute zero cooling deployment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Powered cryogenic exoskeleton suit",
+          "Heavy armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Must remain in sub-zero environments or within his refrigerated suit; warm temperatures cause physical collapse"
+      ],
+      "mobility": [
+        "Standard terrestrial movement via powered exoskeleton"
+      ],
+      "limitations": [
+        "Complete dependence on his containment suit; breaching the suit leads to rapid incapacitation in normal room temperatures."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mr._Freeze",
+          "supports": "Cryogenic suit requirement, freeze gun technology, and physiological dependence on sub-zero temperatures."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "loss",
+          "citation": "Batman: Detective Comics / various graphic novels",
+          "note": "Frequently defeated when Batman exploits weaknesses in his cryogenic suit or cuts off his coolant supply.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Superhuman strength and environmental survival",
+          "dependsOn": "Cryogenic suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears a heavy life-support exoskeleton that grants superhuman strength and durability.",
+          "source": 0
+        },
+        {
+          "tag": "ice-weapon",
+          "claim": "Wields advanced cryogenic rifles and freeze guns.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Master scientist who engineered his own freezing technology and survival suit.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Expert in cryonics and advanced mechanical engineering.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Efficacy of freeze weapons against cosmic-tier entities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Nightwing",
+      "continuity": "DC Comics, Post-Crisis / Modern",
+      "summary": "Dick Grayson is the original Robin turned independent hero Nightwing. He is a master acrobat, exceptional martial artist, and tactical leader who fights crime using escrima sticks, winged gliders, and supreme hand-to-hand combat skills.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Escrima stick strikes and electricity discharge",
+          "Acrobatic martial arts combinations",
+          "Batarang and gadget deployment"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic evasion",
+          "Ballistic-resistant costume",
+          "Expert defensive blocking and counter-striking"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physiological vulnerability to high-caliber trauma"
+      ],
+      "mobility": [
+        "Acrobatic parkour and leaping",
+        "Gliding via cape/costume wings",
+        "Grappling hook traversal"
+      ],
+      "limitations": [
+        "Human physical limits; relies entirely on skill, speed, and gear rather than superpowers."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Nightwing",
+          "supports": "Acrobatic skills, martial arts mastery, escrima sticks, and superhero career as former Robin."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Deathstroke",
+          "result": "inconclusive",
+          "citation": "Titans comic runs",
+          "note": "Has engaged in numerous competitive bouts with Deathstroke, resulting in wins and losses depending on tactical preparation.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "glide",
+          "claim": "Utilizes glider wings built into his costume to glide across urban environments.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries utility belt items, grappling hooks, and concussive charges.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Trained by Batman in stealth, infiltration, and silent takedowns.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against opponents with overwhelming superhuman durability without specialized gear."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Ocean Master",
+      "continuity": "DC Comics, Post-Crisis / Modern",
+      "summary": "Orm Marius, the Ocean Master, is Aquaman's half-brother and rival for the throne of Atlantis. He is a powerful warrior equipped with mystical Atlantean artifacts, magical tridents that manipulate energy and weather, and advanced underwater combat prowess.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Trident energy projection",
+          "Weather manipulation (lightning/storms)",
+          "Atlantean martial arts"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Atlantean physiology (superhuman strength and durability)",
+          "Enchanted armor",
+          "Energy shields"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and emotional instability regarding his birthright and royal status"
+      ],
+      "mobility": [
+        "High-speed swimming",
+        "Terrestrial walking"
+      ],
+      "limitations": [
+        "Relies heavily on his magical trident for high-end energy and weather projection."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ocean_Master",
+          "supports": "Atlantean physiology, magical trident usage, weather control, and royal rivalry with Aquaman."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Aquaman",
+          "result": "loss",
+          "citation": "Aquaman comic arcs",
+          "note": "Frequently defeated by Aquaman in battles for the crown of Atlantis.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Energy projection and weather control",
+          "dependsOn": "Enchanted Trident",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Atlantean royalty fully adapted to deep-sea combat and pressure.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Can breathe underwater naturally.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Possesses high-speed swimming capabilities characteristic of elite Atlanteans.",
+          "source": 0
+        },
+        {
+          "tag": "electric-weapon",
+          "claim": "Wields a magical trident capable of generating powerful electrical blasts.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Uses enchanted tridents and talismans to channel magical attacks and weather control.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat effectiveness if permanently disarmed of his magical trident."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
