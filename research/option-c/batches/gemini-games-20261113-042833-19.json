@@ -1,0 +1,593 @@
+{
+  "batchId": "Gemini V2 research games 20261113-042833 #19",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Aerith Gainsborough",
+      "continuity": "Final Fantasy VII Remake / Original Continuity",
+      "summary": "Aerith fights primarily as a magical support and ranged spellcaster, projecting defensive wards and elemental spells while using a staff in close quarters.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Soul Drain",
+          "Arcane Ward",
+          "Planet Protection"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical barriers",
+          "Evasion",
+          "Healing spells"
+        ]
+      },
+      "weaknesses": [
+        "Low physical durability compared to frontline fighters"
+      ],
+      "mobility": [
+        "Running",
+        "Dodge roll"
+      ],
+      "limitations": [
+        "Relies on MP and materia for advanced magic"
+      ],
+      "sources": [
+        {
+          "url": "https://finalfantasy.fandom.com/wiki/Aerith_Gainsborough",
+          "supports": "Abilities, spells, and role as a spellcaster"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Summoned the Lifestream to halt Meteor",
+          "citation": "Final Fantasy VII ending",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sephiroth",
+          "result": "loss",
+          "citation": "Final Fantasy VII",
+          "note": "Ambushed and killed while praying",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Uses white magic and elemental materia spells in combat",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Casts healing spells like Cure",
+          "source": 0
+        },
+        {
+          "tag": "heals-others",
+          "claim": "Heals party members with magic",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of Ancient magical communion"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Agent 47",
+      "continuity": "Hitman World of Assassination",
+      "summary": "Agent 47 is a master assassin who relies on stealth, disguises, precision firearms, and improvised environment kills to eliminate targets without detection.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Fiber wire strangulation",
+          "Silenced pistol headshots",
+          "Improvised weapon strikes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Stealth",
+          "Disguises",
+          "Body armor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to direct overwhelming firepower if caught out of cover"
+      ],
+      "mobility": [
+        "Running",
+        "Climbing",
+        "Parkour"
+      ],
+      "limitations": [
+        "Relies on human physical limits and equipment availability"
+      ],
+      "sources": [
+        {
+          "url": "https://hitman.fandom.com/wiki/Agent_47",
+          "supports": "Combat style, stealth capabilities, and weaponry"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Eliminated high-profile targets across the globe without leaving a trace",
+          "citation": "Hitman (2016)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The ICA targets",
+          "result": "win",
+          "citation": "Hitman series",
+          "note": "Completed all contract assassinations",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Infiltrates high-security areas undetected using disguises and stealth",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Expert at blending in and infiltrating hostile facilities",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his genetic enhancements beyond peak human conditioning"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Albert Wesker",
+      "continuity": "Resident Evil 5",
+      "summary": "Albert Wesker utilizes superhuman speed, strength, and viral-enhanced regeneration to overwhelm opponents in close-quarters combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Dash strike",
+          "CQC melee combos",
+          "Projectile dodging"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superhuman reflexes allowing bullet dodging",
+          "Advanced regeneration"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to high doses of PG67A/W serum"
+      ],
+      "mobility": [
+        "Superhuman dash",
+        "Teleport-like hyper-speed movement"
+      ],
+      "limitations": [
+        "Requires periodic injections of serum to maintain stability"
+      ],
+      "sources": [
+        {
+          "url": "https://residentevil.fandom.com/wiki/Albert_Wesker",
+          "supports": "Superhuman abilities, combat techniques, and weaknesses"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Dodged point-blank gunfire effortlessly",
+          "citation": "Resident Evil 5",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Chris Redfield",
+          "result": "loss",
+          "citation": "Resident Evil 5",
+          "note": "Defeated in a volcano using RPGs and lava exposure",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-regeneration",
+          "claim": "Regenerates from severe injuries due to Uroboros/Virus",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of his physical lifting strength"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Alduin",
+      "continuity": "The Elder Scrolls V: Skyrim",
+      "summary": "Alduin is a massive draconic deity who fights using devastating bite and claw attacks, powerful Thu'um shouts, and fiery breath.",
+      "offense": {
+        "domains": [
+          "fire",
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Fire breath",
+          "Meteor summon",
+          "Soul-snatching"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Impenetrable divine scales",
+          "Immunity to normal weapons"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Dragonrend shout which forces him to land"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Bound to the Mundus lifecycle of world-eating"
+      ],
+      "sources": [
+        {
+          "url": "https://elderscrolls.fandom.com/wiki/Alduin",
+          "supports": "Draconic powers, shouts, and divine status"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Devoured souls in Sovngarde to grow stronger",
+          "citation": "The Elder Scrolls V: Skyrim",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Last Dragonborn",
+          "result": "loss",
+          "citation": "The Elder Scrolls V: Skyrim",
+          "note": "Defeated with the aid of ancient Heroes of Sovngarde",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses massive dragon wings for flight",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Breathes destructive fire",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Dwarfs normal dragons and humans in size",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his power outside of his designated time-shredding role"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Aloy",
+      "continuity": "Horizon Zero Dawn / Forbidden West",
+      "summary": "Aloy is an agile hunter who utilizes a variety of specialized bows, elemental traps, and override tech to combat robotic and human foes.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical",
+          "elemental"
+        ],
+        "techniques": [
+          "Precision arrow shots",
+          "Tripwires",
+          "Elemental bomb slings"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dodge rolling",
+          "Shield-weaver energy shield",
+          "Elemental resistance potions"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to direct heavy physical impacts when shields are down"
+      ],
+      "mobility": [
+        "Running",
+        "Climbing",
+        "Grappling hook"
+      ],
+      "limitations": [
+        "Limited ammunition capacity requiring resource gathering in combat"
+      ],
+      "sources": [
+        {
+          "url": "https://horizon.fandom.com/wiki/Aloy",
+          "supports": "Hunting weapons, focus device, and combat capabilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overrode and defeated a Thunderjaw",
+          "citation": "Horizon Zero Dawn",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hades",
+          "result": "win",
+          "citation": "Horizon Zero Dawn",
+          "note": "Defeated the rogue AI entity",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Damage absorption energy barrier",
+          "dependsOn": "Shield-Weaver armor",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses Focus device, override tools, and trap launchers",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Uses tall grass and silent strikes to ambush enemies",
+          "source": 0
+        },
+        {
+          "tag": "mount",
+          "claim": "Overrides and rides robotic mounts into battle",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat adaptability against non-machine magic or supernatural entities"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Altaïr",
+      "continuity": "Assassin's Creed",
+      "summary": "Altaïr Ibn-La'Hawad fights as a master assassin, utilizing hidden blades, throwing knives, swordplay, and stealth tactics.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Hidden blade counter-kills",
+          "Sword parries",
+          "Aerial assassinations"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Counter-attacking",
+          "Stealth blending",
+          "Parkour evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy armored groups and firearms"
+      ],
+      "mobility": [
+        "Parkour",
+        "Free-running"
+      ],
+      "limitations": [
+        "Human physical endurance"
+      ],
+      "sources": [
+        {
+          "url": "https://assassinscreed.fandom.com/wiki/Altaïr_Ibn-La'Had",
+          "supports": "Weapons, stealth skills, and combat abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated multiple Templar targets using Apple of Eden knowledge",
+          "citation": "Assassin's Creed",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Al Mualim",
+          "result": "win",
+          "citation": "Assassin's Creed",
+          "note": "Defeated his former mentor wielding the Apple of Eden",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Uses crowds and social stealth to assassinate targets",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Infiltrates heavily guarded castles and temples",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability limits against modern weaponry"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Amy Rose",
+      "continuity": "Sonic the Hedgehog",
+      "summary": "Amy Rose fights using her signature Piko Piko Hammer for heavy melee strikes and agile acrobatics.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Piko Piko Hammer swing",
+          "Spin dash",
+          "Tarot card reading"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic dodging",
+          "Hammer blocking"
+        ]
+      },
+      "weaknesses": [
+        "Limited ranged offensive options without special items"
+      ],
+      "mobility": [
+        "Running",
+        "Acrobatic leaps"
+      ],
+      "limitations": [
+        "Relies on physical momentum and melee range"
+      ],
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Amy_Rose",
+          "supports": "Piko Piko Hammer, agility, and combat abilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Smashed through thick robotic plating with the Piko Piko Hammer",
+          "citation": "Sonic Adventure",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Eggman robots",
+          "result": "win",
+          "citation": "Sonic Heroes",
+          "note": "Destroyed squads of badniks",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact origin and material limits of the Piko Piko Hammer"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Arthas Menethil",
+      "continuity": "Warcraft III / World of Warcraft",
+      "summary": "Arthas Menethil fights as a Death Knight wielding necrotic magic, frost spells, and the cursed runeblade Frostmourne.",
+      "offense": {
+        "domains": [
+          "magic",
+          "ice",
+          "physical"
+        ],
+        "techniques": [
+          "Death Coil",
+          "Frost Strike",
+          "Raise Dead"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Saronite plate armor",
+          "Necromantic life-drain"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and psychological vulnerabilities tied to his corrupted soul"
+      ],
+      "mobility": [
+        "Mounted riding",
+        "Walking"
+      ],
+      "limitations": [
+        "Bound to the Lich King's overarching will and Frostmourne's curse"
+      ],
+      "sources": [
+        {
+          "url": "https://wowpedia.fandom.com/wiki/Arthas_Menethil",
+          "supports": "Death Knight abilities, Frostmourne, and spellcasting"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slain and resurrected entire armies using Frostmourne",
+          "citation": "Warcraft III: The Frozen Throne",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Illidan Stormrage",
+          "result": "win",
+          "citation": "Warcraft III: The Frozen Throne",
+          "note": "Defeated Illidan in single combat outside the Frozen Throne",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "ice",
+          "claim": "Wields frost magic and freezes enemies in combat",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Casts death and frost magic spells",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Uses death magic to drain life and heal wounds",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of power without Frostmourne"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
