@@ -173,7 +173,8 @@
       },
       decisiveFactors, uncertainties,
       /* Report-only (shadow parity): coverage of validated research for the
-       * evaluated identities. It does not influence any probability above. */
+       * evaluated identities (each distinct identity once; statuses are
+       * record-declared). It does not influence any probability above. */
       researchCoverage: LG.shared.size() === 0 ? null : LG.shared.coverage(rows.flat().map(r => r.profile.key)),
       interactions: battle ? [[battle.ab, 'A', 'B'], [battle.ba, 'B', 'A']].flatMap(([m, at, df]) => m.flat().map(t => ({ attackerTeam: at, defenderTeam: df, ...t }))) : [],
       initiative: battle ? battle.initiative : [],

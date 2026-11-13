@@ -241,8 +241,9 @@
       abilityTags: tagInfo.tags, deniedTags: tagInfo.denied, tagsAudited: tagInfo.audited,
       sportCapabilities,
       /* Report-only: what validated research exists for this exact identity.
-       * Never used to derive powers, ratings or probabilities. */
-      research: LEDGER ? (r => ({ status: r.status, batchId: r.batchId, unknowns: r.unknowns, note: r.note }))(LEDGER.shared.lookup(formId || id)) : null,
+       * `status` is record-declared (see research-ledger.js), never verified
+       * review provenance. Never used to derive powers, ratings or probabilities. */
+      research: LEDGER ? (r => ({ status: r.status, statusBasis: r.statusBasis, batchId: r.batchId, unknowns: r.unknowns, note: r.note }))(LEDGER.shared.lookup(formId || id)) : null,
       evidence: { combat, gaps },
     };
   }
