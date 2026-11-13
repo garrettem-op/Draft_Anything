@@ -1,0 +1,747 @@
+{
+  "batchId": "Gemini V2 research games 20261113-125004 #16",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Dovahkiin",
+      "continuity": "The Elder Scrolls V: Skyrim",
+      "summary": "The Dovahkiin is a master of weapon combat, magic, and the ancient Voice of the Dragons (Shouts). They fight by combining shouts to manipulate the battlefield, casting destruction or conjuration magic, and wielding physical weapons or enchanted gear.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "shout"
+        ],
+        "techniques": [
+          "Unrelenting Force",
+          "Destruction Spells",
+          "Bound Sword",
+          "Dragonrend"
+        ],
+        "range": "melee / ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Alteration armor spells",
+          "Magical wards",
+          "Enchanted heavy or light armor",
+          "Shield blocking"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to prolonged status effects without resistance gear",
+        "Susceptible to being overwhelmed by large coordinated groups of high-tier enemies"
+      ],
+      "mobility": [
+        "Sprinting",
+        "Mount riding",
+        "Fast travel via map",
+        "Whirlwind Sprint shout"
+      ],
+      "limitations": [
+        "Shouts require a cooldown period between uses",
+        "Magicka pool limits continuous spellcasting without enchanted gear"
+      ],
+      "sources": [
+        {
+          "url": "https://en.uesp.net/wiki/Skyrim:Dragonborn",
+          "supports": "Abilities, Shouts, and general combat capabilities of the Dragonborn in Skyrim."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Alduin the World-Eater in Sovngarde",
+          "citation": "The Elder Scrolls V: Skyrim main questline",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Alduin",
+          "result": "win",
+          "citation": "The Elder Scrolls V: Skyrim main questline finale",
+          "note": "Fought with the aid of ancient Hero-Nords in Sovngarde.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Dragonrend Shout",
+          "dependsOn": "Must target dragons to force them to land",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Can cast various magic spells across destruction, restoration, illusion, and conjuration schools.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Uses powerful magical shouts and enchantments.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact canonical race, gender, and weapon specialization are variable by player choice."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Eggman",
+      "continuity": "Sonic the Hedgehog series",
+      "summary": "Dr. Eggman is a brilliant mad scientist who fights almost exclusively using advanced robotics, massive mechs, and flying vehicles. He relies on his intellect and engineering to deploy overwhelming mechanized armies.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Egg Mobile piloting",
+          "Mecha barrage",
+          "Laser weaponry",
+          "Missile salvos"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored vehicle plating",
+          "Force fields",
+          "Escaping via hidden thrusters or teleportation devices"
+        ]
+      },
+      "weaknesses": [
+        "Physically weak without his machinery",
+        "Ego-driven tactics often leave openings for counterattacks"
+      ],
+      "mobility": [
+        "Egg Mobile flight",
+        "Jetpack attachments",
+        "Vehicle transport"
+      ],
+      "limitations": [
+        "Relies entirely on external technology for combat power"
+      ],
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Doctor_Eggman",
+          "supports": "Dr. Eggman's history, tech, mechs, and abilities across the Sonic series."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Split the planet Earth into multiple pieces using Chaos energy in Sonic Unleashed",
+          "citation": "Sonic Unleashed",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sonic the Hedgehog",
+          "result": "loss",
+          "citation": "Various Sonic the Hedgehog games",
+          "note": "Usually defeated despite extensive preparation and machinery.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Heavy Combat Mechs",
+          "dependsOn": "Must have time to construct or deploy them",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Builds advanced robotics, mechs, and technological superweapons.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots the Egg Mobile and various heavy combat mechs.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Master roboticist and inventor of hundreds of robotic designs.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact capabilities vary widely depending on which specific mech or game era is referenced."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Light",
+      "continuity": "Mega Man series",
+      "summary": "Dr. Thomas Light is a pacifist scientific genius rather than a frontline combatant. In combat contexts, his contributions are purely indirect, involving the creation of advanced robotic assistants and upgrading other fighters.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Providing technological upgrades and support items"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard laboratory safety gear"
+        ]
+      },
+      "weaknesses": [
+        "Lacks any physical combat ability or direct offensive capabilities"
+      ],
+      "mobility": [
+        "Standard human locomotion",
+        "Laboratory vehicle transport"
+      ],
+      "limitations": [
+        "Completely non-combatant in personal physical confrontations"
+      ],
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Thomas_Light",
+          "supports": "Dr. Light's background, role as a roboticist, and creator of Mega Man."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created advanced sentient robotics such as Mega Man, Roll, and Proto Man",
+          "citation": "Mega Man series backstory",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Creates high-tech robotics and artificial intelligence.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Master robotics engineer responsible for Mega Man and Rush.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Not typically depicted engaging in direct physical combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Neo Cortex",
+      "continuity": "Crash Bandicoot series",
+      "summary": "Dr. Neo Cortex is a mad scientist who fights using ray guns, hoverboards, mutant henchmen, and various technological inventions. He attacks at range with energy blasts and gadgets.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Ray gun blasts",
+          "Hoverboard ramming",
+          "Mutant minions"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Force fields",
+          "Hoverboard mobility",
+          "Retreating to flying platforms"
+        ]
+      },
+      "weaknesses": [
+        "Cowardly under direct pressure",
+        "Prone to miscalculating his own inventions"
+      ],
+      "mobility": [
+        "Hoverboard flight",
+        "Jetpack transport"
+      ],
+      "limitations": [
+        "Relies heavily on technological gadgets that can malfunction"
+      ],
+      "sources": [
+        {
+          "url": "https://crashbandicoot.fandom.com/wiki/Doctor_Neo_Cortex",
+          "supports": "Dr. Neo Cortex's weaponry, inventions, and boss encounters."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engineered the Cortex Vortex to mind-control earth's animals",
+          "citation": "Crash Bandicoot",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Crash Bandicoot",
+          "result": "loss",
+          "citation": "Crash Bandicoot series",
+          "note": "Consistently defeated by Crash despite numerous sci-fi weapons.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses laser ray guns and high-tech hoverboards.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Genetically engineered various mutant animals including Crash Bandicoot.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat effectiveness fluctuates between games."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dr. Wily",
+      "continuity": "Mega Man series",
+      "summary": "Dr. Albert Wily is a genius roboticist and antagonist who fights using complex battle machines, flying capsules, and armies of Robot Masters. He utilizes ranged energy weapons and heavy machinery.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Wily Capsule energy orbs",
+          "Robot Master deployment",
+          "Mecha firepower"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Teleportation devices",
+          "Heavy armor plating on machines",
+          "Wily Capsule cloaking"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and cowardice when his machines are destroyed"
+      ],
+      "mobility": [
+        "Wily Capsule flight",
+        "Teleportation"
+      ],
+      "limitations": [
+        "Physically fragile without his combat capsules or machines"
+      ],
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Albert_W._Wily",
+          "supports": "Dr. Wily's creations, Wily Machines, and boss battles."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Reprogrammed Dr. Light's industrial robots to conquer the world",
+          "citation": "Mega Man",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mega Man",
+          "result": "loss",
+          "citation": "Mega Man series",
+          "note": "Defeated repeatedly despite staging battles inside fortified fortresses.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Constructs advanced robotic war machines and the Wily Capsule.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Created numerous powerful Robot Masters and fortress bases.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Varies in tactical complexity depending on which Wily Machine is deployed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Duke Nukem",
+      "continuity": "Duke Nukem series",
+      "summary": "Duke Nukem is a tough-talking action hero who fights using conventional firearms, explosives, and sheer physical force. He specializes in heavy ranged firepower and brutal close-quarters combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Shotgun blasts",
+          "RPG rockets",
+          "Pipe bombs",
+          "Mighty Foot kick"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Holo-Duke decoy",
+          "Armor pickups",
+          "High pain tolerance"
+        ]
+      },
+      "weaknesses": [
+        "Overconfidence and reliance on conventional weaponry against supernatural foes"
+      ],
+      "mobility": [
+        "Running",
+        "Jetpack flight",
+        "Swimming"
+      ],
+      "limitations": [
+        "Ammo capacity limits continuous heavy firing"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Duke_Nukem_(character)",
+          "supports": "Duke Nukem's characteristics, weapons, and game history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated the alien overlord Cycloid Emperor",
+          "citation": "Duke Nukem 3D",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Cycloid Emperor",
+          "result": "win",
+          "citation": "Duke Nukem 3D finale",
+          "note": "Defeated in direct combat using heavy explosives.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses equipment like Holo-Duke and night vision goggles.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact arsenal varies across different game entries."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ellie",
+      "continuity": "The Last of Us series",
+      "summary": "Ellie is a resourceful survivor who relies on stealth, improvised crafting, firearms, and melee weapons. She fights using guerrilla tactics, taking cover and eliminating enemies silently or with precise shots.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Switchblade stabs",
+          "Bow and arrow silent takedowns",
+          "Crafted molotov cocktails",
+          "Firearm shooting"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Stealth cover",
+          "Dodge maneuvers",
+          "Agile movement through obstacles"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy physical trauma and firearms without cover"
+      ],
+      "mobility": [
+        "Sprinting",
+        "Climbing",
+        "Swimming"
+      ],
+      "limitations": [
+        "Limited ammunition and crafting supplies"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ellie_(The_Last_of_Us)",
+          "supports": "Ellie's skills, weapons, and survival background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived years of infection and hostile human factions across the United States",
+          "citation": "The Last of Us Part I and Part II",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "David",
+          "result": "win",
+          "citation": "The Last of Us",
+          "note": "Ambushed and killed David with a meat cleaver in a burning restaurant.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Extensively uses stealth to evade and ambush enemies.",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Crafts and uses molotov cocktails to burn enemies.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat capabilities scale with player progression and available scavenged gear."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ezio Auditore",
+      "continuity": "Assassin's Creed II / Brotherhood / Revelations",
+      "summary": "Ezio Auditore is a Master Assassin who fights using hidden blades, swords, throwing knives, and environmental agility. He specializes in stealth assassinations, counter-attacks, and free-running mobility.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hidden Blade assassinations",
+          "Sword counter-attacks",
+          "Smoke bomb distractions",
+          "Crossbow sniping"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Parrying and counter-attacks",
+          "Smoke bombs for escape",
+          "Crowd blending and stealth"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable when swarmed by heavily armored guards in open combat"
+      ],
+      "mobility": [
+        "Parkour free-running",
+        "Horse riding",
+        "Parachute gliding"
+      ],
+      "limitations": [
+        "Human physical limits; relies heavily on surprise and finesse rather than brute force"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ezio_Auditore_da_Firenze",
+          "supports": "Ezio Auditore's weapons, assassin training, and historical setting."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overthrew the Templar influence throughout Italy and established the restored Brotherhood",
+          "citation": "Assassin's Creed Brotherhood",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rodrigo Borgia",
+          "result": "win",
+          "citation": "Assassin's Creed II",
+          "note": "Defeated Borgia in a fistfight beneath the Vatican.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Performs stealth assassinations and blends into crowds.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses smoke bombs, hidden blades, and poison darts.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Arsenal expands significantly across his three game appearances."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ezreal",
+      "continuity": "League of Legends",
+      "summary": "Ezreal is a nimble magic-user who fights by firing rapid energy projectiles from his mystical gauntlet. He relies on long-range poke attacks and instant teleportation to evade danger.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "ranged"
+        ],
+        "techniques": [
+          "Mystic Shot",
+          "Essence Flux",
+          "Trueshot Barrage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Arcane Shift blink teleportation",
+          "Keeping distance with ranged attacks"
+        ]
+      },
+      "weaknesses": [
+        "Low durability if caught without his teleport escape"
+      ],
+      "mobility": [
+        "Arcane Shift teleportation",
+        "Running"
+      ],
+      "limitations": [
+        "Relies entirely on the magic of his gauntlet for offense and mobility"
+      ],
+      "sources": [
+        {
+          "url": "https://leagueoflegends.fandom.com/wiki/Ezreal/LoL",
+          "supports": "Ezreal's abilities, Shuriman gauntlet, and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Explored dangerous ancient tombs and survived magical guardians using his gauntlet",
+          "citation": "League of Legends lore / Ezreal biography",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Energy Projection",
+          "dependsOn": "Must wear the Shuriman Gauntlet",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels raw magical energy through his ascended gauntlet.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Uses Arcane Shift to instantly teleport short distances.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Actual combat performance varies based on in-game item builds."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Falco Lombardi",
+      "continuity": "Star Fox series",
+      "summary": "Falco Lombardi is an expert pilot and sharpshooter who fights primarily from the cockpit of his Arwing starfighter or using blasters on foot. He combines aerial dogfighting agility with precise marksmanship.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Arwing laser barrage",
+          "Smart Bomb deployment",
+          "Handgun shots",
+          "Barrel roll evasion"
+        ],
+        "range": "ranged / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Arwing G-diffuser shields",
+          "Barrel roll deflection",
+          "High-speed aerial dodging"
+        ]
+      },
+      "weaknesses": [
+        "Arrogant attitude can lead to taking unnecessary risks"
+      ],
+      "mobility": [
+        "Arwing flight",
+        "Landmaster tank driving",
+        "Running"
+      ],
+      "limitations": [
+        "Fighter craft is vulnerable if shields are depleted"
+      ],
+      "sources": [
+        {
+          "url": "https://starfox.fandom.com/wiki/Falco_Lombardi",
+          "supports": "Falco Lombardi's piloting skills, Arwing capabilities, and combat history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside Fox McCloud to defeat Andrew Oikonny and the Aparoid threat",
+          "citation": "Star Fox Assault",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight combat",
+          "dependsOn": "Must be piloting the Arwing or similar spacecraft",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Expert pilot of the Arwing starfighter.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Uses advanced starfighter weaponry and smart bombs.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Ground combat proficiency is secondary to his stellar piloting abilities."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
