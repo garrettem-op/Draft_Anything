@@ -1,0 +1,794 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125604 #38",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Luke Skywalker|Grand Master Luke Skywalker",
+      "continuity": "Star Wars Legends (Expanded Universe)",
+      "summary": "As Grand Master of the New Jedi Order, Luke Skywalker possesses mastery of both the physical lightsaber combat and the most profound realms of the Force, capable of projecting his consciousness across galaxies and manipulating immense cosmic energy.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic",
+          "psychic"
+        ],
+        "techniques": [
+          "Lightsaber combat (Form V Djem So)",
+          "Force Projection",
+          "Telekinesis",
+          "Force Lightning deflection"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber defense",
+          "Advanced Force barrier",
+          "Precognition"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to extreme physical exhaustion when utilizing massive Force techniques like long-range projection",
+        "Susceptibility to specialized Yuuzhan Vong biological weapons that create shadows in the Force"
+      ],
+      "mobility": [
+        "Force-enhanced running and leaping",
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Massive Force feats drain his physical stamina and require deep meditative focus."
+      ],
+      "formDifferences": "Represents the absolute peak of Luke's power as the Grand Master of the New Jedi Order, featuring vastly expanded telekinetic power, mastery of obscure Force abilities, and wisdom far exceeding his younger days.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Luke_Skywalker",
+          "supports": "General background and development into Grand Master of the Jedi Order in the expanded universe."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Luke_Skywalker/Legends",
+          "supports": "Feats regarding Grand Master era abilities, Force projection, and mastery over multiple lightsaber forms."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Projected an illusionary duplicate of himself across the galaxy to face Darth Caedus.",
+          "citation": "Star Wars: Legacy of the Force - Inferno",
+          "source": 1
+        },
+        {
+          "claim": "Defeated numerous elite Yuuzhan Vong warriors and supreme leaders in combat.",
+          "citation": "Star Wars: The New Jedi Order series",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Caedus",
+          "result": "win",
+          "citation": "Star Wars: Legacy of the Force - Fury",
+          "note": "Fought in single combat aboard a Star Destroyer.",
+          "source": 1
+        },
+        {
+          "opponent": "Abeloth",
+          "result": "inconclusive",
+          "citation": "Star Wars: Fate of the Jedi series",
+          "note": "Required temporary alliance with Darth Krayt to defeat the entity.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Grand Master status and authority over the order",
+          "dependsOn": "Rebuilding the New Jedi Academy and decades of post-Return of the Jedi study",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Advanced mastery of esoteric and rare Force techniques beyond standard telekinesis and telepathy.",
+          "source": 1
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Can communicate and project consciousness across interplanetary distances.",
+          "source": 1
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Demonstrated the ability to move massive starships and heavy objects with the Force.",
+          "source": 1
+        },
+        {
+          "tag": "pilot",
+          "claim": "Expert pilot capable of flying advanced starfighters and capital ships.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his Force projection range without suffering catastrophic fatigue are not precisely quantified."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Mace Windu",
+      "continuity": "Star Wars Canon / Episode III",
+      "summary": "Mace Windu is a master of the Jedi High Council who utilizes Vaapad, a lightsaber combat form that channels his own inner darkness and opponent's dark side energy back at them, making him one of the deadliest duelists in history.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Vaapad (Form VII)",
+          "Shatterpoint perception",
+          "Force push",
+          "Lightsaber strike"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Defensive Force barriers",
+          "Exceptional acrobatic evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to sudden betrayal or overwhelming raw energy attacks if caught off guard"
+      ],
+      "mobility": [
+        "Force jump",
+        "Standard foot speed enhanced by the Force"
+      ],
+      "limitations": [
+        "Vaapad runs the risk of drawing the user toward the dark side of the Force."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mace_Windu",
+          "supports": "General character overview, status on the Jedi Council, and role in the prequel trilogy."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Mace_Windu",
+          "supports": "Details on Vaapad, Shatterpoint ability, and notable lightsaber combat feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Disarmed and defeated Darth Sidious in a lightsaber duel.",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "source": 0
+        },
+        {
+          "claim": "Crushed the chest plate of a super battle droid bare-handed using the Force.",
+          "citation": "Star Wars: Clone Wars (2003 TV series)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Sidious",
+          "result": "win",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "note": "Won the duel before being intervened upon by Anakin Skywalker.",
+          "source": 0
+        },
+        {
+          "opponent": "Jango Fett",
+          "result": "win",
+          "citation": "Star Wars: Episode II – Attack of the Clones",
+          "note": "Quickly dispatched Fett during the Battle of Geonosis.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Experienced pilot capable of handling military transports and starfighters.",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Uses the Force for high-speed leaps and brief levitation.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Whether he survived being thrown from the window by Palpatine in Canon remains a point of fan debate, though officially treated as deceased."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Maz Kanata",
+      "continuity": "Star Wars Canon / Sequel Trilogy",
+      "summary": "Maz Kanata is an ancient, wise smuggler and castle owner with vast underworld connections and a strong sensitivity to the Force, though she avoids direct physical combat whenever possible.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Blaster pistol marksmanship",
+          "Information brokering"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Subterfuge",
+          "Armed guards and security systems"
+        ]
+      },
+      "weaknesses": [
+        "Physically frail due to advanced age and small stature"
+      ],
+      "mobility": [
+        "Standard movement",
+        "Relies on transport ships for travel"
+      ],
+      "limitations": [
+        "Lacks frontline combat capabilities without weapons or protection."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Maz_Kanata",
+          "supports": "General character description, history as a pirate queen, and appearance in the sequel trilogy."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Maz_Kanata",
+          "supports": "Details on her castle, connection to the Force, and survival tactics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Evaded destruction of her castle and survived the conflict on Takodana.",
+          "citation": "Star Wars: Episode VII – The Force Awakens",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "First Order Stormtroopers",
+          "result": "loss",
+          "citation": "Star Wars: Episode VII – The Force Awakens",
+          "note": "Forced to abandon her castle after it was attacked by First Order forces.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "telepathy",
+          "claim": "Able to sense the Force and recognize emotional resonances in others.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "The full extent of her Force training or background is never fully detailed in canon."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Migs Mayfeld",
+      "continuity": "Star Wars Canon / The Mandalorian",
+      "summary": "Migs Mayfeld is a cynical former Imperial sharpshooter turned mercenary who relies on quick wit, twin blaster pistols, and underworld savvy to survive dangerous heists.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Dual blaster pistol marksmanship",
+          "Underworld guerrilla tactics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cover-based shooting",
+          "Evasion and tactical retreat"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in open melee combat against physically superior opponents"
+      ],
+      "mobility": [
+        "Standard foot movement",
+        "Vehicle operation"
+      ],
+      "limitations": [
+        "Relies entirely on standard physical equipment and firearms."
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Migs_Mayfeld",
+          "supports": "Background as an Imperial sharpshooter, weapons, and appearances in The Mandalorian."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully infiltrated an Imperial refinery on Morak disguised as an Imperial transport driver.",
+          "citation": "The Mandalorian, Season 2, Chapter 15: The Believer",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Mandalorian",
+          "result": "loss",
+          "citation": "The Mandalorian, Season 1, Chapter 6: The Prisoner",
+          "note": "Subdued and locked in a cell during a prison break gone wrong.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Experienced in piloting Imperial Juggernauts and various transport vehicles.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes specialized wrist blasters and standard mercenary gear.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "His exact whereabouts and status following his escape with Cara Dune on Morak."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Moff Gideon",
+      "continuity": "Star Wars Canon / The Mandalorian",
+      "summary": "Moff Gideon is a ruthless and calculating former Imperial Security Bureau officer who commands remnants of the Galactic Empire, utilizing advanced Beskar armor, dark troopers, and strategic cunning to achieve his goals.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Darksaber combat",
+          "Blaster pistol marksmanship",
+          "Tactical command"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Custom Beskar armor suit",
+          "Dark trooper combat units"
+        ]
+      },
+      "weaknesses": [
+        "Overconfident in his technological supremacy and control over remnants"
+      ],
+      "mobility": [
+        "Jetpack integrated into armor",
+        "Standard foot movement"
+      ],
+      "limitations": [
+        "Lacks innate Force abilities, relying entirely on technology and weapons."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Moff_Gideon",
+          "supports": "Overview of his character as an Imperial Moff and antagonist in The Mandalorian."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Gideon",
+          "supports": "Details on his Beskar armor, usage of the Darksaber, and command of dark troopers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought the Mandalorian in single combat using the Darksaber.",
+          "citation": "The Mandalorian, Season 2, Chapter 16: The Rescue",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Mandalorian",
+          "result": "loss",
+          "citation": "The Mandalorian, Season 2, Chapter 16: The Rescue",
+          "note": "Defeated in lightsaber combat and taken prisoner.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Darksaber combat proficiency",
+          "dependsOn": "Possession of the Darksaber artifact",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears a full suit of advanced armor forged from Mandalorian Beskar.",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Commands advanced Imperial technology including automated Dark Troopers.",
+          "source": 1
+        },
+        {
+          "tag": "pilot",
+          "claim": "Capable of piloting TIE fighters and command craft.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "The full extent of his cloning experiments involving Force-sensitive subjects."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Mon Mothma",
+      "continuity": "Star Wars Canon / Original and Sequel Eras",
+      "summary": "Mon Mothma is a brilliant political leader and diplomat who co-founded the Alliance to Restore the Republic, orchestrating political resistance against the Galactic Empire through diplomacy, rhetoric, and clandestine networks.",
+      "offense": {
+        "domains": [
+          "control"
+        ],
+        "techniques": [
+          "Political rhetoric",
+          "Diplomatic negotiation",
+          "Resistance organization"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bodyguards",
+          "Political immunity and secure safehouses"
+        ]
+      },
+      "weaknesses": [
+        "Lacks direct combat skills and physical self-defense training"
+      ],
+      "mobility": [
+        "Standard transport vessels and diplomatic cruisers"
+      ],
+      "limitations": [
+        "Entirely dependent on security personnel for physical protection in hostile zones."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mon_Mothma",
+          "supports": "Biography, political career, and leadership in the Rebel Alliance."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Mon_Mothma",
+          "supports": "Detailed record of her role in the Galactic Senate and the rebellion."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully united disparate rebel cells into a cohesive military alliance against the Galactic Empire.",
+          "citation": "Star Wars Rebels / Return of the Jedi",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Her exact whereabouts during certain covert insurgent operations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Nien Nunb",
+      "continuity": "Star Wars Canon / Original Trilogy",
+      "summary": "Nien Nunb is a skilled Sullustan pilot and smuggler who served as co-pilot to Lando Calrissian during the Battle of Endor and later fought with the Resistance.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Starfighter combat",
+          "Blaster rifle marksmanship"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasive flight maneuvers",
+          "Standard rebel armor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to close-quarters hand-to-hand combat without vehicle or weapon support"
+      ],
+      "mobility": [
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Relies on standard equipment and starfighters."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Nien_Nunb",
+          "supports": "Overview of Nien Nunb as a Sullustan pilot and co-pilot of the Millennium Falcon."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Nien_Nunb",
+          "supports": "Detailed combat history in the Rebel Alliance and Resistance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Co-piloted the Millennium Falcon inside the superstructure of the second Death Star.",
+          "citation": "Star Wars: Episode VI – Return of the Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial TIE fighters",
+          "result": "win",
+          "citation": "Star Wars: Episode VI – Return of the Jedi",
+          "note": "Successfully evaded and destroyed Imperial fighters during the Battle of Endor.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Co-piloted the Millennium Falcon during the destruction of the second Death Star.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "His exact fate following the final battle against the First Order."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Obi-Wan Kenobi",
+      "continuity": "Star Wars Canon / Prequel Trilogy",
+      "summary": "Obi-Wan Kenobi is a legendary Jedi Master renowned for his mastery of Soresu (Form III), exceptional defensive lightsaber technique, tactical brilliance, and deep connection to the Force.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Soresu (Form III)",
+          "Ataru (Form IV elements)",
+          "Force push",
+          "Lightsaber combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Virtually impenetrable defensive lightsaber guard",
+          "Force barrier",
+          "Precognitive dodging"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to powerful telekinetic attacks if caught off balance by exceptional powerhouses"
+      ],
+      "mobility": [
+        "Force jump",
+        "Starfighter piloting"
+      ],
+      "limitations": [
+        "Struggles against opponents with overwhelming raw physical strength coupled with aggressive offense when caught in confined spaces without room for defense."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Obi-Wan_Kenobi",
+          "supports": "General biography, Jedi training, and role in the Skywalker saga."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Obi-Wan_Kenobi",
+          "supports": "Detailed combat style, feats with Form III, and notable duels."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated General Grievous in lightsaber and blaster combat.",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "source": 0
+        },
+        {
+          "claim": "Defeated Anakin Skywalker on Mustafar by utilizing high-ground tactical advantage.",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Anakin Skywalker",
+          "result": "win",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "note": "Defeated Anakin after a prolonged duel on Mustafar.",
+          "source": 0
+        },
+        {
+          "opponent": "Count Dooku",
+          "result": "loss",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "note": "Knocked unconscious via Force choke during the duel aboard the Invisible Hand.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Renowned Jedi starfighter pilot during the Clone Wars.",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Uses Force leaps and momentum redirection for high mobility.",
+          "source": 1
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Capable of mind tricks and sensing thoughts/emotions.",
+          "source": 1
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Proficient in Force push, pull, and manipulation of heavy objects.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his resilience against concentrated artillery fire."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Obi-Wan Kenobi|Force Spirit Obi-Wan",
+      "continuity": "Star Wars Canon / Original Trilogy",
+      "summary": "As a Force spirit, Obi-Wan Kenobi transcends physical limitations, existing as a luminous manifestation capable of dispensing cosmic wisdom, appearing at will, and remaining entirely immune to physical harm.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "magic"
+        ],
+        "techniques": [
+          "Cosmic guidance",
+          "Disembodied communication"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Incorporeal form (immune to physical and energy attacks)"
+        ]
+      },
+      "weaknesses": [
+        "Lacks physical form and cannot directly inflict physical damage or manipulate physical objects in the material world"
+      ],
+      "mobility": [
+        "Instantaneous spiritual appearance / teleportation across locations"
+      ],
+      "limitations": [
+        "Cannot engage in physical combat or use traditional Force powers like telekinesis on material objects."
+      ],
+      "formDifferences": "Changes Obi-Wan from a physical living combatant into an incorporeal spiritual entity that cannot fight physically but is entirely immune to physical damage.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Obi-Wan_Kenobi",
+          "supports": "Overview of Obi-Wan's post-mortem existence as a guide to Luke Skywalker."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Force_ghost",
+          "supports": "Mechanics and capabilities of Jedi Force spirits in canon."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Appeared to Luke Skywalker on Dagobah and Hoth to offer guidance.",
+          "citation": "Star Wars: Episode V – The Empire Strikes Back",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Manifestation as a luminous apparition",
+          "dependsOn": "Attaining oneness with the Cosmic Force through specific Whills training",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "telepathy",
+          "claim": "Communicates directly into the minds of living Force sensitives across vast distances.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "The full extent of what a Force ghost can interact with or manipulate in the physical plane beyond sensory communication."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Omega",
+      "continuity": "Star Wars Canon / The Bad Batch",
+      "summary": "Omega is an unmodified female clone of Jango Fett with advanced tactical awareness, expert archery skills, and a quick learning curve, fighting alongside her clone brothers to survive the rise of the Empire.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Energy bow marksmanship",
+          "Tactical evasion",
+          "Improvisational sabotage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility and cover-based combat",
+          "Camouflage"
+        ]
+      },
+      "weaknesses": [
+        "Lacks heavy armor and physical strength compared to adult combatants"
+      ],
+      "mobility": [
+        "Standard nimble movement",
+        "Climbing and crawling through tight spaces"
+      ],
+      "limitations": [
+        "Relies on agility and ranged weaponry rather than direct physical confrontation."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Bad_Batch_(TV_series)",
+          "supports": "Overview of Omega's role, origin as a clone, and abilities in the series."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Omega",
+          "supports": "Detailed skills with her energy bow, medical knowledge, and survival feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully defended herself and allies using an energy bow against bounty hunters.",
+          "citation": "Star Wars: The Bad Batch",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Fennec Shand",
+          "result": "inconclusive",
+          "citation": "Star Wars: The Bad Batch, Season 1, Episode 4: Cornered",
+          "note": "Evaded capture with the help of the Bad Batch.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Capable of assisting in piloting the Havoc Marauder and shuttlecraft.",
+          "source": 1
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes a specialized energy bow and datapad tools.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "The full medical significance of her unique genetic sequencing relative to Palpatine's cloning projects."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
