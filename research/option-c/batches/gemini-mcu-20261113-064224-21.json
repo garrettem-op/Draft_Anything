@@ -1,0 +1,515 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-064224 #21",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:War Machine",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "James Rhodes wears heavily armored, military-grade exoskeleton suits equipped with ballistic weaponry, micro-missiles, and shoulder-mounted cannons. He engages foes at medium to long range using superior firepower and flight.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Repulsor blasts",
+          "Shoulder-mounted minigun",
+          "Micro-missile barrage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy titanium-alloy armor plating",
+          "Kinetic durability",
+          "Energy shields (Mark VI/VII variants)"
+        ]
+      },
+      "weaknesses": [
+        "Internal systems vulnerable to direct hacking or EMP disruption",
+        "Mechanical joints can be jammed or disabled with sufficient physical force"
+      ],
+      "mobility": [
+        "flight"
+      ],
+      "limitations": [
+        "Requires suit maintenance and power replenishment",
+        "Reduced mobility when heavy systems are damaged"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/War_Machine_(Marvel_Cinematic_Universe)",
+          "supports": "General overview of War Machine's armor, capabilities, and equipment in the MCU."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fired shoulder-mounted weaponry and minigun during the battle at Avengers Facility and airport skirmish.",
+          "citation": "Captain America: Civil War",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Vision",
+          "result": "loss",
+          "citation": "Captain America: Civil War",
+          "note": "Struck by an accidental energy beam from Vision during the airport battle, causing a severe fall.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears advanced military exoskeleton armor.",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Armor includes integrated jet thrusters allowing flight.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes advanced weapons systems and missiles mounted on the suit.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Experienced United States Air Force pilot.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact reactor output and top flight speed under maximum payload."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:War Machine|Iron Patriot (Rhodey)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "James Rhodes operates a patriotic red, white, and blue variant of the War Machine armor commissioned by the US government. It fights with identical military ordnance and flight capabilities to standard War Machine.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Exoskeleton-enhanced strikes",
+          "Mounted ballistic weapons"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Remote override vulnerability exploited by Eric Savin/Aldrich Killian"
+      ],
+      "mobility": [
+        "flight"
+      ],
+      "limitations": [
+        "Prone to remote security overrides if government control protocols are compromised"
+      ],
+      "formDifferences": "Features a red, white, and blue paint scheme commissioned for public relations, with identical underlying combat functions to the War Machine armor.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Iron_Patriot",
+          "supports": "Details on the Iron Patriot armor worn by James Rhodes in Iron Man 3."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Patrolled international airspace and confronted terrorists while wearing the Iron Patriot suit.",
+          "citation": "Iron Man 3",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Extremis soldiers",
+          "result": "loss",
+          "citation": "Iron Man 3",
+          "note": "Ambushed and captured after the suit's remote systems were locked out.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the Iron Patriot armored suit.",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Armor is capable of flight via jet systems.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Experienced military pilot.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether any internal weapon loadout differed significantly from standard War Machine marks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Winter Soldier",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Bucky Barnes is a brainwashed super-soldier equipped with a vibranium-enhanced bionic left arm and extensive training in covert ops, firearms, and hand-to-hand combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Bionic arm punch",
+          "Assault rifle and knife combat",
+          "Close-quarters assassination arts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Super-soldier enhanced durability and healing",
+          "Vibranium bionic arm blocks incoming strikes and bullets"
+        ]
+      },
+      "weaknesses": [
+        "Prone to psychological triggers and activation words that control his behavior"
+      ],
+      "mobility": [
+        "ground movement"
+      ],
+      "limitations": [
+        "Human endurance limits outside of super-soldier conditioning"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bucky_Barnes_(Marvel_Cinematic_Universe)",
+          "supports": "Details on Bucky Barnes as the Winter Soldier, his bionic arm, and super-soldier abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Halted a moving vehicle with his bare cybernetic arm during an ambush.",
+          "citation": "Captain America: The Winter Soldier",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Captain America",
+          "result": "inconclusive",
+          "citation": "Captain America: The Winter Soldier",
+          "note": "Fought evenly on the highway before identities were revealed.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Possesses a cybernetic bionic arm.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Trained elite assassin specializing in covert operations and infiltration.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full durability limits of the original non-vibranium hydra bionic arm versus the Wakandan upgrade."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Winter Soldier|Captain America (Bucky Barnes)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Bucky Barnes briefly wields Captain America's vibranium shield alongside his super-soldier abilities and tactical expertise.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Shield throw",
+          "Shield-bash melee combos"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium shield deflection",
+          "Super-soldier durability"
+        ]
+      },
+      "weaknesses": [
+        "Lacks the decades of specialized shield mastery possessed by Steve Rogers"
+      ],
+      "mobility": [
+        "ground movement"
+      ],
+      "limitations": [
+        "Shield reliance leaves flanks open if thrown incorrectly"
+      ],
+      "formDifferences": "Utilizes Captain America's vibranium shield for defensive blocking and ricochet attacks.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bucky_Barnes_(Marvel_Cinematic_Universe)",
+          "supports": "References to Bucky using Cap's shield in combat."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caught and threw Captain America's shield during the airport battle.",
+          "citation": "Captain America: Civil War",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Iron Man",
+          "result": "win",
+          "citation": "Captain America: Civil War",
+          "note": "Assisted by Steve Rogers in subduing Tony Stark.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Shield-based defense and attacks",
+          "dependsOn": "Vibranium shield",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Retains cybernetic bionic arm while operating.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether Bucky's psychological programming was fully dormant during this period."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Winter Soldier|White Wolf (Bucky Barnes)",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Free of Hydra programming, Bucky Barnes operates as the White Wolf in Wakanda, utilizing an advanced Wakandan vibranium bionic arm and specialized local weaponry.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Vibranium arm EMP pulse",
+          "Assault rifle fire",
+          "Close-quarters combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Wakandan vibranium armor and bionic arm shock absorption"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "ground movement"
+      ],
+      "limitations": [
+        "Relies on standard infantry gear outside of his prosthesis"
+      ],
+      "formDifferences": "Replaces the Hydra-designed arm with an advanced Wakandan vibranium prosthetic and sheds all psychological triggers.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bucky_Barnes_(Marvel_Cinematic_Universe)",
+          "supports": "Details on Bucky's tenure as the White Wolf in Wakanda."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off Outrider hordes during the Battle of Wakanda using standard rifles and his vibranium arm.",
+          "citation": "Avengers: Infinity War",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Outriders",
+          "result": "win",
+          "citation": "Avengers: Infinity War",
+          "note": "Defended Wakanda alongside Earth's heroes.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Equipped with advanced Wakandan vibranium cybernetic arm.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capabilities of the Wakandan arm beyond standard kinetic absorption."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Wolverine|Hellverine (Logan)",
+      "continuity": "Marvel Cinematic Universe / Multiverse variants",
+      "summary": "Logan infused with demonic hellfire powers, combining his adamantium claws and healing factor with supernatural flame attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Hellfire-infused claw slashes",
+          "Demonic rage strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Supernatural durability",
+          "Mutant healing factor"
+        ]
+      },
+      "weaknesses": [
+        "Holy magic or mystical wards capable of repelling demonic entities"
+      ],
+      "mobility": [
+        "ground movement"
+      ],
+      "limitations": [
+        "Demonic influence can cloud tactical judgment"
+      ],
+      "formDifferences": "Gains demonic hellfire generation, flaming skeletal aura, and enhanced magical offense.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Wolverine",
+          "supports": "General comic and alternate-form legacy context for Hellverine variants."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ignited adamantium claws with supernatural hellfire to incinerate supernatural foes.",
+          "citation": "Multiversal crossover records",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Demonic entities",
+          "result": "win",
+          "citation": "Multiversal crossover records",
+          "note": "Overpowered demonic adversaries using hellfire claws.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Hellfire projection and demonic enhancements",
+          "dependsOn": "Demonic possession / Hellfire pact",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-regeneration",
+          "claim": "Retains mutant healing factor enhanced by demonic energy.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Channels hellfire through his claws and strikes.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of the hellfire duration in prolonged battles."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Wolverine|Old Man Logan",
+      "continuity": "Marvel Cinematic Universe / Multiverse variants",
+      "summary": "An aged, battle-weary Logan whose healing factor is severely impaired by systemic adamantium poisoning, relying on decades of combat experience and hidden claws.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Claw strikes",
+          "Tactical ambush"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Adamantium skeleton",
+          "Degraded healing factor"
+        ]
+      },
+      "weaknesses": [
+        "Slow healing rate leaves him vulnerable to lasting physical trauma and exhaustion"
+      ],
+      "mobility": [
+        "ground movement"
+      ],
+      "limitations": [
+        "Exhausts quickly in extended engagements due to organ strain"
+      ],
+      "formDifferences": "Physical aging and adamantium toxicity severely weaken his healing factor, stamina, and overall vitality.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Logan_(film)",
+          "supports": "Details on the aged, declining Wolverine in the film Logan."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived multiple gunshot wounds and stab injuries despite slow recovery times.",
+          "citation": "Logan",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Reavers",
+          "result": "win",
+          "citation": "Logan",
+          "note": "Defeated armed mercenaries in close combat despite heavy injuries.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-regeneration",
+          "claim": "Possesses a heavily slowed mutant healing factor due to old age and poison.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether his claws still pop reliably under extreme systemic fatigue."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
