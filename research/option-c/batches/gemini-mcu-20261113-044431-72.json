@@ -1,0 +1,548 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-044431 #72",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Captain America|Worthy Captain America",
+      "continuity": "MCU (Avengers: Endgame)",
+      "summary": "Worthy Captain America combines his peak human conditioning, master shield-fighting, and hand-to-hand combat prowess with the divine power of Mjolnir, allowing him to summon lightning, fly, and enhance his physical strikes to superhuman levels.",
+      "offense": {
+        "domains": [
+          "physical",
+          "electric",
+          "magic"
+        ],
+        "techniques": [
+          "Shield throw",
+          "Mjolnir strikes",
+          "Lightning summoning"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium shield durability",
+          "Enhanced durability from Mjolnir"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelmingly powerful physical attacks if disarmed"
+      ],
+      "mobility": [
+        "running",
+        "flight via Mjolnir"
+      ],
+      "limitations": [
+        "Requires being deemed worthy to lift Mjolnir"
+      ],
+      "formDifferences": "This form grants Captain America the ability to wield Mjolnir, granting him the power of Thor including flight, lightning generation, and enhanced strength.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Captain_America_in_film",
+          "supports": "General overview of Captain America's appearances and abilities in the Marvel Cinematic Universe."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Endgame",
+          "note": "Fought fiercely using Mjolnir and his shield, but was ultimately overpowered by Thanos.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of the physical enhancement provided by wielding Mjolnir in the MCU."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Captain Carter",
+      "continuity": "MCU (What If...? / Doctor Strange in the Multiverse of Madness)",
+      "summary": "Captain Carter is a super-soldier who fights with a Union Jack vibranium shield, expert martial arts, and tactical proficiency, occasionally leveraging dimensional travel or jetpacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Shield bash",
+          "Close-quarters combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium shield",
+          "Super-soldier durability and healing"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerabilities outside of super-soldier durability"
+      ],
+      "mobility": [
+        "running",
+        "jumping"
+      ],
+      "limitations": [
+        "Relies on physical prowess and standard equipment without cosmic magic"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/What_If...%3F_(TV_series)",
+          "supports": "Details on Captain Carter's appearances and role across multiverse storylines."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wanda Maximoff (Earth-838)",
+          "result": "loss",
+          "citation": "Doctor Strange in the Multiverse of Madness",
+          "note": "Killed by her own shield during a battle with the Scarlet Witch.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Precise upper bounds of her super-soldier strength compared to Steve Rogers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Captain Marvel",
+      "continuity": "MCU (Captain Marvel / Avengers: Endgame / The Marvels)",
+      "summary": "Captain Marvel is a cosmic powerhouse who channels photon blasts, flies at hypersonic speeds, and possesses immense durability and strength derived from the Tesseract/Space Stone.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Photon blasts",
+          "Binary-powered energy projection",
+          "High-speed ramming"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy absorption",
+          "Superhuman durability",
+          "Regenerative healing factor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to dampening technology or magic that interferes with cosmic energy"
+      ],
+      "mobility": [
+        "natural-flight",
+        "space travel"
+      ],
+      "limitations": [
+        "Power is tied to her cosmic origin and emotional control"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Captain_Marvel_(film)",
+          "supports": "Overview of Carol Danvers' origin and powers in the MCU."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "win",
+          "citation": "Captain Marvel",
+          "note": "Overpowered Thanos's forces and easily destroyed his flagship.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Capable of self-powered flight in atmospheres and deep space.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact maximum energy output before risking exhaustion."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Captain Marvel|Binary (Carol Danvers)",
+      "continuity": "MCU (The Marvels)",
+      "summary": "The Binary form represents Carol Danvers operating at an amplified cosmic energy state, manifesting intense glowing plasma and enhanced photon manipulation.",
+      "offense": {
+        "domains": [
+          "energy"
+        ],
+        "techniques": [
+          "Enhanced photon bursts",
+          "Plasma projection"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy aura shield",
+          "Extreme durability"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "natural-flight"
+      ],
+      "limitations": [
+        "Temporary state triggered by extreme energy absorption"
+      ],
+      "formDifferences": "Increases energy emission and manifests a distinct glowing binary aura compared to standard base form.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Marvels",
+          "supports": "Details regarding Carol Danvers' binary manifestations and cosmic restructuring."
+        }
+      ],
+      "unknowns": [
+        "Duration limits of the binary state."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Cassandra Nova",
+      "continuity": "MCU / Marvel Multiverse (Deadpool & Wolverine)",
+      "summary": "Cassandra Nova wields devastating telepathic and telekinetic abilities, manipulating minds, dismantling opponents physically via telekinesis, and bypassing traditional physical defenses.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "control"
+        ],
+        "techniques": [
+          "Mind control",
+          "Telekinetic manipulation",
+          "Psychic intrusion via head touch"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Telekinetic barriers",
+          "Psychic shielding"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to unexpected physical ambushes if concentration is broken"
+      ],
+      "mobility": [
+        "floating",
+        "teleportation"
+      ],
+      "limitations": [
+        "Requires physical contact or close proximity for certain deep psychological manipulations"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Deadpool_%26_Wolverine",
+          "supports": "Describes Cassandra Nova's role and telepathic/telekinetic powers as the antagonist in Deadpool & Wolverine."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wolverine",
+          "result": "win",
+          "citation": "Deadpool & Wolverine",
+          "note": "Easily subdued Wolverine using her telepathic intrusion.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "telepathy",
+          "claim": "Reads and controls minds directly.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Manipulates objects and bodies with the mind.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Subjugates individuals completely using psychic influence.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her telekinetic strength limits."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Cosmo the Spacedog",
+      "continuity": "MCU (Guardians of the Galaxy Vol. 3 / The Guardians of the Galaxy Holiday Special)",
+      "summary": "Cosmo is an enhanced telekinetic and telepathic dog capable of lifting heavy objects, erecting protective force fields, and communicating verbally via a translation collar.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "control"
+        ],
+        "techniques": [
+          "Telekinetic throwing",
+          "Psychic barrier creation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Telekinetic force fields"
+        ]
+      },
+      "weaknesses": [
+        "Easily distracted by canine impulses (e.g., being called a good dog)"
+      ],
+      "mobility": [
+        "running",
+        "telekinetic levitation"
+      ],
+      "limitations": [
+        "Emotional temperament can affect focus"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy_Vol._3",
+          "supports": "Details on Cosmo's telekinetic feats and role within the Guardians."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "telekinesis",
+          "claim": "Lifts and moves large objects with telekinesis.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Communicates mentally and uses a translation device.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum weight limit for telekinetic lifting."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Darcy Lewis",
+      "continuity": "MCU (Thor / Thor: The Dark World / WandaVision)",
+      "summary": "Darcy Lewis is a brilliant political science and astrophysics researcher who utilizes scientific equipment, technical hacking, and tactical intellect rather than direct combat.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Equipment hacking",
+          "Scientific analysis"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cover",
+          "Evasion"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerabilities"
+      ],
+      "mobility": [
+        "running",
+        "driving"
+      ],
+      "limitations": [
+        "Lacks combat training or superpowers"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Darcy_Lewis",
+          "supports": "Overview of Darcy Lewis's academic background and contributions across MCU projects."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Proficient with advanced scientific and monitoring equipment.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat capabilities in direct physical confrontations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Daredevil",
+      "continuity": "MCU (Daredevil / She-Hulk: Attorney at Law)",
+      "summary": "Daredevil is a blind martial arts master whose remaining four senses are enhanced to superhuman levels, allowing him to navigate via echolocation, detect heartbeats, and defeat groups of armed thugs in close quarters.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Acrobatic martial arts",
+          "Billy club strikes and throws"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Radar sense prediction",
+          "Armored suit",
+          "Evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelming sensory overload (e.g., high-frequency sounds or intense chemicals)"
+      ],
+      "mobility": [
+        "acrobatic running",
+        "grappling hook"
+      ],
+      "limitations": [
+        "Human physical body subject to fatigue and trauma"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Daredevil_(TV_series)",
+          "supports": "Details on Matt Murdock's sensory abilities, martial arts prowess, and equipment in the MCU."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "She-Hulk",
+          "result": "draw",
+          "citation": "She-Hulk: Attorney at Law",
+          "note": "Engaged in a brief skirmish before cooperating.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes a multi-functional billy club.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of radar sense against instantaneous teleportation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Deadpool",
+      "continuity": "MCU / Fox-Marvel Universe (Deadpool & Wolverine)",
+      "summary": "Deadpool is a highly resilient mercenary proficient in dual-wielding firearms and blades, backed by an accelerated healing factor and fourth-wall-breaking awareness.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Dual katana slashing",
+          "Pistol and submachine gun fire",
+          "Improvised weapon combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Accelerated healing factor",
+          "Body armor"
+        ]
+      },
+      "weaknesses": [
+        "Mental instability and propensity for distraction"
+      ],
+      "mobility": [
+        "running",
+        "acrobatics"
+      ],
+      "limitations": [
+        "Regeneration can be taxed by massive trauma or specific dampening elements"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Deadpool_(film)",
+          "supports": "Overview of Deadpool's combat style, healing factor, and weaponry."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wolverine",
+          "result": "inconclusive",
+          "citation": "Deadpool & Wolverine",
+          "note": "Fought brutal stalemates utilizing their mutual healing factors.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Possesses a rapid regenerative healing factor.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries extensive firearms and edged weapons.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Absolute limit of regeneration if completely vaporized."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Deadpool|Zenpool",
+      "continuity": "Marvel Comics / Alternate Variant Adaptation",
+      "summary": "Zenpool is a pacifistic, peace-seeking incarnation of Deadpool who renounces lethal violence, seeking to resolve conflicts through meditation and dialogue rather than bloodshed.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Non-violent mediation",
+          "Defensive blocking"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Accelerated healing factor",
+          "Evade and parry"
+        ]
+      },
+      "weaknesses": [
+        "Unwillingness to use lethal force against aggressive opponents"
+      ],
+      "mobility": [
+        "running"
+      ],
+      "limitations": [
+        "Refuses to attack enemies with lethal intent"
+      ],
+      "formDifferences": "Replaces lethal firearms and blades with a pacifistic philosophy and non-violent conflict resolution approach.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Deadpool",
+          "supports": "General publication history and variant personas of Deadpool including Zenpool."
+        }
+      ],
+      "unknowns": [
+        "Exact duration and permanence of the Zenpool mindset under extreme provocation."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
