@@ -1,0 +1,653 @@
+{
+  "batchId": "Gemini V2 research nba 20261113-064635 #39",
+  "schemaVersion": 1,
+  "pool": "nba",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "nba:Earl Monroe",
+      "continuity": "NBA Career (1967-1980)",
+      "summary": "Earl Monroe was a charismatic, highly unorthodox scoring guard known for his playground-style moves, spin turns, and clutch scoring for the Baltimore Bullets and New York Knicks.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "spin move",
+          "isolation scoring",
+          "jump shot"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "guard defense",
+          "steals"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "running",
+        "quick footwork"
+      ],
+      "limitations": [
+        "limited to human physical capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Earl_Monroe",
+          "supports": "Career history, playing style, and accomplishments as an NBA player."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scored 25.8 points per game during the 1968-69 NBA season with the Baltimore Bullets.",
+          "citation": "NBA regular season stats",
+          "source": 0
+        },
+        {
+          "claim": "Won an NBA Championship with the New York Knicks in 1973.",
+          "citation": "1973 NBA Finals",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Los Angeles Lakers",
+          "result": "win",
+          "citation": "1973 NBA Finals",
+          "note": "Played as a key starting guard for the New York Knicks championship team.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact defensive metrics from early playground era are undocumented."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Elgin Baylor",
+      "continuity": "NBA Career (1958-1971)",
+      "summary": "Elgin Baylor was an explosive, high-flying forward renowned for his acrobatic shot-making, rebounding prowess, and relentless scoring ability for the Minneapolis and Los Angeles Lakers.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "acrobatic driving layup",
+          "rebound putback",
+          "jump shot"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "rebounding",
+          "defensive positioning"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "running",
+        "leaping"
+      ],
+      "limitations": [
+        "limited to human physical capabilities",
+        "career hampered by severe knee injuries in later years"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+          "supports": "Career history, scoring records, and playing style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scored 61 points in a single game against the Boston Celtics in the 1959 NBA Finals.",
+          "citation": "1959 NBA Finals Game 5",
+          "source": 0
+        },
+        {
+          "claim": "Averaged 38.3 points per game during the 1961-62 NBA season.",
+          "citation": "NBA regular season stats",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Boston Celtics",
+          "result": "loss",
+          "citation": "1959 NBA Finals",
+          "note": "Lakers swept by Celtics despite Baylor's scoring feats.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full defensive impact prior to comprehensive defensive stat tracking."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Elvin Hayes",
+      "continuity": "NBA Career (1968-1984)",
+      "summary": "Elvin Hayes was a durable, prolific scoring and rebounding forward/center known as 'The Big E', famous for his signature turn-around jump shot and defensive presence.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "turnaround jump shot",
+          "post scoring",
+          "rebounding"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "shot blocking",
+          "rebounding"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "running",
+        "jumping"
+      ],
+      "limitations": [
+        "limited to human physical capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Elvin_Hayes",
+          "supports": "Career history, statistics, and playing accolades."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led the NBA in scoring with 28.4 points per game as a rookie in 1968-69.",
+          "citation": "NBA regular season stats",
+          "source": 0
+        },
+        {
+          "claim": "Won an NBA Championship with the Washington Bullets in 1978.",
+          "citation": "1978 NBA Finals",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Seattle SuperSonics",
+          "result": "win",
+          "citation": "1978 NBA Finals",
+          "note": "Led Washington Bullets to a seven-game series victory.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact blocked shot statistics missing for portions of early career before blocks were officially recorded."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Erik Spoelstra",
+      "continuity": "NBA Coaching Career (1995-Present)",
+      "summary": "Erik Spoelstra is a master tactical head coach of the Miami Heat known for defensive versatility, zone schemes, and maximizing player potential across multiple eras.",
+      "offense": {
+        "domains": [
+          "tactical"
+        ],
+        "techniques": [
+          "offensive playcalling",
+          "spacing schemes",
+          "utilizing superstar matchups"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "zone defense variations",
+          "defensive rotations",
+          "scouting adjustments"
+        ]
+      },
+      "weaknesses": [
+        "reliant on roster talent and execution"
+      ],
+      "mobility": [
+        "sideline movement"
+      ],
+      "limitations": [
+        "cannot directly execute plays on the court as a player"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Erik_Spoelstra",
+          "supports": "Coaching history, championships, and tactical reputation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won back-to-back NBA Championships as head coach of the Miami Heat in 2012 and 2013.",
+          "citation": "2012 and 2013 NBA Finals",
+          "source": 0
+        },
+        {
+          "claim": "Guided underdog Miami Heat rosters to the NBA Finals in 2020 and 2023.",
+          "citation": "2020 and 2023 NBA Playoffs",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Oklahoma City Thunder",
+          "result": "win",
+          "citation": "2012 NBA Finals",
+          "note": "Coached Miami Heat to a 4-1 series victory.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance in scenarios without a professional basketball roster."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Gary Payton",
+      "continuity": "NBA Career (1990-2007)",
+      "summary": "Gary Payton, nicknamed 'The Glove', was an elite trash-talking point guard renowned for his suffocating perimeter defense and crafty playmaking for the Seattle SuperSonics.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "pick-and-roll playmaking",
+          "post-up scoring against guards",
+          "jump shot"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "on-ball perimeter defense",
+          "steals",
+          "defensive communication"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "running",
+        "lateral quickness"
+      ],
+      "limitations": [
+        "limited to human physical capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gary_Payton",
+          "supports": "Career history, defensive accolades, and statistics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won the NBA Defensive Player of the Year award in the 1995-96 season.",
+          "citation": "NBA regular season award",
+          "source": 0
+        },
+        {
+          "claim": "Won an NBA Championship with the Miami Heat in 2006.",
+          "citation": "2006 NBA Finals",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dallas Mavericks",
+          "result": "win",
+          "citation": "2006 NBA Finals",
+          "note": "Provided key veteran playmaking off the bench for Miami.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of defensive stops against players significantly larger in weight."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:George Gervin",
+      "continuity": "NBA/ABA Career (1972-1986)",
+      "summary": "George Gervin, nicknamed 'The Iceman', was a prolific scoring guard/forward famous for his signature, graceful finger roll layup and effortless offensive efficiency.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "finger roll layup",
+          "mid-range jump shot",
+          "transition scoring"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "passing lane steals",
+          "positional defense"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "running",
+        "gliding strides"
+      ],
+      "limitations": [
+        "limited to human physical capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/George_Gervin",
+          "supports": "Career history, scoring titles, and playing style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won four NBA scoring titles, including averaging 33.1 points per game in the 1979-80 season.",
+          "citation": "NBA regular season stats",
+          "source": 0
+        },
+        {
+          "claim": "Scored 63 points in a regular season game against the New Orleans Jazz in 1978.",
+          "citation": "1977-78 NBA regular season game",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Washington Bullets",
+          "result": "loss",
+          "citation": "1979 NBA Playoffs",
+          "note": "San Antonio Spurs lost in a playoff series despite Gervin's high scoring.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Defensive impact against elite physical post players."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:George Mikan",
+      "continuity": "NBL/BAA/NBA Career (1946-1956)",
+      "summary": "George Mikan was basketball's first dominant superstar big man, utilizing his immense size for the era to score in the post, block shots, and dominate for the Minneapolis Lakers.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "hook shot",
+          "post scoring",
+          "rebound putback"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "shot blocking",
+          "rebounding"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "running",
+        "pivoting"
+      ],
+      "limitations": [
+        "limited to human physical capabilities of the 1940s-1950s era"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/George_Mikan",
+          "supports": "Career history, dominance in early professional basketball eras, and championship records."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won five BAA/NBA championships with the Minneapolis Lakers between 1949 and 1954.",
+          "citation": "BAA/NBA Finals",
+          "source": 0
+        },
+        {
+          "claim": "Led the NBA in scoring for three consecutive seasons (1949-1951).",
+          "citation": "NBA regular season stats",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "New York Knicks",
+          "result": "win",
+          "citation": "1952 NBA Finals",
+          "note": "Led Minneapolis Lakers to a series victory over the Knicks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against modern hyper-athletic centers due to era differences."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Giannis Antetokounmpo",
+      "continuity": "NBA Career (2013-Present)",
+      "summary": "Giannis Antetokounmpo, nicknamed 'The Greek Freak', is an unstoppable modern physical force combining extraordinary length, speed, and power to dominate both ends of the court for the Milwaukee Bucks.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "transition Euro-step drive",
+          "rim-rolling dunk",
+          "post power game"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "weak-side shot blocking",
+          "perimeter switching",
+          "rebounding"
+        ]
+      },
+      "weaknesses": [
+        "inconsistent perimeter shooting accuracy"
+      ],
+      "mobility": [
+        "running",
+        "long strides",
+        "leaping"
+      ],
+      "limitations": [
+        "vulnerable to defensive walls in the half-court when shooting struggles"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Giannis_Antetokounmpo",
+          "supports": "Career statistics, MVP awards, and championship record."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scored 50 points in a closeout game to win the NBA Championship with the Milwaukee Bucks in 2021.",
+          "citation": "2021 NBA Finals Game 6",
+          "source": 0
+        },
+        {
+          "claim": "Won back-to-back NBA MVP awards in 2019 and 2020.",
+          "citation": "NBA regular season awards",
+          "source": 0
+        },
+        {
+          "claim": "Won NBA Defensive Player of the Year in 2020.",
+          "citation": "NBA regular season award",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Phoenix Suns",
+          "result": "win",
+          "citation": "2021 NBA Finals",
+          "note": "Led Bucks to victory after trailing 0-2 in the series.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term durability past peak athletic years."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Grant Hill",
+      "continuity": "NBA Career (1994-2013)",
+      "summary": "Grant Hill was a highly versatile 'point forward' known for his elite passing, scoring, and all-around playmaking before major ankle injuries altered his prime.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "transition playmaking",
+          "driving layup",
+          "mid-range jump shot"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "positional defense",
+          "steals",
+          "rebounding"
+        ]
+      },
+      "weaknesses": [
+        "chronic ankle injuries"
+      ],
+      "mobility": [
+        "running",
+        "fluid athleticism"
+      ],
+      "limitations": [
+        "limited by severe recurring ankle surgeries"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Grant_Hill",
+          "supports": "Career history, rookie of the year award, and playstyle evolution."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Co-won the NBA Rookie of the Year award in 1995 and became the first rookie to lead fan voting for the All-Star game.",
+          "citation": "1994-95 NBA season",
+          "source": 0
+        },
+        {
+          "claim": "Averaged 25.8 points, 6.6 rebounds, and 5.2 assists per game in the 1999-2000 season with the Detroit Pistons.",
+          "citation": "NBA regular season stats",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Atlanta Hawks",
+          "result": "win",
+          "citation": "1996 NBA Playoffs",
+          "note": "Led Detroit Pistons in playoff series action.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Peak ceiling if injuries had not derailed his prime athletic years."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Gregg Popovich",
+      "continuity": "NBA Coaching Career (1996-Present)",
+      "summary": "Gregg Popovich is the winningest head coach in NBA history, renowned for his emphasis on ball movement, defensive discipline, and sustained organizational culture with the San Antonio Spurs.",
+      "offense": {
+        "domains": [
+          "tactical"
+        ],
+        "techniques": [
+          "ball-movement offensive system",
+          "motion offense",
+          "strategic timeout adjustments"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "disciplined help defense",
+          "fundamental containment schemes"
+        ]
+      },
+      "weaknesses": [
+        "reliant on roster execution and personnel"
+      ],
+      "mobility": [
+        "sideline movement"
+      ],
+      "limitations": [
+        "cannot directly play or intervene on the court"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gregg_Popovich",
+          "supports": "Coaching records, championship history, and tactical philosophies."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Won five NBA Championships as head coach of the San Antonio Spurs (1999, 2003, 2005, 2007, 2014).",
+          "citation": "NBA Finals appearances",
+          "source": 0
+        },
+        {
+          "claim": "Became the all-time winningest head coach in NBA regular season history.",
+          "citation": "NBA coaching records",
+          "source": 0
+        },
+        {
+          "claim": "Coached the United States men's national basketball team to a gold medal at the 2020 Summer Olympics.",
+          "citation": "2020 Summer Olympics Basketball Tournament",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Miami Heat",
+          "result": "win",
+          "citation": "2014 NBA Finals",
+          "note": "Coached San Antonio Spurs to a dominant 4-1 series victory utilizing precision ball movement.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Effectiveness outside of organized basketball systems."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
