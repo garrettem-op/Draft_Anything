@@ -1,0 +1,650 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125312 #28",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Tauros",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Tauros relies on relentless physical charges, whipping itself into a frenzy with its three tails before barrelling headfirst into opponents. It fights with overwhelming momentum and blunt force.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Take Down",
+          "Double-Edge",
+          "Thrash",
+          "Giga Impact"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sturdy physique to absorb kinetic impacts",
+          "Intimidate ability to lower opponent's attack power"
+        ]
+      },
+      "weaknesses": [
+        "Psychic attacks",
+        "Fighting-type martial arts"
+      ],
+      "mobility": [
+        "Super-speed running"
+      ],
+      "limitations": [
+        "Becomes confused after using rampage moves like Thrash",
+        "Charges blindly, making it predictable and susceptible to evasion"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Tauros_(Pok%C3%A9mon)",
+          "supports": "Combat techniques, physical offense style, and weaknesses"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Smashes through thick stone walls and trees during a blind charge.",
+          "citation": "Pokémon anime episode: 'Showdown at Dark City'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ash's Pikachu",
+          "result": "loss",
+          "citation": "Pokémon anime episode: 'Bulbasaur's Mysterious Garden'",
+          "note": "Pikachu used agility and electric counterattacks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact top speed during a full-force charge across varying terrain."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Tentacool",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Tentacool floats in aquatic environments or drifts along shores, using its poisonous tentacles to sting and weaken attackers from a distance. It relies on venom and water-based maneuvers.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Poison Sting",
+          "Acid",
+          "Water Gun",
+          "Constrict"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Transparent body making it difficult to target clearly in water",
+          "Liquid Ooze ability to damage opponents trying to drain HP"
+        ]
+      },
+      "weaknesses": [
+        "Electric attacks",
+        "Psychic attacks",
+        "Ground attacks"
+      ],
+      "mobility": [
+        "Swimming"
+      ],
+      "limitations": [
+        "Dries out and struggles if removed from water for extended periods"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Tentacool_(Pok%C3%A9mon)",
+          "supports": "Abilities, moveset, and typing weaknesses"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fired toxic beams from its red eyes to damage port facilities.",
+          "citation": "Pokémon anime episode: 'Tentacool & Tentacruel'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Naturally lives and fights in aquatic environments",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Aquatic biology allows breathing underwater",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Naturally swims through water bodies",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact toxicity potency of individual stings on larger human targets."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Tentacruel",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Tentacruel extends massive numbers of stinging tentacles to ensnare opponents and inject potent toxins. It commands significant destructive presence near oceans and water bodies.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Hydro Pump",
+          "Sludge Wave",
+          "Acid Spray",
+          "Wrap"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High special defense",
+          "Rigid crystalline red orbs that absorb some energy impacts"
+        ]
+      },
+      "weaknesses": [
+        "Electric attacks",
+        "Psychic attacks",
+        "Ground attacks"
+      ],
+      "mobility": [
+        "Swimming"
+      ],
+      "limitations": [
+        "Vulnerable to sudden physical trauma on land"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Tentacruel_(Pok%C3%A9mon)",
+          "supports": "Tentacle combat capabilities, moveset, and stats"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "A giant specimen demolished skyscrapers using its extended tentacles and energy beams.",
+          "citation": "Pokémon anime episode: 'Tentacool & Tentacruel'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Inhabits marine environments",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Marine biology requires underwater respiration",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Swims proficiently through deep ocean waters",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum extension length of all eighty tentacles simultaneously."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Vaporeon",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Vaporeon melts into water to elude detection and launches surging aquatic attacks. It uses its finned tail to propel itself with high agility in aquatic combat.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Surf",
+          "Hydro Pump",
+          "Aurora Beam",
+          "Aqua Ring"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Water absorption ability to heal from water-type attacks",
+          "Cellular structure allowing it to liquefy and hide in water"
+        ]
+      },
+      "weaknesses": [
+        "Electric attacks",
+        "Grass attacks"
+      ],
+      "mobility": [
+        "Swimming",
+        "Running"
+      ],
+      "limitations": [
+        "Dependent on moisture or water bodies for its full stealth and liquefaction abilities"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Vaporeon_(Pok%C3%A9mon)",
+          "supports": "Cellular liquefaction, water moveset, and weaknesses"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Completely dissolved its physical body into water to evade an incoming attack.",
+          "citation": "Pokémon anime episode: 'The Battling Eevee Brothers'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Can live and operate underwater",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Gills allow breathing underwater",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Tail fin enables rapid swimming",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Aqua Ring restores health over time",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Duration it can maintain its liquid form without returning to a solid shape."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Venomoth",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Venomoth flutters through the air, shedding toxic scales that induce various status conditions such as sleep or poison. It combines airborne harassment with subtle psychic and bug-type attacks.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical",
+          "control"
+        ],
+        "techniques": [
+          "Silver Wind",
+          "Bug Buzz",
+          "Sleep Powder",
+          "Psychic"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shed scales acting as a smokescreen or deterrent",
+          "Compound Eyes ability ensuring high move accuracy"
+        ]
+      },
+      "weaknesses": [
+        "Fire attacks",
+        "Flying attacks",
+        "Rock attacks",
+        "Psychic attacks"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Wings are fragile and easily damaged by heavy wind or water blasts"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Venomoth_(Pok%C3%A9mon)",
+          "supports": "Dust-shedding abilities, flight, and moveset"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Released a thick cloud of paralyzing and sleep-inducing scales across a forest clearing.",
+          "citation": "Pokémon anime episode: 'The Poison Badge'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses wings for natural flight",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact chemical composition of the varied colored wing scales."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Venonat",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Venonat uses its large compound eyes as radar to track targets in the dark, defending itself with poison powder emitted from its small, furry body.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Tackle",
+          "Supersonic",
+          "Confusion",
+          "Poison Powder"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Compound Eyes ability",
+          "Thick fur coating absorbing minor impacts"
+        ]
+      },
+      "weaknesses": [
+        "Fire attacks",
+        "Flying attacks",
+        "Rock attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Short hops"
+      ],
+      "limitations": [
+        "Slow physical movement speed on the ground"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Venonat_(Pok%C3%A9mon)",
+          "supports": "Sensory eye features, powder attacks, and weaknesses"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Used its compound eyes to track invisible or hidden targets in total darkness.",
+          "citation": "Pokémon anime episode: 'March of the Exeggutor Squad'",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether its eye structure can perceive ultraviolet wavelengths outside standard conditions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Venusaur",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Venusaur anchors its heavy bulk to the ground, absorbing solar energy through the large plant on its back to unleash powerful beams and release debilitating spores.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical",
+          "control"
+        ],
+        "techniques": [
+          "Solar Beam",
+          "Energy Ball",
+          "Sludge Bomb",
+          "Sleep Powder"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick, resilient hide",
+          "Thorn-covered body deterring physical grapples"
+        ]
+      },
+      "weaknesses": [
+        "Fire attacks",
+        "Ice attacks",
+        "Flying attacks",
+        "Psychic attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Solar Beam requires a charging turn unless bright sunlight is active"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Venusaur_(Pok%C3%A9mon)",
+          "supports": "Solar energy utilization, combat stats, and moveset"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbed ambient sunlight to instantly fire a concentrated beam of solar energy.",
+          "citation": "Pokémon anime episode: 'Bulbasaur's Mysterious Garden'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Synthesis allows it to recover health using sunlight",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper weight limit of objects it can lift with its vine whips."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Venusaur|Gigantamax Venusaur",
+      "continuity": "Pokémon Sword and Shield / Generation VIII",
+      "summary": "Gigantamax Venusaur towers over battlefields like a colossal mountain, using the giant flower on its back to generate cataclysmic gusts of pollen and massive energy torrents.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical",
+          "control"
+        ],
+        "techniques": [
+          "G-Max Vine Lash",
+          "Solar Beam",
+          "Earthquake"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immense physical mass",
+          "Thick barrier of swirling petals and turbulent wind generated by its size"
+        ]
+      },
+      "weaknesses": [
+        "Fire attacks",
+        "Ice attacks",
+        "Flying attacks",
+        "Psychic attacks"
+      ],
+      "mobility": [
+        "Heavy footsteps"
+      ],
+      "limitations": [
+        "Gigantamax transformation reverts automatically after three turns"
+      ],
+      "formDifferences": "Increases size to titanic proportions, alters the flower on its back into a towering cloud-piercing structure, and grants access to G-Max Vine Lash.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Venusaur_(Pok%C3%A9mon)",
+          "supports": "Gigantamax form attributes, G-Max Vine Lash, and scale"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Generated violent gales capable of blowing away entire squads of opposing Pokémon with a flap of its gigantic flower petals.",
+          "citation": "Pokémon Sword and Shield game lore / Gigantamax battle sequences",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gigantamax form abilities and G-Max Vine Lash",
+          "dependsOn": "Dynamax Energy and Gigantamax Band activation",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Gigantamax transformation grows the Pokémon to towering proportions",
+          "source": 0
+        },
+        {
+          "tag": "giants",
+          "claim": "Gigantamax form provides massive physical scale",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact structural integrity of terrain under sustained Gigantamax tremors."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Venusaur|Mega Venusaur",
+      "continuity": "Pokémon X and Y / Generation VI-IX core games",
+      "summary": "Mega Venusaur bolsters its defense with thick-skinned bark and the massive flower on its back, resisting damage while countering with heavy grass and poison moves.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Solar Beam",
+          "Sludge Bomb",
+          "Giga Drain",
+          "Whip"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick Fat ability reducing damage from Fire and Ice attacks",
+          "Reinforced floral armor shell"
+        ]
+      },
+      "weaknesses": [
+        "Flying attacks",
+        "Psychic attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Requires the Venusaurite stone and active Mega Resonance to maintain the form"
+      ],
+      "formDifferences": "Grows a second flower bloom on its forehead, increases overall body mass, gains the Thick Fat ability, and raises defensive stats.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mega_Venusaur_(Pok%C3%A9mon)",
+          "supports": "Mega Evolution stats, Thick Fat ability, and defense profiles"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Withstood direct super-effective fire blasts that would normally incapacitate standard Venusaur, thanks to its enhanced physiological defenses.",
+          "citation": "Pokémon X and Y official competitive battle demonstrations",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution form and Thick Fat damage reduction",
+          "dependsOn": "Venusaurite held item and Trainer resonance",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Giga Drain absorbs opponent life force to restore health",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum duration it can maintain Mega Evolution under extreme environmental heat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Victreebel",
+      "continuity": "Pokémon Generation I-IX core games and anime",
+      "summary": "Victreebel hangs from tree branches, waiting to lure prey into its large, acid-secreting pouch with sweet-smelling nectar. It fights with vine whips and corrosive digestive fluids.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Vine Whip",
+          "Acid",
+          "Razor Leaf",
+          "Slam"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Waxy, acid-resistant outer skin",
+          "Ability to dissolve incoming organic projectiles with digestive fluids"
+        ]
+      },
+      "weaknesses": [
+        "Fire attacks",
+        "Ice attacks",
+        "Flying attacks",
+        "Psychic attacks"
+      ],
+      "mobility": [
+        "Stationary hanging",
+        "Short hops"
+      ],
+      "limitations": [
+        "Immobile while anchored to trees or ceilings by its vine stem"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Victreebel_(Pok%C3%A9mon)",
+          "supports": "Acidic pouch capabilities, vine attacks, and weaknesses"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Swallowed large objects and prey whole into its acidic stomach cavity.",
+          "citation": "Pokémon anime episode: 'Bulbasaur's Mysterious Garden'",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Composition of the sweet honey fragrance used to attract prey."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
