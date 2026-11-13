@@ -1,0 +1,420 @@
+{
+  "batchId": "Gemini V2 research games 20261113-214807 #6",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Yennefer",
+      "continuity": "The Witcher 3: Wild Hunt",
+      "summary": "Yennefer of Vengerberg is a powerful sorceress who specializes in combat magic, tactical manipulation, and spatial portals. She fights at range using elemental energy, defensive magic barriers, and necromantic rituals when necessary.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Lightning spells",
+          "Telekinetic blasts",
+          "Necromancy and corpse interrogation",
+          "Spatial portal creation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical force fields",
+          "Teleportation evasion"
+        ]
+      },
+      "weaknesses": [
+        "Physical vulnerability when her magical barriers fail",
+        "Fatigue from intensive spellcasting"
+      ],
+      "mobility": [
+        "Teleportation",
+        "Portals"
+      ],
+      "limitations": [
+        "Complex rituals require concentration and time",
+        "Vulnerable to physical attack if caught off-guard without a barrier"
+      ],
+      "sources": [
+        {
+          "url": "https://witcher.fandom.com/wiki/Yennefer_of_Vengerberg",
+          "supports": "Magic capabilities, combat style, portal usage, and role in The Witcher 3."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Summoned a massive magical storm during the battle of Skellige",
+          "citation": "The Witcher 3: Wild Hunt",
+          "source": 0
+        },
+        {
+          "claim": "Resurrected a dead creature briefly using forbidden necromancy in Skellige",
+          "citation": "The Witcher 3: Wild Hunt",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wild Hunt warriors",
+          "result": "win",
+          "citation": "The Witcher 3: Wild Hunt",
+          "note": "Fought alongside Geralt using combat magic and tactical shielding.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Necromantic interrogation",
+          "dependsOn": "Presence of a recently deceased corpse",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Practices powerful chaos magic and combat spells",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts offensive elemental and defensive magic in combat",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Creates spatial portals for instant travel and combat positioning",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Teleports instantly to avoid damage",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her combat power without the constraints of lodge politics or game mechanics."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Yoshi",
+      "continuity": "Super Mario series",
+      "summary": "Yoshi is a versatile dinosaur companion who uses his prehensile tongue to swallow enemies, turning them into throwable eggs or spitting them back out. He is capable of a flutter jump for extended airborne mobility.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Tongue grab and swallow",
+          "Egg throw",
+          "Ground pound"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile evasion",
+          "Riding shell protection"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to bottomless pits and environmental hazards",
+        "Fleeing when startled or taking damage"
+      ],
+      "mobility": [
+        "Running",
+        "Flutter jump",
+        "Riding"
+      ],
+      "limitations": [
+        "Cannot sustain prolonged independent flight without special items"
+      ],
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Yoshi",
+          "supports": "Abilities including tongue attack, egg throwing, flutter jump, and mount mechanics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Swallowed armored enemies and converted them into projectile eggs",
+          "citation": "Super Mario World",
+          "source": 0
+        },
+        {
+          "claim": "Executed a high flutter jump to clear wide chasms",
+          "citation": "Yoshi's Island",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bowser's minions",
+          "result": "win",
+          "citation": "Super Mario World",
+          "note": "Defeated various Koopa forces by swallowing and throwing objects.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Acts as a ridable mount for Mario and other characters",
+          "source": 0
+        },
+        {
+          "tag": "glide",
+          "claim": "Uses flutter jump to temporarily maintain altitude and cross gaps",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Biological limits of items swallowed by Yoshi."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Zelda",
+      "continuity": "The Legend of Zelda: Breath of the Wild / Tears of the Kingdom",
+      "summary": "Princess Zelda fights primarily using ancient Sheikah technology and magical sealing powers tied to the Triforce of Wisdom. In combat, she directs holy light and constructs barriers to suppress powerful threats.",
+      "offense": {
+        "domains": [
+          "magic",
+          "tech"
+        ],
+        "techniques": [
+          "Sacred light sealing",
+          "Sheikah slate constructs"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical sealing barriers",
+          "Royal guard protection"
+        ]
+      },
+      "weaknesses": [
+        "Awakening her sealing magic requires extreme emotional catalyst or peril"
+      ],
+      "mobility": [
+        "Walking",
+        "Riding"
+      ],
+      "limitations": [
+        "Power was dormant for years until triggered by mortal peril"
+      ],
+      "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Zelda",
+          "supports": "Zelda's magical abilities, sealing powers, and history across Breath of the Wild."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Contained Calamity Goro within a magical barrier for a century",
+          "citation": "The Legend of Zelda: Breath of the Wild",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Calamity Ganon",
+          "result": "draw",
+          "citation": "The Legend of Zelda: Breath of the Wild",
+          "note": "Locked Ganon in a century-long stalemate at the cost of her freedom.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Sacred Sealing Power",
+          "dependsOn": "Awakening through extreme crisis or divine heritage",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields sacred sealing magic tied to the Goddess Hylia",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Channels holy energy to restrain powerful adversaries",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes ancient Sheikah technology and artifacts",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat limits when engaging opponents without her sealing power."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Zelda|Light Dragon Zelda",
+      "continuity": "The Legend of Zelda: Tears of the Kingdom",
+      "summary": "Transformed into an immortal dragon by swallowing a secret stone, Light Dragon Zelda possesses immense size, flight capabilities, and sacred restorative power radiated from her scales.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Aerial dive attacks",
+          "Holy light radiation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive durable dragon scales",
+          "Immunity to ground-level melee hazards"
+        ]
+      },
+      "weaknesses": [
+        "Low combat aggression due to loss of human consciousness"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Mindless state prevents tactical human combat decision-making"
+      ],
+      "formDifferences": "Changes Zelda from a human spellcaster into an immense, flying sacred dragon with divine restorative properties.",
+      "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Light_Dragon",
+          "supports": "Light Dragon form attributes, flight, sacred healing properties, and origin from Zelda."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Soared above the clouds of Hyrule for millennia carrying the Master Sword",
+          "citation": "The Legend of Zelda: Tears of the Kingdom",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Dragon form attributes",
+          "dependsOn": "Swallowing a Secret Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies continuously through the sky using large dragon wings",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Exceeds 8 feet in height/length as a massive serpentine dragon",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Radiates sacred energy capable of restoring vitality",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether her dragon form retains any proactive offensive combat instincts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Zelda|Sheik (Princess Zelda)",
+      "continuity": "The Legend of Zelda: Ocarina of Time",
+      "summary": "Sheik is a disguised persona of Princess Zelda trained in stealth, acrobatics, and martial arts. She fights using stealth tactics, throwing knives, smoke bombs, and the harp.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Throwing needles/daggers",
+          "Smoke bomb vanishing",
+          "Harp melody casting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic evasion",
+          "Smoke screen concealment"
+        ]
+      },
+      "weaknesses": [
+        "Light physical frame compared to heavy brute opponents"
+      ],
+      "mobility": [
+        "Acrobatics",
+        "Teleportation"
+      ],
+      "limitations": [
+        "Relies on surprise and agility rather than raw destructive power"
+      ],
+      "formDifferences": "Transforms Princess Zelda into an agile, stealthy martial artist equipped for direct skirmishes and espionage.",
+      "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Sheik",
+          "supports": "Sheik's stealth abilities, martial arts, magic harp, and escape techniques."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Disappeared instantly from locked environments using smoke bombs",
+          "citation": "The Legend of Zelda: Ocarina of Time",
+          "source": 0
+        },
+        {
+          "claim": "Taught Link various teleportation melodies across Hyrule",
+          "citation": "The Legend of Zelda: Ocarina of Time",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Stalchildren",
+          "result": "win",
+          "citation": "The Legend of Zelda: Ocarina of Time",
+          "note": "Evaded and incapacitated undead threats with agility and quick strikes.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Uses stealth and vanishing techniques to move undetected",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Plays a magical harp to trigger teleports and environmental shifts",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Vanishes in a flash of light or smoke",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of martial training received during the Gerudo occupation era."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
