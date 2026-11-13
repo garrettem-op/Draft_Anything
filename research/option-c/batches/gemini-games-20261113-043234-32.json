@@ -1,0 +1,560 @@
+{
+  "batchId": "Gemini V2 research games 20261113-043234 #32",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Mewtwo",
+      "continuity": "Pokémon Generation I / Red, Blue, Yellow and Pokémon Adventures",
+      "summary": "Mewtwo is a genetically engineered psychic Pokémon possessing immense telekinetic and telepathic powers. It utilizes overwhelming mental force to crush opponents, erect impenetrable barriers, and manipulate minds.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Shadow Ball",
+          "Psychic",
+          "Psystrike",
+          "Aura Sphere"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Psychic barriers to deflect attacks",
+          "Teleportation to evade strikes",
+          "High mental resistance"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks"
+      ],
+      "mobility": [
+        "Levitation",
+        "Teleportation"
+      ],
+      "limitations": [
+        "Vulnerable to Bug, Ghost, and Dark elemental attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwo_(Pok%C3%A9mon)",
+          "supports": "Abilities, stats, typings, and moves of Mewtwo in the games."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created in a laboratory through gene-splicing of Mew's DNA.",
+          "citation": "Pokémon Red and Blue Pokémon Journals",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Mewtwo is a pure Psychic-type Pokémon with powerful mental attacks.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Mewtwo levitates continuously using its psychic power.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Mewtwo can teleport itself across distances.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Mewtwo manipulates objects and opponents with supreme telekinesis.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Mewtwo communicates directly via telepathy.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of its telekinetic lifting capacity outside of game mechanics."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mewtwo|Armored Mewtwo",
+      "continuity": "Pokémon anime and related media tie-ins",
+      "summary": "Armored Mewtwo wears heavy restraint gear designed by Giovanni to suppress and control its overwhelming psychic output.",
+      "offense": {
+        "domains": [
+          "physical",
+          "psychic"
+        ],
+        "techniques": [
+          "Physical strikes enhanced by armor",
+          "Suppressed psychic blasts"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy physical armor plating",
+          "Enhanced durability"
+        ]
+      },
+      "weaknesses": [
+        "Suppression of true full power until armor is removed"
+      ],
+      "formDifferences": "Wears a heavy suit of containment armor that restricts full power output while increasing physical defense.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwo",
+          "supports": "General biology and background of Mewtwo."
+        }
+      ],
+      "unknowns": [
+        "Exact defensive material composition of the armor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mewtwo|Mega Mewtwo X",
+      "continuity": "Pokémon X and Y",
+      "summary": "Mega Mewtwo X gains the Fighting type and massive muscular bulk, shifting its combat style into devastating physical martial arts empowered by surging psychic energy.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "physical"
+        ],
+        "techniques": [
+          "Psycho Cut",
+          "Submission",
+          "Zen Headbutt"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immense physical muscle mass",
+          "Psychic field shielding"
+        ]
+      },
+      "weaknesses": [
+        "Flying-type attacks",
+        "Psychic-type attacks",
+        "Fairy-type attacks"
+      ],
+      "formDifferences": "Gains the Fighting secondary type, a slender yet muscular physique, and greatly increased physical attack power.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwo_(Pok%C3%A9mon)",
+          "supports": "Mega Mewtwo X typing, stats, and ability details."
+        }
+      ],
+      "unknowns": [
+        "Duration limits of Mega Evolution in canon lore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mewtwo|Mega Mewtwo Y",
+      "continuity": "Pokémon X and Y",
+      "summary": "Mega Mewtwo Y shrinks slightly in physical size but experiences a massive surge in special psychic capability, enabling instantaneous mental attacks and absolute levitation control.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Psystrike",
+          "Psychic",
+          "Aura Sphere"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced telekinetic barriers",
+          "High speed levitation evasion"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks"
+      ],
+      "formDifferences": "Gives up physical brawn for a massive boost to special psychic power and heightened agility.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwo_(Pok%C3%A9mon)",
+          "supports": "Mega Mewtwo Y attributes and movepool."
+        }
+      ],
+      "unknowns": [
+        "Sustained energy drain under prolonged Mega Evolution."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mordin Solus",
+      "continuity": "Mass Effect series",
+      "summary": "Mordin Solus is a brilliant Salarian geneticist and former STG operative who utilizes rapid-fire tech powers, heavy scientific tactical planning, and precise submachine gun fire.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Incinerate",
+          "Cryo Blast",
+          "Neural Shock",
+          "Submachine gun fire"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tech armor shielding",
+          "Taking cover",
+          "Evasive tactical positioning"
+        ]
+      },
+      "weaknesses": [
+        "Fragile biological constitution compared to heavy combatants"
+      ],
+      "mobility": [
+        "Standard running",
+        "Tactical rolling"
+      ],
+      "limitations": [
+        "Relies on technological cooldowns for special abilities"
+      ],
+      "sources": [
+        {
+          "url": "https://masseffect.fandom.com/wiki/Mordin_Solus",
+          "supports": "Mordin Solus abilities, tech powers, and background."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully modified the genophage distribution system on the Shroud on Tuchanka.",
+          "citation": "Mass Effect 3",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Mordin uses advanced Salarian tech powers like Incinerate and Cryo Blast.",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Mordin uses Incinerate to project thermal fire damage.",
+          "source": 0
+        },
+        {
+          "tag": "ice",
+          "claim": "Mordin uses Cryo Blast to freeze targets.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Mordin is a genius scientist who engineered the genophage modification.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance in direct melee hand-to-hand combat against apex predators."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ms. Pac-Man",
+      "continuity": "Ms. Pac-Man arcade series",
+      "summary": "Ms. Pac-Man navigates maze environments at high speeds, consuming power pellets to turn the tables on pursuing ghosts.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Consuming ghosts after eating power pellets",
+          "High-speed maze navigation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile directional dodging within maze corridors"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to direct contact with ghosts unless a power pellet is active"
+      ],
+      "mobility": [
+        "High-speed ground movement"
+      ],
+      "limitations": [
+        "Power pellet effects are strictly time-limited"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ms._Pac-Man",
+          "supports": "Gameplay mechanics and character history of Ms. Pac-Man."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Navigated complex mazes while avoiding four distinct ghosts.",
+          "citation": "Ms. Pac-Man arcade game",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat effectiveness outside of enclosed maze structures."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Nathan Drake",
+      "continuity": "Uncharted series",
+      "summary": "Nathan Drake is a seasoned treasure hunter and brawler who relies on firearms, environmental cover, improvised melee attacks, and exceptional climbing agility.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Firearm shooting",
+          "Punching and counter-grappling",
+          "Grenade throwing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Taking physical cover",
+          "Acrobatic dodging and ledge hanging"
+        ]
+      },
+      "weaknesses": [
+        "Normal human vulnerability to gunfire and trauma"
+      ],
+      "mobility": [
+        "Parkour climbing",
+        "Rolling",
+        "Sprinting"
+      ],
+      "limitations": [
+        "Limited ammunition capacity requiring scavenging"
+      ],
+      "sources": [
+        {
+          "url": "https://uncharted.fandom.com/wiki/Nathan_Drake",
+          "supports": "Nathan Drake background, combat skills, and feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived numerous gunfights against private armies across lost ancient cities.",
+          "citation": "Uncharted: Drake's Fortune",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Resistance to high-tier supernatural or cosmic attacks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ness",
+      "continuity": "EarthBound (Mother 2)",
+      "summary": "Ness is a young boy possessing powerful PSI abilities, utilizing psychokinetic offense, healing support, and a trusty baseball bat to defeat cosmic threats.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "PK Flash",
+          "PK Rockin",
+          "Baseball bat strike",
+          "PSI Fire"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "PSI Shield",
+          "Healing via PSI Lifeup"
+        ]
+      },
+      "weaknesses": [
+        "Prone to homesickness status effects if not managed"
+      ],
+      "mobility": [
+        "Running",
+        "PSI Teleportation"
+      ],
+      "limitations": [
+        "PSI techniques consume finite internal PP (Psychic Points)"
+      ],
+      "sources": [
+        {
+          "url": "https://earthbound.fandom.com/wiki/Ness",
+          "supports": "Ness stats, PSI abilities, and equipment in EarthBound."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Giygas with the combined prayers of humanity.",
+          "citation": "EarthBound",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Ness wields powerful PSI offensive and defensive techniques.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Ness uses PSI Healing and Lifeup to restore health.",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Ness uses PSI Fire to burn enemies.",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Ness uses PSI Teleport to travel across the map.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact physical lifting strength without PSI amplification."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Pac-Man",
+      "continuity": "Pac-Man arcade and platformer series",
+      "summary": "Pac-Man is a yellow spherical icon who navigates mazes, consumes power pellets, and uses various magical or technological power-ups to conquer ghosts and monsters.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Consuming ghosts",
+          "Dash attack"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile dodging",
+          "Invulnerability frames during power pellets"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to hazards when power-ups expire"
+      ],
+      "mobility": [
+        "Rolling",
+        "Ground running"
+      ],
+      "limitations": [
+        "Standard form lacks ranged projectile capability without special items"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pac-Man",
+          "supports": "Pac-Man history, abilities, and game mechanics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cleared countless ghost mazes and defeated Spooky in Pac-Man World.",
+          "citation": "Pac-Man World",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True maximum running speed in open terrain."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Pikachu",
+      "continuity": "Pokémon series",
+      "summary": "Pikachu is an agile Electric-type mouse Pokémon that generates high-voltage electricity to strike opponents with lightning bolts and quick physical rushes.",
+      "offense": {
+        "domains": [
+          "electric",
+          "physical"
+        ],
+        "techniques": [
+          "Thunderbolt",
+          "Volt Tackle",
+          "Quick Attack",
+          "Iron Tail"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile dodging",
+          "Quick Attack evasion"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks"
+      ],
+      "mobility": [
+        "High-speed running",
+        "Quick Attack dash"
+      ],
+      "limitations": [
+        "Completely ineffective against Ground-type Pokémon"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pok%C3%A9mon)",
+          "supports": "Pikachu stats, movepool, and Electric-type attributes."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated numerous larger Pokémon opponents in gym battles and tournaments.",
+          "citation": "Pokémon anime and games",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Pikachu naturally generates and controls powerful electricity.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Pikachu directs electrical discharges like Thunderbolt and Thunder.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum voltage output sustained over extended durations."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
