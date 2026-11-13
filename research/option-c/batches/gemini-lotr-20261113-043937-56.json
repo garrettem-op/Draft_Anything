@@ -1,0 +1,653 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-043937 #56",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Aulë",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Aulë is one of the Aratar, the Valar most powerful in material arts, smithing, and creation. He fights with the knowledge of all substances of Arda and created the Dwarves.",
+      "offense": {
+        "domains": [
+          "magic",
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Master smithing and material shaping",
+          "Creation of autonomous life (Dwarves)"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine invulnerability typical of an Ainur",
+          "Sub-creation resilience"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Teleportation / Ainur incorporeal travel"
+      ],
+      "limitations": [
+        "Cannot grant independent free will to creations without Eru Ilúvatar's intervention."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Aul%C3%AB",
+          "supports": "Aulë's role as a Vala, smithing domain, and creation of the Dwarves."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created the Seven Fathers of the Dwarves in secret before Eru Illúvatar gave them independent life.",
+          "citation": "The Silmarillion, Of Aulë and Yavanna",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Aulë is one of the Valar, possessing high divine magic and creation powers.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Aulë designed and created the race of the Dwarves.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact direct combat feats against specific individuals in open warfare are minimal compared to his crafting feats."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Azog",
+      "continuity": "The Hobbit / Tolkien Legendarium",
+      "summary": "Azog is a ferocious Orc chieftain of Moria who leads from the front lines with massive strength and brutal weapons. He relies on intimidation, heavy melee combat, and commanding hordes of orcs.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Brutal melee strikes with scimitar and mace",
+          "Orc horde command"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy armor",
+          "High pain tolerance and aggression"
+        ]
+      },
+      "weaknesses": [
+        "Overconfidence",
+        "Blind rage"
+      ],
+      "mobility": [
+        "Running",
+        "Warg riding"
+      ],
+      "limitations": [
+        "Relies entirely on physical strength and tactical leadership."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Azog",
+          "supports": "Azog's role as King of Moria, weapons, and death by Dáin Ironfoot."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Beheaded King Thrór at the gates of Moria.",
+          "citation": "The Hobbit, Appendix A",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thrór",
+          "result": "win",
+          "citation": "The Hobbit, Appendix A",
+          "note": "Ambushed and killed Thrór outside Moria.",
+          "source": 0
+        },
+        {
+          "opponent": "Náin",
+          "result": "win",
+          "citation": "The Hobbit, Appendix A",
+          "note": "Killed Náin during the Battle of Azanulbizar before being slain.",
+          "source": 0
+        },
+        {
+          "opponent": "Dáin Ironfoot",
+          "result": "loss",
+          "citation": "The Hobbit, Appendix A",
+          "note": "Slain by the young Dáin Ironfoot at the East-gate of Moria.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Differences between book depiction (slain in Appendix A) and Peter Jackson film trilogy depiction (surviving to lead armies at the Battle of the Five Armies)."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Balin",
+      "continuity": "The Lord of the Rings / The Hobbit",
+      "summary": "Balin is a wise and experienced Dwarf warrior who fights with a traditional battle-axe and possesses deep tactical experience from the Lonely Mountain expedition and the colonization of Moria.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Axe combat",
+          "Defensive formation holding"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dwarven mail armor",
+          "Shield wall discipline"
+        ]
+      },
+      "weaknesses": [
+        "Standard mortal physical vulnerabilities"
+      ],
+      "mobility": [
+        "Foot travel"
+      ],
+      "limitations": [
+        "Aged significantly during his later years in Moria."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Balin",
+          "supports": "Balin's role in Thorin's company, expedition to Moria, and death by Orcs."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived the Quest of Erebor, fighting in the Battle of the Five Armies.",
+          "citation": "The Hobbit",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orcs of Moria",
+          "result": "loss",
+          "citation": "The Fellowship of the Ring",
+          "note": "Ambushed and killed by an Orc archer in Dimrill Dale.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific details of his final skirmishes in Moria before being overrun are known only through the Book of Mazarbul."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Bard the Bowman",
+      "continuity": "The Hobbit / Tolkien Legendarium",
+      "summary": "Bard is a grim, skilled archer of Esgaroth who fights using a great yew bow and the legendary Black Arrow, combining precision marksmanship with resolute leadership.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sniper archery",
+          "Use of the Black Arrow"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard human armor and defensive positioning"
+        ]
+      },
+      "weaknesses": [
+        "Mortal human endurance"
+      ],
+      "mobility": [
+        "Foot travel"
+      ],
+      "limitations": [
+        "Limited supply of specialized heavy ammunition like the Black Arrow."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Bard_I",
+          "supports": "Bard's lineage, shooting down Smaug with the Black Arrow, and kingship of Dale."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew the dragon Smaug with a single arrow shot to his unprotected patch of skin.",
+          "citation": "The Hobbit, Chapter 14: Fire and Water",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Smaug",
+          "result": "win",
+          "citation": "The Hobbit, Chapter 14",
+          "note": "Aided by information from a thrush, hit Smaug's bare spot on his chest.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Origin of the Black Arrow prior to its appearance in Esgaroth."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Beleg Cúthalion",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Beleg Strongbow is an elite Sindarin elf ranger and warrior of Doriath. He fights with a great black bow named Belthronding and the cursed sword Anglachel, specializing in wilderness survival and precision combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Master archery with Belthronding",
+          "Swordsmanship with Anglachel"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elven agility and stealth",
+          "Evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical mortal wounds despite Elven resilience"
+      ],
+      "mobility": [
+        "Natural elven running and forest navigation"
+      ],
+      "limitations": [
+        "Mortal weapons and physical limits apply despite great skill."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Beleg",
+          "supports": "Beleg's epithet Strongbow, wielding of Belthronding and Anglachel, and fate."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought heroically in the wars of Beleriand, clearing orcs from Taur-nu-Fuin.",
+          "citation": "The Silmarillion, Of Túrin Turambar",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orc bands of Angband",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Ambushed and destroyed multiple enemy patrols during the rescue of Túrin.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields Anglachel, a blade forged from meteoric iron by Eöl.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact magical properties of Anglachel beyond hunger for blood."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Beorn",
+      "continuity": "The Hobbit / Tolkien Legendarium",
+      "summary": "Beorn is a formidable skin-changer who fights as a giant mortal man using raw physical strength, axes, and intimidation, possessing the ability to transform into an enormous bear.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Frenzied axe-work",
+          "Intimidating presence"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick skin",
+          "Immense physical resilience"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to weapons when caught off guard"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Relies on his human form for tool use and speech."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Beorn",
+          "supports": "Beorn's skin-changing abilities, strength, and role in the Battle of the Five Armies."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Broke through Goblin lines and slew Bolg during the Battle of the Five Armies.",
+          "citation": "The Hobbit, Chapter 18: The Return Journey",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bolg",
+          "result": "win",
+          "citation": "The Hobbit, Chapter 18",
+          "note": "Crushed Bolg during the Battle of the Five Armies in bear form.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Bear form physical augmentation and massive size",
+          "dependsOn": "Skin-changing transformation",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Can transform into a massive bear significantly larger than normal bears.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact origin of the skin-changers and whether others of his kind exist."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Beorn|Beorn (Bear Form)",
+      "continuity": "The Hobbit / Tolkien Legendarium",
+      "summary": "In Bear Form, Beorn fights as an unstoppable colossal beast, tearing through armor, shields, and ranks of enemies with sheer mass and claw strikes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Massive claw swipes",
+          "Trampling charge"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enormous mass and thick fur hide",
+          "Frenzied pain resistance"
+        ]
+      },
+      "weaknesses": [
+        "Inability to use weapons or articulate speech in this form"
+      ],
+      "mobility": [
+        "Quadrupedal running and charging"
+      ],
+      "limitations": [
+        "Duration of the fury and transformation is tied to his emotional state."
+      ],
+      "formDifferences": "Transforms from a human warrior into a giant, ferocious bear with vastly enhanced strength, durability, and offensive striking power at the cost of dexterity and tool use.",
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Beorn",
+          "supports": "Beorn's bear form feats at the Battle of the Five Armies."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Carried Thorin Oakenshield out of the battle and single-handedly routed Bolg's bodyguard.",
+          "citation": "The Hobbit, Chapter 18",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bolg",
+          "result": "win",
+          "citation": "The Hobbit, Chapter 18",
+          "note": "Lifted and tore Bolg apart in bear form.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Transforms into a bear of monstrous, giant proportions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limits of his physical lifting capacity in bear form."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Beren Erchamion",
+      "continuity": "The Silmarillion / Tolkien Legendarium",
+      "summary": "Beren is a legendary Edain hero who fights with a sword, guerrilla tactics, and unflinching resolve, famously cutting a Silmaril from Morgoth's iron crown.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Swordsmanship with Angrist",
+          "Forest guerrilla combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Survival skills",
+          "Elven and divine alliances"
+        ]
+      },
+      "weaknesses": [
+        "Standard mortal physical vulnerability"
+      ],
+      "mobility": [
+        "Running",
+        "Stealth movement"
+      ],
+      "limitations": [
+        "Human physical limits, requiring aid from Lúthien and Huan to overcome major supernatural foes."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Beren",
+          "supports": "Beren's feats in Dorthonion, quest for the Silmaril, and survival."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived alone as an outlaw in Dorthonion hunted by Sauron's forces.",
+          "citation": "The Silmarillion, Of Beren and Lúthien",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Carcharoth",
+          "result": "loss",
+          "citation": "The Silmarillion",
+          "note": "Had his hand bitten off by the werewolf Carcharoth while holding the Silmaril.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Used Angrist, a knife forged by Telchar, to cut a Silmaril.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of his post-resurrection combat capabilities after returning from the dead."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Bilbo Baggins",
+      "continuity": "The Hobbit / Tolkien Legendarium",
+      "summary": "Bilbo is a Hobbit who relies heavily on stealth, concealment via the One Ring, and clever evasion rather than direct combat, occasionally using his short sword Sting.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Stealth attacks with Sting",
+          "Riddle distraction"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invisibility via the One Ring",
+          "Mithril vest protection"
+        ]
+      },
+      "weaknesses": [
+        "Modest physical strength",
+        "Reliance on magical items for defense"
+      ],
+      "mobility": [
+        "Walking and stealth movement"
+      ],
+      "limitations": [
+        "Normal hobbit physical attributes without magical gear."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Bilbo_Baggins",
+          "supports": "Bilbo's use of the Ring, Sting, and the Mithril coat."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew a giant spider in Mirkwood with Sting.",
+          "citation": "The Hobbit, Chapter 8: Flies and Spiders",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Giant Spiders",
+          "result": "win",
+          "citation": "The Hobbit, Chapter 8",
+          "note": "Used the Ring and Sting to rescue the Dwarves from Mirkwood spiders.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Invisibility",
+          "dependsOn": "Wearing the One Ring",
+          "source": 0
+        },
+        {
+          "ability": "Impenetrable torso armor",
+          "dependsOn": "Wearing the Mithril vest",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "invisibility",
+          "claim": "Becomes invisible when wearing the One Ring.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Expert at moving silently and remaining hidden from enemies.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The psychological corruptive toll of prolonged Ring use on a hobbit compared to others."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Bolg",
+      "continuity": "The Hobbit / Tolkien Legendarium",
+      "summary": "Bolg is a massive and brutal Orc chieftain of Mount Gundabad who fights with a heavy spiked mace, commanding disciplined goblin regiments and bodyguard units.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Two-handed mace crushing strikes",
+          "Orc legion coordination"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy spiked iron armor",
+          "Thick goblin hide"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to superior monstrous strength (such as Beorn)"
+      ],
+      "mobility": [
+        "Running",
+        "Warg riding"
+      ],
+      "limitations": [
+        "Relies on brute force and military numbers rather than tactical flexibility."
+      ],
+      "sources": [
+        {
+          "url": "https://lotr.fandom.com/wiki/Bolg",
+          "supports": "Bolg's role as son of Azog, commander at the Battle of the Five Armies, and death by Beorn."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led a vast army of Goblins and Wargs to reclaim the Lonely Mountain.",
+          "citation": "The Hobbit, Chapter 17: The Clouds Burst",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Beorn",
+          "result": "loss",
+          "citation": "The Hobbit, Chapter 18",
+          "note": "Rend apart by Beorn in bear form during the climax of the Battle of the Five Armies.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact inventory of personal weapons beyond his heavy iron mace."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
