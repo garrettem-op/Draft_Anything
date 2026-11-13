@@ -1,0 +1,576 @@
+{
+  "batchId": "Gemini V2 research lotr 20261113-215633 #31",
+  "schemaVersion": 1,
+  "pool": "lotr",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "lotr:Gorbag",
+      "continuity": "The Lord of the Rings (The Return of the King)",
+      "summary": "Gorbag is an Orc captain from Minas Morgul who fights with crude, vicious melee weapons and relies on brutal pragmatic violence. He displays cruelty and a harsh command over his subordinates.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "orc-sword",
+          "knife-fighting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "orc-armor",
+          "shield"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical decapitation and lethal injuries like any ordinary Orc.",
+        "Distrustful and prone to violent quarrels with fellow Orcs."
+      ],
+      "mobility": [
+        "foot"
+      ],
+      "limitations": [
+        "Lacks discipline outside of strict dark-lord hierarchies.",
+        "Physical attributes are those of a standard Orc rather than a superhuman warrior."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gorbag",
+          "supports": "Basic background, role as Orc captain from Minas Morgul, and confrontation with Shagrat."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought fiercely with Shagrat over Frodo's mithril coat, leading to their mutual fatal fight.",
+          "citation": "The Return of the King, Book IV, Chapter 10: 'The Choices of Master Samwise'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "lotr:Shagrat",
+          "result": "loss",
+          "citation": "The Return of the King",
+          "note": "Killed by Shagrat during a dispute over loot in the Tower of Cirith Ungol.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact origin before entering the service of Minas Morgul."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gothmog (Lord of Balrogs)",
+      "continuity": "The Silmarillion",
+      "summary": "Gothmog is the High Captain of Angband and the greatest of the Balrogs, wielding a black axe and a fiery whip. He leads Morgoth's armies with terrifying might before meeting his end in single combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "fire",
+          "magic"
+        ],
+        "techniques": [
+          "fiery whip",
+          "black axe",
+          "demonic strength"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "aura of fire and shadow",
+          "demonic resilience"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to exceptional magical or heroic strikes from legendary figures, such as Ecthelion's helmet spike."
+      ],
+      "mobility": [
+        "natural-flight",
+        "foot"
+      ],
+      "limitations": [
+        "Bound to physical manifestation which can be slain through extraordinary physical exertion and severe trauma."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Balrog",
+          "supports": "Gothmog's role as Lord of Balrogs and High Captain of Angband."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slew Fëanor, High King of the Noldor, in single combat.",
+          "citation": "The Silmarillion, Chapter 13: 'Of the Return of the Noldor'",
+          "source": 0
+        },
+        {
+          "claim": "Slew Fingon, High King of the Noldor, during the Nirnaeth Arnoediad with the aid of other Balrogs.",
+          "citation": "The Silmarillion, Chapter 20: 'Of the Fifth Battle: Nirnaeth Arnoediad'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "lotr:Fëanor",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Fatally wounded Fëanor outside the gates of Mithrim.",
+          "source": 0
+        },
+        {
+          "opponent": "lotr:Fingon",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Engaged and defeated Fingon with assistance.",
+          "source": 0
+        },
+        {
+          "opponent": "lotr:Ecthelion of the Fountain",
+          "result": "loss",
+          "citation": "The Fall of Gondolin",
+          "note": "Killed by Ecthelion during the fall of Gondolin into the King's Fountain.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Possesses a fiery whip and a mantle of flame and smoke.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact nature of Balrog wings and flight mechanics beyond textual descriptions of shadow and flame."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gríma Wormtongue",
+      "continuity": "The Lord of the Rings",
+      "summary": "Gríma Wormtongue relies on psychological manipulation, treason, and poison rather than open combat. He acts as a counselor who undermines his targets with treacherous advice.",
+      "offense": {
+        "domains": [
+          "stealth",
+          "control"
+        ],
+        "techniques": [
+          "poisoning",
+          "treacherous persuasion",
+          "dagger assassination"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "cowardice",
+          "manipulative evasion"
+        ]
+      },
+      "weaknesses": [
+        "Physically weak and cowardly when confronted directly.",
+        "Dependent on the protection of stronger masters."
+      ],
+      "mobility": [
+        "foot",
+        "horse"
+      ],
+      "limitations": [
+        "Incapable of winning a fair physical fight against trained combatants."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gr%C3%ADma_Wormtongue",
+          "supports": "Role as counselor to Theoden, betrayer of Rohan, and murderer of Saruman."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully weakened King Théoden through long-term psychological manipulation and poisoning.",
+          "citation": "The Two Towers, Chapter 6: 'The King of the Golden Hall'",
+          "source": 0
+        },
+        {
+          "claim": "Stabbed Saruman in the back outside Bag End after years of abuse.",
+          "citation": "The Return of the King, Chapter 8: 'The Scouring of the Shire'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "lotr:Saruman",
+          "result": "win",
+          "citation": "The Return of the King",
+          "note": "Assassinated Saruman with a knife after breaking under abuse.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact composition of the poisons used against Théoden."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Gwaihir",
+      "continuity": "The Lord of the Rings / The Hobbit",
+      "summary": "Gwaihir the Windlord is the greatest of the Great Eagles of the Misty Mountains. He engages enemies from the air using immense talons, powerful wings, and sharp vision, carrying allies to safety.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "aerial diving",
+          "talon strikes",
+          "beak strikes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "flight agility",
+          "thick feathery hide"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to coordinated ranged fire such as archers or magic when flying low."
+      ],
+      "mobility": [
+        "natural-flight"
+      ],
+      "limitations": [
+        "Cannot easily fight in confined underground spaces where wing movement is restricted."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Eagles_in_Middle-earth",
+          "supports": "Gwaihir's status as Windlord and rescue feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rescued Gandalf from the pinnacle of Orthanc.",
+          "citation": "The Fellowship of the Ring, Book II, Chapter 2: 'The Council of Elrond'",
+          "source": 0
+        },
+        {
+          "claim": "Rescued Frodo and Sam from the slopes of Mount Doom.",
+          "citation": "The Return of the King, Book VI, Chapter 4: 'The Field of Cormallen'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "lotr:Nazgûl",
+          "result": "win",
+          "citation": "The Return of the King",
+          "note": "Drove off Nazgûl in the skies above Mordor alongside Landroval and Meneldor.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses giant natural wings capable of soaring across Middle-earth and carrying adult humans.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact intelligence limits and capacity for speech outside of Maiar-allied communications."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Huan the Hound",
+      "continuity": "The Silmarillion",
+      "summary": "Huan is a giant hound gifted from Valinor with semi-speech, incredible speed, tracking ability, and immunity to ordinary death until his final prophecy is fulfilled.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "hound combat",
+          "jaw lock",
+          "supernatural tracking"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "supernatural resilience",
+          "blessed evasion"
+        ]
+      },
+      "weaknesses": [
+        "Destined to die only by the greatest wolf ever to live (Carcharoth)."
+      ],
+      "mobility": [
+        "foot"
+      ],
+      "limitations": [
+        "Can only speak three words before his death as ordained by fate."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Huan",
+          "supports": "Huan's origin from Valinor, fights with Sauron and Carcharoth."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Sauron in his werewolf/wolf form, pinning him down.",
+          "citation": "The Silmarillion, Chapter 19: 'Of Beren and Lúthien'",
+          "source": 0
+        },
+        {
+          "claim": "Tracked and hunted all manner of beasts and foes in Beleriand.",
+          "citation": "The Silmarillion, Chapter 19: 'Of Beren and Lúthien'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "lotr:Sauron",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Overcame Sauron's wolf form during the rescue of Lúthien at Tol-in-Gaurhoth.",
+          "source": 0
+        },
+        {
+          "opponent": "lotr:Carcharoth",
+          "result": "win",
+          "citation": "The Silmarillion",
+          "note": "Slew Carcharoth in a fatal mutual combat fulfilling the prophecy.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The full extent of the Valinorean enhancements granted to him by Oromë."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Idril Celebrindal",
+      "continuity": "The Silmarillion",
+      "summary": "Idril Celebrindal is an Elf princess of Gondolin who relies on wisdom, stealth, and foresight rather than direct combat. She organizes the secret escape route during the fall of the city.",
+      "offense": {
+        "domains": [
+          "stealth"
+        ],
+        "techniques": [
+          "stealthy evacuation",
+          "elven blade-work"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "elven agility",
+          "secret refuge planning"
+        ]
+      },
+      "weaknesses": [
+        "Lacks heavy combat training compared to front-line warriors."
+      ],
+      "mobility": [
+        "foot"
+      ],
+      "limitations": [
+        "Primarily focuses on survival and escape rather than offensive combat."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Idril",
+          "supports": "Idril's lineage, role in Gondolin, and organization of the Secret Way."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Prepared the Secret Way out of Gondolin, saving a remnant of its people from destruction.",
+          "citation": "The Silmarillion, Chapter 23: 'Of the Fall of Gondolin'",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of her specific prowess with weapons in battle."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Irmo (Lórien)",
+      "continuity": "The Silmarillion",
+      "summary": "Irmo is the Vala of dreams, visions, and desires, residing in the gardens of Lórien in Valinor. He wields divine spiritual power, inducing sleep and calming troubled minds.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "dream manipulation",
+          "sleep induction",
+          "spiritual soothing"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "valinorean immortality",
+          "divine incorporeal nature"
+        ]
+      },
+      "weaknesses": [
+        "Does not engage in physical warfare, focusing entirely on spiritual and mental realms."
+      ],
+      "mobility": [
+        "teleport"
+      ],
+      "limitations": [
+        "Not a combatant in the traditional sense; lacks offensive martial feats."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Vala_(Middle-earth)",
+          "supports": "Irmo's identity as one of the Valar and master of visions and dreams."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created the Gardens of Lórien in Valinor, which heal weariness of body and spirit.",
+          "citation": "The Silmarillion, 'Valaquenta'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Possesses divine Vala powers over dreams and visions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capability in direct conflicts against physical or cosmic threats."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Isildur",
+      "continuity": "The Lord of the Rings",
+      "summary": "Isildur is a King of Arnor and Gondor who fought in the War of the Last Alliance, wielding the broken hilt of Narsil to sever the One Ring from Sauron's hand.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "sword-fighting",
+          "royal leadership"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "numenorean plate armor",
+          "shield"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to mortal ambushes and arrow fire when caught unawares, as seen at the Disaster of the Gladden Fields.",
+        "Corruptible by the One Ring."
+      ],
+      "mobility": [
+        "foot",
+        "horse"
+      ],
+      "limitations": [
+        "Mortal man subject to mortal death and surprise attacks despite Numenorean heritage."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Isildur",
+          "supports": "Isildur's role in cutting the Ring from Sauron and death at the Gladden Fields."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Severed the One Ring from Sauron's hand using the broken hilt of Narsil.",
+          "citation": "The Fellowship of the Ring, Chapter 2: 'The Shadow of the Past'",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "lotr:Sauron",
+          "result": "win",
+          "citation": "The Fellowship of the Ring",
+          "note": "Cut the One Ring from Sauron's hand after Elendil and Gil-galad fell.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact magical properties of the Ring while he carried it during the ambush."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "lotr:Khamûl the Easterling",
+      "continuity": "The Lord of the Rings",
+      "summary": "Khamûl is the second-in-command of the Nazgûl, wielding a Morgul blade and a sense of dread. He operates primarily through stealth, terror, and the Black Breath.",
+      "offense": {
+        "domains": [
+          "magic",
+          "stealth"
+        ],
+        "techniques": [
+          "morgul blade",
+          "aura of dread",
+          "stealthy tracking"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "wraith-form incorporeality",
+          "fear induction"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to fire and magical light, especially from Elves.",
+        "Bound to the will of Sauron."
+      ],
+      "mobility": [
+        "natural-flight",
+        "horse"
+      ],
+      "limitations": [
+        "Power wanes in the presence of strong light or water unless reinforced by dark power."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Nazg%C3%BBl",
+          "supports": "Khamûl's identity as the second of the Nazgûl and Easterling origin."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Searched the Shire for Bilbo and Frodo Baggins, nearly intercepting the Hobbits at Bucklebury Ferry.",
+          "citation": "The Fellowship of the Ring, Book I, Chapter 10: 'Strider'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Operates with stealth and shadow to hunt the Ring-bearer.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "His human name and historical deeds before falling to the power of the One Ring."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
