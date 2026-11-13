@@ -1,0 +1,717 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-201555 #12",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Peggy Carter",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Peggy Carter is a highly trained tactical agent, combatant, and marksman who relies on firearms, hand-to-hand combat prowess, and strategic leadership.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat",
+          "Firearms marksmanship",
+          "Tactical espionage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tactical evasion",
+          "Body armor",
+          "Combat training"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability"
+      ],
+      "mobility": [
+        "Running",
+        "Driving vehicles",
+        "Piloting standard aircraft"
+      ],
+      "limitations": [
+        "Normal human endurance and strength"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Peggy_Carter",
+          "supports": "Combat training, tactical skills, weapons usage, and historical feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated a Hydra base and retrieved critical intelligence during World War II.",
+          "citation": "Captain America: The First Avenger",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hydra agents",
+          "result": "win",
+          "citation": "Captain America: The First Avenger",
+          "note": "Standard firefight and infiltration.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact capability differences across alternate branching timelines (e.g., Captain Carter variant)"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Pepper Potts",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Pepper Potts primarily acts as a corporate executive, but possesses and uses advanced Stark Industries technology, specifically the Rescue armor, when compelled to fight.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Rescue armor repulsor blasts",
+          "Flight combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Powered armor durability",
+          "Energy shielding"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable when not wearing the armor"
+      ],
+      "mobility": [
+        "Powered flight via armor"
+      ],
+      "limitations": [
+        "Dependent on armor power supply and systems"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Pepper_Potts",
+          "supports": "Rescue armor usage, repulsor capabilities, and combat history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought alongside other heroes against Thanos's forces using the Rescue armor.",
+          "citation": "Avengers: Endgame",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thanos's Outriders and forces",
+          "result": "win",
+          "citation": "Avengers: Endgame",
+          "note": "Participated in the final battle with backup from numerous heroes.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and energy weapon projection",
+          "dependsOn": "Wearing the Rescue armor suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the Rescue armor developed by Tony Stark.",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Flies using the propulsion systems of the Rescue armor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term combat experience compared to frontline soldiers"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Phastos",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Phastos is an immortal Eternal with advanced technopathy and matter-manipulation abilities, capable of instantaneously constructing complex devices, weapons, and energy constructs.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Cosmic energy construction",
+          "Technological creation and manipulation",
+          "Energy restraint fields"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Eternal physiology",
+          "Cosmic energy force fields"
+        ]
+      },
+      "weaknesses": [
+        "Reluctance to engage directly in violence due to moral code"
+      ],
+      "mobility": [
+        "Standard running and jumping",
+        "Cosmic energy platforms"
+      ],
+      "limitations": [
+        "Bounded by the directives and limitations placed on Eternals by Arishem"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Phastos",
+          "supports": "Eternal powers, technology manipulation, and cosmic energy constructs."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created a cosmic restraint device capable of immobilizing Ikaris temporarily.",
+          "citation": "Eternals",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ikaris",
+          "result": "loss",
+          "citation": "Eternals",
+          "note": "Overpowered during the climax before group intervention.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Designs and builds advanced technology rapidly.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Manipulates and creates advanced technological devices.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full upper limits of his matter creation capacity"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Phil Coulson",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Phil Coulson is an experienced S.H.I.E.L.D. agent and director who utilizes specialized firearms, high-tech gadgets, and tactical leadership.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Firearms marksmanship",
+          "Night-Night pistol energy darts",
+          "Tactical command"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "S.H.I.E.L.D. body armor",
+          "Tactical cover"
+        ]
+      },
+      "weaknesses": [
+        "Normal human physical vulnerability"
+      ],
+      "mobility": [
+        "Driving standard vehicles",
+        "Piloting standard aircraft"
+      ],
+      "limitations": [
+        "Human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Phil_Coulson",
+          "supports": "S.H.I.E.L.D. equipment, leadership, and combat encounters."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fired a weapon reverse-engineered from Destroyer technology against Loki.",
+          "citation": "The Avengers",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Loki",
+          "result": "loss",
+          "citation": "The Avengers",
+          "note": "Stabbed through the chest by Loki during a confrontation.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Heavy energy blast projection",
+          "dependsOn": "Access to the Prototype Gun (Destroyer Pulse Cannon)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses specialized S.H.I.E.L.D. tools like the Destroyer Pulse Gun.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Relies heavily on high-tech gear and firearms.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of Kree revival side-effects later in television continuity"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Professor X",
+      "continuity": "Marvel Cinematic Universe (Earth-838)",
+      "summary": "Charles Xavier is an extremely powerful telepath capable of reading, controlling, and paralyzing minds with a thought, operating primarily from a motorized hoverchair.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "control"
+        ],
+        "techniques": [
+          "Telepathic mind control",
+          "Mental paralysis",
+          "Astral projection"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Telepathic defense shields"
+        ]
+      },
+      "weaknesses": [
+        "Fragile physical human body"
+      ],
+      "mobility": [
+        "Hoverchair movement"
+      ],
+      "limitations": [
+        "Paralyzed lower body requiring mobility assistance"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Charles_Xavier_(Earth-838)",
+          "supports": "Telepathic abilities, hoverchair usage, and encounter with Wanda Maximoff."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Entered the mind of a corrupted variant to try and free her from dark magic control.",
+          "citation": "Doctor Strange in the Multiverse of Madness",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wanda Maximoff",
+          "result": "loss",
+          "citation": "Doctor Strange in the Multiverse of Madness",
+          "note": "Killed within the astral/mental plane when his psychic assault was overpowered.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "telepathy",
+          "claim": "Communicates and controls others using extensive telepathic power.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Mentally restrains and navigates other minds.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of telepathic reach compared to Earth-10005 timeline variant"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Red Guardian",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Alexei Shostakov is a super-soldier possessing enhanced strength, durability, and agility, fighting with raw brawn and a specialized combat shield.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Enhanced hand-to-hand combat",
+          "Shield strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Super-soldier enhanced durability",
+          "Red Guardian shield"
+        ]
+      },
+      "weaknesses": [
+        "Prone to boasting and overconfidence"
+      ],
+      "mobility": [
+        "Enhanced running and leaping"
+      ],
+      "limitations": [
+        "Physical stats scale similarly to early-generation super-soldiers"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Alexei_Shostakov",
+          "supports": "Super-soldier physiology, combat style, and history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lifted a heavy metal structure off of himself during an escape.",
+          "citation": "Black Widow",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Taskmaster",
+          "result": "inconclusive",
+          "citation": "Black Widow",
+          "note": "Brief skirmish during facility escape.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Carries a protective combat shield.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of his imprisonment conditioning effects"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Red Skull",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Johann Schmidt is a ruthless military commander and early super-soldier who wields advanced Tesseract-powered weaponry, firearms, and tactical cunning.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hydra energy pistol blasts",
+          "Hand-to-hand combat",
+          "Tactical command"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Super-soldier physical durability",
+          "Armored tactical attire"
+        ]
+      },
+      "weaknesses": [
+        "Megalomaniacal ambition leading to miscalculation"
+      ],
+      "mobility": [
+        "Enhanced running and agility",
+        "Piloting specialized aircraft"
+      ],
+      "limitations": [
+        "Relies on manufactured weaponry for energy projection"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Johann_Schmidt",
+          "supports": "Super-soldier strength, Tesseract weapon usage, and leadership."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived physical combat with Steve Rogers after taking the incomplete Super Soldier Serum.",
+          "citation": "Captain America: The First Avenger",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Steve Rogers",
+          "result": "loss",
+          "citation": "Captain America: The First Avenger",
+          "note": "Defeated when direct contact with the Tesseract banished him to Vormir.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Disintegration energy blasts",
+          "dependsOn": "Access to Tesseract-powered energy weapons",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced energy weaponry powered by the Tesseract.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of his lingering powers after becoming the Stonekeeper on Vormir"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Rocket",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Rocket is a genetically engineered tactical genius and master marksman who relies heavily on oversized high-tech weaponry, explosives, and improvised gadgetry.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Heavy firearms barrage",
+          "Explosive traps",
+          "Custom gadget construction"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile movement",
+          "Personal shielding devices",
+          "Hard cover"
+        ]
+      },
+      "weaknesses": [
+        "Small physical size makes him vulnerable to heavy physical trauma if caught"
+      ],
+      "mobility": [
+        "Acrobatic running",
+        "Piloting starships and spacecraft"
+      ],
+      "limitations": [
+        "Prone to emotional outbursts when provoked"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Rocket_Raccoon",
+          "supports": "Mastery of weaponry, tactical intelligence, and engineering feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Disabled a prison security tower's control panel and constructed an escape weapon in minutes.",
+          "citation": "Guardians of the Galaxy",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Kree soldiers",
+          "result": "win",
+          "citation": "Guardians of the Galaxy",
+          "note": "Defeated multiple guards using custom heavy weaponry.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Builds complex weapons and tech from spare parts.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Uses advanced futuristic firearms and explosives.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact biological enhancements from High Evolutionary experiments beyond intelligence and durability"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Ronan the Accuser",
+      "continuity": "Marvel Cinematic Universe (Earth-616 / Main Timeline)",
+      "summary": "Ronan the Accuser is a fanatical Kree warrior possessing immense superhuman strength, durability, and mastery of his signature cosmic-powered Universal Weapon hammer.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Universal Weapon energy blasts",
+          "Brutal melee strikes",
+          "Hammer shockwaves"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Kree physiology durability",
+          "Heavy armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and religious fanaticism"
+      ],
+      "mobility": [
+        "Powerful leaps",
+        "Piloting large starships"
+      ],
+      "limitations": [
+        "Vulnerable to overwhelming unified energy manipulation (e.g., Power Stone channeled by Guardians)"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Ronan_the_Accuser",
+          "supports": "Kree physical stats, Universal Weapon capabilities, and combat record."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Crushed The Other's neck effortlessly with a flick of his wrist.",
+          "citation": "Guardians of the Galaxy",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Guardians of the Galaxy",
+          "result": "loss",
+          "citation": "Guardians of the Galaxy",
+          "note": "Destroyed when Peter Quill and the Guardians shared the burden of the Power Stone.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Planetary destruction level energy channeling",
+          "dependsOn": "Possession and integration of the Power Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Wields the Universal Weapon hammer capable of energy projection.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of durability without armor"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Sandman",
+      "continuity": "Marvel Cinematic Universe (Spider-Man: No Way Home)",
+      "summary": "Flint Marko is a reality-displaced individual with the ability to transform his entire body into animated, malleable sand, granting him massive size manipulation and physical shapeshifting.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sandstorm generation",
+          "Giant sand fist strikes",
+          "Malleable weapon morphing"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intangible sand dispersion",
+          "Regenerative reconstitution from particulate matter"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to intense heat turning him to glass, or water neutralizing mobility"
+      ],
+      "mobility": [
+        "Sand flow locomotion",
+        "Dispersal flight"
+      ],
+      "limitations": [
+        "Requires particulate sand matter to maintain or reform large volumes"
+      ],
+      "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Flint_Marko_(Earth-127032)",
+          "supports": "Sand manipulation powers, shapeshifting, and combat in No Way Home."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Expanded into a towering giant form composed of sand during the Statue of Liberty battle.",
+          "citation": "Spider-Man: No Way Home",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Spider-Man variants",
+          "result": "loss",
+          "citation": "Spider-Man: No Way Home",
+          "note": "Cured of his condition using a specialized device developed by Peter Parker.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Can grow to towering proportions composed of sand.",
+          "source": 0
+        },
+        {
+          "tag": "size-change",
+          "claim": "Shapeshifts and alters body mass between human size and giant forms.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact transfer mechanics between his home universe physics and MCU universe physics"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
