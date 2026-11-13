@@ -1,0 +1,648 @@
+{
+  "batchId": "Gemini V2 research games 20261113-125021 #17",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Fox McCloud",
+      "continuity": "Star Fox series",
+      "summary": "Fox McCloud is a skilled ace pilot, expert marksman, and leader of Star Fox who primarily fights from the cockpit of his Arwing or using advanced handheld weaponry on foot.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Laser Blaster",
+          "Smart Bomb",
+          "Barrel Roll"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Arwing G-Diffuser Shield",
+          "Reflector (Reflect Barrier)"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Arwing flight",
+        "Landmaster hover tank",
+        "Running and jumping on foot"
+      ],
+      "limitations": [
+        "Dependent on vehicle systems or specific gear for sustained space flight."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Fox_McCloud",
+          "supports": "General background, abilities, and piloting expertise of Fox McCloud."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Piloted the Arwing through complex planetary hazards and defeated Andross.",
+          "citation": "Star Fox 64",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Andross",
+          "result": "win",
+          "citation": "Star Fox 64",
+          "note": "Defeated Andross in the final aerial and trench confrontation.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Leader of the Star Fox mercenary team and skilled pilot of the Arwing starfighter.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes standard-issue weaponry and items like the Reflector.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact canon continuity between certain reboots remains varied."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ganondorf",
+      "continuity": "The Legend of Zelda series",
+      "summary": "Ganondorf is a powerful wielder of dark magic and the Triforce of Power, fighting with colossal physical strength, heavy swordsmanship, and devastating curse spells.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Dark Energy Projectiles",
+          "Giant Sword Strikes",
+          "Warlock Punch"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Triforce of Power invulnerability/immortality",
+          "Magical barrier"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to holy weapons such as the Master Sword and Silver Arrows."
+      ],
+      "mobility": [
+        "Levitation",
+        "Dark teleportation",
+        "Running"
+      ],
+      "limitations": [
+        "Overconfident in his power and susceptible to having his energy attacks deflected back at him."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ganondorf",
+          "supports": "Background, magical abilities, and status as the primary antagonist of The Legend of Zelda."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Conquered the Kingdom of Hyrule using dark magic and the Triforce of Power.",
+          "citation": "The Legend of Zelda: Ocarina of Time",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Link",
+          "result": "loss",
+          "citation": "The Legend of Zelda: Ocarina of Time",
+          "note": "Defeated by Link wielding the Master Sword and aided by the Sages.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields powerful dark magic and curses.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts spells and dark energy balls in combat.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of his power fluctuations across different timeline branches."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ganondorf|Demon Dragon Ganondorf",
+      "continuity": "The Legend of Zelda: Tears of the Kingdom",
+      "summary": "Demon Dragon Ganondorf is a gigantic, monstrous dragon form capable of raining down gloom and destructive energy from the skies.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Gloom Fireballs",
+          "Tail Swipes",
+          "Bite Attacks"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive durable dragon scales",
+          "Gloom aura"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable attacks targeting glowing weak points on his body."
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Reduced tactical versatility due to feral mindless state."
+      ],
+      "formDifferences": "Transforms Ganondorf into a colossal mindless dragon driven by the Secret Stone, trading human swordplay for sheer monstrous scale and flight.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
+          "supports": "Details on the Demon Dragon final boss form."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Link",
+          "result": "loss",
+          "citation": "The Legend of Zelda: Tears of the Kingdom",
+          "note": "Defeated in mid-air by Link riding the Light Dragon.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether any intelligence remains in this form."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ganondorf|Demon King Ganondorf",
+      "continuity": "The Legend of Zelda: Tears of the Kingdom",
+      "summary": "Demon King Ganondorf fights with lethal martial mastery using massive cursed weapons, phantom summons, and devastating gloom magic.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Gloom Sword Slashes",
+          "Phantom Summons",
+          "Demon King Bow"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Counter-dodging attacks",
+          "Gloom armor"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to timed dodges and strikes from specialized weapons like the Master Sword."
+      ],
+      "mobility": [
+        "Dash sprinting",
+        "Instantaneous teleportation"
+      ],
+      "limitations": [
+        "Bound by his ancient physical body until fully revitalized."
+      ],
+      "formDifferences": "Represents Ganondorf restored to his ancient Gerudo mummified and empowered state, wielding Gloom weaponry instead of dark magic energy balls.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom",
+          "supports": "Combat styles and abilities of Demon King Ganondorf."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Link",
+          "result": "loss",
+          "citation": "The Legend of Zelda: Tears of the Kingdom",
+          "note": "Defeated after escalating into his Demon Dragon form.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his power before being sealed by Rauru."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Garrus Vakarian",
+      "continuity": "Mass Effect series",
+      "summary": "Garrus Vakarian is a veteran turonian sniper and tactical combat expert who excels at long-range precision firefights and tech sabotage.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Concussive Shot",
+          "Armor-Piercing Sniper Fire",
+          "Proximity Mine"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Turian armor shielding",
+          "Cover-based positioning"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable in close-quarters melee combat against heavily armored brutes."
+      ],
+      "mobility": [
+        "Tactical crouching",
+        "Sprinting"
+      ],
+      "limitations": [
+        "Relies heavily on ammunition and line-of-sight for ranged attacks."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Garrus_Vakarian",
+          "supports": "Background, sniper training, and combat role in the Mass Effect series."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived as the vigilante Archangel on Omega holding off multiple mercenary syndicates.",
+          "citation": "Mass Effect 2",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Blue Suns mercenaries",
+          "result": "win",
+          "citation": "Mass Effect 2",
+          "note": "Fought off wave after wave of mercenaries on Omega.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses tech abilities like Overload and mines in combat.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his durability without shields."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Geralt of Rivia",
+      "continuity": "The Witcher series",
+      "summary": "Geralt of Rivia is a mutant monster hunter who combines superhuman swordsmanship with quick magical signs, alchemy, and tactical preparation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Steel and Silver Sword Combos",
+          "Igni Flame Sign",
+          "Quen Shield Sign"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Quen magical barrier",
+          "Parrying and dodging"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to overwhelming magical onslaughts and poison without proper potions."
+      ],
+      "mobility": [
+        "Dodge rolling",
+        "Horse riding (Roach)",
+        "Sprinting"
+      ],
+      "limitations": [
+        "Signs require stamina; potions have toxic side effects if overused."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Witcher",
+          "supports": "General attributes, combat style, and witcher abilities of Geralt."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slain numerous powerful monsters including dragons, vampires, and griffins.",
+          "citation": "The Witcher 3: Wild Hunt",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Eredin, King of the Hunt",
+          "result": "win",
+          "citation": "The Witcher 3: Wild Hunt",
+          "note": "Defeated the Wild Hunt commander in single combat.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Casts witcher signs like Igni and Quen.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Utilizes magical signs in combat.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full capacity against beings outside his universe's lore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Guile",
+      "continuity": "Street Fighter series",
+      "summary": "Guile is an elite military combatant who relies on solid defensive fundamentals, crushing martial arts, and projectile sonic booms.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Sonic Boom",
+          "Flash Kick",
+          "Rolling Sobat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Solid defensive crouching guard",
+          "Counter-attacks"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to unpredictable mix-ups and cross-ups if caught out of position."
+      ],
+      "mobility": [
+        "Dashing",
+        "Jumping"
+      ],
+      "limitations": [
+        "Relies on charge-motion mechanics requiring brief setup time for special moves."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Guile_(Street_Fighter)",
+          "supports": "Moveset, military background, and fighting style of Guile."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought evenly with top world martial artists and thwarted Shadaloo operations.",
+          "citation": "Street Fighter II",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "M. Bison",
+          "result": "win",
+          "citation": "Street Fighter II",
+          "note": "Successfully confronted and defeated M. Bison in combat.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-weapon",
+          "claim": "Not applicable",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of his sonic wave durability against heavy artillery."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Illidan Stormrage",
+      "continuity": "Warcraft series",
+      "summary": "Illidan Stormrage is a night elf demon hunter who fights with twin warglaives, fel magic, and ferocious melee agility.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "energy"
+        ],
+        "techniques": [
+          "Warglaive Slashes",
+          "Fel Flame Barrage",
+          "Eye Beam"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Fel resilience",
+          "High evasion and parrying with warglaives"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy divine magic and binding spells."
+      ],
+      "mobility": [
+        "Magical leaps",
+        "Flight via demon form"
+      ],
+      "limitations": [
+        "Consuming excessive fel energy risks complete corruption and madness."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Illidan_Stormrage",
+          "supports": "History, demon hunter powers, and abilities of Illidan Stormrage."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Assassinated a pit lord and absorbed its power.",
+          "citation": "Warcraft III: The Frozen Throne",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Arthas Menethil",
+          "result": "loss",
+          "citation": "Warcraft III: The Frozen Throne",
+          "note": "Defeated in a duel at the Frozen Throne by Arthas.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields powerful fel and arcane magic.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts fel spells and energy beams.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his immortality after absorbing the soul of a prime Naaru."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Illidan Stormrage|Metamorphosis Illidan",
+      "continuity": "Warcraft series",
+      "summary": "Metamorphosis Illidan is a towering demon form that drastically enhances his melee striking power and unleashes searing aura damage.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Demon Claw Strikes",
+          "Immolation Aura",
+          "Fel Blast"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massively increased health pool and thick demonic hide"
+        ]
+      },
+      "weaknesses": [
+        "Temporary duration before reverting back to standard night elf form."
+      ],
+      "mobility": [
+        "Natural flight",
+        "Demonic leaps"
+      ],
+      "limitations": [
+        "Lasts only a limited time per usage."
+      ],
+      "formDifferences": "Transforms Illidan into a massive winged demon, trading finesse for tremendous physical durability, flight, and continuous fire/fel aura damage.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Illidan_Stormrage",
+          "supports": "Metamorphosis ability details in Warcraft."
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Kil'jaeden's forces",
+          "result": "win",
+          "citation": "World of Warcraft: Legion",
+          "note": "Used demon form capabilities to conquer major demonic resistance.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration limit of the transformation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Isabelle",
+      "continuity": "Animal Crossing series",
+      "summary": "Isabelle is a helpful and cheerful Shih Tzu secretary who fights using cheerful party props, paperwork tools, and surprising civic utility items.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Party Popper",
+          "Fishing Rod Reel",
+          "Megaphone Call"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Civic dodging and polite evasiveness"
+        ]
+      },
+      "weaknesses": [
+        "Lacks innate combat training or destructive offensive output compared to hardened fighters."
+      ],
+      "mobility": [
+        "Running",
+        "Jumping"
+      ],
+      "limitations": [
+        "Completely unsuited for lethal combat without specialized non-canonical crossover rules."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Isabelle_(Animal_Crossing)",
+          "supports": "Background, character traits, and appearance details of Isabelle."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Managed municipal affairs and successfully organized town events for entire villages.",
+          "citation": "Animal Crossing: New Leaf",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Villager opponents (Super Smash Bros.)",
+          "result": "inconclusive",
+          "citation": "Super Smash Bros. Ultimate",
+          "note": "Participated in crossover tournament bouts.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "True combat capability outside of crossover party game settings."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
