@@ -1,0 +1,343 @@
+{
+  "batchId": "Gemini V2 research nba 20261113-221029 #75",
+  "schemaVersion": 1,
+  "pool": "nba",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "nba:Luka Dončić",
+      "continuity": "NBA Career (2018–Present)",
+      "summary": "Luka Dončić fights on the basketball court primarily through elite playmaking, court vision, and deceptive scoring using stepback three-pointers and controlled pacing.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tactical"
+        ],
+        "techniques": [
+          "stepback three-pointer",
+          "pick-and-roll dissection",
+          "no-look passing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "positional awareness",
+          "drawing offensive fouls",
+          "defensive rebounding"
+        ]
+      },
+      "weaknesses": [
+        "lateral quickness against exceptionally fast guards",
+        "conditioning-related fatigue under high defensive pressure"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+          "supports": "Playing style, career accolades, and offensive capabilities."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Magic Johnson",
+      "continuity": "NBA Career (1979–1991, 1996)",
+      "summary": "Magic Johnson utilizes unmatched transition passing, high basketball IQ, and versatile offensive orchestration to control the tempo of a game.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tactical"
+        ],
+        "techniques": [
+          "fast-break lead passes",
+          "hook shots",
+          "post-up playmaking"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "defensive rebounding",
+          "passing-lane interception"
+        ]
+      },
+      "weaknesses": [
+        "perimeter lateral speed against smaller point guards"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Magic_Johnson",
+          "supports": "Playstyle, size as a point guard, and career achievements."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Manu Ginóbili",
+      "continuity": "NBA Career (2002–2018)",
+      "summary": "Manu Ginóbili operates as an unorthodox, high-energy offensive weapon utilizing the Euro-step, creative passing, and clutch shot-making.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tactical"
+        ],
+        "techniques": [
+          "Euro-step drive",
+          "clutch three-pointers",
+          "undercut steals"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "taking charges",
+          "active hands for steals"
+        ]
+      },
+      "weaknesses": [
+        "injury proneness due to aggressive physical playstyle"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Manu_Gin%C3%B3bili",
+          "supports": "Playing style, signature moves, and career statistics."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Manute Bol",
+      "continuity": "NBA Career (1985–1995)",
+      "summary": "Manute Bol leverages exceptional height and a massive wingspan to dominate defensive paint protection through elite shot-blocking.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "vertical rim-running",
+          "occasional perimeter three-point shooting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "shot-blocking",
+          "contest reach"
+        ]
+      },
+      "weaknesses": [
+        "slender frame making him vulnerable against heavier physical opponents in the post"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Manute_Bol",
+          "supports": "Height, shot-blocking statistics, and playing career."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Height of 7 feet 7 inches provides giant-sized reach and defensive advantage.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Michael Jordan",
+      "continuity": "NBA Career (1984–1993, 1995–1998, 2001–2003)",
+      "summary": "Michael Jordan attacks opponents with supreme athletic prowess, relentless scoring in the midrange and at the rim, and elite lockdown perimeter defense.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tactical"
+        ],
+        "techniques": [
+          "fadeaway jumper",
+          "slashing drives",
+          "clutch scoring"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "lockdown on-ball defense",
+          "steals",
+          "shot-blocking from the guard position"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Michael_Jordan",
+          "supports": "Scoring titles, defensive accolades, and athletic career."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Mike D'Antoni",
+      "continuity": "NBA Career and Coaching Era (1973–2020)",
+      "summary": "Mike D'Antoni approaches competition through tactical system design, specifically the high-paced 'Seven Seconds or Less' offensive philosophy.",
+      "offense": {
+        "domains": [
+          "tactical"
+        ],
+        "techniques": [
+          "fast-break orchestration",
+          "spacing maximization",
+          "pick-and-roll heavy schemes"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "offensive pressure to dictate opponent pace"
+        ]
+      },
+      "weaknesses": [
+        "defensive vulnerability in high-tempo run-and-gun systems"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mike_D%27Antoni",
+          "supports": "Coaching career and tactical system innovations."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Moses Malone",
+      "continuity": "NBA Career (1974–1995)",
+      "summary": "Moses Malone overwhelms opponents in the paint through relentless offensive rebounding, physical durability, and efficient interior scoring.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "offensive rebounding and put-backs",
+          "post-up scoring",
+          "drawing fouls"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "defensive rebounding",
+          "box-out positioning"
+        ]
+      },
+      "weaknesses": [
+        "limited perimeter offensive range"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Moses_Malone",
+          "supports": "Rebounding records, scoring ability, and career profile."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Muggsy Bogues",
+      "continuity": "NBA Career (1987–2001)",
+      "summary": "Muggsy Bogues utilizes extreme agility, low center of gravity, and high-speed ball-handling to navigate past taller opponents and disrupt passing lanes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tactical"
+        ],
+        "techniques": [
+          "high-speed penetration",
+          "kick-out passing",
+          "quick-hands steals"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "active ball-stripping",
+          "pressure defense"
+        ]
+      },
+      "weaknesses": [
+        "height disadvantage against taller players posting up or shooting over contests"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Muggsy_Bogues",
+          "supports": "Height, career statistics, and playing style."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Nate Archibald",
+      "continuity": "NBA Career (1970–1984)",
+      "summary": "Nate 'Tiny' Archibald breaks down defenses with blinding speed, exceptional change of direction, and elite scoring and playmaking.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tactical"
+        ],
+        "techniques": [
+          "high-speed driving",
+          "layup finishes in traffic",
+          "court vision passing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "quick perimeter ball disruption"
+        ]
+      },
+      "weaknesses": [
+        "physical size disadvantage against larger guards and forwards"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Nate_Archibald",
+          "supports": "Scoring and assist titles, career accomplishments."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Nate Thurmond",
+      "continuity": "NBA Career (1963–1974)",
+      "summary": "Nate Thurmond engages opponents through ferocious interior defense, elite rebounding, and efficient post scoring.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "post scoring",
+          "screen setting",
+          "offensive rebounding"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "shot-blocking",
+          "defensive rebounding",
+          "post defense"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Nate_Thurmond",
+          "supports": "Defensive prowess, rebounding stats, and career history."
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
