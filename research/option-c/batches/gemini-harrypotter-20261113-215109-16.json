@@ -1,0 +1,505 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-215109 #16",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Madam Hooch",
+      "continuity": "Harry Potter and the Philosopher's Stone (Book/Film)",
+      "summary": "Madam Rolanda Hooch is the flying instructor, Quiditch referee, and broom expert at Hogwarts. She relies on her broomstick for flight and refereeing duties.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Broomstick instruction and control"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Broomstick flight mobility"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Dependent on broomstick for flight"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Rolanda_Hooch",
+          "supports": "Role as Flying instructor and Quidditch referee at Hogwarts."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies using a broomstick as a standard mode of transport",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact combat capabilities outside of flying instruction and refereeing are not documented."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Madam Poppy Pomfrey",
+      "continuity": "Harry Potter series",
+      "summary": "Madam Poppy Pomfrey is the head nurse at Hogwarts Hospital Wing, highly skilled in magical healing, potions, and restoration spells.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Healing potions and restorative spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protective and restorative magic"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Standard foot travel"
+      ],
+      "limitations": [
+        "Specializes in medicine rather than offensive combat"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Poppy_Pomfrey",
+          "supports": "Role as matron of Hogwarts Hospital Wing and proficiency in magical medicine."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Expert magical healer capable of curing severe magical and physical ailments",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Wand-wielding witch performing advanced medical and restorative charms",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of offensive spellcasting repertoire is limited in documentation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Madame Maxime",
+      "continuity": "Harry Potter and the Goblet of Fire",
+      "summary": "Olympe Maxime is the half-giant Headmistress of Beauxbatons Academy of Magic. She possesses immense physical strength and advanced magical ability.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Wand magic",
+          "Giant physical strength"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Giant physiology providing high physical durability",
+          "Defensive magic"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Standard foot travel"
+      ],
+      "limitations": [
+        "Half-giant stature makes stealth difficult"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Olympe_Maxime",
+          "supports": "Half-giant heritage, magic use, and role as Beauxbatons headmistress."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Is a half-giant standing nearly eleven feet tall",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Wand-wielding witch and head of a magic academy",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of duelling feats outside of academic duties."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Minerva McGonagall",
+      "continuity": "Harry Potter series",
+      "summary": "Minerva McGonagall is the Deputy Headmistress of Hogwarts, a master Transfigurationist, and a formidable duellist wielding powerful offensive and defensive magic.",
+      "offense": {
+        "domains": [
+          "magic",
+          "transfiguration"
+        ],
+        "techniques": [
+          "Advanced Transfiguration (animating statues)",
+          "Powerful offensive charms",
+          "Hexes and jinxes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protective shields",
+          "Advanced spell-blocking"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Standard foot travel",
+        "Animagus cat form"
+      ],
+      "limitations": [
+        "Requires a wand for most magical operations"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Minerva_McGonagall",
+          "supports": "Transfiguration mastery, duelling prowess, and Deputy Headmistress role."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Animated suits of armour and statues to defend Hogwarts during the battle",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Severus Snape",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Fought Snape in Hogwarts castle, causing him to flee.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Animagus transformation into a cat",
+          "dependsOn": "Innate Animagus training and registration",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Skilled witch capable of complex incantations and high-level transfiguration",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full limits of her stamina in extended warfare."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Minerva McGonagall|McGonagall (Animagus Cat)",
+      "continuity": "Harry Potter series",
+      "summary": "In her feline Animagus form, Minerva McGonagall takes the shape of a tabby cat with distinctive markings around her eyes, retaining her human intellect while gaining stealth and agility.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Feline agility and stealth"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Small target profile",
+          "Feline reflexes"
+        ]
+      },
+      "weaknesses": [
+        "Inability to cast spells or hold objects while in animal form"
+      ],
+      "mobility": [
+        "Quadrupedal feline movement"
+      ],
+      "formDifferences": "Replaces wand-based spellcasting and humanoid stature with a small tabby cat form possessing enhanced agility and stealth but no direct spell output.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Minerva_McGonagall",
+          "supports": "Details of her tabby cat Animagus form."
+        }
+      ],
+      "unknowns": [
+        "Physical durability limits of the cat form compared to human form."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Moaning Myrtle",
+      "continuity": "Harry Potter series",
+      "summary": "Moaning Myrtle is a Hogwarts ghost who haunts a girls' bathroom. As a spirit, she is physically intangible but can cause distress and manipulate water to a minor degree.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Flooding toilets",
+          "Wailing and emotional distress"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Incorporeal ghost physiology making her immune to standard physical attacks"
+        ]
+      },
+      "weaknesses": [
+        "Cannot physically interact with the living world beyond minor splashing or haunting"
+      ],
+      "mobility": [
+        "Incorporeal flight and gliding through solid matter"
+      ],
+      "limitations": [
+        "Bound to the plumbing and location of her death"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Myrtle_Warren",
+          "supports": "Ghostly nature, hauntings, and bathroom residency."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-control",
+          "claim": "Capable of flooding bathrooms and manipulating plumbing water as a ghost",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Offensive combat capabilities against armed opponents."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Molly Weasley",
+      "continuity": "Harry Potter series",
+      "summary": "Molly Weasley is a matriarch of the Weasley family and a capable witch. Though primarily a homemaker, she possesses formidable protective and offensive spellcasting ability under stress.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Household charms",
+          "Powerful combat duelling spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield charms"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Standard foot travel"
+      ],
+      "limitations": [
+        "Relies on standard wand magic"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Molly_Weasley",
+          "supports": "Wand magic capability and combat feats in the Battle of Hogwarts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Killed Bellatrix Lestrange in single combat during the Battle of Hogwarts",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bellatrix Lestrange",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Killed Bellatrix after Bellatrix threatened Ginny Weasley.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wand-wielding witch capable of lethal combat duelling",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Frequency of active combat engagements prior to the Second Wizarding War."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Nagini",
+      "continuity": "Harry Potter series",
+      "summary": "Nagini is Lord Voldemort's giant pet snake and Horcrux. She possesses venomous bites, high durability, and a psychological link to her master.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Venomous bite",
+          "Constriction"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Reptilian scales",
+          "Horcrux magical protection"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to destruction by Gryffindor's Sword and Basilisk venom due to Horcrux status"
+      ],
+      "mobility": [
+        "Reptilian crawling"
+      ],
+      "limitations": [
+        "Limited to physical serpentine attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Nagini",
+          "supports": "Venomous snake nature, role as Horcrux, and attacks on characters."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Attacked Arthur Weasley at the Department of Mysteries, inflicting severe venom wounds",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of magical resilience before transformation into a Horcrux."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Nagini|Nagini (Human Maledictus)",
+      "continuity": "Fantastic Beasts series",
+      "summary": "As a human Maledictus, Nagini carries a blood curse that eventually forces her permanent transformation into a snake. In her human form, she is capable of speech and human physical actions.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Human physical combat",
+          "Circus performance agility"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Human agility and evasion"
+        ]
+      },
+      "weaknesses": [
+        "Blood curse leading to inevitable permanent beast transformation"
+      ],
+      "mobility": [
+        "Standard bipedal human movement"
+      ],
+      "formDifferences": "Replaces serpentine reptilian form and venom bite with a human female body capable of speech, reasoning, and human dexterity, subject to the Maledictus curse.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Nagini",
+          "supports": "Maledictus curse details and human background prior to permanent transformation."
+        }
+      ],
+      "unknowns": [
+        "Combat spellcasting proficiency while in human form."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Narcissa Malfoy",
+      "continuity": "Harry Potter series",
+      "summary": "Narcissa Malfoy is a pure-blood witch of the House of Black and mother to Draco Malfoy. She relies on traditional pure-blood social influence and wand magic, though she acts primarily out of maternal self-preservation.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Standard wand magic",
+          "Unbreakable Vow casting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Wand-based defensive charms"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "mobility": [
+        "Standard foot travel"
+      ],
+      "limitations": [
+        "Prefers political and social maneuvering over direct frontline combat"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Narcissa_Malfoy",
+          "supports": "Pure-blood status, wand use, and Unbreakable Vow casting."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wand-wielding witch capable of complex magical contracts like the Unbreakable Vow",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of frontline duelling experience."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
