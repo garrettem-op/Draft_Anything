@@ -1,0 +1,650 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-215125 #17",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 26e29c717e92. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "harrypotter:Nearly Headless Nick",
+      "continuity": "Harry Potter novels and films",
+      "summary": "Nearly Headless Nick is a Hogwarts house ghost. As a spirit, he possesses intangibility and terror-inducing spectral presence, though he cannot physically harm the living.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "spectral presence",
+          "frightening living opponents"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "spectral intangibility (physical attacks pass harmlessly through him)"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to certain magical artifacts or spirits (such as the Basilisk gaze which only petrified him due to his already dead state)"
+      ],
+      "mobility": [
+        "floating flight"
+      ],
+      "limitations": [
+        "cannot physically interact with or harm living people or objects"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Nicholas_de_Mimsy-Porpington",
+          "supports": "Ghostly nature, intangibility, petrifaction by the Basilisk"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Absorbed the full gaze of the Basilisk, causing him to become doubly petrified since he was already a ghost.",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Basilisk",
+          "result": "loss",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "note": "Nick intercepted the gaze meant for Justin Finch-Fletchley, resulting in his petrification.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Nick is a ghost who can float and hover freely in the air.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how a ghost can be affected by other magical creatures like basilisks beyond what is stated in the text."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Neville Longbottom",
+      "continuity": "Harry Potter novels and films",
+      "summary": "Neville Longbottom grows from a timid student into a brave resistance fighter and skilled Herbologist. He fights using standard wand combat and magical plants.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Petrificus Totalus",
+          "Stupefy",
+          "Sword of Gryffindor combat",
+          "Herbology-based tactical plants (Mimbulus mimbletonia, Venomous Tentacula)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego charm",
+          "magical dueling evasion",
+          "physical resilience and determination"
+        ]
+      },
+      "weaknesses": [
+        "historically lacked self-confidence, though largely overcome by the end of the series"
+      ],
+      "mobility": [
+        "running",
+        "broomstick flight"
+      ],
+      "limitations": [
+        "standard human physical and magical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Neville_Longbottom",
+          "supports": "Dueling feats, use of Gryffindor's sword, Herbology expertise"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Drew the Sword of Gryffindor from the Sorting Hat and used it to behead Nagini.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Battle of the Department of Mysteries and the Battle of Hogwarts.",
+          "citation": "Harry Potter and the Order of the Phoenix / Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Nagini",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Beheaded the snake with the Sword of Gryffindor.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Wielding the Sword of Gryffindor to destroy Horcruxes",
+          "dependsOn": "Drawing the sword from the Sorting Hat",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Neville is a trained wizard capable of casting numerous spells.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Neville wields the Sword of Gryffindor.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Newt Scamander",
+      "continuity": "Fantastic Beasts film series",
+      "summary": "Newt Scamander is an expert magizoologist who utilizes an enchanted case containing various magical creatures and specialized magical tools to outmaneuver opponents.",
+      "offense": {
+        "domains": [
+          "magic",
+          "tech"
+        ],
+        "techniques": [
+          "Expelliarmus",
+          "Stupefy",
+          "summoning magical beasts for combat and utility",
+          "Apparition"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego shield charms",
+          "magical evasion",
+          "concealment inside his magical case"
+        ]
+      },
+      "weaknesses": [
+        "prefers pacifism and non-lethal creature management over aggressive dueling"
+      ],
+      "mobility": [
+        "Apparition",
+        "riding flying magical mounts (such as a Hippogriff)"
+      ],
+      "limitations": [
+        "relies heavily on his case and creatures for high-end offense"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Newton_Scamander",
+          "supports": "Spellcasting, magizoology tools, magical case usage"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Subdued numerous escaped magical beasts across New York and Europe.",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "source": 0
+        },
+        {
+          "claim": "Fought against Gellert Grindelwald's followers using wandwork and creature assistance.",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gellert Grindelwald's followers",
+          "result": "win",
+          "citation": "Fantastic Beasts series",
+          "note": "Used magical beasts and defensive spells to neutralize threats.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Unleashing various magical creatures in combat",
+          "dependsOn": "Access to his magical case",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Newt is a qualified wizard capable of complex spellcasting.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses an enchanted expanding briefcase and various magizoological tools.",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Capable of magical Apparition.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Niffler",
+      "continuity": "Harry Potter and Fantastic Beasts series",
+      "summary": "Nifflers are small, furry, burrowing creatures obsessed with shiny objects. In combat, they are primarily used to pickpocket opponents or distract them by stealing valuables.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "clawing",
+          "rapid theft of items from opponents' pockets or hands"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "burrowing",
+          "small target size",
+          "durable fur"
+        ]
+      },
+      "weaknesses": [
+        "easily distracted by shiny objects and gold"
+      ],
+      "mobility": [
+        "running",
+        "burrowing"
+      ],
+      "limitations": [
+        "lacks offensive magical capability or high combat durability against powerful spells"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Niffler",
+          "supports": "Behavior, physical characteristics, stealing ability"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stole a ring directly off Gellert Grindelwald's hand during a confrontation.",
+          "citation": "Fantastic Beasts: The Secrets of Dumbledore",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gellert Grindelwald",
+          "result": "win",
+          "citation": "Fantastic Beasts: The Secrets of Dumbledore",
+          "note": "Successfully pickpocketed the blood-pact vial/ring off Grindelwald without being noticed initially.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Norbert (Norberta)",
+      "continuity": "Harry Potter and Fantastic Beasts series",
+      "summary": "Norbert is a Norwegian Ridgeback dragon. As a magical beast, it relies on immense physical strength, tail spikes, and direct fire breath.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical"
+        ],
+        "techniques": [
+          "fire breath",
+          "tail spike swipes",
+          "biting and clawing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "thick dragon scales highly resistant to standard spells"
+        ]
+      },
+      "weaknesses": [
+        "vulnerable to concentrated multi-wizard Stunning Spells (as typical for dragons)"
+      ],
+      "mobility": [
+        "natural-flight",
+        "running"
+      ],
+      "limitations": [
+        "animal intellect makes it prone to wild aggression rather than tactical planning"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Norbert",
+          "supports": "Norwegian Ridgeback traits, fire breath, scale durability"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Exhibited active fire-breathing and sharp venomous fangs as a hatchling.",
+          "citation": "Harry Potter and the Philosopher's Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Norbert breathes destructive fire.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Norbert has large wings capable of sustained flight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact adult feats of Norbert specifically, though general Norwegian Ridgeback capabilities are documented."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Nymphadora Tonks",
+      "continuity": "Harry Potter novels and films",
+      "summary": "Nymphadora Tonks is an Auror and a Metamorphmagus, allowing her to alter her physical appearance at will. She is a skilled combatant using advanced defensive and offensive magic.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Stunning Spells",
+          "Shield charms",
+          "Disarming charms",
+          "dueling curses"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego",
+          "Auror combat evasion training"
+        ]
+      },
+      "weaknesses": [
+        "emotional trauma can temporarily impair her Metamorphmagus abilities"
+      ],
+      "mobility": [
+        "Apparition",
+        "broomstick flight"
+      ],
+      "limitations": [
+        "standard human vulnerability to lethal curses"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Nymphadora_Tonks",
+          "supports": "Auror status, Metamorphmagus abilities, dueling record"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought in the Battle of the Department of Mysteries against Death Eaters.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Battle of the Astronomy Tower and the Battle of Hogwarts.",
+          "citation": "Harry Potter and the Half-Blood Prince / Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bellatrix Lestrange",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Killed in duel by Bellatrix during the Battle of Hogwarts.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Tonks is a trained Auror and accomplished spellcaster.",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Capable of magical Apparition.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Obscurus",
+      "continuity": "Fantastic Beasts film series",
+      "summary": "An Obscurus is a dark, parasitic magical force created when a young wizard suppresses their magic. It manifests as a violent, destructive, fast-moving mass capable of immense physical and structural damage.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "high-speed destructive charge",
+          "shockwaves",
+          "tearing apart structures"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "shapeless storm-like body that shrugs off ordinary physical damage and minor spells"
+        ]
+      },
+      "weaknesses": [
+        "tied to the life force of the host child; if the host is separated or killed, the Obscurus dissipates"
+      ],
+      "mobility": [
+        "high-speed flight"
+      ],
+      "limitations": [
+        "lacks subtle reasoning, acting mostly on destructive impulse or host command"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Obscurus",
+          "supports": "Nature of the Obscurus, destructive power, host dependency"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Rampaged through New York City, destroying streets and buildings before being neutralized.",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "MACUSA Aurors",
+          "result": "loss",
+          "citation": "Fantastic Beasts and Where to Find Them",
+          "note": "Overwhelmed and seemingly destroyed by concentrated Auror spellfire.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "An Obscurus is a manifestation of raw, volatile dark magic.",
+          "source": 0
+        },
+        {
+          "tag": "flight",
+          "claim": "Moves rapidly through the air as a dark swirling cloud or mass.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Oliver Wood",
+      "continuity": "Harry Potter novels and films",
+      "summary": "Oliver Wood is a dedicated Quidditch goalkeeper and captain. He fights primarily with athletic reflexes, physical toughness, and leadership in team scenarios.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "blocking projectiles with a Quidditch bat or body",
+          "aerial tackling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Quidditch protective padding",
+          "agile broomstick maneuvering"
+        ]
+      },
+      "weaknesses": [
+        "standard human vulnerabilities without special magical combat training outside of sports"
+      ],
+      "mobility": [
+        "broomstick flight"
+      ],
+      "limitations": [
+        "no formal combat magic training beyond standard school curriculum"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Oliver_Wood",
+          "supports": "Quidditch captain background, athletic prowess"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Played as Keeper and captain for the Gryffindor Quidditch team, winning multiple school matches.",
+          "citation": "Harry Potter and the Philosopher's Stone / Chamber of Secrets / Prisoner of Azkaban",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies expertly on a racing broomstick.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Ollivander",
+      "continuity": "Harry Potter novels and films",
+      "summary": "Garrick Ollivander is a master wandmaker with profound theoretical knowledge of wandlore and magical resonance, though rarely engages in direct combat.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "expert wand-based spellcasting",
+          "utilizing wand resonance"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "standard wizard shielding charms"
+        ]
+      },
+      "weaknesses": [
+        "elderly and physically frail under torture or dueling pressure"
+      ],
+      "mobility": [
+        "standard walking",
+        "Apparition"
+      ],
+      "limitations": [
+        "advanced age limits physical stamina"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Garrick_Ollivander",
+          "supports": "Master wandmaker expertise, wandlore knowledge"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Demonstrated deep expertise in matching wands to wizards and identifying wand cores instantly.",
+          "citation": "Harry Potter and the Philosopher's Stone / Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Ollivander is an accomplished wizard and master of wandcraft.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Padma Patil",
+      "continuity": "Harry Potter novels and films",
+      "summary": "Padma Patil is a Ravenclaw witch and Dumbledore's Army member. She fights using standard defensive and offensive school-level magic.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Stunning Spells",
+          "Shield charms"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Protego charm"
+        ]
+      },
+      "weaknesses": [
+        "standard human magical limits"
+      ],
+      "mobility": [
+        "standard walking",
+        "Apparition"
+      ],
+      "limitations": [
+        "no elite dueling feats recorded"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Padma_Patil",
+          "supports": "Ravenclaw student, Dumbledore's Army membership"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in Dumbledore's Army training sessions and fought in the Battle of Hogwarts.",
+          "citation": "Harry Potter and the Order of the Phoenix / Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Padma is a trained witch capable of casting combat spells.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
