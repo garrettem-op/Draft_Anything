@@ -1,0 +1,594 @@
+{
+  "batchId": "Gemini V2 research games 20261113-043219 #31",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Mario|Ice Mario",
+      "continuity": "Super Mario series",
+      "summary": "Ice Mario fights by tossing glowing blue iceballs that can freeze various enemies solid. He retains his standard jumping abilities while gaining elemental projectile attacks.",
+      "offense": {
+        "domains": [
+          "elemental",
+          "physical"
+        ],
+        "techniques": [
+          "Iceball throw"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard Mario durability enhanced by freezing attackers on contact or projectiles"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to losing the power-up upon taking damage"
+      ],
+      "mobility": [
+        "standard jumping"
+      ],
+      "limitations": [
+        "Power-up wears off upon taking enemy damage"
+      ],
+      "formDifferences": "Replaces standard attacks with iceball projections and grants ice elemental properties.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Ice_Mario",
+          "supports": "Ice Mario abilities, iceball attacks, and power-up mechanics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Froze opponents using icy projectiles thrown from his hands.",
+          "citation": "Super Mario Galaxy",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Iceball projection and freezing effects",
+          "dependsOn": "Ice Flower power-up",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "ice",
+          "claim": "Can throw iceballs that freeze enemies.",
+          "source": 0
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Manifests and projects ice projectiles.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of the Ice Flower transformation across different game engines."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mario|Mega Mario",
+      "continuity": "New Super Mario Bros.",
+      "summary": "Mega Mario grows to colossal proportions, allowing him to smash through obstacles, terrain, and enemies with absolute ease. He operates as a moving engine of destruction for a limited time.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mega stomp",
+          "Terrain demolition"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immunity to ordinary hazards and enemies due to massive size"
+        ]
+      },
+      "weaknesses": [
+        "Timed transformation that expires quickly"
+      ],
+      "mobility": [
+        "heavy footsteps",
+        "standard jumping"
+      ],
+      "limitations": [
+        "Strict time limit before returning to normal size"
+      ],
+      "formDifferences": "Enlarges Mario to gigantic proportions, granting complete invulnerability to normal obstacles and destructive momentum.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Mega_Mario",
+          "supports": "Mega Mario size increase, destruction feats, and time limit."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flattened entire groups of enemies and destroyed obstacle blocks effortlessly.",
+          "citation": "New Super Mario Bros.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Colossal size and destructive capability",
+          "dependsOn": "Mega Mushroom",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Grows to colossal size via Mega Mushroom.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether environmental bosses can resist being crushed by Mega Mario."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mario|Metal Mario",
+      "continuity": "Super Mario 64",
+      "summary": "Metal Mario is completely encased in solid metal, rendering him immune to most damage, heat, and enemy attacks while causing him to sink directly to underwater floors.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Metal body-slam",
+          "Underwater bottom-walking"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Metal skin providing immunity to standard attacks, fire, and toxic gas"
+        ]
+      },
+      "weaknesses": [
+        "Cannot swim and sinks instantly in water"
+      ],
+      "mobility": [
+        "sinking movement",
+        "standard walking"
+      ],
+      "limitations": [
+        "Temporary duration tied to the Metal Cap timer"
+      ],
+      "formDifferences": "Transforms Mario into a metallic form with increased weight, immunity to hazards, and inability to swim.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Metal_Mario",
+          "supports": "Metal Cap properties, invulnerability, and sinking mechanics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Walked underwater along lake beds without needing to breathe.",
+          "citation": "Super Mario 64",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Metallic invulnerability and high weight",
+          "dependsOn": "Metal Cap",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Interaction of Metal Mario with extreme magical or reality-warping attacks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mario|Starman Mario",
+      "continuity": "Super Mario series",
+      "summary": "Starman Mario glows with multicolored rainbow energy, granting complete invulnerability to almost all hazards and enemies upon physical contact.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Invincible dash",
+          "Contact elimination"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Complete invincibility against enemies and environmental damage"
+        ]
+      },
+      "weaknesses": [
+        "Extremely short active duration"
+      ],
+      "mobility": [
+        "increased speed"
+      ],
+      "limitations": [
+        "Lasts only for a brief number of seconds"
+      ],
+      "formDifferences": "Grants temporary invulnerability and fast movement speed.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Super_Star",
+          "supports": "Super Star invincibility mechanics and duration."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated any touched enemy instantly while flashing with invincible energy.",
+          "citation": "Super Mario Bros.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Absolute invulnerability",
+          "dependsOn": "Super Star",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether bottomless pits or crushing geometry can still incapacitate Starman Mario."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mario|Tanooki Mario",
+      "continuity": "Super Mario Bros. 3",
+      "summary": "Tanooki Mario wears a raccoon-like suit that permits brief flights, tail-whipping attacks, and temporary transformation into an invincible stone statue.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tail spin",
+          "Statue drop"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Statue transformation providing complete immunity while stationary"
+        ]
+      },
+      "weaknesses": [
+        "Statue form cannot move while active"
+      ],
+      "mobility": [
+        "glide"
+      ],
+      "limitations": [
+        "Flight requires a running start to build momentum"
+      ],
+      "formDifferences": "Adds a tail attack, gliding capability, and stone statue transformation.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Tanooki_Suit",
+          "supports": "Tanooki suit abilities including tail attack, floating, and statue transformation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Turned into an unyielding stone statue to avoid enemy attacks.",
+          "citation": "Super Mario Bros. 3",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Tail whipping, gliding, and statue transformation",
+          "dependsOn": "Tanooki Suit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "glide",
+          "claim": "Can slow descent and glide using the raccoon tail.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration limit of the stone statue form in newer game iterations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Master Chief",
+      "continuity": "Halo universe",
+      "summary": "Master Chief is a genetically augmented supersoldier encased in powered MJOLNIR armor, utilizing advanced firearms, energy shields, and tactical explosives in combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Assault rifle fire",
+          "Plasma grenade toss",
+          "Melee strike"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Recharging energy shields",
+          "Titanium-alloy MJOLNIR powered armor"
+        ]
+      },
+      "weaknesses": [
+        "Shields deplete under sustained heavy fire or EMP blasts"
+      ],
+      "mobility": [
+        "sprinting",
+        "vehicles"
+      ],
+      "limitations": [
+        "Ammunition limits require scavenging or weapon swapping"
+      ],
+      "sources": [
+        {
+          "url": "https://www.halopedia.org/Master_Chief",
+          "supports": "Master Chief combat abilities, MJOLNIR armor, and weapons arsenal."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Destroyed a Covenant Halo installation ring and survived deep space exposure.",
+          "citation": "Halo: Combat Evolved",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Didact",
+          "result": "win",
+          "citation": "Halo 4",
+          "note": "Defeated with assistance from Cortana and a pulse grenade.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears MJOLNIR powered assault armor.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced Covenant and UNSC weaponry and HUD technology.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact physiological limits of SPARTAN-II augmentations without armor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mega Man",
+      "continuity": "Classic Mega Man series",
+      "summary": "Mega Man is a fighting robot who fires plasma projectiles from his Mega Buster arm cannon and copies the special weapons of defeated robot masters.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech",
+          "elemental"
+        ],
+        "techniques": [
+          "Mega Buster shot",
+          "Charged blast",
+          "Copied boss weaponry"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Durasteel robotic chassis",
+          "Sliding evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to extreme energy overloads and specific elemental counter-weapons"
+      ],
+      "mobility": [
+        "running",
+        "jumping",
+        "sliding"
+      ],
+      "limitations": [
+        "Special weapon ammunition drains with use and must be refilled"
+      ],
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Mega_Man",
+          "supports": "Mega Man abilities, Mega Buster, and weapon copying system."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Dr. Wily's army of custom Robot Masters across multiple campaigns.",
+          "citation": "Mega Man 2",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Proto Man",
+          "result": "draw",
+          "citation": "Mega Man 3",
+          "note": "Interrupted duel.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Is a sentient fighting robot created by Dr. Light.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Uses advanced robotic weaponry and arm cannon technology.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact processing capacity of Mega Man's neural net compared to later series replicas."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Mega Man|Super Adapter Mega Man",
+      "continuity": "Classic Mega Man series",
+      "summary": "Super Adapter Mega Man combines with Rush to form an armored powerhouse capable of flight and firing high-powered mega punches and charged energy blasts.",
+      "offense": {
+        "domains": [
+          "energy",
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Rocket punch",
+          "Chargedbuster blast"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Bulky form reduces agile ground sliding"
+      ],
+      "mobility": [
+        "powered-flight"
+      ],
+      "limitations": [
+        "Flight energy is limited and must recharge"
+      ],
+      "formDifferences": "Adds powered flight, projectile rocket fists, and enhanced chest cannon power at the cost of standard sliding.",
+      "sources": [
+        {
+          "url": "https://megaman.fandom.com/wiki/Super_Adapter",
+          "supports": "Super Adapter fusion mechanics, flight, and rocket punch abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flew and demolished heavily shielded fortress defenses using rocket punches.",
+          "citation": "Mega Man 7",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and rocket punch attacks",
+          "dependsOn": "Rush Super Adapter fusion",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-flight",
+          "claim": "Can fly using jet boosters attached via the Super Adapter.",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Robotic enhanced form.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Equipped with advanced fusion armor and rocket attachments.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Compatibility of the Super Adapter with weapons outside the standard Mega Buster."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Meta Knight",
+      "continuity": "Kirby series",
+      "summary": "Meta Knight is a skilled swordsman wielding the sacred blade Galaxia, possessing lightning-fast reflexes, bat-like wings for flight, and mastery of dimensional cuts.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Mach Tornado",
+          "Galaxia darkness slash"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cloaking cape",
+          "Swift sword parrying"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "natural-flight"
+      ],
+      "limitations": [
+        "Melee weapon range unless projecting energy arcs"
+      ],
+      "sources": [
+        {
+          "url": "https://wikirby.com/wiki/Meta_Knight",
+          "supports": "Meta Knight's sword skills, Galaxia, wings, and special attacks."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought evenly against cosmic warriors and navigated his flying battleship Halberd.",
+          "citation": "Kirby Super Star",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Kirby",
+          "result": "loss",
+          "citation": "Kirby Super Star",
+          "note": "Defeated in single combat aboard the Halberd.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Can fly using innate bat-like wings.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Can vanish or wrap himself in his cape to hide.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Meta Knight's exact biological origins relative to Kirby's species."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
