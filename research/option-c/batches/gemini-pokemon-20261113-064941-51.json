@@ -1,0 +1,669 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-064941 #51",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Abra",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Abra is a fragile psychic-type Pokémon that spends almost all of its time sleeping and evading direct conflict. In battle, it relies entirely on its signature teleportation and powerful mental abilities to escape danger instantly.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "control"
+        ],
+        "techniques": [
+          "Teleport",
+          "Kinesis",
+          "Hidden Power",
+          "Psybeam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Instantaneous Teleportation to evade attacks",
+          "High special defense and special attack potential",
+          "Precognitive sensing of danger while asleep"
+        ]
+      },
+      "weaknesses": [
+        "Extremely low physical defense and hit points",
+        "Vulnerable to Bug, Ghost, and Dark-type attacks"
+      ],
+      "mobility": [
+        "Teleportation"
+      ],
+      "limitations": [
+        "Spends 18 hours a day sleeping, leaving it completely inactive if disturbed outside of self-defense.",
+        "Learns almost no offensive attacks naturally by level-up except Teleport and Kinesis."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Abra_(Pok%C3%A9mon)",
+          "supports": "Abra's stats, movepool, teleportation capabilities, and sleeping habits."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Teleports away instantly from battle or capture attempts the moment a trainer or wild opponent approaches.",
+          "citation": "Pokémon Red and Blue / Pokémon anime episode 'Abra and the Psychic Showdown'",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Offensive psychic attacks via TM/TR or breeding",
+          "dependsOn": "External teaching or specific breeding moves since natural level-up moves are extremely limited",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Abra is a Psychic-type Pokémon with innate mental powers.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Abra can instantly teleport away from danger.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how Abra senses danger while sleeping deeply remain unspecified in canon."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Aerodactyl",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Aerodactyl is a ferocious prehistoric Rock and Flying-type predator that attacks with unmatched aerial speed and razor-sharp fangs. It dominates the skies by diving upon opponents with overwhelming physical force.",
+      "offense": {
+        "domains": [
+          "physical",
+          "flight"
+        ],
+        "techniques": [
+          "Ancient Power",
+          "Hyper Beam",
+          "Stone Edge",
+          "Wing Attack",
+          "Crunch"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High speed evasion in flight",
+          "Intimidating presence",
+          "Durable rocky hide"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Water, Electric, Ice, Rock, and Steel-type attacks"
+      ],
+      "mobility": [
+        "Natural flight at high speeds"
+      ],
+      "limitations": [
+        "Susceptible to special attacks due to modest special defense in standard form."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Aerodactyl_(Pok%C3%A9mon)",
+          "supports": "Aerodactyl's prehistoric nature, flying abilities, typing, and movepool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Resurrected from Old Amber DNA and shown soaring swiftly through the skies, capturing prey with its jagged jaws.",
+          "citation": "Pokémon Red and Blue / Pokémon anime episode 'Attack of the Prehistoric Pokémon'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Aerodactyl has large leathery wings capable of sustained natural flight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact apex predator status of Aerodactyl in ancient ecosystems before extinction is not fully detailed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Aerodactyl|Mega Aerodactyl",
+      "continuity": "Pokémon Generation VI-IX games",
+      "summary": "Mega Aerodactyl is an enhanced prehistoric form featuring jagged stone plates protruding across its body, increased mass, and vastly superior aerial agility. It shreds opponents using razor-sharp stone projections and augmented physical power.",
+      "offense": {
+        "domains": [
+          "physical",
+          "flight"
+        ],
+        "techniques": [
+          "Giga Impact",
+          "Rock Slide",
+          "Iron Head",
+          "Aerial Ace"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hardened stone armor plating across the body",
+          "Tough Claws ability enhancing contact move potency",
+          "Extreme flight speed"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Water, Electric, Ice, Rock, and Steel-type attacks"
+      ],
+      "mobility": [
+        "Enhanced natural flight"
+      ],
+      "limitations": [
+        "Transformation is temporary and dependent on holding the Aerodactylite item during battle."
+      ],
+      "formDifferences": "Adds crystalline stone armor across the body, increases physical attack and speed, and grants the Tough Claws ability.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Aerodactyl_(Pok%C3%A9mon)",
+          "supports": "Mega Aerodactyl stat boosts, Tough Claws ability, and physical appearance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transforms via Mega Evolution, gaining increased body mass, stone spikes on its tail, and sharpened wings capable of tearing through steel.",
+          "citation": "Pokémon X and Y / Pokémon Omega Ruby and Alpha Sapphire",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution transformation",
+          "dependsOn": "Holding the Aerodactylite Mega Stone while in resonance with a Trainer's Mega Bracelet or Key Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Mega Aerodactyl retains natural flight with enhanced speed and stability.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether Mega Evolution places physical strain on the Pokémon over prolonged periods is not explicitly quantified."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Alakazam",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Alakazam is an exceptionally intelligent Psychic-type Pokémon boasting a brain that continuously grows stronger. It utilizes overwhelming telekinetic blasts and mind-bending psychic illusions to incapacitate opponents before they can strike.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "control"
+        ],
+        "techniques": [
+          "Psychic",
+          "Calm Mind",
+          "Shadow Ball",
+          "Recover",
+          "Future Sight"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Telekinetic barriers",
+          "Self-healing via Recover",
+          "High special defense and evasion"
+        ]
+      },
+      "weaknesses": [
+        "Extremely low physical defense and HP",
+        "Vulnerable to Bug, Ghost, and Dark-type attacks"
+      ],
+      "mobility": [
+        "Teleportation",
+        "Levitation via psychokinesis"
+      ],
+      "limitations": [
+        "Its heavy head and immense brain weight make it physically weak, relying entirely on psychokinesis to support its posture and move objects rather than muscle."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Alakazam_(Pok%C3%A9mon)",
+          "supports": "Alakazam stats, psychic abilities, high intelligence, and movepool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Demonstrated a measured IQ of 500, easily remembering every event experienced since birth, and effortlessly lifts heavy objects using only telekinesis.",
+          "citation": "Pokémon Red and Blue Pokédex entries / Pokémon anime episode 'Abra and the Psychic Showdown'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Alakazam possesses immense psychic and telekinetic powers.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Alakazam uses Recover to heal its wounds during battle.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Alakazam can teleport short or long distances instantly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The theoretical upper limit of Alakazam's telekinetic lifting strength is never fully tested against titanic physical forces."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Alakazam|Mega Alakazam",
+      "continuity": "Pokémon Generation VI-IX games",
+      "summary": "Mega Alakazam unlocks boundless psychic energy, causing its body to float in midair surrounded by levitating spoons. It processes information instantaneously and overwhelms opponents with concentrated mental firepower.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "control"
+        ],
+        "techniques": [
+          "Psychic",
+          "Focus Blast",
+          "Psychic Terrain",
+          "Psyshock"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Trace ability to copy opponent's abilities",
+          "Advanced telekinetic forcefields",
+          "Complete levitation"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Bug, Ghost, and Dark-type attacks",
+        "Low physical durability"
+      ],
+      "mobility": [
+        "Psychic levitation"
+      ],
+      "limitations": [
+        "Temporary transformation tied to holding the Alakazamite item."
+      ],
+      "formDifferences": "Causes the Pokémon to float cross-legged in midair, increases special attack and speed dramatically, and grants the Trace ability.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Alakazam_(Pok%C3%A9mon)",
+          "supports": "Mega Alakazam stats, Trace ability, levitation, and psychic enhancements."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Unlocks all psychic power simultaneously, causing its eyes to glow and allowing it to communicate telepathically with anyone across vast distances.",
+          "citation": "Pokémon X and Y / Pokémon Omega Ruby and Alpha Sapphire",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution transformation",
+          "dependsOn": "Holding the Alakazamite Mega Stone while resonating with a Trainer's Key Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Mega Alakazam channels amplified psychic energy.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Mega Alakazam levitates continuously using psychic power.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration limit of sustained Mega Evolution strain under prolonged combat conditions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Arbok",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Arbok is a menacing Poison-type serpent that coils around its prey and strikes with venomous fangs. It uses the intimidating patterns on its hood to startle adversaries before constricting them.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison"
+        ],
+        "techniques": [
+          "Poison Jab",
+          "Glare",
+          "Wrap",
+          "Gunk Shot",
+          "Shed Skin"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intimidating hood patterns",
+          "Shed Skin ability to cure status conditions",
+          "Coiled muscular defense"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Ground and Psychic-type attacks"
+      ],
+      "mobility": [
+        "Slithering ground movement"
+      ],
+      "limitations": [
+        "Relies on close-quarters combat and constricting coils, making it susceptible to ranged attacks if evaded."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Arbok_(Pok%C3%A9mon)",
+          "supports": "Arbok stats, poison movepool, Intimidate/Shed Skin abilities, and constriction tactics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Crushed steel barrels and boulders through sheer constriction force, and paralyzed opponents using its terrifying hood gaze.",
+          "citation": "Pokémon Red and Blue / Pokémon anime episodes featuring Jessie's Arbok",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact biological origin of the various face patterns on Arbok's hood across different regions remains unconfirmed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Arcanine",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Arcanine is a majestic, fiercely loyal Fire-type canine known for its extreme speed and roaring flames. It charges across battlefields with legendary agility, incinerating opponents with torrents of intense fire.",
+      "offense": {
+        "domains": [
+          "fire",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Flamethrower",
+          "Extreme Speed",
+          "Flare Blitz",
+          "Fire Fang",
+          "Roar"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intimidating presence",
+          "Thick fur coat",
+          "High overall durability and speed"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Water, Ground, and Rock-type attacks"
+      ],
+      "mobility": [
+        "Super-speed running",
+        "Extreme agility"
+      ],
+      "limitations": [
+        "High-recoil attacks like Flare Blitz inflict self-damage if used continuously without recovery support."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Arcanine_(Pok%C3%A9mon)",
+          "supports": "Arcanine stats, fire moves, speed feats, and legendary status in-universe."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ran over 6,200 miles in a single day and night, enveloped in roaring flames.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Arcanine generates and controls intense fire in combat.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Arcanine channels streams of fire through attacks like Flamethrower.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The precise legendary lineage connecting Arcanine to ancient mythical beasts is only briefly referenced in folklore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Articuno",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Articuno is a legendary Ice and Flying-type bird that commands freezing blizzards with a single flap of its brilliant blue wings. It glides gracefully through snowy peaks, lowering surrounding temperatures instantly.",
+      "offense": {
+        "domains": [
+          "ice",
+          "flight",
+          "energy"
+        ],
+        "techniques": [
+          "Ice Beam",
+          "Blizzard",
+          "Freeze-Dry",
+          "Roost",
+          "Ancient Power"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Exceptional special defense",
+          "Self-healing via Roost",
+          "Chilling aura that deters attackers"
+        ]
+      },
+      "weaknesses": [
+        "Quadruple vulnerability to Rock-type attacks",
+        "Vulnerable to Fire, Electric, and Steel-type attacks"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Vulnerable to stealth rock setups and concentrated physical fire or electric barrages."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Articuno_(Pok%C3%A9mon)",
+          "supports": "Articuno legendary status, ice and flying typing, movepool, and freezing capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caused heavy snowstorms to blanket entire regions simply by appearing and flapping its wings over mountain ranges.",
+          "citation": "Pokémon Red and Blue / Pokémon the Movie 2000",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Articuno flies through frigid air currents using large wings.",
+          "source": 0
+        },
+        {
+          "tag": "ice",
+          "claim": "Articuno naturally commands ice and freezing temperatures.",
+          "source": 0
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Articuno creates blizzards and ice beams at will.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Articuno uses Roost to restore health in flight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact migratory patterns between remote snowy peaks are rarely observed by researchers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Beedrill",
+      "continuity": "Pokémon Generation I-IX games and anime",
+      "summary": "Beedrill is a fierce Bug and Poison-type wasp Pokémon equipped with lethal twin stingers on its arms and tail. It attacks in aggressive swarms, executing lightning-fast charges to impale opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison",
+          "flight"
+        ],
+        "techniques": [
+          "Pin Missile",
+          "Poison Jab",
+          "Agility",
+          "Twineedle",
+          "Fell Stinger"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Aerial evasion",
+          "Swarm intimidation",
+          "High physical attack velocity"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Fire, Flying, Rock, and Psychic-type attacks"
+      ],
+      "mobility": [
+        "Fast natural flight"
+      ],
+      "limitations": [
+        "Fragile physical defense, making it vulnerable to heavy counter-attacks if an assault misses."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Beedrill_(Pok%C3%A9mon)",
+          "supports": "Beedrill stats, typing, poison stingers, and bug swarm behaviors."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defended its nest aggressively by chasing intruders out of forests with relentless multi-angle stinger attacks.",
+          "citation": "Pokémon anime episode 'Challenge of the Samurai'",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Beedrill flies rapidly using insectoid wings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact chemical composition of the neurotoxin in its arm stingers varies slightly between regional subspecies."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Beedrill|Mega Beedrill",
+      "continuity": "Pokémon Generation VI-IX games",
+      "summary": "Mega Beedrill transforms into an apex assassination specialist, replacing its legs with massive lance-like stingers and growing a lethal barb on its tail. It dashes at hypersonic speeds to skewer opponents with concentrated venom.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison",
+          "flight"
+        ],
+        "techniques": [
+          "Sludge Bomb",
+          "X-Scissor",
+          "U-turn",
+          "Poison Jab"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Adaptability ability boosting matching-type attack damage",
+          "Extreme flight speed and maneuverability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Fire, Flying, Rock, and Psychic-type attacks"
+      ],
+      "mobility": [
+        "Extremely fast natural flight"
+      ],
+      "limitations": [
+        "Temporary battle form dependent on holding the Beedrillite item."
+      ],
+      "formDifferences": "Replaces standard stingers with large lances, increases attack and speed exponentially, and grants the Adaptability ability.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Beedrill_(Pok%C3%A9mon)",
+          "supports": "Mega Beedrill stats, Adaptability ability, lance stingers, and speed boosts."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transforms via Mega Evolution, turning its arms and tail into giant sharp lances capable of injecting rapid-acting toxins into opponents.",
+          "citation": "Pokémon Omega Ruby and Alpha Sapphire",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution transformation",
+          "dependsOn": "Holding the Beedrillite Mega Stone while resonating with a Trainer's Key Stone",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Mega Beedrill maintains high-speed aerial movement with sharp insect wings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact top speed during high-velocity strafing runs remains unmeasured in official game guides."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
