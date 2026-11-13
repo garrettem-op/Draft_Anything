@@ -1,0 +1,435 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125653 #41",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Watto",
+      "continuity": "Star Wars Canon (Films and The Clone Wars)",
+      "summary": "Watto is a Toydarian junk dealer and merchant on Tatooine who relies entirely on his negotiation skills, hired muscle like mercenaries or slaves, and Toydarian natural flight to avoid physical confrontation.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Intimidation",
+          "Threats via hired enforcers"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Natural flight to evade ground threats",
+          "Immunity to some mind-influencing Force tricks due to Toydarian physiology"
+        ]
+      },
+      "weaknesses": [
+        "Greed and gambling addiction",
+        "Lack of direct combat skills"
+      ],
+      "mobility": [
+        "Natural flight via wings"
+      ],
+      "limitations": [
+        "Physically weak and unsuited for direct combat",
+        "Cannot be influenced by standard Jedi mind tricks"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Watto",
+          "supports": "Toydarian physiology, resistance to Force mind tricks, and occupation as a junk dealer on Tatooine."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Resisted Qui-Gon Jinn's attempt to use a Jedi mind trick to accept Republic dataries.",
+          "citation": "Star Wars: Episode I – The Phantom Menace",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Toydarians possess wings that allow them to fly naturally.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of Toydarian resistance to various psychic or mental manipulations outside of standard Jedi mind tricks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Wedge Antilles",
+      "continuity": "Star Wars Canon (Original Trilogy and Expanded Media)",
+      "summary": "Wedge Antilles is an elite veteran starfighter pilot of the Rebel Alliance and New Republic who specializes in commanding squadrons and destroying large enemy capital ships and installations.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Starfighter combat",
+          "Proton torpedo volleys",
+          "Squadron tactical coordination"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Starfighter deflector shields",
+          "Evasive flight maneuvers",
+          "Armor plating"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable when his starfighter is disabled or outside a vehicle"
+      ],
+      "mobility": [
+        "Starfighter flight",
+        "Standard foot movement"
+      ],
+      "limitations": [
+        "Relies entirely on standard military equipment and starfighters for offensive power."
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Wedge_Antilles",
+          "supports": "Status as a premier Rebel pilot, participation in the Death Star trenches, and squadron leadership."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in the destruction of both the first and second Death Stars.",
+          "citation": "Star Wars: Episode IV – A New Hope and Star Wars: Episode VI – Return of the Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Galactic Empire starfighter forces",
+          "result": "win",
+          "citation": "Battle of Yavin",
+          "note": "Flew as Red Two in the assault on the Death Star.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Advanced starfighter combat and shielding",
+          "dependsOn": "Piloting an X-wing or similar starfighter",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots X-wing starfighters in major battles.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of hand-to-hand combat proficiency outside of standard military training."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Wicket",
+      "continuity": "Star Wars Canon (Return of the Jedi and The Clone Wars)",
+      "summary": "Wicket W. Warrick is a courageous Ewok warrior who uses primitive traps, forest terrain knowledge, and small-scale projectile weapons to fight heavily armored adversaries.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Spear attacks",
+          "Slingshots",
+          "Improvised forest traps",
+          "Rope snares"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Forest camouflage",
+          "Agile movement through trees"
+        ]
+      },
+      "weaknesses": [
+        "Low physical durability against heavy energy weapons and explosions",
+        "Limited range with primitive weaponry"
+      ],
+      "mobility": [
+        "Agile running",
+        "Tree climbing"
+      ],
+      "limitations": [
+        "Weapons are restricted to primitive spears, bows, and slingshots."
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Wicket_W._Warrick",
+          "supports": "Ewok warrior tactics, weapon usage, and role in the Battle of Endor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Helped defeat Imperial stormtroopers during the Battle of Endor using traps and primitive weapons.",
+          "citation": "Star Wars: Episode VI – Return of the Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Galactic Empire Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars: Episode VI – Return of the Jedi",
+          "note": "Fought alongside Rebel forces using environmental traps.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Constructs and utilizes complex rope snares and forest traps.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Effectiveness of Ewok weaponry against specialized non-Imperial armor."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Wrecker",
+      "continuity": "Star Wars Canon (The Bad Batch)",
+      "summary": "Wrecker is a genetically modified clone commando who possesses immense superhuman strength, specializing in heavy weapons, demolition, and close-quarters brawling.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Heavy blaster cannon fire",
+          "Thermal detonators",
+          "Hand-to-hand brawling",
+          "Brute-force structural demolition"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Clone commando armor plating",
+          "Exceptional physical durability and pain tolerance"
+        ]
+      },
+      "weaknesses": [
+        "Impulsive nature",
+        "Fear of heights (acrophobia)",
+        "Susceptible to psychological distress when inhibitor chips activate"
+      ],
+      "mobility": [
+        "Standard foot movement",
+        "Jetpack or ship piloting as passenger"
+      ],
+      "limitations": [
+        "Prone to recklessness when overwhelmed by battle frenzy."
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Wrecker",
+          "supports": "Genetically enhanced strength, role as demolitionist for Clone Force 99, and use of heavy armor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lifted a heavy LAAT/i gunship gun-turret section entirely by hand.",
+          "citation": "Star Wars: The Bad Batch",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Standard Imperial stormtroopers",
+          "result": "win",
+          "citation": "Star Wars: The Bad Batch",
+          "note": "Engaged multiple troopers in close quarters and prevailed.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears specialized clone commando armor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limit of his lifting capacity."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Yoda",
+      "continuity": "Star Wars Canon (Films and The Clone Wars)",
+      "summary": "Yoda is a master of the Force and lightsaber combat with centuries of experience, capable of devastating telekinetic feats, precognition, and swift acrobatic strikes.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Lightsaber combat (Ataru form)",
+          "Force push and pull",
+          "Force absorption",
+          "Force lightning redirection"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Force barrier",
+          "Precognitive dodging"
+        ]
+      },
+      "weaknesses": [
+        "Advanced age and small physical stature can be taxed in prolonged wars of attrition, though compensated by the Force"
+      ],
+      "mobility": [
+        "Acrobatic leaps enhanced by the Force",
+        "Walking"
+      ],
+      "limitations": [
+        "Relies on connection to the Force for peak physical agility."
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Yoda",
+          "supports": "Mastery of the Force, lightsaber skills, and historical feats against Sith Lords."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Caught and redirected Count Dooku's unleashed Force lightning bare-handed.",
+          "citation": "Star Wars: Episode II – Attack of the Clones",
+          "source": 0
+        },
+        {
+          "claim": "Lifted Luke Skywalker's X-wing starfighter out of the swamps of Dagobah using telekinesis.",
+          "citation": "Star Wars: Episode V – The Empire Strikes Back",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Count Dooku",
+          "result": "inconclusive",
+          "citation": "Star Wars: Episode II – Attack of the Clones",
+          "note": "Dooku escaped while Yoda saved Anakin and Obi-Wan.",
+          "source": 0
+        },
+        {
+          "opponent": "Emperor Palpatine",
+          "result": "loss",
+          "citation": "Star Wars: Episode III – Revenge of the Sith",
+          "note": "Fought in the Galactic Senate chamber; environmental disadvantage forced Yoda into exile.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Wields advanced Force powers comparable to magical casting in combat.",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Lifts massive objects like starfighters and heavy debris using the Force.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Communicates across vast distances and senses thoughts through the Force.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential of post-mortal Force ghost abilities in a direct material confrontation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Zeb Orrelios",
+      "continuity": "Star Wars Canon (Star Wars Rebels)",
+      "summary": "Garazeb \"Zeb\" Orrelios is a Lasat honor guard veteran who combines brutal physical strength with an energy Bo-rifle that functions as both a rifle and an electrostaff.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Bo-rifle staff strikes",
+          "Blaster fire",
+          "Unarmed Lasat brawling",
+          "Charging tackles"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick fur and dense musculature",
+          "Rebel combat armor"
+        ]
+      },
+      "weaknesses": [
+        "Prone to hotheadedness and emotional provocation in combat"
+      ],
+      "mobility": [
+        "Acrobatic leaps for a large humanoid",
+        "Running"
+      ],
+      "limitations": [
+        "Relies on standard gear and weapon charges for energy attacks."
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Garazeb_Orrelios",
+          "supports": "Lasat physiology, Bo-rifle usage, and combat history with the Spectres."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated multiple Imperial stormtroopers simultaneously in hand-to-hand combat.",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Agent Kallus",
+          "result": "draw",
+          "citation": "Star Wars Rebels",
+          "note": "Fought to a standstill on an ice moon before eventually forming an alliance.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-weapon",
+          "claim": "Uses a Bo-rifle capable of firing energy blasts and discharging electricity in staff mode.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of Lasat martial arts techniques outside of standard military training."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
