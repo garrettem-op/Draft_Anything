@@ -1,955 +1,909 @@
 {
-  "batchId": "Gemini V2 research dc 20261113-042710 #15",
-  "schemaVersion": 1,
-  "pool": "dc",
-  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
-  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional. Reviewed by Claude (scheduled independent review) on 2026-11-13: sources opened, claims corrected.",
-  "characters": [
+ "batchId": "Gemini V2 research dc 20261113-042710 #15",
+ "schemaVersion": 1,
+ "pool": "dc",
+ "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+ "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional. Reviewed by Claude (scheduled independent review) on 2026-11-13: sources opened, claims corrected.",
+ "characters": [
+  {
+   "id": "dc:The Flash (Barry Allen)|Future Flash (Barry Allen)",
+   "continuity": "DC Comics New 52 (The Flash vol. 4 #30-35 'Out of Time' and The Flash: Futures End #1)",
+   "summary": "Future Flash is a jaded Barry Allen from about twenty years in the future who travels back in time to change history, killing villains he blames for tragedies in his life and fighting his own younger self to seal a rupture in the Speed Force.",
+   "offense": {
+    "domains": [
+     "physical",
+     "energy",
+     "time"
+    ],
+    "techniques": [
+     "Lethal super-speed attacks",
+     "Flinging objects at super-speed (high-speed rocks)"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Speed Force aura shielding him from friction and kinetic impacts (baseline Barry Allen power)",
+     "Regenerative healing factor (baseline Barry Allen power)"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the cited sources"
+   ],
+   "mobility": [
+    "Super-speed running",
+    "Time travel"
+   ],
+   "limitations": [],
+   "formDifferences": "An older, embittered Barry Allen from twenty years ahead who is willing to kill villains (and his own past self) to rewrite the timeline, unlike the present-day Flash.",
+   "sources": [
     {
-      "id": "dc:The Flash (Barry Allen)|Future Flash (Barry Allen)",
-      "continuity": "DC Comics New 52 (The Flash vol. 4 #30-35 'Out of Time' and The Flash: Futures End #1)",
-      "summary": "Future Flash is a jaded Barry Allen from about twenty years in the future who travels back in time to change history, killing villains he blames for tragedies in his life and fighting his own younger self to seal a rupture in the Speed Force.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "time"
-        ],
-        "techniques": [
-          "Lethal super-speed attacks",
-          "Flinging objects at super-speed (high-speed rocks)"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Speed Force aura shielding him from friction and kinetic impacts (baseline Barry Allen power)",
-          "Regenerative healing factor (baseline Barry Allen power)"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited sources"
-      ],
-      "mobility": [
-        "Super-speed running",
-        "Time travel"
-      ],
-      "limitations": [],
-      "formDifferences": "An older, embittered Barry Allen from twenty years ahead who is willing to kill villains (and his own past self) to rewrite the timeline, unlike the present-day Flash.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Barry_Allen",
-          "supports": "Baseline Barry Allen powers: Speed Force aura, regenerative healing, time travel via superluminal speed."
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Wally_West_II",
-          "supports": "Future Flash is a jaded Barry from twenty years in the future; kills Daniel West in The Flash: Futures End #1, cripples his younger self; Wallace West dies in The Flash vol. 4 #35 after being hit by rocks the Future Flash flung."
-        },
-        {
-          "url": "https://tvtropes.org/pmwiki/pmwiki.php/ComicBook/TheFlash2011",
-          "supports": "Future Flash kills Grodd, Reverse-Flash and Mirror Master; seeks to seal a Speed Force rupture by killing his past self."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Travelled back from twenty years in the future and killed Daniel West (Reverse-Flash) to prevent Wallace West's death.",
-          "citation": "The Flash: Futures End #1",
-          "source": 1
-        },
-        {
-          "claim": "Killed Grodd, Reverse-Flash and Mirror Master, whom he blamed for major tragedies in his life.",
-          "citation": null,
-          "source": 2
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "The Flash (Barry Allen) (his younger self)",
-          "result": "win",
-          "citation": "The Flash: Futures End #1",
-          "note": "Crippled his younger self in their fight, then disappeared into the past.",
-          "source": 1
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [],
-      "unknowns": [
-        "The exact upper limit of temporal endurance before erasing himself from the timeline.",
-        "Correction: Wallace West (Ace West) died in The Flash vol. 4 #35 after shielding the present Flash from high-speed rocks the Future Flash flung, and released Speed Force energy that closed the rupture; no source describes Future Flash disintegrating Wally by molecular vibration.",
-        "TV Tropes says Future Flash later sacrifices himself to stop William Selkirk; no opened source records him losing to present-day Barry in The Flash vol. 4 #50, so that result is not recorded.",
-        "Removed by review (not supported by any source opened): technique: Cellular molecular vibration disintegration; technique: Speed Force lightning generation; defense: Temporal displacement; weakness: Psychological instability due to trauma and guilt; limitation: Creates catastrophic temporal paradoxes; mobility: Speed Force flight; formDifferences: scarred armored blue-accented suit; feat: Disintegrated Wally West by vibrating his molecules apart; result: loss vs The Flash (Barry Allen) (The Flash vol. 4 #50); conditional: Time travel and timeline erasure; tag: natural-flight (Speed Force hover); tag: self-teleport (time travel by running is not teleportation)."
-      ],
-      "researchStatus": "provisional"
+     "url": "https://en.wikipedia.org/wiki/Barry_Allen",
+     "supports": "Baseline Barry Allen powers: Speed Force aura, regenerative healing, time travel via superluminal speed."
     },
     {
-      "id": "dc:The Flash (Wally West)",
-      "continuity": "DC Comics main continuity (post-Crisis New Earth, The Flash vol. 2 era)",
-      "summary": "Wally West is widely considered the fastest person to hold the title of the Flash, with a mainline connection to the Speed Force that cannot be cut off. He fights by overwhelming opponents with speed, stealing or lending momentum, and phasing through matter.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "kinetic"
-        ],
-        "techniques": [
-          "Speed steal (absorbing others' speed or momentum)",
-          "Lending speed to people or objects",
-          "Phasing through solid matter"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Speed Force aura protecting him and anyone he carries from the effects of his speed",
-          "Intangibility by vibrating his molecules",
-          "Rapid healing from injuries"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited sources"
-      ],
-      "mobility": [
-        "Super-speed running",
-        "Time travel by running",
-        "Dimensional travel (entering the Speed Force by exceeding light speed)",
-        "Limited flight by spinning like a helicopter (DC Database, marked citation needed)"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Wally_West",
-          "supports": "Speed Force connection, phasing, protective aura, lending speed, time travel, healing others, outrunning a black hole (The Flash vol. 2 #177)."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Wally_West_(New_Earth)",
-          "supports": "Powers: mainline Speed Force connection (The Flash vol. 2 #109), phasing, aura, speed steal, time and dimensional travel, regeneration, Anti-Life negation (Final Crisis #4); Mirror Master capture (The Flash vol. 2 #153)."
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Hunter_Zolomon",
-          "supports": "Rogue War: Wally catches Zoom and pushes him into his own sonic boom (The Flash vol. 2 #223)."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Outran the gravitational pull of a black hole.",
-          "citation": "The Flash (vol. 2) #177",
-          "source": 0
-        },
-        {
-          "claim": "Outran death to the edge of the universe and beyond.",
-          "citation": null,
-          "source": 0
-        },
-        {
-          "claim": "Negated the effects of Darkseid's Anti-Life Equation through physical contact with his Speed Force energy.",
-          "citation": "Final Crisis #4",
-          "source": 1
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Zoom (Hunter Zolomon)",
-          "result": "win",
-          "citation": "The Flash (vol. 2) #223",
-          "note": "During Rogue War, Wally caught up with Zoom as he attacked Linda and pushed him into his own sonic boom, opening a fissure in time that restored Linda's pregnancy; Wally then brought Zoom back to the present via the cosmic treadmill.",
-          "source": 2
-        },
-        {
-          "opponent": "Mirror Master",
-          "result": "win",
-          "citation": "The Flash (vol. 2) #153",
-          "note": "Caught Mirror Master within his speed-stream and hauled him off to prison.",
-          "source": 1
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "self-regeneration",
-          "claim": "DC Database: Wally could heal from any injury instantly, without prematurely aging.",
-          "source": 1
-        },
-        {
-          "tag": "heals-others",
-          "claim": "Wikipedia: by manipulating speed he can boost metabolism so that the recipient rapidly heals from injuries.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact ceiling of maximum speed when untethered from physical constraints.",
-        "Correction: the earlier limitation that he can lose his Speed Force connection is contradicted by DC Database, which says his mainline connection means he cannot be cut off (The Flash vol. 2 #109); removed.",
-        "Helicopter-spin flight is listed by DC Database with a citation-needed marker; not tagged pending a better source.",
-        "Removed by review (not supported by any source opened): technique: Infinite Mass Punch; technique: Sonic booms; weakness: Vulnerability to absolute zero temperature zones; feat: Infinite Mass Punch leveling a continent-sized threat; feat: Outran instantaneous teleportation across the universe (The Flash vol. 2 #138); result citation The Flash vol. 2 #200 (the opened source places the win in #223); tag: natural-flight (kinetic hover); tag: self-teleport (running across distances is not teleportation)."
-      ],
-      "researchStatus": "provisional"
+     "url": "https://en.wikipedia.org/wiki/Wally_West_II",
+     "supports": "Future Flash is a jaded Barry from twenty years in the future; kills Daniel West in The Flash: Futures End #1, cripples his younger self; Wallace West dies in The Flash vol. 4 #35 after being hit by rocks the Future Flash flung."
     },
     {
-      "id": "dc:The Flash (Wally West)|Doctor Manhattan-Powered Wally",
-      "continuity": "DC Comics Rebirth era (Flash Forward 2019-20, The Flash #750, Dark Nights: Death Metal)",
-      "summary": "After sitting on Metron's Mobius Chair, which had been infused with Doctor Manhattan's power, Wally West gained part of Manhattan's powers and cosmic knowledge on top of his Speed Force connection. He used them to try to restore a fractured timeline; after The Batman Who Laughs took the Chair, he kept only residual Anti-Crisis energy.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "control"
-        ],
-        "techniques": [
-          "Not established by the cited sources"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited sources"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited sources"
-      ],
-      "mobility": [
-        "Super-speed"
-      ],
-      "limitations": [
-        "Without the Mobius Chair he retained only residual Anti-Crisis energy from Doctor Manhattan and was no longer omnipotent (Dark Nights: Death Metal #1)."
-      ],
-      "formDifferences": "His costume and lightning turn Manhattan blue with Manhattan's logo on his forehead, and he loses nearly all emotion in favour of logic and knowledge.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Doctor_Manhattan",
-          "supports": "The Mobius Chair grants Wally part of Manhattan's powers; in Dark Nights: Death Metal Wally identifies Manhattan's energy, and The Batman Who Laughs takes him prisoner to acquire it."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Flash_(Wally_West)",
-          "supports": "Chair infused with Manhattan's power (Flash Forward #6); attempt to forge one timeline (Flash Forward #5, The Flash #750); Death Metal #1 loss of the Chair with residual Anti-Crisis energy; time stop with Johnny Quick's Speed Formula (Death Metal #3)."
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Wally_West",
-          "supports": "Wally obtains Manhattan's powers; blue costume and lightning, Manhattan logo, loss of emotion; uses the powers to restore the timeline."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Used his Manhattan-enhanced power and cosmic knowledge to try to forge the fragmented timeline into one coherent timeline; the attempt was undone when The Batman Who Laughs corrupted the Multiverse.",
-          "citation": "Flash Forward #5; The Flash #750",
-          "source": 1
-        },
-        {
-          "claim": "Using Johnny Quick's Speed Formula, briefly stopped time during a chase and reached the Mobius Chair.",
-          "citation": "Dark Nights: Death Metal #3",
-          "source": 1
-        }
-      ],
-      "notableResults": [],
-      "conditional": [
-        {
-          "ability": "Reality-level power and omniscience",
-          "dependsOn": "Doctor Manhattan's energy infused into the Mobius Chair; after losing the Chair he kept only residual Anti-Crisis energy",
-          "source": 1
-        }
-      ],
-      "campaignTags": [],
-      "unknowns": [
-        "Full extent of reality manipulation capabilities before the power source dissipates.",
-        "This form overlaps with the Mobius Chair Wally West record: the sources describe him gaining Manhattan's power by sitting on the Manhattan-infused Chair. This record covers the Manhattan-powered state, including the post-Chair residual energy in Death Metal.",
-        "Doctor Manhattan himself can fly, teleport and change size, but no opened source says which of those powers Wally received, so flight and teleportation are not recorded for this form.",
-        "The Darkest Knight 'loss': DC Database says the Darkest Knight had rigged the Mobius Chair to send its energy into himself (Death Metal #4); that was a trap, not a fight, so it is not recorded as a result.",
-        "Removed by review (not supported by any source opened): technique: Atomic restructuring; technique: Cosmic energy blasts; technique: Reality warping; defense: Omnidirectional atomic regeneration; defense: Invulnerability to conventional harm; weakness: Mental burden of holding multiversal consciousness; mobility: Flight; mobility: Instantaneous teleportation; feat: Reconstructed the shattered multiverse (the sources describe an attempt that failed); tag: natural-flight; tag: self-teleport.",
-        "Extreme or conceptual power scaling: the owner may want to rule on how this form is used in play."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:The Flash (Wally West)|Mobius Chair Wally West",
-      "continuity": "DC Comics Rebirth era (Flash Forward 2019-20, The Flash #750, Dark Nights: Death Metal)",
-      "summary": "Seated on Metron's Mobius Chair, Wally West gains near-omniscient sight and understanding of the universe alongside his Speed Force powers. The Chair flies, shields itself with a force field and can carry him through space, time and other dimensions in seconds.",
-      "offense": {
-        "domains": [
-          "energy",
-          "control",
-          "tech"
-        ],
-        "techniques": [
-          "Not established by the cited sources"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Mobius Chair force field"
-        ]
-      },
-      "weaknesses": [
-        "The Chair can be taken from him: The Batman Who Laughs used Perpetua's power to snatch it away (Dark Nights: Death Metal)."
-      ],
-      "mobility": [
-        "Chair-borne flight",
-        "Teleportation through space, time and other dimensions via the Chair"
-      ],
-      "limitations": [],
-      "formDifferences": "Seated on the Mobius Chair, which grants near-omniscient sight; Wally is the only known being not fully overtaken by the Chair (The Flash #750).",
-      "sources": [
-        {
-          "url": "https://dc.fandom.com/wiki/Flash_(Wally_West)",
-          "supports": "Wally sits on the Mobius Chair (Flash Forward #6), surveys the timeline (Flash Forward #5, The Flash #750); The Batman Who Laughs, empowered by Perpetua, defeats him and strips him of the Chair (Dark Nights: Death Metal #1)."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Mobius_Chair",
-          "supports": "Mobius Chair abilities: flight, teleportation through space, time and dimensions, near-omniscience, force field; Wally as its host."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Dark_Nights:_Death_Metal",
-          "supports": "Wally, trying to fix reality by merging timelines, is stopped by The Batman Who Laughs, who used Perpetua's power to snatch away the Mobius Chair."
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Wally_West",
-          "supports": "Wally finds Metron's Mobius Chair and gains cosmic knowledge (Flash Forward)."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Took possession of the Mobius Chair's knowledge and surveyed the whole timeline, finding repeated events.",
-          "citation": "Flash Forward #5-6; The Flash #750",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "The Batman Who Laughs",
-          "result": "loss",
-          "citation": "Dark Nights: Death Metal #1",
-          "note": "The Batman Who Laughs, empowered by Perpetua, defeated Wally and stripped him of the Mobius Chair.",
-          "source": 0
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Near-omniscience and teleportation through space, time and dimensions",
-          "dependsOn": "Being seated on the Mobius Chair",
-          "source": 1
-        }
-      ],
-      "campaignTags": [
-        {
-          "tag": "self-teleport",
-          "claim": "The Mobius Chair's main capability is to travel and teleport through space, time and other dimensions in seconds.",
-          "source": 1
-        }
-      ],
-      "unknowns": [
-        "Whether Wally could permanently separate from the chair without catastrophic backlash.",
-        "Correction: the continuity was given as Dark Nights: Metal / Justice League; the sources place Wally's time on the Chair in Flash Forward, The Flash #750 and Dark Nights: Death Metal.",
-        "Correction: the 'loss vs Perpetua' result is recorded as a loss to The Batman Who Laughs, who used Perpetua's power to take the Chair.",
-        "Removed by review (not supported by any source opened): technique: Mobius beam energy projection; technique: Information overload; defense: Impenetrable divine energy shield of the New Gods; defense: Temporal displacement immunity; weakness: Vulnerability to mental corruption from absorbing infinite universal data; formDifferences: anti-matter propulsion; feat: Scanned every timeline and piece of knowledge in existence simultaneously; tag: natural-flight (Chair flight is a device, so it is tagged powered-flight).",
-        "Extreme or conceptual power scaling: the owner may want to rule on how this form is used in play.",
-        "Unsupported by cited source (term check, 0/5 key terms found): powered-flight: DC Database's Mobius Chair page says the Chair can also fly; Wally flies by riding it."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:The Spectre",
-      "continuity": "DC Comics main continuity (Golden Age through Prime Earth; hosts Jim Corrigan and Crispus Allen)",
-      "summary": "The Spectre is God's spirit of vengeance bound to a human host, with near-omnipotent magical and physical power over space, time, reality and matter. He punishes the wicked with reality-warping transformations, but is bound by the Presence's laws and needs a human host to stay stable.",
-      "offense": {
-        "domains": [
-          "magic",
-          "energy",
-          "control",
-          "physical"
-        ],
-        "techniques": [
-          "Reality warping and transformation of victims (e.g. into broken glass or melting candles)",
-          "Illusions and hallucinations",
-          "Possessing objects and intruding on minds or souls"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Intangibility",
-          "Near-omnipotent magical power"
-        ]
-      },
-      "weaknesses": [
-        "The Spear of Destiny can kill him",
-        "Powerful magic can affect him",
-        "Soulless beings such as Nekron are immune to his powers (Green Lantern #51, 2010)",
-        "Libra was unaffected by his powers (Final Crisis: Revelations)"
-      ],
-      "mobility": [
-        "Flight"
-      ],
-      "limitations": [
-        "Needs a human host to keep his power in check; without one the Spectre-Force becomes unstable and rampages",
-        "Bound by divine laws and tasks set by the Presence"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Spectre_(DC_Comics_character)",
-          "supports": "Powers (near-omnipotence, magic, reality warping, flight, intangibility), host dependence, Presence's laws, weaknesses, More Fun #52, Adventure Comics #431-440, Day of Vengeance, Eclipso in Justice League of America #57 (2011)."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/James_Corrigan_(Prime_Earth)",
-          "supports": "Prime Earth Spectre: strongest of the Judge class, bound to host Corrigan, limited by The Voice's tasks."
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Crisis_on_Infinite_Earths",
-          "supports": "Crisis on Infinite Earths #10: a magically empowered Spectre creates an energy overload that shatters space and time and merges the five Earths."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "His touch instantly reduced a murderer to a skeleton.",
-          "citation": "More Fun Comics #52 (1940)",
-          "source": 0
-        },
-        {
-          "claim": "Transformed criminals into broken glass and melting candles.",
-          "citation": "Adventure Comics #431-440 (1974-75)",
-          "source": 0
-        },
-        {
-          "claim": "Magically empowered by the assembled heroes, created an energy overload that shattered space and time while the Anti-Monitor waited at the dawn of time; the five Earths merged into one universe.",
-          "citation": "Crisis on Infinite Earths #10",
-          "source": 2
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Phantom Stranger",
-          "result": "win",
-          "citation": "Day of Vengeance (2005)",
-          "note": "Under Jean Loring's manipulation, turned the Phantom Stranger into a mouse.",
-          "source": 0
-        },
-        {
-          "opponent": "Shazam (the wizard)",
-          "result": "win",
-          "citation": "Day of Vengeance (2005)",
-          "note": "Killed Shazam while manipulated by Jean Loring.",
-          "source": 0
-        },
-        {
-          "opponent": "Eclipso",
-          "result": "loss",
-          "citation": "Justice League of America (vol. 2) #57 (2011)",
-          "note": "Eclipso cleaved him in two and absorbed his power.",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "natural-flight",
-          "claim": "Wikipedia lists flight among the Spectre's innate supernatural powers.",
-          "source": 0
-        },
-        {
-          "tag": "magic",
-          "claim": "Wikipedia describes near-omnipotent magical abilities and energy and magic manipulation.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "The absolute extent of his power if operating completely free of a host constraint.",
-        "Crisis on Infinite Earths: Wikipedia says he is the only hero who can stand against the Anti-Monitor directly, but no opened source states the outcome of their clash, so no result is recorded.",
-        "Removed by review (not supported by any source opened): technique: Size manipulation; technique: Divine judgment bolts; technique: Soul tearing; defense: Divine invulnerability; defense: Conceptual immortality; mobility: Teleportation; mobility: Dimensional travel; feat: Turned a man into a living salt crystal and moved the Earth's orbit (More Fun Comics #52 is a different feat); tag: self-teleport; tag: giant-sized (no documented size in an opened source); tag: spellcaster (replaced by magic)."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Trigon",
-      "continuity": "DC Comics main continuity (New Teen Titans 1980 through Rebirth; Raven's father)",
-      "summary": "Trigon is an interdimensional demon lord who held dominion over millions of worlds and enslaved many dimensions. His listed powers span size alteration, shapeshifting, pyrokinesis, telepathy, telekinesis, soul absorption and reality warping.",
-      "offense": {
-        "domains": [
-          "magic",
-          "energy",
-          "control",
-          "physical"
-        ],
-        "techniques": [
-          "Pyrokinesis",
-          "Soul absorption",
-          "Disintegration",
-          "Reality warping",
-          "Telekinesis"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Superhuman durability",
-          "Regeneration",
-          "Immortality"
-        ]
-      },
-      "weaknesses": [
-        "Purifying light from the souls of Azarath, channelled through Raven, destroyed him (New Teen Titans vol. 2 #5)"
-      ],
-      "mobility": [
-        "Flight",
-        "Teleportation",
-        "Dimensional travel"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Trigon_(comics)",
-          "supports": "Infobox abilities (flight, teleportation, dimensional travel, size alteration, regeneration, pyrokinesis, telekinesis, telepathy, soul absorption, reality warping); dominion over millions of worlds; defeats by the Titans, Raven and the souls of Azarath, and Bizarro."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Held dominion over millions of worlds in his dimension by age 30 and enslaved many worlds and dimensions.",
-          "citation": "The New Teen Titans #6 (as cited by Wikipedia)",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Teen Titans",
-          "result": "loss",
-          "citation": "The New Teen Titans (vol. 1)",
-          "note": "Raven reformed the Teen Titans, who sealed him in another dimension.",
-          "source": 0
-        },
-        {
-          "opponent": "Raven (possessed by the souls of Azarath)",
-          "result": "loss",
-          "citation": "The New Teen Titans (vol. 2) #5",
-          "note": "After he controlled Raven and destroyed Azarath, the souls of Azarath possessed her and used her as a channel to kill him with purifying light.",
-          "source": 0
-        },
-        {
-          "opponent": "Bizarro",
-          "result": "loss",
-          "citation": "Red Hood and the Outlaws",
-          "note": "Killed by Bizarro; later revealed to have been resurrected.",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "natural-flight",
-          "claim": "Wikipedia's infobox lists Flight among Trigon's innate demonic abilities.",
-          "source": 0
-        },
-        {
-          "tag": "self-teleport",
-          "claim": "Wikipedia's infobox lists Teleportation among Trigon's abilities.",
-          "source": 0
-        },
-        {
-          "tag": "size-change",
-          "claim": "Wikipedia's infobox lists Size Alteration among Trigon's abilities.",
-          "source": 0
-        },
-        {
-          "tag": "self-regeneration",
-          "claim": "Wikipedia's infobox lists Regeneration among Trigon's abilities.",
-          "source": 0
-        },
-        {
-          "tag": "fire-control",
-          "claim": "Wikipedia's infobox lists Pyrokinesis among Trigon's abilities.",
-          "source": 0
-        },
-        {
-          "tag": "telepathy",
-          "claim": "Wikipedia's infobox lists Telepathy among Trigon's abilities.",
-          "source": 0
-        },
-        {
-          "tag": "telekinesis",
-          "claim": "Wikipedia's infobox lists Telekinesis among Trigon's abilities.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Whether his true essence can ever be permanently destroyed rather than merely banished.",
-        "The DC Database page (dc.fandom.com/wiki/Trigon_(New_Earth)) failed to load, so it was dropped from sources; the record now rests on Wikipedia.",
-        "Removed by review (not supported by any source opened): defense: Magic resistance; weakness: Vulnerable to empathic light magic from Raven (replaced by the sourced Azarath light defeat); limitation: Requires portals or ritual summoning to manifest; feat: Turned the entire Earth into a wasteland of fire and ash; result: win vs Justice League; tag: giant-sized (no documented height); tag: spellcaster."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Two-Face",
-      "continuity": "DC Comics main continuity (Golden Age Detective Comics through post-Crisis and Modern Age)",
-      "summary": "Harvey Dent, formerly Gotham's District Attorney, is Two-Face, a crime boss obsessed with duality who lets a scarred double-headed coin decide his actions. He has no superpowers and relies on marksmanship, martial arts, heavy firearms and his legal knowledge to plan number-two themed crimes.",
-      "offense": {
-        "domains": [
-          "physical",
-          "tech"
-        ],
-        "techniques": [
-          "Dual-pistol marksmanship",
-          "Heavy weapons (Tommy guns, shotguns, grenade and rocket launchers)",
-          "Martial arts improved by Deathstroke and Batman",
-          "Bombs (detonated a bomb in his apartment to escape Batman)"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "High tolerance for pain",
-          "Criminal planning informed by knowledge of criminal law and police procedure"
-        ]
-      },
-      "weaknesses": [
-        "Total reliance on his scarred double-headed coin to make decisions",
-        "Split personality"
-      ],
-      "mobility": [
-        "Standard human movement"
-      ],
-      "limitations": [
-        "No superhuman powers"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Two-Face",
-          "supports": "Skills, weapons, coin, number-two crimes, Face the Face, Batman #234 and #258, Detective Comics #513, Long Halloween-era capture."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Re-scarred his face with nitric acid and a scalpel to return as Two-Face, threatened the Gotham Zoo and detonated a bomb in his apartment to escape Batman's questioning.",
-          "citation": "Batman: Face the Face",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Batman",
-          "result": "loss",
-          "citation": "Batman #234 ('Half an Evil')",
-          "note": "Knocked unconscious by Batman.",
-          "source": 0
-        },
-        {
-          "opponent": "Batman",
-          "result": "loss",
-          "citation": "Batman #258",
-          "note": "Batman foiled Two-Face's plan.",
-          "source": 0
-        },
-        {
-          "opponent": "Batman",
-          "result": "loss",
-          "citation": "Post-Crisis origin / The Long Halloween",
-          "note": "Took revenge on Falcone, Fields and Maroni but was captured by Batman.",
-          "source": 0
-        },
-        {
-          "opponent": "Robin",
-          "result": "loss",
-          "citation": "Detective Comics #513",
-          "note": "After Batman escaped Two-Face's trap, Robin stopped Two-Face.",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Whether psychological rehabilitation can permanently suppress the Two-Face persona.",
-        "The DC Database page (dc.fandom.com/wiki/Harvey_Dent_(Prime_Earth)) failed to load, so it was dropped from sources; the record now rests on Wikipedia.",
-        "Correction: Detective Comics #80 ('The End of Two-Face') is the story where Harvey is cured by plastic surgery; no opened source supports Gemini's claim that Batman beat him there by exploiting the coin.",
-        "Removed by review (not supported by any source opened): technique: Explosive coin traps; technique: Gangland tactical ambushes; defense: Body armor; defense: Fortified hideouts; mobility: Automobiles; feat: Took over multiple Gotham crime families through coordinated assassinations (Batman: The Long Halloween); result: loss vs Batman (Detective Comics #80); tag: gadgets (rigged coins are not documented; firearms are not gadgets)."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Vixen",
-      "continuity": "DC Comics main continuity (post-Crisis New Earth through Rebirth/Prime Earth)",
-      "summary": "Mari Jiwe McCabe wears the Tantu Totem, created by the trickster god Anansi, which links her to the Red (Earth's morphogenetic field) so she can take on the attributes of animals, one at a time. She is also a skilled hand-to-hand fighter.",
-      "offense": {
-        "domains": [
-          "physical",
-          "magic"
-        ],
-        "techniques": [
-          "Animal attribute mimicry through the Tantu Totem",
-          "Hand-to-hand combat",
-          "Matching and draining the abilities of those around her (Justice League of America vol. 2 era)"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited sources"
-        ]
-      },
-      "weaknesses": [
-        "Losing the Tantu Totem disconnects her from the Red; Maksai's theft and the Grundy/Amazo plot both exploited this",
-        "Can be brainwashed (Gorilla Grodd did so at least once)",
-        "Animal instincts can override her control"
-      ],
-      "mobility": [
-        "Animal-derived movement (depends on the animal mimicked)"
-      ],
-      "limitations": [
-        "Takes on the attributes of one animal at a time",
-        "Her powers are weaker without the Tantu Totem"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Vixen_(character)",
-          "supports": "Tantu Totem created by Anansi and linked to Earth's morphogenetic field; one animal at a time; reduced powers without it; Amazo, General Maksai, Grodd."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Mari_McCabe_(Prime_Earth)",
-          "supports": "Prime Earth: limited powers without the totem; fought Doctor Manhattan on Mars; defeated Doctor Hate with Deadeye."
-        }
-      ],
-      "feats": [],
-      "notableResults": [
-        {
-          "opponent": "General Maksai",
-          "result": "win",
-          "citation": "Justice League of America (vol. 1)",
-          "note": "Maksai, transformed into a raging beast, died in battle with Vixen.",
-          "source": 0
-        },
-        {
-          "opponent": "Amazo",
-          "result": "loss",
-          "citation": "Justice League of America",
-          "note": "Vixen and several teammates were beaten into unconsciousness by Amazo.",
-          "source": 0
-        },
-        {
-          "opponent": "Doctor Manhattan",
-          "result": "loss",
-          "citation": null,
-          "note": "Prime Earth: one of the heroes who confronted him on Mars and were easily defeated.",
-          "source": 1
-        },
-        {
-          "opponent": "Doctor Hate",
-          "result": "win",
-          "citation": null,
-          "note": "Prime Earth: with Deadeye and other heroes in the Congo; she cut him off from the Kingdom without harming it.",
-          "source": 1
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Full-strength animal attribute mimicry",
-          "dependsOn": "Wearing the Tantu Totem, which links her to the Red; without it her powers are reduced",
-          "source": 0
-        }
-      ],
-      "campaignTags": [
-        {
-          "tag": "magic-item",
-          "claim": "Her powers come from the Tantu Totem, created by the trickster god Anansi, which links her to Earth's morphogenetic field.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Whether extinct or mythical creatures can be channeled through the totem.",
-        "Wikipedia says she takes on one animal at a time, which contradicts Gemini's claim of channeling cheetah, elephant and falcon simultaneously; that feat is not recorded.",
-        "The Amazo defeat may cover more than one Amazo story; the opened source does not give the issue.",
-        "Removed by review (not supported by any source opened): technique: Simultaneous multi-animal trait channeling; technique: Apex predator claw strikes; defense: Rhino hide durability; defense: Gorilla-level muscle density; defense: Regenerative healing factors; limitation: Strain from channeling too many traits at once; mobility: Flight (bird of prey); mobility: Swimming; mobility: Running (cheetah); feat: Channeled cheetah, elephant and falcon simultaneously; tag: swimmer."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Wonder Woman",
-      "continuity": "DC Comics main continuity (post-Crisis New Earth through Prime Earth/Rebirth)",
-      "summary": "Diana of Themyscira is an Amazon warrior princess with god-given strength, speed and flight, wielding the Lasso of Truth, nearly indestructible bracelets and a Hephaestus-forged sword. She fights hand-to-hand and deflects bullets and energy blasts with her bracelets.",
-      "offense": {
-        "domains": [
-          "physical",
-          "magic"
-        ],
-        "techniques": [
-          "Hephaestus-forged sword strikes",
-          "Lasso of Truth binding",
-          "Deflecting bullets and energy blasts with her bracelets"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Nearly indestructible bracelets of Eighth Metal",
-          "Highly resistant to concussive force and extreme temperatures (not invulnerable)",
-          "Accelerated healing while in contact with the Earth",
-          "Shield"
-        ]
-      },
-      "weaknesses": [
-        "Edged weapons and projectiles with enough force can pierce her skin",
-        "Grail's Omega Beams can shatter her bracelets",
-        "Aphrodite's Law (Golden Age): if a man chains her bracelets she loses her Amazon strength"
-      ],
-      "mobility": [
-        "Flight (gift of Hermes)",
-        "Super-speed"
-      ],
-      "limitations": [
-        "Her accelerated healing depends on contact with the Earth"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Wonder_Woman",
-          "supports": "Powers (Hermes' flight and speed, strength, healing, durability), equipment, weaknesses, Maxwell Lord (Wonder Woman vol. 2 #219), Neron, Circe, Nubia."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Wonder_Woman_(Diana_Prince)",
-          "supports": "Flight from Hermes, bracelets that deflect Darkseid's Omega Beams, Hephaestus-forged sword, fights with Ares and Darkseid."
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Lasso_of_Truth",
-          "supports": "Lasso forged by Hephaestus from the Golden Girdle of Gaea; mystical in origin."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Her Bracelets of Submission, of nearly indestructible Eighth Metal, can deflect even Darkseid's Omega Beams.",
-          "citation": null,
-          "source": 1
-        },
-        {
-          "claim": "Can fly at speeds approaching half the speed of light.",
-          "citation": null,
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Maxwell Lord",
-          "result": "win",
-          "citation": "Wonder Woman (vol. 2) #219",
-          "note": "Broke free of a mind-controlled Superman by slicing his throat with her tiara, then snapped Lord's neck after the lasso revealed only death would stop him.",
-          "source": 0
-        },
-        {
-          "opponent": "Ares",
-          "result": "win",
-          "citation": null,
-          "note": "Prime Earth: impaled Ares and the First Born with a spear; Ares died.",
-          "source": 1
-        },
-        {
-          "opponent": "Darkseid",
-          "result": "win",
-          "citation": null,
-          "note": "Destroyed him from inside by calling out her half-siblings' spirits; he re-emerged elsewhere.",
-          "source": 1
-        },
-        {
-          "opponent": "Circe",
-          "result": "win",
-          "citation": "War of the Gods",
-          "note": "After Circe reverted her to clay, Diana was revived and defeated Circe with Donna Troy.",
-          "source": 0
-        },
-        {
-          "opponent": "Neron",
-          "result": "loss",
-          "citation": null,
-          "note": "Neron killed Diana in battle; the Olympian gods then granted her divinity.",
-          "source": 0
-        },
-        {
-          "opponent": "Nubia",
-          "result": "inconclusive",
-          "citation": null,
-          "note": "Their duel ended in a draw.",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [
-        {
-          "tag": "natural-flight",
-          "claim": "Hermes granted Diana superhuman speed and the ability to fly.",
-          "source": 0
-        },
-        {
-          "tag": "magic-item",
-          "claim": "Her Lasso of Truth, forged by Hephaestus from the Golden Girdle of Gaea, is mystical in origin.",
-          "source": 2
-        }
-      ],
-      "unknowns": [
-        "Exact limits of her divine combat potential when removing her limiter bracelets.",
-        "After the 2011 relaunch she lost natural flight and regained it only after a feather thrown by Hermes struck her (per Wikipedia).",
-        "Removed by review (not supported by any source opened): technique name 'God Killer' (the source describes a Hephaestus-forged sword without that name); feat: exchanged blows with Superman that shattered tectonic plates; result: inconclusive vs Superman; feat citation Wonder Woman (vol. 2) #170 for bracelet deflection (the deflection is sourced without an issue)."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Wonder Woman|Flashpoint Wonder Woman",
-      "continuity": "Flashpoint Timeline (DC Comics Flashpoint, 2011; later The Button)",
-      "summary": "In the Flashpoint timeline, Diana wages a war against Aquaman's Atlanteans that began when her mother died at their political wedding, a conflict secretly engineered by Penthesilea and Orm. She rules New Themyscira, the former United Kingdom, with her Female Furies, and killed Mera in retribution.",
-      "offense": {
-        "domains": [
-          "physical",
-          "magic"
-        ],
-        "techniques": [
-          "Not established by the cited sources"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited sources"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited sources"
-      ],
-      "mobility": [],
-      "limitations": [],
-      "formDifferences": "A warlord Diana who rules New Themyscira (the former United Kingdom) with her Female Furies and wages the Amazon-Atlantean war that devastated western Europe, unlike prime Diana.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Flashpoint_(comics)",
-          "supports": "War between Wonder Woman and Aquaman decimated western Europe; she fights Aquaman one-on-one until Flash's team arrives (Flashpoint #4)."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Diana_of_Themyscira_(Flashpoint_Timeline)",
-          "supports": "War began with Hippolyta's death at the wedding, engineered by Penthesilea and Orm; Diana rules New Themyscira, the former United Kingdom, with her Female Furies."
-        },
-        {
-          "url": "https://dc.fandom.com/wiki/Orin_(Flashpoint_Timeline)",
-          "supports": "Wonder Woman killed Mera in retribution; their final battle was interrupted by the Flash and the heroes."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Rules New Themyscira, the former United Kingdom, with the aid of her Female Furies.",
-          "citation": null,
-          "source": 1
-        },
-        {
-          "claim": "Killed Mera in retribution for Hippolyta's death.",
-          "citation": null,
-          "source": 2
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Aquaman",
-          "result": "inconclusive",
-          "citation": "Flashpoint #4",
-          "note": "They fought one-on-one until the Flash and his team arrived to stop the war; the timeline was later restored by the Flash.",
-          "source": 0
-        }
-      ],
-      "conditional": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Whether her power differs fundamentally from prime Diana outside of psychological disposition.",
-        "No opened source states whether Flashpoint Diana can fly or has super-speed, so flight, super-speed and the natural-flight tag are not recorded.",
-        "No opened source states how she killed Mera or in which issue.",
-        "Removed by review (not supported by any source opened): technique: Beheading blade strikes; technique: Lasso execution; technique: Amazonian battle formation sweeps; defense: Amazonian armor; defense: Shield blocking; defense: Divine resilience; weakness: Blind rage and arrogance; limitation: Strategic overextension from bloodlust; formDifferences: dark battle armor with skull motifs; mobility: Flight; mobility: Super-speed; feat detail: decapitation of Mera (Flashpoint #2); feat detail: conquest of the United Kingdom; tag: natural-flight."
-      ],
-      "researchStatus": "provisional"
+     "url": "https://tvtropes.org/pmwiki/pmwiki.php/ComicBook/TheFlash2011",
+     "supports": "Future Flash kills Grodd, Reverse-Flash and Mirror Master; seeks to seal a Speed Force rupture by killing his past self."
     }
-  ]
+   ],
+   "feats": [
+    {
+     "claim": "Travelled back from twenty years in the future and killed Daniel West (Reverse-Flash) to prevent Wallace West's death.",
+     "citation": "The Flash: Futures End #1",
+     "source": 1
+    },
+    {
+     "claim": "Killed Grodd, Reverse-Flash and Mirror Master, whom he blamed for major tragedies in his life.",
+     "citation": null,
+     "source": 2
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "The Flash (Barry Allen) (his younger self)",
+     "result": "win",
+     "citation": "The Flash: Futures End #1",
+     "note": "Crippled his younger self in their fight, then disappeared into the past.",
+     "source": 1
+    }
+   ],
+   "conditional": [],
+   "campaignTags": [],
+   "unknowns": [
+    "The exact upper limit of temporal endurance before erasing himself from the timeline.",
+    "Correction: Wallace West (Ace West) died in The Flash vol. 4 #35 after shielding the present Flash from high-speed rocks the Future Flash flung, and released Speed Force energy that closed the rupture; no source describes Future Flash disintegrating Wally by molecular vibration.",
+    "TV Tropes says Future Flash later sacrifices himself to stop William Selkirk; no opened source records him losing to present-day Barry in The Flash vol. 4 #50, so that result is not recorded.",
+    "Removed by review (not supported by any source opened): technique: Cellular molecular vibration disintegration; technique: Speed Force lightning generation; defense: Temporal displacement; weakness: Psychological instability due to trauma and guilt; limitation: Creates catastrophic temporal paradoxes; mobility: Speed Force flight; formDifferences: scarred armored blue-accented suit; feat: Disintegrated Wally West by vibrating his molecules apart; result: loss vs The Flash (Barry Allen) (The Flash vol. 4 #50); conditional: Time travel and timeline erasure; tag: natural-flight (Speed Force hover); tag: self-teleport (time travel by running is not teleportation)."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:The Flash (Wally West)",
+   "continuity": "DC Comics main continuity (post-Crisis New Earth, The Flash vol. 2 era)",
+   "summary": "Wally West is widely considered the fastest person to hold the title of the Flash, with a mainline connection to the Speed Force that cannot be cut off. He fights by overwhelming opponents with speed, stealing or lending momentum, and phasing through matter.",
+   "offense": {
+    "domains": [
+     "physical",
+     "energy",
+     "kinetic"
+    ],
+    "techniques": [
+     "Speed steal (absorbing others' speed or momentum)",
+     "Lending speed to people or objects",
+     "Phasing through solid matter"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Speed Force aura protecting him and anyone he carries from the effects of his speed",
+     "Intangibility by vibrating his molecules",
+     "Rapid healing from injuries"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the cited sources"
+   ],
+   "mobility": [
+    "Super-speed running",
+    "Time travel by running",
+    "Dimensional travel (entering the Speed Force by exceeding light speed)",
+    "Limited flight by spinning like a helicopter (DC Database, marked citation needed)"
+   ],
+   "limitations": [],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Wally_West",
+     "supports": "Speed Force connection, phasing, protective aura, lending speed, time travel, healing others, outrunning a black hole (The Flash vol. 2 #177)."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Wally_West_(New_Earth)",
+     "supports": "Powers: mainline Speed Force connection (The Flash vol. 2 #109), phasing, aura, speed steal, time and dimensional travel, regeneration, Anti-Life negation (Final Crisis #4); Mirror Master capture (The Flash vol. 2 #153)."
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Hunter_Zolomon",
+     "supports": "Rogue War: Wally catches Zoom and pushes him into his own sonic boom (The Flash vol. 2 #223)."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Outran the gravitational pull of a black hole.",
+     "citation": "The Flash (vol. 2) #177",
+     "source": 0
+    },
+    {
+     "claim": "Outran death to the edge of the universe and beyond.",
+     "citation": null,
+     "source": 0
+    },
+    {
+     "claim": "Negated the effects of Darkseid's Anti-Life Equation through physical contact with his Speed Force energy.",
+     "citation": "Final Crisis #4",
+     "source": 1
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Zoom (Hunter Zolomon)",
+     "result": "win",
+     "citation": "The Flash (vol. 2) #223",
+     "note": "During Rogue War, Wally caught up with Zoom as he attacked Linda and pushed him into his own sonic boom, opening a fissure in time that restored Linda's pregnancy; Wally then brought Zoom back to the present via the cosmic treadmill.",
+     "source": 2
+    },
+    {
+     "opponent": "Mirror Master",
+     "result": "win",
+     "citation": "The Flash (vol. 2) #153",
+     "note": "Caught Mirror Master within his speed-stream and hauled him off to prison.",
+     "source": 1
+    }
+   ],
+   "conditional": [],
+   "campaignTags": [
+    {
+     "tag": "self-regeneration",
+     "claim": "DC Database: Wally could heal from any injury instantly, without prematurely aging.",
+     "source": 1
+    },
+    {
+     "tag": "heals-others",
+     "claim": "Wikipedia: by manipulating speed he can boost metabolism so that the recipient rapidly heals from injuries.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Exact ceiling of maximum speed when untethered from physical constraints.",
+    "Correction: the earlier limitation that he can lose his Speed Force connection is contradicted by DC Database, which says his mainline connection means he cannot be cut off (The Flash vol. 2 #109); removed.",
+    "Helicopter-spin flight is listed by DC Database with a citation-needed marker; not tagged pending a better source.",
+    "Removed by review (not supported by any source opened): technique: Infinite Mass Punch; technique: Sonic booms; weakness: Vulnerability to absolute zero temperature zones; feat: Infinite Mass Punch leveling a continent-sized threat; feat: Outran instantaneous teleportation across the universe (The Flash vol. 2 #138); result citation The Flash vol. 2 #200 (the opened source places the win in #223); tag: natural-flight (kinetic hover); tag: self-teleport (running across distances is not teleportation)."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:The Flash (Wally West)|Doctor Manhattan-Powered Wally",
+   "continuity": "DC Comics Rebirth era (Flash Forward 2019-20, The Flash #750, Dark Nights: Death Metal)",
+   "summary": "After sitting on Metron's Mobius Chair, which had been infused with Doctor Manhattan's power, Wally West gained part of Manhattan's powers and cosmic knowledge on top of his Speed Force connection. He used them to try to restore a fractured timeline; after The Batman Who Laughs took the Chair, he kept only residual Anti-Crisis energy.",
+   "offense": {
+    "domains": [
+     "physical",
+     "energy",
+     "control"
+    ],
+    "techniques": [
+     "Not established by the cited sources"
+    ],
+    "range": "strategic"
+   },
+   "defense": {
+    "mechanisms": [
+     "Not established by the cited sources"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the cited sources"
+   ],
+   "mobility": [
+    "Super-speed"
+   ],
+   "limitations": [
+    "Without the Mobius Chair he retained only residual Anti-Crisis energy from Doctor Manhattan and was no longer omnipotent (Dark Nights: Death Metal #1)."
+   ],
+   "formDifferences": "His costume and lightning turn Manhattan blue with Manhattan's logo on his forehead, and he loses nearly all emotion in favour of logic and knowledge.",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Doctor_Manhattan",
+     "supports": "The Mobius Chair grants Wally part of Manhattan's powers; in Dark Nights: Death Metal Wally identifies Manhattan's energy, and The Batman Who Laughs takes him prisoner to acquire it."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Flash_(Wally_West)",
+     "supports": "Chair infused with Manhattan's power (Flash Forward #6); attempt to forge one timeline (Flash Forward #5, The Flash #750); Death Metal #1 loss of the Chair with residual Anti-Crisis energy; time stop with Johnny Quick's Speed Formula (Death Metal #3)."
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Wally_West",
+     "supports": "Wally obtains Manhattan's powers; blue costume and lightning, Manhattan logo, loss of emotion; uses the powers to restore the timeline."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Used his Manhattan-enhanced power and cosmic knowledge to try to forge the fragmented timeline into one coherent timeline; the attempt was undone when The Batman Who Laughs corrupted the Multiverse.",
+     "citation": "Flash Forward #5; The Flash #750",
+     "source": 1
+    },
+    {
+     "claim": "Using Johnny Quick's Speed Formula, briefly stopped time during a chase and reached the Mobius Chair.",
+     "citation": "Dark Nights: Death Metal #3",
+     "source": 1
+    }
+   ],
+   "notableResults": [],
+   "conditional": [
+    {
+     "ability": "Reality-level power and omniscience",
+     "dependsOn": "Doctor Manhattan's energy infused into the Mobius Chair; after losing the Chair he kept only residual Anti-Crisis energy",
+     "source": 1
+    }
+   ],
+   "campaignTags": [],
+   "unknowns": [
+    "Full extent of reality manipulation capabilities before the power source dissipates.",
+    "This form overlaps with the Mobius Chair Wally West record: the sources describe him gaining Manhattan's power by sitting on the Manhattan-infused Chair. This record covers the Manhattan-powered state, including the post-Chair residual energy in Death Metal.",
+    "Doctor Manhattan himself can fly, teleport and change size, but no opened source says which of those powers Wally received, so flight and teleportation are not recorded for this form.",
+    "The Darkest Knight 'loss': DC Database says the Darkest Knight had rigged the Mobius Chair to send its energy into himself (Death Metal #4); that was a trap, not a fight, so it is not recorded as a result.",
+    "Removed by review (not supported by any source opened): technique: Atomic restructuring; technique: Cosmic energy blasts; technique: Reality warping; defense: Omnidirectional atomic regeneration; defense: Invulnerability to conventional harm; weakness: Mental burden of holding multiversal consciousness; mobility: Flight; mobility: Instantaneous teleportation; feat: Reconstructed the shattered multiverse (the sources describe an attempt that failed); tag: natural-flight; tag: self-teleport.",
+    "Extreme or conceptual power scaling: the owner may want to rule on how this form is used in play."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:The Flash (Wally West)|Mobius Chair Wally West",
+   "continuity": "DC Comics Rebirth era (Flash Forward 2019-20, The Flash #750, Dark Nights: Death Metal)",
+   "summary": "Seated on Metron's Mobius Chair, Wally West gains near-omniscient sight and understanding of the universe alongside his Speed Force powers. The Chair flies, shields itself with a force field and can carry him through space, time and other dimensions in seconds.",
+   "offense": {
+    "domains": [
+     "energy",
+     "control",
+     "tech"
+    ],
+    "techniques": [
+     "Not established by the cited sources"
+    ],
+    "range": "strategic"
+   },
+   "defense": {
+    "mechanisms": [
+     "Mobius Chair force field"
+    ]
+   },
+   "weaknesses": [
+    "The Chair can be taken from him: The Batman Who Laughs used Perpetua's power to snatch it away (Dark Nights: Death Metal)."
+   ],
+   "mobility": [
+    "Chair-borne flight",
+    "Teleportation through space, time and other dimensions via the Chair"
+   ],
+   "limitations": [],
+   "formDifferences": "Seated on the Mobius Chair, which grants near-omniscient sight; Wally is the only known being not fully overtaken by the Chair (The Flash #750).",
+   "sources": [
+    {
+     "url": "https://dc.fandom.com/wiki/Flash_(Wally_West)",
+     "supports": "Wally sits on the Mobius Chair (Flash Forward #6), surveys the timeline (Flash Forward #5, The Flash #750); The Batman Who Laughs, empowered by Perpetua, defeats him and strips him of the Chair (Dark Nights: Death Metal #1)."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Mobius_Chair",
+     "supports": "Mobius Chair abilities: flight, teleportation through space, time and dimensions, near-omniscience, force field; Wally as its host."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Dark_Nights:_Death_Metal",
+     "supports": "Wally, trying to fix reality by merging timelines, is stopped by The Batman Who Laughs, who used Perpetua's power to snatch away the Mobius Chair."
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Wally_West",
+     "supports": "Wally finds Metron's Mobius Chair and gains cosmic knowledge (Flash Forward)."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Took possession of the Mobius Chair's knowledge and surveyed the whole timeline, finding repeated events.",
+     "citation": "Flash Forward #5-6; The Flash #750",
+     "source": 0
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "The Batman Who Laughs",
+     "result": "loss",
+     "citation": "Dark Nights: Death Metal #1",
+     "note": "The Batman Who Laughs, empowered by Perpetua, defeated Wally and stripped him of the Mobius Chair.",
+     "source": 0
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Near-omniscience and teleportation through space, time and dimensions",
+     "dependsOn": "Being seated on the Mobius Chair",
+     "source": 1
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "self-teleport",
+     "claim": "The Mobius Chair's main capability is to travel and teleport through space, time and other dimensions in seconds.",
+     "source": 1
+    }
+   ],
+   "unknowns": [
+    "Whether Wally could permanently separate from the chair without catastrophic backlash.",
+    "Correction: the continuity was given as Dark Nights: Metal / Justice League; the sources place Wally's time on the Chair in Flash Forward, The Flash #750 and Dark Nights: Death Metal.",
+    "Correction: the 'loss vs Perpetua' result is recorded as a loss to The Batman Who Laughs, who used Perpetua's power to take the Chair.",
+    "Removed by review (not supported by any source opened): technique: Mobius beam energy projection; technique: Information overload; defense: Impenetrable divine energy shield of the New Gods; defense: Temporal displacement immunity; weakness: Vulnerability to mental corruption from absorbing infinite universal data; formDifferences: anti-matter propulsion; feat: Scanned every timeline and piece of knowledge in existence simultaneously; tag: natural-flight (Chair flight is a device, so it is tagged powered-flight).",
+    "Extreme or conceptual power scaling: the owner may want to rule on how this form is used in play.",
+    "Unsupported by cited source (term check, 0/5 key terms found): powered-flight: DC Database's Mobius Chair page says the Chair can also fly; Wally flies by riding it."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:The Spectre",
+   "continuity": "DC Comics main continuity (Golden Age through Prime Earth; hosts Jim Corrigan and Crispus Allen)",
+   "summary": "The Spectre is God's spirit of vengeance bound to a human host, with near-omnipotent magical and physical power over space, time, reality and matter. He punishes the wicked with reality-warping transformations, but is bound by the Presence's laws and needs a human host to stay stable.",
+   "offense": {
+    "domains": [
+     "magic",
+     "energy",
+     "control",
+     "physical"
+    ],
+    "techniques": [
+     "Reality warping and transformation of victims (e.g. into broken glass or melting candles)",
+     "Illusions and hallucinations",
+     "Possessing objects and intruding on minds or souls"
+    ],
+    "range": "strategic"
+   },
+   "defense": {
+    "mechanisms": [
+     "Intangibility",
+     "Near-omnipotent magical power"
+    ]
+   },
+   "weaknesses": [
+    "The Spear of Destiny can kill him",
+    "Powerful magic can affect him",
+    "Soulless beings such as Nekron are immune to his powers (Green Lantern #51, 2010)",
+    "Libra was unaffected by his powers (Final Crisis: Revelations)"
+   ],
+   "mobility": [
+    "Flight"
+   ],
+   "limitations": [
+    "Needs a human host to keep his power in check; without one the Spectre-Force becomes unstable and rampages",
+    "Bound by divine laws and tasks set by the Presence"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Spectre_(DC_Comics_character)",
+     "supports": "Powers (near-omnipotence, magic, reality warping, flight, intangibility), host dependence, Presence's laws, weaknesses, More Fun #52, Adventure Comics #431-440, Day of Vengeance, Eclipso in Justice League of America #57 (2011)."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/James_Corrigan_(Prime_Earth)",
+     "supports": "Prime Earth Spectre: strongest of the Judge class, bound to host Corrigan, limited by The Voice's tasks."
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Crisis_on_Infinite_Earths",
+     "supports": "Crisis on Infinite Earths #10: a magically empowered Spectre creates an energy overload that shatters space and time and merges the five Earths."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "His touch instantly reduced a murderer to a skeleton.",
+     "citation": "More Fun Comics #52 (1940)",
+     "source": 0
+    },
+    {
+     "claim": "Transformed criminals into broken glass and melting candles.",
+     "citation": "Adventure Comics #431-440 (1974-75)",
+     "source": 0
+    },
+    {
+     "claim": "Magically empowered by the assembled heroes, created an energy overload that shattered space and time while the Anti-Monitor waited at the dawn of time; the five Earths merged into one universe.",
+     "citation": "Crisis on Infinite Earths #10",
+     "source": 2
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Phantom Stranger",
+     "result": "win",
+     "citation": "Day of Vengeance (2005)",
+     "note": "Under Jean Loring's manipulation, turned the Phantom Stranger into a mouse.",
+     "source": 0
+    },
+    {
+     "opponent": "Shazam (the wizard)",
+     "result": "win",
+     "citation": "Day of Vengeance (2005)",
+     "note": "Killed Shazam while manipulated by Jean Loring.",
+     "source": 0
+    },
+    {
+     "opponent": "Eclipso",
+     "result": "loss",
+     "citation": "Justice League of America (vol. 2) #57 (2011)",
+     "note": "Eclipso cleaved him in two and absorbed his power.",
+     "source": 0
+    }
+   ],
+   "conditional": [],
+   "campaignTags": [
+    {
+     "tag": "natural-flight",
+     "claim": "Wikipedia lists flight among the Spectre's innate supernatural powers.",
+     "source": 0
+    },
+    {
+     "tag": "magic",
+     "claim": "Wikipedia describes near-omnipotent magical abilities and energy and magic manipulation.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "The absolute extent of his power if operating completely free of a host constraint.",
+    "Crisis on Infinite Earths: Wikipedia says he is the only hero who can stand against the Anti-Monitor directly, but no opened source states the outcome of their clash, so no result is recorded.",
+    "Removed by review (not supported by any source opened): technique: Size manipulation; technique: Divine judgment bolts; technique: Soul tearing; defense: Divine invulnerability; defense: Conceptual immortality; mobility: Teleportation; mobility: Dimensional travel; feat: Turned a man into a living salt crystal and moved the Earth's orbit (More Fun Comics #52 is a different feat); tag: self-teleport; tag: giant-sized (no documented size in an opened source); tag: spellcaster (replaced by magic)."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Trigon",
+   "continuity": "Mainline DC Comics Trigon, demon lord and father of Raven (New Teen Titans #2/#4, 1980-81) through Rebirth. Excludes Teen Titans animation, Titans TV and Teen Titans Go! versions.",
+   "summary": "Interdimensional demon lord who enslaved many worlds and is among the most powerful beings in the setting. Sources describe vast mystical powers but few concrete limits.",
+   "offense": {
+    "domains": [
+     "magic",
+     "control"
+    ],
+    "techniques": [
+     "vast mystical abilities (not itemised in cited pages)",
+     "conquest of worlds and dimensions"
+    ],
+    "range": "dimensional"
+   },
+   "defense": {
+    "mechanisms": [
+     "demonic mystical nature, specifics not itemised in cited pages"
+    ]
+   },
+   "feats": [
+    {
+     "claim": "Enslaved many worlds and dimensions.",
+     "citation": "Wikipedia summary of Trigon's comic history",
+     "source": 0
+    }
+   ],
+   "notableResults": [
+    {
+     "result": "loss",
+     "opponent": "Teen Titans (combined powers)",
+     "citation": "Looper summary of Teen Titans lore",
+     "note": "A combination of the Titans' powers, Arella's empathy and a portal put him away but did not destroy him",
+     "source": 1
+    },
+    {
+     "result": "loss",
+     "opponent": "Bizarro",
+     "citation": "Rebirth era, Red Hood and the Outlaws",
+     "note": "Killed by Bizarro, later resurrected",
+     "source": 2
+    }
+   ],
+   "weaknesses": [
+    "Has been sealed away by combined power and a portal, and killed once by Bizarro in Rebirth",
+    "Specific vulnerabilities not established in the cited pages"
+   ],
+   "unknowns": [
+    "No itemised power list or tier in the cited pages.",
+    "Issue numbers for the Titans seal and the Bizarro kill were not confirmed."
+   ],
+   "sources": [
+    {
+     "url": "https://www.wikipedia.com/wiki/Sons_of_Trigon",
+     "supports": "Wikipedia: one of the most powerful beings in the DC Universe, enslaved many worlds and dimensions; killed by Bizarro in Rebirth"
+    },
+    {
+     "url": "https://www.looper.com/167046/the-untold-truth-of-trigon/",
+     "supports": "Teen Titans #23.1: created by the Divine; combined Titans' powers, Arella's empathy and a portal put him away"
+    },
+    {
+     "url": "https://wiki.riteme.site/wiki/Ddrez",
+     "supports": "Wikipedia mirror: vast mystical abilities; killed by Bizarro in Rebirth and later resurrected"
+    },
+    {
+     "url": "https://www.dc.com/characters/trigon",
+     "supports": "Publisher profile: demon lord who spawns children as weapons, father of Raven"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Two-Face",
+   "continuity": "DC Comics main continuity (Golden Age Detective Comics through post-Crisis and Modern Age)",
+   "summary": "Harvey Dent, formerly Gotham's District Attorney, is Two-Face, a crime boss obsessed with duality who lets a scarred double-headed coin decide his actions. He has no superpowers and relies on marksmanship, martial arts, heavy firearms and his legal knowledge to plan number-two themed crimes.",
+   "offense": {
+    "domains": [
+     "physical",
+     "tech"
+    ],
+    "techniques": [
+     "Dual-pistol marksmanship",
+     "Heavy weapons (Tommy guns, shotguns, grenade and rocket launchers)",
+     "Martial arts improved by Deathstroke and Batman",
+     "Bombs (detonated a bomb in his apartment to escape Batman)"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "High tolerance for pain",
+     "Criminal planning informed by knowledge of criminal law and police procedure"
+    ]
+   },
+   "weaknesses": [
+    "Total reliance on his scarred double-headed coin to make decisions",
+    "Split personality"
+   ],
+   "mobility": [
+    "Standard human movement"
+   ],
+   "limitations": [
+    "No superhuman powers"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Two-Face",
+     "supports": "Skills, weapons, coin, number-two crimes, Face the Face, Batman #234 and #258, Detective Comics #513, Long Halloween-era capture."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Re-scarred his face with nitric acid and a scalpel to return as Two-Face, threatened the Gotham Zoo and detonated a bomb in his apartment to escape Batman's questioning.",
+     "citation": "Batman: Face the Face",
+     "source": 0
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Batman",
+     "result": "loss",
+     "citation": "Batman #234 ('Half an Evil')",
+     "note": "Knocked unconscious by Batman.",
+     "source": 0
+    },
+    {
+     "opponent": "Batman",
+     "result": "loss",
+     "citation": "Batman #258",
+     "note": "Batman foiled Two-Face's plan.",
+     "source": 0
+    },
+    {
+     "opponent": "Batman",
+     "result": "loss",
+     "citation": "Post-Crisis origin / The Long Halloween",
+     "note": "Took revenge on Falcone, Fields and Maroni but was captured by Batman.",
+     "source": 0
+    },
+    {
+     "opponent": "Robin",
+     "result": "loss",
+     "citation": "Detective Comics #513",
+     "note": "After Batman escaped Two-Face's trap, Robin stopped Two-Face.",
+     "source": 0
+    }
+   ],
+   "conditional": [],
+   "campaignTags": [],
+   "unknowns": [
+    "Whether psychological rehabilitation can permanently suppress the Two-Face persona.",
+    "The DC Database page (dc.fandom.com/wiki/Harvey_Dent_(Prime_Earth)) failed to load, so it was dropped from sources; the record now rests on Wikipedia.",
+    "Correction: Detective Comics #80 ('The End of Two-Face') is the story where Harvey is cured by plastic surgery; no opened source supports Gemini's claim that Batman beat him there by exploiting the coin.",
+    "Removed by review (not supported by any source opened): technique: Explosive coin traps; technique: Gangland tactical ambushes; defense: Body armor; defense: Fortified hideouts; mobility: Automobiles; feat: Took over multiple Gotham crime families through coordinated assassinations (Batman: The Long Halloween); result: loss vs Batman (Detective Comics #80); tag: gadgets (rigged coins are not documented; firearms are not gadgets)."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Vixen",
+   "continuity": "DC Comics main continuity (post-Crisis New Earth through Rebirth/Prime Earth)",
+   "summary": "Mari Jiwe McCabe wears the Tantu Totem, created by the trickster god Anansi, which links her to the Red (Earth's morphogenetic field) so she can take on the attributes of animals, one at a time. She is also a skilled hand-to-hand fighter.",
+   "offense": {
+    "domains": [
+     "physical",
+     "magic"
+    ],
+    "techniques": [
+     "Animal attribute mimicry through the Tantu Totem",
+     "Hand-to-hand combat",
+     "Matching and draining the abilities of those around her (Justice League of America vol. 2 era)"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Not established by the cited sources"
+    ]
+   },
+   "weaknesses": [
+    "Losing the Tantu Totem disconnects her from the Red; Maksai's theft and the Grundy/Amazo plot both exploited this",
+    "Can be brainwashed (Gorilla Grodd did so at least once)",
+    "Animal instincts can override her control"
+   ],
+   "mobility": [
+    "Animal-derived movement (depends on the animal mimicked)"
+   ],
+   "limitations": [
+    "Takes on the attributes of one animal at a time",
+    "Her powers are weaker without the Tantu Totem"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Vixen_(character)",
+     "supports": "Tantu Totem created by Anansi and linked to Earth's morphogenetic field; one animal at a time; reduced powers without it; Amazo, General Maksai, Grodd."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Mari_McCabe_(Prime_Earth)",
+     "supports": "Prime Earth: limited powers without the totem; fought Doctor Manhattan on Mars; defeated Doctor Hate with Deadeye."
+    }
+   ],
+   "feats": [],
+   "notableResults": [
+    {
+     "opponent": "General Maksai",
+     "result": "win",
+     "citation": "Justice League of America (vol. 1)",
+     "note": "Maksai, transformed into a raging beast, died in battle with Vixen.",
+     "source": 0
+    },
+    {
+     "opponent": "Amazo",
+     "result": "loss",
+     "citation": "Justice League of America",
+     "note": "Vixen and several teammates were beaten into unconsciousness by Amazo.",
+     "source": 0
+    },
+    {
+     "opponent": "Doctor Manhattan",
+     "result": "loss",
+     "citation": null,
+     "note": "Prime Earth: one of the heroes who confronted him on Mars and were easily defeated.",
+     "source": 1
+    },
+    {
+     "opponent": "Doctor Hate",
+     "result": "win",
+     "citation": null,
+     "note": "Prime Earth: with Deadeye and other heroes in the Congo; she cut him off from the Kingdom without harming it.",
+     "source": 1
+    }
+   ],
+   "conditional": [
+    {
+     "ability": "Full-strength animal attribute mimicry",
+     "dependsOn": "Wearing the Tantu Totem, which links her to the Red; without it her powers are reduced",
+     "source": 0
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "magic-item",
+     "claim": "Her powers come from the Tantu Totem, created by the trickster god Anansi, which links her to Earth's morphogenetic field.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Whether extinct or mythical creatures can be channeled through the totem.",
+    "Wikipedia says she takes on one animal at a time, which contradicts Gemini's claim of channeling cheetah, elephant and falcon simultaneously; that feat is not recorded.",
+    "The Amazo defeat may cover more than one Amazo story; the opened source does not give the issue.",
+    "Removed by review (not supported by any source opened): technique: Simultaneous multi-animal trait channeling; technique: Apex predator claw strikes; defense: Rhino hide durability; defense: Gorilla-level muscle density; defense: Regenerative healing factors; limitation: Strain from channeling too many traits at once; mobility: Flight (bird of prey); mobility: Swimming; mobility: Running (cheetah); feat: Channeled cheetah, elephant and falcon simultaneously; tag: swimmer."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Wonder Woman",
+   "continuity": "DC Comics main continuity (post-Crisis New Earth through Prime Earth/Rebirth)",
+   "summary": "Diana of Themyscira is an Amazon warrior princess with god-given strength, speed and flight, wielding the Lasso of Truth, nearly indestructible bracelets and a Hephaestus-forged sword. She fights hand-to-hand and deflects bullets and energy blasts with her bracelets.",
+   "offense": {
+    "domains": [
+     "physical",
+     "magic"
+    ],
+    "techniques": [
+     "Hephaestus-forged sword strikes",
+     "Lasso of Truth binding",
+     "Deflecting bullets and energy blasts with her bracelets"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Nearly indestructible bracelets of Eighth Metal",
+     "Highly resistant to concussive force and extreme temperatures (not invulnerable)",
+     "Accelerated healing while in contact with the Earth",
+     "Shield"
+    ]
+   },
+   "weaknesses": [
+    "Edged weapons and projectiles with enough force can pierce her skin",
+    "Grail's Omega Beams can shatter her bracelets",
+    "Aphrodite's Law (Golden Age): if a man chains her bracelets she loses her Amazon strength"
+   ],
+   "mobility": [
+    "Flight (gift of Hermes)",
+    "Super-speed"
+   ],
+   "limitations": [
+    "Her accelerated healing depends on contact with the Earth"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Wonder_Woman",
+     "supports": "Powers (Hermes' flight and speed, strength, healing, durability), equipment, weaknesses, Maxwell Lord (Wonder Woman vol. 2 #219), Neron, Circe, Nubia."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Wonder_Woman_(Diana_Prince)",
+     "supports": "Flight from Hermes, bracelets that deflect Darkseid's Omega Beams, Hephaestus-forged sword, fights with Ares and Darkseid."
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Lasso_of_Truth",
+     "supports": "Lasso forged by Hephaestus from the Golden Girdle of Gaea; mystical in origin."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Her Bracelets of Submission, of nearly indestructible Eighth Metal, can deflect even Darkseid's Omega Beams.",
+     "citation": null,
+     "source": 1
+    },
+    {
+     "claim": "Can fly at speeds approaching half the speed of light.",
+     "citation": null,
+     "source": 0
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Maxwell Lord",
+     "result": "win",
+     "citation": "Wonder Woman (vol. 2) #219",
+     "note": "Broke free of a mind-controlled Superman by slicing his throat with her tiara, then snapped Lord's neck after the lasso revealed only death would stop him.",
+     "source": 0
+    },
+    {
+     "opponent": "Ares",
+     "result": "win",
+     "citation": null,
+     "note": "Prime Earth: impaled Ares and the First Born with a spear; Ares died.",
+     "source": 1
+    },
+    {
+     "opponent": "Darkseid",
+     "result": "win",
+     "citation": null,
+     "note": "Destroyed him from inside by calling out her half-siblings' spirits; he re-emerged elsewhere.",
+     "source": 1
+    },
+    {
+     "opponent": "Circe",
+     "result": "win",
+     "citation": "War of the Gods",
+     "note": "After Circe reverted her to clay, Diana was revived and defeated Circe with Donna Troy.",
+     "source": 0
+    },
+    {
+     "opponent": "Neron",
+     "result": "loss",
+     "citation": null,
+     "note": "Neron killed Diana in battle; the Olympian gods then granted her divinity.",
+     "source": 0
+    },
+    {
+     "opponent": "Nubia",
+     "result": "inconclusive",
+     "citation": null,
+     "note": "Their duel ended in a draw.",
+     "source": 0
+    }
+   ],
+   "conditional": [],
+   "campaignTags": [
+    {
+     "tag": "natural-flight",
+     "claim": "Hermes granted Diana superhuman speed and the ability to fly.",
+     "source": 0
+    },
+    {
+     "tag": "magic-item",
+     "claim": "Her Lasso of Truth, forged by Hephaestus from the Golden Girdle of Gaea, is mystical in origin.",
+     "source": 2
+    }
+   ],
+   "unknowns": [
+    "Exact limits of her divine combat potential when removing her limiter bracelets.",
+    "After the 2011 relaunch she lost natural flight and regained it only after a feather thrown by Hermes struck her (per Wikipedia).",
+    "Removed by review (not supported by any source opened): technique name 'God Killer' (the source describes a Hephaestus-forged sword without that name); feat: exchanged blows with Superman that shattered tectonic plates; result: inconclusive vs Superman; feat citation Wonder Woman (vol. 2) #170 for bracelet deflection (the deflection is sourced without an issue)."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Wonder Woman|Flashpoint Wonder Woman",
+   "continuity": "Flashpoint Timeline (DC Comics Flashpoint, 2011; later The Button)",
+   "summary": "In the Flashpoint timeline, Diana wages a war against Aquaman's Atlanteans that began when her mother died at their political wedding, a conflict secretly engineered by Penthesilea and Orm. She rules New Themyscira, the former United Kingdom, with her Female Furies, and killed Mera in retribution.",
+   "offense": {
+    "domains": [
+     "physical",
+     "magic"
+    ],
+    "techniques": [
+     "Not established by the cited sources"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Not established by the cited sources"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the cited sources"
+   ],
+   "mobility": [],
+   "limitations": [],
+   "formDifferences": "A warlord Diana who rules New Themyscira (the former United Kingdom) with her Female Furies and wages the Amazon-Atlantean war that devastated western Europe, unlike prime Diana.",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Flashpoint_(comics)",
+     "supports": "War between Wonder Woman and Aquaman decimated western Europe; she fights Aquaman one-on-one until Flash's team arrives (Flashpoint #4)."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Diana_of_Themyscira_(Flashpoint_Timeline)",
+     "supports": "War began with Hippolyta's death at the wedding, engineered by Penthesilea and Orm; Diana rules New Themyscira, the former United Kingdom, with her Female Furies."
+    },
+    {
+     "url": "https://dc.fandom.com/wiki/Orin_(Flashpoint_Timeline)",
+     "supports": "Wonder Woman killed Mera in retribution; their final battle was interrupted by the Flash and the heroes."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Rules New Themyscira, the former United Kingdom, with the aid of her Female Furies.",
+     "citation": null,
+     "source": 1
+    },
+    {
+     "claim": "Killed Mera in retribution for Hippolyta's death.",
+     "citation": null,
+     "source": 2
+    }
+   ],
+   "notableResults": [
+    {
+     "opponent": "Aquaman",
+     "result": "inconclusive",
+     "citation": "Flashpoint #4",
+     "note": "They fought one-on-one until the Flash and his team arrived to stop the war; the timeline was later restored by the Flash.",
+     "source": 0
+    }
+   ],
+   "conditional": [],
+   "campaignTags": [],
+   "unknowns": [
+    "Whether her power differs fundamentally from prime Diana outside of psychological disposition.",
+    "No opened source states whether Flashpoint Diana can fly or has super-speed, so flight, super-speed and the natural-flight tag are not recorded.",
+    "No opened source states how she killed Mera or in which issue.",
+    "Removed by review (not supported by any source opened): technique: Beheading blade strikes; technique: Lasso execution; technique: Amazonian battle formation sweeps; defense: Amazonian armor; defense: Shield blocking; defense: Divine resilience; weakness: Blind rage and arrogance; limitation: Strategic overextension from bloodlust; formDifferences: dark battle armor with skull motifs; mobility: Flight; mobility: Super-speed; feat detail: decapitation of Mera (Flashpoint #2); feat detail: conquest of the United Kingdom; tag: natural-flight."
+   ],
+   "researchStatus": "provisional"
+  }
+ ]
 }

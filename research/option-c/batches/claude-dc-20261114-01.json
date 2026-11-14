@@ -1,0 +1,267 @@
+{
+ "batchId": "Claude manual-research batch dc-01 (4 DC identities from the Needs manual research list)",
+ "schemaVersion": 1,
+ "pool": "dc",
+ "researchedBy": "Claude (claude-sonnet-5-5), manual pass 2026-11-14",
+ "method": "Web search snippets from the cited pages; claims the snippet did not support were left out or listed under unknowns. No numeric tiers or win probabilities. All records stay provisional until a different contributor checks the cited support.",
+ "baselineContinuity": "Mainline DC Comics unless a record says otherwise.",
+ "characters": [
+  {
+   "id": "dc:Doomsday",
+   "continuity": "Mainline DC Comics Doomsday, first seen in Superman: The Man of Steel #17-18 (1992). Excludes Injustice, DCEU, DC Animated Universe and Smallville versions.",
+   "summary": "Genetically engineered Kryptonian monster who killed Superman. Sources credit him with super strength, invulnerability, speed and a healing factor, and describe a version that copies the powers of beings near him.",
+   "offense": {
+    "domains": [
+     "physical"
+    ],
+    "techniques": [
+     "superhuman strength melee",
+     "toxikinesis (publisher power list)",
+     "copies powers of nearby super-beings (absorption cells, as described by one secondary source)"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "invulnerability (publisher power list)",
+     "healing factor / regeneration",
+     "returns from death stronger (secondary source)"
+    ]
+   },
+   "mobility": [
+    "super speed and superhuman agility (publisher power list)"
+   ],
+   "conditional": [
+    {
+     "ability": "Absorbing and copying others' powers",
+     "dependsOn": "Specific era or version; not established for every Doomsday story"
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Killed Superman in battle.",
+     "citation": "Superman wiki entry for Doomsday (Death of Superman storyline)",
+     "source": 1
+    }
+   ],
+   "weaknesses": [
+    "No sourced weakness in the cited pages; reviewer should add one from specific issues",
+    "Described as feral and mindless in the early Superman stories, which limits planning"
+   ],
+   "unknowns": [
+    "No sourced top strength or speed tier.",
+    "Which later versions (Rebirth, New 52) keep absorption not checked."
+   ],
+   "sources": [
+    {
+     "url": "https://www.dc.com/characters/doomsday",
+     "supports": "Publisher profile: first appearance Man of Steel (1992); powers listed as super strength, invulnerability, super speed, healing factor, superhuman agility, toxikinesis"
+    },
+    {
+     "url": "https://superman.fandom.com/wiki/Doomsday",
+     "supports": "Debut Man of Steel #17 (Nov 1992), created by Dan Jurgens; genetically engineered Kryptonian; beat Superman to death; abilities strength, speed, regeneration"
+    },
+    {
+     "url": "https://comicbookmovie.com/other/doomsday-the-ultimate-lifeform-a34276",
+     "supports": "Describes absorption cells that copy powers of nearby super-beings, and Doomsday returning stronger after death (secondary source, cites DC wiki pages)"
+    },
+    {
+     "url": "https://www.supermanhomepage.com/?p=46061",
+     "supports": "Notes that later Doomsday versions mimicked powers of Superman's team and that the Doomslayer variant appeared"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Green Lantern (John Stewart)",
+   "continuity": "Mainline DC Comics John Stewart as an Oan power-ring Green Lantern (debut Green Lantern vol. 2 #87, 1971). Excludes Justice League animation, Injustice and the Sixth Dimension White Lantern version.",
+   "summary": "Marine veteran and architect, the third human Green Lantern, whose ring makes hard-light constructs, flight and a protective field. His main edge is construct craft and tactical skill, not innate powers.",
+   "offense": {
+    "domains": [
+     "energy",
+     "construct"
+    ],
+    "techniques": [
+     "ring-made hard-light constructs",
+     "energy projection",
+     "sniper-level marksmanship and leadership (Sideshow profile)"
+    ],
+    "range": "ring range; long-range constructs"
+   },
+   "defense": {
+    "mechanisms": [
+     "ring force field",
+     "limited invulnerability from the ring"
+    ]
+   },
+   "mobility": [
+    "Ring flight, including in space"
+   ],
+   "conditional": [
+    {
+     "ability": "All ring powers",
+     "dependsOn": "Ring charge and John's willpower"
+    }
+   ],
+   "weaknesses": [
+    "Classic ring weakness to yellow (one source says his ring still has it)",
+    "Powers come from the ring, not from John himself"
+   ],
+   "unknowns": [
+    "No sourced issue-level feat in this pass.",
+    "Whether the yellow weakness holds in Prime Earth was not confirmed."
+   ],
+   "sources": [
+    {
+     "url": "https://www.dc.com/characters/john-stewart",
+     "supports": "Publisher profile: third human to wield a Green Lantern ring, USMC veteran, chooses not to wear a mask"
+    },
+    {
+     "url": "https://www.sideshow.com/blog/dc-john-stewart-green-lantern-origin-powers",
+     "supports": "First appearance Green Lantern #87 (1971); powers: energy constructs, force field, energy projection, flight; personal skills: will, sniper skills, leadership"
+    },
+    {
+     "url": "https://themanholecover.blogspot.com/2011/09/21.html",
+     "supports": "Ring gives flight and limited invulnerability; John's ring still has the yellow weakness; ring limited only by imagination (fan blog, secondary)"
+    },
+    {
+     "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Green_Lantern_(John_Stewart).html",
+     "supports": "Wikipedia mirror: debut Green Lantern vol. 2 #87 (Dec 1971), architect and US Marine veteran, abilities: wields Oan power ring"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Mera",
+   "continuity": "Mainline DC Comics Mera of Xebel and Dimension Aqua, Aquaman's wife (New Earth and Prime Earth). Excludes Flashpoint, Justice, Smallville and film versions.",
+   "summary": "Atlantean-allied queen from Dimension Aqua who controls water, hardening it into weapons and constructs. Sources give her superhuman strength and note a lead vulnerability.",
+   "offense": {
+    "domains": [
+     "water",
+     "physical"
+    ],
+    "techniques": [
+     "hard water objects such as water missiles",
+     "controls large volumes of water",
+     "superhuman strength"
+    ],
+    "range": "short to long range wherever water is available"
+   },
+   "defense": {
+    "mechanisms": [
+     "gills let her breathe underwater",
+     "water-density manipulation"
+    ]
+   },
+   "mobility": [
+    "Can travel between Dimension Aqua and Earth",
+    "Can propel herself through the air with enough nearby water (Looper)"
+   ],
+   "conditional": [
+    {
+     "ability": "Hard-water powers",
+     "dependsOn": "Nearby water; exposure to lead removes the power"
+    }
+   ],
+   "weaknesses": [
+    "Exposure to lead removes her hard-water powers",
+    "Power depends on water being available"
+   ],
+   "unknowns": [
+    "Strength figure (70 tons carried) is one wiki's estimate, not a cited issue.",
+    "Prime Earth durability not sourced."
+   ],
+   "sources": [
+    {
+     "url": "https://dc.fandom.com/wiki/Mera_(New_Earth)",
+     "supports": "New Earth profile: creates hard water objects, commonly water missiles"
+    },
+    {
+     "url": "https://aquaman.fandom.com/wiki/Mera?oldid=5347",
+     "supports": "Gills, hydrokinesis (hard water), dimensional travel, vulnerability to lead"
+    },
+    {
+     "url": "https://www.hollywood.com/movies/everything-you-need-to-know-about-mera-for-justice-league-60646894/",
+     "supports": "Can control massive amounts of water to pull an army out to sea; lead removes her hydrokinesis"
+    },
+    {
+     "url": "https://www.comicvine.gamespot.com/mera/4005-14654/",
+     "supports": "Considerable superhuman strength, carrying capacity of at least 70 tons (Comic Vine estimate)"
+    },
+    {
+     "url": "https://looper.com/859692/the-untold-truth-of-mera",
+     "supports": "Can extract water from other sources and propel herself through the air if enough water is nearby"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Peacemaker",
+   "continuity": "Mainline DC Comics Christopher Smith Peacemaker (post-Crisis, 1988 miniseries onward). Excludes the Charlton-era original and John Cena's DCEU/DCU version.",
+   "summary": "Non-powered soldier-vigilante who relies on marksmanship, hand-to-hand skill and a specialised helmet. He is dangerous through gear and training, with no superhuman defenses.",
+   "offense": {
+    "domains": [
+     "physical",
+     "tech"
+    ],
+    "techniques": [
+     "master marksman",
+     "skilled hand-to-hand combat",
+     "helmets that grant abilities",
+     "advanced military weapons"
+    ],
+    "range": "close to firearm range"
+   },
+   "defense": {
+    "mechanisms": [
+     "body armor",
+     "pressure-proof helmet"
+    ]
+   },
+   "mobility": [
+    "Flight pack and custom aircraft in some eras"
+   ],
+   "conditional": [
+    {
+     "ability": "Helmet laser, ultrasonic beam and voice duplication",
+     "dependsOn": "Charlton-era equipment list; not confirmed for the post-Crisis version"
+    }
+   ],
+   "weaknesses": [
+    "No superpowers, ordinary human durability",
+    "Documented mental illness, hallucinations of his dead father, in the New Earth version"
+   ],
+   "unknowns": [
+    "Helmet functions cited come from a Charlton-era profile and may differ post-Crisis.",
+    "No issue-level feat was captured in this pass."
+   ],
+   "sources": [
+    {
+     "url": "https://www.dc.com/characters/peacemaker",
+     "supports": "Publisher profile: powers listed as combat skill, top-level marksman, weapons expert"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Peacemaker_(character)",
+     "supports": "Abilities: master marksman, skilled hand-to-hand combatant, utilizes helmets that grant abilities"
+    },
+    {
+     "url": "https://slashfilm.com/2001206/peacemaker-powers-abilities-explained",
+     "supports": "Peacemaker has no powers; strength lies in brains and designed gear"
+    },
+    {
+     "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Peacemaker_(comics).html",
+     "supports": "Wikipedia mirror infobox: peak human condition, body armor, flight pack, communications helmet, advanced military weapons"
+    },
+    {
+     "url": "https://community.fandom.com/wiki/C:DC:Peacemaker_(Christopher_Smith)",
+     "supports": "New Earth profile: mental disorder with hallucinations and belief that dead victims speak through his helmet"
+    },
+    {
+     "url": "https://www.writeups.org/peacemaker-charlton-comics/",
+     "supports": "Charlton-era helmet equipment: laser, ultrasonic beam, voice duplication, plus custom jet (Charlton version, not post-Crisis)"
+    }
+   ],
+   "researchStatus": "provisional"
+  }
+ ]
+}

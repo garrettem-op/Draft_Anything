@@ -1,543 +1,545 @@
 {
-  "batchId": "Gemini V2 research dc 20261113-042447 #8",
-  "schemaVersion": 1,
-  "pool": "dc",
-  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
-  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
-  "characters": [
+ "batchId": "Gemini V2 research dc 20261113-042447 #8",
+ "schemaVersion": 1,
+ "pool": "dc",
+ "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+ "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+ "characters": [
+  {
+   "id": "dc:Killer Croc",
+   "continuity": "DC Comics Modern Age / New 52",
+   "summary": "Killer Croc is a massive, reptilian human mutant who relies on brutal physical strength, sharp claws and teeth, and an amphibious physiology to overwhelm opponents in close combat.",
+   "offense": {
+    "domains": [
+     "physical"
+    ],
+    "techniques": [
+     "Bite and tear"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Not established by the cited source"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the cited source"
+   ],
+   "mobility": [
+    "running"
+   ],
+   "limitations": [],
+   "sources": [
     {
-      "id": "dc:Killer Croc",
-      "continuity": "DC Comics Modern Age / New 52",
-      "summary": "Killer Croc is a massive, reptilian human mutant who relies on brutal physical strength, sharp claws and teeth, and an amphibious physiology to overwhelm opponents in close combat.",
-      "offense": {
-        "domains": [
-          "physical"
-        ],
-        "techniques": [
-          "Bite and tear"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "running"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Killer_Croc",
-          "supports": "General background, physical traits, aquatic abilities, and weaknesses."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "aquatic",
-          "claim": "Adapted to living and fighting underwater with ease.",
-          "source": 0
-        },
-        {
-          "tag": "water-breathing",
-          "claim": "Can breathe underwater due to his reptilian mutation.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact limits of his durability and strength scaling during heightened mutations.",
-        "Removed by review (not supported by the cited source): technique: Underwater grappling; technique: Feral mauling; defense: Thick, scaled dermis acting as natural body armor; defense: Accelerated healing factor from injuries; defense: Extreme durability against blunt force trauma; weakness: Reptilian vulnerability to extreme cold temperatures; weakness: Low intelligence or berserker rage easily exploited by tactical opponents; limitation: Limited to close-quarters melee combat with no ranged attack options; limitation: Slower land mobility compared to top-tier agile fighters; mobility: swimming; feat: Ripped a bank vault door off its hinges with bare hands.; result: dc:Batman; tag: Exceptional swimming capability in sewers and open water.; tag: Possesses accelerated healing from physical wounds.",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "dc:Killer Frost",
-      "continuity": "DC Comics Modern Age / New 52",
-      "summary": "Killer Frost is a metahuman who absorbs and projects intense cold energy, capable of freezing enemies instantly or creating intricate ice constructs and projectiles.",
-      "offense": {
-        "domains": [
-          "energy"
-        ],
-        "techniques": [
-          "Flash freezing",
-          "Thermal energy absorption"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Creating ice shields and barriers"
-        ]
-      },
-      "weaknesses": [
-        "Requires constant absorption of heat or thermal energy to survive and maintain powers"
-      ],
-      "mobility": [
-        "natural-flight"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Killer_Frost",
-          "supports": "Powers of cryokinesis, thermal absorption weakness, and general abilities."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "ice",
-          "claim": "Generates and manipulates ice at will.",
-          "source": 0
-        },
-        {
-          "tag": "ice-control",
-          "claim": "Can project intense cold and shape ice constructs.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Variations between different women who have held the Killer Frost mantle.",
-        "Removed by review (not supported by the cited source): technique: Ice spikes and projectiles; defense: Blinding opponents with localized snowstorms; limitation: Powers are fatal to her without an external heat source to siphon from.; limitation: Must be near warmth or nuclear energy to prevent physical deterioration.; feat: Froze a large section of a city street instantly during a confrontation.; result: dc:Firestorm"
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:King Shark",
-      "continuity": "DC Comics Modern Age",
-      "summary": "King Shark is a massive shark-human hybrid possessing immense super-strength, razor-sharp teeth, and complete aquatic dominance.",
-      "offense": {
-        "domains": [
-          "physical"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "melee"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "swimming"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/King_Shark",
-          "supports": "Origins as a shark god's son, physical attributes, and aquatic powers."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "swimmer",
-          "claim": "Moves at high speeds through aquatic environments.",
-          "source": 0
-        },
-        {
-          "tag": "water-breathing",
-          "claim": "Breathes underwater naturally.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact parentage retcons across different eras regarding the Shark God.",
-        "Removed by review (not supported by the cited source): technique: Devastating bite; technique: Frenzied slashing; technique: Underwater crushing; defense: Thick blubber and hide; defense: Regenerative healing from severe wounds; weakness: Vulnerable to intense electricity conducted through water; weakness: Susceptible to psychological manipulation; limitation: Limited effectiveness outside of water or humid environments for extended periods; limitation: Lacks ranged offensive capabilities; feat: Swam through high-pressure deep ocean trenches unharmed.; result: dc:Aquaman; tag: Native marine predator adapted to deep-sea combat.; tag: Stands well over eight feet tall with massive bulk.; tag: Regenerates lost tissue and damage rapidly.",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "dc:Krypto",
-      "continuity": "DC Comics Modern Age",
-      "summary": "Krypto is a Kryptonian dog who possesses virtually all the same solar-powered abilities as Superman, fighting with canine instincts, super-speed, and heat vision.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy"
-        ],
-        "techniques": [
-          "Heat vision"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Vulnerability to red sun radiation"
-      ],
-      "mobility": [
-        "super-speed"
-      ],
-      "limitations": [
-        "Dependent on yellow sun radiation to maintain superhuman abilities"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Krypto",
-          "supports": "Kryptonian powerset, canine physiology, and vulnerabilities."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Full extent of his intelligence scaling compared to standard Earth dogs.",
-        "Removed by review (not supported by the cited source): technique: Super-powered bite; technique: High-speed tackle; defense: Kryptonian invulnerability; defense: Super-dense molecular structure; weakness: Vulnerability to Kryptonite; limitation: Canine intellect limits complex strategic planning; mobility: natural-flight; feat: Traveled across interstellar space under his own power.; result: dc:Mongul; tag: Innate ability to fly under yellow sun radiation.",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "dc:Larfleeze",
-      "continuity": "DC Comics Modern Age",
-      "summary": "Larfleeze, the sole wielder of the Orange Light of Avarice, creates an endless horde of hard-light energy constructs that mimic anyone he has ever killed.",
-      "offense": {
-        "domains": [
-          "energy",
-          "magic"
-        ],
-        "techniques": [
-          "Orange light construct army",
-          "Energy theft",
-          "Greed aura projection"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Orange Lantern ring force field"
-        ]
-      },
-      "weaknesses": [
-        "Vulnerability if separated from his central orange power battery"
-      ],
-      "mobility": [
-        "natural-flight",
-        "teleport"
-      ],
-      "limitations": [],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Larfleeze",
-          "supports": "Orange light mastery, construct creation, and obsession with the power battery."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Fought multiple Green Lantern Corps members simultaneously alone.",
-          "citation": "Wikipedia: Larfleeze",
-          "source": 0
-        }
-      ],
-      "notableResults": [],
-      "conditional": [
-        {
-          "ability": "Orange light construct generation and flight",
-          "dependsOn": "Orange Power Battery and Ring",
-          "source": 0
-        }
-      ],
-      "campaignTags": [
-        {
-          "tag": "natural-flight",
-          "claim": "Flies using the power of his orange lantern ring.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Exact lifespan and origins before acquiring the orange light.",
-        "Removed by review (not supported by the cited source): defense: Swarm of autonomous hard-light constructs intercepting attacks; weakness: Obsessive greed and mental instability; limitation: Must remain relatively close to his central orange power battery to maintain maximum power output; limitation: Extreme mental fixation on possessing objects; result: dc:Green Lantern Corps; tag: Teleports across stellar distances via ring manipulation."
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Lex Luthor",
-      "continuity": "DC Comics Modern Age",
-      "summary": "Lex Luthor is a supreme intellect who relies on advanced powered armor, high-tech weaponry, and meticulous preparation to combat superpowered foes.",
-      "offense": {
-        "domains": [
-          "tech",
-          "energy"
-        ],
-        "techniques": [
-          "Plasma cannons"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Advanced powered-armor force fields"
-        ]
-      },
-      "weaknesses": [
-        "Arrogance and ego",
-        "Relies heavily on his technology working without interference"
-      ],
-      "mobility": [
-        "powered-flight"
-      ],
-      "limitations": [
-        "Physically ordinary human without his technological suits",
-        "Requires prep time to counter unpredictable magic or cosmic threats"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Lex_Luthor",
-          "supports": "Genius intellect, use of warsuits, and hatred of Superman."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "powered-armor",
-          "claim": "Wears a sophisticated warsuit granting superhuman stats.",
-          "source": 0
-        },
-        {
-          "tag": "powered-flight",
-          "claim": "Warsuit incorporates jet propulsion for flight.",
-          "source": 0
-        },
-        {
-          "tag": "inventor",
-          "claim": "Creates revolutionary technology and weaponry.",
-          "source": 0
-        },
-        {
-          "tag": "gadgets",
-          "claim": "Utilizes numerous hidden weapons and anti-hero devices.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Extent of his financial resources during various corporate restructuring phases.",
-        "Removed by review (not supported by the cited source): technique: Kryptonite beam emitters; technique: Tactical tactical ambushes; defense: Durable alloy suit plating; feat: Built a warsuit capable of trading blows with Superman.; result: dc:Superman"
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Lex Luthor|Apex Lex",
-      "continuity": "DC Comics Year of the Villain",
-      "summary": "Apex Lex is an upgraded hybrid form endowed by Perpetua with Martian abilities, apex predator physiology, and reality-warping energy manipulation.",
-      "offense": {
-        "domains": [
-          "physical",
-          "energy",
-          "psychic"
-        ],
-        "techniques": [
-          "Martian mental blasts",
-          "Apex predator physical strikes"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Enhanced cosmic durability"
-        ]
-      },
-      "weaknesses": [
-        "Vulnerability to intense heat/fire due to Martian DNA",
-        "Psychological corruption by Perpetua"
-      ],
-      "formDifferences": "Replaces standard human body and warsuit with a Martian-human hybrid apex predator body granting natural flight, telepathy, and energy projection.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Lex_Luthor",
-          "supports": "Year of the Villain transformation and Perpetua upgrade details."
-        }
-      ],
-      "unknowns": [
-        "Full duration of the Perpetua upgrade before his eventual return to normal.",
-        "Removed by review (not supported by the cited source): technique: Stellar energy projection; defense: Martian density control and phasing",
-        "Flagged needs-review: extreme or conceptual power scaling needs owner ruling."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "dc:Lex Luthor|Superman-Lex in Apokolips Armor",
-      "continuity": "DC Comics New 52 / Justice League",
-      "summary": "Lex Luthor wearing advanced Apokolips armor and bearing a Superman crest, combining his intellect with New Gods technology and Omega-level weaponry.",
-      "offense": {
-        "domains": [
-          "tech",
-          "energy"
-        ],
-        "techniques": [
-          "Mother Box integration attacks"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Mother Box energy shielding"
-        ]
-      },
-      "weaknesses": [
-        "Dependence on Apokoliptian technology stability",
-        "Vulnerability to specialized New Gods weaponry"
-      ],
-      "formDifferences": "Replaces standard warsuit with high-tier Apokolips armor integrated with Mother Box technology, vastly increasing his energy projection and physical protection.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Lex_Luthor",
-          "supports": "Justice League membership and use of Apokoliptian armor."
-        }
-      ],
-      "unknowns": [
-        "Long-term health effects of wearing Apokoliptian tech.",
-        "Removed by review (not supported by the cited source): technique: Apokoliptian beam cannons; technique: Heavy armor charges; defense: Apokoliptian armor plating"
-      ],
-      "researchStatus": "provisional"
-    },
-    {
-      "id": "dc:Lobo",
-      "continuity": "DC Comics Modern Age",
-      "summary": "Lobo is an indestructible Czarnian bounty hunter who uses extreme violence, massive chain weapons, a space motorcycle, and an absolute immunity to death to slaughter his targets.",
-      "offense": {
-        "domains": [
-          "physical",
-          "tech"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "ranged"
-      },
-      "defense": {
-        "mechanisms": [
-          "Absolute regeneration from a single drop of blood",
-          "Immunity to aging, disease, and vacuum of space"
-        ]
-      },
-      "weaknesses": [
-        "Extreme arrogance"
-      ],
-      "mobility": [
-        "natural-flight"
-      ],
-      "limitations": [
-        "Cannot be permanently killed by conventional means"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Lobo_(DC_Comics)",
-          "supports": "Czarnian physiology, regeneration feats, space bike, and combat style."
-        }
-      ],
-      "feats": [
-        {
-          "claim": "Killed the entire population of his home planet Czarnia.",
-          "citation": "Wikipedia: Lobo (DC Comics)",
-          "source": 0
-        }
-      ],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "natural-flight",
-          "claim": "Survives and flies through deep space unassisted.",
-          "source": 0
-        },
-        {
-          "tag": "healing",
-          "claim": "Regenerates instantly from complete vaporization.",
-          "source": 0
-        },
-        {
-          "tag": "self-regeneration",
-          "claim": "Regrows his entire body from a single cell or drop of blood.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Continuity reboots regarding his exact bounty tracking history.",
-        "Removed by review (not supported by the cited source): technique: Hook and chain swinging; technique: Brutal firearms barrage; technique: Overwhelming brawling; weakness: Bounty contracts and promises can sometimes bind his chaotic nature; limitation: Prone to getting distracted by alcohol, brawls, and bounties; mobility: mount; result: dc:Superman; tag: Rides his interstellar Space Hog motorcycle in combat.; tag: Expert pilot of starships and interstellar vehicles.",
-        "Flagged needs-review: most claims unsupported by sources."
-      ],
-      "researchStatus": "needs-review"
-    },
-    {
-      "id": "dc:Lucifer Morningstar",
-      "continuity": "DC Comics Vertigo / Sandman",
-      "summary": "Lucifer Morningstar is an omnipotent cosmic being wielding creation-level divine will, able to shape reality, manipulate matter, and destroy universes with a thought.",
-      "offense": {
-        "domains": [
-          "magic",
-          "energy",
-          "control"
-        ],
-        "techniques": [
-          "Not established by the cited source"
-        ],
-        "range": "strategic"
-      },
-      "defense": {
-        "mechanisms": [
-          "Not established by the cited source"
-        ]
-      },
-      "weaknesses": [
-        "Not established by the cited source"
-      ],
-      "mobility": [
-        "natural-flight",
-        "portals"
-      ],
-      "limitations": [
-        "Cannot create something out of literally nothing without divine backing (outside of the Demiurgic power)",
-        "Prefers manipulation and free will over direct brute force"
-      ],
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Lucifer_(DC_Comics)",
-          "supports": "Cosmic status, reality manipulation, and divine abilities."
-        }
-      ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [
-        {
-          "tag": "natural-flight",
-          "claim": "Flies across creation using divine will.",
-          "source": 0
-        },
-        {
-          "tag": "portals",
-          "claim": "Opens doorways to any dimension or universe effortlessly.",
-          "source": 0
-        },
-        {
-          "tag": "spellcaster",
-          "claim": "Wields supreme divine magic and creation powers.",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Full extent of his powers outside of the DC/Vertigo cosmological structure.",
-        "Removed by review (not supported by the cited source): technique: Reality warping; technique: Divine will projection; technique: Cosmic fire generation; defense: Absolute invulnerability to conventional attacks; defense: Omnipresent awareness; weakness: Bound by cosmic rules and personal codes of absolute honesty and honor; mobility: teleport; feat: Created an entire alternate universe complete with stars and life.; result: dc:The Endless (Dream); tag: Instantly teleports anywhere in existence.; tag: Can transport others across realms instantly.",
-        "Flagged needs-review: most claims unsupported by sources; extreme or conceptual power scaling needs owner ruling."
-      ],
-      "researchStatus": "needs-review"
+     "url": "https://en.wikipedia.org/wiki/Killer_Croc",
+     "supports": "General background, physical traits, aquatic abilities, and weaknesses."
     }
-  ]
+   ],
+   "feats": [],
+   "notableResults": [],
+   "campaignTags": [
+    {
+     "tag": "aquatic",
+     "claim": "Adapted to living and fighting underwater with ease.",
+     "source": 0
+    },
+    {
+     "tag": "water-breathing",
+     "claim": "Can breathe underwater due to his reptilian mutation.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Exact limits of his durability and strength scaling during heightened mutations.",
+    "Removed by review (not supported by the cited source): technique: Underwater grappling; technique: Feral mauling; defense: Thick, scaled dermis acting as natural body armor; defense: Accelerated healing factor from injuries; defense: Extreme durability against blunt force trauma; weakness: Reptilian vulnerability to extreme cold temperatures; weakness: Low intelligence or berserker rage easily exploited by tactical opponents; limitation: Limited to close-quarters melee combat with no ranged attack options; limitation: Slower land mobility compared to top-tier agile fighters; mobility: swimming; feat: Ripped a bank vault door off its hinges with bare hands.; result: dc:Batman; tag: Exceptional swimming capability in sewers and open water.; tag: Possesses accelerated healing from physical wounds.",
+    "Flagged needs-review: most claims unsupported by sources."
+   ],
+   "researchStatus": "needs-review"
+  },
+  {
+   "id": "dc:Killer Frost",
+   "continuity": "DC Comics Modern Age / New 52",
+   "summary": "Killer Frost is a metahuman who absorbs and projects intense cold energy, capable of freezing enemies instantly or creating intricate ice constructs and projectiles.",
+   "offense": {
+    "domains": [
+     "energy"
+    ],
+    "techniques": [
+     "Flash freezing",
+     "Thermal energy absorption"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Creating ice shields and barriers"
+    ]
+   },
+   "weaknesses": [
+    "Requires constant absorption of heat or thermal energy to survive and maintain powers"
+   ],
+   "mobility": [
+    "natural-flight"
+   ],
+   "limitations": [],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Killer_Frost",
+     "supports": "Powers of cryokinesis, thermal absorption weakness, and general abilities."
+    }
+   ],
+   "feats": [],
+   "notableResults": [],
+   "campaignTags": [
+    {
+     "tag": "ice",
+     "claim": "Generates and manipulates ice at will.",
+     "source": 0
+    },
+    {
+     "tag": "ice-control",
+     "claim": "Can project intense cold and shape ice constructs.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Variations between different women who have held the Killer Frost mantle.",
+    "Removed by review (not supported by the cited source): technique: Ice spikes and projectiles; defense: Blinding opponents with localized snowstorms; limitation: Powers are fatal to her without an external heat source to siphon from.; limitation: Must be near warmth or nuclear energy to prevent physical deterioration.; feat: Froze a large section of a city street instantly during a confrontation.; result: dc:Firestorm"
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:King Shark",
+   "continuity": "DC Comics Modern Age",
+   "summary": "King Shark is a massive shark-human hybrid possessing immense super-strength, razor-sharp teeth, and complete aquatic dominance.",
+   "offense": {
+    "domains": [
+     "physical"
+    ],
+    "techniques": [
+     "Not established by the cited source"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "Not established by the cited source"
+    ]
+   },
+   "weaknesses": [
+    "Not established by the cited source"
+   ],
+   "mobility": [
+    "swimming"
+   ],
+   "limitations": [],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/King_Shark",
+     "supports": "Origins as a shark god's son, physical attributes, and aquatic powers."
+    }
+   ],
+   "feats": [],
+   "notableResults": [],
+   "campaignTags": [
+    {
+     "tag": "swimmer",
+     "claim": "Moves at high speeds through aquatic environments.",
+     "source": 0
+    },
+    {
+     "tag": "water-breathing",
+     "claim": "Breathes underwater naturally.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Exact parentage retcons across different eras regarding the Shark God.",
+    "Removed by review (not supported by the cited source): technique: Devastating bite; technique: Frenzied slashing; technique: Underwater crushing; defense: Thick blubber and hide; defense: Regenerative healing from severe wounds; weakness: Vulnerable to intense electricity conducted through water; weakness: Susceptible to psychological manipulation; limitation: Limited effectiveness outside of water or humid environments for extended periods; limitation: Lacks ranged offensive capabilities; feat: Swam through high-pressure deep ocean trenches unharmed.; result: dc:Aquaman; tag: Native marine predator adapted to deep-sea combat.; tag: Stands well over eight feet tall with massive bulk.; tag: Regenerates lost tissue and damage rapidly.",
+    "Flagged needs-review: most claims unsupported by sources."
+   ],
+   "researchStatus": "needs-review"
+  },
+  {
+   "id": "dc:Krypto",
+   "continuity": "DC Comics Modern Age",
+   "summary": "Krypto is a Kryptonian dog who possesses virtually all the same solar-powered abilities as Superman, fighting with canine instincts, super-speed, and heat vision.",
+   "offense": {
+    "domains": [
+     "physical",
+     "energy"
+    ],
+    "techniques": [
+     "Heat vision"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Not established by the cited source"
+    ]
+   },
+   "weaknesses": [
+    "Vulnerability to red sun radiation"
+   ],
+   "mobility": [
+    "super-speed"
+   ],
+   "limitations": [
+    "Dependent on yellow sun radiation to maintain superhuman abilities"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Krypto",
+     "supports": "Kryptonian powerset, canine physiology, and vulnerabilities."
+    }
+   ],
+   "feats": [],
+   "notableResults": [],
+   "campaignTags": [],
+   "unknowns": [
+    "Full extent of his intelligence scaling compared to standard Earth dogs.",
+    "Removed by review (not supported by the cited source): technique: Super-powered bite; technique: High-speed tackle; defense: Kryptonian invulnerability; defense: Super-dense molecular structure; weakness: Vulnerability to Kryptonite; limitation: Canine intellect limits complex strategic planning; mobility: natural-flight; feat: Traveled across interstellar space under his own power.; result: dc:Mongul; tag: Innate ability to fly under yellow sun radiation.",
+    "Flagged needs-review: most claims unsupported by sources."
+   ],
+   "researchStatus": "needs-review"
+  },
+  {
+   "id": "dc:Larfleeze",
+   "continuity": "DC Comics Modern Age",
+   "summary": "Larfleeze, the sole wielder of the Orange Light of Avarice, creates an endless horde of hard-light energy constructs that mimic anyone he has ever killed.",
+   "offense": {
+    "domains": [
+     "energy",
+     "magic"
+    ],
+    "techniques": [
+     "Orange light construct army",
+     "Energy theft",
+     "Greed aura projection"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Orange Lantern ring force field"
+    ]
+   },
+   "weaknesses": [
+    "Vulnerability if separated from his central orange power battery"
+   ],
+   "mobility": [
+    "natural-flight",
+    "teleport"
+   ],
+   "limitations": [],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Larfleeze",
+     "supports": "Orange light mastery, construct creation, and obsession with the power battery."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Fought multiple Green Lantern Corps members simultaneously alone.",
+     "citation": "Wikipedia: Larfleeze",
+     "source": 0
+    }
+   ],
+   "notableResults": [],
+   "conditional": [
+    {
+     "ability": "Orange light construct generation and flight",
+     "dependsOn": "Orange Power Battery and Ring",
+     "source": 0
+    }
+   ],
+   "campaignTags": [
+    {
+     "tag": "natural-flight",
+     "claim": "Flies using the power of his orange lantern ring.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Exact lifespan and origins before acquiring the orange light.",
+    "Removed by review (not supported by the cited source): defense: Swarm of autonomous hard-light constructs intercepting attacks; weakness: Obsessive greed and mental instability; limitation: Must remain relatively close to his central orange power battery to maintain maximum power output; limitation: Extreme mental fixation on possessing objects; result: dc:Green Lantern Corps; tag: Teleports across stellar distances via ring manipulation."
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Lex Luthor",
+   "continuity": "DC Comics Modern Age",
+   "summary": "Lex Luthor is a supreme intellect who relies on advanced powered armor, high-tech weaponry, and meticulous preparation to combat superpowered foes.",
+   "offense": {
+    "domains": [
+     "tech",
+     "energy"
+    ],
+    "techniques": [
+     "Plasma cannons"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Advanced powered-armor force fields"
+    ]
+   },
+   "weaknesses": [
+    "Arrogance and ego",
+    "Relies heavily on his technology working without interference"
+   ],
+   "mobility": [
+    "powered-flight"
+   ],
+   "limitations": [
+    "Physically ordinary human without his technological suits",
+    "Requires prep time to counter unpredictable magic or cosmic threats"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Lex_Luthor",
+     "supports": "Genius intellect, use of warsuits, and hatred of Superman."
+    }
+   ],
+   "feats": [],
+   "notableResults": [],
+   "campaignTags": [
+    {
+     "tag": "powered-armor",
+     "claim": "Wears a sophisticated warsuit granting superhuman stats.",
+     "source": 0
+    },
+    {
+     "tag": "powered-flight",
+     "claim": "Warsuit incorporates jet propulsion for flight.",
+     "source": 0
+    },
+    {
+     "tag": "inventor",
+     "claim": "Creates revolutionary technology and weaponry.",
+     "source": 0
+    },
+    {
+     "tag": "gadgets",
+     "claim": "Utilizes numerous hidden weapons and anti-hero devices.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Extent of his financial resources during various corporate restructuring phases.",
+    "Removed by review (not supported by the cited source): technique: Kryptonite beam emitters; technique: Tactical tactical ambushes; defense: Durable alloy suit plating; feat: Built a warsuit capable of trading blows with Superman.; result: dc:Superman"
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Lex Luthor|Apex Lex",
+   "continuity": "DC Comics Year of the Villain",
+   "summary": "Apex Lex is an upgraded hybrid form endowed by Perpetua with Martian abilities, apex predator physiology, and reality-warping energy manipulation.",
+   "offense": {
+    "domains": [
+     "physical",
+     "energy",
+     "psychic"
+    ],
+    "techniques": [
+     "Martian mental blasts",
+     "Apex predator physical strikes"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Enhanced cosmic durability"
+    ]
+   },
+   "weaknesses": [
+    "Vulnerability to intense heat/fire due to Martian DNA",
+    "Psychological corruption by Perpetua"
+   ],
+   "formDifferences": "Replaces standard human body and warsuit with a Martian-human hybrid apex predator body granting natural flight, telepathy, and energy projection.",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Lex_Luthor",
+     "supports": "Year of the Villain transformation and Perpetua upgrade details."
+    }
+   ],
+   "unknowns": [
+    "Full duration of the Perpetua upgrade before his eventual return to normal.",
+    "Removed by review (not supported by the cited source): technique: Stellar energy projection; defense: Martian density control and phasing",
+    "Flagged needs-review: extreme or conceptual power scaling needs owner ruling."
+   ],
+   "researchStatus": "needs-review"
+  },
+  {
+   "id": "dc:Lex Luthor|Superman-Lex in Apokolips Armor",
+   "continuity": "DC Comics New 52 / Justice League",
+   "summary": "Lex Luthor wearing advanced Apokolips armor and bearing a Superman crest, combining his intellect with New Gods technology and Omega-level weaponry.",
+   "offense": {
+    "domains": [
+     "tech",
+     "energy"
+    ],
+    "techniques": [
+     "Mother Box integration attacks"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Mother Box energy shielding"
+    ]
+   },
+   "weaknesses": [
+    "Dependence on Apokoliptian technology stability",
+    "Vulnerability to specialized New Gods weaponry"
+   ],
+   "formDifferences": "Replaces standard warsuit with high-tier Apokolips armor integrated with Mother Box technology, vastly increasing his energy projection and physical protection.",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Lex_Luthor",
+     "supports": "Justice League membership and use of Apokoliptian armor."
+    }
+   ],
+   "unknowns": [
+    "Long-term health effects of wearing Apokoliptian tech.",
+    "Removed by review (not supported by the cited source): technique: Apokoliptian beam cannons; technique: Heavy armor charges; defense: Apokoliptian armor plating"
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "dc:Lobo",
+   "continuity": "DC Comics Modern Age",
+   "summary": "Lobo is an indestructible Czarnian bounty hunter who uses extreme violence, massive chain weapons, a space motorcycle, and an absolute immunity to death to slaughter his targets.",
+   "offense": {
+    "domains": [
+     "physical",
+     "tech"
+    ],
+    "techniques": [
+     "Not established by the cited source"
+    ],
+    "range": "ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "Absolute regeneration from a single drop of blood",
+     "Immunity to aging, disease, and vacuum of space"
+    ]
+   },
+   "weaknesses": [
+    "Extreme arrogance"
+   ],
+   "mobility": [
+    "natural-flight"
+   ],
+   "limitations": [
+    "Cannot be permanently killed by conventional means"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Lobo_(DC_Comics)",
+     "supports": "Czarnian physiology, regeneration feats, space bike, and combat style."
+    }
+   ],
+   "feats": [
+    {
+     "claim": "Killed the entire population of his home planet Czarnia.",
+     "citation": "Wikipedia: Lobo (DC Comics)",
+     "source": 0
+    }
+   ],
+   "notableResults": [],
+   "campaignTags": [
+    {
+     "tag": "natural-flight",
+     "claim": "Survives and flies through deep space unassisted.",
+     "source": 0
+    },
+    {
+     "tag": "healing",
+     "claim": "Regenerates instantly from complete vaporization.",
+     "source": 0
+    },
+    {
+     "tag": "self-regeneration",
+     "claim": "Regrows his entire body from a single cell or drop of blood.",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "Continuity reboots regarding his exact bounty tracking history.",
+    "Removed by review (not supported by the cited source): technique: Hook and chain swinging; technique: Brutal firearms barrage; technique: Overwhelming brawling; weakness: Bounty contracts and promises can sometimes bind his chaotic nature; limitation: Prone to getting distracted by alcohol, brawls, and bounties; mobility: mount; result: dc:Superman; tag: Rides his interstellar Space Hog motorcycle in combat.; tag: Expert pilot of starships and interstellar vehicles.",
+    "Flagged needs-review: most claims unsupported by sources."
+   ],
+   "researchStatus": "needs-review"
+  },
+  {
+   "id": "dc:Lucifer Morningstar",
+   "continuity": "DC/Vertigo Lucifer Morningstar of The Sandman (debut #4, 1989) and the Lucifer series by Mike Carey. Excludes the Lucifer TV series and The Sandman Netflix versions.",
+   "summary": "Fallen archangel and former ruler of Hell, described as one of the most powerful beings in the DC setting. His strength is cosmic and rule-bound rather than brute, and he can give up his powers by choice.",
+   "offense": {
+    "domains": [
+     "magic",
+     "reality",
+     "physical"
+    ],
+    "techniques": [
+     "archangelic strength",
+     "fire manipulation and reality warping (collector profile)",
+     "Sword of the Morningstar"
+    ],
+    "range": "effectively unlimited in his own domain; elsewhere not sourced"
+   },
+   "defense": {
+    "mechanisms": [
+     "invulnerability",
+     "immortality"
+    ]
+   },
+   "mobility": [
+    "Flight",
+    "Telepathy"
+   ],
+   "conditional": [
+    {
+     "ability": "Full power",
+     "dependsOn": "He may choose to abandon his powers, including immortality"
+    }
+   ],
+   "weaknesses": [
+    "Bound by elaborate codes of conduct and entrapment schemes in the Vertigo magical setting",
+    "Can lose power by his own choice"
+   ],
+   "unknowns": [
+    "Wikipedia-style near-omnipotence claims are an infobox list, not tied to specific issues.",
+    "No sourced loss or defeat in this pass."
+   ],
+   "sources": [
+    {
+     "url": "https://hellblazer.fandom.com/wiki/Lucifer_Morningstar",
+     "supports": "Archangelic powers: godly strength, invulnerability, flight, telepathy; may abandon powers including immortality"
+    },
+    {
+     "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Lucifer_(DC_comics).html",
+     "supports": "Wikipedia mirror infobox lists near-omnipotence, immortality, indomitable will; character from The Sandman and the Lucifer spin-off"
+    },
+    {
+     "url": "https://admin.keycollectorcomics.com/character/lucifer-vertigo,8115/",
+     "supports": "Abilities: immortality, reality warping, superhuman strength, fire; equipment Sword of the Morningstar; debut Sandman #4"
+    },
+    {
+     "url": "https://wikiwand.com/en/articles/Lucifer_(DC_comics)",
+     "supports": "Elaborate codes of conduct and entrapment schemes are vital elements of the DC/Vertigo magical universe"
+    },
+    {
+     "url": "https://www.dc.com/blog/2015/12/16/lucifer-101-what-you-need-to-know",
+     "supports": "Publisher guide: Lucifer left his Lightbringer powers with Mazikeen when he left Creation"
+    }
+   ],
+   "researchStatus": "provisional"
+  }
+ ]
 }
