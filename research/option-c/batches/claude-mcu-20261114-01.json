@@ -1,0 +1,386 @@
+{
+ "batchId": "Claude manual-research batch mcu-01 (7 MCU identities from the Needs manual research list)",
+ "schemaVersion": 1,
+ "pool": "mcu",
+ "researchedBy": "Claude (claude-sonnet-5-5), manual pass 2026-11-14",
+ "method": "Web search snippets from the cited pages; claims the snippet did not support were left out or listed under unknowns. No numeric tiers or win probabilities. All records stay provisional until a different contributor checks the cited support.",
+ "baselineContinuity": "Marvel Cinematic Universe unless a record says otherwise.",
+ "characters": [
+  {
+   "id": "mcu:Drax",
+   "continuity": "Marvel Cinematic Universe Drax the Destroyer (Dave Bautista), Guardians of the Galaxy films through Endgame. Excludes comic Arthur Douglas / cosmic-powered versions.",
+   "summary": "Alien warrior and Guardian who fights as a brutal melee combatant. Sources show him overpowering several guards and killing a Kree-allied opponent in the films; no comic cosmic powers are claimed here.",
+   "offense": {
+    "domains": [
+     "physical"
+    ],
+    "techniques": [
+     "expert hand-to-hand combat",
+     "blade and dagger fighting",
+     "tearing apart drones barehanded (fan-wiki list)"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "high physical toughness shown in fights (not quantified)"
+    ]
+   },
+   "weaknesses": [
+    "Literal-minded and reckless; one fan wiki notes he lost when he drunkenly challenged Ronin's forces",
+    "Was turned to dust by Thanos' snap (MCU)",
+    "Cannot swim (fan-wiki list, unconfirmed for film)"
+   ],
+   "feats": [
+    {
+     "claim": "Overpowered multiple Kyln guards and Sakaaran warriors with little effort.",
+     "citation": "Guardians of the Galaxy series wiki, Drax page",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "No sourced strength or durability figure for the MCU version.",
+    "Fan-wiki bullets mix comic and MCU feats; only the MCU-tagged ones were considered."
+   ],
+   "sources": [
+    {
+     "url": "https://guardiansofthegalaxytheseries.fandom.com/wiki/Drax",
+     "supports": "Expert combatant able to overpower multiple opponents including Kyln guards and Sakaaran warriors"
+    },
+    {
+     "url": "https://deathbattlefanon.fandom.com/wiki/Drax_the_Destroyer",
+     "supports": "Fan wiki list marks MCU feats: kills Korath, tears apart drones, snapped by Thanos; comic feats listed separately"
+    },
+    {
+     "url": "https://www.tvtropes.org/pmwiki/pmwiki.php/Characters/MCUDraxTheDestroyer",
+     "supports": "MCU Drax: Dave Bautista; family killed by Ronin working for Thanos; appears in Guardians, Infinity War, Endgame"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Druig",
+   "continuity": "Marvel Cinematic Universe Druig (Barry Keoghan) in Eternals (2021). Excludes comic Earth-616 Druig.",
+   "summary": "Eternal whose power is mind control over large groups of humans, used to hold a Peruvian community for centuries. He can also contribute to the Eternals' Uni-Mind.",
+   "offense": {
+    "domains": [
+     "mental"
+    ],
+    "techniques": [
+     "mind control of many people at once",
+     "controlling deviants (after a Kappa deviant copied the power)"
+    ],
+    "range": "line of sight to crowd scale (sources say an entire city)"
+   },
+   "defense": {
+    "mechanisms": [
+     "Eternal resistance to damage and disease (Looper, general to Eternals)"
+    ]
+   },
+   "conditional": [
+    {
+     "ability": "Controlling Tiamut",
+     "dependsOn": "Uni-Mind combined power of the other Eternals"
+    }
+   ],
+   "weaknesses": [
+    "Mind control is not shown to stop a Deviant that had already copied it",
+    "Needs the Eternals' combined power for Celestial-scale targets"
+   ],
+   "feats": [
+    {
+     "claim": "Controlled an entire community of humans for about 500 years.",
+     "citation": "MCU wiki Druig page",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "No limit on number or range of targets is sourced.",
+    "Physical combat ability is not detailed in the cited pages."
+   ],
+   "sources": [
+    {
+     "url": "https://marvelcinematicuniverse.fandom.com/wiki/Druig",
+     "supports": "Mind control used to run a community in Peruvian Amazonia; controlled many deviants after Kappa; planned to halt the Emergence"
+    },
+    {
+     "url": "https://screenrant.com/eternals-druig-mind-control-powers-loki-sylvie-comparison/",
+     "supports": "Druig displays nearly unlimited control over humans; with the Uni-Mind he controls Tiamut"
+    },
+    {
+     "url": "https://atomtickets.com/movie-news/eternals-marvel-movie-guide-what-to-know/",
+     "supports": "Can control and command an entire city of people with ease"
+    },
+    {
+     "url": "https://looper.com/244906/your-guide-to-understanding-marvels-druig",
+     "supports": "Eternals resistant to damage and disease, can fuse into a Uni-Mind (general Eternal info)"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Echo",
+   "continuity": "Marvel Cinematic Universe Maya Lopez / Echo (Alaqua Cox) in Hawkeye (2021) and Echo (2024). Excludes comic photographic-reflexes version.",
+   "summary": "Deaf, prosthetic-leg martial artist trained in several fighting styles. In her series she gains inherited Choctaw abilities (enhanced strength, speed and durability) from her ancestors.",
+   "offense": {
+    "domains": [
+     "physical"
+    ],
+    "techniques": [
+     "martial arts (capoeira, boxing, taekwondo, judo, MMA per GamesRadar)",
+     "sharpshooting (as teased in Hawkeye, per ComingSoon via Yahoo)",
+     "ancestral powers marked by face tattoos"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "enhanced durability from ancestral powers (pre-release report)"
+    ]
+   },
+   "conditional": [
+    {
+     "ability": "Ancestral Choctaw powers",
+     "dependsOn": "Accepting her heritage; manifested during the Echo series"
+    }
+   ],
+   "weaknesses": [
+    "Pre-series Maya is a human fighter without powers",
+    "Does not have the comic copycat ability; the director called it lame"
+   ],
+   "unknowns": [
+    "Pre-release article lists powers; the finished series may differ in scope.",
+    "No sourced power limits."
+   ],
+   "sources": [
+    {
+     "url": "https://www.gamesradar.com/marvel-echo-powers-explained",
+     "supports": "MCU Maya is an extremely skilled martial artist trained in capoeira, boxing, taekwondo, judo and MMA"
+    },
+    {
+     "url": "https://www.yahoo.com/entertainment/echo-her-powers-abilities-mcu-091308584.html",
+     "supports": "Reported powers from Choctaw ancestors: enhanced strength, speed, durability, sharpshooting; face tattoo when she uses them"
+    },
+    {
+     "url": "https://wiki.krisyotam.com/content/wikipedia_en_all_nopic_2026-03/Echo_(Marvel_Cinematic_Universe)",
+     "supports": "Wikipedia mirror: MCU Maya lacks the comic ability; Choctaw heritage is the source of her powers; not Ronin"
+    },
+    {
+     "url": "https://www.thepopverse.com/echo-marvel-studios-disney-plus-hulu-powers-maya-lopez-mcu",
+     "supports": "In the show her fighting skill comes from experience rather than a power"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Ego",
+   "continuity": "Marvel Cinematic Universe Ego (Kurt Russell) in Guardians of the Galaxy Vol. 2. Excludes comic Ego the Living Planet.",
+   "summary": "Celestial who built a planet around his energy core and wears a human avatar. He reshapes matter on his planet and was defeated when the Guardians destroyed his brain.",
+   "offense": {
+    "domains": [
+     "energy",
+     "construct"
+    ],
+    "techniques": [
+     "matter manipulation on his planet",
+     "creating a human body to inhabit (Comic Vine)",
+     "absorbing matter (TV Tropes: assimilation)"
+    ],
+    "range": "planet-wide, near his body"
+   },
+   "defense": {
+    "mechanisms": [
+     "planet-sized body",
+     "hidden brain core protecting him"
+    ]
+   },
+   "conditional": [
+    {
+     "ability": "Full Celestial power",
+     "dependsOn": "Planting seedlings across planets; his own power is bounded until then (not detailed in the pages)"
+    }
+   ],
+   "weaknesses": [
+    "Defeated by hitting his brain",
+    "Needs Peter Quill's Celestial power for his plan"
+   ],
+   "unknowns": [
+    "No sourced strength or energy figure.",
+    "Power set partly inferred from comic sources in some pages."
+   ],
+   "sources": [
+    {
+     "url": "https://marvelcodex.com/_export/xhtml/ego_the_living_planet",
+     "supports": "MCU Ego is a core of pure energy that built a planet around himself, unlike the biological comic version"
+    },
+    {
+     "url": "https://www.comicvine.gamespot.com/ego/4005-19936/",
+     "supports": "MCU: ancient Celestial, father of Peter Quill, can create a human body to inhabit"
+    },
+    {
+     "url": "https://mein-mmo.de/en/the-10-strongest-villains-from-marvel-movies-that-even-the-avengers-would-have-trouble-with,1343563/8",
+     "supports": "Guardians could defeat Ego because Star-Lord had Celestial powers and they knew to hit his brain"
+    },
+    {
+     "url": "https://tvtropes.org/pmwiki/pmwiki.php/Characters/MCUEgo",
+     "supports": "Powers work like assimilation for matter not part of his body; plan to destroy the universe with Peter's powers"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Electro",
+   "continuity": "Max Dillon (Jamie Foxx) from The Amazing Spider-Man 2, as pulled into the MCU in Spider-Man: No Way Home. Excludes comic Earth-616 Electro.",
+   "summary": "Former Oscorp engineer who became a living electrical capacitor. In No Way Home he gains enhanced power from the arc reactor and fights all three Spider-Men at once.",
+   "offense": {
+    "domains": [
+     "electric"
+    ],
+    "techniques": [
+     "electrostatic energy generation",
+     "lightning bolt projection",
+     "recharging by absorbing power sources"
+    ],
+    "range": "short to long range"
+   },
+   "defense": {
+    "mechanisms": [
+     "electric body",
+     "power levels boosted by absorbed energy"
+    ]
+   },
+   "conditional": [
+    {
+     "ability": "Enhanced power",
+     "dependsOn": "Arc reactor energy taken in No Way Home"
+    }
+   ],
+   "weaknesses": [
+    "Short-circuited by water when fully charged (fandom page)",
+    "Gwen's override overload destroyed him in his own universe",
+    "Can be cured and stripped of powers"
+   ],
+   "feats": [
+    {
+     "claim": "Battled all three Spider-Men at once with enhanced powers.",
+     "citation": "Spider-Man films wiki, Electro (Jamie Foxx)",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "No sourced voltage or output figure for the film version.",
+    "Power level after the arc reactor is not quantified."
+   ],
+   "sources": [
+    {
+     "url": "https://spiderman-films.fandom.com/wiki/Electro_(Jamie_Foxx)",
+     "supports": "Living capacitor; took arc reactor in No Way Home; fought three Spider-Men at once; exploded in ASM2 via Gwen's override"
+    },
+    {
+     "url": "https://breezewiki.discard.no/disney/wiki/Electro",
+     "supports": "Powers: electrostatic energy, lightning bolts, electrical detection, recharging; vulnerable to water when fully charged"
+    },
+    {
+     "url": "https://marvelcodex.com/_export/xhtml/electro",
+     "supports": "MCU version later stabilised with a device allowing a human appearance"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Elektra",
+   "continuity": "Marvel Cinematic Universe Netflix Elektra Natchios (Élodie Yung) in Daredevil season 2 and The Defenders. Excludes the 2003/2005 films and comic version.",
+   "summary": "Hand-trained assassin and Black Sky, with superhuman strength, speed and toughness and slowed ageing. She fights with twin sai.",
+   "offense": {
+    "domains": [
+     "physical"
+    ],
+    "techniques": [
+     "twin sai",
+     "master-level martial arts"
+    ],
+    "range": "melee"
+   },
+   "defense": {
+    "mechanisms": [
+     "superhuman toughness",
+     "resurrected by the Hand"
+    ]
+   },
+   "mobility": [
+    "Superhuman speed"
+   ],
+   "weaknesses": [
+    "Dependent on Hand resurrection for her enhanced state",
+    "Comic psychic powers are not present in this version"
+   ],
+   "unknowns": [
+    "No sourced strength figure.",
+    "Black Sky abilities beyond stated physical traits not detailed here."
+   ],
+   "sources": [
+    {
+     "url": "https://www.tvtropes.org/pmwiki/pmwiki.php/Characters/MCUElektraNatchios",
+     "supports": "MCU Elektra is a Black Sky with super-strength, toughness, speed and slow ageing, unlike the comic psychic powers"
+    },
+    {
+     "url": "https://disney.fandom.com/wiki/Elektra_Natchios",
+     "supports": "Played by Élodie Yung; expert martial artist using a pair of sais"
+    },
+    {
+     "url": "https://marvelcodex.com/elektra",
+     "supports": "Netflix Daredevil and The Defenders origin streamlined and rooted in mysticism"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Falcon",
+   "continuity": "Marvel Cinematic Universe Sam Wilson as Falcon (Anthony Mackie) with the EXO-7 Falcon suit. Excludes comic avian telepathy.",
+   "summary": "Non-powered former pararescueman whose flight and offense come from the EXO-7 wing suit and a Redwing drone. No innate superpowers.",
+   "offense": {
+    "domains": [
+     "tech",
+     "physical"
+    ],
+    "techniques": [
+     "EXO-7 jet-pack wings with retractable flight",
+     "Redwing combat and reconnaissance drone",
+     "trained military combat"
+    ],
+    "range": "close to ranged"
+   },
+   "defense": {
+    "mechanisms": [
+     "suit-based evasion in flight"
+    ]
+   },
+   "mobility": [
+    "Powered flight via the wing suit"
+   ],
+   "weaknesses": [
+    "No superpowers; abilities depend on the suit",
+    "Redwing is a drone, not a living bird"
+   ],
+   "unknowns": [
+    "Later Captain America suit upgrades not covered.",
+    "No sourced durability figure."
+   ],
+   "sources": [
+    {
+     "url": "https://marvelcodex.com/falcon_mcu",
+     "supports": "MCU Sam is a hero forged by training and technology, not superpowers"
+    },
+    {
+     "url": "https://marvelcodex.com/falcon_sam_wilson?do=edit",
+     "supports": "No inherent powers in the MCU; Redwing is a Stark-tech drone"
+    },
+    {
+     "url": "https://www.tvtropes.org/pmwiki/pmwiki.php/Characters/MCUFalcon",
+     "supports": "Abilities concentrated in a jet pack with retractable wings for nimble flight"
+    }
+   ],
+   "researchStatus": "provisional"
+  }
+ ]
+}
