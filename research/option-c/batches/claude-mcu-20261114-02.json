@@ -1,0 +1,411 @@
+{
+ "batchId": "Claude manual-research batch mcu-02 (7 MCU identities from the Needs manual research list)",
+ "schemaVersion": 1,
+ "pool": "mcu",
+ "researchedBy": "Claude (claude-sonnet-5-5), manual pass 2026-11-14",
+ "method": "Web search snippets from the cited pages; claims the snippet did not support were left out or listed under unknowns. No numeric tiers or win probabilities. All records stay provisional until a different contributor checks the cited support.",
+ "baselineContinuity": "Marvel Cinematic Universe unless a record says otherwise.",
+ "characters": [
+  {
+   "id": "mcu:Erik Selvig",
+   "continuity": "Marvel Cinematic Universe Erik Selvig (Stellan Skarsgård), Thor through Age of Ultron. Excludes the Earth-616 comic Selvig.",
+   "summary": "Astrophysicist with no superhuman abilities, expert on the Tesseract and wormholes. Loki controlled him through the Mind Stone, which left him mentally damaged.",
+   "offense": {
+    "domains": [
+     "intellect"
+    ],
+    "techniques": [
+     "astrophysics and Tesseract stabilisation expertise",
+     "building a device to open a portal while under Loki's control"
+    ],
+    "range": "none in combat"
+   },
+   "defense": {
+    "mechanisms": [
+     "none; non-combatant scientist"
+    ]
+   },
+   "weaknesses": [
+    "No superhuman abilities",
+    "Mind control by Loki's scepter, and lasting mental instability afterwards"
+   ],
+   "feats": [
+    {
+     "claim": "Helped Loki's invasion while mind-controlled, then helped stop it once freed.",
+     "citation": "Marvel.com on-screen profile and Disney News summary",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "No combat skill is sourced.",
+    "Cosmic knowledge gained from the Mind Stone is mentioned by one wiki without detail."
+   ],
+   "sources": [
+    {
+     "url": "https://www-marvel-com-nt0e.imagizer.com/characters/doctor-erik-selvig/on-screen",
+     "supports": "No superhuman abilities; astrophysicist who studies cosmic energy and wormholes; asked to stabilise the Tesseract"
+    },
+    {
+     "url": "https://www.marvel.com/characters/doctor-erik-selvig/on-screen",
+     "supports": "Loki used the Mind Stone scepter to control Selvig; he kept his science skills but nearly lost choice"
+    },
+    {
+     "url": "https://disneynews.us/marvel-character/erik-selvig",
+     "supports": "Under Loki's influence he helped open the portal for the Chitauri, later regained control and helped the Avengers"
+    },
+    {
+     "url": "https://marvel-movies.fandom.com/wiki/Erik_Selvig",
+     "supports": "Mental state deteriorated after Loki's influence; later consulted by Thor in Age of Ultron"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Franklin Richards",
+   "continuity": "Marvel Cinematic Universe Franklin Richards as an infant in The Fantastic Four: First Steps (the film's own reality). Comic powers are not assumed.",
+   "summary": "Infant son of Reed and Sue. The film shows him restoring his mother's life, and Galactus and Doctor Doom both treat him as extraordinarily powerful. Reporting on his full power set mostly cites the comics.",
+   "offense": {
+    "domains": [
+     "reality"
+    ],
+    "techniques": [
+     "restoring his mother's life (shown in First Steps)"
+    ],
+    "range": "unknown"
+   },
+   "defense": {
+    "mechanisms": [
+     "no defensive power shown on screen; protected by his family"
+    ]
+   },
+   "conditional": [
+    {
+     "ability": "Comic-style reality warping, psionics and pocket universes",
+     "dependsOn": "Not shown in First Steps; sources describe these as comic powers or speculation"
+    }
+   ],
+   "weaknesses": [
+    "Infant, no control over any powers shown"
+   ],
+   "feats": [
+    {
+     "claim": "Restored his mother's life after she died in the fight against Galactus.",
+     "citation": "SlashFilm on the Power Cosmic in First Steps",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "No on-screen power set beyond the one restoration is sourced.",
+    "Whether he holds the Power Cosmic is stated by one outlet as why Doom targets him."
+   ],
+   "sources": [
+    {
+     "url": "https://www.slashfilm.com/1923828/power-cosmic-the-fantastic-four-first-steps-explained",
+     "supports": "Film only briefly hints at his power by showing him restoring his mother's life; Galactus claims he is destined to replace him"
+    },
+    {
+     "url": "https://www.superherohype.com/?p=615137",
+     "supports": "Doom targets Franklin because of his reality-warping abilities and possession of the Power Cosmic"
+    },
+    {
+     "url": "https://www.justwatch.com/us/guide/fantastic-four-most-powerful-mcu-team-franklin-richards",
+     "supports": "He is an infant in First Steps; in the comics he later takes the codename Powerhouse"
+    },
+    {
+     "url": "https://comicbook.com/movies/news/fantastic-four-first-steps-avengers-secret-wars-franklin-richards-mcu-reboot/",
+     "supports": "Comic Franklin: reality warping, psionics, matter and energy manipulation, pocket universes (comic description)"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Galactus",
+   "continuity": "Marvel Cinematic Universe Galactus (Ralph Ineson) in The Fantastic Four: First Steps. Excludes the 2007 film and comic-only versions.",
+   "summary": "Cosmic Devourer of Worlds who feeds on planets' life energy, with the Silver Surfer as herald. The Fantastic Four trapped him by luring him into a wormhole; he is not dead.",
+   "offense": {
+    "domains": [
+     "cosmic",
+     "energy"
+    ],
+    "techniques": [
+     "Power Cosmic energy projection",
+     "matter transmutation",
+     "teleportation and portal creation",
+     "psychic abilities (SlashFilm comic-based list)"
+    ],
+    "range": "planetary"
+   },
+   "defense": {
+    "mechanisms": [
+     "colossal size and cosmic power (not quantified)"
+    ]
+   },
+   "mobility": [
+    "Teleportation and portal creation (SlashFilm, comic-based)",
+    "Silver Surfer acts as herald preparing worlds"
+   ],
+   "conditional": [
+    {
+     "ability": "Comic power list",
+     "dependsOn": "SlashFilm describes comic abilities; not all were shown in First Steps"
+    }
+   ],
+   "weaknesses": [
+    "Was lured into a wormhole and removed from Earth in First Steps",
+    "Must feed on planets to sustain himself"
+   ],
+   "feats": [
+    {
+     "claim": "Marked Earth for consumption and was stopped only by being trapped through a wormhole.",
+     "citation": "Soap Central recap of First Steps ending",
+     "source": 2
+    }
+   ],
+   "unknowns": [
+    "No sourced strength or energy figure.",
+    "The film reportedly leaves him alive, so later return is unresolved."
+   ],
+   "sources": [
+    {
+     "url": "https://www.slashfilm.com/1923828/power-cosmic-the-fantastic-four-first-steps-explained",
+     "supports": "Galactus is the Devourer of Worlds; comic powers include psychic abilities, teleportation, portals, matter transmutation, energy projection; wants Franklin as successor"
+    },
+    {
+     "url": "https://pubity.com/?p=19602",
+     "supports": "Must consume planetary energy to sustain his existence"
+    },
+    {
+     "url": "https://bravo-www.soapcentral.com/entertainment/fantastic-four-first-steps-how-galactus-silver-surfer-return-mcu-next",
+     "supports": "Fantastic Four trick Galactus into a wormhole using Franklin as bait; Galactus and Surfer are not dead"
+    },
+    {
+     "url": "https://www.inverse.com/entertainment/galactus-origin-explained-fantastic-four-first-steps",
+     "supports": "Says he was once mortal; feeds on worlds because he is cursed, not evil"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Mole Man",
+   "continuity": "Marvel Cinematic Universe Harvey Elder / Mole Man (Paul Walter Hauser), shown in The Fantastic Four: First Steps tie-in material. Excludes the 2015 Fox film's Harvey Allen.",
+   "summary": "Underground ruler with no real superpowers; comic sources give him genius intellect, radar sense and command of huge monsters. The MCU version leads an underground political movement according to the tie-in comic coverage.",
+   "offense": {
+    "domains": [
+     "intellect",
+     "command"
+    ],
+    "techniques": [
+     "commands large subterranean monsters (GamesRadar, comic description)",
+     "advanced subterranean technology (Villains Wiki, comic)",
+     "staff proficiency (Wikipedia comic infobox)"
+    ],
+    "range": "through minions and monsters"
+   },
+   "defense": {
+    "mechanisms": [
+     "underground territory and minions",
+     "radar sense for tracking (comic)"
+    ]
+   },
+   "weaknesses": [
+    "Has no real powers himself per GamesRadar",
+    "Limited screen information for the MCU version"
+   ],
+   "unknowns": [
+    "MCU on-screen abilities are not described in the cited pages; most data is comic.",
+    "Film role beyond the tie-in comic not confirmed."
+   ],
+   "sources": [
+    {
+     "url": "https://www.gamesradar.com/entertainment/marvel-movies/the-comic-book-history-of-the-mole-man-the-first-villain-the-fantastic-four-ever-faced",
+     "supports": "Harvey has no real powers; controls kaiju-sized monsters"
+    },
+    {
+     "url": "https://www.gamesradar.com/comics/marvel-comics/the-official-fantastic-four-first-steps-tie-in-comic-has-revealed-the-first-look-at-another-of-the-movies-supervillains",
+     "supports": "MCU Mole Man leads a political movement for people who live underground"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Mole_Man",
+     "supports": "Abilities in the comics: genius-level intellect, radar sense, staff proficiency"
+    },
+    {
+     "url": "https://www.denofgeek.com/?p=977336",
+     "supports": "Paul Walter Hauser plays Mole Man per a prequel tie-in comic"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Kang the Conqueror",
+   "continuity": "Marvel Cinematic Universe Kang the Conqueror (Jonathan Majors) in Ant-Man and the Wasp: Quantumania. Excludes He Who Remains and other variants.",
+   "summary": "Human time-traveller with no innate powers who relies on genius, advanced armor and a time chair. Sources agree his strength is technology rather than superhuman ability.",
+   "offense": {
+    "domains": [
+     "tech",
+     "time"
+    ],
+    "techniques": [
+     "advanced armor with abilities controlled mentally (CinemaBlend, comic version)",
+     "time chair for time travel",
+     "advanced 31st-century weaponry (secondary sources)"
+    ],
+    "range": "suit and ship range"
+   },
+   "defense": {
+    "mechanisms": [
+     "armor",
+     "technology to fend off enemies (TheWrap)"
+    ]
+   },
+   "conditional": [
+    {
+     "ability": "Time and multiverse travel",
+     "dependsOn": "The time chair; Looper says it lets him go to any period and The Mary Sue speculates Pym particles power it"
+    }
+   ],
+   "weaknesses": [
+    "No superhuman abilities of his own",
+    "Power depends on his technology"
+   ],
+   "unknowns": [
+    "Armor abilities are described from the comics; MCU suit specifics not confirmed in these pages.",
+    "Pym particle power source is speculation."
+   ],
+   "sources": [
+    {
+     "url": "https://www.thewrap.com/who-is-kang-avengers-5-kang-dynasty-explained",
+     "supports": "No superhuman abilities; next-level genius using advanced tech"
+    },
+    {
+     "url": "https://themarysue.com/?p=648592",
+     "supports": "Wholly human, no innate superhuman powers; started as Nathaniel Richards"
+    },
+    {
+     "url": "https://www.looper.com/1202548/ant-man-3-quantumania-kang-ship-weird-marvel-comics",
+     "supports": "Time chair is a source of his power and lets him travel across the multiverse"
+    },
+    {
+     "url": "https://themarysue.com/?p=648619",
+     "supports": "Time chair is his biggest source of power and resources; may be powered by Pym particles"
+    },
+    {
+     "url": "https://cinemablend.com/news/2554851/kang-the-conqueror-what-you-need-to-know-about-the-potential-ant-man-3-villain",
+     "supports": "Comic Kang's alloy suit gives mind-controlled abilities"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:The Collector",
+   "continuity": "Marvel Cinematic Universe Taneleer Tivan / The Collector (Benicio del Toro), Thor: The Dark World through Infinity War. Excludes comic Earth-616.",
+   "summary": "Ancient cosmic collector who ran the Tivan Group and Knowhere museum. His MCU appearances show no combat; he held the Aether and was robbed of the Reality Stone by Thanos.",
+   "offense": {
+    "domains": [
+     "wealth",
+     "artifacts"
+    ],
+    "techniques": [
+     "hires outlaws such as the Ravagers",
+     "holds Infinity Stone relics (Aether)"
+    ],
+    "range": "through hired agents"
+   },
+   "defense": {
+    "mechanisms": [
+     "Tivan Group security and menagerie",
+     "an Infinity Stone illusion used in Infinity War (the Reality Stone illusion)"
+    ]
+   },
+   "weaknesses": [
+    "Infinity Stone released by Carina destroyed his collection",
+    "Thanos took the Reality Stone from him by force"
+   ],
+   "feats": [
+    {
+     "claim": "Held the Aether and had a museum of captured species and relics.",
+     "citation": "MCU wiki Collector page",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "CinemaBlend says it is unclear whether the MCU version has his comic cosmic powers.",
+    "No sourced combat feat."
+   ],
+   "sources": [
+    {
+     "url": "https://marvelcinematicuniverse.fandom.com/wiki/File:CollectorInfinityStones.png",
+     "supports": "Head of the Tivan Group, keeper of a huge collection; Carina's use of the Power Stone destroyed his collection"
+    },
+    {
+     "url": "https://cinemablend.com/news/1738130/how-important-will-the-collector-be-to-avengers-infinity-war",
+     "supports": "Comic Collector has cosmic abilities; unclear if MCU version can do them; Thanos will likely take the stone"
+    },
+    {
+     "url": "https://tvtropes.org/pmwiki/pmwiki.php/Characters/MCUKnowhere",
+     "supports": "Infinity War: Collector (an illusion created by the Reality Stone) lies to Thanos; Thanos interrogates him violently"
+    },
+    {
+     "url": "https://www-cdn.marvel.com/characters/collector-taneleer-tivan/on-screen",
+     "supports": "Leader of the Tivan Group; Thanos traveled to Knowhere for the Reality Stone"
+    }
+   ],
+   "researchStatus": "provisional"
+  },
+  {
+   "id": "mcu:Whiplash",
+   "continuity": "Marvel Cinematic Universe Ivan Vanko / Whiplash (Mickey Rourke) in Iron Man 2. Excludes comic Whiplash versions.",
+   "summary": "Russian physicist who built an arc-reactor harness with two electrified whips that can cut through cars, later a more advanced armor backed by Hammer drones. Defeated when Iron Man removed his arc reactor and he later died detonating his suit.",
+   "offense": {
+    "domains": [
+     "tech",
+     "electric"
+    ],
+    "techniques": [
+     "two arc-reactor-powered electrified whips",
+     "second armor with Hammer technology",
+     "drone support"
+    ],
+    "range": "whip reach to short range"
+   },
+   "defense": {
+    "mechanisms": [
+     "armor and harness (second suit more advanced)"
+    ]
+   },
+   "weaknesses": [
+    "Harness stops working if the arc reactor is removed",
+    "First harness was crude next to Iron Man's armor"
+   ],
+   "feats": [
+    {
+     "claim": "Attacked Tony Stark at the Monaco Grand Prix and cut through cars with his whips.",
+     "citation": "Iron Man wiki, Ivan Vanko (film)",
+     "source": 0
+    }
+   ],
+   "unknowns": [
+    "No numeric output of the whips is sourced.",
+    "Second armor's full capabilities not detailed in the cited pages."
+   ],
+   "sources": [
+    {
+     "url": "https://ironman.fandom.com/wiki/Ivan_Vanko_(film)",
+     "supports": "First suit: arc-reactor whips on a hydraulic harness, powerful enough to cut through cars; Iron Man removed the reactor to stop him"
+    },
+    {
+     "url": "https://www.avclub.com/ivan-vanko-1798260441",
+     "supports": "Exoskeleton powered by modified arc reactor controlling two electrified whips that slice almost any material"
+    },
+    {
+     "url": "https://marvel-movies.fandom.com/wiki/Whiplash_Armor",
+     "supports": "Second armor built while working for Justin Hammer; both armors arc-reactor powered"
+    },
+    {
+     "url": "https://comicbookmovie.com/comics/marvel-comics/whiplash-charged-hangman-bio-a40764",
+     "supports": "MCU Whiplash is a disgruntled Russian physicist, an amalgamation of Whiplash and Crimson Dynamo"
+    }
+   ],
+   "researchStatus": "provisional"
+  }
+ ]
+}
