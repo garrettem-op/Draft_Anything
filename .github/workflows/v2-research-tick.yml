@@ -93,8 +93,35 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: node tools/v2-research-tick.cjs reconcile --snapshot "$RUNNER_TEMP/snap/snapshot.json"
 
-  generate:
+  snapshot2:
+    # Fresh roster AFTER reconcile has merged this tick's approved PRs. generate and reconcile-new
+    # use this one, never the pre-merge snapshot, so a character merged in this run is never
+    # regenerated or validated against a stale roster (that race produced 314 duplicate ids).
+    # Same trust boundary as `snapshot`: read-only token, no secrets, outputs data only.
     needs: [snapshot, reconcile]
+    if: needs.snapshot.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BASE }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build fresh roster snapshot (unprivileged; executes development-branch data)
+        run: node tools/v2-research-pipeline.cjs --snapshot > "$RUNNER_TEMP/snapshot.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v2-roster-snapshot-2
+          path: ${{ runner.temp }}/snapshot.json
+          retention-days: 1
+
+  generate:
+    needs: [snapshot, reconcile, snapshot2]
     if: needs.snapshot.outputs.ready == 'true' && vars.GEMINI_FREE_TIER_CONFIRMED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -112,7 +139,7 @@ jobs:
           node-version: '22'
       - uses: actions/download-artifact@v4
         with:
-          name: v2-roster-snapshot
+          name: v2-roster-snapshot-2
           path: ${{ runner.temp }}/snap
       - name: Generate research with Gemini (free tier, opt-in)
         env:
@@ -122,7 +149,7 @@ jobs:
         run: node tools/v2-research-tick.cjs generate --snapshot "$RUNNER_TEMP/snap/snapshot.json" --budget-minutes 25 --batch-size 10
 
   reconcile-new:
-    needs: [snapshot, generate]
+    needs: [snapshot, snapshot2, generate]
     if: always() && needs.snapshot.outputs.ready == 'true' && needs.generate.result != 'skipped'
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -140,7 +167,7 @@ jobs:
           node-version: '22'
       - uses: actions/download-artifact@v4
         with:
-          name: v2-roster-snapshot
+          name: v2-roster-snapshot-2
           path: ${{ runner.temp }}/snap
       - name: Validate PRs opened this tick
         env:

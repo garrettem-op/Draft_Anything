@@ -54,9 +54,11 @@ Build a representative benchmark suite covering close matchups, mismatches, exce
 
 **Owner (Garrett):** Keeps the decisions that are not delegated: new paid API spend or billing, any change to the live V1 game or its deployment, deploying or releasing V2, credentials and repository security settings, and changing this directive.
 
-**Independent review.** The author of a change never approves it.
-- Research PRs are authored by Gemini through Actions. Claude is the independent reviewer: it checks the cited support, corrects or flags records, then approves and labels. The tick's merge gate does the rest.
-- Code, scoring and evaluator PRs written by Claude need an independent review before merge: an audit comment from ChatGPT or an approval from the owner. Claude does not merge its own code PRs without one. If review is slow, Claude escalates to the owner rather than self-merging.
+**Review and merging.** The owner has asked Claude to run development the way a solo developer owns their own game and not to involve him in routine review or merging (2026-11-13).
+- Claude merges its own PRs into `develop/v2-option-c` and `main` once the relevant tests pass and the change stays inside the owner's reserved decisions above. It states in the PR what was tested and what was not.
+- Research PRs are authored by Gemini through Actions. Claude reviews them (checks cited support, corrects or flags records), then approves and labels, and the tick's merge gate merges them. The source-support check (`tools/v2-source-support.cjs`) backs this up.
+- ChatGPT audits are advisory. Claude asks for one when a change touches scoring, the evaluator or security-sensitive automation, weighs the findings, and decides.
+- Never touch the V1 release, production Pages or Supabase, or credentials without the owner.
 
 Roles are flexible. Do not delay straightforward work merely because another agent is nominally responsible.
 
