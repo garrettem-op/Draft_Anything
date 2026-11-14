@@ -116,9 +116,21 @@ function safeUrl(u) {
     return true;
   } catch { return false; }
 }
+/* MediaWiki sites often 403 the rendered page for bots but serve raw wikitext or the parse API. */
+const WIKI_HOST = /(^|\.)(fandom\.com|bulbagarden\.net|wikipedia\.org|wikia\.org)$/;
+function wikiAlternatives(url) {
+  try {
+    const x = new URL(url);
+    if (!WIKI_HOST.test(x.hostname)) return [];
+    const m = x.pathname.match(/^\/wiki\/(.+)$/);
+    if (!m) return [];
+    const title = m[1];
+    return [`https://${x.hostname}/index.php?title=${title}&action=raw`, `https://${x.hostname}/api.php?action=parse&page=${title}&prop=text&format=json&redirects=1`];
+  } catch { return []; }
+}
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /* Returns {page, reason}. page is null when unreadable; reason says why (for the report). */
-async function fetchDetailed(url, fetchImpl = fetch, { timeoutMs = 20000, retries = 2, waitMs = 4000 } = {}) {
+async function fetchDetailed(url, fetchImpl = fetch, { timeoutMs = 20000, retries = 2, waitMs = 4000, alt = false } = {}) {
   if (!safeUrl(url)) return { page: null, reason: 'not a public https url' };
   let reason = 'unknown';
   for (let attempt = 0; attempt <= retries; attempt++) {
@@ -129,8 +141,17 @@ async function fetchDetailed(url, fetchImpl = fetch, { timeoutMs = 20000, retrie
         if (attempt < retries) { await sleep(waitMs * (attempt + 1)); continue; }
         return { page: null, reason };
       }
-      if (res.status >= 400) return { page: null, reason: 'HTTP ' + res.status };
+      if (res.status >= 400) {
+        if (!alt && res.status === 403) {
+          for (const a of wikiAlternatives(url)) {
+            const r2 = await fetchDetailed(a, fetchImpl, { timeoutMs, retries: 0, waitMs, alt: true });
+            if (r2.page) return { page: r2.page, reason: 'ok (wiki fallback)' };
+          }
+        }
+        return { page: null, reason: 'HTTP ' + res.status };
+      }
       const type = (res.headers && res.headers.get && res.headers.get('content-type')) || '';
+      if (alt && /json/i.test(type)) { try { const j = JSON.parse(await res.text()); const t = j && j.parse && j.parse.text && j.parse.text['*']; return t ? { page: pageIndex(t), reason: 'ok' } : { page: null, reason: 'wiki api: no text' }; } catch { return { page: null, reason: 'wiki api: bad json' }; } }
       if (!/html|text/i.test(type)) return { page: null, reason: 'non-HTML (' + (type.split(';')[0] || 'no type') + ')' };
       return { page: pageIndex(await res.text()), reason: 'ok' };
     } catch (e) {
@@ -225,4 +246,4 @@ async function main(argv) {
 }
 if (require.main === module) main(process.argv.slice(2)).catch((e) => { console.error(e); process.exit(1); });
 
-module.exports = { keyTerms, htmlToText, pageIndex, support, evidence, reviewRecord, safeUrl, fetchPage, fetchDetailed, loadPages, scan, markdown, nameWords };
+module.exports = { keyTerms, htmlToText, pageIndex, support, evidence, reviewRecord, safeUrl, wikiAlternatives, fetchPage, fetchDetailed, loadPages, scan, markdown, nameWords };

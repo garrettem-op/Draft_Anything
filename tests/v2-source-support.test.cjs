@@ -117,3 +117,18 @@ test('rate limits are retried, other failures report a reason, hosts are throttl
   const pages = await s.loadPages(Array.from({ length: 8 }, (_, i) => 'https://same.test/' + i), slow, { perHost: 2, reasons });
   assert.equal(pages.size, 8); assert.ok(peak <= 2, 'at most 2 at once per host, saw ' + peak); assert.equal(reasons.get('https://same.test/0'), 'ok');
 });
+
+test('wiki pages that 403 the rendered page fall back to raw wikitext, then the parse API', async () => {
+  assert.deepEqual(s.wikiAlternatives('https://muppet.fandom.com/wiki/Guy_Smiley'), ['https://muppet.fandom.com/index.php?title=Guy_Smiley&action=raw', 'https://muppet.fandom.com/api.php?action=parse&page=Guy_Smiley&prop=text&format=json&redirects=1']);
+  assert.deepEqual(s.wikiAlternatives('https://example.com/wiki/X'), []);
+  const seen = [];
+  const rawOk = async (u) => { seen.push(u); return u.includes('action=raw') ? res(200, 'Guy Smiley hosted game shows', 'text/x-wiki') : res(403, 'blocked'); };
+  const a = await s.fetchDetailed('https://muppet.fandom.com/wiki/Guy_Smiley', rawOk, { retries: 0, waitMs: 1 });
+  assert.equal(a.reason, 'ok (wiki fallback)'); assert.ok(a.page.words.has('hosted'));
+  const apiOk = async (u) => u.includes('action=parse') ? res(200, JSON.stringify({ parse: { text: { '*': '<p>Hosted game shows</p>' } } }), 'application/json') : res(403, 'blocked');
+  const b = await s.fetchDetailed('https://muppet.fandom.com/wiki/Guy_Smiley', apiOk, { retries: 0, waitMs: 1 });
+  assert.ok(b.page && b.page.words.has('hosted'));
+  const none = await s.fetchDetailed('https://muppet.fandom.com/wiki/Guy_Smiley', async () => res(403, 'blocked'), { retries: 0, waitMs: 1 });
+  assert.equal(none.page, null); assert.equal(none.reason, 'HTTP 403');
+  assert.equal((await s.fetchDetailed('https://other.test/wiki/X', async () => res(403, 'blocked'), { retries: 0, waitMs: 1 })).reason, 'HTTP 403');
+});
