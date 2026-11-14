@@ -1,0 +1,674 @@
+{
+  "batchId": "Gemini V2 research games 20261113-042927 #22",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Chrono",
+      "continuity": "Chrono Trigger (1995; Crono, English localization)",
+      "summary": "Crono is Chrono Trigger's silent swordsman protagonist. His magic is Lightning (Heaven in Japanese), including Luminaire and the revive spell Life, and he forms dual and triple techs with his party. He died against Lavos and was brought back with the Chrono Trigger.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Cyclone and Slash (multi-enemy attacks)",
+          "Spincut (double-power physical attack)",
+          "Lightning and Lightning 2",
+          "Luminaire: massive lightning damage to all enemies (20 MP)",
+          "Confuse (four hits)",
+          "Dual and triple techs with allies, e.g. X-Strike with Frog, Delta Force"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Was killed when he confronted Lavos alone to save his companions"
+      ],
+      "mobility": [
+        "Travels through time with his party via time gates and the Epoch time machine"
+      ],
+      "limitations": [
+        "Luminaire costs 20 MP"
+      ],
+      "sources": [
+        {
+          "url": "https://squareenix.fandom.com/wiki/Crono",
+          "supports": "Silent protagonist, Lightning/Heaven magic, solo techs (Cyclone, Slash, Lightning, Lightning 2, Spincut, Life, Confuse, Luminaire), dual and triple techs, death against Lavos and revival with the Time Egg"
+        },
+        {
+          "url": "https://scalar.usc.edu/works/chronicles/chrono-trigger-plot-summary",
+          "supports": "Plot: Crono killed by Lavos, revived with the Chrono Trigger; party defeats Magus, Dalton atop the Epoch, and finally destroys Lavos; time gates and the Epoch"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-control",
+          "claim": "Lightning, Lightning 2 and Luminaire deal lightning damage",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts Lightning-element (Heaven) spells using MP",
+          "source": 0
+        },
+        {
+          "tag": "heals-others",
+          "claim": "His Life tech revives a KO'd ally",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "His weapon (katanas) is not named on the opened pages.",
+        "Crono's revival is part of the story path in the summary; whether he must be present for the final Lavos fight is not stated.",
+        "Reviewed by Claude (2026-11-13): replaced the Chrono Trigger Wikipedia page (not opened this run) with the Square Enix Wiki and a plot summary. Fixed the name (\"Cronu\"). Removed armor, \"magical barriers\" and speed evasion (not on the pages). Added his death against Lavos and wins over Magus and Dalton. Tags: broad `electric` removed (`electric-control` kept); **added** `spellcaster` and `heals-others` (Life).",
+        "Unsupported by cited source (term check, 0/5 key terms found): Travelled across eras with his party and destroyed Lavos",
+        "Unsupported by cited source (term check, 0/8 key terms found): loss vs Lavos",
+        "Unsupported by cited source (term check, 0/10 key terms found): win vs Lavos",
+        "Unsupported by cited source (term check, 0/8 key terms found): win vs Magus",
+        "Unsupported by cited source (term check, 0/6 key terms found): win vs Dalton"
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "games:Chun-Li",
+      "continuity": "Street Fighter series (Street Fighter II through Street Fighter IV and III: 3rd Strike)",
+      "summary": "Chun-Li is an Interpol investigator and the Street Fighter series' original fast character, known for powerful legs, the Kikoken projectile and the many-kick Hyakuretsu Kyaku. M. Bison beat her quickly in their first fight.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Kikoken: her trademark projectile",
+          "Hyakuretsu Kyaku (Lightning Kick): many kicks in one go",
+          "Spinning Bird Kick",
+          "Kikosho (Super Art)",
+          "Senretsu Kyaku: a forward-moving kick flurry that can pass through fireballs",
+          "Hoyokusen (3rd Strike Super Art)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "M. Bison defeated her quickly in their first fight",
+        "Character notes say she gets overworked and easily exhausted"
+      ],
+      "mobility": [
+        "Wall jump",
+        "Very fast attacks"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://capcom.fandom.com/wiki/Chun-Li",
+          "supports": "Interpol role, fast style, leg strength, wall jump, Kikoken, Hyakuretsu Kyaku, Spinning Bird Kick, Kikosho, Senretsu Kyaku, Hoyokusen, story fights (Bison, Urien, Vega/S.I.N. base, Gen)"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Urien and rescued a kidnapped girl",
+          "citation": "Street Fighter III: 3rd Strike",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "M. Bison",
+          "result": "loss",
+          "citation": "Street Fighter series backstory",
+          "note": "Bison defeated her quickly in their first fight; she swore vengeance",
+          "source": 0
+        },
+        {
+          "opponent": "Urien",
+          "result": "win",
+          "citation": "Street Fighter III: 3rd Strike",
+          "note": "Reclaimed a kidnapped girl",
+          "source": 0
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "The page does not say whether the Kikoken is ki or another energy.",
+        "Outcome of her World Warrior tournament clash with Bison is unclear on the page.",
+        "Reviewed by Claude (2026-11-13): replaced the Chun-Li Wikipedia page (not opened this run) with the Capcom Database. Removed `electric-control`: the Kikoken is a projectile, not electricity, and \"Lightning Kick\" is only a name. Changed the Bison result from inconclusive to the documented quick loss in their first fight, and added the Urien win. Removed \"super-speed\", agility and \"guarding strikes\" (not on the page)."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ciri",
+      "continuity": "The Witcher 3: Wild Hunt",
+      "summary": "Ciri carries the Elder Blood. She can open portals between worlds and blink short distances to strike several foes, and she fights like a witcher. Her power once went out of control at Kaer Morhen, and she stops the White Frost in every ending.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Swordplay nearly identical to Geralt's",
+          "Blink: teleports short distances and strikes several enemies in quick succession",
+          "Charge: a dash that deals heavy damage",
+          "Magic stone (a fireball)",
+          "Elder Blood outburst (a magical scream at Kaer Morhen)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Blink teleport evasion"
+        ]
+      },
+      "weaknesses": [
+        "Avallac'h stunned her with a sleeping spell",
+        "Unlike Geralt she cannot parry"
+      ],
+      "mobility": [
+        "Blink (short-range teleport)",
+        "Opens portals to other worlds and dimensions"
+      ],
+      "limitations": [
+        "Cannot cast signs, drink potions, parry or use strong attacks, and lacks witcher senses",
+        "Does not have complete control over her power; it went out of control at Kaer Morhen and threatened everyone there"
+      ],
+      "sources": [
+        {
+          "url": "https://hero.fandom.com/wiki/Ciri",
+          "supports": "Elder Blood portals, blink, charge, magic stone, swordsmanship, Kaer Morhen outburst, Crones, Caranthir at Undvik, White Frost, combat limits"
+        },
+        {
+          "url": "https://gamerguides.com/the-witcher-3-wild-hunt/database/characters/main-characters/cirilla",
+          "supports": "Last bearer of the Elder Blood, Kaer Morhen outburst, killed two of the three Crones, only she could stop the White Frost"
+        },
+        {
+          "url": "https://www.cbr.com/witcher-ciri-power-explained/",
+          "supports": "Innate Elder Blood power to travel across worlds and time; incomplete control"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Killed two of the three Crones of Velen (Brewess and Whispess)",
+          "citation": "The Witcher 3: Wild Hunt",
+          "source": 1
+        },
+        {
+          "claim": "Stopped the White Frost",
+          "citation": "The Witcher 3: Wild Hunt (all endings)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Crones (Brewess, Whispess, Weavess)",
+          "result": "win",
+          "citation": "The Witcher 3: Wild Hunt",
+          "note": "Slew Brewess and Whispess; Weavess escaped",
+          "source": 0
+        },
+        {
+          "opponent": "Caranthir",
+          "result": "inconclusive",
+          "citation": "The Witcher 3: Wild Hunt, Undvik",
+          "note": "Destroyed his staff but was apparently knocked unconscious",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-teleport",
+          "claim": "Blink teleports her short distances in combat",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Her Elder Blood lets her create portals to other worlds",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The magic stone fireball comes from a fan wiki summary only; no fire tag is proposed.",
+        "The full potential of her uncontrolled Elder Blood is unknown.",
+        "Reviewed by Claude (2026-11-13): replaced the Witcher 3 Wikipedia page (not opened this run) with three opened pages. Removed Gemini's \"win vs the Wild Hunt, defeated key commanders\": Geralt mortally wounded Eredin, and Ciri's fight with Caranthir was inconclusive. Added the Crones and White Frost. Removed the line-of-sight limitation (not on the pages). Tags: `self-teleport` kept; **added** `portals`."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Clank",
+      "continuity": "Ratchet & Clank (2002)",
+      "summary": "Clank is a robot produced as a defect at Drek's warbot factory on Quartu. He rides on Ratchet's back as a Heli-Pack/Thruster-Pack, and he briefly became Giant Clank to fight Drek before he and Ratchet destroyed Drek's mech and the Deplanetizer.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Giant Clank transformation (fought Drek briefly)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Robotic body"
+        ]
+      },
+      "weaknesses": [
+        "Drek's mech reverted Giant Clank to his normal size"
+      ],
+      "mobility": [
+        "Glides on his own with Heli-Pack propellers",
+        "Lets Ratchet glide, boost jump and stretch jump"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://ratchetandclank.fandom.com/wiki/Warbot_(Drek_Industries)",
+          "supports": "Clank's origin as a defect from the warbot factory on Quartu after a lightning strike"
+        },
+        {
+          "url": "https://ratchetandclank.fandom.com/wiki/Heli-Pack",
+          "supports": "Gadgetron Heli-Pack upgrade gives Clank propellers; Clank glides alone and lets Ratchet glide, boost jump and stretch jump"
+        },
+        {
+          "url": "https://ratchetandclank.fandom.com/wiki/Alonzo_Drek",
+          "supports": "Giant Clank fights Drek until Drek's mech reverts him; Ratchet and Clank destroy Drek's mech and the Deplanetizer"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "As Giant Clank, fought Drek's mech",
+          "citation": "Ratchet & Clank (2002)",
+          "source": 2
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Chairman Drek",
+          "result": "win",
+          "citation": "Ratchet & Clank (2002), Veldin",
+          "note": "With Ratchet: destroyed Drek's mech and then the Deplanetizer; Giant Clank was reverted early in the fight",
+          "source": 2
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Giant Clank",
+          "dependsOn": "A transformation whose trigger is not described on the opened page; Drek's mech can revert it",
+          "source": 2
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "A robot produced by a warbot factory",
+          "source": 0
+        },
+        {
+          "tag": "glide",
+          "claim": "Glides with Heli-Pack propellers",
+          "source": 1
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Gadgetron Heli-Pack and Thruster-Pack upgrades",
+          "source": 1
+        },
+        {
+          "tag": "size-change",
+          "claim": "Transforms into Giant Clank",
+          "source": 2
+        }
+      ],
+      "unknowns": [
+        "How Giant Clank is triggered and his giant-form attacks (Gemini's missile barrage) are not on the opened pages; no height is given, so no giant-sized tag.",
+        "Reviewed by Claude (2026-11-13): replaced the 2002 game Wikipedia page (not opened) with Ratchet & Clank Wiki pages. Removed \"helicopter blade strike\", \"hovering\" and the fuel limitation (not on the pages). The Drek result is now sourced. Tags: `robot-or-ai`, `glide`, `gadgets` kept; **added** `size-change` (Giant Clank)."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Cloud Strife",
+      "continuity": "Final Fantasy VII (1997), with Advent Children (2005) noted",
+      "summary": "Cloud is a mercenary who claims to be ex-SOLDIER but was really an infantryman whose mind built a false past from Zack's life. He wields Zack's Buster Sword. Sephiroth manipulated him into handing over the Black Materia, but Cloud defeated Sephiroth one-on-one in the end.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "The Buster Sword, an enormous sword that can cut almost anything in two",
+          "Omnislash Limit Break"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Sephiroth manipulated him: he lost control, handed over the Black Materia and attacked Aerith",
+        "His false memories left him unstable; he was found comatose from Mako poisoning"
+      ],
+      "mobility": [
+        "Not established by the cited sources"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Cloud_Strife.html",
+          "supports": "Claimed SOLDIER past vs. infantryman truth, Zack's Buster Sword, losing control and handing over the Black Materia, Mako poisoning coma, one-on-one defeat of Sephiroth, Advent Children rematch, Omnislash as his FFVII Limit Break"
+        },
+        {
+          "url": "https://squareenix.fandom.com/wiki/Cloud_Strife",
+          "supports": "Mercenary \"who will take any job\"; his enormous sword can cut almost anything in two"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Sephiroth in a one-on-one fight",
+          "citation": "Final Fantasy VII",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sephiroth",
+          "result": "win",
+          "citation": "Final Fantasy VII",
+          "note": "Sephiroth reappeared in Cloud's mind a final time and was defeated one-on-one",
+          "source": 0
+        },
+        {
+          "opponent": "Sephiroth",
+          "result": "win",
+          "citation": "Final Fantasy VII: Advent Children",
+          "note": "Defeated him again, leaving a dying Kadaj in his place",
+          "source": 0
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "Materia magic is not described on the opened pages; no magic tags are proposed.",
+        "Limit Breaks other than Omnislash and any enhanced physiology from Hojo's experiments are not on the opened pages.",
+        "Reviewed by Claude (2026-11-13): replaced the Cloud Strife Wikipedia page (not opened this run) with a Wikipedia mirror and the Square Enix Wiki. **Corrected:** Cloud never qualified for SOLDIER, so \"Enhanced SOLDIER physiology\" is removed. Weakness reworded from \"Jenova's influence\" to Sephiroth's documented manipulation. Removed Materia barriers, heavy armor, super-speed and MP limitations. Tags: `magic` and `spellcaster` **removed** (no sourced Materia use). Added the Advent Children result."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Commander Shepard",
+      "continuity": "Mass Effect trilogy (Mass Effect, Mass Effect 2, Mass Effect 3)",
+      "summary": "Commander Shepard is a Systems Alliance N7 veteran and the first human Spectre. Depending on class Shepard uses biotics, tech or weapons. Shepard stopped Saren and destroyed Sovereign, was killed by the Collectors and revived by Cerberus, and rallied the galaxy against the Reapers.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Soldier: thorough weapons training, all special ammo and grenades",
+          "Vanguard: biotic charge that hits with incredible force",
+          "Adept: micro-singularity that lifts and damages enemies",
+          "Engineer: combat drones",
+          "Infiltrator: cloak and sniper rifle with time-slowing scope"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sentinel: an advanced shield that can be detonated to blast nearby enemies"
+        ]
+      },
+      "weaknesses": [
+        "Was killed when the Collectors attacked and destroyed the Normandy (Mass Effect 2 prologue)"
+      ],
+      "mobility": [
+        "Commands the SSV Normandy"
+      ],
+      "limitations": [
+        "Abilities depend on the chosen class"
+      ],
+      "sources": [
+        {
+          "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Commander_Shepard.html",
+          "supports": "N7 veteran, first human Spectre, Normandy command, stopping Saren and destroying Sovereign, death to the Collectors and Cerberus revival, Reaper invasion"
+        },
+        {
+          "url": "https://masseffect3.wiki.fextralife.com/Classes",
+          "supports": "Mass Effect 3 classes and their powers: Adept singularity, Vanguard biotic charge, Engineer drones, Infiltrator cloak, Soldier weapons, Sentinel shield"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Stopped Saren and the Geth, destroyed Sovereign and saved the Citadel",
+          "citation": "Mass Effect",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Saren Arterius and Sovereign",
+          "result": "win",
+          "citation": "Mass Effect",
+          "note": "The opened page does not describe how Saren died",
+          "source": 0
+        },
+        {
+          "opponent": "The Collectors",
+          "result": "loss",
+          "citation": "Mass Effect 2 prologue",
+          "note": "Killed when the Collectors destroyed the Normandy; revived by Cerberus",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Biotic powers (biotic charge, singularity)",
+          "dependsOn": "Playing an Adept, Vanguard or Sentinel",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Biotics are a canonical class option (Adept, Vanguard, Sentinel); owner ruling grants psychic",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Canon class and moral choices are player-determined.",
+        "Infiltrator cloak and Engineer drones are class options; no stealth or tech tags are proposed without an owner ruling.",
+        "Reviewed by Claude (2026-11-13): replaced the Wikipedia page (not opened this run) with a Wikipedia mirror and the Fextralife ME3 classes page. Continuity widened to the trilogy, because the Saren result is from Mass Effect 1. Removed `pilot`: Shepard commands the Normandy but is not shown flying it (gunners/passengers rule). Removed broad `tech` (omni-tool not on the pages). **Added** `psychic` per the owner's Shepard ruling. Removed kinetic barriers, thermal clips and planetary-survival claims (not on the pages)."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Crash Bandicoot",
+      "continuity": "Crash Bandicoot: Warped (1998)",
+      "summary": "Crash spins to knock enemies off-screen, slides, jumps and body slams, and gains stronger attacks by beating bosses. Aku Aku protects him. With Coco he beat Tiny Tiger, Dingodile, N. Gin and N. Tropy, then Cortex at the Time-Twisting Machine's core.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Spin attack that knocks enemies off-screen",
+          "Slide",
+          "Jumping on enemies",
+          "Body slam that breaks objects",
+          "Stronger attacks gained by defeating bosses"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Aku Aku, an ancient witch doctor mask, protects him"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited sources"
+      ],
+      "mobility": [
+        "Running",
+        "Jumping (improved by boss rewards)"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://ipfs.ssi.eecc.de/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Crash_Bandicoot_3.html",
+          "supports": "Crash's moves (jump, spin, slide, body slam), boss-earned upgrades, Aku Aku's protection, defeats of Tiny Tiger, Dingodile, N. Gin, N. Tropy and Cortex, and the Time-Twisting Machine imploding"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Cortex at the Time-Twisting Machine's core, after which the machine imploded and trapped Cortex, Tropy and Uka Uka",
+          "citation": "Crash Bandicoot: Warped",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Doctor Neo Cortex",
+          "result": "win",
+          "citation": "Crash Bandicoot: Warped",
+          "note": "Fought in the machine's core while Aku Aku and Uka Uka fought each other",
+          "source": 0
+        },
+        {
+          "opponent": "Doctor Nefarious Tropy",
+          "result": "win",
+          "citation": "Crash Bandicoot: Warped",
+          "source": 0
+        },
+        {
+          "opponent": "Tiny Tiger",
+          "result": "win",
+          "citation": "Crash Bandicoot: Warped",
+          "source": 0
+        },
+        {
+          "opponent": "Dingodile",
+          "result": "win",
+          "citation": "Crash Bandicoot: Warped",
+          "source": 0
+        },
+        {
+          "opponent": "Doctor N. Gin",
+          "result": "win",
+          "citation": "Crash Bandicoot: Warped",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Protection",
+          "dependsOn": "Aku Aku's presence",
+          "source": 0
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "Aku Aku invincibility, Nitro crate vulnerability and the specific boss power-ups are not on the opened page.",
+        "Reviewed by Claude (2026-11-13): replaced the Warped Wikipedia page (not opened) with a Wikipedia mirror of the same article. Restored his moves and the boss wins. Removed \"Wumpa fruit toss\", \"agile dodging\" and the fragility weakness (not on the page). The Aku Aku conditional is now \"protection\", not invulnerability."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Dante",
+      "continuity": "Devil May Cry 3: Dante's Awakening",
+      "summary": "In DMC3 a young Dante fights up Temen-ni-gru. Vergil beats him at the summit, which awakens his dormant devil powers. He then defeats Arkham alongside Vergil and beats Vergil in the Demon World. His styles and Devil Trigger raise his attack and defense and slowly restore health.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Swordmaster style: extra sword and melee techniques",
+          "Gunslinger style: extra firearm techniques",
+          "Cerberus (devil arm from the defeated Cerberus)",
+          "Devil Trigger special attacks"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Royal Guard: repels attacks with a timed press, charging energy for retaliation",
+          "Trickster style for dodging and agility",
+          "Devil Trigger raises defense"
+        ]
+      },
+      "weaknesses": [
+        "Vergil defeated him at the top of the tower and took his amulet"
+      ],
+      "mobility": [
+        "Trickster style: dodging and agility"
+      ],
+      "limitations": [
+        "Devil Trigger is a temporary demonic form"
+      ],
+      "sources": [
+        {
+          "url": "https://capcom.fandom.com/wiki/Devil_May_Cry_3:_Dante%27s_Awakening",
+          "supports": "Plot (Vergil's summit win awakening Dante's devil powers, Arkham defeated by both brothers, Dante beating Vergil in the Demon World), Cerberus, the four styles, Devil Trigger effects"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Vergil in their final fight in the Demon World over the Force Edge and the amulet",
+          "citation": "Devil May Cry 3",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Vergil",
+          "result": "loss",
+          "citation": "Devil May Cry 3, summit of Temen-ni-gru",
+          "note": "Vergil took his amulet; Dante's devil powers awakened",
+          "source": 0
+        },
+        {
+          "opponent": "Vergil",
+          "result": "win",
+          "citation": "Devil May Cry 3, Demon World",
+          "note": "Vergil vanished with one half of the amulet",
+          "source": 0
+        },
+        {
+          "opponent": "Arkham (Sparda form)",
+          "result": "win",
+          "citation": "Devil May Cry 3",
+          "note": "With Vergil; Lady then killed Arkham",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Higher attack and defense, slow health regeneration, special attacks",
+          "dependsOn": "Devil Trigger",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-regeneration",
+          "claim": "Devil Trigger slowly restores his health",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Rebellion, Ebony & Ivory and Stinger are not named on the opened page. Gemini's Devil Trigger flight is not on it either.",
+        "Reviewed by Claude (2026-11-13): replaced the DMC3 Wikipedia page (not opened) with the Capcom Database page. Added the summit loss and Arkham win. Removed DT flight and natural-flight mobility, \"supernatural regenerative healing\", super-speed and the overconfidence weakness (not on the page). Self-regeneration is now conditional on Devil Trigger. Tags: broad `healing` removed, `self-regeneration` kept with the DT claim."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

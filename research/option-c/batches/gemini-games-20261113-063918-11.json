@@ -1,0 +1,810 @@
+{
+  "batchId": "Gemini V2 research games 20261113-063918 #11",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Princess Peach",
+      "continuity": "Super Mario series (main platformers and spin-offs incl. Super Princess Peach, Mario & Luigi: Bowser's Inside Story)",
+      "summary": "Princess Peach is the ruler of the Mushroom Kingdom. Though frequently kidnapped by Bowser, she can float in midair, uses power-ups such as the Fire Flower in later platformers, and in Super Princess Peach fights with emotion-based vibe powers and her parasol Perry.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Parasol Strike",
+          "Vibe Emotions",
+          "Turnips",
+          "Golf Club Swing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Float jump",
+          "Calm vibe self-healing"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to being captured or ambushed when separated from guards"
+      ],
+      "mobility": [
+        "Float jump",
+        "Glide",
+        "Running",
+        "Joy vibe flight (Super Princess Peach)"
+      ],
+      "limitations": [
+        "Vibe powers can only be used until her Vibe Gauge is empty; it is refilled with crystals or by Perry eating enemies"
+      ],
+      "sources": [
+        {
+          "url": "https://mariowiki.com/Princess_Peach",
+          "supports": "Peach's float ability (first seen in Super Mario Bros. 2) and gliding in Super Mario 3D World, Super Princess Peach vibes (Joy flight/whirlwind, Gloom, Rage, Calm healing), Fire Flower use from Super Mario 3D World on, and her telekinetic throw of Bowser in Mario & Luigi: Bowser's Inside Story."
+        },
+        {
+          "url": "https://www.mariowiki.com/Vibe_Gauge",
+          "supports": "Vibe Gauge mechanics: vibes usable only until the gauge is empty; refilled by crystals or Perry eating enemies."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Can float in midair, an ability first seen in Super Mario Bros. 2.",
+          "citation": "Super Mario Bros. 2",
+          "source": 0
+        },
+        {
+          "claim": "Used vibe powers: Joy to fly and spin foes and objects with a whirlwind, Gloom to speed up and grow plants with tears, Rage to shake the ground and melt ice, and Calm to heal herself.",
+          "citation": "Super Princess Peach",
+          "source": 0
+        },
+        {
+          "claim": "Telekinetically threw Bowser far into the forest outside Toad Town, with Starlow's help.",
+          "citation": "Mario & Luigi: Bowser's Inside Story",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Fire form",
+          "dependsOn": "Fire Flower power-up (Super Mario 3D World onward)",
+          "source": 0
+        },
+        {
+          "ability": "Vibe powers (Joy, Gloom, Rage, Calm)",
+          "dependsOn": "Remaining Vibe Gauge energy",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Uses emotion-based vibe powers in Super Princess Peach.",
+          "source": 0
+        },
+        {
+          "tag": "glide",
+          "claim": "Floats in midair and can glide, even without a skirt, in Super Mario 3D World.",
+          "source": 0
+        },
+        {
+          "tag": "flight",
+          "claim": "The Joy vibe lets her fly in Super Princess Peach.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "The Calm vibe lets her heal herself in Super Princess Peach.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of her magical potential outside of specific spin-off titles remains inconsistent across standard platformers.",
+        "No direct, documented one-on-one fight result was verified; the Super Mario Odyssey kidnapping by Bowser was removed because a capture is not a fight."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Princess Peach|Elephant Peach",
+      "continuity": "Super Mario Bros. Wonder",
+      "summary": "Elephant Peach is the form Princess Peach takes after collecting an Elephant Fruit in Super Mario Bros. Wonder. She becomes a plump elephant with an enlarged size and hitbox, defeats enemies with trunk swings, breaks blocks and carries water in her trunk.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Trunk Swing",
+          "Block Smash",
+          "Water Spray"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Larger physical mass"
+        ]
+      },
+      "weaknesses": [
+        "Enlarged hitbox makes her an easier target; struggles to fit through pipes and doors"
+      ],
+      "mobility": [
+        "Walking and jumping"
+      ],
+      "limitations": [
+        "Transformation is temporary and dependent on retaining the Elephant power-up state"
+      ],
+      "formDifferences": "Unlike base Peach, the Elephant Fruit turns her into a plump pink elephant with frilled ears and an enlarged size and hitbox. She gains a trunk swing that defeats enemies, can break blocks from below or the side, and can store water in her trunk to spray on flowers.",
+      "sources": [
+        {
+          "url": "https://mariowiki.com/Elephant_Mario",
+          "supports": "Elephant form mechanics shared by all characters including Peach (Elephant Fruit, trunk attack, block breaking, water storage/spraying, enlarged size and hitbox), with an Elephant Peach model in the gallery."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeats enemies such as Goombas by swinging her trunk and breaks through blocks from below or the side.",
+          "citation": "Super Mario Bros. Wonder",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Elephant transformation",
+          "dependsOn": "Elephant Fruit item",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of the Elephant transformation without collecting additional items.",
+        "No numeric size is documented (only an 'enlarged size'), so the form does not qualify as giant-sized.",
+        "Whether the form can swim was not documented on the source page."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Princess Peach|Radiant Peach",
+      "continuity": "Princess Peach: Showtime!",
+      "summary": "Radiant Peach is the transformation Peach gains from the Sparklas' Sparkla Spirits to reach and fight Grape in the final level. In this form she levitates and fires Sparkla projectiles.",
+      "offense": {
+        "domains": [
+          "energy"
+        ],
+        "techniques": [
+          "Sparkla projectiles"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Aerial dodging of obstacles"
+        ]
+      },
+      "weaknesses": [
+        "Slows down while firing, so she must stop shooting to dodge incoming hazards"
+      ],
+      "mobility": [
+        "Levitation/flight"
+      ],
+      "limitations": [
+        "Form is powered by the Sparkla Spirits and appears only for the final confrontation with Grape"
+      ],
+      "formDifferences": "Unlike base Peach, Radiant Peach levitates freely and fires an unlimited stream of Sparkla projectiles, but she slows down while firing.",
+      "sources": [
+        {
+          "url": "https://www.mariowiki.com/Radiant_Peach",
+          "supports": "Radiant Peach transformation from the Sparkla Spirits, levitation, Sparkla projectiles, slowing while firing, and its use for the Grape boss fight."
+        },
+        {
+          "url": "https://www.mariowiki.com/It's_Showtime,_Grape!",
+          "supports": "Final level: Radiant Peach floats and fires Sparkle projectiles at Grape until he is stunned; the final defeat of Grape the Great comes as Super Radiant Peach."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Floated above the arena firing Sparkle projectiles at Grape while dodging falling boxes, fire and speeding trains, then flew higher to deliver final blows to the stunned Grape.",
+          "citation": "Princess Peach: Showtime! (It's Showtime, Grape!)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Grape",
+          "result": "win",
+          "citation": "Princess Peach: Showtime! (It's Showtime, Grape!)",
+          "note": "Won the first phase as Radiant Peach; Grape's final form (Grape the Great) was destroyed after Peach became Super Radiant Peach.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Radiant Peach transformation",
+          "dependsOn": "The Sparklas' Sparkla Spirits",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether Radiant Peach's abilities function outside of the Sparkle Theater.",
+        "No shield or defensive power is documented for this form.",
+        "Unsupported by cited source (term check, 2/6 key terms found): flight: Levitates and flies freely, steered with the Left Stick."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Princess Peach|Swordfighter Peach",
+      "continuity": "Princess Peach: Showtime!",
+      "summary": "Swordfighter Peach is a combat transformation in which Peach wields a rapier left-handed, chaining sword attacks, spin and upward slashes, and timed counter-dodges against the Sour Bunch.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Consecutive rapier attacks",
+          "High spin attack",
+          "Upward slash",
+          "Counter dodge"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Timed jump counter-dodge",
+          "Slide dodge behind charging enemies"
+        ]
+      },
+      "weaknesses": [
+        "Limited range against heavy ranged attackers"
+      ],
+      "mobility": [
+        "Slide dodge",
+        "Counter jump"
+      ],
+      "limitations": [
+        "Limited to close-quarters melee combat"
+      ],
+      "formDifferences": "Unlike base Peach, Swordfighter Peach wears a cavalier hat and uniform and fights with a rapier, performing rapid consecutive sword attacks, spin and upward slashes, and counter-dodges (timed jump or slide) against charging enemies.",
+      "sources": [
+        {
+          "url": "https://mariowiki.com/Swordfighter_Peach",
+          "supports": "Swordfighter Peach's rapier, consecutive sword attacks, spin and upward slashes, counter-dodges, the timed dodge required for the three boss fights, and the Sour Bunch description."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Performed consecutive rapier attacks, destroyed objects blocking her path, and used timed counter-dodges, which are required to beat the boss fights of the three Swordfighter levels.",
+          "citation": "Princess Peach: Showtime!",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Durability of the rapier against extremely heavy armor.",
+        "How the transformation is obtained is not described on the source page.",
+        "The specific bosses of the three Swordfighter levels are not named on the source page."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Professor Oak",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Professor Samuel Oak is the foremost Pokémon researcher in the Kanto region, who gives the player a first Pokémon and the Pokédex he created. He does not battle in the released games, but unused trainer data shows a powerful five-Pokémon team, and Agatha recalls him as a former top-class trainer who quit battling for research.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Full team Pokémon battle command"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Defensive positioning behind trained Pokémon"
+        ]
+      },
+      "weaknesses": [
+        "Advanced age limits physical combat capability",
+        "Has not battled competitively since leaving to focus on research"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Relies entirely on external Pokémon for offensive and defensive combat actions"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Professor_Oak",
+          "supports": "Oak's role as Pokémon researcher and mentor in Red and Blue, the unused five-Pokémon battle in the game code, and Agatha's remarks that he left competitive battling."
+        },
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Samuel_Oak",
+          "supports": "Unused trainer data in all Generation I games (three teams at levels 66-70, higher than Blue's Champion team, glitch-accessible), and his past rivalry with Agatha."
+        },
+        {
+          "url": "https://pokemon.fandom.com/wiki/Professor_Oak",
+          "supports": "Species in Oak's unused Generation I team: Tauros, Exeggutor, Arcanine, Gyarados and the fully evolved starter, levels 66-70."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Has unused trainer data in all Generation I games: three team variants of five Pokémon at levels 66-70 (Tauros, Exeggutor, Arcanine, Gyarados and a fully evolved starter), higher-level than Blue's Champion team.",
+          "citation": "Pokémon Red and Blue (unused battle data)",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Full combat lineup",
+          "dependsOn": "Access to fully trained Pokémon team (Tauros, Arcanine, Gyarados, Exeggutor, fully evolved starter)",
+          "source": 2
+        }
+      ],
+      "unknowns": [
+        "Exact canonical outcome of his unused battle against the player; it can only be reached through glitches.",
+        "Agatha says (Pokémon Masters EX) that Oak always beat her in their childhood battles; the former 'loss to Agatha' result was unsupported and removed, and the 'former Champion' title comes only from the Pokémon Adventures manga."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Pyramid Head",
+      "continuity": "Silent Hill 2",
+      "summary": "Pyramid Head is a manifestation of James Sunderland's guilt and Maria's executioner in Silent Hill 2. He wields the massive Great Knife and later a spear, is slow but cannot be killed in his boss encounters, and repeatedly hunts James.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Great Knife Slashing",
+          "Overhead Great Knife blow",
+          "Spear Impalement"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cannot be killed in his boss encounters",
+          "Heavy metal helmet protection"
+        ]
+      },
+      "weaknesses": [
+        "Extreme slowness and lack of ranged attack options"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Movement speed is consistently slow and predictable"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pyramid_Head",
+          "supports": "Overview of Pyramid Head, symbolism, the Great Knife and spear, his role as Maria's executioner, killing two other monsters, repeated encounters and a final battle with James."
+        },
+        {
+          "url": "https://silenthillheaven.com/sh2/sh2_bosses",
+          "supports": "Silent Hill 2 boss encounters: one-shot overhead Great Knife blow, spear attacks, killing Maria with five stabs, slowness, and the fact that he cannot be killed."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wields the Great Knife, described in-game as a massive weapon that is hard to use but lethal, and killed two other monsters in one scene.",
+          "citation": "Silent Hill 2",
+          "source": 0
+        },
+        {
+          "claim": "His overhead Great Knife blow can kill James in one shot, and he kills Maria with five spear stabs if she is not protected.",
+          "citation": "Silent Hill 2",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "James Sunderland",
+          "result": "inconclusive",
+          "citation": "Silent Hill 2",
+          "note": "Fought James in several boss encounters including a final battle; he cannot be killed, and the encounters end with him walking away rather than with a decisive defeat.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "True biological nature beyond being a supernatural manifestation of James's psyche.",
+        "The claim that Pyramid Head kills himself at the end of the final battle was not documented on the pages opened (the boss guide says the two Pyramid Heads turn and walk away)."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Q*bert",
+      "continuity": "Q*bert arcade game",
+      "summary": "Q*bert is a small orange creature who hops across an isometric pyramid of cubes, changing their colors while avoiding enemies such as Coily, Ugg and Wrongway. He cannot harm enemies directly and relies on evasion, green balls that freeze enemies, and flying discs that lure Coily off the pyramid.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Luring Coily off the pyramid with a flying disc",
+          "Freezing enemies with a green ball"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile diagonal jumping",
+          "Escaping via flying discs"
+        ]
+      },
+      "weaknesses": [
+        "Dies on contact with Coily, Ugg, Wrongway or red balls",
+        "Dies instantly upon jumping off the edge of the pyramid without a disc"
+      ],
+      "mobility": [
+        "Diagonal hopping",
+        "Riding flying discs to the top of the pyramid"
+      ],
+      "limitations": [
+        "Cannot attack opponents directly without items or environmental hazards"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Q*bert",
+          "supports": "Q*bert gameplay: cube color changing, enemies (Coily, Ugg, Wrongway, Slick, Sam, red and green balls), discs that carry him to the top, Coily falling to his death when lured, green balls freezing enemies, and death from jumping off the pyramid."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Changed all the cubes on a pyramid to the target color while avoiding Coily, Ugg and Wrongway.",
+          "citation": "Q*bert arcade game",
+          "source": 0
+        },
+        {
+          "claim": "Freezes all on-screen enemies for a limited time by touching a green ball.",
+          "citation": "Q*bert arcade game",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Coily",
+          "result": "win",
+          "citation": "Q*bert arcade game",
+          "note": "Rode a disc to the top of the pyramid while Coily chased him; Coily jumped after him and fell to his death.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Escape via flying disc",
+          "dependsOn": "Flying disc at the edge of the pyramid",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of Q*bert's capabilities outside of isometric grid puzzles.",
+        "Wikipedia's statement that luring Coily also clears all enemies and balls is marked [citation needed]."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Raiden",
+      "continuity": "Metal Gear series (Metal Gear Solid 4 and Metal Gear Rising: Revengeance)",
+      "summary": "Raiden is a cyborg ninja whose body, below the upper jaw in MGS4 and fully in Revengeance, is cybernetic, with carbon nanotube muscle fiber. He fights with high-frequency blades, uses Blade Mode and zan-datsu to cut enemies apart and take their repair materials, and has an alternate 'Jack the Ripper' persona.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "High-Frequency Blade Combo",
+          "Blade Mode Precision Slicing",
+          "Ninja Run Attack",
+          "Zan-datsu (cut and take)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cybernetic durability (steel and artificial muscle fiber body)",
+          "Parry (including Aerial Parry)",
+          "Restoring health with repair material taken from enemies via zan-datsu"
+        ]
+      },
+      "weaknesses": [
+        "Nanomachine-hardened opponents can break his HF blade (Armstrong snapped it)"
+      ],
+      "mobility": [
+        "Ninja Run",
+        "Springboarding across airborne missiles",
+        "Leaping over vertical obstacles"
+      ],
+      "limitations": [
+        "Custom Cyborg Body lacks a self-repair unit, so he must take repair material and electrolytes from enemy cyborgs",
+        "In MGS4 his 'White Blood' needed regular dialysis and filtering"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Raiden_(Metal_Gear)",
+          "supports": "Overview of Raiden's evolution from special forces operative to cyborg ninja, his cybernetic bodies, high-frequency swords, White Blood dialysis, and Armstrong as his final opponent in Revengeance."
+        },
+        {
+          "url": "https://metalgear.fandom.com/wiki/Raiden",
+          "supports": "Metal Gear Excelsus fight, defeat of Armstrong with Sam's sword, springboarding across missiles, carbon nanotube muscle body, zan-datsu and the lack of a self-repair unit, Blade Mode, Ripper persona."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Cut off Metal Gear Excelsus's front legs, threw it onto stable ground, fought it with one of its blade arms and impaled it with its own sword.",
+          "citation": "Metal Gear Rising: Revengeance",
+          "source": 1
+        },
+        {
+          "claim": "Hopped onto Hammerhead's AIM-9X Sidewinder missiles and springboarded across several HEMP missiles to reach a Metal Gear RAY.",
+          "citation": "Metal Gear Rising: Revengeance",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Senator Armstrong",
+          "result": "win",
+          "citation": "Metal Gear Rising: Revengeance",
+          "note": "After Armstrong's nanomachines snapped his HF Blade, Blade Wolf gave Raiden Sam's sword; Raiden then plunged his arm into Armstrong and ripped out his heart.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Cybernetic body (below the upper jaw in MGS4, a new body from Doktor in Revengeance) with carbon nanotube muscle fiber.",
+          "source": 1
+        },
+        {
+          "tag": "healing",
+          "claim": "Restores his health by cutting apart enemy cyborgs and taking their repair material (zan-datsu).",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full capacity of his Ripper mode psychological state under extreme stress.",
+        "Vulnerability to EMP was claimed but not documented on the pages opened."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Raiden (MK)",
+      "continuity": "Mortal Kombat series",
+      "summary": "Raiden is the God of Thunder and protector of Earthrealm. He controls lightning, creating bolts, electric shields and blades, can teleport, fly and open portals between realms, receives visions of the future, and is a skilled staff fighter in most games.",
+      "offense": {
+        "domains": [
+          "energy",
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Lightning Bolt",
+          "Torpedo (Superman/Electric Fly)",
+          "Electric Teleport",
+          "Staff Strike"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Divine resilience (though not indestructible)",
+          "Electric shields",
+          "Teleportation evasion"
+        ]
+      },
+      "weaknesses": [
+        "Loses his powers in realms not native to him, such as Outworld"
+      ],
+      "mobility": [
+        "Lightning teleportation",
+        "Flight",
+        "Opening portals between realms"
+      ],
+      "limitations": [
+        "Elder Gods forbid intervening in one realm's war against another",
+        "As a god, cannot enter Mortal Kombat tournaments directly unless he takes mortal form"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Raiden_(Mortal_Kombat)",
+          "supports": "Overview of Raiden as God of Thunder, his Torpedo move, visions, killing Shao Kahn with the Elder Gods' help in the 2011 reboot, and defeating Shinnok with Fujin in MKX."
+        },
+        {
+          "url": "https://mortalkombat.fandom.com/wiki/Raiden",
+          "supports": "Detailed powers (lightning, electric shields and blades, teleportation, flight, portals, visions), Torpedo move, staff mastery, loss of power outside native realms, and Elder God restrictions."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "His Torpedo move is a flying charge that pins the opponent against a wall.",
+          "citation": "Mortal Kombat series",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Shao Kahn",
+          "result": "win",
+          "citation": "Mortal Kombat (2011)",
+          "note": "Killed Shao Kahn with the assistance of the Elder Gods.",
+          "source": 0
+        },
+        {
+          "opponent": "Shinnok",
+          "result": "win",
+          "citation": "Mortal Kombat X",
+          "note": "With Fujin, defeated the fallen Elder God and trapped him in his amulet; Shinnok later took Raiden prisoner and was defeated by Cassie Cage.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-control",
+          "claim": "Controls lightning and electricity, summoning bolts and forming thunderstorms.",
+          "source": 1
+        },
+        {
+          "tag": "electric-weapon",
+          "claim": "Creates electric shields and blades.",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Can fly as one of his innate divine powers.",
+          "source": 1
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Teleports himself in a flash of lightning.",
+          "source": 1
+        },
+        {
+          "tag": "portals",
+          "claim": "Can open portals between realms.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his temporal manipulation when merging timelines.",
+        "In MK11 he merged with Liu Kang to form Fire God Liu Kang rather than defeating him; no Raiden-vs-Liu Kang result is documented, so the former 'win' was removed.",
+        "Telepathy was claimed but is not documented on the pages opened; he does receive visions and can sense energy signatures."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Ratchet",
+      "continuity": "Ratchet & Clank series",
+      "summary": "Ratchet is a Lombax mechanic and galactic hero who invents devices, fights with the OmniWrench and a huge weapons arsenal including the RYNO, and crosses levels with gadgets such as the Swingshot, Hoverboots and Heli-Pack. He is a skilled starship pilot despite having no license.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "OmniWrench Melee Combo",
+          "RYNO Missile Barrage",
+          "Bouncer Grenade Toss",
+          "Plasma Whip"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armor plating upgrades",
+          "Acrobatic dodging"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable if caught without ammo or weapons arsenal"
+      ],
+      "mobility": [
+        "Hoverboots",
+        "Heli-Pack glide",
+        "Swingshot grapple",
+        "Starship piloting"
+      ],
+      "limitations": [
+        "Weapon effectiveness depends on ammunition reserves and bolt upgrades",
+        "His untested inventions sometimes backfire"
+      ],
+      "sources": [
+        {
+          "url": "https://ratchetandclank.fandom.com/wiki/Dimensionator",
+          "supports": "Dimensionator history: built by lombax architects, used mostly by others (Tachyon, Nefarious, Neftin Prog and more); Ratchet holds it to open a rift at the end of Rift Apart."
+        },
+        {
+          "url": "https://ratchetandclank.fandom.com/wiki/Ratchet",
+          "supports": "Ratchet as mechanic and inventor, weapons (RYNO), Hoverboots and Swingshot, piloting and dogfights, and defeats of Dr. Nefarious in Up Your Arsenal and A Crack in Time."
+        },
+        {
+          "url": "https://ratchetandclank.fandom.com/wiki/Heli-Pack",
+          "supports": "The Heli-Pack lets Ratchet glide in the air."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Has survived and won several space dogfights against insurmountable odds, despite having no pilot's license.",
+          "citation": "Ratchet & Clank series",
+          "source": 1
+        },
+        {
+          "claim": "Built his first starship with his OmniWrench and later made a warp drive from scrap metal.",
+          "citation": "Ratchet & Clank series",
+          "source": 1
+        },
+        {
+          "claim": "Holding the Dimensionator, opened a rift that called an angry Kraken to drag the defeated Emperor Nefarious away.",
+          "citation": "Ratchet & Clank: Rift Apart",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dr. Nefarious",
+          "result": "win",
+          "citation": "Ratchet & Clank: Up Your Arsenal",
+          "note": "Caught and defeated Nefarious on Mylon; Nefarious teleported away and was stranded on an asteroid.",
+          "source": 1
+        },
+        {
+          "opponent": "Dr. Nefarious",
+          "result": "win",
+          "citation": "Ratchet & Clank Future: A Crack in Time",
+          "note": "Defeated Nefarious together with Clank and Qwark.",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and space combat",
+          "dependsOn": "Starship access (e.g., the Aphelion)",
+          "source": 1
+        },
+        {
+          "ability": "Opening dimensional rifts",
+          "dependsOn": "Possession of the Dimensionator",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses gadgets such as the Swingshot and Hoverboots to cross gaps and traverse environments.",
+          "source": 1
+        },
+        {
+          "tag": "inventor",
+          "claim": "A talented mechanic who has invented powerful devices, built his first starship and a warp drive from scrap.",
+          "source": 1
+        },
+        {
+          "tag": "glide",
+          "claim": "Glides in the air with the Heli-Pack.",
+          "source": 2
+        },
+        {
+          "tag": "pilot",
+          "claim": "A skilled starship pilot who has won several dogfights in space.",
+          "source": 1
+        },
+        {
+          "tag": "portals",
+          "claim": "Holding the Dimensionator, opened a rift at the end of Rift Apart; the device is mostly used by others.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of the Dimensionator's stability when handling infinite parallel realities simultaneously.",
+        "The RYNO 'obliterated armies in Going Commando' feat and the Rift Apart defeat of Nefarious could not be confirmed on the pages opened.",
+        "Shield gadgets (e.g., Shield Charger) were not documented on the pages opened."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

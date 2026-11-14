@@ -1,0 +1,445 @@
+{
+  "batchId": "Gemini V2 research mcu 20261113-044705 #80",
+  "schemaVersion": 1,
+  "pool": "mcu",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "mcu:Jessica Jones",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Jessica Jones relies on superhuman strength and durability to close the distance in close-quarters combat, often compensating for a lack of formal martial arts training with sheer force and resilience.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superhuman durability"
+        ]
+      },
+      "weaknesses": [
+        "Emotional trauma and psychological triggers"
+      ],
+      "mobility": [
+        "Leaping great distances",
+        "Standard running"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jessica_Jones_(Marvel_Cinematic_Universe)",
+          "supports": "Superhuman strength, durability, and general background in the MCU."
+        }
+      ],
+      "feats": [],
+      "notableResults": [],
+      "unknowns": [
+        "Exact upper limit of her lifting capacity and durability threshold.",
+        "Removed by review (not supported by the cited source): technique: Brawling; technique: Throwing heavy objects; technique: Door breaching; defense: High pain tolerance; weakness: Alcohol dependency; limitation: Lacks formal combat training, relying primarily on raw power.; feat: Lifted a heavy car and tossed open reinforced security doors with ease.; result: Luke Cage",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "mcu:Jimmy Woo",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Jimmy Woo is an FBI agent who relies on standard law enforcement firearms, tactical gear, and basic hand-to-hand combat training, supplemented by parlor tricks like close-up magic.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jimmy_Woo",
+          "supports": "FBI background, training, and appearances in the MCU."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [],
+      "unknowns": [
+        "Extent of field combat capabilities outside of standard agency protocol.",
+        "Removed by review (not supported by the cited source): technique: Firearm proficiency; technique: Standard FBI tactical arrest techniques; defense: FBI body armor; defense: Tactical cover; weakness: Standard human physical vulnerabilities; limitation: Peak human physical conditioning with no superhuman attributes.; mobility: Standard running; mobility: Driving standard vehicles; feat: Successfully mastered close-up magic card tricks.; tag: Uses business cards and sleight-of-hand tricks learned from Scott Lang.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "mcu:John Walker",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "John Walker is a highly decorated military veteran enhanced by the Super Soldier Serum, fighting with aggressive tactical brawling, firearms, and the Vibranium-alloy shield.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Military close-quarters combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Super Soldier durability"
+        ]
+      },
+      "weaknesses": [
+        "Psychological instability and intense pressure to live up to the Captain America mantle"
+      ],
+      "mobility": [
+        "Peak human athletic speed and endurance enhanced by the Super Soldier Serum"
+      ],
+      "limitations": [
+        "Vulnerable to psychological manipulation and emotional outbursts."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/US_Agent",
+          "supports": "Background, Super Soldier enhancement, and MCU depiction in The Falcon and the Winter Soldier."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged and held his own against Flag Smasher super soldiers in hand-to-hand combat.",
+          "citation": "Wikipedia: US Agent",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bucky Barnes",
+          "result": "loss",
+          "citation": "Wikipedia: US Agent",
+          "note": "Fought alongside Falcon against Bucky and Sam, ending in a tactical loss.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Shield combat and deflection",
+          "dependsOn": "Possession of the Captain America shield",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term stability and psychological effects of the specific Super Soldier variant he ingested.",
+        "Removed by review (not supported by the cited source): technique: Shield throwing and bashing; technique: Aggressive ground-and-pound; defense: Vibranium-alloy shield blocking"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Kaecilius",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Kaecilius is a rogue Master of the Mystic Arts who wields dimensional energy, spatial manipulation, and magical blade constructs to overwhelm opponents.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Mystical flight"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kaecilius",
+          "supports": "Abilities, mystical training, and role in Doctor Strange."
+        }
+      ],
+      "feats": [],
+      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Master of the Mystic Arts capable of casting complex dimensional spells.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of power without the backing of the Dark Dimension.",
+        "Removed by review (not supported by the cited source): technique: Dimensional warping; technique: Conjuring magical blades; technique: Mirror Dimension manipulation; defense: Mystical shielding; defense: Spatial distortion; weakness: Reliance on dimensional power sources for sustained magic; limitation: Dependent on the mystical arts and connection to dark dimensions for advanced feats.; mobility: Portal teleportation; feat: Manipulated the geometry of New York City within the Mirror Dimension.; result: Doctor Strange; tag: Able to fold space and open portals.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "mcu:Kate Bishop",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Kate Bishop is a highly skilled archer and martial artist who utilizes trick arrows, tactical agility, and sharp marksmanship to engage opponents from a distance.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Archery marksmanship",
+          "Close-quarters quarterstaff combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability"
+      ],
+      "mobility": [
+        "Standard running"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kate_Bishop",
+          "supports": "Archery skills, training, and MCU appearance in Hawkeye."
+        }
+      ],
+      "feats": [],
+      "conditional": [],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Carries specialized trick arrows with various explosive and utility payloads.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Proficiency with heavy firearms compared to traditional archery.",
+        "Removed by review (not supported by the cited source): technique: Trick arrows (explosive, acid, tether); defense: Acrobatic evasion; defense: Improvised tactical cover; limitation: Limited physical durability and dependent on ammunition supply.; mobility: Acrobatic movement; feat: Successfully engaged multiple Tracksuit Mafia members using advanced archery and trick arrows.; conditional: Specialized explosive and utility payloads"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Katy",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Katy is an expert driver and casual archer who relies on vehicle maneuvers and spontaneous support actions during combat encounters.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Archery"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Driving vehicles",
+        "Standard running"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Shang-Chi_and_the_Legend_of_the_Ten_Rings",
+          "supports": "Katy's role, driving feats, and archery training in Shang-Chi."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Landed a critical arrow shot during the battle of Ta Lo.",
+          "citation": "Wikipedia: Shang-Chi and the Legend of the Ten Rings",
+          "source": 0
+        }
+      ],
+      "conditional": [],
+      "campaignTags": [],
+      "unknowns": [
+        "Long-term effectiveness in sustained combat without vehicle support.",
+        "Removed by review (not supported by the cited source): technique: Tactical driving; defense: Vehicle cover; weakness: Standard human vulnerability with minimal formal combat training; limitation: Lacks hand-to-hand combat training and superhuman physical traits.; conditional: High-speed tactical navigation; tag: Demonstrates expert tactical driving skills under extreme conditions."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Killmonger",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Killmonger is a ruthless Black Ops mercenary and martial artist who utilizes peak human conditioning, Wakandan vibranium weapons, and the synthetic Heart-Shaped Herb enhancement.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Military martial arts",
+          "Dual vibranium-edged blades",
+          "Vibranium panther habit combat suit"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vibranium weave panther habit armor",
+          "Enhanced durability from the Heart-Shaped Herb"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and intense desire for global conflict"
+      ],
+      "mobility": [
+        "Enhanced athletic leaping and running"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Killmonger_(Marvel_Cinematic_Universe)",
+          "supports": "Combat skills, Wakandan tech usage, and Black Panther appearance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated T'Challa in ritual combat for the Wakandan throne.",
+          "citation": "Wikipedia: Killmonger (Marvel Cinematic Universe)",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "conditional": [
+        {
+          "ability": "Kinetic energy blast discharge and impervious armor",
+          "dependsOn": "Wearing the vibranium panther habit",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the vibranium-weave Black Panther habit providing kinetic energy absorption.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of enhanced physical attributes without regular access to the herb.",
+        "Removed by review (not supported by the cited source): limitation: Vulnerable to specialized sonic dampeners designed to disrupt vibranium weave.; result: T'Challa"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "mcu:Kingo",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Kingo is an immortal Eternal who channels cosmic energy through his hands to project rapid-fire projectile blasts in combat.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Eternals_(film)",
+          "supports": "Kingo's Eternal physiology and cosmic projectile abilities."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Innate Eternal ability to levitate and fly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full potential of his cosmic blasts when not holding back for cinematic or dramatic reasons.",
+        "Removed by review (not supported by the cited source): technique: Cosmic energy finger-projectiles; technique: Hand-to-hand combat; defense: Eternal physiological durability; defense: Cosmic energy deflection; weakness: Reluctance to engage in lethal conflicts with former allies; limitation: Cannot alter his fundamental cosmic energy projection style.; feat: Fired rapid streams of cosmic energy projectiles during battles against Deviants.; tag: Capable of sustained space and atmospheric flight as an Eternal.",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "mcu:Kingpin",
+      "continuity": "Marvel Cinematic Universe",
+      "summary": "Wilson Fisk (Kingpin) is a crime lord possessing immense physical mass, brutal strength, and high-level tactical influence, overpowering opponents with sheer size and merciless brawling.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Standard running and heavy stepping"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kingpin_(Marvel_Cinematic_Universe)",
+          "supports": "Strength, durability, and appearances in Daredevil and Hawkeye."
+        }
+      ],
+      "feats": [],
+      "notableResults": [],
+      "unknowns": [
+        "Exact physical composition of his durability against superhuman attacks.",
+        "Removed by review (not supported by the cited source): technique: Brutal grappling; technique: Improvised weapon strikes; technique: Crushing holds; defense: Massive physical bulk; defense: Custom-tailored Kevlar-lined suits; weakness: Prone to blind rage when personal relationships or control are threatened; limitation: Lacks agility and speed against faster, acrobatic martial artists.; feat: Decapitated a car door and severely beat opponents with bare hands.; result: Daredevil",
+        "Flagged needs-review: most claims unsupported by sources."
+      ],
+      "researchStatus": "needs-review"
+    }
+  ]
+}

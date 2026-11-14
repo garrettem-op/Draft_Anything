@@ -1,0 +1,549 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-065220 #58",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Diglett",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Diglett burrows underground to avoid attacks and strikes suddenly from below using physical attacks like Earthquake, Scratch, and Dig.",
+      "offense": {
+        "domains": [
+          "physical",
+          "earth"
+        ],
+        "techniques": [
+          "Scratch",
+          "Dig",
+          "Earthquake",
+          "Mud-Slap"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Burrowing underground to avoid detection and attacks",
+          "Arena Trap ability preventing opponents from fleeing"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Water, Grass, and Ice-type attacks",
+        "Exposed to bright sunlight which hurts its skin"
+      ],
+      "mobility": [
+        "Burrowing"
+      ],
+      "limitations": [
+        "Body structure is mostly hidden underground, limiting exposed surface area."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Diglett_(Pok%C3%A9mon)",
+          "supports": "Basic abilities, types, moves, and weaknesses of Diglett."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Burrows underground and launches unexpected physical strikes.",
+          "citation": "Pokémon Red and Blue Pokedex entries and game mechanics",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "What the rest of Diglett's body looks like underneath the ground."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Ditto",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Ditto uses its unique Transform ability to copy the exact appearance, abilities, stats, and moves of any opposing Pokémon in battle.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "variable"
+        ],
+        "techniques": [
+          "Transform",
+          "Struggle"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Transforming into the opponent to match their defensive stats and typing"
+        ]
+      },
+      "weaknesses": [
+        "Low base stats prior to transformation",
+        "Fails if the opponent has already transformed"
+      ],
+      "mobility": [
+        "Normal movement / Transforming to match opponents"
+      ],
+      "limitations": [
+        "Starts battle with only the Transform move until used."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Ditto_(Pok%C3%A9mon)",
+          "supports": "Transform ability, movepool, and properties of Ditto."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully transformed into a replica of an opponent in combat.",
+          "citation": "Pokémon Red and Blue gameplay",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Copies all moves and stats of the opponent",
+          "dependsOn": "Successful execution of Transform",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Interactions with legendary Pokémon forms during transformation in various continuities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Dodrio",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Dodrio is a three-headed avian Pokémon that relies on high-speed physical attacks, sharp pecks, and multi-hit strikes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Peck",
+          "Tri Attack",
+          "Drill Peck",
+          "Agility"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High movement speed to evade attacks"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Electric, Ice, and Rock-type attacks"
+      ],
+      "mobility": [
+        "Super-speed running"
+      ],
+      "limitations": [
+        "Lacks traditional flight capabilities despite classification, relying on leaps."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Dodrio_(Pok%C3%A9mon)",
+          "supports": "Dodrio stats, typing, abilities, and move sets."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses its three heads to attack from multiple angles simultaneously.",
+          "citation": "Pokémon Red and Blue Pokedex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Dodrio can learn Fly and is noted to jump great distances despite lacking traditional wings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact mechanics of how its three heads share a single consciousness."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Doduo",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Doduo is a two-headed flightless bird Pokémon that uses swift running speeds and sharp pecks to overwhelm foes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Peck",
+          "Quick Attack",
+          "Pursuit"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High agility and running speed"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Electric, Ice, and Rock-type attacks"
+      ],
+      "mobility": [
+        "Super-speed running"
+      ],
+      "limitations": [
+        "Cannot fly."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Doduo_(Pok%C3%A9mon)",
+          "supports": "Doduo stats, typing, and abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Runs across open plains at high speeds using powerful legs.",
+          "citation": "Pokémon Red and Blue Pokedex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether its two brains act independently or cooperatively during battle."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Dragonair",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Dragonair is a serpentine Dragon-type Pokémon that commands elemental forces like water, ice, and electricity, and can fly.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Dragon Rage",
+          "Slam",
+          "Twister",
+          "Hyper Beam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Emits a gentle aura that alters the weather around it"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Ice, Dragon, and Fairy-type attacks"
+      ],
+      "mobility": [
+        "Flight",
+        "Swimming"
+      ],
+      "limitations": [
+        "Relies on energy projection and physical constriction rather than complex tools."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Dragonair_(Pok%C3%A9mon)",
+          "supports": "Dragonair moves, stats, typing, and abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Changes the weather conditions in its surrounding area using its orb.",
+          "citation": "Pokémon Red and Blue Pokedex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Dragonair can fly without wings.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Dragonair lives in bodies of water and swims proficiently.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanism of wingless flight."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Dragonite",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Dragonite is a powerful winged dragon capable of circling the globe in a short time, combining immense physical strength with diverse elemental attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Outrage",
+          "Hyper Beam",
+          "Dragon Claw",
+          "Hurricane"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick dragon scales and high overall durability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Ice, Dragon, Rock, and Fairy-type attacks"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Can become confused after using certain high-power moves like Outrage."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Dragonite_(Pok%C3%A9mon)",
+          "supports": "Dragonite stats, evolution lineage, and move sets."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Circumnavigates the globe in sixteen hours.",
+          "citation": "Pokémon Red and Blue Pokedex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Dragonite has wings and flies through the sky at supersonic speeds.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of its intelligence compared to humans."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Dratini",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Dratini is a juvenile serpentine Dragon-type Pokémon that sheds its skin continuously and fights with tail strikes and basic dragon energy.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Wrap",
+          "Dragon Rage",
+          "Slam"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shedding skin to heal and grow"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Ice, Dragon, and Fairy-type attacks",
+        "Physically fragile due to juvenile state"
+      ],
+      "mobility": [
+        "Swimming",
+        "Slithering"
+      ],
+      "limitations": [
+        "Limited offensive movepool in early development."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Dratini_(Pok%C3%A9mon)",
+          "supports": "Dratini stats, moves, and evolution details."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Constricts opponents with its long body during battle.",
+          "citation": "Pokémon Red and Blue gameplay",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Dratini lives in aquatic environments.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact lifespan before evolving into Dragonair."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Drowzee",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Drowzee is a Psychic-type Pokémon that puts enemies to sleep and feeds on dreams, utilizing hypnosis and mental attacks.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "magic"
+        ],
+        "techniques": [
+          "Hypnosis",
+          "Dream Eater",
+          "Confusion",
+          "Pound"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Psychic barriers and inducing sleep in attackers"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Bug, Ghost, and Dark-type attacks"
+      ],
+      "mobility": [
+        "Normal walking / floating via psychic power"
+      ],
+      "limitations": [
+        "Relies heavily on opponents falling asleep for maximum effectiveness with Dream Eater."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Drowzee_(Pok%C3%A9mon)",
+          "supports": "Drowzee typing, stats, and psychic movepool."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Puts targets to sleep by waving its pendulum or using hypnosis.",
+          "citation": "Pokémon Red and Blue Pokedex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Drowzee uses psychic powers to induce sleep and consume dreams.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether it can distinguish between good and bad dreams before eating them.",
+        "Unsupported by cited source (term check, 1/3 key terms found): mind-control: Drowzee can manipulate targets through hypnosis."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Dugtrio",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Dugtrio is a trio of Diglett sharing a single body, capable of tunneling deep underground to launch synchronized earthquake and scratch attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "earth"
+        ],
+        "techniques": [
+          "Earthquake",
+          "Tri Attack",
+          "Scratch",
+          "Dig"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Subterranean evasion",
+          "Arena Trap ability"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Water, Grass, and Ice-type attacks"
+      ],
+      "mobility": [
+        "Burrowing"
+      ],
+      "limitations": [
+        "Remains tethered to the ground; cannot operate without a subterranean medium."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Dugtrio_(Pok%C3%A9mon)",
+          "supports": "Dugtrio evolution, stats, and abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Burrows up to 60 miles underground and triggers massive earthquakes.",
+          "citation": "Pokémon Red and Blue Pokedex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The anatomical connection between the three heads."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Eevee",
+      "continuity": "Pokémon Red and Blue / Standard Game Continuity",
+      "summary": "Eevee is an adaptable Normal-type Pokémon with an unstable genetic makeup that allows it to evolve into multiple different elemental forms.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tackle",
+          "Quick Attack",
+          "Bite",
+          "Swift"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile dodging and unpredictable adaptation"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to Fighting-type attacks"
+      ],
+      "mobility": [
+        "Quadrupedal running"
+      ],
+      "limitations": [
+        "Base form stats are relatively modest compared to fully evolved Pokémon."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Eevee_(Pok%C3%A9mon)",
+          "supports": "Eevee base stats, evolution options, and moves."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Adapts to harsh environments by altering its genetic structure to evolve.",
+          "citation": "Pokémon Red and Blue Pokedex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact biological trigger that causes spontaneous evolution in the wild."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+name: V2 source support
+# Checks that the claims in research batches are backed by the pages they cite
+# (tools/v2-source-support.cjs). Report-only on pull requests; applies corrections only on
+# claude/source-support-* branches, so a human reviews the resulting data diff in a PR.
+# No secrets are used. The runner makes anonymous HTTPS requests to the cited public pages.
+on:
+  pull_request:
+    branches: [develop/v2-option-c]
+    paths:
+      - 'research/option-c/batches/**'
+      - 'tools/v2-source-support.cjs'
+      - 'tests/v2-source-support.test.cjs'
+      - '.github/workflows/v2-source-support.yml'
+  push:
+    branches: ['claude/source-support-**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: v2-source-support-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/v2-source-support.test.cjs
+
+  report:
+    # Same-repo pull requests only; fork PRs get a read-only token and run only the tests.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check cited sources (report only)
+        run: node tools/v2-source-support.cjs --summary "$RUNNER_TEMP/support.md"
+      - name: Post the report on the PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: gh pr comment "$PR" --body-file "$RUNNER_TEMP/support.md"
+
+  fix:
+    if: github.event_name == 'push'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check cited sources and apply corrections
+        run: node tools/v2-source-support.cjs --fix --summary "$RUNNER_TEMP/support.md"
+      - name: Validate the corrected batches
+        run: node tools/v2-research-pipeline.cjs --validate
+      - name: Commit corrections to this branch
+        run: |
+          if git diff --quiet -- research/option-c/batches; then echo "No unsupported claims found."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/option-c/batches
+          { echo "research: source-support term check, move unsupported claims to unknowns"; echo; cat "$RUNNER_TEMP/support.md"; } > "$RUNNER_TEMP/msg.txt"
+          git commit -F "$RUNNER_TEMP/msg.txt"
+          git push

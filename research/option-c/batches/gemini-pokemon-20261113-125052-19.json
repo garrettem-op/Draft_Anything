@@ -1,0 +1,629 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125052 #19",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Bellsprout",
+      "continuity": "Pokémon Red and Blue / Generation 1",
+      "summary": "Bellsprout is a Grass and Poison-type Pokémon that utilizes whip-like vines and powder attacks to subdue opponents. It can bend its body to gracefully evade attacks and uses its root-like feet to absorb nutrients.",
+      "offense": {
+        "domains": [
+          "physical",
+          "nature",
+          "poison"
+        ],
+        "techniques": [
+          "Vine Whip",
+          "Wrap",
+          "Sleep Powder",
+          "Acid"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Flexible body to elude physical strikes",
+          "Grass and Poison typing resistances"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Fire-type attacks",
+        "Weak to Ice-type attacks",
+        "Weak to Flying-type attacks",
+        "Weak to Psychic-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Slow movement speed on land due to root-like feet"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Bellsprout_(Pok%C3%A9mon)",
+          "supports": "Basic attributes, moves, and elemental weaknesses of Bellsprout"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Learns and uses Vine Whip and Sleep Powder in combat",
+          "citation": "Pokémon Red and Blue game data and associated early anime appearances",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact physical strength limitations outside of standard game stats"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Blastoise",
+      "continuity": "Pokémon Red and Blue / Generation 1",
+      "summary": "Blastoise is a powerful Water-type Pokémon featuring heavy steel cannons on its shell capable of firing high-pressure water jets. It relies on durable defensive plating and overwhelming hydraulic force in battle.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "water"
+        ],
+        "techniques": [
+          "Hydro Pump",
+          "Water Gun",
+          "Skull Bash",
+          "Bite"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely thick and durable shell",
+          "Retracting into shell for protection"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Electric-type attacks",
+        "Weak to Grass-type attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Swimming"
+      ],
+      "limitations": [
+        "Heavy shell limits overall running speed"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Blastoise_(Pok%C3%A9mon)",
+          "supports": "Blastoise baseline abilities, typings, and movepool"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fires water jets from shell cannons capable of punching holes through thick steel",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-breathing",
+          "claim": "Naturally breathes underwater as a water-type Pokémon",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Fires pressurized water from shell cannons",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum water pressure output limit"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Blastoise|Gigantamax Blastoise",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Gigantamax Blastoise transforms into a massive tower-like fortress featuring multiple secondary cannons alongside its main water barrels. It bombards opponents with massive artillery-style water barrages.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "water"
+        ],
+        "techniques": [
+          "G-Max Cannonade",
+          "Hydro Pump"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Colossal shell defense",
+          "Gigantamax health pool expansion"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Electric-type attacks",
+        "Weak to Grass-type attacks",
+        "Form wears off after a limited duration"
+      ],
+      "mobility": [
+        "Stationary or slow movement due to gargantuan size"
+      ],
+      "limitations": [
+        "Gigantamax form reverts after three turns"
+      ],
+      "formDifferences": "Massive increase in physical size, replacement of standard max moves with G-Max Cannonade, and deployment of auxiliary water cannons.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Blastoise_(Pok%C3%A9mon)",
+          "supports": "Gigantamax Blastoise form details and G-Max Cannonade move"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Uses main cannon and 31 secondary cannons simultaneously to bombard battlefields",
+          "citation": "Pokémon Sword and Shield Pokédex entries",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gigantamax form, massive size increase, and G-Max Cannonade access",
+          "dependsOn": "Gigantamax energy phenomenon in specific battle regions",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Grows to towering proportions via Gigantamax phenomenon",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Unleashes massive torrents through multiple artillery barrels",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact structural limits of the auxiliary cannons"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Blastoise|Mega Blastoise",
+      "continuity": "Pokémon X and Y / Generation 6",
+      "summary": "Mega Blastoise consolidates its dual shell cannons into one central, highly accurate mega launcher mounted on its back. It engages foes with sniper-like precision water blasts.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "water"
+        ],
+        "techniques": [
+          "Hydro Pump",
+          "Aura Sphere",
+          "Dark Pulse",
+          "Flash Cannon"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced shell durability via Mega Evolution"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Electric-type attacks",
+        "Weak to Grass-type attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Swimming"
+      ],
+      "limitations": [
+        "Mega Evolution lasts only for the duration of a single battle"
+      ],
+      "formDifferences": "Replaces dual cannons with a single massive central cannon, boosts combat stats, and gains the Mega Launcher ability.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mega_Blastoise",
+          "supports": "Mega Blastoise stats, Mega Launcher ability, and design features"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "HITS targets with high precision from over six miles away using its central main cannon",
+          "citation": "Pokémon X and Y Pokédex entries",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution transformation and Mega Launcher ability boost",
+          "dependsOn": "Blastoisinite held item and Trainer resonance",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-control",
+          "claim": "Fires concentrated blasts from its central mega launcher",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Stamina drain caused by prolonged mega evolution"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Bulbasaur",
+      "continuity": "Pokémon Red and Blue / Generation 1",
+      "summary": "Bulbasaur is a Grass and Poison-type starter Pokémon that uses whip-like vines and a bulb on its back to absorb sunlight and launch seed attacks. It is sturdy and versatile in early combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "nature",
+          "poison"
+        ],
+        "techniques": [
+          "Vine Whip",
+          "Razor Leaf",
+          "Leech Seed",
+          "Seed Bomb"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sturdy quadruped stance",
+          "Absorbing vitality via Leech Seed"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Fire-type attacks",
+        "Weak to Ice-type attacks",
+        "Weak to Flying-type attacks",
+        "Weak to Psychic-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Relies heavily on stored sunlight for prolonged energy exertion"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Bulbasaur_(Pok%C3%A9mon)",
+          "supports": "Bulbasaur attributes, typings, and movepool"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Can nap for days by absorbing sunlight through the bulb on its back",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Restores health using energy absorbed via Leech Seed",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum weight capacity of its vines"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Butterfree",
+      "continuity": "Pokémon Red and Blue / Generation 1",
+      "summary": "Butterfree is a Bug and Flying-type Pokémon that scatters toxic and status-inducing scales from its wings. It uses compound eyes to track foes and airborne mobility to evade counterattacks.",
+      "offense": {
+        "domains": [
+          "nature",
+          "status"
+        ],
+        "techniques": [
+          "Sleep Powder",
+          "Poison Powder",
+          "Stun Spore",
+          "Gust"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Flight evasion",
+          "Water-repellent wing scales"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Fire-type attacks",
+        "Weak to Electric-type attacks",
+        "Weak to Rock-type attacks",
+        "Weak to Flying-type attacks",
+        "Weak to Ice-type attacks"
+      ],
+      "mobility": [
+        "natural-flight"
+      ],
+      "limitations": [
+        "Wings are vulnerable to heavy rain unless specially coated"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Butterfree_(Pok%C3%A9mon)",
+          "supports": "Butterfree abilities, powder moves, and typing details"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Flaps wings rapidly to scatter highly toxic powder while flying in the rain",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies naturally using large insect wings",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact chemical composition of sleep and poison powders"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Butterfree|Gigantamax Butterfree",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Gigantamax Butterfree grows to colossal proportions, enveloped in blinding scales that inflict severe status conditions on all opponents across the battlefield.",
+      "offense": {
+        "domains": [
+          "nature",
+          "status"
+        ],
+        "techniques": [
+          "G-Max Befuddle",
+          "Gust"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Gigantamax vitality buffer"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Fire, Electric, Rock, Flying, and Ice-type attacks",
+        "Form wears off after a limited duration"
+      ],
+      "mobility": [
+        "natural-flight"
+      ],
+      "limitations": [
+        "Gigantamax form lasts for only three turns"
+      ],
+      "formDifferences": "Colossal size increase, access to G-Max Befuddle, and emission of blinding, multi-status scales.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Butterfree_(Pok%C3%A9mon)",
+          "supports": "Gigantamax Butterfree and G-Max Befuddle mechanics"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scatters paralyzing, poisoning, and sleep-inducing scales that blanket entire regions",
+          "citation": "Pokémon Sword and Shield Pokédex entries",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gigantamax form and G-Max Befuddle access",
+          "dependsOn": "Gigantamax energy phenomenon",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Maintains flight in its Gigantamax form using giant wings",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Aerodynamic efficiency at giant scale",
+        "Unsupported by cited source (term check, 0/3 key terms found): giant-sized: Grows to massive proportions via Gigantamax"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Caterpie",
+      "continuity": "Pokémon Red and Blue / Generation 1",
+      "summary": "Caterpie is a small Bug-type larva that defends itself by releasing a foul stench from its antenna and wrapping foes in sticky silk. It has limited combat offensive capability.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tackle",
+          "String Shot"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Foul odor secretion to deter predators"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Fire-type attacks",
+        "Weak to Flying-type attacks",
+        "Weak to Rock-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Extremely limited physical strength and low speed"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Caterpie_(Pok%C3%A9mon)",
+          "supports": "Caterpie baseline stats, String Shot, and antenna odor features"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Releases a strong stench from its red antenna to repel enemies",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Adhesive strength limits of its silk over time"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Chansey",
+      "continuity": "Pokémon Red and Blue / Generation 1",
+      "summary": "Chansey is a Normal-type Pokémon possessing immense vitality and healing capabilities. It relies heavily on supportive moves, high stamina, and soft-boiled eggs to restore health.",
+      "offense": {
+        "domains": [
+          "physical",
+          "status"
+        ],
+        "techniques": [
+          "Pound",
+          "Soft-Boiled",
+          "Sing",
+          "Minimize"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive HP pool",
+          "Self-healing via Soft-Boiled"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Fighting-type attacks",
+        "Very low physical defense"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Very low physical offensive and defensive power"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Chansey_(Pok%C3%A9mon)",
+          "supports": "Chansey high HP, Soft-Boiled move, and typing"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lays nutritious eggs every day and shares them with injured creatures to restore their health",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Heals its own wounds using nutritious eggs",
+          "source": 0
+        },
+        {
+          "tag": "heals-others",
+          "claim": "Shares its nutritious eggs to heal injured people and Pokémon",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact nutritional value of its eggs under stress"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Charizard",
+      "continuity": "Pokémon Red and Blue / Generation 1",
+      "summary": "Charizard is a fierce Fire and Flying-type Pokémon capable of unleashing devastating streams of intense flames from its mouth. It flies at high speeds and uses its sharp claws and fiery breath to overwhelm opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "fire"
+        ],
+        "techniques": [
+          "Flamethrower",
+          "Fire Blast",
+          "Dragon Claw",
+          "Fly"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Aerial agility and flight evasion",
+          "Durable dragon-like scales"
+        ]
+      },
+      "weaknesses": [
+        "Weak to Rock-type attacks",
+        "Weak to Electric-type attacks",
+        "Weak to Water-type attacks"
+      ],
+      "mobility": [
+        "natural-flight",
+        "Walking"
+      ],
+      "limitations": [
+        "Flame intensity diminishes if its tail flame is extinguished"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+          "supports": "Charizard typings, flame breath feats, and flight capabilities"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Breathes fire hot enough to melt melting boulders and glaciers",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies through the sky using large draconic wings",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Generates and breathes intense fire capable of melting boulders",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum flight altitude limit without oxygen aid"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

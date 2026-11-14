@@ -1,0 +1,819 @@
+{
+  "batchId": "Gemini V2 research games 20261113-042833 #19",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "games:Aerith Gainsborough",
+      "continuity": "Final Fantasy VII (1997 original) storyline; Final Fantasy VII Remake (2020) combat kit noted separately where stated",
+      "summary": "Magic-focused support caster. In the original game she wields staves that boost Magic, has high Magic and low physical stats, and her Limit Breaks are entirely defensive (healing and buffs). In Remake she is a ranged spellcaster who fires homing magical projectiles instead of striking with her staff.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Materia spellcasting; staves with many Materia slots boost her Magic (original)",
+          "Tempest: chargeable ranged magical attack (Remake)",
+          "Homing magical projectiles as her basic attack (Remake)",
+          "Arcane Ward: spells cast inside it are cast twice (Remake)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Defensive Limit Breaks: healing abilities and buffs (original)"
+        ]
+      },
+      "weaknesses": [
+        "Very low durability: lowest HP and Vitality in the Remake party",
+        "Was killed by a surprise attack while praying, when Sephiroth dropped from above and impaled her with the Masamune"
+      ],
+      "mobility": [],
+      "limitations": [
+        "Low physical stats; her strength is magic (original)",
+        "Slow mobility (Remake)"
+      ],
+      "sources": [
+        {
+          "url": "https://finalfantasy.fandom.com/wiki/Aerith_Gainsborough",
+          "supports": "Original and Remake combat role, staves, Tempest, Arcane Ward, defensive Limits, low durability, death in the Forgotten City, and her role in Holy and the Lifestream stopping Meteor"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Prayed at the Forgotten City altar to summon Holy with the White Materia; after her death her spirit commanded the Lifestream to push Meteor back so Holy could focus, and Holy and the Lifestream destroyed Meteor",
+          "citation": "Final Fantasy VII (1997), ending",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sephiroth (Jenova body in his likeness)",
+          "result": "loss",
+          "citation": "Final Fantasy VII (1997), Forgotten City",
+          "note": "Not a fight: she was impaled with the Masamune while praying",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "Magic-focused fighter who casts through Materia (original) and fights as a ranged spellcaster (Remake)",
+          "source": 0
+        },
+        {
+          "tag": "heals-others",
+          "claim": "Her Limit Breaks are healing abilities and buffs for the party (original)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of her Ancient powers",
+        "The cited page does not describe individual Limits (Healing Wind, Great Gospel, Planet Protection) or Soul Drain; not claimed",
+        "Reviewed by Claude (2026-11-13): replaced Gemini's unsupported techniques (Soul Drain, Planet Protection), evasion, MP limitation and dodge-roll mobility with what the cited page states. Remake and Rebirth story divergence not covered."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Agent 47",
+      "continuity": "Hitman game series, single timeline (Codename 47 through Hitman 3 / World of Assassination); feats as summarized on the Hitman Wiki",
+      "summary": "Genetically enhanced clone assassin: master marksman, martial artist and knife thrower who infiltrates through disguise and blending into crowds, and uses Instinct to sense people through walls.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Fiber wire strangulation",
+          "Firearms marksmanship with pistols, shotguns, SMGs and rifles; one-handed pistol use and headshots at range",
+          "Knife throwing",
+          "Hand-to-hand: kickboxing, Panantukan, Krav Maga, Eskrima, Jiu-Jitsu; disarms armed soldiers",
+          "Poisons"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Genetically enhanced strength, durability, speed and metabolism",
+          "Disguise and blending into crowds",
+          "Instinct: visualizes targets and guards through walls and floors",
+          "Dodged Mark Parchezzi III's gunshot"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to drugs and poisons: stabbed with a poisoned syringe (Blood Money), dosed by Diana's serum, and incapacitated by a remotely activated sedative (Hitman 3)",
+        "Serious wounds still need medical care (a bullet had to be removed)"
+      ],
+      "mobility": [
+        "Driving"
+      ],
+      "limitations": [
+        "Healing is described as limited, though sufficient",
+        "Enhancements are to peak physical condition"
+      ],
+      "sources": [
+        {
+          "url": "https://hitman.fandom.com/wiki/Agent_47",
+          "supports": "Skills and abilities, Instinct, vulnerabilities to serums and poison, and named targets and fights across the series"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Was thrown through a wooden door by the superhumanly strong Sanchez and was knocked out for only a few minutes",
+          "citation": "Hitman series (Hitman Wiki account)",
+          "source": 0
+        },
+        {
+          "claim": "Improvised a fiber wire from a windowsill and broom parts during an escape",
+          "citation": "Hitman series",
+          "source": 0
+        },
+        {
+          "claim": "Fought off the effects of Edwards's advanced memory-erasing serum",
+          "citation": "Hitman 3 (2021)",
+          "source": 0
+        },
+        {
+          "claim": "Infiltrated an ICA squadron disguised as an ICA trooper",
+          "citation": "Hitman 3 (2021)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sanchez",
+          "result": "win",
+          "citation": "Hitman series (Hitman Wiki account)",
+          "note": "Killed with his bare hands despite Sanchez's superhuman strength",
+          "source": 0
+        },
+        {
+          "opponent": "Agent 17",
+          "result": "win",
+          "citation": "Hitman series (Hitman Wiki account), St. Petersburg",
+          "note": "Sent by Zavorotko to kill 47",
+          "source": 0
+        },
+        {
+          "opponent": "Ort-Meyer",
+          "result": "win",
+          "citation": "Hitman: Codename 47",
+          "note": "Neck snapped in his office",
+          "source": 0
+        },
+        {
+          "opponent": "Blake Dexter",
+          "result": "win",
+          "citation": "Hitman: Absolution",
+          "note": "Killed after 47 infiltrated his Chicago penthouse",
+          "source": 0
+        },
+        {
+          "opponent": "Benjamin Travis",
+          "result": "win",
+          "citation": "Hitman: Absolution",
+          "note": "Killed in Cornwall with his assistant Jade Nguyen",
+          "source": 0
+        },
+        {
+          "opponent": "Arthur Edwards (Constant)",
+          "result": "win",
+          "citation": "Hitman 3 (2021), Carpathian train",
+          "note": "Killed or injected with the serum and stranded, by player choice",
+          "source": 0
+        },
+        {
+          "opponent": "Carl Ingram and Marcus Stuyvesant",
+          "result": "win",
+          "citation": "Hitman 3 (2021), Dubai",
+          "note": "Assassinations, not open fights",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Infiltrated an ICA squadron disguised as an ICA trooper (Hitman 3); expert at disguise and blending into crowds",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his genetic enhancements",
+        "Reviewed by Claude (2026-11-13): Gemini's techniques, defenses and Instinct were restored where the Hitman Wiki supports them. Body armor, parkour, climbing and the generic 'ICA targets' result were dropped as unsupported. The page does not mention Silverballers. Some per-game citations follow the page's own section headings."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Albert Wesker",
+      "continuity": "Resident Evil main game series (Capcom), Code: Veronica (2000) through Resident Evil 5 (2009)",
+      "summary": "Virus-enhanced mastermind with superhuman strength, speed and agility since Code: Veronica. In Resident Evil 5 he effortlessly dodges and parries most attacks, and infects himself with Uroboros for his final form.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Superhuman strength, speed and agility in close combat",
+          "Uroboros tentacle arms that absorb and wield metallic objects as weapons (RE5 final form)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Effortlessly dodges and parries most attacks (RE5)",
+          "Superhuman speed and agility"
+        ]
+      },
+      "weaknesses": [
+        "Injecting Serum PG67A/W into him after he is worn down is a required step in the RE5 tanker battle (Chapter 6-3)",
+        "Defeated by Chris Redfield in Code: Veronica and killed by Chris and Sheva in an active volcano in RE5"
+      ],
+      "mobility": [
+        "Superhuman speed"
+      ],
+      "limitations": [
+        "Uroboros is described as a volatile and mutagenic viral agent"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Albert_Wesker",
+          "supports": "Virus-enhanced strength, speed and agility, Uroboros, nigh-invincible dodging and parrying in RE5, defeat by Chris in Code: Veronica and death in RE5"
+        },
+        {
+          "url": "https://www.evilresource.com/resident-evil-5/items/serum-pg67aw",
+          "supports": "Serum PG67A/W is used on Wesker once he keels over in the Chapter 6-3 tanker battle"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Returned from his apparent death in the original Resident Evil with virus-enhanced strength, speed and agility",
+          "citation": "Resident Evil: Code: Veronica (2000)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Chris Redfield",
+          "result": "loss",
+          "citation": "Resident Evil Code: Veronica (2000)",
+          "note": "Chris defeats him at the Antarctic facility",
+          "source": 0
+        },
+        {
+          "opponent": "Chris Redfield and Sheva Alomar",
+          "result": "loss",
+          "citation": "Resident Evil 5 (2009)",
+          "note": "Killed in an active volcano after the serum step on the tanker",
+          "source": 0
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "Upper limit of his lifting strength",
+        "Regeneration and his need for regular serum injections are not stated by the opened sources; not claimed",
+        "Reviewed by Claude (2026-11-13): the cited residentevil.fandom.com/wiki/Albert_Wesker page never came up in search and was not opened. It is replaced by Wikipedia and Evil Resource, both opened. The 'teleport-like' movement is reworded to superhuman speed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Alduin",
+      "continuity": "The Elder Scrolls V: Skyrim (2011), with lore from the Elder Scrolls Wiki",
+      "summary": "The World-Eater dragon. He flies, uses both Fire Breath and Frost Breath, calls down meteor storms, resurrects dragons and devours souls in Sovngarde. He cannot be damaged until Dragonrend forces him to land.",
+      "offense": {
+        "domains": [
+          "fire",
+          "ice",
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Fire Breath",
+          "Frost Breath (used to drain melee fighters' stamina)",
+          "Roar that summons a meteor storm",
+          "Shout that resurrects dead dragons from burial mounds",
+          "Devours the souls of the dead to grow stronger"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cannot be damaged until Dragonrend grounds him (Skyrim)",
+          "Repeatedly restores the Sovngarde mist after it is cleared"
+        ]
+      },
+      "weaknesses": [
+        "Dragonrend: forces him to land and stay grounded, and is the only way to damage him",
+        "Elder Scroll banishment: Felldir read one to send him forward in time"
+      ],
+      "mobility": [
+        "Flight"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://elderscrolls.fandom.com/wiki/Alduin",
+          "supports": "World-Eater lore, devouring souls, resurrecting dragons, Dragonrend's creation, the ancient defeat via Elder Scroll, and the Last Dragonborn's victory"
+        },
+        {
+          "url": "https://elderscrolls.fandom.com/wiki/Alduin_(Skyrim)",
+          "supports": "Skyrim combat: Fire and Frost Breath, meteor storm, flight, Dragonrend as the only way to damage him, the Throat of the World and Sovngarde battles, and killing Gormlaith"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Summoned a meteor storm over Helgen",
+          "citation": "Skyrim, Unbound",
+          "source": 1
+        },
+        {
+          "claim": "Resurrected the dragon Sahloknir at Kynesgrove",
+          "citation": "Skyrim, A Blade in the Dark",
+          "source": 1
+        },
+        {
+          "claim": "Killed Gormlaith Golden-Hilt in the ancient battle",
+          "citation": "Skyrim, Alduin's Bane (Time-Wound vision)",
+          "source": 1
+        },
+        {
+          "claim": "Devoured souls in Sovngarde to strengthen himself",
+          "citation": "Skyrim, Sovngarde",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Felldir the Old, Hakon One-Eye and Gormlaith Golden-Hilt",
+          "result": "loss",
+          "citation": "Skyrim, ancient Dragon War",
+          "note": "Crippled by Dragonrend and banished forward in time with an Elder Scroll after he killed Gormlaith",
+          "source": 1
+        },
+        {
+          "opponent": "Last Dragonborn and Paarthurnax",
+          "result": "loss",
+          "citation": "Skyrim, Alduin's Bane (Throat of the World)",
+          "note": "Defeated and fled to Sovngarde",
+          "source": 1
+        },
+        {
+          "opponent": "Last Dragonborn with the three ancient heroes",
+          "result": "loss",
+          "citation": "Skyrim, Dragonslayer (Sovngarde)",
+          "note": "Killed; his soul could not be absorbed",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies over Helgen, fights in the skies at the Throat of the World and flies to Sovngarde",
+          "source": 1
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Uses Fire Breath",
+          "source": 1
+        },
+        {
+          "tag": "ice-control",
+          "claim": "Uses Frost Breath; the only dragon that uses both breaths",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full extent of his power outside the World-Eater role",
+        "Documented size not stated by the opened sources; giant-sized not proposed until a size is cited",
+        "Reviewed by Claude (2026-11-13): restored breath, meteor, flight and Dragonrend claims from the Alduin (Skyrim) page, which was added. Generic 'immunity to normal weapons' is reworded to what the page says."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Taking damage at all",
+          "dependsOn": "Being hit by Dragonrend, which grounds him",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "id": "games:Aloy",
+      "continuity": "Horizon Zero Dawn (2017) and Horizon Forbidden West (2022)",
+      "summary": "Machine-hunting Nora outcast who fights mostly with her spear and bow, uses her Focus to scan and access systems, and overrides machines to ride or fly them.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Spear combat, including spear-mounted override module",
+          "Bow and arrows, including from machine-back",
+          "Heavy weapons she has used: Ravager Cannon and a plasma cannon"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Rides overridden Striders and Chargers",
+        "Flies an overridden Sunwing"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://horizon.fandom.com/wiki/Aloy",
+          "supports": "Spear and bow use, Focus, machine overrides and riding, stealth infiltration of Eclipse sites, and named duels and battles (Helis, Grudda, Regalla, Erik, HADES, corrupted Thunderjaw)"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Crashed the Focus network by spearing the Tallneck module, forcing HADES to withdraw",
+          "citation": "Horizon Zero Dawn, Eclipse Base",
+          "source": 0
+        },
+        {
+          "claim": "Overrode a Sunwing and flew it",
+          "citation": "Horizon Forbidden West",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Helis",
+          "result": "win",
+          "citation": "Horizon Zero Dawn, Battle of the Alight",
+          "note": "One-on-one; ran him through with her spear",
+          "source": 0
+        },
+        {
+          "opponent": "HADES",
+          "result": "win",
+          "citation": "Horizon Zero Dawn, Battle of the Alight",
+          "note": "Drove the lance carrying the Master Override into it",
+          "source": 0
+        },
+        {
+          "opponent": "Corrupted Thunderjaw",
+          "result": "win",
+          "citation": "Horizon Zero Dawn, Mother's Watch",
+          "note": "With help from surviving Nora Braves",
+          "source": 0
+        },
+        {
+          "opponent": "Grudda",
+          "result": "win",
+          "citation": "Horizon Forbidden West, Barren Light",
+          "note": "One-on-one duel",
+          "source": 0
+        },
+        {
+          "opponent": "Regalla",
+          "result": "win",
+          "citation": "Horizon Forbidden West, the Arena",
+          "note": "Duel begun from an overridden Sunwing",
+          "source": 0
+        },
+        {
+          "opponent": "Erik",
+          "result": "win",
+          "citation": "Horizon Forbidden West",
+          "note": "Defeated him at a service elevator; Zo then stabbed him",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Riding or flying machines",
+          "dependsOn": "Overriding the machine first with her override module",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Rides overridden Striders and Chargers and flies an overridden Sunwing, controlling them herself",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Snuck into the heart of an Eclipse camp to ignite Blaze, and sneaked through the Eclipse Base taking out cultists",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses her Focus to scan and access systems, and a spear-mounted override module",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "How she would fare against magic or supernatural entities",
+        "The page sections opened do not describe the tripcaster, ropecaster, sling, Pullcaster, Shield-Weaver armor or Shieldwing gliding; not claimed (no glide tag)",
+        "Reviewed by Claude (2026-11-13): page read to about 100k of 135k characters; Nemesis and late Forbidden West events not checked.",
+        "Unsupported by cited source (term check, 2/6 key terms found): Snuck into the heart of an Eclipse camp to ignite Blaze"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Altaïr",
+      "continuity": "Assassin's Creed (2007) and related Altaïr appearances (Bloodlines, Revelations memories)",
+      "summary": "Master Assassin of Masyaf who fights with longsword, short blade, throwing knives and the Hidden Blade, which he redesigned. He relies on free-running, disguise, Eagle Vision and later the Apple of Eden.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Hidden Blade, later fitted to dispense poison and fire small projectiles",
+          "Longsword and short blade",
+          "Throwing knives",
+          "Hand-to-hand combat",
+          "Apple of Eden: used against a mob in Limassol and to fend off Mongols (later life)"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Disguise and social stealth (posed as a soldier and a scholar in Acre)",
+          "Free-running escape across rooftops and towers"
+        ]
+      },
+      "weaknesses": [
+        "Al Mualim used the Apple of Eden to bind him and create illusions",
+        "His stealth declined with age; he was wounded infiltrating the Mongol camp",
+        "Seriously wounded by two of three bandits in 1247 and needed help to win"
+      ],
+      "mobility": [
+        "Free-running and climbing tall towers",
+        "Leap of Faith"
+      ],
+      "limitations": [
+        "Human physical limits; his abilities declined with age"
+      ],
+      "sources": [
+        {
+          "url": "https://assassinscreed.fandom.com/wiki/Altair_Ibn-La'Ahad",
+          "supports": "Arsenal, Hidden Blade redesign, free-running, disguise, Eagle Vision, Apple of Eden use, and fights with Al Mualim, Robert de Sablé, the nine targets, Abbas and the Mongols"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Killed all nine Templar targets, some in direct combat and others by ambush",
+          "citation": "Assassin's Creed (2007)",
+          "source": 0
+        },
+        {
+          "claim": "Cut down Templar elites in a trial by combat at Arsuf before killing Robert de Sablé",
+          "citation": "Assassin's Creed (2007)",
+          "source": 0
+        },
+        {
+          "claim": "Used the Apple of Eden to fend off Mongols while escorting the Polos in 1257",
+          "citation": "Assassin's Creed: Revelations memories",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Al Mualim",
+          "result": "win",
+          "citation": "Assassin's Creed (2007)",
+          "note": "Lengthy battle through Apple illusions; mortally wounded with the Hidden Blade",
+          "source": 0
+        },
+        {
+          "opponent": "Robert de Sablé",
+          "result": "win",
+          "citation": "Assassin's Creed (2007), Arsuf",
+          "note": "Trial by combat; struck in the throat",
+          "source": 0
+        },
+        {
+          "opponent": "Abbas Sofian",
+          "result": "win",
+          "citation": "Assassin's Creed: Revelations memories",
+          "note": "Shot with the Hidden Gun; Abbas's forces surrendered",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Used disguises to get past guards, posing as a soldier and a scholar in Acre",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Durability against modern weaponry",
+        "Reviewed by Claude (2026-11-13): Gemini cited a misspelled URL (Altaïr_Ibn-La'Had), which is why the earlier pass found the page never mentioned him. Replaced with the correct page, which was opened. Restored the sourced weapons, mobility and results. The page states the Mongol raid was won by others (Darim and Qulan Gal killed Genghis Khan), so no result is recorded for it."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Amy Rose",
+      "continuity": "Sonic the Hedgehog main game series (Sega)",
+      "summary": "Hammer fighter who wields the Piko Piko Hammer with great skill, uses spin attacks, and uses tarot cards for fortune-telling and as thrown attacks.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Piko Piko Hammer strikes that smash robot armor and send foes flying",
+          "Hammer shockwaves, tornadoes and expanding energy domes",
+          "Spinning-top hammer twirl that hits everything nearby",
+          "Spin Attack, Spin Dash and Homing Attack",
+          "Tarot cards thrown as attacks (Starfall Islands)"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sharp reflexes and acrobatics",
+          "Speed enough to create after-images"
+        ]
+      },
+      "weaknesses": [
+        "Combat skills less developed than Sonic's, Knuckles' or Tails'",
+        "Outmatched by highly trained fighters such as Rouge",
+        "Twirling attack can leave her dizzy"
+      ],
+      "mobility": [
+        "Running at Sonic's normal pace",
+        "Wall and ceiling scaling",
+        "Rail grinding",
+        "Hammer-spin propeller flight (temporary)",
+        "Hammer-launched jumps"
+      ],
+      "limitations": [
+        "Not as fast as Sonic"
+      ],
+      "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Amy_Rose",
+          "supports": "Piko Piko Hammer techniques, spin attacks, tarot cards, speed and agility, weaknesses, and fights vs E-100 ZERO, Rouge, Eggman and Metal Overlord"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Smashes robot armor with the Piko Piko Hammer",
+          "citation": "Sonic game series",
+          "source": 0
+        },
+        {
+          "claim": "Used tarot cards to deduce Sonic's location during the Little Planet and Emerl incidents",
+          "citation": "Sonic CD; Sonic Battle",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "E-100 ZERO",
+          "result": "win",
+          "citation": "Sonic Adventure",
+          "note": "Destroyed it after it hurt Birdie",
+          "source": 0
+        },
+        {
+          "opponent": "Rouge the Bat",
+          "result": "loss",
+          "citation": "Sonic Battle, Rouge's Episode",
+          "note": "Left asleep",
+          "source": 0
+        },
+        {
+          "opponent": "Dr. Eggman",
+          "result": "win",
+          "citation": "Team Sonic Racing",
+          "note": "With allies, using combined Wisp power-ups",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Origin and material limits of the Piko Piko Hammer",
+        "Reviewed by Claude (2026-11-13): restored and corrected techniques from the cited page. The Eggman robots result was replaced with named fights. The Sonic Heroes Egg Emperor win was not recorded because the opponent was a fake. Gemini proposed no tags. Not proposed: glide/flight for the hammer-propeller 'temporary flight', pending an owner ruling on whether it counts."
+      ],
+      "researchStatus": "provisional",
+      "campaignTags": []
+    },
+    {
+      "id": "games:Arthas Menethil",
+      "continuity": "Warcraft lore, Warcraft III through World of Warcraft: Wrath of the Lich King. This base record (roster: 'Fallen Lich King') covers his whole arc; the Death Knight Arthas and The Lich King variants hold the form-specific detail.",
+      "summary": "Fallen prince turned Lich King, wielding the soul-stealing runeblade Frostmourne and necromancy that raises the dead, in saronite armor and Ner'zhul's helm.",
+      "offense": {
+        "domains": [
+          "magic",
+          "necromancy",
+          "physical"
+        ],
+        "techniques": [
+          "Frostmourne strikes; the blade steals souls",
+          "Necromancy: raises the dead (raised his horse Invincible)",
+          "As Lich King: Defile, Remorseless Winter, Necrotic Plague, Raise Dead and Fury of Frostmourne"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Saronite armor",
+          "Ner'zhul's helm"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance: revealing himself at the Wrathgate exposed him to Putress's plague",
+        "Frostmourne's destruction released its souls and immobilized him",
+        "Sylvanas once paralyzed him with an arrow"
+      ],
+      "mobility": [
+        "Rides the undead horse Invincible"
+      ],
+      "limitations": [
+        "His power waned as the Lich King's power waned (seizure while fighting Scourge forces)"
+      ],
+      "sources": [
+        {
+          "url": "https://wowpedia.fandom.com/wiki/Arthas_Menethil",
+          "supports": "Abilities (Death Coil, Gift of the Lich King, Deathstorm, Soul Cleave), Frostmourne, armor, Invincible, fights with Illidan, Mal'Ganis, Uther, Terenas, and Tirion and the heroes at Icecrown, and his weaknesses"
+        },
+        {
+          "url": "https://wowpedia.fandom.com/wiki/Lich_King_(tactics)",
+          "supports": "Lich King abilities in the Icecrown Citadel fight and its ending"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Froze Tirion Fordring in ice and killed the assembled adventurers with a single blow",
+          "citation": "World of Warcraft: Wrath of the Lich King, Icecrown Citadel",
+          "source": 0
+        },
+        {
+          "claim": "Raised his dead horse Invincible into undeath",
+          "citation": "World of Warcraft lore",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Illidan Stormrage",
+          "result": "win",
+          "citation": "Warcraft III: The Frozen Throne, Icecrown",
+          "note": "Slashed his chest with Frostmourne; described as the only battle where Arthas came close to dying",
+          "source": 0
+        },
+        {
+          "opponent": "Mal'Ganis",
+          "result": "win",
+          "citation": "Warcraft III: Reign of Chaos, Northrend",
+          "note": "Slew the dreadlord, who in fact survived",
+          "source": 0
+        },
+        {
+          "opponent": "Uther the Lightbringer",
+          "result": "win",
+          "citation": "Warcraft III: Reign of Chaos, Andorhal",
+          "note": "Uther nearly landed a killing blow first",
+          "source": 0
+        },
+        {
+          "opponent": "Tirion Fordring and the heroes of Azeroth",
+          "result": "loss",
+          "citation": "World of Warcraft: Wrath of the Lich King, Icecrown Citadel",
+          "note": "Tirion shattered Frostmourne with the Ashbringer; the revived heroes helped mortally wound him",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "spellcaster",
+          "claim": "As Lich King casts Defile, Remorseless Winter, Necrotic Plague and Raise Dead",
+          "source": 1
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields the soul-stealing runeblade Frostmourne and wears Ner'zhul's helm",
+          "source": 0
+        },
+        {
+          "tag": "mount",
+          "claim": "Rides his raised undead horse Invincible",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his power without Frostmourne",
+        "The page does not name frost spells (Frost Strike, freezing) apart from freezing Tirion; no ice tag proposed",
+        "Reviewed by Claude (2026-11-13): replaced Gemini's unsupported Frost Strike and frost-magic tags. A second pass removed Death Coil, Gift of the Lich King, Deathstorm, Soul Cleave and Consume Minions. Wowpedia lists them only inside quest entries ('Army of the Damned', 'A Destiny of Flame and Sorrow'), and they may be player or vehicle abilities, not Arthas's. Removed 'slain and resurrected entire armies'. The Illidan result is now a win."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Much of his Lich King power and his soul-stealing",
+          "dependsOn": "Frostmourne; its destruction released the souls and immobilized him",
+          "source": 0
+        }
+      ]
+    }
+  ]
+}

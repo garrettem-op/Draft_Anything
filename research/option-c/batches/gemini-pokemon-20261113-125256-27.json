@@ -1,0 +1,589 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-125256 #27",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Slowbro|Galarian Slowbro",
+      "continuity": "Pokémon Sword and Shield / Generation VIII",
+      "summary": "Galarian Slowbro fights by using its Shellder on its arm like a lance, firing toxic liquid shots at high speeds. It also utilizes psychic abilities to control its surroundings and opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison",
+          "psychic"
+        ],
+        "techniques": [
+          "Shell Side Arm",
+          "Psychic"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Physical durability provided by Shellder",
+          "Poison-type resistances"
+        ]
+      },
+      "weaknesses": [
+        "Ghost-type attacks",
+        "Dark-type attacks",
+        "Bug-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Movement speed is generally slow"
+      ],
+      "formDifferences": "Changes typing from Water/Psychic to Poison/Psychic, changes physical appearance by having a Shellder clamped on its arm instead of its tail, and uses the signature move Shell Side Arm.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Galarian_Slowbro_(Pok%C3%A9mon)",
+          "supports": "Galarian Slowbro biology, typing, and Shell Side Arm signature move."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Galarian Slowbro is a Psychic-type Pokémon with access to psychic attacks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact speed capabilities in competitive battle formats are not standardized in lore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Slowbro|Mega Slowbro",
+      "continuity": "Pokémon Omega Ruby and Alpha Sapphire / Generation VI",
+      "summary": "Mega Slowbro retreats entirely inside its heavy shell, transforming its lower body into an impenetrable fortress that bounces off enemy attacks. It floats via telekinesis due to the immense pressure from the Shellder.",
+      "offense": {
+        "domains": [
+          "physical",
+          "water",
+          "psychic"
+        ],
+        "techniques": [
+          "Surf",
+          "Psychic",
+          "Scald"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive shell defense increase",
+          "Shell Armor ability preventing critical hits"
+        ]
+      },
+      "weaknesses": [
+        "Grass-type attacks",
+        "Electric-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks",
+        "Bug-type attacks"
+      ],
+      "mobility": [
+        "Telekinetic floating"
+      ],
+      "limitations": [
+        "Completely dependent on the Slowbronite Mega Stone to maintain the form",
+        "Mobility is entirely reliant on floating via psychic power"
+      ],
+      "formDifferences": "Encases the body completely within the Shellder shell, drastically increasing defense and changing ability to Shell Armor.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mega_Slowbro_(Pok%C3%A9mon)",
+          "supports": "Mega Slowbro stats, abilities, and transformation details."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Evolution",
+          "dependsOn": "Slowbronite holding item",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Mega Slowbro is a Psychic-type Pokémon.",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Can utilize water-based attacks like Surf and Scald.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Duration of Mega Evolution outside of active battle conditions is unspecified."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Slowpoke",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Slowpoke is notoriously sluggish and absent-minded, often failing to notice pain immediately. It fights using basic psychic attacks and water-based techniques when it finally reacts.",
+      "offense": {
+        "domains": [
+          "water",
+          "psychic",
+          "physical"
+        ],
+        "techniques": [
+          "Water Gun",
+          "Confusion",
+          "Tackle"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High HP pool",
+          "Insensitivity to certain forms of minor pain due to slow nervous system"
+        ]
+      },
+      "weaknesses": [
+        "Grass-type attacks",
+        "Electric-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks",
+        "Bug-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Extremely slow reaction times"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Slowpoke_(Pok%C3%A9mon)",
+          "supports": "Slowpoke stats, type, and general movepool."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Slowpoke is a Psychic-type Pokémon.",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Slowpoke can use water-based moves like Water Gun.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact speed of its neurological processing remains scientifically unclear in the Pokémon universe."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Snorlax",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Snorlax relies on its immense bulk and heavy weight to crush opponents, absorbing massive amounts of damage before striking back with high-powered physical blows and elemental moves.",
+      "offense": {
+        "domains": [
+          "physical",
+          "normal"
+        ],
+        "techniques": [
+          "Body Slam",
+          "Hyper Beam",
+          "Heavy Slam"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely high HP and special defense",
+          "Thick Fat ability reducing damage from fire and ice attacks"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Spends most of its time sleeping unless eating or forced into battle"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Snorlax_(Pok%C3%A9mon)",
+          "supports": "Snorlax abilities, massive weight, and standard physical movepool."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Snorlax stands at over 2 meters tall and weighs over 400 kilograms, qualifying as exceptionally massive.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact caloric intake required to maintain energy for prolonged combat endurance."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Snorlax|Gigantamax Snorlax",
+      "continuity": "Pokémon Sword and Shield / Generation VIII",
+      "summary": "Gigantamax Snorlax grows to monumental size, unable to move from its spot, but capable of devastating the battlefield with G-Max Replenish and overwhelming physical force.",
+      "offense": {
+        "domains": [
+          "physical",
+          "normal"
+        ],
+        "techniques": [
+          "G-Max Replenish",
+          "Body Slam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Colossal HP pool",
+          "Gigantamax durability"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Immobile"
+      ],
+      "limitations": [
+        "Completely immobile in this form",
+        "Gigantamax energy expires after a limited duration"
+      ],
+      "formDifferences": "Grows to monumental proportions with a natural garden sprouting on its belly, rooted to the spot and utilizing Gigantamax moves.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Gigantamax_Snorlax_(Pok%C3%A9mon)",
+          "supports": "Gigantamax Snorlax form details, size, and G-Max Replenish."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gigantamax form",
+          "dependsOn": "Dynamax Energy in specific regions",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Gigantamax Snorlax reaches towering proportions exceeding standard height limits significantly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term ecological effects of the tree growing on its stomach."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Spearow",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Spearow is a highly aggressive bird Pokémon that attacks swiftly from the air using sharp pecks and wing slashes, defending its territory fiercely.",
+      "offense": {
+        "domains": [
+          "physical",
+          "flying"
+        ],
+        "techniques": [
+          "Peck",
+          "Fury Attack",
+          "Drill Peck"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile flight evasion"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Ice-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Low overall durability due to small size"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Spearow_(Pok%C3%A9mon)",
+          "supports": "Spearow type, stats, and flying capabilities."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Spearow is a flying bird Pokémon capable of sustained flight with wings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact stamina limits during long-distance migration flights."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Squirtle",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Squirtle retracts into its hard shell to deflect incoming attacks before countering with high-pressure streams of water from its mouth.",
+      "offense": {
+        "domains": [
+          "water",
+          "physical"
+        ],
+        "techniques": [
+          "Water Gun",
+          "Hydro Pump",
+          "Skull Bash"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hard shell protection",
+          "Water-type resistance"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Swimming"
+      ],
+      "limitations": [
+        "Limited physical reach outside of close quarters or water streams"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Squirtle_(Pok%C3%A9mon)",
+          "supports": "Squirtle type, shell defense, and water attacks."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-control",
+          "claim": "Squirtle can generate and fire high-pressure streams of water.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Squirtle is an aquatic turtle Pokémon adept at swimming.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum water pressure output under extreme duress.",
+        "Unsupported by cited source (term check, 1/3 key terms found): water-breathing: Can breathe and operate underwater."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Starmie",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Starmie moves with extreme agility in water and air, blasting opponents with high-powered water jets and psychic rays from its gem core.",
+      "offense": {
+        "domains": [
+          "water",
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Hydro Pump",
+          "Psychic",
+          "Ice Beam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High speed evasion",
+          "Natural regeneration capabilities of core segments"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks",
+        "Bug-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks"
+      ],
+      "mobility": [
+        "Swimming",
+        "Flight (levitation via core energy)"
+      ],
+      "limitations": [
+        "Vulnerable if core is damaged or blocked from spinning"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Starmie_(Pok%C3%A9mon)",
+          "supports": "Starmie types, moveset, and core abilities."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Starmie is a Psychic-type Pokémon with powerful mental attacks.",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Starmie can project powerful water streams.",
+          "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Starmie lives in marine environments and excels in water.",
+          "source": 0
+        },
+        {
+          "tag": "ice-weapon",
+          "claim": "Starmie can project Ice Beam attacks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The exact nature of the radio waves emitted by its core.",
+        "Unsupported by cited source (term check, 1/4 key terms found): water-breathing: Can operate fully submerged underwater."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Staryu",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Staryu anchors itself in water or uses its central red core to emit light and project water attacks against opponents.",
+      "offense": {
+        "domains": [
+          "water",
+          "physical"
+        ],
+        "techniques": [
+          "Water Gun",
+          "Rapid Spin",
+          "Tackle"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Regenerative core that can regrow lost limbs if the core remains intact"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks"
+      ],
+      "mobility": [
+        "Swimming",
+        "Crawling"
+      ],
+      "limitations": [
+        "Limited offensive options before evolving into Starmie"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Staryu_(Pok%C3%A9mon)",
+          "supports": "Staryu regeneration, aquatic nature, and water attacks."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-control",
+          "claim": "Staryu can fire water streams using Water Gun.",
+          "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Staryu is a water-dwelling organism.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Breathes and operates underwater.",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Can regenerate its body parts as long as the core is unharmed.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact speed of regeneration under severe combat damage."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Tangela",
+      "continuity": "Pokémon Red and Blue / Generation I",
+      "summary": "Tangela entangles foes with its mass of blue vines, binding their movements and striking from concealment.",
+      "offense": {
+        "domains": [
+          "grass",
+          "physical"
+        ],
+        "techniques": [
+          "Vine Whip",
+          "Bind",
+          "Absorb"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Vines easily regrow if severed, absorbing physical blows"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type attacks",
+        "Ice-type attacks",
+        "Poison-type attacks",
+        "Flying-type attacks",
+        "Bug-type attacks"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Vines are highly vulnerable to fire and cutting attacks"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Tangela_(Pok%C3%A9mon)",
+          "supports": "Tangela vine composition, grass typing, and movepool."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-regeneration",
+          "claim": "Tangela's vines quickly regrow if they are severed.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "What lies beneath the thick tangle of blue vines."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

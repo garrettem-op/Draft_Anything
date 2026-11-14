@@ -1,0 +1,696 @@
+{
+  "batchId": "Gemini V2 research starwars 20261113-125351 #31",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "starwars:Aayla Secura",
+      "continuity": "Star Wars Canon (The Clone Wars / Revenge of the Sith)",
+      "summary": "Aayla Secura is a Jedi Knight and skilled military general who dual-wields lightsabers in a specialized reverse-grip style. She relies on acrobatic movement, tactical awareness, and a deep connection to the Force.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Lightsaber combat (Ataru/Jar'Kai style)",
+          "Force push",
+          "Force pull",
+          "Lightsaber throw"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Force barrier",
+          "Acrobatic evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to betrayal when surrounded by loyal clone troopers under Order 66"
+      ],
+      "mobility": [
+        "running",
+        "acrobatic leaps",
+        "starship piloting"
+      ],
+      "limitations": [
+        "Requires focus to maintain advanced Force techniques in active combat"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Aayla_Secura",
+          "supports": "Abilities, status as Jedi Knight, dual lightsaber combat, and death during Order 66."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led clone trooper forces and engaged hostile droids on various Clone Wars battlefronts.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        },
+        {
+          "claim": "Gunned down by her own clone troopers on Felucia during Order 66.",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Clone Troopers (Order 66)",
+          "result": "loss",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Ambushed by her own troops without warning.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Can use Force leap for high airborne maneuverability",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots Republic starfighters and gunships during the Clone Wars",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mastery level of Force abilities compared to Council members is not deeply specified in canon."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Admiral Ackbar",
+      "continuity": "Star Wars Canon (Return of the Jedi / Sequel Trilogy)",
+      "summary": "Gial Ackbar is a legendary Mon Calamari military commander and fleet admiral known for his tactical genius in large-scale space combat. He directs forces from command bridges rather than engaging in direct personal combat.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Fleet bombardment coordination",
+          "Starfighter squadron direction"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Capital ship deflector shields",
+          "Escort fighter screening"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to personal physical combat and lacks direct combat abilities outside of command"
+      ],
+      "mobility": [
+        "swimming",
+        "capital ship transport"
+      ],
+      "limitations": [
+        "Lacks personal combat training for frontline melee or ranged skirmishes"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Gial_Ackbar",
+          "supports": "Military rank, tactical feats as fleet admiral, and leadership role in the Rebel Alliance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Commanded the Rebel fleet at the Battle of Endor and orchestrated the trap maneuver against the second Death Star.",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Galactic Empire Fleet",
+          "result": "win",
+          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "note": "Led fleet victory at Endor despite an initial imperial trap.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Mon Calamari species naturally adapted to aquatic environments",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Mon Calamari can breathe underwater",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Commands capital starships and directs naval combat operations",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Personal hand-to-hand combat skills are not documented."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Admiral Holdo",
+      "continuity": "Star Wars Canon (The Last Jedi)",
+      "summary": "Amilyn Holdo is a high-ranking Resistance Vice Admiral who uses unconventional tactics and absolute resolve to command fleeing forces. She is capable of sacrificing capital ships to decimate hostile armadas.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Hyperspace ramming maneuver",
+          "Fleet command strategies"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Capital ship shields",
+          "Evacuation protocols"
+        ]
+      },
+      "weaknesses": [
+        "Lacks direct frontline combat prowess or personal weaponry proficiency"
+      ],
+      "mobility": [
+        "starship transport"
+      ],
+      "limitations": [
+        "Relies entirely on starship infrastructure to execute offensive maneuvers"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Amilyn_Holdo",
+          "supports": "Resistance leadership, Vice Admiral rank, and hyperspace ramming feat."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Executed a lightspeed collision with the First Order dreadnought fleet, destroying the flagship and multiple escort ships.",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "First Order Fleet",
+          "result": "win",
+          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "note": "Destroyed a massive portion of the pursuing fleet via hyperspace ramming.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Commands capital starships as Vice Admiral",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat proficiency outside of starship command is unproven."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Ahsoka Tano",
+      "continuity": "Star Wars Canon (The Clone Wars / Rebels)",
+      "summary": "Ahsoka Tano is an agile and formidable force-wielder who utilizes a dual-wielding reverse-grip lightsaber style (Shien). She combines high acrobatic mobility with strong defensive parries and Force abilities.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Dual lightsaber combat (Shien)",
+          "Force push",
+          "Force pull",
+          "Acrobatic strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber deflection",
+          "Force barrier",
+          "Evasive agility"
+        ]
+      },
+      "weaknesses": [
+        "Prone to overconfidence in early training years; vulnerable to emotional attachments"
+      ],
+      "mobility": [
+        "running",
+        "acrobatic leaps",
+        "starship piloting"
+      ],
+      "limitations": [
+        "Requires concentration for advanced telekinesis"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Ahsoka_Tano",
+          "supports": "Abilities, dual lightsabers, Force powers, and combat history across multiple eras."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought and defeated numerous battle droids, inquisitors, and managed to duel Darth Vader.",
+          "citation": "Star Wars Rebels",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darth Vader",
+          "result": "inconclusive",
+          "citation": "Star Wars Rebels - Twilight of the Apprentice",
+          "note": "Rescued from a fatal blow via World Between Worlds intervention.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Performs massive Force-enhanced leaps and aerial maneuvers",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots Jedi starfighters and gunships",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her potential without lightsabers is rarely tested."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Ahsoka Tano|Ahsoka the White",
+      "continuity": "Star Wars Canon (Rebels / Ahsoka series)",
+      "summary": "Having evolved past her previous Jedi identity, Ahsoka the White wields twin white-bladed lightsabers and demonstrates heightened spiritual connection to the Force, granting superior clarity and combat presence.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Twin white lightsaber combat",
+          "Advanced Force barrier",
+          "Telekinetic strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Expert lightsaber parrying",
+          "Enhanced Force deflection"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to psychological manipulation regarding her past and relationship with Anakin Skywalker"
+      ],
+      "formDifferences": "Represents Ahsoka after her resurrection/evolution via the World Between Worlds, wielding purified white crystals in her lightsabers and exhibiting mastery over dark-side corruption.",
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Ahsoka_Tano",
+          "supports": "Ahsoka the White transformation, white lightsabers, and advanced spiritual state."
+        }
+      ],
+      "unknowns": [
+        "Exact limits of her resurrected state are still unfolding in later series eras."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Anakin Skywalker",
+      "continuity": "Star Wars Canon (The Clone Wars / Revenge of the Sith)",
+      "summary": "Anakin Skywalker is one of the most powerful Force-wielders in galactic history, utilizing an aggressive Djem So lightsaber style coupled with immense telekinetic power and reckless tactical daring.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Heavy lightsaber strikes (Djem So)",
+          "Force choke",
+          "Force push",
+          "Force crush"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber defense",
+          "Force durability",
+          "Cybernetic enhanced resilience"
+        ]
+      },
+      "weaknesses": [
+        "Prone to intense emotional volatility, hubris, and anger"
+      ],
+      "mobility": [
+        "running",
+        "acrobatic leaps",
+        "starfighter piloting"
+      ],
+      "limitations": [
+        "Prone to over-reliance on brute force over cautious strategy"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Anakin_Skywalker",
+          "supports": "Abilities, Djem So fighting style, Force power, and cybernetics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Count Dooku in single combat aboard the Invisible Hand.",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Count Dooku",
+          "result": "win",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "note": "Overcame Dooku by channeling the dark side during their duel.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Features a cybernetic right hand/arm",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Executes extraordinary Force-powered jumps and acrobatic movements",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Renowned starfighter pilot capable of flying almost any vessel",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The absolute ceiling of his raw midi-chlorian potential if he had not been injured on Mustafar."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Asajj Ventress",
+      "continuity": "Star Wars Canon (The Clone Wars)",
+      "summary": "Asajj Ventress is a former Nightsister assassin and Sith acolyte who wields dual curved lightsabers that can combine into a single saberstaff. She combines dark-side martial arts, stealth, and Nightsister magicks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Dual lightsaber/saberstaff combat",
+          "Force choke",
+          "Nightsister illusion/magic",
+          "Telekinetic throws"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Lightsaber parrying",
+          "Acrobatic evasion",
+          "Magical protective barriers"
+        ]
+      },
+      "weaknesses": [
+        "Prone to arrogance and vengeful fixations"
+      ],
+      "mobility": [
+        "running",
+        "acrobatic leaps",
+        "starfighter piloting"
+      ],
+      "limitations": [
+        "Magical rituals require preparation time and focus"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Asajj_Ventress",
+          "supports": "Abilities, Nightsister heritage, dual curved lightsabers, and assassination training."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Assassinated and dueled multiple Jedi Knights across the Clone Wars galaxy.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Anakin Skywalker",
+          "result": "loss",
+          "citation": "Star Wars: The Clone Wars (Movie)",
+          "note": "Defeated after an intense duel on Teth.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Trained in Nightsister magick and spellcasting",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts Nightsister rituals and illusions",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Utilizes assassination stealth and ambush tactics",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots custom starfighters and transports",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limitations of her dark-side stamina during prolonged campaigns."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Aurra Sing",
+      "continuity": "Star Wars Canon (The Clone Wars)",
+      "summary": "Aurra Sing is a lethal bounty hunter with sniper training, enhanced reflexes, and a merciless demeanor. She utilizes long-range weaponry, concealed blasters, and tactical assassinations.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Sniper rifle precision shots",
+          "Dual blaster pistol combat",
+          "Hand-to-hand combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cover usage",
+          "Armor plating",
+          "Evasive positioning"
+        ]
+      },
+      "weaknesses": [
+        "Lacks heavy defensive resilience against Force powers or direct lightsaber onslaughts"
+      ],
+      "mobility": [
+        "running",
+        "starship piloting"
+      ],
+      "limitations": [
+        "Dependent on equipment and vantage points for sniping efficiency"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Aurra_Sing",
+          "supports": "Bounty hunter status, sniper skills, and weapons expertise."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully targeted and eliminated numerous high-profile political and military targets across the galaxy.",
+          "citation": "Star Wars: The Clone Wars",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ahsoka Tano",
+          "result": "loss",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Defeated and captured after attempting to assassinate Senator Amidala.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots custom starships and getaway vessels",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of her cybernetic enhancements in canon vs legends.",
+        "Unsupported by cited source (term check, 1/5 key terms found): stealth: Employs stalking and sniping camouflage tactics"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Bail Organa",
+      "continuity": "Star Wars Canon (Revenge of the Sith / Rebels)",
+      "summary": "Bail Organa is a principled Senator from Alderaan and a founding leader of the Rebel Alliance. He operates primarily through political influence, diplomacy, and covert resource allocation rather than personal combat.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Political maneuvering",
+          "Resistance funding and logistics"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Diplomatic immunity",
+          "Bodyguards",
+          "Secure transport"
+        ]
+      },
+      "weaknesses": [
+        "Lacks combat training or physical offense capabilities"
+      ],
+      "mobility": [
+        "speeder transport",
+        "starship piloting"
+      ],
+      "limitations": [
+        "No personal combat proficiencies"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Bail_Organa",
+          "supports": "Senator status, role as a Rebel founder, and political resistance history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Helped rescue Yoda and Obi-Wan Kenobi during the execution of Order 66.",
+          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Galactic Empire",
+          "result": "inconclusive",
+          "citation": "Star Wars Rebels",
+          "note": "Operated covertly against imperial oversight until Alderaan's destruction.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots consular transport craft and official speeders",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Direct tactical decisions in ground combat are unrecorded."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "starwars:Battle Droid",
+      "continuity": "Star Wars Canon (The Clone Wars / Prequel Trilogy)",
+      "summary": "Standard B1 battle droids are mass-produced infantry units controlled by a central command network. They fight in synchronized squads using standard blaster rifles, relying on numerical superiority rather than individual skill.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Blaster rifle volley fire",
+          "Swarm tactics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Metallic chassis plating",
+          "Numerical swarm redundancy"
+        ]
+      },
+      "weaknesses": [
+        "Fragile mechanical structure; prone to comedic malfunctions; dependent on command signal"
+      ],
+      "mobility": [
+        "walking",
+        "running"
+      ],
+      "limitations": [
+        "Lacks independent tactical adaptability without central processor connection"
+      ],
+      "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/B1_battle_droid",
+          "supports": "Mass production, droid weaponry, and mechanical vulnerabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in massive invasions and skirmishes across the Clone Wars galaxy.",
+          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Clone Troopers",
+          "result": "loss",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Regularly overwhelmed in large-scale engagements by disciplined clone forces.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Completely automated robotic combat unit",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact durability variations across different factory batches."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "batchId": "Gemini V2 research dc 20261113-042646 #14",
+  "schemaVersion": 1,
+  "pool": "dc",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional. Reviewed by Claude (scheduled independent review) on 2026-11-13: sources opened, claims corrected.",
+  "characters": [
+    {
+      "id": "dc:Superman|Superman Blue",
+      "continuity": "DC Comics Modern Age (1997-98 electric Superman era, Superman vol. 2 #122-#135)",
+      "summary": "Superman Blue is the electric, energy-based Superman of 1997-98: while transformed and held together by a blue-and-white containment suit he can fly, turn intangible, control electricity, turn into lightning and detect different kinds of energy. After a trap by Cyborg Superman and Toyman split him in two, Superman Blue was the colder, more cerebral half.",
+      "offense": {
+        "domains": [
+          "energy"
+        ],
+        "techniques": [
+          "Electrical control",
+          "Turning into lightning"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intangibility while transformed"
+        ]
+      },
+      "weaknesses": [
+        "Outside his transformed energy state he has only the durability of a normal human",
+        "Energy form disperses without its containment suit"
+      ],
+      "mobility": [
+        "Flight",
+        "Travel as lightning"
+      ],
+      "limitations": [
+        "Electric powers can only be used while transformed",
+        "Requires a containment suit to keep his energy from dispersing",
+        "Detecting energy works only while transformed"
+      ],
+      "formDifferences": "Replaces Superman's classic solar-powered abilities with an electric energy form (intangibility, flight, electrical control, turning into lightning, energy detection) that must be held in a containment suit; he can switch back to a fully vulnerable human Clark Kent. As the Blue half of the split he is the colder, more logical of the two.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Superman_Red/Superman_Blue",
+          "supports": "Energy-based abilities requiring a containment suit (Superman vol. 2 #122); human durability while depowered; the split by Cyborg Superman and Toyman (Superman Red/Superman Blue #1); Blue as the more cerebral half; reunion after the Millennium Giants battle (Superman vol. 2 #135)."
+        },
+        {
+          "url": "https://gamesradar.com/the-dc-history-of-superman-blue-explained",
+          "supports": "Electric powers usable only when transformed: intangibility, flight, electrical control, turning into lightning, energy detection; blue-and-white containment suit; Blue as the thoughtful half."
+        },
+        {
+          "url": "https://comicsalliance.com/electric-bluegaloo-act-10-red-vs-blue/",
+          "supports": "Split into two mostly identical energy Supermen during the Toyman/Cyborg Superman trap; becoming two let him stop both villains; each can turn into a fully vulnerable Clark Kent; Blue colder and more logical."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Split into Superman Red and Superman Blue inside a trap set by Toyman and Cyborg Superman, and as two Supermen stopped both villains at once.",
+          "citation": "Superman Red/Superman Blue #1 (Feb. 1998)",
+          "source": 2
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Intangibility, flight, electrical control and turning into lightning",
+          "dependsOn": "Being in his transformed energy state, held together by the containment suit",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-control",
+          "claim": "GamesRadar lists electrical control and turning into lightning among the electric Superman's powers.",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "GamesRadar lists flight among the electric Superman's innate energy-form powers.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact limits of energy absorption capacity before overload (energy absorption itself is not established by the sources opened)",
+        "Removed by review (not supported by the sources opened): technique: Energy absorption; defense: Energy absorption to heal; weakness: Vulnerability to anti-energy devices; limitation: Can be drained of energy by anti-energy technology; feat: Absorbed massive amounts of energy to shut down an energy-based threat (Superman Vol. 2 #135).",
+        "Superman vol. 2 #135: the split Supermen fought the Millennium Giants (Cabraca, Cerne, Sekhmet) and then merged back when Superman's electromagnetic energy dispersed; the sources do not state the fight's outcome, so it is not recorded as a result."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Cyborg Superman and Toyman",
+          "result": "win",
+          "citation": "Superman Red/Superman Blue #1",
+          "note": "Trapped by the pair; the split into Red and Blue let Superman stop both villains at once.",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "id": "dc:Superman|Superman Red",
+      "continuity": "DC Comics Modern Age (1998 Red/Blue split, Superman Red/Superman Blue #1 to Superman vol. 2 #135)",
+      "summary": "Superman Red is the rash, decisive half of the 1998 split of the electric Superman, created when a trap by Cyborg Superman and Toyman divided him into two mostly identical energy beings. Red is impulsive and quippy, preferring to act first and ask questions later, and is made of red electrical energy.",
+      "offense": {
+        "domains": [
+          "energy"
+        ],
+        "techniques": [
+          "Energy-form Superman powers shared with Superman Blue"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Intangibility in energy form"
+        ]
+      },
+      "weaknesses": [
+        "Can revert to a fully vulnerable human Clark Kent",
+        "Rash and impulsive: prefers to act first and ask questions later"
+      ],
+      "mobility": [],
+      "limitations": [
+        "The energy form needed a containment suit to keep its energy from dispersing",
+        "Split from Superman Blue; the two merged back into one Superman after the Millennium Giants battle"
+      ],
+      "formDifferences": "The impulsive, action-first half of the split electric Superman; his powers are described as mostly identical to Superman Blue's, the difference being temperament (Blue is the cerebral, logical one).",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Superman_Red/Superman_Blue",
+          "supports": "Energy-based abilities and containment suit (Superman vol. 2 #122); the split (Superman Red/Superman Blue #1); Red as more rash but more decisive; reunion after the Millennium Giants (Superman vol. 2 #135)."
+        },
+        {
+          "url": "https://comicsalliance.com/electric-bluegaloo-act-10-red-vs-blue/",
+          "supports": "Two mostly identical energy Supermen; Red 'made of electricity', impulsive and quippy; each can turn into a fully vulnerable Clark Kent; stopping Toyman and Cyborg Superman."
+        },
+        {
+          "url": "https://gamesradar.com/the-dc-history-of-superman-blue-explained",
+          "supports": "Red as a rash, decisive hero who acts now and asks questions later; the split and the Millennium Giants fight in Superman #135."
+        },
+        {
+          "url": "https://dc.fandom.com/wiki/Superman_Red",
+          "supports": "In New Earth continuity the energy-form Superman, in a red and blue containment suit, was faster, intangible and able to interact with computers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Emerged from the Toyman/Cyborg Superman trap as one of two Supermen who together stopped both villains at once.",
+          "citation": "Superman Red/Superman Blue #1 (Feb. 1998)",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Energy-form powers including intangibility",
+          "dependsOn": "Remaining in his energy form rather than reverting to a vulnerable Clark Kent",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "ComicsAlliance describes Superman Red as bright red and made of electricity.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Interactions between Red and Blue energy forms when combined",
+        "The sources call Red and Blue mostly identical but do not list Red's individual powers; flight and electrical control are documented for the pre-split electric Superman, not specifically for Red, so natural-flight and electric-control are not tagged.",
+        "Removed by review (not supported by the sources opened): technique: Energy constructs; technique: Telekinetic manipulation; technique: Focused thermal beams; defense: Energy shielding; weakness: Vulnerability to anti-energy tech; limitation: Energy depletion risks form dissolution; mobility: Flight; feat: Constructed complex energy devices on the fly using red electrical fields; tag: electric-control (Controls red electrical energy fields); tag: natural-flight; tag: telekinesis.",
+        "Correction: Gemini described Red as the intellectual counterpart; the sources say Blue is the cerebral one and Red the rash one."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Cyborg Superman and Toyman",
+          "result": "win",
+          "citation": "Superman Red/Superman Blue #1",
+          "note": "Shared win with Superman Blue: the split let Superman stop both villains at once.",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "id": "dc:Swamp Thing",
+      "continuity": "DC Comics mainstream (Alec Holland Swamp Thing, Swamp Thing Vol. 2 onward)",
+      "summary": "Swamp Thing is the plant elemental and champion of the Parliament of Trees, able to inhabit and animate vegetable matter, control plant life, regenerate, change his size and shape, and travel through the Green by growing a new body wherever plants grow.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Plant manipulation and growth",
+          "Superhuman strength",
+          "Controlling several plant bodies at once"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Regeneration of damaged or severed body parts",
+          "Abandoning a damaged body and regrowing new ones",
+          "Size and shape alteration"
+        ]
+      },
+      "weaknesses": [
+        "Chemical compounds that are disastrous to plant life can poison him",
+        "Cutting his connection to the Green impairs or disrupts his powers"
+      ],
+      "mobility": [
+        "Travel through the Green by transferring his consciousness into a new plant body",
+        "Flight on wings grown from plants"
+      ],
+      "limitations": [],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Swamp_Thing",
+          "supports": "Inhabiting and animating vegetable matter; moving to places wherever there is life; changing size and shape; regeneration; superhuman strength; chemical vulnerability; powers disrupted if cut off from the Green; champion of the Parliament of Trees."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Alec_Holland",
+          "supports": "Plant control, regeneration, size and shape change, growing wings for flight, mastery of all elemental forces (Swamp Thing #171), chemical vulnerability, loss of power when cut off from the Green."
+        },
+        {
+          "url": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Swamp_Thing",
+          "supports": "Mirror of the English Wikipedia Swamp Thing article: regrows damaged or severed parts, grew a body the size of an office block, travels the globe by transferring his consciousness into a new plant body."
+        },
+        {
+          "url": "https://www.tvtropes.org/pmwiki/pmwiki.php/Recap/SwampThingVolume2Issue53TheGardenOfEarthlyDelights",
+          "supports": "Swamp Thing Vol. 2 #53: shrugged off Batman's herbicide, re-emerged in multiple bodies, disarmed and beat Batman."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "When Batman sprayed him with herbicide, he let his body fall apart and re-emerged in multiple bodies at once, then disarmed and beat Batman.",
+          "citation": "Swamp Thing Vol. 2 #53",
+          "source": 3
+        },
+        {
+          "claim": "Grew a plant body the size of an office block.",
+          "citation": "Issue not named by the source",
+          "source": 2
+        },
+        {
+          "claim": "Became master of all elemental forces, including the planet.",
+          "citation": "Swamp Thing #171",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Batman",
+          "result": "win",
+          "citation": "Swamp Thing Vol. 2 #53",
+          "note": "After overgrowing Gotham to force Abby's release, he survived Batman's herbicide attack by regrowing in multiple bodies and beat Batman, who was left bruised but otherwise unharmed.",
+          "source": 3
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-regeneration",
+          "claim": "Wikipedia notes he can regenerate, and he easily regrows damaged or severed body parts.",
+          "source": 0
+        },
+        {
+          "tag": "size-change",
+          "claim": "Wikipedia credits him with the ability to change his size and shape through control of his plant body.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "He crosses the globe by transferring his consciousness into a new plant body grown elsewhere.",
+          "source": 2
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "The Alec Holland article says he can grow wings out of plants to allow for flight.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full extent of control over alien plant life outside Earth's Green",
+        "Removed by review (not supported by the sources opened): technique: Spore projection; limitation: Power is severely limited in barren environments devoid of plant life; tag: water-breathing.",
+        "Correction: Gemini's feat 'reconstituted his entire body after being incinerated' cited Saga of the Swamp Thing #21; the sources opened do not support it (the dcuguide entry for #21 has no synopsis and says only that Swamp Thing learns he is not truly Alec Holland), so it was replaced with sourced feats.",
+        "Note: herbicide failed against him in Swamp Thing Vol. 2 #53, so the general chemical weakness is not reliable against him in every story."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:Swamp Thing|Parliament of Trees Swamp Thing",
+      "continuity": "DC Comics mainstream (Parliament of Trees, first appearing Swamp Thing Vol. 2 #47)",
+      "summary": "Alec Holland as a member of the Parliament of Trees, the group mind of former plant elementals stationed in a grove in Brazil whose minds dwell in the realm of the Green. Plant elementals join the Parliament after their service ends; the sources list Holland as a member but do not describe this form's abilities or the story in which he took his seat.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Not established by the cited sources"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Destruction of the Parliament of Trees: the Parliament is described as now eternally burning in the realm of the Green"
+      ],
+      "mobility": [],
+      "limitations": [],
+      "formDifferences": "Rather than serving as the active plant elemental, he is part of the Parliament's collective group mind of former elementals, which dwells in the Green.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Swamp_Thing",
+          "supports": "Swamp Thing as champion of the Parliament of Trees."
+        },
+        {
+          "url": "https://www.dcuguide.com/Parliament_of_Trees",
+          "supports": "Parliament of Trees as a group mind of former elementals in a Brazilian grove, minds dwelling in the Green; Alec Holland listed among current members; first appearance Swamp Thing Vol. 2 #47; the Parliament now eternally burning in the Green."
+        }
+      ],
+      "feats": [],
+      "campaignTags": [],
+      "unknowns": [
+        "Degree of separation from physical form while integrated into the Parliament",
+        "Which story establishes Alec Holland taking his seat in the Parliament: the dcuguide page lists him as a current member but leaves his 'joined' entry blank, and also says the Parliament has been destroyed (now burning in the Green), which is internally inconsistent.",
+        "No source opened describes this form's combat abilities as distinct from the active Swamp Thing.",
+        "Removed by review (not supported by the sources opened): technique: Planetary flora manipulation; technique: Ancient elemental magic; technique: Root entrapment; defense: Immortal plant physiology; defense: Instantaneous regeneration through global root networks; weakness: Heavy chemical pollutants; limitation: Tied to the well-being of the global plant ecosystem; mobility: Self-teleport via global plant roots; feat: Communed with and drew power directly from the collective consciousness of past plant avatars (Swamp Thing Vol. 2 #147); tag: magic; tag: healing."
+      ],
+      "researchStatus": "needs-review"
+    },
+    {
+      "id": "dc:Talia al Ghul",
+      "continuity": "DC Comics mainstream (Detective Comics #411 through DC Rebirth)",
+      "summary": "Talia al Ghul, daughter of Ra's al Ghul, was trained by the League of Assassins as a martial artist and assassin. She is an expert hand-to-hand combatant, swordswoman and markswoman, holds advanced degrees in biology and engineering and an MBA, acts as a leader, spymaster and strategist, and has access to the Lazarus Pit.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Martial arts and hand-to-hand combat",
+          "Swordsmanship",
+          "Marksmanship",
+          "Poison (poisoned Batman with her lips during their Batcave duel)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Expert hand-to-hand combat",
+          "Conceals her abilities so opponents underestimate her"
+        ]
+      },
+      "weaknesses": [
+        "Conflicting loyalties regarding Batman",
+        "Ordinary human durability: she was shot and killed by Kathy Kane"
+      ],
+      "mobility": [],
+      "limitations": [
+        "No superhuman powers: an athlete at the peak of human physical conditioning"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Talia_al_Ghul",
+          "supports": "League of Assassins training; expert martial artist, swordswoman and markswoman; degrees; spymaster and strategist; concealing her abilities; Lazarus Pit access; Detective Comics #411; Batman Incorporated Vol. 2 #12-13; Shadow War (2022)."
+        },
+        {
+          "url": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Talia_al_Ghul",
+          "supports": "Mirror of an earlier English Wikipedia revision: peak physical conditioning, excellent hand-to-hand fighter proficient with most hand weapons; Batman #33 (DC Rebirth) loss to Catwoman."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shot and killed Dr. Darrk to save Batman's life.",
+          "citation": "Detective Comics #411 (May 1971)",
+          "source": 0
+        },
+        {
+          "claim": "Poisoned Batman during a duel to the death in the Batcave.",
+          "citation": "Batman Incorporated Vol. 2 #12-13 (2013)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dr. Darrk",
+          "result": "win",
+          "citation": "Detective Comics #411",
+          "note": "Shot and killed Darrk to save Batman.",
+          "source": 0
+        },
+        {
+          "opponent": "Batman",
+          "result": "inconclusive",
+          "citation": "Batman Incorporated Vol. 2 #12-13",
+          "note": "Challenged Batman to a duel to the death in the Batcave and poisoned him; the fight ended when Kathy Kane shot and killed Talia.",
+          "source": 0
+        },
+        {
+          "opponent": "Geo-Force",
+          "result": "win",
+          "citation": "Shadow War (2022); reveal in Robin #14",
+          "note": "Killed, in a one-on-one battle, the man she believed was Deathstroke, revealed to be Geo-Force.",
+          "source": 0
+        },
+        {
+          "opponent": "Catwoman",
+          "result": "loss",
+          "citation": "Batman #33 (DC Rebirth)",
+          "note": "After severely wounding Batman she challenged Catwoman, who defeated her by wounding her in the same manner.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "Full current extent of access to Lazarus Pit resources",
+        "Removed by review (not supported by the sources opened): technique: Hidden blade weapons; technique: Lazarus-derived toxins; defense: Evocative stealth; defense: Bodyguard intervention; mobility: Acrobatics; feat: Successfully infiltrated heavily guarded Batcave security systems (Detective Comics #790); result: Batman loss in Batman: Son of the Demon (the source says Batman married Talia and was nearly killed protecting her, not that he defeated her); tag: gadgets (no gadget use documented); tag: stealth (no stealth feat documented; League training is a role, not a feat).",
+        "Robin: Son of Batman #5-6 (2015) describes a battle with her son Damian, but the source does not give the outcome or exact issue, so it is not recorded as a result."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "dc:The Atom (Ray Palmer)",
+      "continuity": "DC Comics mainstream (Showcase #34 through Convergence)",
+      "summary": "Ray Palmer is a physicist who used white dwarf star matter to build a lens that shrinks objects and a belt (later an encephalotronic grid in his costume) that lets him shrink himself to subatomic size and control his weight by thought. At a high weight setting he strikes with the force of his normal size; at a low setting he glides on air currents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Subatomic miniaturization",
+          "Full-mass strikes while tiny (punched through concrete walls)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Microscopic size making him exceptionally difficult to target"
+        ]
+      },
+      "weaknesses": [
+        "Dependent on his size-control equipment: after Sword of the Atom he was left about three feet tall without it"
+      ],
+      "mobility": [
+        "Glide via air currents while tiny",
+        "Travel through telephone lines in seconds"
+      ],
+      "limitations": [
+        "Requires his size-control belt or costume grid to alter size",
+        "Other people he shrinks were at first at risk of exploding after two minutes (later about an hour) unless restored"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Atom_(Ray_Palmer)",
+          "supports": "White dwarf star lens; belt and later encephalotronic grid; size and weight control; strikes with normal-size strength; gliding on air currents; travel through phone lines; punching through concrete; limits on shrinking others; Sword of the Atom; fights with Deathstroke (Titans #36, Annual 2011)."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shrinks enough to travel through telephone lines in seconds and emerge from the answering phone.",
+          "citation": "Issue not named by the source",
+          "source": 0
+        },
+        {
+          "claim": "Has punched through concrete walls while using his size and weight control.",
+          "citation": "Issue not named by the source",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Subatomic shrinking and weight control",
+          "dependsOn": "Size-control belt (later an encephalotronic grid in his costume) built with white dwarf star matter",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "size-change",
+          "claim": "Wikipedia says he uses a belt to control his miniaturization down to subatomic size.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Relies on a size-control belt, later an encephalotronic grid in his costume headpiece.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Built a shrinking lens from white dwarf star matter and created the belt that controls his miniaturization.",
+          "source": 0
+        },
+        {
+          "tag": "glide",
+          "claim": "Wikipedia says he uses a low weight setting to glide on air currents.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Maximum duration of prolonged subatomic dimensional travel",
+        "Removed by review (not supported by the sources opened): technique: Circuit infiltration; defense: White dwarf density durability; weakness: Vulnerability to attacks while miniaturized if opponent detects him; mobility: Riding on projectiles; feat: Traveled inside computer circuits and rewired electronic systems at the microscopic level (Sword of the Atom #1); tag: tech (Uses advanced bio-belt harnessing white dwarf star matter; covered by gadgets/inventor)."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Deathstroke",
+          "result": "win",
+          "citation": "Titans #36 and Titans Annual (2011)",
+          "note": "Seriously injured Deathstroke in Khandaq.",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "id": "dc:The Flash (Barry Allen)",
+      "continuity": "DC Comics mainstream (Silver Age through Flash: Rebirth)",
+      "summary": "Barry Allen draws on the Speed Force to run at super speed (Flash #150 has him at ten times the speed of light), vibrate through solid matter, vibrate between dimensions in certain circumstances, and channel arcs of lightning; a Speed Force aura shields him from friction and kinetic impacts, his enhanced metabolism gives him a healing factor, and he travels in time with the Cosmic Treadmill.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Super-speed strikes",
+          "Channelling Speed Force energy into arcs of lightning",
+          "Minor magnetism manipulation through that electricity"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Speed Force aura shielding him from friction and kinetic impacts",
+          "Vibrating to pass through solid matter",
+          "Regenerative healing factor"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited sources"
+      ],
+      "mobility": [
+        "Super-speed",
+        "Time travel via the Cosmic Treadmill",
+        "Vibrating between dimensions in certain circumstances"
+      ],
+      "limitations": [
+        "Pushing his speed to the limit can destroy him: in Crisis on Infinite Earths #8 he wasted away into energy",
+        "Regular time travel relies on the Cosmic Treadmill device"
+      ],
+      "sources": [
+        {
+          "url": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Flash_(Barry_Allen)",
+          "supports": "IPFS snapshot of an earlier revision of the English Wikipedia Flash (Barry Allen) article: ten times light speed (Flash #150) and the Flash: Rebirth #6 device that severed Zoom from the negative Speed Force (neither is in the current revision)."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Flash_(Barry_Allen)",
+          "supports": "Current Wikipedia article: died destroying the Anti-Monitor's anti-matter cannon (Crisis on Infinite Earths #8); seven speedsters battle Zoom; invents the Cosmic Treadmill for time travel; channels Speed Force into lightning and minor magnetism; regenerative healing factor."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ran at ten times the speed of light.",
+          "citation": "The Flash #150 (Feb. 1965)",
+          "source": 0
+        },
+        {
+          "claim": "Foiled the Anti-Monitor's anti-matter cannon by catching the tachyon beam at the heart of the weapon, dying in the process.",
+          "citation": "Crisis on Infinite Earths #8 (Nov. 1985)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Professor Zoom (Reverse-Flash)",
+          "result": "win",
+          "citation": "Flash: Rebirth #5-6",
+          "note": "Team effort: seven speedsters battled Zoom in #5; in #6 Barry tossed him into a device that severed his link to the negative Speed Force, and the Flashes tied him up.",
+          "source": 0
+        },
+        {
+          "opponent": "Anti-Monitor",
+          "result": "win",
+          "citation": "Crisis on Infinite Earths #8",
+          "note": "Pyrrhic: Destroyed the Anti-Monitor's anti-matter cannon by catching its tachyon beam; the power was too much for his body.",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric-control",
+          "claim": "He can channel Speed Force energy into arcs of lightning and use the electricity to manipulate magnetism on a minor level.",
+          "source": 1
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "His enhanced metabolism grants him a regenerative healing factor.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Upper velocity limit before completely merging with the Speed Force",
+        "Removed by review (not supported by the sources opened): technique: Infinite mass punch; technique: Speed Force tunneling; weakness: Speed Force disruption; weakness: Absolute zero temperatures slowing molecular movement; limitation: Requires continuous physical motion or connection to Speed Force to maintain extreme feats; feat: Ran across the globe and outran the gravitational pull of a collapsing black hole (The Flash Vol. 5 #40); tag: electric (superseded by the specific electric-control tag); tag: natural-flight (running on air currents is not documented); tag: self-teleport (dimensional vibration is travel, not teleportation).",
+        "Correction: Gemini's Reverse-Flash result cited Flash Rebirth #1; the source places the fight in Flash: Rebirth #5-6 and it was a team effort.",
+        "Top speed is not settled: the earlier Wikipedia revision cites ten times light speed (Flash #150); the current revision says he \"has been calculated as going as fast as 13 million times the speed of light\" without naming a story. Scaling is left to the combat engine."
+      ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Time travel",
+          "dependsOn": "The Cosmic Treadmill device",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "id": "dc:The Flash (Barry Allen)|Black Racer Barry Allen",
+      "continuity": "DC Comics New 52 (Darkseid War, Justice League Vol. 2 #44-50)",
+      "summary": "During the Darkseid War, Mobius wrenched control of the Black Racer, the manifestation of death who brings death with a single touch, away from Darkseid and sent it into the Flash. The Racer seized control of Barry's mind, though Barry's will resisted, and the Anti-Monitor fired the Racer through Darkseid like a projectile, killing him.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "control"
+        ],
+        "techniques": [
+          "Death touch (the Black Racer brings death to those he has chosen with a single touch)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Separation from the Black Racer entity: the Racer was separated from the Flash by the powers of the child of Superwoman and Alexander Luthor"
+      ],
+      "mobility": [
+        "Super-speed"
+      ],
+      "limitations": [
+        "Temporary merger: the Racer seized control of Barry's mind and the bond ended when they were separated",
+        "In the Darkseid kill the merged Flash was used as a weapon, fired by the Anti-Monitor"
+      ],
+      "formDifferences": "Barry Allen as host of the Black Racer, the New Gods' personification of death: the Racer controls his mind and brings death with a touch, while Barry's own will resists it.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Black_Racer_(DC_Comics)",
+          "supports": "Black Racer brings death with a single touch; first post-Flashpoint appearance in the Darkseid War (Justice League #44), merged with the Flash in a bid to kill Darkseid; Flash's will resisted the Racer."
+        },
+        {
+          "url": "https://dc.fandom.com/wiki/Black_Racer_(Prime_Earth)",
+          "supports": "The Racer seized control of its new host's mind; merged host delivered the blow that killed Darkseid; separation from the Flash by the child of Superwoman and Alexander Luthor; superhuman speed."
+        },
+        {
+          "url": "https://www.dc.com/blog/2015/10/02/this-just-happened-the-black-racer-rips-a-path-through-justice-league-44",
+          "supports": "Justice League #44: Mobius wrenched control of the Black Racer from Darkseid and sent it into the Flash; the Anti-Monitor threw the Racer back at Darkseid."
+        },
+        {
+          "url": "https://comicbook.com/news/a-major-dc-character-died-in-justice-league-44",
+          "supports": "Justice League #44: the Anti-Monitor fired the Black Racer through Darkseid like a projectile, apparently killing him; the Racer merging with the Flash."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Merged with the Black Racer, was fired by the Anti-Monitor through Darkseid like a projectile, killing him.",
+          "citation": "Justice League Vol. 2 #44",
+          "source": 3
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Darkseid",
+          "result": "win",
+          "citation": "Justice League Vol. 2 #44",
+          "note": "Not a solo win: Mobius sent the Black Racer into the Flash and the Anti-Monitor fired the merged Racer through Darkseid, killing him.",
+          "source": 3
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Death touch",
+          "dependsOn": "Being merged with the Black Racer entity",
+          "source": 0
+        }
+      ],
+      "campaignTags": [],
+      "unknowns": [
+        "Long-term psychological strain of housing the death avatar",
+        "Removed by review (not supported by the sources opened): technique: God-slaying speed strike; technique: Death avatar projection; defense: Invulnerability granted by the Black Racer entity; defense: Intangibility; weakness: Mind control or psychic separation techniques; mobility: Flight; mobility: Dimensional teleportation; tag: natural-flight (the Black Racer's flight on celestial skis is documented for the entity, not for the Flash-merged form).",
+        "Correction: Gemini cited Justice League Vol. 2 #42 and said Barry 'used the Black Racer's touch'; the sources place the kill in Justice League #44 with the Anti-Monitor firing the merged Racer.",
+        "The Black Racer as an entity cannot die and has flight and immortality (DC Database), but no source opened says these carried over to the Flash while merged."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

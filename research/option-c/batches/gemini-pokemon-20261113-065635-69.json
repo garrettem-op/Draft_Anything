@@ -1,0 +1,712 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-065635 #69",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Hypno",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Hypno is a psychic-type Pokémon that relies heavily on inducing deep sleep with its pendulum and manipulating minds or inflicting psychological and physical damage.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "magic",
+          "control"
+        ],
+        "techniques": [
+          "Hypnosis",
+          "Psychic",
+          "Dream Eater",
+          "Confusion"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Psychic barriers",
+          "Evasion through teleporation or swift movement"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Levitation via psychic abilities"
+      ],
+      "limitations": [
+        "Vulnerable to dark, ghost, and bug-type phenomena",
+        "Physical frailties compared to heavy brawlers"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Hypno_(Pok%C3%A9mon)",
+          "supports": "Abilities, typing, movepool, and general characteristics of Hypno."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Carries a pendulum that it swings to lull targets into a deep sleep.",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Various trainers' Pokémon in Pokémon League battles",
+          "result": "win",
+          "citation": "Standard gameplay across Kanto entries",
+          "note": "Standard trainer battles.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Hypno is a Psychic-type Pokémon with innate mental powers.",
+          "source": 0
+        },
+        {
+          "tag": "mind-control",
+          "claim": "Hypno uses Hypnosis and pendulum swings to entrance opponents and humans.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of its mind control range outside of direct pendulum line-of-sight."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Ivysaur",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Ivysaur is a dual Grass and Poison-type Pokémon that fights using vine whips, razor leaves, and toxic spores released from the bulb on its back.",
+      "offense": {
+        "domains": [
+          "natural",
+          "physical",
+          "poison"
+        ],
+        "techniques": [
+          "Vine Whip",
+          "Razor Leaf",
+          "Poison Powder",
+          "Solar Beam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Sturdy quadrupedal stance",
+          "Absorbing sunlight to fuel rapid regeneration or energy attacks"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type attacks",
+        "Ice-type attacks",
+        "Flying-type attacks",
+        "Psychic-type attacks"
+      ],
+      "mobility": [
+        "Quadrupedal running and leaping"
+      ],
+      "limitations": [
+        "The plant bulb on its back requires sunlight to store power.",
+        "Vulnerable to fire and ice elements."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Ivysaur_(Pok%C3%A9mon)",
+          "supports": "Ivysaur typing, abilities, and move sets."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Supports the heavy plant bulb on its back using strong hind legs.",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Various Kanto Gym Pokémon",
+          "result": "win",
+          "citation": "Standard gameplay progression",
+          "note": "Standard battles.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Can harness sunlight to recover energy and stamina via Synthesis.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact weight limit of items it can lift with its vines."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Jigglypuff",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Jigglypuff is a Normal and Fairy-type Pokémon that lulls opponents to sleep using its soothing lullaby song before drawing graffiti on their faces.",
+      "offense": {
+        "domains": [
+          "magic",
+          "sonic",
+          "physical"
+        ],
+        "techniques": [
+          "Sing",
+          "Body Slam",
+          "Pound",
+          "Dazzling Gleam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Inflatable body to cushion impacts"
+        ]
+      },
+      "weaknesses": [
+        "Steel-type attacks",
+        "Poison-type attacks"
+      ],
+      "mobility": [
+        "Walking",
+        "Bouncing / floating slightly by inflating its body"
+      ],
+      "limitations": [
+        "Physically fragile and easily knocked back by heavy attacks.",
+        "Sing requires targets to be able to hear it."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Jigglypuff_(Pok%C3%A9mon)",
+          "supports": "Jigglypuff typing, Sing ability, and evolution data."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Adjusts its vocal cords to sing a song at a precise wavelength that causes listeners to fall asleep instantly.",
+          "citation": "Pokémon anime and game lore",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Opposing trainers in Kanto",
+          "result": "inconclusive",
+          "citation": "Pokémon anime running gag",
+          "note": "Usually puts everyone to sleep and leaves frustrated.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Whether its singing affects deaf opponents."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Jolteon",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Jolteon is an Electric-type Pokémon characterized by extreme speed and the ability to discharge high-voltage electricity and sharp fur needles.",
+      "offense": {
+        "domains": [
+          "electric",
+          "physical"
+        ],
+        "techniques": [
+          "Thunderbolt",
+          "Pin Missile",
+          "Thunder Wave",
+          "Agility"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High evasiveness and speed",
+          "Spiky fur that deters physical contact"
+        ]
+      },
+      "weaknesses": [
+        "Ground-type attacks"
+      ],
+      "mobility": [
+        "Extreme running speed"
+      ],
+      "limitations": [
+        "Completely powerless against Ground-type immunity to electricity.",
+        "Fragile defense against heavy physical crushing blows."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Jolteon_(Pok%C3%A9mon)",
+          "supports": "Jolteon stats, abilities, and electric capabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shoots its fur like sharp missiles at opponents.",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gym Trainer Pokémon",
+          "result": "win",
+          "citation": "Standard gameplay",
+          "note": "Outspeeds and neutralizes water/flying types.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Can generate and discharge electricity up to 10,000 volts.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Manipulates and fires bolts of lightning at targets.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limit of speed bursts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Jynx",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Jynx is an Ice and Psychic-type humanoid Pokémon that uses freezing kisses, psychokinetic waves, and hypnotic dances to incapacitate foes.",
+      "offense": {
+        "domains": [
+          "ice",
+          "psychic",
+          "magic"
+        ],
+        "techniques": [
+          "Ice Punch",
+          "Lovely Kiss",
+          "Psychic",
+          "Blizzard"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Psychic barriers",
+          "Evasion"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type attacks",
+        "Bug-type attacks",
+        "Rock-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks",
+        "Steel-type attacks"
+      ],
+      "mobility": [
+        "Bipedal movement",
+        "Levitation"
+      ],
+      "limitations": [
+        "Extremely vulnerable to multiple elemental types.",
+        "Low physical durability."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Jynx_(Pok%C3%A9mon)",
+          "supports": "Jynx typing, moveset, and attributes."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Dances in a rhythm that mimics human speech and confuses humans.",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Trainer Pokémon in Kanto region",
+          "result": "win",
+          "citation": "Standard game progression",
+          "note": "Standard battle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Possesses innate psychic capabilities and uses Psychic attacks.",
+          "source": 0
+        },
+        {
+          "tag": "ice",
+          "claim": "Generates freezing temperatures and ice attacks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Precise origins of its rhythmic cultural dancing style."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Kabuto",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Kabuto is an ancient Rock and Water-type fossil Pokémon protected by a hard shell, hiding on the ocean floor and peering out through glowing eyes.",
+      "offense": {
+        "domains": [
+          "physical",
+          "water"
+        ],
+        "techniques": [
+          "Scratch",
+          "Water Gun",
+          "Mud Shot",
+          "Protect"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely hard carapace shell",
+          "Hiding inside shell"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks"
+      ],
+      "mobility": [
+        "Crawling on land",
+        "Swimming"
+      ],
+      "limitations": [
+        "Slow movement on land.",
+        "Vulnerable to plant and electric elements."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kabuto_(Pok%C3%A9mon)",
+          "supports": "Kabuto typing, fossil status, and shell defenses."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Resurrected from a Dome Fossil found in ancient strata.",
+          "citation": "Pokémon Red and Blue Cinnabar Lab event",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wild Pokémon",
+          "result": "win",
+          "citation": "Standard leveling and combat",
+          "note": "Standard encounter.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Lives on the ocean floor and breathes underwater.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Resides naturally in marine environments.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Lifespan outside of fossilization."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Kabutops",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Kabutops is the evolved Rock and Water-type fossil Pokémon, utilizing sharp scythe-like arms to slash prey and drain fluids.",
+      "offense": {
+        "domains": [
+          "physical",
+          "water"
+        ],
+        "techniques": [
+          "Slash",
+          "Hydro Pump",
+          "Ancient Power",
+          "Night Slash"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hard shell armor",
+          "Agile dodging"
+        ]
+      },
+      "weaknesses": [
+        "Electric-type attacks",
+        "Grass-type attacks"
+      ],
+      "mobility": [
+        "Bipedal running on land",
+        "Fast swimming"
+      ],
+      "limitations": [
+        "Struggles against heavy electrical discharges and plant-based entanglements.",
+        "Relies primarily on close-quarters cutting."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kabutops_(Pok%C3%A9mon)",
+          "supports": "Kabutops evolution, scythe arms, and combat style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Slices prey with razor-sharp scythes and drains their body fluids.",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Trainer and Wild Pokémon",
+          "result": "win",
+          "citation": "Standard gameplay",
+          "note": "Standard battle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "aquatic",
+          "claim": "Swims deftly through the water using its shell to cut through currents.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Adapted to marine life.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact hunting success rate in prehistoric oceans."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Kadabra",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Kadabra is a Psychic-type Pokémon that emits powerful alpha waves, bending spoons and floating in the air using psychokinetic force.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "magic"
+        ],
+        "techniques": [
+          "Psychic",
+          "Teleport",
+          "Confusion",
+          "Psybeam"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Psychic barriers",
+          "Teleportation to evade attacks"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type attacks",
+        "Ghost-type attacks",
+        "Dark-type attacks"
+      ],
+      "mobility": [
+        "Levitation",
+        "Teleportation"
+      ],
+      "limitations": [
+        "Physically weak and fragile when caught off guard.",
+        "Sleep or headache conditions severely disrupt its psychic focus."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kadabra_(Pok%C3%A9mon)",
+          "supports": "Kadabra psychic abilities, teleportation, and spoon-wielding trait."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Holds a silver spoon that amplifies its psychic mental focus.",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Saffron City Gym Trainer Pokémon",
+          "result": "win",
+          "citation": "Standard Kanto progression",
+          "note": "Standard battle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Emits intense psychic waves and possesses telekinetic powers.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Instantly teleports out of danger using psychic energy.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of how it bends spoons with mental focus."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Kakuna",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Kakuna is a Bug and Poison-type cocoon Pokémon that remains nearly motionless while hardening its outer shell in preparation for evolution.",
+      "offense": {
+        "domains": [
+          "physical",
+          "poison"
+        ],
+        "techniques": [
+          "Harden",
+          "Poison Sting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hardened shell casing",
+          "Immobility to avoid detection"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type attacks",
+        "Flying-type attacks",
+        "Rock-type attacks"
+      ],
+      "mobility": [
+        "Hanging stationary",
+        "Slow dropping"
+      ],
+      "limitations": [
+        "Virtually incapable of active locomotion.",
+        "Extremely vulnerable to intense heat and fire."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kakuna_(Pok%C3%A9mon)",
+          "supports": "Kakuna cocoon state, typing, and defense moves."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Scarcely moves while hanging from tree branches, quietly making internal preparations for evolution.",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Wild Bug Catchers' Pokémon",
+          "result": "inconclusive",
+          "citation": "Viridian Forest encounters",
+          "note": "Often results in stalemate matches due to Harden spam.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "What happens to its internal organs during metamorphosis inside the shell."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Kangaskhan",
+      "continuity": "Pokémon Red and Blue / Standard Video Game Continuity",
+      "summary": "Kangaskhan is a Normal-type maternal Pokémon that fiercely protects its young offspring in its pouch, delivering powerful punches and tail swipes in combat.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mega Punch",
+          "Dizzy Punch",
+          "Crunch",
+          "Outrage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Thick armored hide",
+          "Protective maternal stance shielding the infant"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type attacks"
+      ],
+      "mobility": [
+        "Bipedal running"
+      ],
+      "limitations": [
+        "Vulnerable to fighting-type martial arts.",
+        "Refrains from reckless maneuvers that could endanger the infant in its pouch."
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kangaskhan_(Pok%C3%A9mon)",
+          "supports": "Kangaskhan maternal nature, stats, and physical moveset."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Will not give up fighting even if severely wounded, as long as its infant child is safe inside its belly pouch.",
+          "citation": "Pokémon Red and Blue Pokédex",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Safari Zone Wild Pokémon",
+          "result": "win",
+          "citation": "Standard Safari Zone encounters",
+          "note": "Defends its territory against intruders.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact growth timeline of the infant leaving the pouch permanently."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

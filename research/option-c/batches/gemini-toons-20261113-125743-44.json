@@ -1,0 +1,612 @@
+{
+  "batchId": "Gemini V2 research toons 20261113-125743 #44",
+  "schemaVersion": 1,
+  "pool": "toons",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "toons:Captain Hook",
+      "continuity": "Peter Pan (Disney Animated Film)",
+      "summary": "Captain Hook is a cunning pirate captain who relies on a rapier, a hook hand, and his crew to fight. He is cowardly when confronted by monsters like the Crocodile but ruthless against ordinary opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Rapier fencing",
+          "Hook slash",
+          "Commanding pirate crew"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Pirate crew protection",
+          "Swashbuckling agility"
+        ]
+      },
+      "weaknesses": [
+        "Extreme phobia of the Tick-Tock Crocodile"
+      ],
+      "mobility": [
+        "Running",
+        "Sailing ships"
+      ],
+      "limitations": [
+        "Lacks one hand, replaced by a metal hook"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Captain_Hook",
+          "supports": "General overview of Captain Hook, his weapons, and his fear of the crocodile."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Peter Pan in a sword duel aboard the Jolly Roger.",
+          "citation": "Peter Pan (1953 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Peter Pan",
+          "result": "loss",
+          "citation": "Peter Pan (1953 film)",
+          "note": "Defeated and forced to flee from the Crocodile.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact proficiency with firearms varies between adaptations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Charlie Brown",
+      "continuity": "Peanuts (Animated Specials)",
+      "summary": "Charlie Brown is an ordinary, perseverant child who does not possess supernatural abilities or combat skills. He fights mainly through emotional endurance and dealing with everyday misfortunes.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Baseball pitching (frequently unsuccessful)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Emotional resilience"
+        ]
+      },
+      "weaknesses": [
+        "Lack of athletic coordination",
+        "Prone to failure when kicking footballs"
+      ],
+      "mobility": [
+        "Running",
+        "Walking"
+      ],
+      "limitations": [
+        "Ordinary human child capabilities with no combat training or powers"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Charlie_Brown",
+          "supports": "General characteristics, role as a normal human child with no combat training."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Persistently attempts to fly a kite despite constant failure.",
+          "citation": "Peanuts television specials",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "No documented formal combat feats."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Cinderella",
+      "continuity": "Cinderella (Disney Animated Film)",
+      "summary": "Cinderella is a kind-hearted young woman who relies on animal companions and magical assistance for extraordinary feats. In standard encounters, she has no offensive combat training.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Domestic resourcefulness"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Animal allies interference"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ordinary physical threats without magical protection"
+      ],
+      "mobility": [
+        "Walking",
+        "Riding in a carriage"
+      ],
+      "limitations": [
+        "Magical transformations expire at midnight"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Cinderella_(1950_film)",
+          "supports": "Background, plot, and reliance on fairy godmother's magic."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Attended the royal ball via magically summoned attire and carriage.",
+          "citation": "Cinderella (1950 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Magical ballgown and carriage",
+          "dependsOn": "Fairy Godmother's spell lasting until midnight",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Receives magical transformation from her Fairy Godmother",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "No combat-oriented feats."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Courage the Cowardly Dog",
+      "continuity": "Courage the Cowardly Dog (Animated Series)",
+      "summary": "Courage is a pink dog who overcomes extreme terror to protect his owners from bizarre monsters, aliens, and supernatural threats. He uses quick thinking, improvised gadgets, and cartoon physics to survive.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech",
+          "magic"
+        ],
+        "techniques": [
+          "Improvised transformation into objects or animals",
+          "Computer research via the Nowhere Computer"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extreme cartoon durability",
+          "Self-teleportation panic dash"
+        ]
+      },
+      "weaknesses": [
+        "Prone to panic and terror when facing paranormal entities"
+      ],
+      "mobility": [
+        "Super-speed running",
+        "Jumping"
+      ],
+      "limitations": [
+        "Speaks in garbled English and barks, limiting verbal communication"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Courage_the_Cowardly_Dog",
+          "supports": "Overview of Courage's role, feats against supernatural monsters, and cartoon abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated various supernatural monsters and aliens threatening Eustace and Muriel.",
+          "citation": "Courage the Cowardly Dog television series",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-teleport",
+          "claim": "Instantly darts away in extreme fear across vast distances",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses the sentient Nowhere Computer to analyze threats",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limits of his cartoon transformation abilities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Daffy Duck",
+      "continuity": "Looney Tunes",
+      "summary": "Daffy Duck is an energetic, eccentric waterfowl prone to schemes and explosive misfortune. He utilizes classic cartoon resilience and occasional props to counter adversaries like Bugs Bunny.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Slapstick blows",
+          "Surprise ambushes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cartoon regenerative resilience against physical trauma"
+        ]
+      },
+      "weaknesses": [
+        "Impulsive greed and hubris often lead to self-sabotage"
+      ],
+      "mobility": [
+        "Running",
+        "Flight (via anatomical wings)"
+      ],
+      "limitations": [
+        "Plans frequently backfire due to poor foresight"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Daffy_Duck",
+          "supports": "Overview of Daffy Duck's personality, cartoon physics, and rivalry history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived point-blank explosions and projectile impacts with comedic recovery.",
+          "citation": "Looney Tunes theatrical shorts",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bugs Bunny",
+          "result": "loss",
+          "citation": "Rabbit Season / Duck Season shorts",
+          "note": "Outsmarted consistently by Bugs Bunny.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Continuity variations between classic shorts and modern series."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Dash",
+      "continuity": "The Incredibles (Pixar Animated Film)",
+      "summary": "Dash is a young superhero with superhuman speed who uses rapid movement to overwhelm opponents, run across water, and evade attacks. He fights with youthful overconfidence.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "High-speed ramming",
+          "Rapid flurry punches"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "High-speed evasion"
+        ]
+      },
+      "weaknesses": [
+        "Impatience and arrogance in combat"
+      ],
+      "mobility": [
+        "Super-speed running"
+      ],
+      "limitations": [
+        "Childhood maturity level and susceptibility to distraction"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Incredibles",
+          "supports": "Details on Dash's superhuman speed and family abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ran across the surface of water and outran jungle mercenaries.",
+          "citation": "The Incredibles (2004 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Omnidroid guards",
+          "result": "win",
+          "citation": "The Incredibles (2004 film)",
+          "note": "Used speed to confuse and disable pursuers.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Runs across the surface of water due to extreme velocity",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Top speed limit before experiencing fatigue."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Dexter",
+      "continuity": "Dexter's Laboratory",
+      "summary": "Dexter is a boy genius who constructs advanced science fiction machinery, robots, and energy weapons in his secret laboratory. He relies heavily on prepared technology to handle threats.",
+      "offense": {
+        "domains": [
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Laser pistols",
+          "Mecha suits",
+          "Invention deployment"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Energy shields",
+          "Powered armor suits"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and vulnerability to having his inventions sabotaged by Dee Dee"
+      ],
+      "mobility": [
+        "Walking",
+        "Mecha flight"
+      ],
+      "limitations": [
+        "Physically weak without technological enhancements"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Dexter%27s_Laboratory",
+          "supports": "Overview of Dexter, his laboratory, and his inventions."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Constructed giant robotic defenders to fight city-destroying monsters.",
+          "citation": "Dexter's Laboratory television series",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Advanced mecha deployment",
+          "dependsOn": "Access to his secret laboratory",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Builds complex robotic and technological systems",
+          "source": 0
+        },
+        {
+          "tag": "powered-armor",
+          "claim": "Pilots customized robotic mecha suits for combat",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Deploys various futuristic handheld devices",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Reliability of experimental prototypes in high-stress combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Donald Duck",
+      "continuity": "Disney Animated Shorts",
+      "summary": "Donald Duck is a volatile waterfowl who frequently flies into explosive rages, attacking foes with fists, blunt objects, and whatever weapons are at hand. He possesses cartoon durability.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Berserker rage punches",
+          "Improvised firearm usage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cartoon resilience to damage"
+        ]
+      },
+      "weaknesses": [
+        "Prone to uncontrollable fits of blinding anger"
+      ],
+      "mobility": [
+        "Running",
+        "Flight (via anatomical wings)"
+      ],
+      "limitations": [
+        "Loss of tactical reasoning when enraged"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Donald_Duck",
+          "supports": "Overview of Donald Duck, temper tantrums, and slapstick history."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off military service hazards and rival characters using sheer aggression.",
+          "citation": "Der Fuehrer's Face and classic Disney shorts",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Discrepancies between civilian cartoon shorts and action-oriented video game appearances like Kingdom Hearts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Donatello",
+      "continuity": "Teenage Mutant Ninja Turtles (1987 Animated Series)",
+      "summary": "Donatello is the scientific and technological genius of the Ninja Turtles. He fights using a bo staff and utilizes gadgets, vehicles, and hacked technology to outwit opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Bo staff strikes",
+          "Staff vaulting",
+          "Gadget deployment"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Turtle shell deflection",
+          "Ninjutsu evasive maneuvers"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to EMPs and technological failures affecting his custom gear"
+      ],
+      "mobility": [
+        "Running",
+        "Ninjutsu acrobatics",
+        "Driving the Turtle Van"
+      ],
+      "limitations": [
+        "Relies heavily on having workspace and tools to build advanced solutions"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Donatello_(Teenage_Mutant_Ninja_Turtles)",
+          "supports": "Overview of Donatello's role as the team inventor and bo staff user."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Hacked into sophisticated Technodrome security systems.",
+          "citation": "Teenage Mutant Ninja Turtles (1987 TV series)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Designs advanced technology and turtle vehicles",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses customized technological tracking and hacking devices",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Combat prowess compared strictly to martial artists without technological aid."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "toons:Donkey",
+      "continuity": "Shrek (Animated Film Series)",
+      "summary": "Donkey is an articulate, talkative animal companion who fights using chaotic agility, vocal distraction, and occasionally aided by dragon flight. He relies heavily on humor and persistence.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Hoof kicks",
+          "Biting",
+          "Incessant verbal harassment"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Erratic dodging"
+        ]
+      },
+      "weaknesses": [
+        "Easily frightened by dangerous threats or magical monsters"
+      ],
+      "mobility": [
+        "Quadrupedal running",
+        "Dragon-assisted flight"
+      ],
+      "limitations": [
+        "Physically limited to standard quadruped animal capabilities"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Donkey_(Shrek)",
+          "supports": "Overview of Donkey's character, abilities, and partnership with Shrek."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Helped defeat Lord Farquaad's guards and breached castle defenses.",
+          "citation": "Shrek (2001 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dragon guards",
+          "result": "win",
+          "citation": "Shrek (2001 film)",
+          "note": "Defeated castle guards with assistance from Shrek and Dragon.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Aerial fire assault",
+          "dependsOn": "Assistance from Dragon",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Rides into battle alongside or upon his dragon mate",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Magic potion transformations altering his species temporarily."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

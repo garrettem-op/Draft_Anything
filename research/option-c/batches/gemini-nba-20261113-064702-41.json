@@ -1,0 +1,428 @@
+{
+  "batchId": "Gemini V2 research nba 20261113-064702 #41",
+  "schemaVersion": 1,
+  "pool": "nba",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "nba:Jimmy Butler",
+      "continuity": "National Basketball Association 2011-Present",
+      "summary": "Jimmy Butler is a fiercely competitive wing player who relies on high-volume isolation scoring, drawing fouls, and tenacious perimeter defense. He is known for stepping up his performance significantly in the postseason.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Isolation scoring",
+          "Mid-range pull-up jumper",
+          "Driving to the basket to draw contact"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "On-ball perimeter defense",
+          "Passing lane disruption",
+          "Physical trapping"
+        ]
+      },
+      "weaknesses": [
+        "Inconsistent outside three-point shooting volume during regular seasons"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Relies heavily on physical contact and stamina, making him vulnerable to fatigue during prolonged heavy minutes."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jimmy_Butler",
+          "supports": "Career background, playing style, and achievements in the NBA."
+        }
+      ],
+      "unknowns": [
+        "Exact peak performance thresholds vary significantly between regular season and playoff contexts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Joel Embiid",
+      "continuity": "National Basketball Association 2014-Present",
+      "summary": "Joel Embiid is a dominant center who combines exceptional post-scoring moves, shooting range, and elite rim protection. He leverages his massive frame to overpower opponents in the paint while also drawing frequent fouls.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Post-up drop step",
+          "Face-up jumper",
+          "Drawing shooting fouls"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Rim protection",
+          "Shot-blocking",
+          "Defensive rebounding"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to lower-body injuries affecting durability"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Prone to conditioning issues when facing high-pace offenses over full games."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+          "supports": "Biographical data, scoring titles, and defensive impact in the NBA."
+        }
+      ],
+      "unknowns": [
+        "Long-term durability under heavy playoff workloads."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:John Havlicek",
+      "continuity": "National Basketball Association 1962-1978",
+      "summary": "John Havlicek was an exceptionally durable and tireless guard-forward known for relentless running, fast-break offense, and tenacious defense. He played a crucial role in numerous championship runs for the Boston Celtics.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Fast-break transition scoring",
+          "Mid-range jump shot",
+          "Off-ball cutting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Perimeter defense",
+          "Passing lane interception",
+          "Endurance-based pressure"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Offense primarily restricted to inside the three-point line era limits."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Havlicek",
+          "supports": "Career statistics, playing style, and championships with the Boston Celtics."
+        }
+      ],
+      "unknowns": [
+        "Performance under modern defensive schemes and three-point-heavy spacing."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:John Stockton",
+      "continuity": "National Basketball Association 1984-2003",
+      "summary": "John Stockton was a cerebral and precise point guard who mastered the pick-and-roll, setting the all-time records for assists and steals. He combined efficient shooting with exceptional court vision and disciplined defense.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Pick-and-roll execution",
+          "Precise passing",
+          "Outside jump shooting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Steals via anticipation",
+          "Taking charges",
+          "Position-based containment"
+        ]
+      },
+      "weaknesses": [
+        "Lacked elite vertical athleticism compared to contemporary guards"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Relied on structural team execution rather than isolation scoring to break down defenses."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Stockton",
+          "supports": "Career records for assists and steals, and playing longevity with the Utah Jazz."
+        }
+      ],
+      "unknowns": [
+        "Ability to carry a purely isolation-based offensive scheme."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Julius Erving",
+      "continuity": "National Basketball Association and American Basketball Association 1971-1987",
+      "summary": "Julius Erving was a revolutionary high-flying forward who popularized above-the-rim play with incredible vertical athleticism, acrobatic drives, and creative scoring. He maintained elite two-way impact throughout his career.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Acrobatic layups",
+          "Slam dunks in transition",
+          "Baseline driving"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Weak-side shot blocking",
+          "Steals",
+          "Fast-break defensive recovery"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical bruising from aggressive interior defenders in compressed spaces"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Later career stages saw reduced vertical explosiveness."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Julius_Erving",
+          "supports": "Career achievements, athletic playing style, and MVP awards in both ABA and NBA."
+        }
+      ],
+      "unknowns": [
+        "Consistency of three-point shooting in modern eras."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Kareem Abdul-Jabbar",
+      "continuity": "National Basketball Association 1969-1989",
+      "summary": "Kareem Abdul-Jabbar was an unstoppable offensive force centered around his signature skyhook shot, combined with elite rim protection and unmatched career longevity. He is among the most decorated players in basketball history.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Skyhook",
+          "Post-up scoring",
+          "Rebound put-backs"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Elite shot-blocking",
+          "Interior defensive anchoring",
+          "Rebounding"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Required high post entry passing to initiate his primary scoring weapon."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kareem_Abdul-Jabbar",
+          "supports": "Career scoring record, MVP awards, and use of the skyhook."
+        }
+      ],
+      "unknowns": [
+        "Matchup effectiveness against extremely mobile, stretch-five modern centers."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Karl Malone",
+      "continuity": "National Basketball Association 1985-2004",
+      "summary": "Karl Malone was a durable and physically imposing power forward who scored prolifically through the pick-and-roll, powerful drives, and a reliable mid-range jumper. He combined ironclad durability with exceptional strength.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Pick-and-roll finishing",
+          "Mid-range jump shot",
+          "Post drop steps"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Physical box-outs",
+          "Rebounding",
+          "Post defense"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable against agile, quick-shifting frontcourt players on the perimeter"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Dependent on elite point guard play to maximize easy pick-and-roll opportunities."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Karl_Malone",
+          "supports": "Scoring totals, longevity, and partnership with John Stockton on the Utah Jazz."
+        }
+      ],
+      "unknowns": [
+        "Offensive production without a primary playmaking partner."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Kawhi Leonard",
+      "continuity": "National Basketball Association 2011-Present",
+      "summary": "Kawhi Leonard is an elite two-way wing player who combines methodical isolation scoring with legendary perimeter defense. He excels at maintaining composure and exploiting opponent defensive errors in high-stakes games.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mid-range fadeaway",
+          "Isolation driving",
+          "Catch-and-shoot three-pointers"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "On-ball perimeter locking",
+          "Deflections",
+          "Physical hand-checking and stripping"
+        ]
+      },
+      "weaknesses": [
+        "Prone to chronic knee and lower-body injuries limiting availability"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Requires careful workload management and load maintenance due to injury history."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+          "supports": "Championships, Finals MVP awards, and defensive accolades."
+        }
+      ],
+      "unknowns": [
+        "Sustained health across an entire full-intensity 82-game regular season and deep playoff run."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Kevin Durant",
+      "continuity": "National Basketball Association 2007-Present",
+      "summary": "Kevin Durant is one of the most prolific and efficient scorers in basketball history, utilizing a rare combination of guard-like handles, elite shooting touch, and a towering seven-foot frame. He scores effortlessly from all three levels.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Pull-up jump shooting",
+          "Isolation driving",
+          "Deep three-point shooting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Weak-side rim protection",
+          "Contesting shots with length"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to being worn down by continuous physical trapping and bumping by aggressive defenders"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Slender frame can be tested by extremely heavy physical post-up opponents."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kevin_Durant",
+          "supports": "Scoring titles, MVP awards, and scoring profile in the NBA."
+        }
+      ],
+      "unknowns": [
+        "Defensive consistency when tasked solely with locking down primary guards."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "nba:Kevin Garnett",
+      "continuity": "National Basketball Association 1995-2015",
+      "summary": "Kevin Garnett was an intensely vocal and versatile forward-center who combined elite defensive communication and rim protection with a complete offensive skillset. He anchored team defenses through unmatched energy and mobility.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mid-range jump shot",
+          "Post-up scoring",
+          "Passing out of double teams"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Switching onto perimeter players",
+          "Rim protection",
+          "Vocal defensive quarterbacking"
+        ]
+      },
+      "weaknesses": [
+        "Not established"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Scoring volume occasionally secondary to his playmaking and defensive responsibilities."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kevin_Garnett",
+          "supports": "Defensive Player of the Year award, MVP award, and career statistics."
+        }
+      ],
+      "unknowns": [
+        "Offensive ceiling if utilized as a primary high-volume isolation scorer rather than a facilitator."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}

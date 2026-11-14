@@ -1,0 +1,574 @@
+{
+  "batchId": "Gemini V2 research pokemon 20261113-065833 #74",
+  "schemaVersion": 1,
+  "pool": "pokemon",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "pokemon:Meowth|Alolan Meowth",
+      "continuity": "Pokémon Ultra Sun and Ultra Moon",
+      "summary": "Alolan Meowth is a Dark-type Pokémon that relies on cunning, scratching attacks, and bite techniques rather than raw physical strength.",
+      "offense": {
+        "domains": [
+          "physical",
+          "dark"
+        ],
+        "techniques": [
+          "Scratch",
+          "Bite",
+          "Dark Pulse"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility",
+          "Evade"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type moves",
+        "Bug-type moves",
+        "Fairy-type moves"
+      ],
+      "mobility": [
+        "Walking",
+        "Running"
+      ],
+      "limitations": [
+        "Physical frailness compared to fully evolved Pokémon"
+      ],
+      "formDifferences": "Changes type from normal to dark, alters appearance, and replaces abilities and move pool traits compared to Kanto Meowth.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Meowth_(Pok%C3%A9mon)",
+          "supports": "Alolan Meowth typing, abilities, and regional differences."
+        }
+      ],
+      "unknowns": [
+        "Exact wild temperament variations across different regions"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Meowth|Galarian Meowth",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Galarian Meowth is a Steel-type Pokémon characterized by a dense beard of hair and fierce claw-based attacks.",
+      "offense": {
+        "domains": [
+          "physical",
+          "steel"
+        ],
+        "techniques": [
+          "Metal Claw",
+          "Scratch",
+          "Iron Head"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Steel body durability"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type moves",
+        "Fighting-type moves",
+        "Ground-type moves"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "Slow speed relative to standard Meowth forms"
+      ],
+      "formDifferences": "Changes type to pure Steel, features a hardened beard, and evolves into Perrserker instead of Persian.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Meowth_(Pok%C3%A9mon)",
+          "supports": "Galarian Meowth typing, evolution into Perrserker, and steel-based moves."
+        }
+      ],
+      "unknowns": [
+        "Origin of the iron-like hardening in its hair"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Meowth|Gigantamax Meowth",
+      "continuity": "Pokémon Sword and Shield",
+      "summary": "Gigantamax Meowth grows to an immense elongated size and uses special G-Max moves to scatter gold coins and paralyze opponents.",
+      "offense": {
+        "domains": [
+          "physical",
+          "normal",
+          "energy"
+        ],
+        "techniques": [
+          "G-Max Gold Rush",
+          "Mega Kick"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Massive HP pool due to Dynamax energy"
+        ]
+      },
+      "weaknesses": [
+        "Fighting-type moves",
+        "Time limit of the Dynamax phenomenon"
+      ],
+      "mobility": [
+        "Stretching body movement"
+      ],
+      "limitations": [
+        "Effect wears off automatically after three turns"
+      ],
+      "formDifferences": "Massively elongates body structure, gains Gigantamax exclusivity, and replaces standard moves with G-Max variants.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Meowth_(Pok%C3%A9mon)",
+          "supports": "Gigantamax form attributes, G-Max Gold Rush, and size transformation."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gigantamax form and G-Max Gold Rush",
+          "dependsOn": "Dynamax energy in specific battle locations",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Grows to an elongated skyscraper height through the Gigantamax phenomenon.",
+          "source": 0
+        },
+        {
+          "tag": "size-change",
+          "claim": "Transforms into a massive giant temporarily during battle via Dynamax band energy.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The precise mechanics of how Dynamax energy alters its coin physiology"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Metapod",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Metapod is a cocoon Pokémon that relies on hardening its outer shell to endure incoming attacks while waiting to evolve.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Tackle",
+          "String Shot"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Harden technique to raise physical defense"
+        ]
+      },
+      "weaknesses": [
+        "Fire-type moves",
+        "Flying-type moves",
+        "Rock-type moves"
+      ],
+      "mobility": [
+        "None beyond minor shifting"
+      ],
+      "limitations": [
+        "Almost entirely immobile except for slight twitching"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Metapod_(Pok%C3%A9mon)",
+          "supports": "Metapod move pool, defense stats, and cocoon nature."
+        }
+      ],
+      "unknowns": [
+        "Internal cellular transformation processes during shell phase"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Mew",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Mew is a legendary psychic Pokémon capable of learning any move, turning invisible, and traveling freely through the air.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Transform",
+          "Psychic",
+          "Aura Sphere"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invisibility",
+          "Force fields",
+          "Teleportation"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type moves",
+        "Ghost-type moves",
+        "Dark-type moves"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Teleportation"
+      ],
+      "limitations": [
+        "Relies on versatility rather than overwhelming specialized power"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mew_(Pok%C3%A9mon)",
+          "supports": "Mew's ability to learn all technical machines, invisibility, and psychic powers."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "invisibility",
+          "claim": "Can make itself completely invisible at will.",
+          "source": 0
+        },
+        {
+          "tag": "psychic",
+          "claim": "Possesses immense innate psychic abilities.",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Teleports across vast distances instantly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full genetic relationship to other Pokémon species",
+        "Unsupported by cited source (term check, 1/4 key terms found): natural-flight: Floats and flies freely through the air without wings."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Mewtwo",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Mewtwo is a genetically engineered psychic powerhouse capable of devastating energy blasts, telekinesis, and flight.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Shadow Ball",
+          "Psychic",
+          "Psystrike",
+          "Aura Sphere"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Psychic barriers",
+          "Telekinetic deflection"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type moves",
+        "Ghost-type moves",
+        "Dark-type moves"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Teleportation"
+      ],
+      "limitations": [
+        "Vulnerable to surprise attacks when concentrating power"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwo_(Pok%C3%A9mon)",
+          "supports": "Mewtwo's psychic move pool, origins, and combat capabilities."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Levitates and flies at high speeds using psychic power.",
+          "source": 0
+        },
+        {
+          "tag": "psychic",
+          "claim": "Master of advanced psychic combat techniques.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of its genetic enhancement ceiling",
+        "Unsupported by cited source (term check, 2/6 key terms found): telekinesis: Lifts and hurls massive objects and opponents with the mind."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Mewtwo|Mega Mewtwo X",
+      "continuity": "Pokémon X and Y",
+      "summary": "Mega Mewtwo X is a towering psychic and fighting form that trades some special attack for immense physical muscle and striking power.",
+      "offense": {
+        "domains": [
+          "physical",
+          "psychic",
+          "fighting"
+        ],
+        "techniques": [
+          "Drain Punch",
+          "Zen Headbutt",
+          "Psychic"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced physical muscle mass",
+          "Psychic guards"
+        ]
+      },
+      "weaknesses": [
+        "Flying-type moves",
+        "Psychic-type moves",
+        "Fairy-type moves"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Requires active Mega Evolution trigger per battle"
+      ],
+      "formDifferences": "Adds Fighting type, significantly increases physical attack power and bulk, and alters body posture.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwo_(Pok%C3%A9mon)",
+          "supports": "Mega Mewtwo X typing, stat redistribution, and fighting attributes."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Mewtwo X transformation",
+          "dependsOn": "Mewtwonite X stone and Mega Bracelet resonance",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Retains levitation and flight capabilities in Mega Form.",
+          "source": 0
+        },
+        {
+          "tag": "psychic",
+          "claim": "Maintains powerful psychic energy alongside physical enhancements.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Strain of prolonged Mega Evolution on base biology"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Mewtwo|Mega Mewtwo Y",
+      "continuity": "Pokémon X and Y",
+      "summary": "Mega Mewtwo Y is a compact, highly accelerated psychic form focused on overwhelming special attack and psychic speed.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "energy"
+        ],
+        "techniques": [
+          "Psystrike",
+          "Psychic",
+          "Shadow Ball"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enhanced psychic shields",
+          "High speed evasion"
+        ]
+      },
+      "weaknesses": [
+        "Bug-type moves",
+        "Ghost-type moves",
+        "Dark-type moves"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Teleportation"
+      ],
+      "limitations": [
+        "Requires Mewtwonite Y and trainer resonance"
+      ],
+      "formDifferences": "Reduces physical bulk, increases special attack and speed, and shifts appearance with a horn-like appendage.",
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mewtwo_(Pok%C3%A9mon)",
+          "supports": "Mega Mewtwo Y special attack stats, speed, and psychic abilities."
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Mega Mewtwo Y transformation",
+          "dependsOn": "Mewtwonite Y stone and Mega Bracelet resonance",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Hovers and flies effortlessly using amplified psychic power.",
+          "source": 0
+        },
+        {
+          "tag": "psychic",
+          "claim": "Amplified psychic mastery surpassing standard Mewtwo.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of its amplified mental processing speed"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Moltres",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Moltres is a legendary bird Pokémon that commands intense fire abilities, bathing the battlefield in flames and soaring on fiery wings.",
+      "offense": {
+        "domains": [
+          "fire",
+          "energy",
+          "aerial"
+        ],
+        "techniques": [
+          "Flamethrower",
+          "Fire Blast",
+          "Sky Attack",
+          "Heat Wave"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "High thermal endurance",
+          "Aerial evasion"
+        ]
+      },
+      "weaknesses": [
+        "Rock-type moves",
+        "Electric-type moves",
+        "Water-type moves"
+      ],
+      "mobility": [
+        "Natural flight"
+      ],
+      "limitations": [
+        "Extremely vulnerable to stealth rocks and sharp projectile hazards"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Moltres_(Pok%C3%A9mon)",
+          "supports": "Moltres legendary status, fire typing, and move list."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Flies through the air on wings composed of blazing fire.",
+          "source": 0
+        },
+        {
+          "tag": "fire",
+          "claim": "Generates and controls intense flames and heat waves.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Manipulates fire attacks like Flamethrower and Fire Blast.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact lifespan and nesting habits in the wild"
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "pokemon:Mr. Mime",
+      "continuity": "Pokémon Red and Blue",
+      "summary": "Mr. Mime is a psychic and fairy type Pokémon that creates invisible solid barriers through pantomime to block and trap opponents.",
+      "offense": {
+        "domains": [
+          "psychic",
+          "fairy",
+          "energy"
+        ],
+        "techniques": [
+          "Psychic",
+          "Dazzling Gleam",
+          "Barrier",
+          "Light Screen"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Invisible barriers",
+          "Reflect",
+          "Light Screen"
+        ]
+      },
+      "weaknesses": [
+        "Steel-type moves",
+        "Poison-type moves",
+        "Ghost-type moves"
+      ],
+      "mobility": [
+        "Walking",
+        "Running"
+      ],
+      "limitations": [
+        "Low physical durability when barriers are bypassed"
+      ],
+      "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Mr._Mime_(Pok%C3%A9mon)",
+          "supports": "Mr. Mime barrier techniques, psychic/fairy typing, and screen moves."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "psychic",
+          "claim": "Uses advanced psychic manipulation to construct solid invisible walls.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The precise physical state of its pantomimic creations"
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
