@@ -1,0 +1,694 @@
+{
+  "batchId": "Gemini V2 research harrypotter 20261113-043849 #53",
+  "schemaVersion": 1,
+  "pool": "harrypotter",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional. Claude review (2026-11-13): every record rebuilt from the original Gemini output against the Harry Potter Wiki pages opened in review. An earlier keyword-only pass had stripped supported claims.",
+  "characters": [
+    {
+      "id": "harrypotter:Salazar Slytherin",
+      "continuity": "Harry Potter books and Wizarding World lore (Hogwarts founding era)",
+      "summary": "Salazar Slytherin was one of the four founders of Hogwarts. He was a Parselmouth with extensive magical ability, especially in Legilimency, and he built the Chamber of Secrets and kept a basilisk there.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Parseltongue (control of serpents, including the basilisk he kept)",
+          "Legilimency"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Salazar_Slytherin",
+          "supports": "Parseltongue; extensive magical abilities, particularly Legilimency; built the Chamber of Secrets and kept a basilisk in it; snakewood wand with a basilisk-horn core."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Built the Chamber of Secrets beneath the Hogwarts dungeons and kept a basilisk in it.",
+          "citation": "Harry Potter and the Chamber of Secrets; Harry Potter Wiki",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Founder of Hogwarts with extensive magical abilities.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Wizard with extensive magical abilities, particularly in Legilimency.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "No recorded duel. The wiki only speculates that he and Gryffindor may have duelled.",
+        "Claimed 'Dark Magic' mastery and defensive wards: the cited source does not support them, so they were removed in review."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Seamus Finnigan",
+      "continuity": "Harry Potter books and films (bridge demolition is film-only)",
+      "summary": "Seamus Finnigan is a Gryffindor and Dumbledore's Army member with a knack for pyrotechnics. He can cast a corporeal fox Patronus, and he fought in the Battle of Hogwarts.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Pyrotechnics and explosive charms",
+          "General duelling spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Corporeal Patronus (fox), against Dementors"
+        ]
+      },
+      "weaknesses": [
+        "Prone to accidental fires and explosions when casting (e.g. setting a feather alight in first year)"
+      ],
+      "mobility": [
+        "Walking",
+        "Broomstick flight"
+      ],
+      "limitations": [
+        "Early spellwork often misfired into accidental fires"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Seamus_Finnigan",
+          "supports": "Pyrotechnics ('particular proclivity for pyrotechnics'), accidental fires, fox Patronus, Dumbledore's Army, assigned to destroy the Wooden Bridge and fought in the Great Hall during the Battle of Hogwarts, childhood broom flying."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "In the Battle of Hogwarts, he was assigned to destroy the Wooden Bridge to stop Snatchers reaching the school.",
+          "citation": "Harry Potter and the Deathly Hallows – Part 2 (film)",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Great Hall during the Battle of Hogwarts and cast a corporeal fox Patronus.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Hogwarts-trained wizard and Dumbledore's Army member.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts combat spells and a corporeal Patronus.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Power level compared with adult professional wizards.",
+        "Shield-charm proficiency: claimed, but not shown in the cited source, so removed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Seraphina Picquery",
+      "continuity": "Fantastic Beasts and Where to Find Them (film, 1926)",
+      "summary": "Seraphina Picquery was President of MACUSA during the 1926 New York crisis. She commanded the Aurors against Credence's Obscurus. Her own documented combat magic is minimal.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Not established by the cited source (commands Aurors rather than fighting personally)"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Apparition"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Seraphina_Picquery",
+          "supports": "President of MACUSA; commanded the Aurors to destroy Credence; 'capable of apparating successfully at will' (her only listed ability)."
+        }
+      ],
+      "feats": [],
+      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Witch and President of MACUSA who can Apparate at will.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Performs magic such as Apparition at will.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Personal duelling ability is undocumented.",
+        "Removed in review because the cited source does not support them: wandless magic, elemental magic, and a feat of casting barriers to shield New York."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Severus Snape",
+      "continuity": "Harry Potter books and films (adult Snape, 1991-1998)",
+      "summary": "Severus Snape was a Potions master, a highly skilled Occlumens and Legilimens, and the inventor of Sectumsempra and Levicorpus. He learned to fly without a broom, and he could block a determined Harry Potter with ease.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Sectumsempra (self-invented)",
+          "Levicorpus (self-invented)",
+          "Disarming Charm",
+          "Dark curses"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Occlumency",
+          "Blocks and deflects incoming spells (vs Harry, 1997)",
+          "Doe Patronus"
+        ]
+      },
+      "weaknesses": [
+        "Pride: becomes furious when pitied or called a coward, which Harry's taunt triggered mid-duel"
+      ],
+      "mobility": [
+        "Broomless flight",
+        "Apparition"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Severus_Snape",
+          "supports": "Broomless flight escaping Hogwarts (1998); Disarming Charm against Lockhart; blocking Harry and Disapparating (1997); duel with McGonagall and flight when Sprout, Flitwick and Slughorn joined; Occlumency, Legilimency; invented Levicorpus and Sectumsempra; doe Patronus; furious at being called a coward."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Escaped Hogwarts by leaping from a window and flying without a broom.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        },
+        {
+          "claim": "At the Duelling Club, blasted Gilderoy Lockhart against a wall with the Disarming Charm.",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "source": 0
+        },
+        {
+          "claim": "Invented the Sectumsempra and Levicorpus spells.",
+          "citation": "Harry Potter and the Half-Blood Prince",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gilderoy Lockhart",
+          "result": "win",
+          "citation": "Harry Potter and the Chamber of Secrets",
+          "note": "Duelling Club demonstration; disarmed him and blasted him into a wall.",
+          "source": 0
+        },
+        {
+          "opponent": "Harry Potter",
+          "result": "win",
+          "citation": "Harry Potter and the Half-Blood Prince",
+          "note": "After Dumbledore's death, he blocked every attack Harry made, refused to strike back until Harry used Snape's own spells, then passed the gates and Disapparated.",
+          "source": 0
+        },
+        {
+          "opponent": "Minerva McGonagall",
+          "result": "loss",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "McGonagall's attack began to overwhelm him. When Sprout, Flitwick and Slughorn joined in, he fled through a window, flying.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Potions master and highly skilled Occlumens and Legilimens.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Inventor of Sectumsempra and Levicorpus; duelled McGonagall and Harry.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Flew without a broom when escaping Hogwarts in 1998.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The cited source does not say whether he was holding back against McGonagall.",
+        "Non-verbal spellcasting: not stated by the cited source.",
+        "Removed in review: the claimed weakness 'vulnerable to provocation about Lily Potter'. The source supports pride and the coward taunt instead."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Severus Snape|Snape as Half-Blood Prince",
+      "continuity": "Harry Potter books (Snape's Hogwarts student years, as the self-styled Half-Blood Prince)",
+      "summary": "The younger Snape, who styled himself the Half-Blood Prince. As a student he was already able to create new dark curses, hexes and jinxes, including Sectumsempra.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Sectumsempra",
+          "Levicorpus",
+          "Self-invented curses, hexes and jinxes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited source"
+        ]
+      },
+      "weaknesses": [
+        "Regularly bullied by James Potter and friends as a student"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "formDifferences": "Student-era Snape: relies on spells he invented himself, with none of his adult experience as a Death Eater, spy or Occlumens. The adult record's broomless flight, Apparition and later duels do not apply.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Severus_Snape",
+          "supports": "Self-styled 'Half Blood Prince' at school; capable of creating new dark spells as a student, mostly curses, hexes and jinxes; Sectumsempra gash on James's face; credited with Levicorpus and Sectumsempra; bullied by James Potter and friends."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Invented new dark spells as a student, including Sectumsempra, which left a gash on James Potter's face.",
+          "citation": "Harry Potter and the Half-Blood Prince / Deathly Hallows (memories)",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Student wizard who invented his own curses.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Created and cast new dark spells as a student.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Muffliato and Langlock: recorded in his textbook, but the textbook page could not be opened in review and the cited page does not mention them.",
+        "Student-era duelling record beyond his clashes with the Marauders."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Sirius Black",
+      "continuity": "Harry Potter books (1993-1996)",
+      "summary": "Sirius Black was an accomplished, reckless duellist and an unregistered Animagus (a huge black dog). He escaped Azkaban, fought Antonin Dolohov to a standstill, and was killed duelling Bellatrix Lestrange in the Department of Mysteries.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Duelling spells",
+          "Animagus transformation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Animagus transformation (evaded Dementors in dog form)"
+        ]
+      },
+      "weaknesses": [
+        "Recklessness, which led to his death at Bellatrix's hands"
+      ],
+      "mobility": [
+        "Animagus form (dog)",
+        "Long-distance swimming (swam the North Sea after escaping Azkaban)"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Sirius_Black",
+          "supports": "Unregistered Animagus (huge black dog); escape from Azkaban past the Dementors and swim across the North Sea; fought Dolohov to a standstill; killed in a duel with Bellatrix; recklessness; punched Lucius Malfoy."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Became an unregistered Animagus as a student, with James Potter and Peter Pettigrew.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        },
+        {
+          "claim": "Escaped Azkaban by slipping past the Dementors in dog form, then swam the North Sea to the mainland.",
+          "citation": "Harry Potter and the Prisoner of Azkaban / Goblet of Fire",
+          "source": 0
+        },
+        {
+          "claim": "Fought the 'extremely deadly' Antonin Dolohov to a standstill at the Department of Mysteries.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Antonin Dolohov",
+          "result": "draw",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "note": "Fought him to a standstill until Harry stunned Dolohov.",
+          "source": 0
+        },
+        {
+          "opponent": "Bellatrix Lestrange",
+          "result": "loss",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "note": "Killed in a frenzied duel. An unknown spell struck him and he fell through the Veil.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Accomplished wizard and Order of the Phoenix member.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Duelled Dolohov to a standstill and duelled Bellatrix.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Effect of twelve years in Azkaban on his duelling.",
+        "Lucius Malfoy: the source describes only a punch, not a duel, so that 'inconclusive' result was removed in review. Shield-charm proficiency is also unsupported and was removed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Sirius Black|Sirius (Animagus Dog)",
+      "continuity": "Harry Potter books (Prisoner of Azkaban era)",
+      "summary": "In Animagus form, Sirius is a huge black dog with a dog's speed. In that form he slipped past the Azkaban Dementors, swam the North Sea, dragged Ron Weasley into the Shrieking Shack and held a transformed werewolf in check.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Bite and drag (hauled Ron through the Whomping Willow tunnel)",
+          "Grappling a werewolf"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dog form slipped past Dementors"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Quadrupedal running ('a dog's swift speed')",
+        "Swimming"
+      ],
+      "formDifferences": "A huge black dog: trades wand duelling for canine speed and physical grappling, and keeps human intelligence.",
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Sirius_Black",
+          "supports": "'Huge black dog' Animagus form; slipped past the Dementors in dog form and swam the North Sea; dragged Ron through the tunnel under the Whomping Willow; with James physically kept werewolf Remus in check; 'a dog's swift speed'."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Dragged Ron Weasley (with Scabbers) through the tunnel under the Whomping Willow to the Shrieking Shack.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        },
+        {
+          "claim": "With James in Animagus form, physically kept the transformed werewolf Remus Lupin in check.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        },
+        {
+          "claim": "Slipped past the Azkaban Dementors in dog form and swam the North Sea to the mainland.",
+          "citation": "Harry Potter and the Prisoner of Azkaban / Goblet of Fire",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Swam the North Sea to the mainland after escaping Azkaban in dog form.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Spellcasting while transformed: assumed impossible, but the cited source does not state it.",
+        "Durability against heavy magical attack while transformed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Sybill Trelawney",
+      "continuity": "Harry Potter books and films",
+      "summary": "Sybill Trelawney is a natural-born Seer and Hogwarts Divination professor. She gives true prophecies in trances she does not remember afterwards, and in the Battle of Hogwarts she fought by dropping crystal balls on enemies.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Dropping and hurling crystal balls",
+          "Non-verbal spells"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Non-corporeal Patronus"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Walking"
+      ],
+      "limitations": [
+        "True prophecies come in trances that she cannot control and does not remember afterwards"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Sybill_Trelawney",
+          "supports": "Natural-born Seer; 1980 and 1994 prophecies made in trances she did not remember; dropped crystal balls on enemies in the Battle of Hogwarts, knocking out Fenrir Greyback; non-verbal spells; non-corporeal Patronus; duelling skill."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Made the 1980 prophecy about the one with the power to vanquish the Dark Lord.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "source": 0
+        },
+        {
+          "claim": "Predicted that Voldemort's servant would escape that night (1994), which Peter Pettigrew then did.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "source": 0
+        },
+        {
+          "claim": "Knocked out Fenrir Greyback with a crystal ball while he attacked Lavender Brown.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Fenrir Greyback",
+          "result": "win",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "note": "Dropped a crystal ball on him during the Battle of Hogwarts and knocked him out. Lavender Brown still died.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Natural-born Seer who casts spells non-verbally.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts non-verbal spells and a non-corporeal Patronus.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Removed in review because it contradicts the source: the claimed weakness 'lacks practical combat proficiency'. The wiki credits her with considerable duelling skill in the Battle of Hogwarts."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:The Grey Lady (Helena Ravenclaw)",
+      "continuity": "Harry Potter books and films",
+      "summary": "Helena Ravenclaw, the Grey Lady, is the ghost of Ravenclaw House. She glides through the castle, even through ceilings. She has no documented combat ability. She gave Harry the information he needed to find Ravenclaw's diadem.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Not established by the cited source"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Ghost: glides through solid ceilings"
+        ]
+      },
+      "weaknesses": [
+        "Not established by the cited source"
+      ],
+      "mobility": [
+        "Gliding flight (as a ghost)",
+        "Passes through ceilings"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Helena_Ravenclaw",
+          "supports": "Ghost of Ravenclaw House; 'glided in through the ceiling'; one of the few ghosts seen walking 'rather than simply flying'; gave Harry the information to find the diadem; stabbed by the Bloody Baron."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Told Harry everything he needed to work out where Voldemort had hidden Ravenclaw's diadem.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "source": 0
+        }
+      ],
+      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "As a ghost she glides through the air and in through ceilings. The wiki notes ghosts normally fly rather than walk.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "No combat or physical-interaction ability is documented.",
+        "Removed in review: tag 'magic', because no spellcasting is documented for her ghost. Also removed: the unsourced limitation 'cannot manipulate objects' and the weakness 'vulnerable to strong curses'."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "harrypotter:Theseus Scamander",
+      "continuity": "Fantastic Beasts films (The Crimes of Grindelwald, 1927)",
+      "summary": "Theseus Scamander, Newt's brother, is a First World War hero and Head Auror. At the 1927 Paris rally he led about fifty Aurors, survived a brief duel with Grindelwald and held a Shield Charm against Grindelwald's black fire.",
+      "offense": {
+        "domains": [
+          "magic"
+        ],
+        "techniques": [
+          "Auror combat spells",
+          "Joint spellcasting with Newt"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Shield Charm sustained against Grindelwald's black fire",
+          "Defensive charms and counter-spells"
+        ]
+      },
+      "weaknesses": [
+        "Overpowered when caught off guard (by Tina Goldstein)"
+      ],
+      "mobility": [
+        "Apparition"
+      ],
+      "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Theseus_Scamander",
+          "supports": "Head Auror and First World War hero; gave the word to engage Grindelwald at the Père-Lachaise rally; brief duel with Grindelwald; Shield Charm held for a prolonged period; joint spell with Newt; commanded about 50 Aurors; overpowered only by Tina Goldstein when caught off guard; Apparition."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led about fifty Aurors at Grindelwald's Père-Lachaise rally and gave the order to engage him.",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "source": 0
+        },
+        {
+          "claim": "Held a Shield Charm against Grindelwald's black fire for a prolonged time, and cast a joint spell with Newt to deflect it.",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gellert Grindelwald",
+          "result": "inconclusive",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "note": "Survived a brief duel. Grindelwald escaped and Leta Lestrange was killed. Theseus and Newt survived with help from Flamel's General Counter-Spell.",
+          "source": 0
+        },
+        {
+          "opponent": "Tina Goldstein",
+          "result": "loss",
+          "citation": "Fantastic Beasts: The Crimes of Grindelwald",
+          "note": "Overpowered when caught off guard.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Head Auror, strong in martial magic.",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Sustained a Shield Charm against Grindelwald's fire and duelled him briefly.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Events of The Secrets of Dumbledore (Erkstag imprisonment) were not checked against the cited source.",
+        "The wiki lists stealth among his Auror skills, but no specific stealth feat, so no stealth tag. The rally took place at Père-Lachaise, not the Lestrange Mausoleum. Broomstick flight and 'tactical positioning' are unsourced and were removed."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
