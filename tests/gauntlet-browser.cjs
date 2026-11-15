@@ -21,6 +21,12 @@ const server=http.createServer((req,res)=>{
  const context=await browser.newContext({viewport:{width:390,height:844}});
  const page=await context.newPage();
  const errors=[];
+ const requests=[];
+ await context.route('**/functions/v1/submit-votes',route=>{
+  const req=route.request();
+  if(req.method()==='POST')requests.push(JSON.parse(req.postData()));
+  route.fulfill({status:200,contentType:'application/json',headers:{'access-control-allow-origin':'*','access-control-allow-headers':'content-type'},body:JSON.stringify({accepted:3,alreadyStored:0,rejected:[]})});
+ });
  page.on('pageerror',e=>errors.push(e.message));
  const base='http://127.0.0.1:'+server.address().port+'/';
  try{
@@ -42,6 +48,14 @@ const server=http.createServer((req,res)=>{
   assert.equal(stored.votes.length,4,'four votes saved locally');
   assert.equal(stored.votes.filter(v=>v.outcome==='win').length,2);
   assert.ok(stored.votes.every(v=>v.model==='gauntlet-bt-v1'&&v.session===stored.session));
+  assert.equal(requests.length,0,'nothing is sent before opting in');
+  await page.locator('[data-act="gaunt-setup"]').click();
+  await Promise.all([page.waitForRequest(r=>r.url().includes('/functions/v1/submit-votes'),{timeout:8000}),page.locator('[data-act="gaunt-share"]').click()]);
+  await page.waitForTimeout(300);
+  assert.equal(requests.length,1,'one batch is sent after opting in');
+  assert.equal(requests[0].votes.length,3,'newest vote is held back so Undo works');
+  assert.ok(requests[0].votes.every(v=>v.session===stored.session&&!('name' in v)&&!('email' in v)),'only the anonymous vote fields are sent');
+  await page.locator('[data-act="gaunt-start"]').click();
   await page.locator('[data-act="gaunt-ladder"]').first().click();
   assert.ok(/your ladder/i.test(await page.locator('.gt-ladder').innerText()));
   assert.ok(await page.locator('.gt-table tbody tr').count()>=2,'ladder rows shown');
@@ -54,6 +68,6 @@ const server=http.createServer((req,res)=>{
   assert.equal(await page.locator('[data-mode="gauntlet"]').count(),0);
   assert.equal(await page.locator('[data-mode="champ"][aria-pressed="true"]').count(),1,'falls back to Championship');
   assert.deepEqual(errors,[]);
-  console.log('Gauntlet browser check passed: flag gating, dealing, voting, local persistence, ladder, erase, fallback.');
+  console.log('Gauntlet browser check passed: flag gating, dealing, voting, local persistence, opt-in sharing, ladder, erase, fallback.');
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exit(1);});

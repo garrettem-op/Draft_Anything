@@ -130,13 +130,14 @@ const Gauntlet = (function gauntletFactory() {
 
   // ---------- sampling ----------
   function buildCounts(votes) {
-    const pair = new Map(), item = new Map();
+    const pair = new Map(), item = new Map(), decisive = new Map();
     for (const v of votes || []) {
       pair.set(v.key, (pair.get(v.key) || 0) + 1);
+      if (v.outcome !== 'skip') decisive.set(v.key, (decisive.get(v.key) || 0) + 1);
       item.set(v.a, (item.get(v.a) || 0) + 1);
       item.set(v.b, (item.get(v.b) || 0) + 1);
     }
-    return { pair, item };
+    return { pair, item, decisive };
   }
   /**
    * Pick the next pair. sideA / sideB are arrays of { id, n? } for the left-pool and right-pool pickers
@@ -149,6 +150,25 @@ const Gauntlet = (function gauntletFactory() {
     const avoid = opts.avoidKeys || new Set(), tries = opts.tries || 40;
     if (!sideA || !sideA.length || !sideB || !sideB.length) return null;
     const seen = id => counts.item.get(id) || 0;
+    // Repeats are wanted: the same matchup answered the same way again strengthens the case, and a different
+    // answer exposes a shaky one. A share of deals re-asks an already-voted pair (fewest answers first), with
+    // the sides randomly swapped so position bias cannot masquerade as agreement.
+    const repeatRate = opts.repeatRate != null ? opts.repeatRate : 0.15;
+    if (repeatRate > 0 && counts.decisive && counts.decisive.size && rng() < repeatRate) {
+      const inA = new Set(sideA.map(c => c.id)), inB = new Set(sideB.map(c => c.id));
+      let pick = null;
+      for (const [key, n] of counts.decisive) {
+        if (avoid.has(key)) continue;
+        const [x, y] = key.split('|');
+        if (!((inA.has(x) && inB.has(y)) || (inA.has(y) && inB.has(x)))) continue;
+        const score = n + rng() * 0.5;
+        if (!pick || score < pick.score) pick = { score, key, x, y };
+      }
+      if (pick) {
+        const flip = rng() < 0.5;
+        return { key: pick.key, a: pick.x, b: pick.y, left: flip ? pick.y : pick.x, right: flip ? pick.x : pick.y, repeat: true };
+      }
+    }
     function pick(list) {
       let best = null;
       for (let i = 0; i < 3; i++) {
@@ -192,10 +212,17 @@ const Gauntlet = (function gauntletFactory() {
       if (v.winner === v.left) leftWins++;
     }
     const list = [...pairs.values()].sort((x, y) => (x.key < y.key ? -1 : x.key > y.key ? 1 : 0));
+    // Repeated answers to the same matchup are kept and counted; these show how often they agree.
+    let repeatPairs = 0, unanimousRepeatPairs = 0;
+    for (const p of list) {
+      if (p.aWins + p.bWins + p.ties < 2) continue;
+      repeatPairs++;
+      if (p.ties === 0 && (p.aWins === 0 || p.bWins === 0)) unanimousRepeatPairs++;
+    }
     const bias = { decisiveVotes: decisive, leftWins, leftShare: decisive ? leftWins / decisive : null, wilson95: decisive ? wilson(leftWins, decisive) : null };
     return {
       schema: AGG_SCHEMA, version: SCHEMA_VERSION, model: MODEL_VERSION,
-      totals: { votes: store.votes.length, decisive, ties, skips, pairs: list.length, sessions: sessions.size, droppedInvalid: dropped.invalid, droppedDuplicate: dropped.duplicate },
+      totals: { votes: store.votes.length, decisive, ties, skips, pairs: list.length, repeatPairs, unanimousRepeatPairs, sessions: sessions.size, droppedInvalid: dropped.invalid, droppedDuplicate: dropped.duplicate },
       positionBias: bias,
       pairs: list
     };
@@ -400,6 +427,54 @@ const Gauntlet = (function gauntletFactory() {
     try { localStorage.setItem(STORE_KEY, JSON.stringify({ version: SCHEMA_VERSION, session: ctx.session, votes: ctx.store.votes })); } catch { }
   }
 
+  // ---------- optional shared submission (opt-in, anonymous, never blocks voting) ----------
+  const SYNC_KEY = 'da.gauntlet.sync.v1';
+  const SYNC_BATCH = 20;
+  let syncUrl = null;
+  function configureSync(url) { syncUrl = typeof url === 'string' && /^https:\/\//.test(url) ? url : null; }
+  function syncConfigured() { return !!syncUrl; }
+  function loadSync() {
+    try {
+      const s = JSON.parse(localStorage.getItem(SYNC_KEY) || 'null');
+      return { share: !!(s && s.share), pending: Array.isArray(s && s.pending) ? s.pending.filter(x => typeof x === 'string') : [] };
+    } catch { return { share: false, pending: [] }; }
+  }
+  function saveSync(sy) { try { localStorage.setItem(SYNC_KEY, JSON.stringify({ share: sy.share, pending: sy.pending })); } catch { } }
+  /** Turn sharing on or off. Turning it on also queues the votes already saved on this device. */
+  function setShare(state, on) {
+    state.sync.share = !!on;
+    if (on) for (const v of state.ctx.store.votes) if (!state.sync.pending.includes(v.id) && !(state.sync.sent || new Set()).has(v.id)) state.sync.pending.push(v.id);
+    saveSync(state.sync);
+  }
+  /**
+   * Send queued votes. The newest vote is held back (unless includeLatest) so Undo still works. Identical vote ids are
+   * idempotent on the server, but separate votes on the same matchup are all stored and counted. 429 and 5xx keep
+   * the queue for later; any other refusal drops that batch so a bad vote cannot block the queue forever.
+   */
+  async function flush(state, opts) {
+    opts = opts || {};
+    const doFetch = state.fetchImpl || (typeof fetch === 'function' ? fetch : null), sy = state.sync;
+    if (!syncUrl || !sy || !sy.share || !doFetch || state.syncBusy) return { sent: 0 };
+    const byId = new Map(state.ctx.store.votes.map(v => [v.id, v]));
+    sy.pending = sy.pending.filter(id => byId.has(id)); // undone votes leave the queue
+    const hold = opts.includeLatest ? 0 : 1;
+    const ready = sy.pending.slice(0, Math.max(0, sy.pending.length - hold)).map(id => byId.get(id));
+    if (!ready.length) return { sent: 0 };
+    const session = ready[0].session, batch = ready.filter(v => v.session === session).slice(0, SYNC_BATCH);
+    state.syncBusy = true;
+    try {
+      const res = await doFetch(syncUrl, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ votes: batch }) });
+      if (res.status === 429 || res.status >= 500) return { sent: 0, retry: true, status: res.status };
+      let data = {};
+      if (res.status === 200 || res.status === 422) { try { data = await res.json(); } catch { data = {}; } }
+      const done = new Set(batch.map(v => v.id));
+      sy.pending = sy.pending.filter(id => !done.has(id));
+      sy.sent = sy.sent || new Set(); for (const id of done) sy.sent.add(id);
+      saveSync(sy);
+      return { sent: batch.length, stored: data.accepted || 0, alreadyStored: data.alreadyStored || 0, rejected: (data.rejected || []).length };
+    } catch { return { sent: 0, retry: true }; } finally { state.syncBusy = false; }
+  }
+
   // ---------- UI (browser only; reads host globals: POOLS, getCands, esc, avatar, getPool) ----------
   function poolIds() {
     if (typeof POOLS === 'undefined') return [];
@@ -408,7 +483,7 @@ const Gauntlet = (function gauntletFactory() {
   function poolTitle(id) { const p = typeof getPool === 'function' ? getPool(id) : null; return (p && (p.short || p.name)) || id.toUpperCase(); }
   function newState() {
     const ids = poolIds(), first = ids[0] || 'nba';
-    return { stage: 'setup', poolA: first, poolB: first, current: null, lean: false, ctx: loadLocal(), sampleSeed: hashSeed(newSession()), draws: 0, flash: '', armedClear: false };
+    return { stage: 'setup', poolA: first, poolB: first, current: null, lean: false, ctx: loadLocal(), sampleSeed: hashSeed(newSession()), draws: 0, flash: '', armedClear: false, sync: loadSync(), syncBusy: false };
   }
   function sides(state) {
     const toList = pool => getCands(pool).map(c => ({ id: c.id, n: c.n }));
@@ -431,6 +506,7 @@ const Gauntlet = (function gauntletFactory() {
     const r = addVote(state.ctx.store, v);
     if (!r.added) return { accepted: false, reason: r.reason };
     state.ctx.seq++; saveLocal(state.ctx);
+    if (state.sync && state.sync.share) { state.sync.pending.push(v.id); saveSync(state.sync); flush(state).catch(() => { }); }
     state.lean = false;
     state.flash = choice === 'skip' ? 'Skipped.' : choice === 'tie' ? 'Recorded as too close to call.' : 'Vote saved.';
     deal(state);
@@ -440,6 +516,7 @@ const Gauntlet = (function gauntletFactory() {
     const v = undoLast(state.ctx.store);
     if (!v) return false;
     state.ctx.seq = Math.max(0, state.ctx.seq - (v.session === state.ctx.session ? 1 : 0));
+    if (state.sync) { state.sync.pending = state.sync.pending.filter(id => id !== v.id); saveSync(state.sync); }
     saveLocal(state.ctx);
     state.current = { key: v.key, a: v.a, b: v.b, left: v.left, right: v.right };
     state.stage = 'vote'; state.flash = 'Last vote undone.';
@@ -463,6 +540,7 @@ const Gauntlet = (function gauntletFactory() {
       + '<div class="gt-field"><b>Left pool</b><div class="row gt-chips">' + chips('A', state.poolA) + '</div></div>'
       + '<div class="gt-field"><b>Right pool</b><div class="row gt-chips">' + chips('B', state.poolB) + '</div></div>'
       + '<p class="note">' + (same ? 'Matchups: ' + esc(poolTitle(state.poolA)) + ' vs ' + esc(poolTitle(state.poolA)) + '.' : 'Matchups: ' + esc(poolTitle(state.poolA)) + ' vs ' + esc(poolTitle(state.poolB)) + ' (cross-pool).') + '</p>'
+      + (syncConfigured() ? '<div class="gt-field"><button type="button" class="chip" data-act="gaunt-share" aria-pressed="' + state.sync.share + '">' + (state.sync.share ? 'Sharing votes anonymously \u2713' : 'Share my votes anonymously') + '</button><p class="note">Sends only your picks and a random session code to the shared ladder, including votes already saved here. No name, email or location. You can switch it off any time; votes already sent stay.</p></div>' : '')
       + '<div class="row"><button class="btn primary" data-act="gaunt-start">Start voting</button><button class="btn" data-act="gaunt-ladder">View ladder</button></div></div>';
   }
   function voteHTML(state) {
@@ -474,7 +552,7 @@ const Gauntlet = (function gauntletFactory() {
       + '<div class="row gt-actions"><button class="btn" data-act="gaunt-tie">Too close to call</button><button class="btn" data-act="gaunt-skip">Skip / don’t know</button>'
       + '<button class="btn" data-act="gaunt-lean" aria-pressed="' + state.lean + '">' + (state.lean ? 'Next pick is a lean ✓' : 'Mark next pick as a lean') + '</button></div>'
       + '<div class="row gt-actions"><button class="btn small" data-act="gaunt-undo"' + (n ? '' : ' disabled') + '>Undo last</button><button class="btn small" data-act="gaunt-ladder">Ladder</button><button class="btn small" data-act="gaunt-setup">Change pools</button></div>'
-      + '<p class="note">The game’s own prediction is hidden on purpose. Votes are saved on this device only.</p></div>';
+      + '<p class="note">The game’s own prediction is hidden on purpose. ' + (state.sync && state.sync.share ? 'Votes are saved here and shared anonymously.' : 'Votes are saved on this device only.') + '</p></div>';
   }
   function ladderHTML(state) {
     const agg = aggregate(state.ctx.store.votes), r = rank(agg), bias = agg.positionBias, cyc = contradictions(agg);
@@ -483,7 +561,7 @@ const Gauntlet = (function gauntletFactory() {
     return '<div class="panel gt-ladder"><div class="row" style="justify-content:space-between"><h3 class="h">Your ladder</h3><button class="btn small" data-act="gaunt-setup">Back</button></div>'
       + '<p class="note">Provisional ranking from ' + agg.totals.decisive + ' decisive votes on this device (ties count half). Wide ± means few results. This is calibration data, not a ruling.</p>'
       + (rows ? '<table class="gt-table"><thead><tr><th>#</th><th>Character</th><th>Rating</th><th>95%</th><th>W-L-T</th></tr></thead><tbody>' + rows + '</tbody></table>' : '<p class="note">No decisive votes yet.</p>')
-      + '<p class="note">Left-side picks: ' + (bias.leftShare == null ? 'n/a' : Math.round(bias.leftShare * 100) + '% (50% is no position bias)') + ' · Contradiction loops: ' + cyc.cycles.length + '</p>'
+      + '<p class="note">Left-side picks: ' + (bias.leftShare == null ? 'n/a' : Math.round(bias.leftShare * 100) + '% (50% is no position bias)') + ' · Repeated matchups: ' + (agg.totals.repeatPairs || 0) + ' (' + (agg.totals.unanimousRepeatPairs || 0) + ' unanimous)' + ' · Contradiction loops: ' + cyc.cycles.length + '</p>'
       + '<div class="row"><button class="btn small" data-act="gaunt-export">Download votes (JSON)</button><button class="btn small" data-act="gaunt-copy">Copy aggregate JSON</button><button class="btn small" data-act="gaunt-clear">' + (state.armedClear ? 'Tap again to erase all' : 'Erase my votes') + '</button></div></div>';
   }
   function render(state) {
@@ -497,6 +575,7 @@ const Gauntlet = (function gauntletFactory() {
     validateVote, makeVote, newStore, addVote, undoLast, mergeVotes,
     buildCounts, nextPair, aggregate, aggregatesToCSV, validateAggregates, coverage,
     rank, winGraph, infer, contradictions, compareToPredictor,
+    configureSync, syncConfigured, loadSync, setShare, flush,
     loadLocal, saveLocal, newState, start, deal, vote, undo, clearAll, exportJSON, render, poolIds
   };
 })();
