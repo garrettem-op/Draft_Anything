@@ -109,7 +109,7 @@ Must preserve existing semantics:
 - Similarly, distinguish Batman vs selected Hellbat Armor Batman, ordinary Hulk vs World Breaker, King Thanos, and other form identities. Only reviewed selected forms receive Apex/Empowered benefits.
 - Calibrate both **directional correctness** (decisive powers and counters recognized) and **quantitative reliability** (holdout outcome frequencies from seeded simulations, probability calibration, log-loss/Brier score where a defensible outcome benchmark exists). Do not call 80% a verified statistic without a reference distribution.
 - Capture evidence completeness and unresolved issues instead of resolving all disputes by guess.
-- Full roster Phase 1 issue **#82** is not finished; full combat atlas **#83** remains gated until #82, and Gauntlet **#84** remains future work. Building a reusable *engine scaffold* using reviewed fixtures **does not** count as doing or completing the #83 whole-roster power-scaling audit.
+- Full roster Phase 1 issue **#82** is not finished; full combat atlas **#83** remains gated until #82, and Gauntlet **#84** has only a first local-only, flag-gated slice (`docs/GAUNTLET.md`); server persistence, evaluator comparison and team-level voting remain future work. Building a reusable *engine scaffold* using reviewed fixtures **does not** count as doing or completing the #83 whole-roster power-scaling audit.
 
 ## Build order, PR scope and acceptance
 
