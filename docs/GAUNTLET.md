@@ -42,3 +42,5 @@ Also not built: bot check (Turnstile), team-level Gauntlet, forms in the dealer,
 
 ## Tests
 `node --test tests/gauntlet.test.cjs` (core, ranking, inference, UI flow, CLI) and `node tests/gauntlet-browser.cjs` (flag gating and a real voting flow in Chromium).
+
+The vote screen now has a feed layer (combos, ladder tags, surprise cards, titles, sounds): see `docs/GAUNTLET_FEED.md`. It changes presentation only; votes are unchanged.
