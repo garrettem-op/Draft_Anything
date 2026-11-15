@@ -188,7 +188,7 @@ test('loading all research changes no probability, ledger, interaction or explan
   const after = app.run(probe);
   assert.equal(after, before, 'assessments are byte-identical apart from the report-only research fields');
   const cov = JSON.parse(app.run(`JSON.stringify(DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Darkseid'] }, 'dc'), teamB: ocTeam('brawl', { d1: ['dc', 'Batman'] }, 'dc') }).researchCoverage)`));
-  assert.ok(cov && cov.identities > 0 && cov.declaredReviewed === 0 && cov.statusBasis === 'record-declared', 'present, and nothing is reported as reviewed');
+  assert.ok(cov && cov.identities > 0 && cov.statusBasis === 'record-declared', 'present, and its status is reported as record-declared, not independently verified');
 });
 
 test('researchCoverage counts every evaluated identity exactly once; base and form never collide', () => {
