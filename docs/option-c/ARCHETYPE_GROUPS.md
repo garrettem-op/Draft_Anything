@@ -32,7 +32,7 @@ Strength is 0.5 for all five, the same as the game's other trait groups (Sharpsh
 
 Things to know:
 - **Football barely feels it.** 391 of 400 random football rosters already sit at the 2.8 chemistry cap, so extra groups cannot add team chemistry there.
-- **Bench Chemistry also changes.** Bench Chemistry lets the benched player lift teammates who share any group with them (0.75% per teammate, up to 4, capped at 8%). New groups count, so the rating change is roughly double the team-chemistry change. That is why football's rating moves even though its chemistry does not. This is how every existing group already works; I did not add an exception. If you would rather archetypes only count for team chemistry, say so and I will exclude them from the bench link.
+- **Bench Chemistry no longer reacts to groups.** An earlier version of this note said the bench player lifted teammates sharing a group, roughly doubling the rating change. That group lift is removed by the bench rework (PR #404, owner ruling 2026-11-15), so archetype groups affect team chemistry only. The rating change from this PR is the team-chemistry change alone. Numbers measured before that change overstate the effect.
 - Averages are small because most random rosters have no two members of the same archetype. A roster built on purpose (for example Daredevil + Iron Fist + Black Widow + Elektra) gets noticeably more.
 - Ratings in this table are the pre-game team rating, not match outcomes.
 
