@@ -2,6 +2,8 @@
 
 **Status:** editorial triage, not research. It is written from general knowledge of the comics and the screen versions. No feats are cited, no numbers are implied, and nothing here changes any rating or game result. It exists so the owner can choose a primary version per character before comics evidence is researched. (Tracking: hybrid model from the Gauntlet / version discussion; see `research/option-c/mcu-version-gap.json` to record choices.)
 
+**Owner decision (2026-11-15):** use the default rule below. The 19 characters marked "Owner call" still need an individual choice. Recorded only; no roster entry, rating or evidence has been changed.
+
 ## How to read it
 - **Gap** (0-5) is the rough size of the difference between the version on screen and the main comics version.
 - **Direction**: *up* = comics is stronger or broader; *side* = different person or different powers rather than stronger.
