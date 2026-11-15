@@ -1,0 +1,49 @@
+{
+  "batchId": "Claude manual-research batch starwars-missing (1 identities that had no profile)",
+  "schemaVersion": 1,
+  "pool": "starwars",
+  "researchedBy": "Claude (claude-fable-5-2), manual pass 2026-11-15",
+  "method": "Facts taken from fetched pages (mostly Wikipedia and Tolkien Gateway, plus search-result articles); claims a page did not support were left out. No numeric tiers. All records provisional until a different contributor checks them.",
+  "characters": [
+    {
+      "id": "starwars:Grand Inquisitor",
+      "continuity": "Star Wars canon (Star Wars Rebels, Obi-Wan Kenobi).",
+      "summary": "Pau'an former Jedi Temple Guard who fell to the dark side and led the Empire's Inquisitors.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "magic"
+        ],
+        "techniques": [
+          "Dark side Force user and lightsaber duellist",
+          "Leads the Inquisitors, who hunt surviving Jedi and Force-sensitive children"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Stabbed by his own subordinate Reva, though he survived"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Grand_Inquisitor_(Star_Wars)",
+          "supports": "The Grand Inquisitor was a Pau'an Jedi Temple Guard who fell to the dark side and led the Inquisitors, trained by Vader to hunt Jedi."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Obi-Wan_Kenobi_(TV_series)",
+          "supports": "The Grand Inquisitor is the highest-ranking Inquisitor; Reva stabs him and he later returns."
+        }
+      ],
+      "unknowns": [
+        "His lightsaber type, specific Force abilities and his duel with Kanan Jarrus are not covered by the cited pages.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
