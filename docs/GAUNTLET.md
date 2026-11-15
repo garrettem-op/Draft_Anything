@@ -32,7 +32,7 @@ Regularized Bradley-Terry fitted by minorization-maximization on deduplicated pa
 - Aggregates (`draft-anything.gauntlet.aggregates`, v1) contain pair counts only: no session keys, timestamps or personal data. Do not feed the same votes in as both a votes file and an aggregate file.
 
 ## Repeats
-Repeated answers to the same matchup all count. The dealer re-asks already-voted matchups on purpose (about 15% of deals, sides swapped). Aggregates report `repeatPairs` and `unanimousRepeatPairs`.
+Repeated answers to the same matchup all count. The dealer re-asks already-voted matchups on purpose but rarely (about 3% of deals, only after 100 different matchups are answered, never one from the last 100 votes, sides swapped). Aggregates report `repeatPairs` and `unanimousRepeatPairs`.
 
 ## Shared server
 See `docs/GAUNTLET_SERVER.md` (opt-in anonymous sharing to a separate Supabase project). A daily publishing job writes `data/gauntlet/aggregates-v1.json`; it activates once its workflow file is on `main` (see that doc).
