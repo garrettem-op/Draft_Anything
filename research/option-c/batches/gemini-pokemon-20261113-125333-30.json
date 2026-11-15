@@ -15,23 +15,21 @@
           "poison"
         ],
         "techniques": [
-          "Leech Life",
-          "Bite",
-          "Supersonic",
-          "Confuse Ray",
-          "Wing Attack",
-          "Venoshock"
+          "Supersonic waves that confuse",
+          "Leech Life drains health from the target",
+          "Bites and poison attacks"
         ],
         "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
-          "Evasion through erratic flight patterns",
-          "Type resistances to fighting, bug, grass, poison, and fairy-type moves"
+          "Immune to Ground-type moves",
+          "Inner Focus prevents flinching"
         ]
       },
       "weaknesses": [
-        "Vulnerable to psychic, ice, rock, and electric-type attacks"
+        "Weak to Electric, Ice, Psychic and Rock",
+        "Eyeless; relies on echolocation and avoids bright light"
       ],
       "mobility": [
         "Natural flight via wings"
@@ -42,17 +40,26 @@
       ],
       "sources": [
         {
-          "url": "https://bulbapedia.bulbagarden.net/wiki/Zubat_(Pok%C3%A9mon)",
-          "supports": "Zubat's abilities, typing, evolutionary line, and known moveset across generations."
+          "url": "https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon",
+          "supports": "Zubat is a Poison/Flying bat with no eyes that navigates by echolocation and is sensitive to bright light."
+        },
+        {
+          "url": "https://www.poketools.com/pokemon/zubat",
+          "supports": "Zubat is weak to Electric, Ice, Psychic and Rock, immune to Ground, and has Inner Focus and Infiltrator."
+        },
+        {
+          "url": "https://Pokemondb.net/pokedex/zubat",
+          "supports": "Zubat learns Supersonic, Leech Life, Bite, Poison Fang and Air Slash."
         }
       ],
       "unknowns": [
         "Exact strength variance between wild Zubat and trained trainer-owned Zubat outside standard game scaling.",
         "Unsupported by cited source (term check, 0/9 key terms found): Uses echolocation and ultrasonic waves like Supersonic to disorient or confuse targets in battle.",
         "Unsupported by cited source (term check, 0/6 key terms found): Absorbs life force to recover its own health using Leech Life.",
-        "Unsupported by cited source (term check, 0/8 key terms found): natural-flight: Zubat possesses natural wings and flies constantly in caves and dark environments."
+        "Unsupported by cited source (term check, 0/8 key terms found): natural-flight: Zubat possesses natural wings and flies constantly in caves and dark environments.",
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
       ],
-      "researchStatus": "needs-review"
+      "researchStatus": "provisional"
     }
   ]
 }
