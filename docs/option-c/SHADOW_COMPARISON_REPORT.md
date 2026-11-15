@@ -124,6 +124,40 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 
 Typed combat coverage is 2% of base characters and 36% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 
+## 4b. Opt-in research-derived lines of attack (shadow only)
+
+With `context.useResearch: true`, an identity that Version 1 has no typed profile for may use its validated research record for a non-physical line of attack, domain guards and weaknesses. No tier, ward or Apex rank is ever derived, evidence stays `provisional`, and these fighters count at half weight in the qualitative term. Default assessments above are unchanged.
+
+| Pool | Characters | Typed in Version 1 | Gain a research line | Still without a typed line |
+| --- | --- | --- | --- | --- |
+| dc | 104 | 14 | 57 | 33 |
+| lotr | 115 | 6 | 47 | 62 |
+| harrypotter | 106 | 0 | 91 | 15 |
+| actionmovies | 100 | 0 | 0 | 100 |
+| nba | 134 | 0 | 11 | 123 |
+| mcu | 143 | 6 | 59 | 78 |
+| toons | 134 | 0 | 37 | 97 |
+| muppets | 101 | 0 | 23 | 78 |
+| games | 118 | 0 | 69 | 49 |
+| pokemon | 151 | 0 | 92 | 59 |
+| starwars | 98 | 0 | 40 | 58 |
+| **Total** | **1304** | **26** | **526** | **752** |
+
+Battle Royale scenarios, Option C estimate for the first team without and with research (Version 1 over 300 private seeds):
+
+| Matchup | V1 win rate | Option C default | Option C with research | Fighters with a research line | V1 inside range (default / research) |
+| --- | --- | --- | --- | --- | --- |
+| The Chungus vs The Crossover | 38% | 15% | 15% | 0 | no / no |
+| Batman crew vs Hellbat crew | 0% | 25% | 25% | 0 | no / no |
+| Thanos crew vs King Thanos crew | 0% | 20% | 20% | 0 | no / no |
+| Franklin Richards crew vs Abomination crew | 2% | 55% | 55% | 0 | no / no |
+| Darkseid crew vs Spectre crew | 42% | 45% | 45% | 0 | yes / yes |
+| Black Adam crew vs Silver Surfer crew | 43% | 50% | 50% | 2 | yes / yes |
+| Looney crew vs Avengers | 100% | 90% | 90% | 3 | no / no |
+| Muppets vs DC roster | 0% | 40% | 40% | 3 | no / no |
+
+Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnostic, not a calibration: the half weight is an editorial choice and nothing was fitted to these results.
+
 ## 5. Example assessments
 
 ### The Chungus vs The Crossover (brawl)
