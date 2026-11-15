@@ -191,7 +191,7 @@ test('ranking CLI reads votes and aggregate files', () => {
 test('repeats are wanted: re-asked pairs come back with sides swapped, and repeat votes all count', () => {
   const A = ids('nba')(30), rng = G.mulberry32(5), votes = [];
   for (let i = 0; i < 40; i++) {
-    const p = G.nextPair(A, A, { rng, counts: G.buildCounts(votes), repeatRate: 0.4 });
+    const p = G.nextPair(A, A, { rng, counts: G.buildCounts(votes), repeatRate: 0.4, minPairsForRepeat: 0 });
     votes.push(mk(p.left, p.right, 'left', 'abcdefgh1', i));
   }
   const counts = G.buildCounts(votes);
@@ -208,10 +208,10 @@ test('repeats are wanted: re-asked pairs come back with sides swapped, and repea
   assert.equal(a2.pairs[0].aWins + a2.pairs[0].bWins, 2);
   assert.deepEqual([a2.totals.repeatPairs, a2.totals.unanimousRepeatPairs], [1, 1]);
   // Repeat dealing respects the avoid list and the chosen pools.
-  const p = G.nextPair(A, A, { rng: G.mulberry32(9), counts, repeatRate: 1, avoidKeys: new Set(counts.decisive.keys()) });
+  const p = G.nextPair(A, A, { rng: G.mulberry32(9), counts, repeatRate: 1, minPairsForRepeat: 0, avoidKeys: new Set(counts.decisive.keys()) });
   assert.ok(!p.repeat, 'with every voted pair avoided, a fresh pair is dealt');
   const other = ids('mcu')(5);
-  assert.ok(!G.nextPair(other, other, { rng: G.mulberry32(9), counts, repeatRate: 1 }).repeat, 'no repeats from pairs outside the selected pools');
+  assert.ok(!G.nextPair(other, other, { rng: G.mulberry32(9), counts, repeatRate: 1, minPairsForRepeat: 0 }).repeat, 'no repeats from pairs outside the selected pools');
 });
 
 test('opt-in sharing: nothing is sent until enabled; only exact resends are idempotent', async () => {
@@ -260,4 +260,29 @@ test('opt-in sharing: nothing is sent until enabled; only exact resends are idem
   assert.deepEqual([...allKeys].sort(), ['a', 'b', 'confidence', 'id', 'key', 'left', 'model', 'outcome', 'pools', 'right', 'session', 'ts', 'v', 'winner']);
   st.sync.share = false; G.setShare(st, false);
   for (const k of ['POOLS', 'getPool', 'getCands', 'esc', 'avatar', 'localStorage']) delete global[k];
+});
+
+test('repeats are rare and late: nothing repeats before 100 different matchups, then about 3%, never inside the cooldown', () => {
+  assert.deepEqual([G.REPEAT_RATE, G.REPEAT_MIN_PAIRS, G.REPEAT_COOLDOWN], [0.03, 100, 100]);
+  const A = ids('nba')(40), mkAll = n => { // n different answered matchups
+    const votes = []; let seq = 0;
+    for (let i = 0; i < 40 && votes.length < n; i++) for (let j = i + 1; j < 40 && votes.length < n; j++) votes.push(mk(A[i].id, A[j].id, 'left', 'abcdefgh1', seq++));
+    return votes;
+  };
+  // 99 answered matchups: never a repeat, however many deals
+  const few = mkAll(99), cFew = G.buildCounts(few);
+  assert.equal(cFew.decisive.size, 99);
+  let rep = 0;
+  for (let i = 0; i < 3000; i++) if (G.nextPair(A, A, { rng: G.mulberry32(i + 1), counts: cFew, repeatRate: 1 }).repeat) rep++;
+  assert.equal(rep, 0, 'no repeats before 100 different matchups, even at a 100% setting');
+  // 150 answered: about 3% of default deals are repeats, and a cooled-down matchup is never one of them
+  const many = mkAll(150), cMany = G.buildCounts(many), cool = new Set(many.slice(-100).map(v => v.key));
+  let repeats = 0, N = 4000, inCooldown = 0;
+  for (let i = 0; i < N; i++) {
+    const p = G.nextPair(A, A, { rng: G.mulberry32(1000 + i), counts: cMany, repeatAvoidKeys: cool });
+    if (p.repeat) { repeats++; if (cool.has(p.key)) inCooldown++; }
+  }
+  const share = repeats / N;
+  assert.ok(share > 0.01 && share < 0.06, 'about 3% repeats, got ' + (share * 100).toFixed(1) + '%');
+  assert.equal(inCooldown, 0, 'no matchup from the last 100 votes is re-asked');
 });
