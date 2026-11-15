@@ -20,6 +20,10 @@ const Gauntlet = (function gauntletFactory() {
   const CONFIDENCE = Object.freeze([null, 'sure', 'lean']);
   const ELO_PER_NAT = 400 / Math.LN10;
   const PRIOR_GAMES = 1; // phantom average opponent, split evenly: keeps sparse results finite and ordered
+  // Re-asking an answered matchup strengthens the case, but it should be a rare treat, not a pattern: about 3% of
+  // deals, only once 100 different matchups have been answered in the chosen arena, and never a matchup answered
+  // within the last 100 votes.
+  const REPEAT_RATE = 0.03, REPEAT_MIN_PAIRS = 100, REPEAT_COOLDOWN = 100;
 
   // ---------- small helpers ----------
   function mulberry32(seed) {
@@ -150,15 +154,18 @@ const Gauntlet = (function gauntletFactory() {
     const avoid = opts.avoidKeys || new Set(), tries = opts.tries || 40;
     if (!sideA || !sideA.length || !sideB || !sideB.length) return null;
     const seen = id => counts.item.get(id) || 0;
-    // Repeats are wanted: the same matchup answered the same way again strengthens the case, and a different
-    // answer exposes a shaky one. A share of deals re-asks an already-voted pair (fewest answers first), with
-    // the sides randomly swapped so position bias cannot masquerade as agreement.
-    const repeatRate = opts.repeatRate != null ? opts.repeatRate : 0.15;
-    if (repeatRate > 0 && counts.decisive && counts.decisive.size && rng() < repeatRate) {
+    // Repeats are wanted, but rarely: the same matchup answered the same way again strengthens the case, and a
+    // different answer exposes a shaky one. A small share of deals re-asks an already-voted pair (fewest answers
+    // first), with the sides randomly swapped so position bias cannot masquerade as agreement. Nothing repeats
+    // until minPairsForRepeat different matchups have been answered, and repeatAvoidKeys (the cooldown) is skipped.
+    const repeatRate = opts.repeatRate != null ? opts.repeatRate : REPEAT_RATE;
+    const minPairs = opts.minPairsForRepeat != null ? opts.minPairsForRepeat : REPEAT_MIN_PAIRS;
+    const repeatAvoid = opts.repeatAvoidKeys || avoid;
+    if (repeatRate > 0 && counts.decisive && counts.decisive.size && counts.decisive.size >= minPairs && rng() < repeatRate) {
       const inA = new Set(sideA.map(c => c.id)), inB = new Set(sideB.map(c => c.id));
       let pick = null;
       for (const [key, n] of counts.decisive) {
-        if (avoid.has(key)) continue;
+        if (repeatAvoid.has(key)) continue;
         const [x, y] = key.split('|');
         if (!((inA.has(x) && inB.has(y)) || (inA.has(y) && inB.has(x)))) continue;
         const score = n + rng() * 0.5;
@@ -510,8 +517,9 @@ const Gauntlet = (function gauntletFactory() {
     const counts = buildCounts(state.ctx.store.votes.filter(v => v.pools.includes(state.poolA) && v.pools.includes(state.poolB)));
     const rng = mulberry32(state.sampleSeed + (state.draws++) * 7919);
     const recent = new Set(state.ctx.store.votes.slice(-20).map(v => v.key));
-    const special = callFeed('chooseCard', state, { recent });
-    state.current = special || nextPair(A, B, { rng, counts, avoidKeys: recent });
+    const repeatAvoid = new Set(state.ctx.store.votes.slice(-REPEAT_COOLDOWN).map(v => v.key));
+    const special = callFeed('chooseCard', state, { recent, counts, repeatAvoid });
+    state.current = special || nextPair(A, B, { rng, counts, avoidKeys: recent, repeatAvoidKeys: repeatAvoid });
     return state.current;
   }
   function start(state) { state.stage = 'vote'; state.flash = ''; callFeed('onStart', state); deal(state); }
@@ -591,7 +599,7 @@ const Gauntlet = (function gauntletFactory() {
   }
 
   return {
-    SCHEMA_VERSION, MODEL_VERSION, AGG_SCHEMA, STORE_KEY, PRIOR_GAMES,
+    SCHEMA_VERSION, MODEL_VERSION, AGG_SCHEMA, STORE_KEY, PRIOR_GAMES, REPEAT_RATE, REPEAT_MIN_PAIRS, REPEAT_COOLDOWN,
     mulberry32, hashSeed, pairKey, wilson, newSession, poolOf,
     validateVote, makeVote, newStore, addVote, undoLast, mergeVotes,
     buildCounts, nextPair, aggregate, aggregatesToCSV, validateAggregates, coverage,

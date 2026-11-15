@@ -253,23 +253,27 @@ const GauntletFeed = (function feedFactory() {
     const pair = G.nextPair(host.candsOf(state.poolA), host.candsOf(rightPool), { rng, counts: G.buildCounts(votes), avoidKeys: recent, repeatRate: 0 });
     return pair ? Object.assign(pair, { surprise: 'clash' }) : null;
   }
-  function surpriseDream(state, host, rng, votes, recent, F) {
+  /** A matchup already answered may only come back as a special card under the same rules as ordinary repeats. */
+  function mayRepeat(key, counts, repeatAvoid) { return counts.decisive.size >= G.REPEAT_MIN_PAIRS && !repeatAvoid.has(key); }
+  function surpriseDream(state, host, rng, votes, recent, F, info) {
     const rows = F.rows || computeRows(votes);
     const top = rows.filter(r => r.games >= 3 && host.cardById(r.id)).slice(0, 8);
     if (top.length < 4) return null;
-    const counts = G.buildCounts(votes);
+    const counts = G.buildCounts(votes), arena = (info && info.counts) || counts, repeatAvoid = (info && info.repeatAvoid) || new Set();
     let best = null;
     for (let i = 0; i < top.length; i++) for (let j = i + 1; j < top.length; j++) {
       const key = G.pairKey(top[i].id, top[j].id);
       if (recent.has(key)) continue;
+      if ((counts.pair.get(key) || 0) > 0 && !mayRepeat(key, arena, repeatAvoid)) continue; // not seen before, or rare and late
       const score = (counts.pair.get(key) || 0) * 1000 + i + j + rng() * 0.5;
       if (!best || score < best.score) best = { score, a: top[i].id, b: top[j].id };
     }
     return best ? pairObject(best.a, best.b, rng, { surprise: 'dream' }) : null;
   }
-  function surpriseTiebreak(state, host, rng, votes, recent) {
+  function surpriseTiebreak(state, host, rng, votes, recent, F, info) {
+    const arena = (info && info.counts) || G.buildCounts(votes), repeatAvoid = (info && info.repeatAvoid) || new Set();
     const contested = G.contradictions(G.aggregate(votes)).contestedPairs
-      .filter(p => !recent.has(p.key) && host.cardById(p.key.split('|')[0]) && host.cardById(p.key.split('|')[1]))
+      .filter(p => !recent.has(p.key) && mayRepeat(p.key, arena, repeatAvoid) && host.cardById(p.key.split('|')[0]) && host.cardById(p.key.split('|')[1]))
       .sort((x, y) => (x.aWins + x.bWins) - (y.aWins + y.bWins) || (x.key < y.key ? -1 : 1));
     if (!contested.length) return null;
     const [a, b] = contested[0].key.split('|');
@@ -284,7 +288,7 @@ const GauntletFeed = (function feedFactory() {
     const r = rng(), order = r < 0.4 ? ['clash', 'dream', 'tiebreak'] : r < 0.7 ? ['dream', 'tiebreak', 'clash'] : ['tiebreak', 'clash', 'dream'];
     const make = { clash: surpriseClash, dream: surpriseDream, tiebreak: surpriseTiebreak };
     for (const type of order) {
-      const pair = make[type](state, host, rng, votes, recent, F);
+      const pair = make[type](state, host, rng, votes, recent, F, info);
       if (pair && host.cardById(pair.left) && host.cardById(pair.right)) {
         F.nextSurpriseAt = votes.length + gapFor(state.sampleSeed, votes.length + 1);
         return pair;

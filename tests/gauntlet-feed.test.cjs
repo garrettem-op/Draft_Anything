@@ -8,7 +8,7 @@ const F = require('../data/gauntlet-feed.js');
 const T0 = Date.parse('2026-11-15T15:00:00.000Z');
 const SEC = 1000, DAY = 86400000;
 const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
-const chars = pool => Array.from({ length: 12 }, (_, i) => ({ id: pool + ':c' + i, n: pool.toUpperCase() + ' Hero ' + i, pool }));
+const chars = pool => Array.from({ length: 20 }, (_, i) => ({ id: pool + ':c' + i, n: pool.toUpperCase() + ' Hero ' + i, pool }));
 const byPool = { nba: chars('nba'), mcu: chars('mcu') };
 let clock = T0;
 const host = {
@@ -156,40 +156,81 @@ test('top five and taste describe the ladder without rewarding any choice', () =
   assert.equal(F.tasteOf(s.ctx.store.votes.slice(0, 5), F.computeRows(s.ctx.store.votes.slice(0, 5))), null, 'too little data: no taste claim');
 });
 
+/** 124 different matchups answered, old enough to be out of the cooldown; c0..c7 are the strongest; (c8,c9) was answered both ways. */
+function richHistory() {
+  const s = mkState();
+  let ts = T0;
+  cast(s, id(8), id(9), 'left', ts); ts += 5 * SEC; cast(s, id(9), id(8), 'left', ts); ts += 5 * SEC; // contested, and old
+  for (let a = 0; a < 8; a++) for (let b = a + 1; b < 8; b++) { cast(s, id(a), id(b), 'left', ts); ts += 5 * SEC; }
+  for (let a = 0; a < 8; a++) for (let b = 8; b < 20; b++) { cast(s, id(a), id(b), 'left', ts); ts += 5 * SEC; }
+  return s;
+}
+
 test('surprise cards are deterministic, use no gameplay RNG, vary in timing, and cover all three kinds', () => {
   useStorage();
   const real = Math.random;
   Math.random = () => { throw new Error('Math.random must not be used by the feed'); };
   try {
-    const base = mkState();
-    let ts = fill(base, 40, T0, 5 * SEC);
-    cast(base, id(0), id(1), 'left', ts); cast(base, id(1), id(0), 'left', ts + SEC); // a contested pair
-    const run = seed => {
+    const base = richHistory();
+    const votes = base.ctx.store.votes;
+    assert.ok(G.buildCounts(votes).decisive.size >= G.REPEAT_MIN_PAIRS, 'history is rich enough for repeats to be allowed');
+    const mkRun = seed => {
       const s = mkState(seed);
-      s.ctx.store = G.newStore(base.ctx.store.votes);
+      s.ctx.store = G.newStore(votes);
       const F1 = F.ensure(s); F1.nextSurpriseAt = s.ctx.store.votes.length;
-      const pair = F.chooseCard(s, host, { recent: new Set() });
-      return pair ? { type: pair.surprise, key: pair.key, left: pair.left, gap: F1.nextSurpriseAt - s.ctx.store.votes.length } : null;
+      const info = { recent: new Set(votes.slice(-20).map(v => v.key)), counts: G.buildCounts(votes), repeatAvoid: new Set(votes.slice(-G.REPEAT_COOLDOWN).map(v => v.key)) };
+      const pair = F.chooseCard(s, host, info);
+      return { pair, F1, n: s.ctx.store.votes.length };
     };
     const kinds = new Set(), gaps = new Set();
     for (let seed = 1; seed <= 80; seed++) {
-      const r = run(seed);
-      assert.ok(r, 'a special card is always available with this history');
-      assert.deepEqual(run(seed), r, 'same seed and history give the same card');
-      kinds.add(r.type); gaps.add(r.gap);
-      assert.ok(r.gap >= F.SURPRISE_GAP[0] && r.gap <= F.SURPRISE_GAP[1], 'next one is 6 to 12 votes away');
+      const r = mkRun(seed), again = mkRun(seed);
+      assert.ok(r.pair, 'a special card is always available with this history');
+      assert.deepEqual(again.pair, r.pair, 'same seed and history give the same card');
+      kinds.add(r.pair.surprise); gaps.add(r.F1.nextSurpriseAt - r.n);
+      assert.ok(r.F1.nextSurpriseAt - r.n >= F.SURPRISE_GAP[0] && r.F1.nextSurpriseAt - r.n <= F.SURPRISE_GAP[1], 'next one is 6 to 12 votes away');
     }
     assert.deepEqual([...kinds].sort(), ['clash', 'dream', 'tiebreak']);
     assert.ok(gaps.size > 3, 'timing varies');
-    // each kind has the shape it advertises
-    const some = type => { for (let seed = 1; seed < 200; seed++) { const s = mkState(seed); s.ctx.store = G.newStore(base.ctx.store.votes); F.ensure(s).nextSurpriseAt = s.ctx.store.votes.length; const p = F.chooseCard(s, host, { recent: new Set() }); if (p && p.surprise === type) return p; } return null; };
+    const some = type => { for (let seed = 1; seed < 300; seed++) { const p = mkRun(seed).pair; if (p && p.surprise === type) return p; } return null; };
     const clash = some('clash'); assert.notEqual(clash.left.split(':')[0], clash.right.split(':')[0], 'clash crosses pools');
-    const tie = some('tiebreak'); assert.equal(tie.key, id(0) + '|' + id(1), 'tiebreaker is the contested pair');
+    const tie = some('tiebreak'); assert.equal(tie.key, id(8) + '|' + id(9), 'tiebreaker is the contested pair');
     const dream = some('dream'); assert.ok(host.cardById(dream.left) && host.cardById(dream.right));
     // not due yet: no card
-    const idle = mkState(); idle.ctx.store = G.newStore(base.ctx.store.votes); F.ensure(idle).nextSurpriseAt = idle.ctx.store.votes.length + 3;
+    const idle = mkState(); idle.ctx.store = G.newStore(votes); F.ensure(idle).nextSurpriseAt = votes.length + 3;
     assert.equal(F.chooseCard(idle, host, {}), null);
   } finally { Math.random = real; }
+});
+
+test('special cards only re-ask a matchup under the rare-and-late rules', () => {
+  useStorage();
+  // Early on (46 votes, 15 different matchups): no tiebreaker, and a dream final is always a brand-new matchup.
+  const early = mkState();
+  let ts = fill(early, 40, T0, 5 * SEC);
+  cast(early, id(0), id(1), 'left', ts); cast(early, id(1), id(0), 'left', ts + SEC);
+  const earlyVotes = early.ctx.store.votes, answered = G.buildCounts(earlyVotes);
+  assert.ok(answered.decisive.size < G.REPEAT_MIN_PAIRS);
+  let earlyCards = 0, earlyDreams = 0;
+  for (let seed = 1; seed <= 120; seed++) {
+    const s = mkState(seed); s.ctx.store = G.newStore(earlyVotes); F.ensure(s).nextSurpriseAt = earlyVotes.length;
+    const p = F.chooseCard(s, host, { recent: new Set(), counts: answered, repeatAvoid: new Set() });
+    if (!p) continue;
+    earlyCards++;
+    assert.notEqual(p.surprise, 'tiebreak', 'no tiebreaker before 100 different matchups');
+    if (p.surprise === 'dream') earlyDreams++;
+    if (p.surprise === 'dream') assert.equal(answered.pair.get(p.key) || 0, 0, 'an early dream final is a matchup you have not answered');
+  }
+  assert.ok(earlyCards > 60, 'special cards still appear early (' + earlyCards + ' of 120)');
+  // Rich history: nothing from the last 100 votes may come back as a tiebreaker or dream final.
+  const rich = richHistory(), rv = rich.ctx.store.votes;
+  const cool = new Set(rv.slice(-G.REPEAT_COOLDOWN).map(v => v.key)), counts = G.buildCounts(rv);
+  let reasked = 0;
+  for (let seed = 1; seed <= 150; seed++) {
+    const s = mkState(seed); s.ctx.store = G.newStore(rv); F.ensure(s).nextSurpriseAt = rv.length;
+    const p = F.chooseCard(s, host, { recent: new Set(rv.slice(-20).map(v => v.key)), counts, repeatAvoid: cool });
+    if (p && (p.surprise === 'tiebreak' || p.surprise === 'dream') && (counts.pair.get(p.key) || 0) > 0) { reasked++; assert.ok(!cool.has(p.key), 'a re-asked matchup is outside the 100-vote cooldown'); }
+  }
+  assert.ok(reasked > 5, 'the rich history does re-ask some old matchups (' + reasked + ')');
 });
 
 test('afterVote: badge once per device, reveal every 25, check-in at 50, skips do not count', () => {
