@@ -109,15 +109,24 @@ const PAGE = `
       reunionWithStarter: entry(starter, 'bench-chemistry:lead-reunion').value === 2,
       coachCountsAsLead: entry(coach, 'bench-chemistry:lead-reunion').value === 2,
       capHeld: big.benchChem.percent <= 8 && entry(ledger('basketball', big), 'bench-chemistry-total').cap === 8,
-      capReached: big.benchChem.percent === 8,
+      sidekickPlusReunion: big.benchChem.percent === 5,
     };
   }
-  { // Non-sidekick mesh
+  { // Shared-group mesh was removed on 2026-11-15; a non-sidekick bench player gets no group lift
     const T = ocTeam('basketball', { bn: ['nba', 'Stephen Curry'], sg: ['nba', 'Klay Thompson'] }, 'nba'), L = ledger('basketball', T);
     out['bench-group-mesh-non-sidekick'] = {
       curryIsNotSidekick: !isSidekick(ocCand('nba', 'Stephen Curry')),
-      meshWithoutTag: !!entry(L, 'bench-chemistry:group-mesh') && !entry(L, 'bench-chemistry:sidekick-lock') && T.benchChem.mesh.includes('Klay Thompson'),
+      noGroupLift: !entry(L, 'bench-chemistry:group-mesh') && !entry(L, 'bench-chemistry:sidekick-lock') && T.benchChem.percent === 0 && !('mesh' in T.benchChem),
       capHeld: T.benchChem.percent <= 8,
+    };
+  }
+  { // Bench specialist (documented Sixth Man record), never stacked with the sidekick lock
+    const H = ocTeam('basketball', { bn: ['nba', 'James Harden'] }, 'nba'), HL = ledger('basketball', H);
+    const G = ocTeam('basketball', { bn: ['nba', 'Manu Ginóbili'] }, 'nba'), GL = ledger('basketball', G);
+    out['bench-specialist-sixth-man'] = {
+      hardenSpecialistOnly: !!entry(HL, 'bench-chemistry:bench-specialist') && !entry(HL, 'bench-chemistry:sidekick-lock') && H.benchChem.percent === 1.5,
+      ginobiliNotDoubleCounted: !!entry(GL, 'bench-chemistry:sidekick-lock') && !entry(GL, 'bench-chemistry:bench-specialist') && G.benchChem.percent === 3,
+      reconciles: HL.reconciliation.ok && GL.reconciliation.ok && HL.conflicts.length === 0 && GL.conflicts.length === 0,
     };
   }
   { // Muppet cross-pool

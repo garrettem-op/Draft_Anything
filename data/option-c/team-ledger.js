@@ -229,8 +229,9 @@
       reason: mt.performers ? mt.performers + ' Muppet performer(s) lift the WHOLE team, including teammates from other pools, with diminishing returns.' : 'No Muppet ensemble on this roster.',
       limitations: ['Applied once per team.', 'Teammates gain a chemistry lift; they do not gain MuppetForce powers.', 'Capped at 22% of the pre-bonus rating.'] });
 
-    /* 8. Bench chemistry — sidekick lock, lead reunion, mesh; capped together. */
-    const bc = score.benchChem || { percent: 0, points: 0, bench: null, sidekick: false, lock: 0, leads: [], mesh: [] };
+    /* 8. Bench chemistry — sidekick lock or bench specialist (the larger, never both), lead reunion; capped together.
+     The shared-group mesh was removed by the owner on 2026-11-15. */
+    const bc = score.benchChem || { percent: 0, points: 0, bench: null, sidekick: false, specialist: null, lock: 0, roleLift: 0, leads: [] };
     const B = L.bench.BENCH_CHEM;
     const benchId = benchRow ? cid(benchRow.cand) : null;
     const part = (key, value, trigger, reason, limits) => obs({ stackKey: 'bench-chemistry:' + key, sourceSystem: 'bench-chemistry', sourceCharacterId: benchId,
@@ -240,12 +241,12 @@
       bc.bench + ' is a tagged sidekick and thrives in the bench role, with or without a lead on the roster.', ['Sidekick is a role tag, not a power or combat tier.']);
     if ((bc.leads || []).length) part('lead-reunion', B.leadEach * Math.min(B.leadMax, bc.leads.length), 'a named lead of the bench sidekick is on the roster (coach counts)',
       'Reunited with ' + bc.leads.join(' and ') + '.');
-    if ((bc.mesh || []).length) part('group-mesh', B.meshEach * Math.min(B.meshMax, bc.mesh.length), 'bench player shares a chemistry group with a teammate (no sidekick tag required)',
-      'Meshes with ' + bc.mesh.join(', ') + '.');
+    if (bc.specialist && num(bc.roleLift) > num(bc.lock)) part('bench-specialist', num(bc.roleLift), 'bench player has a documented record as a reserve and holds the bench/reinforcement slot',
+      bc.bench + ' has ' + bc.specialist.awards.join(' and ') + '.', ['Evidence: ' + bc.specialist.source, 'Smaller than the sidekick lock; a sidekick who is also a specialist gets the larger one only.']);
     obs({ stackKey: 'bench-chemistry-total', sourceSystem: 'bench-chemistry', sourceCharacterId: benchId, trigger: 'bench/reinforcement slot filled',
       recipients: everyone, stage: 'team-score', effectKind: KIND.ADD, value: RT.round(num(bc.points), 6), unit: 'rating points (' + num(bc.percent) + '% of the pre-bonus rating)',
       capGroup: 'bench-chemistry', cap: B.cap, inRating: true,
-      reason: bc.percent ? 'Sidekick lock, lead reunion and group mesh combined.' : 'No bench chemistry on this roster.',
+      reason: bc.percent ? 'Sidekick lock or bench specialist, plus lead reunion, combined.' : 'No bench chemistry on this roster.',
       limitations: ['Combined bench chemistry is capped at ' + B.cap + '%.'] });
     if (score.benchHeat) obs({ stackKey: 'bench-heat', sourceSystem: 'bench', sourceCharacterId: benchId, trigger: 'every game, one seeded roll',
       conditions: ['live match RNG'], recipients: ['own team'], stage: 'match-conditional', effectKind: KIND.ADD, value: null,
@@ -276,7 +277,7 @@
     if (num(bc.percent) > B.cap + TOL) conflicts.push({ system: 'bench-chemistry', detail: 'Bench chemistry exceeds its ' + B.cap + '% cap.' });
 
     return { teamKey, entries: ledger.entries, add: ledger.add, has: ledger.has, reconciliation, conflicts,
-      summary: { muppetPercent: num(mt.percent), benchChemistryPercent: num(bc.percent), sidekickOnBench: !!bc.sidekick, leads: (bc.leads || []).slice(), mesh: (bc.mesh || []).slice(),
+      summary: { muppetPercent: num(mt.percent), benchChemistryPercent: num(bc.percent), sidekickOnBench: !!bc.sidekick, benchSpecialist: bc.specialist ? bc.specialist.awards.slice() : null, leads: (bc.leads || []).slice(),
         chemistryLinks: (syn.links || []).map(l => l.name), signatureMoves: (sig.list || []).map(s => ({ name: s.name, kind: s.kind })),
         toonSpotlightCandidate: toons.length ? toons[0].cand.n : null, variants: rows.filter(r => r.cand.variantBase).map(r => r.cand.n) } };
   }

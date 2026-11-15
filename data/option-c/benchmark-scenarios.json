@@ -120,9 +120,25 @@
       ],
       "reviewState": "approved-rule",
       "checks": [
-        "A non-sidekick bench candidate can receive shared chemistry-group mesh benefit",
-        "Do not require the sidekick tag for group mesh",
+        "Owner ruling 2026-11-15: sharing a chemistry group with the bench player gives no bench lift",
+        "A non-sidekick bench candidate with no documented bench record adds nothing through bench chemistry",
+        "Group chemistry still counts for the bench player through the normal chemistry links",
         "Combined bench-chemistry percentage remains at most 8 percent"
+      ]
+    },
+    {
+      "id": "bench-specialist-sixth-man",
+      "mode": "all",
+      "category": "sidekick",
+      "participants": [
+        "nba:James Harden",
+        "nba:Manu Ginóbili"
+      ],
+      "reviewState": "approved-rule",
+      "checks": [
+        "A documented Sixth Man of the Year winner in the bench slot gets a lift smaller than the sidekick lock",
+        "A character who is both sidekick and specialist gets the larger lift once, never both",
+        "Evidence is the NBA.com Sixth Man of the Year list; no undocumented specialists"
       ]
     },
     {
