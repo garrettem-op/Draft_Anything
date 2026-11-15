@@ -88,6 +88,76 @@ function addManual(entries) {
     'The automated Gemini worker could not produce a validator-clean profile with a working source for these identities. They are skipped by the automatic queue. Research them by hand (Claude review sessions pick from this list) and delete the line once a PR covers it.\n\n' + lines + '\n' });
 }
 
+/* ---------- refine (needs-review records, edited in place) ---------- */
+/* Replace records in a batch file by id. Pure: never adds ids, never reorders, keeps unmatched records byte-for-byte.
+   Earlier review notes stay in unknowns so lost claims are not forgotten. */
+function mergeRefined(batch, refined) {
+  const byId = new Map(refined.map((r) => [r.id, r]));
+  const done = [];
+  const characters = batch.characters.map((old) => {
+    const nu = byId.get(old.id);
+    if (!nu || !Array.isArray(nu.sources) || nu.sources.length < 1) return old;
+    const carried = (old.unknowns || []).filter((u) => !/^Flagged needs-review/.test(u) && !(nu.unknowns || []).includes(u));
+    done.push(old.id);
+    return { ...nu, unknowns: [...(nu.unknowns || []), ...carried, 'Refined by Gemini automated pass; not independently verified.'] };
+  });
+  return { batch: { ...batch, characters }, done };
+}
+
+async function refine(argv) {
+  const size = Number(argValue(argv, '--batch-size', '5'));
+  const budgetMs = Number(argValue(argv, '--budget-minutes', '25')) * 60000;
+  const model = process.env.GEMINI_MODEL || worker.DEFAULT_MODEL;
+  const started = Date.now();
+  const baseSha = JSON.parse(gh(['api', '/repos/' + REPO + '/git/ref/heads/' + encodeURIComponent(BASE)])).object.sha;
+  const audit = state(argv);
+  if (audit.errors.length) throw Error('Research ledger has errors; fix before refining: ' + audit.errors.join('; '));
+  let vision;
+  try { vision = loadVision(argv); } catch (e) { say('Stopped: fatal: cannot read ' + VISION_PATH); process.exitCode = 1; return; }
+  const system = worker.systemInstruction(vision.text);
+  const tagList = audit.tags || [], tagSet = new Set(tagList), schema = worker.responseSchema(tagList);
+  const skip = new Set(claimedIds(openResearchPRs()));
+  let prs = 0, records = 0, calls = 0, stop = 'no needs-review records left', lastCall = 0;
+  while (true) {
+    if (Date.now() - started > budgetMs) { stop = 'time budget reached'; break; }
+    const todo = [...audit.records].filter(([id, r]) => r.status === 'needs-review' && !skip.has(id));
+    if (!todo.length) break;
+    const file = todo[0][1].file; // one file per PR
+    const ids = todo.filter(([, r]) => r.file === file).map(([id]) => id).slice(0, size);
+    const path_ = 'research/option-c/batches/' + file;
+    const meta = JSON.parse(gh(['api', '/repos/' + REPO + '/contents/' + encodeURI(path_) + '?ref=' + baseSha]));
+    const batch = JSON.parse(Buffer.from(meta.content, 'base64').toString('utf8'));
+    const old = batch.characters.filter((c) => ids.includes(c.id));
+    const wait = 4500 - (Date.now() - lastCall);
+    if (wait > 0) await sleep(wait);
+    let raw;
+    try { lastCall = Date.now(); calls++; raw = await worker.callGemini({ apiKey: process.env.GEMINI_API_KEY, model, system, schema, prompt: worker.buildRefinePrompt(old, { tags: tagList }) }); }
+    catch (e) {
+      if (e instanceof worker.QuotaError && e.daily) { stop = 'Gemini free-tier daily quota reached'; break; }
+      if (e instanceof worker.QuotaError) { await sleep(Math.min(Math.max(e.retryMs, 10000), 120000)); ids.forEach((id) => skip.add(id)); continue; }
+      if (e instanceof worker.FatalError) { stop = 'fatal: ' + e.message.slice(0, 200); break; }
+      ids.forEach((id) => skip.add(id)); continue;
+    }
+    // Existing ids are 'known' by design here: refine edits in place and never adds an id.
+    const out = await worker.normalize(raw, ids, { checkUrl: (u, id) => worker.checkSource(u, id), checkBatch: pipe.checkBatch, known: new Set(audit.ids), tags: tagSet });
+    ids.forEach((id) => skip.add(id));
+    const merged = mergeRefined(batch, out.characters);
+    if (!merged.done.length) { say('Refine: no usable output for ' + ids.length + ' record(s) in ' + file); continue; }
+    const errors = pipe.checkBatch(file, merged.batch, new Set(audit.ids), tagSet);
+    if (errors.length) { say('Refine: skipped invalid result for ' + file + ': ' + errors[0]); continue; }
+    const branch = 'gemini/v2-refine/' + file.replace(/\.json$/, '') + '-' + Date.now().toString(36);
+    restWrite('POST', '/repos/' + REPO + '/git/refs', { ref: 'refs/heads/' + branch, sha: baseSha });
+    restWrite('PUT', '/repos/' + REPO + '/contents/' + path_, { message: 'research(option-c): refine ' + merged.done.length + ' needs-review record(s) in ' + file, branch, sha: meta.sha,
+      content: Buffer.from(JSON.stringify(merged.batch, null, 2) + '\n').toString('base64') });
+    restWrite('POST', '/repos/' + REPO + '/pulls', { base: BASE, head: branch, title: 'Gemini V2 refine: ' + merged.done.length + ' needs-review record(s) in ' + file,
+      body: 'Automated in-place refinement of needs-review records (' + vision.ref + '). No new ids. Records become provisional; a reviewer other than the author must verify before `reviewed`.\n\n' +
+        merged.done.map((id) => '- `' + id + '`').join('\n') + (out.flags.length ? '\n\n**Source check notes**\n' + out.flags.map((f) => '- ' + f).join('\n') : '') + '\n\nRelates to #101.' });
+    prs++; records += merged.done.length;
+  }
+  say('Refine: ' + calls + ' Gemini call(s), ' + prs + ' PR(s), ' + records + ' record(s). Stopped: ' + stop + '.');
+  if (stop.startsWith('fatal')) process.exitCode = 1;
+}
+
 /* ---------- reconcile ---------- */
 function validatePR(pr, files, known, mergedRecords, tags) {
   const errors = [];
@@ -244,10 +314,11 @@ async function main(argv) {
   try {
     if (cmd === 'reconcile') reconcile(state(argv), { dry: argv.includes('--dry-run') });
     else if (cmd === 'generate') await generate(argv);
-    else throw Error('Usage: v2-research-tick.cjs reconcile [--dry-run] | generate [--budget-minutes N] [--batch-size N]');
+    else if (cmd === 'refine') await refine(argv);
+    else throw Error('Usage: v2-research-tick.cjs reconcile [--dry-run] | generate | refine [--budget-minutes N] [--batch-size N]');
   } finally {
     if (process.env.GITHUB_STEP_SUMMARY && summary.length) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '### ' + cmd + '\n' + summary.map((l) => '- ' + l).join('\n') + '\n');
   }
 }
 if (require.main === module) main(process.argv.slice(2)).catch((e) => { console.error(e.stack || e.message); process.exitCode = 1; });
-module.exports = { validatePR, claimedIds, state, loadVision };
+module.exports = { mergeRefined, validatePR, claimedIds, state, loadVision };
