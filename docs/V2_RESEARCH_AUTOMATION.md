@@ -36,6 +36,8 @@ Optional fields accepted and partly checked: `feats[]`, `notableResults[]`, `con
 
 The sample is **not reviewed evidence**. To advance a record to `reviewed`, independently inspect its cited support and add `reviewedBy` and `reviewNotes`. Claims must name the actual scene/issue or other source detail; a movie landing page alone does not prove a fine-grained feat. Record negative findings with an explanation; missing evidence is **unknown**, not a researched no. Forms need `formDifferences` and distinct continuity. Do not add speculative numeric combat tiers or default victories.
 
+**Process change (owner decision, 2026-11-15):** independent source review is no longer a step in this pipeline. All 1,447 checked-in records were marked `reviewed` with `reviewedBy: "Garrett Minyard (owner decision, 2026-11-15)"` and `reviewNotes` stating that no separate fact-check was done. Treat `reviewed` as "accepted by the owner", not "independently verified"; the ledger still reports status as `record-declared`. Known thin records (single or weak second sources) are listed in the closing comment on issue #101, and open questions stay in each record's `unknowns`. The validator still requires `reviewedBy` and `reviewNotes` on any `reviewed` record.
+
 Run locally:
 
 ```bash
