@@ -21,6 +21,7 @@
   const REVIEWED = NS.reviewedCapabilities || (isNode ? require('./reviewed-capabilities.js') : null);
   const MCU_BATCH_01 = NS.mcuResearchBatch01 || (isNode ? require('./mcu-research-batch-01.js') : null);
   const LEDGER = NS.researchLedger || (isNode ? require('./research-ledger.js') : null);
+  const RPROF = NS.researchProfile || (isNode ? require('./research-profile.js') : null);
   const { EVIDENCE, ATTR_KEYS } = RT;
   const PROFILE_VERSION = 'option-c-profile-v1';
 
@@ -144,7 +145,7 @@
     };
   }
 
-  function getProfile(candidate) {
+  function getProfile(candidate, options) {
     if (!candidate || !candidate.pool || !candidate.n) throw new Error('Option C profile requires a pool and name');
     const L = RT.legacy();
     const pool = String(candidate.pool);
@@ -165,7 +166,7 @@
     // Typed battle signature: the reviewed form profile for a selected form,
     // otherwise the documented baseline profile. Never the base kit for a form.
     const ability = L.attack.brawlAbilityOf(candidate);
-    const signature = ability ? {
+    let signature = ability ? {
       id: 'signature', label: ability.move, domain: ability.domain, domainClass: domainClass(ability.domain),
       tier: ability.tier, pierce: ability.pierce, cooldown: ability.cooldown,
       selfLimiting: ability.wearStart ? { fromRound: ability.wearStart, note: 'Use carries a modeled metabolic cost to the user.' } : null,
@@ -174,8 +175,33 @@
       origin: isVariant ? 'variant-ability-profile' : 'brawl-attack-profile',
       evidenceStatus: EVIDENCE.REVIEWED,
     } : null;
-    const guards = ability ? (ability.guard || []).slice() : [];
-    const weakTo = ability ? (ability.weakTo || []).slice() : [];
+    let guards = ability ? (ability.guard || []).slice() : [];
+    let weakTo = ability ? (ability.weakTo || []).slice() : [];
+
+    /* Opt-in (options.useResearch), shadow only: when Version 1 has NO typed
+     * profile for this exact identity, a validated research record for that same
+     * exact id may supply a non-physical line of attack, guards and weaknesses.
+     * Never a tier, ward, Apex rank or cooldown; evidence stays provisional; a
+     * Version 1 profile is never overridden; a form never uses its base record. */
+    let researchDerived = null;
+    if (options && options.useResearch === true && !signature && LEDGER && RPROF) {
+      const hit = LEDGER.shared.lookup(formId || id);
+      const d = hit.record ? RPROF.deriveFromRecord(hit.record) : null;
+      if (d && (d.primaryDomain || d.guards.length || d.weakTo.length)) {
+        researchDerived = d;
+        if (d.primaryDomain) {
+          signature = {
+            id: 'signature', label: d.techniques.length ? d.techniques[0] : d.primaryDomain + ' attacks',
+            domain: d.primaryDomain, domainClass: domainClass(d.primaryDomain),
+            tier: null, pierce: null, cooldown: null, selfLimiting: null,
+            source: d.source, limitation: d.limitation, continuity: d.continuity,
+            origin: 'research-record', evidenceStatus: EVIDENCE.PROVISIONAL,
+          };
+        }
+        guards = d.guards.slice();
+        weakTo = d.weakTo.slice();
+      }
+    }
     const ward = ability && ability.tier >= 4 && ['reality', 'cosmic', 'magic', 'elemental'].includes(ability.domain)
       ? { tier: ability.tier, note: 'Finite protective ward of a documented tier-4+ power; it depletes and is not invulnerability.' }
       : null;
@@ -199,7 +225,10 @@
 
     const gaps = [];
     let combat;
-    if (isVariant && !variantReviewed) {
+    if (researchDerived && signature && signature.origin === 'research-record') {
+      combat = EVIDENCE.PROVISIONAL;
+      gaps.push('Line of attack derived from the research record for this exact identity (declared status: ' + researchDerived.declaredStatus + '); no tier, ward, Apex rank or combat proficiency is inferred.');
+    } else if (isVariant && !variantReviewed) {
       combat = EVIDENCE.UNKNOWN;
       gaps.push('Selected form has no reviewed ability profile: attributes change, but no power, defense or Apex rank is inferred.');
     } else if (signature) {
@@ -224,6 +253,7 @@
     const researchProfile = !isVariant ? MCU_BATCH_01.profileFor(id) : null;
     return {
       researchProfile,
+      ...(researchDerived ? { researchDerived } : {}),
       schemaVersion: RT.SCHEMA_VERSION, profileVersion: PROFILE_VERSION,
       id, formId, key: formId || id, pool, baseName, formName,
       displayName: String(candidate.n), isVariant, variantReviewed,
@@ -251,7 +281,7 @@
     };
   }
 
-  const getProfileById = id => getProfile(candidateFromId(id));
+  const getProfileById = (id, options) => getProfile(candidateFromId(id), options);
 
   const api = { PROFILE_VERSION, DOMAIN_CLASS, domainClass, parseId, candidateFromId, getProfile, getProfileById, physicalTierOf, tagStatus };
   NS.profileAdapter = api;

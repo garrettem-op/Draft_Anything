@@ -27,13 +27,14 @@
   const EX = need('explain', './explain.js');
   const LG = need('researchLedger', './research-ledger.js');
   const { EVIDENCE } = RT;
+  const RESEARCH_WEIGHT = 0.5;
   const SPORT_KEYS = Object.freeze(['basketball', 'football', 'soccer', 'baseball', 'hockey', 'volleyball', 'brawl']);
 
-  function normalizeTeam(score, label) {
+  function normalizeTeam(score, label, options) {
     if (!score || !Array.isArray(score.rows)) throw new Error('Option C: ' + label + ' must be a teamScore() result with rows');
     return score.rows.filter(r => r && r.cand && r.pos).map(r => ({
       pos: r.pos, role: r.pos.coach ? 'coach' : r.pos.bench ? 'bench' : 'starter',
-      fit: RT.round(Number(r.fit) || 0, 3), profile: PA.getProfile(r.cand),
+      fit: RT.round(Number(r.fit) || 0, 3), profile: PA.getProfile(r.cand, options),
     }));
   }
   const num = v => (Number.isFinite(Number(v)) ? Number(v) : 0);
@@ -46,7 +47,11 @@
     const keys = ['A', 'B'], teams = [teamA, teamB];
     const names = Array.isArray(input.teamNames) && input.teamNames.length === 2 ? input.teamNames.map(String) : ['Team A', 'Team B'];
     const context = input.context || {};
-    const rows = [normalizeTeam(teamA, 'teamA'), normalizeTeam(teamB, 'teamB')];
+    /* Opt-in, default off: let validated research records supply provisional typed lines of attack
+     * for identities Version 1 has no typed profile for (see research-profile.js). Never a tier. */
+    const useResearch = context.useResearch === true;
+    const popts = useResearch ? { useResearch: true } : undefined;
+    const rows = [normalizeTeam(teamA, 'teamA', popts), normalizeTeam(teamB, 'teamB', popts)];
     const active = rows.map(rs => rs.filter(r => r.role === 'starter'));
 
     /* Whole-team effect ledger (observed partition). */
@@ -64,7 +69,10 @@
     const fighters = active[0].concat(active[1]);
     const count = s => fighters.filter(r => r.profile.evidence.combat === s).length;
     const typed = count(EVIDENCE.REVIEWED);
+    const researchDerivedN = fighters.filter(r => r.profile.researchDerived && r.profile.signature && r.profile.signature.origin === 'research-record').length;
     const coverage = fighters.length ? typed / fighters.length : 0;
+    /* Weight of the typed (qualitative) term. Research-derived lines count at half weight: editorial, uncalibrated. */
+    const weightedCoverage = fighters.length ? (typed + RESEARCH_WEIGHT * researchDerivedN) / fighters.length : 0;
     // Continuity matters where abilities are being judged: every fighter in
     // Battle Royale; in sports, the players who bring a supernatural capability.
     const continuityOpen = fighters.filter(r => r.profile.continuity.status === EVIDENCE.NEEDS_REVIEW &&
@@ -76,12 +84,12 @@
     const seeded = ledgers.some(l => l.entries.some(e => e.stage === 'match-conditional'));
 
     const estimate = PR.estimate({
-      sportKey, effectiveRating, coverage, sigma: context.sigma,
+      sportKey, effectiveRating, coverage: useResearch ? weightedCoverage : coverage, sigma: context.sigma,
       interactionIndex: battle ? [battle.a.index, battle.b.index] : null,
       flags: { continuity: continuityOpen.length > 0, seededEvents: seeded, unresolvedRulings: unresolved.length > 0 },
     });
     // No typed profile at all: say so instead of dressing the numeric baseline up as analysis.
-    const status = brawl && typed === 0 ? 'insufficient-evidence' : 'provisional';
+    const status = brawl && typed === 0 && !(useResearch && researchDerivedN) ? 'insufficient-evidence' : 'provisional';
 
     /* Derived partition: qualitative findings, never rating bonuses. */
     if (battle) {
@@ -136,12 +144,13 @@
       .sort((a, b) => b.weight - a.weight || (a.text < b.text ? -1 : a.text > b.text ? 1 : 0)).slice(0, 8);
 
     const uncertainties = [];
-    const unknownKits = fighters.filter(r => r.profile.evidence.combat !== EVIDENCE.REVIEWED).map(r => r.profile.displayName);
+    const unknownKits = fighters.filter(r => r.profile.evidence.combat !== EVIDENCE.REVIEWED && !(useResearch && r.profile.signature && r.profile.signature.origin === 'research-record')).map(r => r.profile.displayName);
     if (brawl && unknownKits.length) uncertainties.push({ kind: 'unresearched-kits', impact: 'high', text: 'No typed combat profile for ' + RT.uniq(unknownKits).sort().join(', ') + '. Their real abilities could change this estimate (research issues #82/#83).' });
     if (continuityOpen.length) uncertainties.push({ kind: 'continuity', impact: 'medium', text: 'Continuity is not adjudicated for ' + RT.uniq(continuityOpen).sort().join(', ') + '; feats from another adaptation are not assumed.' });
     for (const u of unresolved) uncertainties.push({ kind: 'officiating', impact: 'medium', teamKey: u.teamKey, text: u.character + ': "' + u.action + '" has no approved ruling (' + u.ruleId + '). ' + u.reason });
     for (const u of pendingEvidence) uncertainties.push({ kind: 'capability-evidence', impact: 'low', teamKey: u.teamKey, text: u.character + ': ' + u.capability + ' is granted in the ability index but its evidence still needs review.' });
     if (seeded) uncertainties.push({ kind: 'seeded-events', impact: 'low', text: 'Bench heat, playoff boom/clutch and ToonForce spotlight are seeded per match and are not rolled here.' });
+    if (useResearch && researchDerivedN) uncertainties.push({ kind: 'research-derived-lines', impact: 'medium', text: researchDerivedN + ' fighter(s) are assessed from research records only: a documented line of attack and defenses, with no tier, ward or combat proficiency. They count at half weight (' + RESEARCH_WEIGHT + ', an uncalibrated editorial choice).' });
     uncertainties.push({ kind: 'calibration', impact: 'medium', text: 'The probability model is a first-pass, uncalibrated editorial model.' });
     const conflicts = ledgers.flatMap((l, i) => l.conflicts.map(c => ({ teamKey: keys[i], ...c })))
       .concat(rows.flatMap((rs, i) => rs.flatMap(r => r.profile.deniedTags.map(d => ({ teamKey: keys[i], system: 'ability-index', detail: r.profile.key + ': tag "' + d.tag + '" was reviewed and rejected. ' + d.reason })))));
@@ -160,6 +169,7 @@
         needsReview: count(EVIDENCE.NEEDS_REVIEW), contradicted: count(EVIDENCE.CONTRADICTED),
         typedCoverage: RT.round(coverage, 3), continuityNeedsReview: RT.uniq(continuityOpen).length,
         unresolvedRulings: 0, conflicts,
+        ...(useResearch ? { researchDerived: researchDerivedN, weightedTypedCoverage: RT.round(weightedCoverage, 3) } : {}),
       } : {
         scope: 'sport-capabilities', players: fighters.length,
         playersWithCapabilities: fighters.filter(r => SR.capabilitiesOf(r.profile).length > 0).length,
@@ -240,7 +250,7 @@
       const o = options || {}, n = Math.max(1, Math.min(2000, o.seeds || 200)), sigma = o.sigma == null ? 0 : o.sigma;
       let winsA = 0;
       for (let k = 0; k < n; k++) if (play(sportKey, A, B, sigma, mk('option-c-compare:' + (o.label || '') + ':' + k), !!o.playoff).winner === 0) winsA++;
-      const assessment = evaluateMatchup({ sportKey, teamA: A, teamB: B, mode: 'shadow', teamNames: o.teamNames, context: { sigma } });
+      const assessment = evaluateMatchup({ sportKey, teamA: A, teamB: B, mode: 'shadow', teamNames: o.teamNames, context: { sigma, useResearch: o.useResearch === true } });
       const legacy = winsA / n, pA = assessment.sides[0].probability, range = assessment.sides[0].probabilityRange;
       return { sportKey, seeds: n, sigma, legacyWinRateA: RT.round(legacy, 4), optionCProbabilityA: pA, optionCRangeA: range,
         // Compare the raw observed frequency. Clamping it to the model's 5%-95%

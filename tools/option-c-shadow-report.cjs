@@ -17,6 +17,7 @@ const path = require('node:path');
 const { loadApp, root } = require('../tests/helpers/option-c-app-harness.cjs');
 const { runBenchmarks } = require('../tests/helpers/option-c-benchmark-runner.cjs');
 const { runParityFixtures } = require('../tests/helpers/option-c-parity-fixtures.cjs');
+const { loadAppWithResearch } = require('../tests/helpers/option-c-research-app.cjs');
 
 const args = process.argv.slice(2);
 if (args[0] === '--golden') {
@@ -75,6 +76,30 @@ const coverage = JSON.parse(app.run(`JSON.stringify((() => {
   }
   return rows;
 })())`));
+/* Opt-in research-derived lines (shadow only): how many base characters gain a line, and how Battle Royale estimates move. */
+const rapp = loadAppWithResearch();
+const researchCoverage = JSON.parse(rapp.run(`JSON.stringify((() => {
+  const rows = [];
+  for (const pool of Object.keys(POOLS)) {
+    if (isMashupId(pool)) continue;
+    const r = { pool, total: 0, typedV1: 0, gained: 0 };
+    for (const c of getCands(pool)) {
+      const base = DA_OPTION_C.getProfile(c), on = DA_OPTION_C.getProfile(c, { useResearch: true });
+      r.total++;
+      if (base.signature) r.typedV1++;
+      else if (on.signature && on.signature.origin === 'research-record') r.gained++;
+    }
+    rows.push(r);
+  }
+  return rows;
+})())`));
+const researchCompared = JSON.parse(rapp.run(`JSON.stringify(${SCENARIOS}.filter(s => s.sport === 'brawl').map(s => {
+  const A = ocTeam(s.sport, s.a, s.aFill || s.fill), B = ocTeam(s.sport, s.b, s.bFill || s.fill);
+  const base = DA_OPTION_C.shadow.compare(s.sport, A, B, { seeds: ${SEEDS}, sigma: 0, teamNames: s.names, label: s.id });
+  const on = DA_OPTION_C.shadow.compare(s.sport, A, B, { seeds: ${SEEDS}, sigma: 0, teamNames: s.names, label: s.id, useResearch: true });
+  return { id: s.id, names: s.names, legacy: base.legacyWinRateA, p0: base.optionCProbabilityA, p1: on.optionCProbabilityA, r1: on.optionCRangeA,
+    in0: base.withinRange, in1: on.withinRange, fav0: base.sameFavorite, fav1: on.sameFavorite, derived: on.assessment.evidence.researchDerived || 0 };
+}))`));
 const benchmarks = runBenchmarks(app);
 const golden = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/option-c-v1-golden.json'), 'utf8'));
 const off = runParityFixtures(loadApp(), false), on = runParityFixtures(loadApp(), true);
@@ -116,7 +141,7 @@ md.push('| Case | Mode | Registry state | Outcome | What still needs a decision 
 for (const b of benchmarks) md.push('| `' + b.id + '` | ' + b.mode + ' | ' + b.registryState + ' | **' + b.outcome + '**' + (b.failed.length ? ' (' + b.failed.join(', ') + ')' : '') + ' | ' + (b.uncertainty || '—') + ' |');
 md.push('', '`needs-review` means the evaluator ran the structural guards and **reported the case as unresolved**; it becomes `pass` only after an owner ruling or reviewed research is recorded in `data/option-c/benchmark-scenarios.json`.', '');
 md.push('## 2. Option C estimate beside Version 1 outcomes', '');
-md.push('Version 1 column: share of ' + SEEDS + ' private seeded games won by the first team (upset setting "low" for sports; Battle Royale uses its own combat randomness). Option C column: shadow estimate for the first team and its uncertainty range.', '');
+md.push('Version 1 column: raw share of ' + SEEDS + ' private seeded games won by the first team (upset setting "low" for sports; Battle Royale uses its own combat randomness). Option C column: shadow estimate for the first team and its uncertainty range. Range checks use the raw observed frequency; 0% and 100% are not clipped to Option C\'s 5%-95% reporting limits.', '');
 md.push('| Matchup | Sport | V1 ratings | V1 win rate | Option C | Range | Same favorite | V1 inside range | Status / basis | Typed coverage |', '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |');
 for (const c of compared) md.push('| ' + c.names[0] + ' vs ' + c.names[1] + ' | ' + c.sport + ' | ' + c.ratings.map(r => r.toFixed(1)).join(' / ') + ' | ' + pct(c.legacy) + ' | ' + pct(c.p) + ' | ' + pct(c.range[0]) + '–' + pct(c.range[1]) + ' | ' + (c.sameFavorite ? 'yes' : '**no**') + ' | ' + (c.withinRange ? 'yes' : '**no**') + ' | ' + c.status + ' / ' + (c.basis === 'numeric-baseline-only' ? 'numeric only' : 'numeric + typed') + ' | ' + (c.coverage == null ? 'n/a' : pct(c.coverage)) + ' |');
 md.push('', '**Same favorite in ' + (compared.length - disagree.length) + ' of ' + compared.length + '; Version 1 frequency inside the Option C range in ' + (compared.length - outside.length) + ' of ' + compared.length + '.**', '');
@@ -133,6 +158,15 @@ md.push('| Pool | Characters | Reviewed | Provisional | Unknown | Continuity ope
 for (const r of coverage) md.push('| ' + r.pool + ' | ' + r.total + ' | ' + r.reviewed + ' | ' + r.provisional + ' | ' + r.unknown + ' | ' + r.continuityOpen + ' | ' + r.forms + ' | ' + r.formsReviewed + ' |');
 md.push('| **Total** | **' + sum(coverage, 'total') + '** | **' + sum(coverage, 'reviewed') + '** | **' + sum(coverage, 'provisional') + '** | **' + sum(coverage, 'unknown') + '** | **' + sum(coverage, 'continuityOpen') + '** | **' + sum(coverage, 'forms') + '** | **' + sum(coverage, 'formsReviewed') + '** |');
 md.push('', 'Typed combat coverage is ' + pct(sum(coverage, 'reviewed') / sum(coverage, 'total')) + ' of base characters and ' + pct(sum(coverage, 'formsReviewed') / sum(coverage, 'forms')) + ' of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.', '');
+md.push('## 4b. Opt-in research-derived lines of attack (shadow only)', '');
+md.push('With `context.useResearch: true`, an identity that Version 1 has no typed profile for may use its validated research record for a non-physical line of attack, domain guards and weaknesses. No tier, ward or Apex rank is ever derived, evidence stays `provisional`, and these fighters count at half weight in the qualitative term. Default assessments above are unchanged.', '');
+md.push('| Pool | Characters | Typed in Version 1 | Gain a research line | Still without a typed line |', '| --- | --- | --- | --- | --- |');
+for (const r of researchCoverage) md.push('| ' + r.pool + ' | ' + r.total + ' | ' + r.typedV1 + ' | ' + r.gained + ' | ' + (r.total - r.typedV1 - r.gained) + ' |');
+md.push('| **Total** | **' + sum(researchCoverage, 'total') + '** | **' + sum(researchCoverage, 'typedV1') + '** | **' + sum(researchCoverage, 'gained') + '** | **' + (sum(researchCoverage, 'total') - sum(researchCoverage, 'typedV1') - sum(researchCoverage, 'gained')) + '** |', '');
+md.push('Battle Royale scenarios, Option C estimate for the first team without and with research (Version 1 over ' + SEEDS + ' private seeds):', '');
+md.push('| Matchup | V1 win rate | Option C default | Option C with research | Fighters with a research line | V1 inside range (default / research) |', '| --- | --- | --- | --- | --- | --- |');
+for (const c of researchCompared) md.push('| ' + c.names[0] + ' vs ' + c.names[1] + ' | ' + pct(c.legacy) + ' | ' + pct(c.p0) + ' | ' + pct(c.p1) + ' | ' + c.derived + ' | ' + (c.in0 ? 'yes' : 'no') + ' / ' + (c.in1 ? 'yes' : 'no') + ' |');
+md.push('', 'Same favorite as Version 1 (default / research): ' + researchCompared.filter(c => c.fav0).length + ' / ' + researchCompared.filter(c => c.fav1).length + ' of ' + researchCompared.length + '. This is a diagnostic, not a calibration: the half weight is an editorial choice and nothing was fitted to these results.', '');
 md.push('## 5. Example assessments', '');
 for (const c of compared.filter(x => x.example)) md.push(renderAssessment(c));
 
@@ -140,6 +174,7 @@ const text = md.join('\n').replace(/\n{3,}/g, '\n\n') + '\n';
 console.log('Benchmarks: ' + pass + ' pass, ' + review + ' needs-review, ' + fail + ' fail');
 console.log('Comparison: same favorite ' + (compared.length - disagree.length) + '/' + compared.length + ', V1 inside range ' + (compared.length - outside.length) + '/' + compared.length);
 console.log('Parity: ' + parity.filter(p => p.off && p.on).length + '/' + parity.length + ' fixtures identical with shadow off and on');
+console.log('Research lines: ' + sum(researchCoverage, 'gained') + ' of ' + sum(researchCoverage, 'total') + ' base characters gain a derived line (Version 1 typed: ' + sum(researchCoverage, 'typedV1') + ')');
 console.log('Coverage: ' + sum(coverage, 'reviewed') + '/' + sum(coverage, 'total') + ' characters typed, ' + sum(coverage, 'formsReviewed') + '/' + sum(coverage, 'forms') + ' forms reviewed');
 if (args.includes('--write')) {
   fs.writeFileSync(path.join(root, 'docs/option-c/SHADOW_COMPARISON_REPORT.md'), text);

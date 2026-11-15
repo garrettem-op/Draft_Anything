@@ -114,7 +114,7 @@
     } else if (highOrder) {
       add('high-order-burst', 1, o.label + ' (' + o.domain + ', tier ' + o.tier + ').');
     } else if (o.signature) {
-      add('typed-bypass', 0, o.label + ' (' + o.domain + ', tier ' + o.tier + ').');
+      add('typed-bypass', 0, o.label + ' (' + o.domain + (o.tier == null ? ', no tier on record' : ', tier ' + o.tier) + ').');
     }
     if (o.signature && def.guards.includes(o.domain)) add('domain-guard', -1, def.displayName + ' guards against ' + o.domain + '.');
     if (o.signature && def.weakTo.includes(o.domain)) add('domain-weakness', 1, def.displayName + ' is vulnerable to ' + o.domain + '.');
@@ -147,7 +147,9 @@
     const steps = best.steps.slice();
     if (unknownKit) steps.push({ rule: 'unknown-kit', delta: 0, detail: att.displayName + ' has no typed attack profile on record.' });
     const score = Math.max(-2, Math.min(2, best.score));
-    let evidence = unknownKit ? (att.evidence.combat === EVIDENCE.UNKNOWN ? EVIDENCE.UNKNOWN : EVIDENCE.PROVISIONAL) : EVIDENCE.REVIEWED;
+    const sigStatus = att.signature && att.signature.evidenceStatus ? att.signature.evidenceStatus : EVIDENCE.REVIEWED;
+    let evidence = unknownKit ? (att.evidence.combat === EVIDENCE.UNKNOWN ? EVIDENCE.UNKNOWN : EVIDENCE.PROVISIONAL)
+      : (best.option === 'signature' && sigStatus !== EVIDENCE.REVIEWED ? sigStatus : EVIDENCE.REVIEWED);
     if (att.physicalTier == null || def.physicalTier == null) evidence = EVIDENCE.UNKNOWN;
     return {
       attacker: att.key, defender: def.key, attackerName: att.displayName, defenderName: def.displayName,
