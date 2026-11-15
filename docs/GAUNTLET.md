@@ -35,10 +35,10 @@ Regularized Bradley-Terry fitted by minorization-maximization on deduplicated pa
 Repeated answers to the same matchup all count. The dealer re-asks already-voted matchups on purpose (about 15% of deals, sides swapped). Aggregates report `repeatPairs` and `unanimousRepeatPairs`.
 
 ## Shared server
-See `docs/GAUNTLET_SERVER.md` (opt-in anonymous sharing to a separate Supabase project). Publishing aggregates to the repo is not set up yet.
+See `docs/GAUNTLET_SERVER.md` (opt-in anonymous sharing to a separate Supabase project). A daily publishing job writes `data/gauntlet/aggregates-v1.json`; it activates once its workflow file is on `main` (see that doc).
 
 ## Not built (owner decisions)
-Also not built: the publishing job, bot check, team-level Gauntlet, forms in the dealer, comparison against the shadow evaluator.
+Also not built: bot check (Turnstile), team-level Gauntlet, forms in the dealer, comparison against the shadow evaluator.
 
 ## Tests
 `node --test tests/gauntlet.test.cjs` (core, ranking, inference, UI flow, CLI) and `node tests/gauntlet-browser.cjs` (flag gating and a real voting flow in Chromium).

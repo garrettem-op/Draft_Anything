@@ -12,14 +12,20 @@ const MAX_BODY = 40_000;
 const PER_MINUTE = 90;
 const TWO_YEARS = 2 * 365 * 86400 * 1000;
 
-const CORS = {
-  "Access-Control-Allow-Origin": "*",
+// Browsers on other websites are refused. This stops other sites' pages from posting votes through a
+// visitor's browser; it does not stop a script that talks to the endpoint directly (rate limits do that).
+const ALLOWED_ORIGINS = ["https://garrettem-op.github.io"];
+const LOCAL_ORIGIN = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/; // local development only
+const originAllowed = (origin: string) => ALLOWED_ORIGINS.includes(origin) || LOCAL_ORIGIN.test(origin);
+const corsFor = (origin: string | null): Record<string, string> => ({
+  ...(origin && originAllowed(origin) ? { "Access-Control-Allow-Origin": origin } : {}),
+  "Vary": "Origin",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "content-type",
   "Access-Control-Max-Age": "86400",
-};
+});
 const json = (status: number, body: unknown, extra: Record<string, string> = {}) =>
-  new Response(JSON.stringify(body), { status, headers: { ...CORS, "content-type": "application/json", ...extra } });
+  new Response(JSON.stringify(body), { status, headers: { ...extra, "content-type": "application/json" } });
 
 const poolOf = (id: string) => id.split(":")[0];
 
@@ -67,20 +73,25 @@ async function turnstileOk(token: unknown, secret: string): Promise<boolean> {
 }
 
 Deno.serve(async (req: Request) => {
-  if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
-  if (req.method !== "POST") return json(405, { error: "POST only" });
+  const origin = req.headers.get("origin");
+  const cors = corsFor(origin);
+  const reply = (status: number, body: unknown, extra: Record<string, string> = {}) => json(status, body, { ...cors, ...extra });
+  // A browser always sends Origin. Requests from a site that is not allowed are refused outright.
+  if (origin && !originAllowed(origin)) return json(403, { error: "origin not allowed" }, cors);
+  if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
+  if (req.method !== "POST") return reply(405, { error: "POST only" });
 
   const declared = Number(req.headers.get("content-length") || 0);
-  if (declared > MAX_BODY) return json(413, { error: "body too large" });
+  if (declared > MAX_BODY) return reply(413, { error: "body too large" });
   const text = await req.text();
-  if (text.length > MAX_BODY) return json(413, { error: "body too large" });
+  if (text.length > MAX_BODY) return reply(413, { error: "body too large" });
   let body: any;
-  try { body = JSON.parse(text); } catch { return json(400, { error: "invalid JSON" }); }
+  try { body = JSON.parse(text); } catch { return reply(400, { error: "invalid JSON" }); }
   const votes: any[] = Array.isArray(body?.votes) ? body.votes : [];
-  if (votes.length < 1 || votes.length > MAX_BATCH) return json(400, { error: `send 1-${MAX_BATCH} votes` });
+  if (votes.length < 1 || votes.length > MAX_BATCH) return reply(400, { error: `send 1-${MAX_BATCH} votes` });
 
   const secret = Deno.env.get("TURNSTILE_SECRET");
-  if (secret && !(await turnstileOk(body?.token, secret))) return json(403, { error: "bot check failed" });
+  if (secret && !(await turnstileOk(body?.token, secret))) return reply(403, { error: "bot check failed" });
 
   const rejected: { id: unknown; reason: string }[] = [];
   const valid: any[] = [];
@@ -89,9 +100,9 @@ Deno.serve(async (req: Request) => {
     if (reason) rejected.push({ id: v?.id ?? null, reason });
     else valid.push(v);
   }
-  if (!valid.length) return json(422, { accepted: 0, alreadyStored: 0, rejected });
+  if (!valid.length) return reply(422, { accepted: 0, alreadyStored: 0, rejected });
   const session = valid[0].session;
-  if (valid.some((v) => v.session !== session)) return json(400, { error: "one session per request" });
+  if (valid.some((v) => v.session !== session)) return reply(400, { error: "one session per request" });
 
   const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
     auth: { persistSession: false },
@@ -103,8 +114,8 @@ Deno.serve(async (req: Request) => {
     .select("id", { count: "exact", head: true })
     .eq("session", session)
     .gte("received_at", since);
-  if (countError) return json(500, { error: "storage unavailable" });
-  if ((count ?? 0) + valid.length > PER_MINUTE) return json(429, { error: "slow down" }, { "retry-after": "60" });
+  if (countError) return reply(500, { error: "storage unavailable" });
+  if ((count ?? 0) + valid.length > PER_MINUTE) return reply(429, { error: "slow down" }, { "retry-after": "60" });
 
   const rows = valid.map((v) => ({
     id: v.id, session: v.session, pair_key: v.key, a: v.a, b: v.b,
@@ -116,7 +127,7 @@ Deno.serve(async (req: Request) => {
     .from("gauntlet_votes")
     .upsert(rows, { onConflict: "id", ignoreDuplicates: true })
     .select("id");
-  if (error) return json(500, { error: "could not store votes" });
+  if (error) return reply(500, { error: "could not store votes" });
   const accepted = data?.length ?? 0;
-  return json(200, { accepted, alreadyStored: valid.length - accepted, rejected });
+  return reply(200, { accepted, alreadyStored: valid.length - accepted, rejected });
 });
