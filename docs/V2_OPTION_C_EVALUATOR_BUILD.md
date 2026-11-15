@@ -33,7 +33,7 @@ Key source modules:
 | `data/variant-abilities.js` + `data/campaign-variant-expansion.js` | Selected-form identity and contextual variant effects; distinguish base from variants |
 | `data/brawl-attack-profiles.js` + `data/brawl-exceptional-power.js` | Typed battle signatures and exceptional powers; evidence is currently partial |
 | `data/brawl-combat.js` | Existing HP, wounds, attacks, guards, ward, Apex/Empowered and KOs; only actual combat events determine battle winner |
-| `data/bench-chemistry.js` | Sidekick / reunion / bench mesh; combined **8%** bench chemistry cap; bench hot/cold roll |
+| `data/bench-chemistry.js` | Sidekick / reunion / bench specialist (mesh removed 2026-11-15); combined **8%** bench chemistry cap; bench hot/cold roll |
 | `data/muppet-force.js` | Individual MuppetForce and cross-pool **teamwide** ensemble capped **22%**, applies once |
 | `data/toon-force.js` | Distinct individual cartoon physics and limited RNG spotlight event, **not** an unconditional team aura |
 | `data/after-action.js` | Reporting and sports box scores; role restrictions and cross-client consistency |
@@ -95,7 +95,7 @@ Each entry should include:
 - `sourceEvidence`, `continuity`, `reason`, `limitations`
 
 Must preserve existing semantics:
-- Sidekick bench lock is unconditional for an eligible sidekick; presence of named lead(s) gives an additional reunion effect; same-group bench mesh works with non-sidekicks; aggregate bench chemistry **8% cap**.
+- Sidekick bench lock is unconditional for an eligible sidekick; presence of named lead(s) gives an additional reunion effect; a documented bench specialist gets a smaller lift (never stacked with the sidekick lock); same-group bench mesh was REMOVED by the owner on 2026-11-15; aggregate bench chemistry **8% cap**.
 - MuppetForce influences all eligible teammates **including different talent pools**; multiple Muppets have diminishing returns; coach/bench weighted lower; **22% whole-team cap** applied once. Do not incorrectly assert that non-Muppets gain the Muppet power.
 - ToonForce is generally individual; only its properly seeded spotlight can affect a match; never infer teamwide ToonForce aura.
 - Preserve signatures, chemistry groups, coach/commander/bench roles, variant surge, exceptional power, counters and negative synergies when supported.

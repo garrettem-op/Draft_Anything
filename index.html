@@ -2844,8 +2844,8 @@ function benchChemPanel(score) {
   const list = a => a.map(esc).join(', ').replace(/, ([^,]*)$/, ' and $1');
   const bits = [];
   if (b.sidekick) bits.push(`${esc(b.bench)} is a born sidekick and thrives in the bench role`);
+  else if (b.specialist) bits.push(`${esc(b.bench)} is a proven reserve (${b.specialist.awards.length > 1 ? b.specialist.awards.length + ' Sixth Man of the Year awards' : 'Sixth Man of the Year'}) and lifts the team from the bench`);
   if (b.leads.length) bits.push(`backing ${list(b.leads)}`);
-  if (b.mesh.length) bits.push(`${b.sidekick ? 'and meshes' : `${esc(b.bench)} meshes`} with ${list(b.mesh)}`);
   return `<div class="panel" style="padding:12px 16px;margin:12px 0"><b>Bench Chemistry · +${b.percent.toFixed(2)}% team rating</b><p class="note">${bits.join(', ')}. That lifted the whole squad by ${b.points.toFixed(2)} rating points.</p></div>`;
 }
 
