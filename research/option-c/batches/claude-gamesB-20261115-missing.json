@@ -1,0 +1,90 @@
+{
+  "batchId": "Claude manual-research batch games-missing B (final 2 identities that had no profile)",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Claude (claude-fable-5-2), manual pass 2026-11-15",
+  "method": "Facts taken from fetched pages (mostly Wikipedia and Tolkien Gateway, plus search-result articles); claims a page did not support were left out. No numeric tiers. All records provisional until a different contributor checks them.",
+  "characters": [
+    {
+      "id": "games:Steve",
+      "continuity": "Minecraft and Super Smash Bros. Ultimate.",
+      "summary": "The default Minecraft player avatar.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Gathers resources, crafts and builds",
+          "Weapons, armor and enchanting",
+          "Can defeat the Ender Dragon"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Craftable armor"
+        ]
+      },
+      "weaknesses": [
+        "Health and hunger bars: hurt by mobs, falls, drowning and starvation"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Steve_(Minecraft)",
+          "supports": "Steve is Minecraft's default avatar; his Smash moveset uses resource collection and crafting."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Minecraft",
+          "supports": "Players gather, craft, build, use weapons and armor, enchant, manage health and hunger, and can defeat the Ender Dragon."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Winston|Primal Rage Winston",
+      "continuity": "Overwatch series.",
+      "summary": "Winston during his ultimate ability, Primal Rage.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Boosted melee attacks",
+          "Jump Pack leaps"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Greatly increased health while the rage lasts"
+        ]
+      },
+      "weaknesses": [
+        "Temporary ultimate ability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Characters_of_Overwatch",
+          "supports": "Winston's kit: Tesla Cannon, Jump Pack, Barrier Projector and the Primal Rage ultimate."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Winston_(Overwatch)",
+          "supports": "Winston is a genetically engineered gorilla scientist and tank hero."
+        }
+      ],
+      "unknowns": [
+        "Exact health and duration values are not in the cited pages.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional",
+      "mobility": [
+        "Jump Pack"
+      ],
+      "formDifferences": "Trades the Tesla Cannon for melee with a large temporary health boost."
+    }
+  ]
+}
