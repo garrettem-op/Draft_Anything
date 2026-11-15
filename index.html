@@ -3964,6 +3964,9 @@ try {
   if (q === '1') localStorage.setItem('da.flag.gauntlet', '1'); else if (q === '0') localStorage.removeItem('da.flag.gauntlet');
 } catch { }
 if (S.mode === 'gauntlet' && !gauntletEnabled()) { S.mode = 'champ'; lsSet('da.mode', S.mode); }
+// Shared Gauntlet ladder endpoint (separate Supabase project). Voters must opt in before anything is sent.
+Gauntlet.configureSync('https://xijqendpphnclwthqtfy.supabase.co/functions/v1/submit-votes');
+document.addEventListener('visibilitychange', () => { if (document.hidden && S.gauntlet) Gauntlet.flush(S.gauntlet, { includeLatest: true }).catch(() => { }); });
 let lastDailyDate = DailyGrid.today();
 function checkDailyRollover() {
   const current=DailyGrid.today();
@@ -5671,6 +5674,7 @@ document.addEventListener('click', e => {
     case 'gaunt-start': Gauntlet.start(S.gauntlet); render(); return;
     case 'gaunt-setup': S.gauntlet.stage = 'setup'; S.gauntlet.armedClear = false; render(); return;
     case 'gaunt-ladder': S.gauntlet.stage = 'ladder'; S.gauntlet.armedClear = false; render(); return;
+    case 'gaunt-share': Gauntlet.setShare(S.gauntlet, !S.gauntlet.sync.share); Gauntlet.flush(S.gauntlet).catch(() => { }); render(); return;
     case 'gaunt-pick': Gauntlet.vote(S.gauntlet, t.dataset.side); render(); return;
     case 'gaunt-tie': Gauntlet.vote(S.gauntlet, 'tie'); render(); return;
     case 'gaunt-skip': Gauntlet.vote(S.gauntlet, 'skip'); render(); return;
