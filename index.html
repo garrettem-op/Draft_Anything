@@ -843,6 +843,60 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .gt-table { width:100%; border-collapse:collapse; font-size:13px; }
 .gt-table th, .gt-table td { text-align:left; padding:5px 6px; border-bottom:1px solid var(--line); }
 .gt-table small { color:var(--muted); }
+/* Gauntlet feed layer: HUD, rewards, surprise cards, reveal. All motion lives under .gt-feed so one class can switch it off. */
+.gt-feed { display:grid; gap:12px; overflow-x:clip; } /* cards slide in from the sides; never let that cause sideways scrolling */
+.gt-hud { display:grid; gap:6px; }
+.gt-hud-row { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.gt-hud-controls { margin-left:auto; display:flex; gap:6px; }
+.gt-chip { display:inline-flex; align-items:baseline; gap:4px; padding:3px 9px; border:1px solid var(--line); border-radius:999px; background:var(--panel2); font:700 12px var(--f-mono); }
+.gt-chip small { color:var(--muted); font-weight:500; }
+.gt-combo { border-color:var(--accent); color:var(--accent-strong); }
+.gt-streak { border-color:var(--line); }
+.gt-toggle { font-size:11px; padding:3px 9px; }
+.gt-bar { height:4px; border-radius:2px; background:var(--line); overflow:hidden; }
+.gt-bar i { display:block; height:100%; background:var(--accent); transition:width .35s ease; }
+.gt-reward { position:relative; min-height:44px; display:grid; gap:6px; justify-items:center; text-align:center; }
+.gt-reward.gt-empty { min-height:44px; }
+.gt-headline { font:800 clamp(15px,4vw,19px) var(--f-display); }
+.gt-tags { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; }
+.gt-ladder-tag { padding:2px 9px; border-radius:999px; border:1px solid var(--line); background:var(--panel2); font-size:12px; }
+.gt-ladder-tag.gt-up { border-color:var(--good,#3aa56b); }
+.gt-ladder-tag.gt-down { border-color:var(--bad); }
+.gt-tone-badge .gt-headline, .gt-tone-combo .gt-headline { color:var(--accent-strong); }
+.gt-tone-bold .gt-headline { color:var(--bad); }
+.gt-reward.gt-old { opacity:.6; }
+.gt-surprise-tag { display:grid; justify-items:center; gap:2px; padding:6px 10px; border:1px dashed var(--accent); border-radius:10px; text-align:center; }
+.gt-surprise-tag b { font:800 14px var(--f-display); color:var(--accent-strong); }
+.gt-surprise-tag small { color:var(--muted); font-size:11px; }
+.gt-pair.gt-surprise .gt-card { border-color:var(--accent); }
+.gt-reveal { padding:15px; display:grid; gap:12px; }
+.gt-top5 { list-style:none; margin:0; padding:0; display:grid; gap:6px; }
+.gt-top5 li { display:grid; grid-template-columns:28px 1fr auto; align-items:center; gap:8px; padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:var(--panel2); }
+.gt-top5 b { font:800 16px var(--f-display); color:var(--accent-strong); }
+.gt-top5 small { color:var(--muted); }
+.gt-top5 em { font-style:normal; font-family:var(--f-mono); color:var(--muted); }
+.gt-confetti { position:absolute; left:50%; top:4px; width:0; height:0; pointer-events:none; }
+.gt-confetti i { position:absolute; width:6px; height:10px; border-radius:1px; background:hsl(var(--h) 80% 60%); left:var(--x); top:0; opacity:0; animation:gt-fall var(--d) ease-out forwards; }
+@keyframes gt-in-left { from { transform:translateX(-26px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes gt-in-right { from { transform:translateX(26px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes gt-pop-in { 0% { transform:scale(.85); opacity:0; } 60% { transform:scale(1.06); opacity:1; } 100% { transform:none; } }
+@keyframes gt-rise { from { transform:translateY(8px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes gt-bump { 0% { transform:scale(1); } 40% { transform:scale(1.22); } 100% { transform:scale(1); } }
+@keyframes gt-fall { 0% { transform:translateY(0) rotate(0); opacity:1; } 100% { transform:translateY(60px) rotate(220deg); opacity:0; } }
+.gt-feed:not(.gt-reduce) .gt-pair.gt-fresh .gt-card:first-child { animation:gt-in-left .2s ease-out; }
+.gt-feed:not(.gt-reduce) .gt-pair.gt-fresh .gt-card:last-child { animation:gt-in-right .2s ease-out; }
+.gt-feed:not(.gt-reduce) .gt-reward.gt-fresh .gt-headline { animation:gt-pop-in .32s ease-out; }
+.gt-feed:not(.gt-reduce) .gt-reward.gt-fresh .gt-ladder-tag { animation:gt-rise .3s ease-out both; }
+.gt-feed:not(.gt-reduce) .gt-reward.gt-fresh .gt-ladder-tag:nth-child(2) { animation-delay:.08s; }
+.gt-feed:not(.gt-reduce) .gt-surprise-tag.gt-fresh { animation:gt-pop-in .35s ease-out; }
+.gt-feed:not(.gt-reduce) .gt-reveal.gt-fresh { animation:gt-pop-in .35s ease-out; }
+.gt-feed:not(.gt-reduce) .gt-combo.gt-pop { animation:gt-bump .28s ease-out; }
+.gt-feed:not(.gt-reduce) .gt-card:active { transform:scale(.97); }
+.gt-feed.gt-reduce .gt-confetti { display:none; }
+@media (prefers-reduced-motion: reduce) {
+  .gt-feed *, .gt-feed *::before, .gt-feed *::after { animation:none !important; transition:none !important; }
+  .gt-confetti { display:none; }
+}
 
 /* Daily Grid: independent responsive nine-square game board and archive. */
 .dg-shell { width:min(100%,860px); margin:0 auto; display:grid; gap:15px; }
@@ -1085,6 +1139,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/team-names.js"></script>
 <script src="data/daily-grid.js"></script>
 <script src="data/gauntlet.js"></script>
+<script src="data/gauntlet-feed.js"></script>
 <script src="data/campaign-variant-expansion.js"></script>
 <script src="data/variant-abilities.js"></script>
 <script src="data/campaign-strategy.js"></script>
@@ -5679,6 +5734,9 @@ document.addEventListener('click', e => {
     case 'gaunt-tie': Gauntlet.vote(S.gauntlet, 'tie'); render(); return;
     case 'gaunt-skip': Gauntlet.vote(S.gauntlet, 'skip'); render(); return;
     case 'gaunt-lean': S.gauntlet.lean = !S.gauntlet.lean; render(); return;
+    case 'gaunt-sound': GauntletFeed.toggle(S.gauntlet, 'sound'); render(); return;
+    case 'gaunt-motion': GauntletFeed.toggle(S.gauntlet, 'motion'); render(); return;
+    case 'gaunt-continue': GauntletFeed.dismiss(S.gauntlet); render(); return;
     case 'gaunt-undo': Gauntlet.undo(S.gauntlet); render(); return;
     case 'gaunt-clear':
       if (S.gauntlet.armedClear) Gauntlet.clearAll(S.gauntlet); else S.gauntlet.armedClear = true;
@@ -5935,6 +5993,13 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { if (S.modal) { S.modal = null; render(); } else if (S.champ.sel || S.h2h.sel || S.champ.handSel) { S.champ.sel = null; S.h2h.sel = null; S.champ.handSel = null; render(); } }
   if (e.key === 'Enter' && e.target.id === 'h-code') joinByCode();
   if (e.key === 'Enter' && e.target.id === 'gen-topic' && S.gen.topic.trim().length >= 2) generatePool();
+  // Gauntlet feed shortcuts: arrows pick, T tie, S skip, U undo, Enter continues. Ignored while typing or with modifier keys.
+  if (S.mode === 'gauntlet' && S.gauntlet && S.gauntlet.stage === 'vote' && !e.ctrlKey && !e.metaKey && !e.altKey && !S.modal && !/^(INPUT|TEXTAREA|SELECT)$/.test(e.target?.tagName || '')) {
+    const act = { ArrowLeft: '[data-act="gaunt-pick"][data-side="left"]', ArrowRight: '[data-act="gaunt-pick"][data-side="right"]', t: '[data-act="gaunt-tie"]', s: '[data-act="gaunt-skip"]', u: '[data-act="gaunt-undo"]' }[e.key.length === 1 ? e.key.toLowerCase() : e.key];
+    const target = act && document.querySelector(act);
+    if (target && !target.disabled) { e.preventDefault(); target.click(); return; }
+    if (e.key === 'Enter' && e.target === document.body) { const go = document.querySelector('[data-act="gaunt-continue"]'); if (go) { e.preventDefault(); go.click(); } }
+  }
 });
 
 render();

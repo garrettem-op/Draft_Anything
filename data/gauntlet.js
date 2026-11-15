@@ -489,15 +489,32 @@ const Gauntlet = (function gauntletFactory() {
     const toList = pool => getCands(pool).map(c => ({ id: c.id, n: c.n }));
     return [toList(state.poolA), toList(state.poolB)];
   }
+  // Optional presentation layer (see data/gauntlet-feed.js). It never changes what a vote is or how it is stored:
+  // it only reacts to votes (rewards, sounds), may offer a special card in place of the next ordinary pair, and
+  // supplies the vote screen markup. Every hook is wrapped so a feed fault can never lose or block a vote.
+  let feed = null;
+  function setFeed(f) { feed = f && typeof f === 'object' ? f : null; }
+  function hostApi() {
+    return {
+      poolIds: poolIds(), candsOf: pool => getCands(pool).map(c => ({ id: c.id, n: c.n })), cardById, poolTitle, cardHTML,
+      esc: typeof esc === 'function' ? esc : s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])),
+      now: () => Date.now(), tzOffsetMinutes: () => new Date().getTimezoneOffset()
+    };
+  }
+  function callFeed(name, state, ...args) {
+    if (!feed || typeof feed[name] !== 'function') return undefined;
+    try { return feed[name](state, hostApi(), ...args); } catch { return undefined; }
+  }
   function deal(state) {
     const [A, B] = sides(state);
     const counts = buildCounts(state.ctx.store.votes.filter(v => v.pools.includes(state.poolA) && v.pools.includes(state.poolB)));
     const rng = mulberry32(state.sampleSeed + (state.draws++) * 7919);
     const recent = new Set(state.ctx.store.votes.slice(-20).map(v => v.key));
-    state.current = nextPair(A, B, { rng, counts, avoidKeys: recent });
+    const special = callFeed('chooseCard', state, { recent });
+    state.current = special || nextPair(A, B, { rng, counts, avoidKeys: recent });
     return state.current;
   }
-  function start(state) { state.stage = 'vote'; state.flash = ''; deal(state); }
+  function start(state) { state.stage = 'vote'; state.flash = ''; callFeed('onStart', state); deal(state); }
   function cardById(id) { const pool = poolOf(id); return getCands(pool).find(c => c.id === id) || null; }
   function vote(state, choice) {
     if (!state.current) return { accepted: false, reason: 'No pair on screen.' };
@@ -509,6 +526,7 @@ const Gauntlet = (function gauntletFactory() {
     if (state.sync && state.sync.share) { state.sync.pending.push(v.id); saveSync(state.sync); flush(state).catch(() => { }); }
     state.lean = false;
     state.flash = choice === 'skip' ? 'Skipped.' : choice === 'tie' ? 'Recorded as too close to call.' : 'Vote saved.';
+    callFeed('afterVote', state, v);
     deal(state);
     return { accepted: true, vote: v };
   }
@@ -520,9 +538,10 @@ const Gauntlet = (function gauntletFactory() {
     saveLocal(state.ctx);
     state.current = { key: v.key, a: v.a, b: v.b, left: v.left, right: v.right };
     state.stage = 'vote'; state.flash = 'Last vote undone.';
+    callFeed('afterUndo', state, v);
     return true;
   }
-  function clearAll(state) { state.ctx.store = newStore(); state.ctx.seq = 0; saveLocal(state.ctx); state.current = null; state.flash = 'Cleared.'; state.armedClear = false; }
+  function clearAll(state) { state.ctx.store = newStore(); state.ctx.seq = 0; saveLocal(state.ctx); state.current = null; state.flash = 'Cleared.'; state.armedClear = false; callFeed('afterClear', state); }
   function exportJSON(state) { return JSON.stringify({ schema: 'draft-anything.gauntlet.votes', version: SCHEMA_VERSION, votes: state.ctx.store.votes }, null, 1) + '\n'; }
 
   function cardHTML(c, side) {
@@ -546,6 +565,8 @@ const Gauntlet = (function gauntletFactory() {
   function voteHTML(state) {
     const c = state.current;
     if (!c) return '<div class="panel"><p>Could not deal a pair from this selection.</p><button class="btn" data-act="gaunt-setup">Back</button></div>';
+    const feedView = callFeed('voteHTML', state);
+    if (typeof feedView === 'string') return feedView;
     const n = state.ctx.store.votes.length;
     return '<div class="gt-vote"><div class="gt-status"><span>' + esc(state.flash || 'Who wins a fair fight?') + '</span><span>' + n + ' saved on this device</span></div>'
       + '<div class="gt-pair">' + cardHTML(cardById(c.left), 'left') + '<span class="gt-vs" aria-hidden="true">VS</span>' + cardHTML(cardById(c.right), 'right') + '</div>'
@@ -576,7 +597,7 @@ const Gauntlet = (function gauntletFactory() {
     buildCounts, nextPair, aggregate, aggregatesToCSV, validateAggregates, coverage,
     rank, winGraph, infer, contradictions, compareToPredictor,
     configureSync, syncConfigured, loadSync, setShare, flush,
-    loadLocal, saveLocal, newState, start, deal, vote, undo, clearAll, exportJSON, render, poolIds
+    loadLocal, saveLocal, newState, start, deal, vote, undo, clearAll, exportJSON, render, poolIds, setFeed
   };
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = Gauntlet;
