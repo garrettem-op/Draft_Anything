@@ -43,6 +43,7 @@ Version 1's phases are respected rather than replayed: `teamScore` already conta
 | --- | --- | --- |
 | `runtime.js` | Versions, evidence vocabulary, read-only access to the existing data modules (browser globals or `require`) | `SCHEMA_VERSION`, `MODEL_VERSION`, `EVIDENCE`, `legacy()` |
 | `reviewed-capabilities.js` | A tiny, sourced, `provisional` sample of capabilities the ability index does not model yet (currently Spider-Man's danger sense) | `REVIEWED_CAPABILITIES` |
+| `research-profile.js` | **Research-derived lines of attack (PR 2, opt-in).** Pure function from one validated research record to a closed-vocabulary, tier-free line of attack, guards and weaknesses | `deriveFromRecord()`, `DOMAIN_MAP` |
 | `profile-adapter.js` | **Character Profile Adapter.** `pool:Character` / `pool:Character|Form` identity, 12 attributes, typed battle signature, guards, weaknesses, ward, Apex rank, ToonForce/MuppetForce, sidekick role, ability tags with evidence status, continuity, gaps | `getProfile(candidate)`, `getProfileById(id)` |
 | `interaction-engine.js` | **Ability Interaction Engine.** General typed rules for who has a documented way to hurt whom | `assessThreat(att, def)`, `assessBattle(as, bs)`, `RULES` |
 | `sport-rules.js` | **Sport Rules Evaluator.** Five-step officiating test per character, capability and position | `evaluateApplication()`, `evaluateLineup()`, `RULEBOOK`, `POSITION_RULES` |
@@ -61,6 +62,18 @@ Each file is a classic browser script and a CommonJS module. `tests/helpers/opti
 | `data/brawl-combat.js` | Export the existing `apexRankOf` beside `resolveBrawlCombat` | So Option C reports the same Apex/Empowered ranks the live engine applies, instead of keeping a second list of forms. No behavior change. |
 | `tests/browser-smoke.cjs` | One added block | Checks the evaluator in real Chromium: present, off by default, seeded results and RNG stream identical with shadow on. |
 | `data/option-c/benchmark-scenarios.json` | Four added cases (24 total) | Fixtures for unreviewed forms, unknown abilities, coach/commander and the ledger's derived partition. |
+
+## Research-derived lines of attack (PR 2, opt-in, shadow only)
+
+The research ledger (PR #345) only *reported* research. This adds an opt-in path that lets a validated record for the **exact** identity give the interaction engine something to work with when Version 1 has no typed profile: `evaluateMatchup({ ..., context: { useResearch: true } })` or `getProfile(candidate, { useResearch: true })`. Default is off, and default assessments are byte-identical with or without research loaded (tested).
+
+| Does | Does not |
+| --- | --- |
+| Map `offense.domains` through a closed table; the first non-conventional domain becomes one line of attack (`origin: 'research-record'`) | Invent a tier, ward, Apex/Empowered rank, cooldown or HP (research forbids `numericTier`; the high-order rules need tier 4+, so research alone cannot fire them) |
+| Add a guard or weakness only where the text names the domain explicitly (e.g. "Psychic barriers", "vulnerable to magic") | Override a Version 1 typed profile, copy a base record onto a form, or read placeholder text ("Not established...") |
+| Mark the evidence `provisional` whatever the record declares: a declared `reviewed` status says the owner accepted the text, not that combat proficiency was verified | Change any rating, probability default, RNG draw or live result |
+
+In the estimate, research-derived fighters count at **half weight** in the qualitative term (`RESEARCH_WEIGHT = 0.5`, an uncalibrated editorial choice, disclosed as an uncertainty in every assessment that uses it). Measured effect (report section 4b): 526 of 1,304 base characters gain a line; across the 72 pool-versus-pool Battle Royale matchups, 24 move (largest change 10 points) and none changes the favorite.
 
 ## Evidence vocabulary
 
@@ -154,7 +167,7 @@ Reports and baselines: `node tools/option-c-shadow-report.cjs --write` regenerat
 
 ## Known limits
 
-1. **Coverage.** 26 of 1,304 base characters and 88 of 243 alternate forms have a typed combat profile. Most matchups therefore lean on the numeric baseline and say so.
+1. **Coverage.** 26 of 1,304 base characters and 88 of 243 alternate forms have a typed combat profile. With the opt-in research path, 526 more base characters get a provisional, tier-free line of attack; the remaining 752 have neither. Research text is mostly free-form, so only explicit domain wording maps; unmapped domains are reported, not guessed. The ledger is only loadable in Node today (the page ships no research bundle), so the opt-in does nothing in the browser.
 2. **Uncalibrated.** Estimates agree with Version 1 on the favorite in most sampled matchups, but several Battle Royale magnitudes differ; see the report.
 3. **Sports are unweighted.** Legal ability uses are reported, not valued.
 4. **No environment model.** Step 2 of the officiating test assumes a standard venue.
@@ -169,7 +182,7 @@ Reports and baselines: `node tools/option-c-shadow-report.cjs --write` regenerat
 
 ## Roadmap (not in this PR)
 
-1. Typed profiles and continuity for more characters as #82/#83 land; the adapter picks them up without code changes.
+1. Typed profiles and continuity for more characters as #82/#83 land; the adapter picks them up without code changes. Next for research: a vetted vocabulary for techniques/defenses beyond domain keywords, and a decision on whether research-derived fighters should count in `typedCoverage` at all.
 2. Calibration against benchmark matchups and repeated seeds (Brier score/log-loss on a holdout), then range, flight and control interaction rules.
 3. Approved sport rulings with position effects, valued and calibrated per sport.
 4. A reviewed activation PR in which qualitative win conditions drive Battle Royale events so that HP, KOs and the report tell the same story as the winner. No live flip before that review.

@@ -9,6 +9,8 @@
  *    (`loadDir` in Node, `register` anywhere), so default behavior is unchanged.
  *  - It only describes evidence. It never supplies a power, tier, rating,
  *    probability or win condition, and nothing here feeds the probability model.
+ *    (The opt-in research-profile.js reads records from it; the ledger itself
+ *    still derives nothing.)
  *  - Fail-closed ingestion: a batch is registered only after it passes a
  *    validator. In Node the default validator is the canonical one
  *    (tools/v2-research-pipeline.cjs checkBatch: schema, sources, exact current
