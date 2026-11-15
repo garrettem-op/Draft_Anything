@@ -50,7 +50,10 @@ test('normalize forces provisional, remaps feat sources, drops unsourced and str
  assert.ok(out.flags.some(f=>f.includes('dead.test')));
 });
 test('a normalized record passes the batch validator and is offered to nobody else',async()=>{
- const a=pipe.audit();const ids=pipe.nextBatch(a,2).ids;assert.equal(ids.length,2);
+ // Uses a fixed queue so the test does not depend on how many live identities still lack a profile.
+ const a={ids:['dc:Bane','dc:Batman','dc:Robin','dc:Joker'],records:new Map([['dc:Bane',{file:'dc-batch-01.json',status:'provisional'}]])};
+ const ids=pipe.nextBatch(a,2).ids;assert.equal(ids.length,2);
+ assert.deepEqual(pipe.nextBatch({ids:['dc:Bane'],records:a.records},2),{complete:true,ids:[]});
  const again=pipe.nextBatch(a,2,new Set(ids));assert.ok(again.ids.every(id=>!ids.includes(id)));
 });
 test('snapshot round-trips and rejects malformed or hostile data',()=>{
