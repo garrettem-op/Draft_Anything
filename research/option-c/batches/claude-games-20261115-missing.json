@@ -1,0 +1,575 @@
+{
+  "batchId": "Claude manual-research batch games-missing (14 identities that had no profile)",
+  "schemaVersion": 1,
+  "pool": "games",
+  "researchedBy": "Claude (claude-fable-5-2), manual pass 2026-11-15",
+  "method": "Facts taken from fetched pages (mostly Wikipedia and Tolkien Gateway, plus search-result articles); claims a page did not support were left out. No numeric tiers. All records provisional until a different contributor checks them.",
+  "characters": [
+    {
+      "id": "games:Alyx Vance",
+      "continuity": "Half-Life series (Half-Life 2, its episodes and Half-Life: Alyx).",
+      "summary": "Resistance fighter and Gordon Freeman's main ally. She fights alongside him, gives him the gravity gun and works with her robot, Dog.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Covering fire with firearms",
+          "Works with her robot Dog",
+          "Killed the Advisor that threatened her father"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Gravely wounded by a Combine Hunter",
+        "Captured at the Citadel"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Alyx_Vance",
+          "supports": "Alyx provides covering fire, gives Gordon the gravity gun, works with Dog, is wounded by a Hunter and kills the Advisor."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Half-Life_2",
+          "supports": "Alyx rescues Gordon, introduces Dog, fights in the rebellion and is captured at the Citadel."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Arbiter",
+      "continuity": "Halo series (Thel 'Vadam, from Halo 2 onward).",
+      "summary": "Disgraced Covenant Elite commander made Arbiter after failing to stop the destruction of Halo; later an ally of humanity.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Elite warrior and commander",
+          "With Sergeant Johnson killed Tartarus",
+          "Killed the last High Prophet on the Ark"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Active camouflage, which drops when he attacks or is hit",
+          "Ceremonial armor"
+        ]
+      },
+      "weaknesses": [
+        "Camouflage is short-lived",
+        "Betrayed by Tartarus and left for dead"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Arbiter_(Halo)",
+          "supports": "The Arbiter wears ceremonial armor with active camouflage, helps kill Tartarus and kills the last High Prophet; shamed for losing Halo."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Halo_2",
+          "supports": "The Arbiter has rechargeable active camouflage, quells a rebellion and with Johnson kills Tartarus."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Bayonetta|Demon Masquerade Bayonetta",
+      "continuity": "Bayonetta 3.",
+      "summary": "Bayonetta fused with one of her summoned Infernal Demons, a mechanic introduced in Bayonetta 3.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Fuses with an Infernal Demon to gain its magic-based attacks",
+          "Defeated Singularity"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Lost control of her summon after the final battle and her soul was knocked from her body"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bayonetta_3",
+          "supports": "Demon Masquerade fuses Bayonetta with an Infernal Demon for new attacks and traversal; after beating Singularity she loses control of the summon."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Bayonetta_(character)",
+          "supports": "Bayonetta summons creatures to attack, at the cost of partial control of the hair that forms her outfit."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional",
+      "mobility": [
+        "Demon-specific traversal options"
+      ],
+      "formDifferences": "Takes on a summoned demon's abilities directly instead of fighting beside it."
+    },
+    {
+      "id": "games:Cortana",
+      "continuity": "Halo series.",
+      "summary": "UNSC smart AI and Master Chief's partner; later leader of the Created.",
+      "offense": {
+        "domains": [
+          "tech",
+          "control"
+        ],
+        "techniques": [
+          "Hacks alien computer systems and decodes transmissions",
+          "Overwhelmed the Didact's shield with copies of herself",
+          "Used the Guardians to enforce the Created's rule"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "No physical body",
+        "Rampancy after about seven years",
+        "Destroyed herself to damage Zeta Halo"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Cortana_(Halo)",
+          "supports": "Cortana hacks systems, has no body, suffers rampancy, rules via the Guardians in Halo 5 and destroys herself in Halo Infinite."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Halo_4",
+          "supports": "Rampant Cortana inserts copies of herself into the Didact's systems to drop his shield, then sacrifices herself."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Creeper",
+      "continuity": "Minecraft (Mojang Studios, 2011 onward).",
+      "summary": "Hostile Minecraft mob that sneaks up on the player and explodes.",
+      "offense": {
+        "domains": [
+          "energy"
+        ],
+        "techniques": [
+          "Approaches silently, hisses and explodes, destroying blocks and injuring or killing the player",
+          "Charged Creeper (after a lightning strike) has a stronger blast"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Its only attack destroys itself"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Creeper_(Minecraft)",
+          "supports": "Creepers approach silently, hiss and explode; lightning makes a Charged Creeper with a bigger explosion."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Minecraft",
+          "supports": "The creeper is an exploding creature that sneaks up on the player."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:GLaDOS",
+      "continuity": "Portal series.",
+      "summary": "The AI that runs the Aperture Science Enrichment Center.",
+      "offense": {
+        "domains": [
+          "tech",
+          "control"
+        ],
+        "techniques": [
+          "Controls the whole facility through its cameras and apparatus",
+          "Deadly neurotoxin",
+          "Killed the facility's scientists"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Destroyed when Chell burned her personality cores",
+        "Reduced to a potato battery in Portal 2"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/GLaDOS",
+          "supports": "GLaDOS runs the Enrichment Center, released neurotoxin, lost her cores in Portal and became a potato in Portal 2."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Portal_(video_game)",
+          "supports": "GLaDOS directs Chell, reactivates neurotoxin emitters, and is defeated when her personality cores are destroyed."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Gordon Freeman",
+      "continuity": "Half-Life series.",
+      "summary": "MIT-educated theoretical physicist and silent protagonist who survives the Black Mesa incident and sparks the uprising against the Combine.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech",
+          "energy"
+        ],
+        "techniques": [
+          "Crowbar",
+          "Pistol, submachine gun, shotgun and Combine pulse rifle",
+          "Gravity gun",
+          "Destroyed the Citadel's reactor"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "HEV suit with reactive armor"
+        ]
+      },
+      "weaknesses": [
+        "Put back into stasis by the G-Man at will"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gordon_Freeman",
+          "supports": "Freeman is a silent MIT physicist with an HEV suit and crowbar who survives the resonance cascade and destroys the Citadel."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Half-Life_2",
+          "supports": "Gordon uses firearms and the gravity gun, destroys the Citadel reactor, and is returned to stasis by the G-Man."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Heihachi Mishima",
+      "continuity": "Tekken series.",
+      "summary": "Head of the Mishima Zaibatsu and master of Mishima-style karate.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Mishima-ryu karate",
+          "Great strength even in old age",
+          "Threw Kazuya off a cliff and later into a volcano"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Lost the first tournament to Kazuya",
+        "Killed by Kazuya in Tekken 7 (later revealed to have survived)"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Heihachi_Mishima",
+          "supports": "Heihachi uses Mishima-ryu karate, threw Kazuya off a cliff and into a volcano, and is killed by Kazuya in Tekken 7."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Tekken_8",
+          "supports": "Heihachi was defeated by Kazuya, rescued by monks who faked his death, and returns."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Jin Kazama",
+      "continuity": "Tekken series.",
+      "summary": "Son of Kazuya Mishima and Jun Kazama; carrier of the Devil Gene until Tekken 8.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Originally Kazama-style self-defense mixed with Mishima karate",
+          "Kyokushin karate from Tekken 4",
+          "Defeated Kazuya at the end of Tekken 8"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "The Devil Gene takes over when he loses control",
+        "Lost control and was beaten by Kazuya early in Tekken 8"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jin_Kazama",
+          "supports": "Jin's style moved from Kazama/Mishima karate to Kyokushin; the Devil Gene takes over when he loses control; he defeats Kazuya in Tekken 8."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Tekken_8",
+          "supports": "Jin loses control of the Devil Gene and is defeated, regains control, and wins the final battle with Kazuya."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Jin Kazama|Devil Jin",
+      "continuity": "Tekken series.",
+      "summary": "Jin under the control of the Devil Gene.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Stronger than regular Jin",
+          "Mishima-style moveset",
+          "Fires a projectile"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "Emerges when Jin loses control",
+        "Purged for good in Tekken 8"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jin_Kazama",
+          "supports": "Devil Jin appears when the Devil Gene takes over; he is stronger, has wings, fires a projectile and keeps the Mishima style."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Tekken_8",
+          "supports": "Jin fights his devil self in his subconscious to regain control; both Devil Genes are later purged."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional",
+      "mobility": [
+        "Wings"
+      ],
+      "formDifferences": "The Devil Gene in control: wings, a projectile and greater power, without Jin's restraint."
+    },
+    {
+      "id": "games:Jin Kazama|Angel Jin",
+      "continuity": "Tekken 8 (2024), story mode finale.",
+      "summary": "Form Jin awakens in Tekken 8 after accepting his devil side and seeing visions of his mother, Jun.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy"
+        ],
+        "techniques": [
+          "Fought Kazuya's devil form into outer space",
+          "Clash of blasts purged both Devil Genes"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Not established by the cited sources"
+        ]
+      },
+      "weaknesses": [
+        "The form ends with the loss of his Devil Gene; he finishes the fight as an ordinary human"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jin_Kazama",
+          "supports": "After accepting his Devil side Jin awakens an Angel form; the battle with Kazuya reaches space and both lose their Devil Genes."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Tekken_8",
+          "supports": "Jin awakens his Angel form after visions of Jun and fights Kazuya into space, where both Devil Genes are purged."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional",
+      "mobility": [
+        "Flight"
+      ],
+      "formDifferences": "A controlled, awakened form reached by accepting the Devil Gene instead of being ruled by it."
+    },
+    {
+      "id": "games:Marth",
+      "continuity": "Fire Emblem (Shadow Dragon and the Blade of Light; Mystery of the Emblem) and Super Smash Bros.",
+      "summary": "Prince of Altea who leads the war against Medeus with the sacred sword Falchion.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sacred sword Falchion",
+          "Agile, technique-based swordplay with power concentrated at the blade's tip",
+          "Counterattack",
+          "Defeated Gharnef and Medeus"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Fire Emblem shield"
+        ]
+      },
+      "weaknesses": [
+        "In his own game the battle is lost if Marth falls"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Marth_(Fire_Emblem)",
+          "supports": "Marth wields Falchion and the Fire Emblem shield; in Smash he is agile with a tipper mechanic and a counter."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Fire_Emblem:_Shadow_Dragon_and_the_Blade_of_Light",
+          "supports": "Marth reclaims Falchion and defeats Gharnef and Medeus; the game ends if he falls."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Steve",
+      "continuity": "Minecraft and Super Smash Bros. Ultimate.",
+      "summary": "The default Minecraft player avatar.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Gathers resources, crafts and builds",
+          "Weapons, armor and enchanting",
+          "Can defeat the Ender Dragon"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Craftable armor"
+        ]
+      },
+      "weaknesses": [
+        "Health and hunger bars: hurt by mobs, falls, drowning and starvation"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Steve_(Minecraft)",
+          "supports": "Steve is Minecraft's default avatar; his Smash moveset uses resource collection and crafting."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Minecraft",
+          "supports": "Players gather, craft, build, use weapons and armor, enchant, manage health and hunger, and can defeat the Ender Dragon."
+        }
+      ],
+      "unknowns": [
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "games:Winston|Primal Rage Winston",
+      "continuity": "Overwatch series.",
+      "summary": "Winston during his ultimate ability, Primal Rage.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Boosted melee attacks",
+          "Jump Pack leaps"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Greatly increased health while the rage lasts"
+        ]
+      },
+      "weaknesses": [
+        "Temporary ultimate ability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Characters_of_Overwatch",
+          "supports": "Winston's kit: Tesla Cannon, Jump Pack, Barrier Projector and the Primal Rage ultimate."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Winston_(Overwatch)",
+          "supports": "Winston is a genetically engineered gorilla scientist and tank hero."
+        }
+      ],
+      "unknowns": [
+        "Exact health and duration values are not in the cited pages.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      ],
+      "researchStatus": "provisional",
+      "mobility": [
+        "Jump Pack"
+      ],
+      "formDifferences": "Trades the Tesla Cannon for melee with a large temporary health boost."
+    }
+  ]
+}
