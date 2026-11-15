@@ -22,9 +22,9 @@ concurrency:
   cancel-in-progress: false
 env:
   BASE: develop/v2-option-c
-  # Merge commit of #100 on develop/v2-option-c (2026-11-13). Empty = scheduler idle.
+  # Merge commit of #350 (adds `refine`) on develop/v2-option-c (2026-11-14). Empty = scheduler idle.
   # Every change to this line needs a reviewed PR to main.
-  TOOLS_SHA: 'ba86f095ac5f8e223f42cc4be919e9d941868b8c'
+  TOOLS_SHA: '87c16f017b62b81efb1e58035d002ba9c269a587'
 jobs:
   snapshot:
     if: github.repository == 'garrettem-op/Draft_Anything'
@@ -148,9 +148,39 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node tools/v2-research-tick.cjs generate --snapshot "$RUNNER_TEMP/snap/snapshot.json" --budget-minutes 25 --batch-size 10
 
-  reconcile-new:
+  refine:
+    # Re-researches needs-review records in place (tools/v2-research-tick.cjs refine). Opt-in twice:
+    # the free-tier variable AND vars.GEMINI_REFINE_ENABLED == 'true'. Runs after generate so both
+    # share the same daily quota; same permissions and trust boundary as generate.
     needs: [snapshot, snapshot2, generate]
-    if: always() && needs.snapshot.outputs.ready == 'true' && needs.generate.result != 'skipped'
+    if: always() && needs.snapshot.outputs.ready == 'true' && vars.GEMINI_FREE_TIER_CONFIRMED == 'true' && vars.GEMINI_REFINE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TOOLS_SHA }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: v2-roster-snapshot-2
+          path: ${{ runner.temp }}/snap
+      - name: Refine needs-review records with Gemini (free tier, opt-in)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: node tools/v2-research-tick.cjs refine --snapshot "$RUNNER_TEMP/snap/snapshot.json" --budget-minutes 20 --batch-size 5
+
+  reconcile-new:
+    needs: [snapshot, snapshot2, generate, refine]
+    if: always() && needs.snapshot.outputs.ready == 'true' && (needs.generate.result != 'skipped' || needs.refine.result != 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
