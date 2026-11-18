@@ -163,6 +163,19 @@ const TapOne = (function tapOneFactory() {
   }
 
   // ----- rendering -----
+  // Original generic glyphs, one per category (24x24, drawn with currentColor).
+  const EMBLEMS = {
+    martial: '<path d="M5 4l7 8M10 3l7 9M15 3l5 7M5 20l14-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>',
+    strength: '<path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>',
+    intellect: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/>',
+    magic: '<path d="M12 2l2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3z" fill="currentColor"/>',
+    villainy: '<path d="M12 3a8 8 0 0 0-5 14v3h10v-3a8 8 0 0 0-5-14z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/><circle cx="9" cy="11.5" r="1.8" fill="currentColor"/><circle cx="15" cy="11.5" r="1.8" fill="currentColor"/><path d="M10 20v-2.5M14 20v-2.5" stroke="currentColor" stroke-width="1.8"/>',
+    durability: '<path d="M12 2.5l8 3v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10v-6z" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="M12 7v10" stroke="currentColor" stroke-width="2"/>',
+    speed: '<path d="M13.5 2L5 13.5h6L9.5 22 19 9.5h-6z" fill="currentColor"/>',
+    tech: '<circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-dasharray="3.3 2.4"/>'
+  };
+  const emblem = id => '<svg class="to-emblem" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + (EMBLEMS[id] || '') + '</svg>';
+  const reducedMotion = () => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return false; } };
   function progressHTML(run) {
     const now = current(run);
     return '<ol class="to-steps" aria-label="Categories">' + run.rounds.map((r, i) => {
@@ -170,30 +183,62 @@ const TapOne = (function tapOneFactory() {
       return '<li class="' + cls + '"><span>' + esc(catById(r.cat).label) + '</span></li>';
     }).join('') + '</ol>';
   }
-  function cardHTML(c) {
-    return '<button type="button" class="to-card" data-act="tap-pick" data-cid="' + esc(c.id) + '" aria-label="' + esc(c.n) + '">'
+  function cardHTML(c, i) {
+    return '<button type="button" class="to-card" style="--i:' + i + '" data-act="tap-pick" data-cid="' + esc(c.id) + '" aria-label="' + esc(c.n) + '">'
       + avatar(c, 'av to-av') + '<strong>' + esc(c.n) + '</strong></button>';
   }
   function playHTML(run, look) {
     const i = current(run), r = run.rounds[i], cat = catById(r.cat);
     return '<div class="to-head"><div class="eyebrow">Round ' + (i + 1) + ' of ' + ROUNDS + '</div>'
-      + '<h2 class="h to-cat">' + esc(cat.label) + '</h2><p class="note">Tap the best.</p></div>'
-      + '<div class="to-hand" role="group" aria-label="' + esc(cat.label) + ' choices">' + r.hand.map(id => cardHTML(look(id))).join('') + '</div>'
+      + emblem(r.cat) + '<h2 class="h to-cat">' + esc(cat.label) + '</h2><p class="note">Tap the best.</p></div>'
+      + '<div class="to-hand" role="group" aria-label="' + esc(cat.label) + ' choices">' + r.hand.map((id, n) => cardHTML(look(id), n)).join('') + '</div>'
       + progressHTML(run);
   }
   function resultHTML(run, state, look) {
     const score = total(run), b = best(state.pool);
-    const rows = run.rounds.map(r => {
+    const rows = run.rounds.map((r, n) => {
       const c = look(r.pick), g = r.gap;
-      return '<li class="to-row to-g' + Math.min(3, g) + '"><span class="to-rc">' + esc(catById(r.cat).label) + '</span>'
+      return '<li class="to-row to-g' + Math.min(3, g) + '" style="--i:' + n + '"><span class="to-rc">' + esc(catById(r.cat).label) + '</span>'
         + '<span class="to-rp">' + avatar(c, 'av to-mini') + '<b>' + esc(c.n) + '</b></span>'
         + '<span class="to-rg">' + (g === 0 ? '✓ Best of four' : 'Off by ' + g) + '</span></li>';
     }).join('');
-    return '<div class="panel to-result"><div class="eyebrow">Your build</div><div class="to-score">' + score + '</div>'
+    return '<div class="panel to-result' + (score === 0 ? ' to-perfect' : '') + '">' + (score === 0 ? confettiHTML() : '')
+      + '<div class="eyebrow">Your build</div><div class="to-score" data-score="' + score + '">' + score + '</div>'
       + '<h2 class="h">' + esc(titleFor(score)) + '</h2><p class="note">Golf-style: 0 is perfect. Best on this device: ' + (b == null ? score : b) + '</p>'
       + '<ul class="to-rows">' + rows + '</ul>'
       + '<div class="row"><button class="btn" data-act="tap-share">' + (state.copied ? 'Copied' : 'Copy result') + '</button>'
       + '<button class="btn primary" data-act="tap-again">Play again</button></div></div>';
+  }
+  // Deterministic confetti burst (no randomness, so renders are stable). Pure CSS motion.
+  function confettiHTML() {
+    const colors = ['var(--accent)', 'var(--you)', 'var(--opp)', 'var(--good)'];
+    let out = '<div class="to-confetti" aria-hidden="true">';
+    for (let i = 0; i < 28; i++) {
+      const ang = (i / 28) * Math.PI * 2 + (i % 3) * 0.2, dist = 90 + (i * 37) % 110;
+      out += '<i style="--dx:' + Math.round(Math.cos(ang) * dist) + 'px;--dy:' + Math.round(Math.sin(ang) * dist - 30) + 'px;--r:' + ((i * 83) % 540) + 'deg;--c:' + colors[i % 4] + ';--d:' + ((i % 7) * 0.04).toFixed(2) + 's"></i>';
+    }
+    return out + '</div>';
+  }
+  // Tap feedback: pop the chosen card and fade the rest. Returns how long to wait before committing (0 = no motion).
+  function flash(btn) {
+    if (reducedMotion() || !btn || !btn.parentElement) return 0;
+    btn.classList.add('to-picked');
+    for (const sib of btn.parentElement.children) if (sib !== btn) sib.classList.add('to-fade');
+    return 360;
+  }
+  // Count the score up from 0 after the result renders.
+  function afterRender() {
+    const el = document.querySelector('.to-score[data-score]');
+    if (!el || reducedMotion()) return;
+    const target = Number(el.dataset.score), start = performance.now(), ms = 650;
+    if (!target) return;
+    el.textContent = '0';
+    const tick = now => {
+      const t = Math.min(1, (now - start) / ms);
+      el.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+      if (t < 1 && el.isConnected) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
   function poolSwitchHTML(state) {
     return '<div class="to-pools" role="group" aria-label="Roster">' + POOLS.map(p =>
@@ -208,6 +253,6 @@ const TapOne = (function tapOneFactory() {
   }
 
   return {POOLS, ROUNDS, HAND, CATEGORIES, isVillain, setPool, buildRun, gapFor, pick, current, total, done, titleFor, shareText,
-    validRun, newState, choose, again, render, best, lookupFn};
+    validRun, newState, choose, again, render, best, lookupFn, flash, afterRender};
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = TapOne;
