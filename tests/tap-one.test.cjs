@@ -106,5 +106,32 @@
   // The share text and result never carry hidden ratings: no attribute numbers, only the score and the picks' names.
   assert.equal(/\b(rating|score:|\d{2,3}\/)/i.test(share), false);
 
+  // ----- MCU pool -----
+  const mcu = [];
+  for (let i = 0; i < 60; i++) {
+    mcu.push({
+      id: 'mcu:c' + i, n: 'Hero ' + i, pool: 'mcu', a: Array.from({length: 12}, (_, k) => 20 + ((i * 11 + k * 17) % 75)),
+      g: (i % 4 === 0 ? ['mcu:villains'] : ['mcu:avengers']).concat(i % 9 === 0 ? ['mcu:redroom'] : i % 7 === 0 ? ['mcu:shield'] : []),
+      tags: (i % 6 === 0 ? ['magic'] : []).concat(i % 5 === 0 ? ['tech'] : [])
+    });
+  }
+  const mcuById = new Map(mcu.map(c => [c.id, c])), mcuLook = id => mcuById.get(id);
+  assert.ok(T.isVillain(mcu[0]) && !T.isVillain(mcu[1]), 'MCU villains come from the villains group');
+  assert.deepEqual(T.POOLS.map(p => p.id), ['dc', 'mcu']);
+  for (let seed = 1; seed <= 200; seed++) {
+    const r = T.buildRun(seed, mcu, 'mcu');
+    assert.equal(r.pool, 'mcu');
+    assert.ok(T.validRun(r, 'mcu') && !T.validRun(r, 'dc'), 'runs only validate for their own pool');
+    for (const round of r.rounds) {
+      const cat = T.CATEGORIES.find(c => c.id === round.cat);
+      if (cat.qualifies) assert.ok(round.hand.filter(id => cat.qualifies(mcuLook(id))).length >= 2);
+    }
+  }
+  // MCU trained fighters (Red Room, Ten Rings, Defenders) beat equally athletic non-fighters at Martial Arts.
+  const mk2 = (id, g) => ({id, n: id, pool: 'mcu', a: Array(12).fill(80), g, tags: []});
+  assert.equal(T.gapFor('martial', [mk2('spy', ['mcu:redroom']), mk2('brute', ['mcu:avengers'])], 'spy'), 0);
+  const mshare = T.shareText(T.buildRun(5, mcu, 'mcu'), () => ({n: 'X'}));
+  assert.match(mshare, /^Draft Anything · Tap One \(MCU\)/);
+
   console.log('tap-one tests passed');
 })();

@@ -3,19 +3,21 @@
  * (0 is a perfect build, 24 is the worst possible).
  *
  * Ratings are computed from the existing character data and are NEVER shown to the player. No paid AI calls.
- * Launch scope: the DC Comics roster only. Villainy needs an alignment signal and only the DC pool carries one
- * (its affiliation groups). Other pools can join once they have the same signal.
+ * Pools: DC Comics and MCU. Villainy needs an alignment signal: DC uses its affiliation groups and MCU its
+ * "villains" group. Other pools can join once they have the same signal.
  *
  * PROVISIONAL: the Martial Arts and Villainy mappings below are heuristics built from the 12 universal
  * attributes, archetypes and affiliations. They should be audited against reviewed character research
  * (PROJECT_VISION Priority 2) before this mode leaves the experimental flag. */
 const TapOne = (function tapOneFactory() {
   'use strict';
-  const POOL_ID = 'dc';
+  const POOLS = Object.freeze([{id: 'dc', label: 'DC'}, {id: 'mcu', label: 'MCU'}]);
+  const poolLabel = id => (POOLS.find(p => p.id === id) || POOLS[0]).label;
   const ROUNDS = 8;
   const HAND = 4;
-  const BEST_KEY = 'da.tap-one.best.v1';
-  const RUN_KEY = 'da.tap-one.run.v1';
+  const BEST_KEY = 'da.tap-one.best.v1';   // + '.' + pool
+  const RUN_KEY = 'da.tap-one.run.v1';     // + '.' + pool
+  const POOL_KEY = 'da.tap-one.pool.v1';
   // Attribute order matches ATTRS in index.html.
   const I = {spd:0, agi:1, str:2, siz:3, lep:4, end:5, tch:6, acc:7, ref:8, iq:9, clu:10, ldr:11};
   const MAGIC_TAGS = ['magic', 'spellcaster', 'magic-item'];
@@ -25,14 +27,26 @@ const TapOne = (function tapOneFactory() {
 
   const avg = (c, keys) => keys.reduce((t, k) => t + c.a[I[k]], 0) / keys.length;
   const weighted = (c, w) => { let t = 0, n = 0; for (const [k, x] of Object.entries(w)) { t += c.a[I[k]] * x; n += x; } return t / n; };
-  function isVillain(c) { return Array.isArray(c.taxonomy) && c.taxonomy.some(g => VILLAIN_GROUP.test(g)); }
+  function isVillain(c) {
+    if (c.pool === 'mcu') return Array.isArray(c.g) && c.g.includes('mcu:villains');
+    return Array.isArray(c.taxonomy) && c.taxonomy.some(g => VILLAIN_GROUP.test(g));
+  }
+  // Trained-fighter credit for Martial Arts. DC uses archetypes; MCU uses its affiliation groups.
+  // PROVISIONAL: heuristics pending a research audit.
+  function fighterBonus(c) {
+    if (c.pool === 'mcu') {
+      const g = Array.isArray(c.g) ? c.g : [];
+      return g.some(x => ['mcu:redroom', 'mcu:tenrings', 'mcu:defenders'].includes(x)) ? 20 : g.some(x => ['mcu:shield', 'mcu:soldiers'].includes(x)) ? 8 : 0;
+    }
+    return /^(assassin|fighter)$/.test(c.archetype) ? 20 : c.archetype === 'tactician' ? 8 : 0;
+  }
   const holdsTag = (c, tags) => typeof campaignHoldsAcceptedTag === 'function' ? campaignHoldsAcceptedTag(c, tags) : false;
 
   // score(c) -> hidden rating, higher is better. qualifies(c) marks the signal categories (tag based) so every
   // hand can hold at least two real candidates instead of four who all score zero.
   const CATEGORIES = Object.freeze([
     {id:'martial', label:'Martial Arts',
-      score: c => avg(c, ['agi', 'ref', 'tch', 'acc']) + (/^(assassin|fighter)$/.test(c.archetype) ? 20 : c.archetype === 'tactician' ? 8 : 0)},
+      score: c => avg(c, ['agi', 'ref', 'tch', 'acc']) + fighterBonus(c)},
     {id:'strength', label:'Strength', score: c => weighted(c, {str:8, siz:2})},
     {id:'intellect', label:'Intellect', score: c => c.a[I.iq]},
     {id:'magic', label:'Magic',
@@ -61,7 +75,7 @@ const TapOne = (function tapOneFactory() {
   function newSeed() { return (Math.floor(Math.random() * 4294967295) + 1) >>> 0; }
 
   // Build all eight hands up front so a run is a plain serializable object. Nobody appears twice in a run.
-  function buildRun(seed, candidates) {
+  function buildRun(seed, candidates, poolId) {
     const rand = rng(seed);
     const valid = candidates.filter(c => c && Array.isArray(c.a) && c.a.length >= 12);
     let left = shuffled(valid, rand);
@@ -81,7 +95,7 @@ const TapOne = (function tapOneFactory() {
     }
     for (const cat of CATEGORIES) if (!cat.qualifies) dealt[cat.id] = take(left.slice(0, HAND));
     const rounds = CATEGORIES.map(cat => ({cat: cat.id, hand: dealt[cat.id].map(c => c.id), pick: null, gap: null}));
-    return {version: 1, seed, pool: POOL_ID, rounds};
+    return {version: 1, seed, pool: poolId || POOLS[0].id, rounds};
   }
 
   function catById(id) { return CATEGORIES.find(c => c.id === id); }
@@ -112,34 +126,41 @@ const TapOne = (function tapOneFactory() {
   const SQUARE = ['🟩', '🟨', '🟧', '🟥'];
   function shareText(run, lookup) {
     const names = run.rounds.map(r => lookup(r.pick)?.n || '?').join(', ');
-    return 'Draft Anything · Tap One (DC) · ' + total(run) + ' (0 is perfect)\n'
+    return 'Draft Anything · Tap One (' + poolLabel(run.pool) + ') · ' + total(run) + ' (0 is perfect)\n'
       + run.rounds.map(r => SQUARE[Math.min(3, r.gap || 0)]).join('') + '\n' + names;
   }
 
   // ----- persistence (this device only) -----
   function readJSON(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch { return null; } }
   function writeJSON(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { } }
-  function validRun(run) {
-    return !!run && run.version === 1 && run.pool === POOL_ID && Array.isArray(run.rounds) && run.rounds.length === ROUNDS
+  function validRun(run, poolId) {
+    return !!run && run.version === 1 && run.pool === (poolId || POOLS[0].id) && Array.isArray(run.rounds) && run.rounds.length === ROUNDS
       && run.rounds.every((r, i) => r && r.cat === CATEGORIES[i].id && Array.isArray(r.hand) && r.hand.length === HAND);
   }
-  function best() { const b = readJSON(BEST_KEY); return Number.isInteger(b) ? b : null; }
-  function recordBest(score) { const b = best(); if (b == null || score < b) writeJSON(BEST_KEY, score); }
-  function fresh() { return buildRun(newSeed(), getCands(POOL_ID)); }
-  function newState() {
-    let run = readJSON(RUN_KEY);
-    const ids = new Set(getCands(POOL_ID).map(c => c.id));
-    if (!validRun(run) || !run.rounds.every(r => r.hand.every(id => ids.has(id)))) run = fresh();
-    return {run, copied: false};
+  function best(poolId) { const b = readJSON(BEST_KEY + '.' + poolId); return Number.isInteger(b) ? b : null; }
+  function recordBest(poolId, score) { const b = best(poolId); if (b == null || score < b) writeJSON(BEST_KEY + '.' + poolId, score); }
+  function fresh(poolId) { return buildRun(newSeed(), getCands(poolId), poolId); }
+  function loadRun(poolId) {
+    const run = readJSON(RUN_KEY + '.' + poolId);
+    const ids = new Set(getCands(poolId).map(c => c.id));
+    return validRun(run, poolId) && run.rounds.every(r => r.hand.every(id => ids.has(id))) ? run : fresh(poolId);
   }
-  function save(state) { writeJSON(RUN_KEY, state.run); }
-  function lookupFn() { const map = new Map(getCands(POOL_ID).map(c => [c.id, c])); return id => map.get(id); }
+  function newState() {
+    const saved = readJSON(POOL_KEY), pool = POOLS.some(p => p.id === saved) ? saved : POOLS[0].id;
+    return {pool, run: loadRun(pool), copied: false};
+  }
+  function save(state) { writeJSON(RUN_KEY + '.' + state.pool, state.run); }
+  function lookupFn(poolId) { const map = new Map(getCands(poolId || POOLS[0].id).map(c => [c.id, c])); return id => map.get(id); }
   function choose(state, id) {
-    const result = pick(state.run, id, lookupFn());
-    if (result.accepted) { if (done(state.run)) recordBest(total(state.run)); save(state); }
+    const result = pick(state.run, id, lookupFn(state.pool));
+    if (result.accepted) { if (done(state.run)) recordBest(state.pool, total(state.run)); save(state); }
     return result;
   }
-  function again(state) { state.run = fresh(); state.copied = false; save(state); }
+  function again(state) { state.run = fresh(state.pool); state.copied = false; save(state); }
+  function setPool(state, poolId) {
+    if (!POOLS.some(p => p.id === poolId) || poolId === state.pool) return;
+    state.pool = poolId; state.run = loadRun(poolId); state.copied = false; writeJSON(POOL_KEY, poolId);
+  }
 
   // ----- rendering -----
   function progressHTML(run) {
@@ -161,7 +182,7 @@ const TapOne = (function tapOneFactory() {
       + progressHTML(run);
   }
   function resultHTML(run, state, look) {
-    const score = total(run), b = best();
+    const score = total(run), b = best(state.pool);
     const rows = run.rounds.map(r => {
       const c = look(r.pick), g = r.gap;
       return '<li class="to-row to-g' + Math.min(3, g) + '"><span class="to-rc">' + esc(catById(r.cat).label) + '</span>'
@@ -174,14 +195,19 @@ const TapOne = (function tapOneFactory() {
       + '<div class="row"><button class="btn" data-act="tap-share">' + (state.copied ? 'Copied' : 'Copy result') + '</button>'
       + '<button class="btn primary" data-act="tap-again">Play again</button></div></div>';
   }
+  function poolSwitchHTML(state) {
+    return '<div class="to-pools" role="group" aria-label="Roster">' + POOLS.map(p =>
+      '<button type="button" class="btn small" data-act="tap-pool" data-pool="' + p.id + '" aria-pressed="' + (state.pool === p.id) + '">' + esc(p.label) + '</button>').join('') + '</div>';
+  }
   function render(state) {
-    const look = lookupFn(), run = state.run;
+    const look = lookupFn(state.pool), run = state.run;
     return '<section class="to-shell">'
-      + '<div class="mode-intro panel"><b>Tap One</b><span>Eight categories, four characters each. Tap the one who is best at it. Your score is how far you land from the best pick, so 0 is a perfect build. DC roster to start.</span></div>'
+      + '<div class="mode-intro panel"><b>Tap One</b><span>Eight categories, four characters each. Tap the one who is best at it. Your score is how far you land from the best pick, so 0 is a perfect build.</span></div>'
+      + poolSwitchHTML(state)
       + (done(run) ? resultHTML(run, state, look) : playHTML(run, look)) + '</section>';
   }
 
-  return {POOL_ID, ROUNDS, HAND, CATEGORIES, isVillain, buildRun, gapFor, pick, current, total, done, titleFor, shareText,
+  return {POOLS, ROUNDS, HAND, CATEGORIES, isVillain, setPool, buildRun, gapFor, pick, current, total, done, titleFor, shareText,
     validRun, newState, choose, again, render, best, lookupFn};
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = TapOne;
