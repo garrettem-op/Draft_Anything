@@ -59,6 +59,7 @@ if (agg.totals.droppedInvalid || agg.totals.droppedDuplicate) console.log('dropp
 const b = agg.positionBias;
 console.log('left-side picks ' + pct(b.leftShare) + (b.wilson95 ? ' (95% ' + pct(b.wilson95[0]) + '-' + pct(b.wilson95[1]) + '; 50% means no position bias)' : ''));
 console.log('coverage: ' + cov.votedCharacters + ' characters voted · within-pool pairs ' + cov.withinPoolPairs + ' · cross-pool pairs ' + cov.crossPoolPairs + ' · linked groups ' + ranking.components);
+console.log('repeated matchups: ' + (agg.totals.repeatPairs || 0) + ' (' + (agg.totals.unanimousRepeatPairs || 0) + ' answered the same way every time)');
 console.log('contradiction loops: ' + cyc.cycles.length + ' · contested pairs: ' + cyc.contestedPairs.length);
 for (const c of cyc.cycles.slice(0, 5)) console.log('  loop: ' + c.join(' ~ '));
 console.log('');

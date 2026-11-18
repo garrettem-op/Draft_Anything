@@ -39,7 +39,7 @@
     const out = [];
     const val = key => { const e = ledgerEntries.find(x => x.stackKey === key); return e ? e.value : 0; };
     if (summary.muppetPercent) out.push('MuppetForce ensemble lifts the whole team ' + summary.muppetPercent + '% (' + RT.round(val('muppetforce-team'), 2) + ' rating points, cap 22%)');
-    if (summary.benchChemistryPercent) out.push('bench chemistry ' + summary.benchChemistryPercent + '%' + (summary.sidekickOnBench ? ' (sidekick lock' + (summary.leads.length ? ' + reunion with ' + list(summary.leads) : '') + ')' : '') + (summary.mesh.length ? ' meshing with ' + list(summary.mesh) : '') + ', cap 8%');
+    if (summary.benchChemistryPercent) out.push('bench chemistry ' + summary.benchChemistryPercent + '%' + (summary.sidekickOnBench ? ' (sidekick lock' + (summary.leads.length ? ' + reunion with ' + list(summary.leads) : '') + ')' : summary.benchSpecialist ? ' (proven reserve: ' + list(summary.benchSpecialist) + ')' : '') + ', cap 8%');
     if (summary.chemistryLinks.length) out.push('chemistry: ' + list(summary.chemistryLinks) + ' (' + RT.round(val('chemistry-total'), 2) + ' pts)');
     const lift = val('signature-lift-total'), chaos = val('signature-chaos-total');
     if (lift) out.push('signature lift +' + RT.round(lift, 2));

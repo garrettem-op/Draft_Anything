@@ -1,0 +1,88 @@
+name: Gauntlet publish aggregates
+# Publishes anonymous Gauntlet pair counts to data/gauntlet/aggregates-v1.json on develop/v2-option-c.
+# GitHub only runs scheduled and manually dispatched workflows from the default branch, so this file does
+# nothing until the owner copies it to main (same arrangement as v2-research-tick.yml). It needs NO secret:
+# it calls a read-only database function with the project's public (publishable) key. That function returns
+# pair counts only (no vote ids, session codes or timestamps).
+#
+# Trust boundary: the `build` job runs code from develop/v2-option-c with a read-only token and uploads data.
+# The `publish` job has write access but runs no repo code: it checks the file's shape with jq and commits
+# that one path through the REST API.
+on:
+  schedule:
+    - cron: '23 9 * * *'
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: gauntlet-publish
+  cancel-in-progress: false
+env:
+  BASE: develop/v2-option-c
+  TARGET: data/gauntlet/aggregates-v1.json
+  SUPABASE_URL: https://xijqendpphnclwthqtfy.supabase.co
+  # Public by design (it ships in the game's page too). The database only lets it call the summary function.
+  SUPABASE_PUBLISHABLE_KEY: sb_publishable_tC5sfIcTgjjasQuoxUvApw_dutEvmSe
+jobs:
+  build:
+    if: github.repository == 'garrettem-op/Draft_Anything'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      has_votes: ${{ steps.build.outputs.has_votes }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BASE }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fetch summary and build aggregate file
+        id: build
+        run: |
+          curl -fsS --max-time 60 -X POST "$SUPABASE_URL/rest/v1/rpc/gauntlet_public_aggregate" \
+            -H "apikey: $SUPABASE_PUBLISHABLE_KEY" -H "Content-Type: application/json" -d '{}' \
+            -o "$RUNNER_TEMP/summary.json"
+          set +e
+          node tools/gauntlet-publish.cjs "$RUNNER_TEMP/summary.json" --out "$RUNNER_TEMP/out/aggregates-v1.json"
+          code=$?
+          set -e
+          if [ "$code" = "3" ]; then echo "has_votes=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$code" != "0" ]; then exit "$code"; fi
+          echo "has_votes=true" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        if: steps.build.outputs.has_votes == 'true'
+        with:
+          name: gauntlet-aggregates
+          path: ${{ runner.temp }}/out/aggregates-v1.json
+          retention-days: 1
+
+  publish:
+    needs: build
+    if: needs.build.outputs.has_votes == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: gauntlet-aggregates
+          path: ${{ runner.temp }}/in
+      - name: Commit the file if it changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          f="$RUNNER_TEMP/in/aggregates-v1.json"
+          test "$(wc -c < "$f")" -lt 5000000
+          jq -e '.schema == "draft-anything.gauntlet.aggregates" and .version == 1 and (.pairs | type == "array")' "$f" > /dev/null
+          new="$(base64 -w0 "$f")"
+          existing="$(gh api "repos/$GITHUB_REPOSITORY/contents/$TARGET?ref=$BASE" 2>/dev/null || true)"
+          sha="$(echo "$existing" | jq -r '.sha // empty')"
+          old="$(echo "$existing" | jq -r '.content // empty' | tr -d '\n')"
+          if [ "$old" = "$new" ]; then echo "No change."; exit 0; fi
+          args=(-X PUT "repos/$GITHUB_REPOSITORY/contents/$TARGET" -f message="Gauntlet: update published aggregates" -f content="$new" -f branch="$BASE")
+          if [ -n "$sha" ]; then args+=(-f sha="$sha"); fi
+          gh api "${args[@]}" --jq '.commit.html_url'

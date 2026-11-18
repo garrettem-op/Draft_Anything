@@ -31,8 +31,16 @@ Regularized Bradley-Terry fitted by minorization-maximization on deduplicated pa
 - `node tools/gauntlet-rank.cjs votes.json [more.json] [--top N] [--json] [--write-aggregates out.json] [--csv out.csv]` merges votes (deduplicated by id) and aggregate files and prints totals, position bias, coverage, contradictions and the ladder.
 - Aggregates (`draft-anything.gauntlet.aggregates`, v1) contain pair counts only: no session keys, timestamps or personal data. Do not feed the same votes in as both a votes file and an aggregate file.
 
+## Repeats
+Repeated answers to the same matchup all count. The dealer re-asks already-voted matchups on purpose but rarely (about 3% of deals, only after 100 different matchups are answered, never one from the last 100 votes, sides swapped). Aggregates report `repeatPairs` and `unanimousRepeatPairs`.
+
+## Shared server
+See `docs/GAUNTLET_SERVER.md` (opt-in anonymous sharing to a separate Supabase project). A daily publishing job writes `data/gauntlet/aggregates-v1.json`; it activates once its workflow file is on `main` (see that doc).
+
 ## Not built (owner decisions)
-Server-side persistence, validation/rate limits/bot protection, and automated publishing of `data/gauntlet/aggregates-v1.json` all touch production infrastructure and are deliberately out of scope. Until then votes live on the voter's device and are shared by exporting a file. Also not built: team-level Gauntlet, forms in the dealer, comparison against the shadow evaluator.
+Also not built: bot check (Turnstile), team-level Gauntlet, forms in the dealer, comparison against the shadow evaluator.
 
 ## Tests
 `node --test tests/gauntlet.test.cjs` (core, ranking, inference, UI flow, CLI) and `node tests/gauntlet-browser.cjs` (flag gating and a real voting flow in Chromium).
+
+The vote screen now has a feed layer (combos, ladder tags, surprise cards, titles, sounds): see `docs/GAUNTLET_FEED.md`. It changes presentation only; votes are unchanged.

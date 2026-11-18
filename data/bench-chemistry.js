@@ -8,8 +8,13 @@
       main character) thrives in the bench role. Putting one there is a guaranteed lift, whether or
       not their lead is on the roster (owner ruling, 2026-11-10).
    2. Lead reunion: a sidekick whose lead(s) are anywhere on the roster, coach included, adds more.
-   3. Mesh: ANY bench player, sidekick or not, adds a little for each teammate they share a
-      chemistry group with (same team, crew, faction, family, custom-pool label and so on).
+   3. Bench specialist: a player with a documented record as a reserve (for example a Sixth Man of the
+      Year award) gets a smaller lift for holding the bench slot, even with no lead involved. If the
+      character is also a sidekick the LARGER of the two applies, so one fact is never counted twice.
+   There is NO shared-group lift any more (owner ruling, 2026-11-15): sharing a chemistry group with the
+   bench player does not lift anyone through the bench. Group chemistry still counts for every roster
+   member, bench included, through the normal chemistry links. Every bench player also already moves the
+   whole team through benchMult() (0.95 to 1.05, half the coach's 0.90 to 1.10 span).
    The total is capped at 8% (owner ruling, 2026-11-10).
 
    The sidekick tag is a ROLE tag, not a power, so it lives here rather than in the generated ability
@@ -181,12 +186,25 @@ const SIDEKICK_ROSTER = Object.freeze({
   },
 });
 
+/* Documented bench specialists: pool -> name -> { awards, source }. Evidence only; no guesses.
+   Source for every entry below: NBA.com year-by-year list of Sixth Man of the Year winners
+   (the best reserve of the season; the award has gone to the league's best bench player since 1982-83). */
+const SIXTH_MAN_SOURCE = 'https://www.nba.com/news/history-sixth-man-of-the-year-winners';
+const BENCH_SPECIALISTS = Object.freeze({
+  nba: {
+    'Kevin McHale': { awards: ['1983-84 Sixth Man of the Year', '1984-85 Sixth Man of the Year'], source: SIXTH_MAN_SOURCE },
+    'Bill Walton': { awards: ['1985-86 Sixth Man of the Year'], source: SIXTH_MAN_SOURCE },
+    'Manu Ginóbili': { awards: ['2007-08 Sixth Man of the Year'], source: SIXTH_MAN_SOURCE },
+    'James Harden': { awards: ['2011-12 Sixth Man of the Year'], source: SIXTH_MAN_SOURCE },
+  },
+});
+
 const BENCH_CHEM = Object.freeze({
   sidekickLock: 3,     // % team lift for any sidekick holding the bench slot
   leadEach: 2,         // % per lead of theirs on the roster
   leadMax: 2,          // leads that count
-  meshEach: 0.75,      // % per other teammate who shares a chemistry group with the bench player
-  meshMax: 4,          // teammates that count
+  specialistOne: 1.5,  // % team lift for a bench specialist with one documented award (always below the sidekick lock)
+  specialistMulti: 2.5,// % for two or more documented awards
   cap: 8,              // matches the MuppetForce ensemble ceiling (owner ruling: keep 8%)
 });
 // Every game the bench player sees minutes. Heat is in rating points for that one game.
@@ -202,28 +220,36 @@ function sidekickOf(c) {
   return r ? { leads: r[0].slice(), note: r[1] } : null;
 }
 function isSidekick(c) { return !!sidekickOf(c); }
+/* { awards:[...], source, percent } for a documented bench specialist, else null. */
+function specialistOf(c) {
+  if (!c || !c.pool || !c.n) return null;
+  const r = BENCH_SPECIALISTS[c.pool] && BENCH_SPECIALISTS[c.pool][c.n];
+  if (!r) return null;
+  return { awards: r.awards.slice(), source: r.source, percent: r.awards.length >= 2 ? BENCH_CHEM.specialistMulti : BENCH_CHEM.specialistOne };
+}
 /* Role tags (not powers) for challenge criteria, e.g. ['sidekick']. */
 function characterRoleTags(c) { return isSidekick(c) ? ['sidekick'] : []; }
 
 /* roster: { posId: candidate }, positions: SPORTS[sport].pos.
-   Returns { percent, points, bench, sidekick, lock, leads:[names], mesh:[names] }. */
+   Returns { percent, points, bench, sidekick, specialist, lock, roleLift, leads:[names] }.
+   lock = the sidekick lock; specialist = { awards, source, percent } or null; roleLift = the % actually
+   used for the bench role (the larger of lock and specialist, never both). */
 function benchChemistry(roster, positions, baseRating) {
-  const none = { percent: 0, points: 0, bench: null, sidekick: false, lock: 0, leads: [], mesh: [] };
+  const none = { percent: 0, points: 0, bench: null, sidekick: false, specialist: null, lock: 0, roleLift: 0, leads: [] };
   if (!roster || !Array.isArray(positions)) return none;
   const slot = positions.find(p => p.bench && roster[p.id]);
   if (!slot) return none;
   const b = roster[slot.id];
   const mates = positions.filter(p => p !== slot && roster[p.id]).map(p => roster[p.id]).filter(c => c !== b);
   const sk = sidekickOf(b);
+  const sp = specialistOf(b);
   const leads = sk ? mates.filter(c => c.pool === b.pool && sk.leads.includes(c.n)).map(c => c.n) : [];
-  const groups = new Set(b.g || []);
-  const mesh = groups.size ? mates.filter(c => !leads.includes(c.n) && (c.g || []).some(g => groups.has(g))).map(c => c.n) : [];
   const lock = sk ? BENCH_CHEM.sidekickLock : 0;
-  const raw = lock + BENCH_CHEM.leadEach * Math.min(BENCH_CHEM.leadMax, leads.length)
-    + BENCH_CHEM.meshEach * Math.min(BENCH_CHEM.meshMax, mesh.length);
+  const roleLift = Math.max(lock, sp ? sp.percent : 0);
+  const raw = roleLift + BENCH_CHEM.leadEach * Math.min(BENCH_CHEM.leadMax, leads.length);
   const percent = +Math.min(BENCH_CHEM.cap, raw).toFixed(3);
   const points = Number.isFinite(baseRating) && baseRating > 0 ? +(baseRating * percent / 100).toFixed(4) : 0;
-  return { percent, points, bench: b.n, sidekick: !!sk, lock, leads, mesh };
+  return { percent, points, bench: b.n, sidekick: !!sk, specialist: sp, lock, roleLift, leads };
 }
 
 /* One game's bench minutes. clutch = the bench player's Clutch (0-99), fit = bench fit (0-99).
@@ -237,5 +263,5 @@ function benchHeatRoll(clutch, fit, sidekick, playoff, rng) {
 }
 
 if (typeof module !== 'undefined' && module.exports) module.exports = {
-  SIDEKICK_ROSTER, BENCH_CHEM, BENCH_HEAT, sidekickOf, isSidekick, characterRoleTags, benchChemistry, benchHeatRoll,
+  SIDEKICK_ROSTER, BENCH_SPECIALISTS, BENCH_CHEM, BENCH_HEAT, sidekickOf, isSidekick, specialistOf, characterRoleTags, benchChemistry, benchHeatRoll,
 };
