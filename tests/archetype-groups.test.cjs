@@ -21,7 +21,7 @@ test('every group has sourced-style membership: real MCU roster names, a basis f
   for (const g of A.groups) {
     assert.equal(g.pool, 'mcu');
     assert.ok(!slugs.has(g.slug), 'duplicate slug ' + g.slug); slugs.add(g.slug);
-    assert.equal(g.strength, 0.5, g.name + ' should match the other trait groups');
+    assert.equal(g.strength, 1, g.name + ' sits on the same footing as the film chemistry groups (owner ruling 2026-11-18)');
     assert.ok(g.members.length >= 3 && g.members.length <= 10, g.name + ' size');
     assert.equal(new Set(g.members.map(m => m.name)).size, g.members.length, g.name + ' has a duplicate member');
     for (const m of g.members) {
@@ -31,6 +31,29 @@ test('every group has sourced-style membership: real MCU roster names, a basis f
     }
     assert.ok(mua.includes(g.mua3Affiliation), g.mua3Affiliation + ' is not an affiliation named in the MUA3 research note');
   }
+});
+
+test('every member is sourced: checked pages, an evidence label from the owner standard, and honest corroboration', () => {
+  const LABELS = new Set(['corroborated', 'credible', 'needs-review']);
+  const hostOf = u => new URL(u).hostname.replace(/^www\./, '');
+  let needsReview = 0;
+  for (const g of A.groups) {
+    for (const m of g.members) {
+      const who = m.name + ' in ' + g.name;
+      assert.ok(LABELS.has(m.evidence), who + ' needs an evidence label');
+      assert.ok(Array.isArray(m.sources) && m.sources.length >= 1, who + ' needs at least one source');
+      for (const s of m.sources) {
+        assert.ok(typeof s.title === 'string' && s.title.length > 5, who + ' source needs a title');
+        assert.ok(/^https:\/\/[^\s]+$/.test(s.url), who + ' source needs an https URL');
+      }
+      assert.equal(new Set(m.sources.map(s => s.url)).size, m.sources.length, who + ' repeats a source');
+      // "corroborated" means a second source on a different site agrees, so it needs two sources from two hosts.
+      if (m.evidence === 'corroborated') assert.ok(new Set(m.sources.map(s => hostOf(s.url))).size >= 2, who + ' is corroborated but not by a second site');
+      if (m.evidence === 'needs-review') needsReview++;
+    }
+  }
+  // The flagged members are known and few; a new one should be a deliberate decision, not an accident.
+  assert.ok(needsReview <= 2, needsReview + ' members flagged needs-review');
 });
 
 test('the page registers the groups and leaves every existing group exactly as it was', () => {
