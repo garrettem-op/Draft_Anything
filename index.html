@@ -2837,8 +2837,6 @@ const STYLE_DEF = {
   },
 };
 
-// Archetype groups (data/archetype-groups.js) join the same group, tier and cap machinery as every group above.
-if (typeof ArchetypeGroups !== 'undefined') for (const g of ArchetypeGroups.groups) if (SYN_DEF[g.pool]) SYN_DEF[g.pool].push([g.slug, g.name, g.strength, g.members.map(m => m.name)]);
 
 const SYN_MEMBERS = {};   // pool id -> { name -> [group ids] }
 for (const pk of Object.keys(SYN_DEF)) {
@@ -2862,6 +2860,15 @@ function registerCustomLinks(pool, list) {
     GROUPS[id] = { name: t.name, strength: 0.7 };
     for (const i of t.idx) list[i].g.push(id);
   }
+}
+
+// Archetype groups (data/archetype-groups.js): one shared id per archetype across every pool, so the same group,
+// tier and cap machinery links members within a pool and across universes in Mashup. poolCandidates adds the ids.
+const ARCH_MEMBERS = {};   // pool id -> { name -> [archetype group ids] }
+if (typeof ArchetypeGroups !== 'undefined') for (const g of ArchetypeGroups.groups) {
+  const id = 'arch:' + g.slug;
+  GROUPS[id] = { name: g.name, strength: g.strength };
+  for (const m of g.members) ((ARCH_MEMBERS[m.pool] = ARCH_MEMBERS[m.pool] || {})[m.name] = ARCH_MEMBERS[m.pool][m.name] || []).push(id);
 }
 
 // Returns { total, links:[{id,name,count,pts}], style:{name,label,pts}|null }
@@ -2930,6 +2937,8 @@ function poolCandidates(pool) {
     return c;
   });
   if (!mem && pool.entries.some(e => Array.isArray(e[4]))) registerCustomLinks(pool, list);
+  const arch = ARCH_MEMBERS[pool.id];
+  if (arch) for (const c of list) for (const id of arch[c.n] || []) if (!c.g.includes(id)) c.g.push(id);
   return list;
 }
 function initials(name) { const w = name.replace(/[^\p{L}\p{N} ]/gu, ' ').split(/\s+/).filter(Boolean); return ((w[0] || '?')[0] + (w.length > 1 ? w[w.length - 1][0] : (w[0] || '')[1] || '')).toUpperCase(); }

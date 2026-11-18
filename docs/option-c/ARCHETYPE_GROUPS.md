@@ -1,63 +1,76 @@
-# Archetype chemistry groups (MCU)
+# Archetype chemistry groups (all pools)
 
-Built after the owner confirmed on 2026-11-15 that these should change live scores. Idea and option 2 come from `MUA3_TEAM_BONUS_RESEARCH.md`. On 2026-11-18 the owner chose to build them with **sourced membership** and a bonus **on the same footing as the film chemistry groups** (not the weaker cross-film tier), so this revision adds a checked source for every member and raises strength from 0.5 to 1.
+Built after the owner confirmed on 2026-11-15 that these should change live scores. Idea and option 2 come from `MUA3_TEAM_BONUS_RESEARCH.md`. Owner rulings on 2026-11-18:
+1. **Sourced membership** for every member.
+2. **Film-group strength:** a bonus on the same footing as the MCU film chemistry groups (strength 1), not the weaker 0.5 cross-film tier.
+3. **One shared set across all talent pools**, so the same archetypes link characters from different universes in Mashup.
 
-## What changed
-Five Marvel chemistry groups, defined in `data/archetype-groups.js` and added to the game's existing chemistry table at load time. They use the same rule as every other group: points = strength x tier for the number of members on the roster (2 members 0.45, 3 1.0, 4 1.55, 5 2.0, 6 2.3), summed with all other groups and capped at 2.8. No new effect type, no new cap.
+The MCU version shipped first (PR #403). This revision extends the same five archetypes to all eleven built-in pools.
 
-| Group | Members (all show the trait on screen in the MCU) | Idea from MUA3 affiliation |
+## How it works
+`data/archetype-groups.js` defines five groups. `index.html` registers each once as `arch:<slug>` (for example `arch:martial`) and adds that id to the group list of every member candidate in that member's pool. Points use the same rule as every other group: strength x tier for the number of members on the roster (2 members 0.45, 3 1.0, 4 1.55, 5 2.0, 6 2.3), summed with all other groups and capped at 2.8. No new effect type, no new cap.
+
+Because Mashup reuses each pool's candidates, the shared id is what makes cross-universe links work. Batman (DC) and Po (Toons) are both Martial Artists, so a Mashup roster with both gets the same +0.45 as two MCU martial artists would.
+
+## Membership
+| Group | MUA3 idea | Members per pool |
 |---|---|---|
-| Martial Artists | Daredevil, Iron Fist, Gamora, Shang-Chi, Black Widow, Yelena Belova, Elektra, Stick | Martial Artists |
-| Agile Fighters | Spider-Man, Black Panther, Black Widow, Daredevil, Iron Fist, Hawkeye | Agile Fighters |
-| Blades & Claws | Wolverine, Deadpool, Drax, Gamora, Black Panther, Killmonger, Elektra, Valkyrie | Cutting Edge |
-| Anti-Heroes | Deadpool, Wolverine, The Punisher, Moon Knight, Winter Soldier | Anti-Heroes |
-| Wisecracking Warriors | Deadpool, Rocket, Star-Lord, Spider-Man, Iron Man | Wise Cracking Warriors |
+| Martial Artists | Martial Artists | MCU 8, DC 8, Games 7, Star Wars 3, Toons 8, Muppets 1, Pokémon 7, Action Movies 8 |
+| Agile Fighters | Agile Fighters | MCU 6, DC 8, Games 7, Star Wars 8, Toons 6, Middle-earth 1, Action Movies 3 |
+| Blades & Claws | Cutting Edge | MCU 8, DC 7, Games 8, Middle-earth 8, Star Wars 8, Toons 8, Harry Potter 3, Pokémon 4, Action Movies 8 |
+| Anti-Heroes | Anti-Heroes | MCU 5, DC 4, Games 2, Star Wars 4, Toons 3, Action Movies 4 |
+| Wisecracking Warriors | Wise Cracking Warriors | MCU 5, Muppets 5, NBA 3, Toons 6, Games 1, Star Wars 2, Harry Potter 1, Action Movies 2 |
 
-Strength is **1** for all five, the same as the film groups (Guardians, Wakandans and so on). The earlier 0.5 matched Sharpshooters, Airborne and Heavyweights; the owner picked the stronger footing. MUA3 lists are comics lore, so membership follows the MCU portrayal instead; no comics feat is copied to an MCU entry.
+198 member entries in total. The full list with a basis line and sources per member is in the data file.
 
-## Sources (checked 2026-11-18)
-Every member carries one or more pages in `data/archetype-groups.js`, each fetched and read against the specific trait. Labels follow the owner's evidence standard (2026-11-10).
+**Selection rule.** Groups take characters **defined** by the trait, at most 10 per pool. Most of Middle-earth carries a sword and nearly every Jedi a lightsaber, so a loose group would bump almost every roster and stop meaning anything. Blades & Claws takes signature blade fighters only (Aragorn, Túrin, Gimli, Thorin...; Maul, Dooku, Grievous, Ahsoka...).
 
-| Label | Count of member entries | Meaning |
+**Pools that barely fit.** NBA only has trash talkers in Wisecracking Warriors (Larry Bird, Gary Payton, Reggie Miller). Harry Potter has the Gryffindor sword wielders and Fred Weasley. Muppets has Miss Piggy's karate and the comedians/hecklers. These are honest fits, not filler.
+
+**Form-based traits** count for the base character (owner ruling 2026-11-10): Zelda is an Agile Fighter through Sheik, Zuko a Blade/Anti-Hero through the Blue Spirit.
+
+## Sources
+| Label | Entries | Meaning |
 |---|---|---|
-| corroborated | 3 | A second source on a different site agrees: Yelena Belova (TV Tropes + Wikipedia), Stick (Wikipedia + TV Tropes), Drax (TV Tropes + MCU Wiki). |
-| credible | 28 | One page documents the specific trait. |
-| needs-review | 1 | Valkyrie in Blades & Claws: one community wiki says she wields a sword called Dragonfang in the MCU but names no film or scene, and Wikipedia and TV Tropes do not mention it. Still a member; a second source would settle it. |
+| credible | 190 | One source documents the trait. |
+| corroborated | 7 | Two independent origins agree (for example Puss in Boots: the repo record and TV Tropes). |
+| needs-review | 1 | Valkyrie (MCU) in Blades & Claws: one community wiki names her sword but no film or scene. |
 
-Sources are mostly TV Tropes character pages, the MCU Wiki and Wikipedia. Reading each page against its claim changed the data in several places, so the basis lines were reworded to say no more than the pages do:
-- **Gamora's "Godslayer in Guardians Vol. 2"** was not confirmed: Wikipedia ties the Godslayer to the comics and the MCU Wiki page has no film appearances. TV Tropes does show her with a sword, so she stays in Blades & Claws as "signature sword shown in the Guardians films" with no sword name or film.
-- **Deadpool "amoral"** was wrong as worded: TV Tropes says he has a (warped) moral code. He stays in Anti-Heroes as a mercenary anti-hero.
-- **Daredevil "rooftop fighting"** was not shown on the page; the line now says parkour and corridor fighting.
-- **Elektra "ninja"** is not literally stated; the line now says martial artist trained by the Chaste.
-- **Stick "blind"** is not stated for the TV version; he is now "mentor who trains Matt Murdock to fight".
-- **Yelena** is confirmed as Red Room-trained (Wikipedia) and as fighting hand-to-hand in both productions (TV Tropes), so she is corroborated.
-- **Drax's twin knives** were missing from the first page checked but confirmed on two others.
-- **Hawkeye** is a single-source acrobatics entry: the page says the MCU shows more acrobatics in his own series, and also notes his close combat used to be only fair.
+Two kinds of source:
+- **Reviewed research records in this repo** (`research/option-c/batches/...`, cited by file and record id), for most non-MCU members. Each was found by searching the record text for the trait, then read and accepted or dropped by hand. When the record cites a page whose own "supports" note names the trait, that page is attached too. The test re-reads every referenced record and fails if it no longer states the trait.
+- **Web pages fetched and read against the claim on 2026-11-18**, for the MCU members, all of Action Movies (which has no research records yet) and a few iconic characters the records do not cover: Han Solo, Bugs Bunny, Rick Sanchez, Kratos, Nathan Drake, Lobo, Shrek, Donkey, Larry Bird, Rambo.
+
+**Dropped during checking**, because the source did not support the claim: Jack Sparrow (anti-hero, quips), Harley Quinn (quips), Dante (quips), the Genie (only indirect support), the Joker (record shows joke-themed gadgets, not quips), Amy Rose ("agility" was generic), Tulkas and Elendil (brawling or a single fight, not a martial art), Sheik as a martial artist (a ninja disguise is not enough, matching the owner's stealth ruling), Trinity (her page did not describe her fighting), and bounty hunters Samus Aran, Captain Falcon and Cad Bane (bounty hunter alone is not anti-hero).
 
 ## What it does to scores (measured, not assumed)
-400 seeded random MCU rosters per sport, the same rosters scored with no archetype groups, at the earlier strength 0.5, and at the new strength 1. Measured on the current develop line (after the bench rework, PR #404).
+400 seeded random rosters per pool and sport, the same rosters scored with and without the archetype groups, through the real page code. Cells are the average team-chemistry change; the share of rosters that changed is in brackets.
 
-| Sport | Rosters changed (of 400) | Avg chemistry change at 1 (at 0.5) | Largest change at 1 (at 0.5) | Avg rating change at 1 (at 0.5) |
-|---|---|---|---|---|
-| Basketball | 46 | +0.060 (+0.031) | +1.45 (+0.73) | +0.061 (+0.031) |
-| Football | 0 | 0 | 0 | 0 |
-| Soccer | 59 | +0.063 (+0.041) | +1.39 (+1.23) | +0.064 (+0.042) |
-| Baseball | 68 | +0.076 (+0.050) | +1.52 (+1.00) | +0.077 (+0.050) |
-| Hockey | 77 | +0.102 (+0.052) | +1.45 (+0.95) | +0.102 (+0.053) |
-| Volleyball | 85 | +0.119 (+0.063) | +1.45 (+0.73) | +0.120 (+0.064) |
-| Battle Royale | 49 | +0.066 (+0.033) | +1.18 (+0.73) | +0.066 (+0.034) |
+| Pool | Basketball | Football | Soccer | Baseball | Hockey | Volleyball | Battle Royale |
+|---|---|---|---|---|---|---|---|
+| NBA | +0.005 (1%) | +0.002 (1%) | +0.008 (2%) | +0.006 (1%) | +0.007 (2%) | +0.002 (1%) | +0.003 (1%) |
+| MCU | +0.076 (13%) | 0 | +0.076 (16%) | +0.090 (19%) | +0.089 (17%) | +0.107 (19%) | +0.094 (15%) |
+| Toons | +0.085 (15%) | 0 | +0.184 (34%) | +0.199 (36%) | +0.097 (18%) | +0.126 (22%) | +0.082 (16%) |
+| Muppets | +0.020 (5%) | 0 | +0.010 (4%) | +0.021 (6%) | +0.020 (5%) | +0.024 (5%) | +0.020 (5%) |
+| Video Games | +0.119 (22%) | 0 | +0.100 (25%) | +0.137 (31%) | +0.115 (23%) | +0.130 (25%) | +0.101 (19%) |
+| Pokémon | +0.024 (5%) | 0 | +0.020 (7%) | +0.034 (9%) | +0.037 (8%) | +0.033 (8%) | +0.022 (5%) |
+| Star Wars | +0.086 (16%) | 0 | +0.005 (1%) | +0.011 (4%) | +0.089 (20%) | +0.083 (20%) | +0.105 (20%) |
+| DC | +0.108 (21%) | 0 | +0.116 (30%) | +0.148 (33%) | +0.157 (27%) | +0.169 (29%) | +0.116 (20%) |
+| Middle-earth | +0.045 (10%) | 0 | +0.008 (3%) | +0.033 (9%) | +0.043 (9%) | +0.065 (13%) | +0.041 (8%) |
+| Harry Potter | +0.003 (1%) | 0 | +0.003 (1%) | +0.001 (1%) | +0.007 (2%) | +0.010 (3%) | +0.002 (1%) |
+| Action Movies | +0.124 (20%) | +0.389 (74%) | +0.397 (52%) | +0.316 (44%) | +0.139 (23%) | +0.159 (25%) | +0.127 (19%) |
+| **Mashup** | +0.052 (10%) | **+0.455 (55%)** | +0.159 (26%) | +0.134 (21%) | +0.071 (13%) | +0.089 (17%) | +0.052 (10%) |
 
 Things to know:
-- **Doubling the strength about doubles the effect** on rosters that share a group, and leaves the same rosters changed (strength scales points, not who qualifies). The average is still small because most random rosters have no two members of one archetype.
-- **Football feels nothing.** All 400 random football rosters already sit at the 2.8 chemistry cap, so extra groups cannot add team chemistry there.
-- **Soccer and baseball** also have many rosters at the cap before the groups (259 and 183 of 400), which holds their change down.
-- **Archetype groups affect team chemistry only.** Bench Chemistry no longer lifts teammates through shared groups (PR #404, owner ruling 2026-11-15), which is why the average rating change tracks the chemistry change almost exactly.
-- A roster built on purpose (for example Daredevil + Iron Fist + Black Widow + Elektra) gets noticeably more; two members of one archetype add exactly strength x 0.45.
-- Ratings in this table are the pre-game team rating, not match outcomes.
-- The measuring script is not part of the repo. It scores the same seeded rosters through the real page code (`tests/helpers/option-c-app-harness.cjs`), so rerunning it needs only that harness.
+- **Mashup is where this matters most.** Before, random Mashup rosters almost never shared a group, because every franchise group belongs to one pool (only 8 of 400 football rosters reached the cap). Archetypes are now the main way a cross-universe team earns chemistry. The largest single Mashup change was +2.48.
+- **Action Movies also moves a lot.** Its rosters were never near the cap, and its own film groups run at 0.7, so a strength-1 archetype counts for more there than a film group does. This follows the owner's "film-group footing" ruling as applied to the MCU groups; if Action Movies should instead match its own 0.7 film groups, that needs a per-pool strength.
+- **Football is unchanged in every other pool** because those rosters were already at the 2.8 cap. Soccer and baseball in Star Wars, Middle-earth and Harry Potter change little for the same reason.
+- **NBA, Muppets and Harry Potter barely move** (around +0.01 to +0.02), since they have few members.
+- Average rating change tracks the chemistry change almost exactly; Bench Chemistry no longer lifts teammates through shared groups (PR #404).
+- Ratings here are the pre-game team rating, not match outcomes. The measuring script is not in the repo; it scores the same seeded rosters through `tests/helpers/option-c-app-harness.cjs`.
 
 ## Not done
-- No sources beyond the pages above; the whole-roster audit has not been run on these members, and membership remains an editorial judgment that can change.
-- Only the MCU pool has archetype groups. The owner's request named the Marvel Ultimate Alliance 3 style; other pools (DC, Middle-earth, Harry Potter, Action Movies) have none yet.
-- Other MUA3 ideas (Femme Fatales, Women of Marvel, New Avengers, Forces of Nature, Heavy Hitters) and the Mjolnir/Phoenix "wielder" groups were not built.
-- The Option C shadow evaluator is untouched. It treats legacy effects as already counted in the live rating (its `doubleCountGuard`), so these groups are not added a second time; its parity tests pass.
+- No whole-roster audit has been run on these members; membership remains an editorial judgment and can change.
+- Most non-MCU members rest on one reviewed research record. A second source would move them to corroborated.
+- Action Movies is web-sourced only; it has no research records yet.
+- Other MUA3 ideas (Femme Fatales, Women of Marvel, Forces of Nature, Heavy Hitters) and the Mjolnir/Phoenix "wielder" groups were not built.
+- The Option C shadow evaluator is untouched. It treats legacy effects as already counted in the live rating (its `doubleCountGuard`), so these groups are not added a second time.
