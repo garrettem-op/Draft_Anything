@@ -898,6 +898,30 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
   .gt-confetti { display:none; }
 }
 
+/* Tap One: eight rounds, four big cards each. */
+.to-shell { width:min(100%,640px); margin:0 auto; display:grid; gap:15px; }
+.to-pools { display:flex; justify-content:center; gap:8px; }
+.to-pools .btn[aria-pressed="true"] { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+.to-head { text-align:center; display:grid; gap:2px; }
+.to-cat { font-size:clamp(30px,9vw,48px); margin:0; line-height:1.05; }
+.to-hand { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.to-card { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; min-height:150px; padding:14px 8px; background:var(--panel); border:2px solid var(--line); border-radius:12px; color:var(--ink); }
+.to-card:hover, .to-card:focus-visible { border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+.to-card:active { transform:scale(.98); }
+.to-card strong { font-size:clamp(14px,3.8vw,17px); line-height:1.15; text-align:center; }
+.to-av { width:72px; height:72px; }
+.to-steps { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:5px; }
+.to-steps li { padding:6px 4px; border:1px solid var(--line); border-radius:7px; background:var(--panel); text-align:center; font-family:var(--f-mono); font-size:10px; color:var(--muted); }
+.to-steps li.to-now { border-color:var(--accent); color:var(--ink); }
+.to-steps li.to-done { background:color-mix(in srgb,var(--accent) 16%,var(--panel)); color:var(--ink); }
+.to-result { padding:18px; display:grid; gap:10px; text-align:center; }
+.to-score { font:800 clamp(64px,22vw,110px)/1 var(--f-display); color:var(--accent-strong); }
+.to-rows { list-style:none; margin:4px 0; padding:0; display:grid; gap:5px; text-align:left; }
+.to-row { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) auto; align-items:center; gap:8px; padding:7px 9px; border:1px solid var(--line); border-radius:8px; border-left-width:5px; }
+.to-row.to-g0 { border-left-color:var(--good); } .to-row.to-g1 { border-left-color:#d9b92e; } .to-row.to-g2 { border-left-color:#e08a2e; } .to-row.to-g3 { border-left-color:var(--bad); }
+.to-rc { font-size:12px; color:var(--muted); } .to-rp { display:flex; align-items:center; gap:7px; min-width:0; } .to-rp b { font-size:13px; } .to-rg { font-size:12px; font-weight:700; }
+.to-mini { width:28px; height:28px; flex:none; }
+.to-result .row { justify-content:center; gap:10px; flex-wrap:wrap; }
 /* Daily Grid: independent responsive nine-square game board and archive. */
 .dg-shell { width:min(100%,860px); margin:0 auto; display:grid; gap:15px; }
 .dg-head { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; }
@@ -1138,6 +1162,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/campaign.js"></script>
 <script src="data/team-names.js"></script>
 <script src="data/daily-grid.js"></script>
+<script src="data/tap-one.js"></script>
 <script src="data/gauntlet.js"></script>
 <script src="data/gauntlet-feed.js"></script>
 <script src="data/campaign-variant-expansion.js"></script>
@@ -4001,6 +4026,15 @@ try {
   if (q === '1') localStorage.setItem('da.flag.gauntlet', '1'); else if (q === '0') localStorage.removeItem('da.flag.gauntlet');
 } catch { }
 if (S.mode === 'gauntlet' && !gauntletEnabled()) { S.mode = 'champ'; lsSet('da.mode', S.mode); }
+// Tap One is an experimental mode, OFF by default. Enable with ?tapone=1 (remembered on this device); ?tapone=0 turns it off.
+function tapOneEnabled() {
+  try { return localStorage.getItem('da.flag.tapone') === '1'; } catch { return false; }
+}
+try {
+  const q = new URLSearchParams(location.search).get('tapone');
+  if (q === '1') localStorage.setItem('da.flag.tapone', '1'); else if (q === '0') localStorage.removeItem('da.flag.tapone');
+} catch { }
+if (S.mode === 'tapone' && !tapOneEnabled()) { S.mode = 'champ'; lsSet('da.mode', S.mode); }
 // Shared Gauntlet ladder endpoint (separate Supabase project). Voters must opt in before anything is sent.
 Gauntlet.configureSync('https://xijqendpphnclwthqtfy.supabase.co/functions/v1/submit-votes');
 document.addEventListener('visibilitychange', () => { if (document.hidden && S.gauntlet) Gauntlet.flush(S.gauntlet, { includeLatest: true }).catch(() => { }); });
@@ -4078,6 +4112,7 @@ function renderTop() {
       <button data-act="mode" data-mode="h2h" aria-pressed="${S.mode === 'h2h'}">Head-to-Head</button>
        <button data-act="mode" data-mode="grid" aria-pressed="${S.mode === 'grid'}">Daily Grid</button>
       ${gauntletEnabled() ? `<button data-act="mode" data-mode="gauntlet" aria-pressed="${S.mode === 'gauntlet'}">Gauntlet</button>` : ''}
+      ${tapOneEnabled() ? `<button data-act="mode" data-mode="tapone" aria-pressed="${S.mode === 'tapone'}">Tap One</button>` : ''}
     </div>
     <button class="linkish" data-act="open-guide">Character guide</button><button class="linkish" data-act="howto">How scoring works</button>
   </header>`;
@@ -5529,10 +5564,11 @@ function render() {
   let main;
   if (S.mode === 'gauntlet' && gauntletEnabled()) main = Gauntlet.render(S.gauntlet || (S.gauntlet = Gauntlet.newState()));
   else if (S.mode === 'grid') main = DailyGrid.render(S.daily);
+  else if (S.mode === 'tapone' && tapOneEnabled()) main = TapOne.render(S.tapone || (S.tapone = TapOne.newState()));
   else if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = (S.mode==='grid' || S.mode==='gauntlet' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
+  const draftActive = (S.mode==='grid' || S.mode==='tapone' || S.mode==='gauntlet' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   // Only Head-to-Head drafting unlocks document scrolling; other game modes
   // retain their existing fixed-viewport boards and scrollable picker lists.
@@ -5694,6 +5730,10 @@ document.addEventListener('click', e => {
   const a = t.dataset.act, c = S.champ, h = S.h2h;
   switch (a) {
     case 'mode': S.mode = t.dataset.mode; lsSet('da.mode', S.mode); S.gen.open = false; break;
+    case 'tap-pick': { if (!S.tapone) S.tapone = TapOne.newState(); const r = TapOne.choose(S.tapone, t.dataset.cid); if (!r.accepted) toast(r.reason); render(); window.scrollTo(0, 0); return; }
+    case 'tap-pool': S.tapone = S.tapone || TapOne.newState(); TapOne.setPool(S.tapone, t.dataset.pool); render(); window.scrollTo(0, 0); return;
+    case 'tap-again': S.tapone = S.tapone || TapOne.newState(); TapOne.again(S.tapone); render(); window.scrollTo(0, 0); return;
+    case 'tap-share': if (S.tapone) { copyText(TapOne.shareText(S.tapone.run, TapOne.lookupFn(S.tapone.pool))); S.tapone.copied = true; render(); } return;
     case 'grid-today': S.daily.date=DailyGrid.today(); S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render(); return;
     case 'grid-archive': S.daily.archiveOpen=!S.daily.archiveOpen; render(); return;
     case 'grid-day': if(DailyGrid.validDay(t.dataset.date)){S.daily.date=t.dataset.date; S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render();window.scrollTo(0,0);}return;
