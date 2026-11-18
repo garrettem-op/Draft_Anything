@@ -900,6 +900,8 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 
 /* Tap One: eight rounds, four big cards each. */
 .to-shell { width:min(100%,640px); margin:0 auto; display:grid; gap:15px; }
+.to-pools { display:flex; justify-content:center; gap:8px; }
+.to-pools .btn[aria-pressed="true"] { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
 .to-head { text-align:center; display:grid; gap:2px; }
 .to-cat { font-size:clamp(30px,9vw,48px); margin:0; line-height:1.05; }
 .to-hand { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
@@ -5729,8 +5731,9 @@ document.addEventListener('click', e => {
   switch (a) {
     case 'mode': S.mode = t.dataset.mode; lsSet('da.mode', S.mode); S.gen.open = false; break;
     case 'tap-pick': { if (!S.tapone) S.tapone = TapOne.newState(); const r = TapOne.choose(S.tapone, t.dataset.cid); if (!r.accepted) toast(r.reason); render(); window.scrollTo(0, 0); return; }
+    case 'tap-pool': S.tapone = S.tapone || TapOne.newState(); TapOne.setPool(S.tapone, t.dataset.pool); render(); window.scrollTo(0, 0); return;
     case 'tap-again': S.tapone = S.tapone || TapOne.newState(); TapOne.again(S.tapone); render(); window.scrollTo(0, 0); return;
-    case 'tap-share': if (S.tapone) { copyText(TapOne.shareText(S.tapone.run, TapOne.lookupFn())); S.tapone.copied = true; render(); } return;
+    case 'tap-share': if (S.tapone) { copyText(TapOne.shareText(S.tapone.run, TapOne.lookupFn(S.tapone.pool))); S.tapone.copied = true; render(); } return;
     case 'grid-today': S.daily.date=DailyGrid.today(); S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render(); return;
     case 'grid-archive': S.daily.archiveOpen=!S.daily.archiveOpen; render(); return;
     case 'grid-day': if(DailyGrid.validDay(t.dataset.date)){S.daily.date=t.dataset.date; S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render();window.scrollTo(0,0);}return;
