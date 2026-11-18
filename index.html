@@ -1140,6 +1140,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/daily-grid.js"></script>
 <script src="data/gauntlet.js"></script>
 <script src="data/gauntlet-feed.js"></script>
+<script src="data/archetype-groups.js"></script>
 <script src="data/campaign-variant-expansion.js"></script>
 <script src="data/variant-abilities.js"></script>
 <script src="data/campaign-strategy.js"></script>
@@ -2835,6 +2836,9 @@ const STYLE_DEF = {
     'Gobo Fraggle': ['Explore Everything', { spd: 2, agi: 1, end: 1 }],
   },
 };
+
+// Archetype groups (data/archetype-groups.js) join the same group, tier and cap machinery as every group above.
+if (typeof ArchetypeGroups !== 'undefined') for (const g of ArchetypeGroups.groups) if (SYN_DEF[g.pool]) SYN_DEF[g.pool].push([g.slug, g.name, g.strength, g.members.map(m => m.name)]);
 
 const SYN_MEMBERS = {};   // pool id -> { name -> [group ids] }
 for (const pk of Object.keys(SYN_DEF)) {

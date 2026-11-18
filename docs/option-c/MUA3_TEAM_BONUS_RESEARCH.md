@@ -1,6 +1,6 @@
 # Marvel Ultimate Alliance 3 team-bonus model vs Draft Anything chemistry
 
-**Status:** research note. It describes a published video game's team-bonus system from web sources and compares its shape with the game's existing MCU chemistry groups. It proposes nothing as accepted, changes no rating, and does not touch the evaluator. Sources are listed at the end; the member lists below come from one fan guide and were already marked "work in progress" by their author.
+**Status:** research note. Option 2 below was built after the owner's go-ahead on 2026-11-15; see `docs/option-c/ARCHETYPE_GROUPS.md`. The rest of this note is unchanged. It describes a published video game's team-bonus system from web sources and compares its shape with the game's existing MCU chemistry groups. It proposes nothing as accepted, changes no rating, and does not touch the evaluator. Sources are listed at the end; the member lists below come from one fan guide and were already marked "work in progress" by their author.
 
 Scope: the Switch title is *Marvel Ultimate Alliance 3: The Black Order* (July 19, 2019). The older games had similar bonuses (for example Think Tanks with +15% max health and Agile Warriors with 10% reduced energy cost in the first game), but this note covers only the Switch game.
 
