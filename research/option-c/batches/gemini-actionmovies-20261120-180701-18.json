@@ -1,0 +1,534 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261120-180701 #18",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:Stelios",
+      "continuity": "300 (2006 film)",
+      "summary": "Stelios is an elite Spartan hoplite warrior who relies on fierce hand-to-hand combat, spear-and-shield tactics, and fearless aggression in close quarters.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Spear thrusts",
+          "Shield bashes",
+          "Sword strikes"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bronze hoplon shield",
+          "Spartan armor and helmet"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/300_(film)",
+          "supports": "Basic character context and appearance as a Spartan warrior in the film 300."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Subotai",
+      "continuity": "Conan the Barbarian (1982 film)",
+      "summary": "Subotai is a skilled Hyrkanian thief, archer, and swordsman who combines ranged accuracy with agile melee skirmishing.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Archery",
+          "Swordsmanship",
+          "Stealth attacks"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agile dodging",
+          "Leather and hide armor"
+        ]
+      },
+      "weaknesses": [
+        "not established"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)",
+          "supports": "Subotai's role as Conan's companion, thief, and archer."
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:T-1000",
+      "continuity": "Terminator 2: Judgment Day (1991)",
+      "summary": "The T-1000 is an advanced prototype Terminator constructed of mimetic polyalloy, allowing it to liquefy, reshape its limbs into edged weapons, and rapidly regenerate from ballistic and physical trauma.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Blade and spike morphing",
+          "Liquid metal entrapment",
+          "Close-quarters bludgeoning"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Liquid metal regeneration",
+          "Immunity to conventional firearms and physical trauma"
+        ]
+      },
+      "weaknesses": [
+        "Extreme heat (molten steel)",
+        "Extreme cold causing temporary structural freeze"
+      ],
+      "mobility": [
+        "Running",
+        "Liquid flow through narrow openings"
+      ],
+      "limitations": [
+        "Integrity is compromised by extreme molten temperatures."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/T-1000",
+          "supports": "T-1000 capabilities, mimetic polyalloy nature, and vulnerabilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Reform after being shattered by liquid nitrogen and a gunshot.",
+          "citation": "Terminator 2: Judgment Day (1991)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "T-800 (Terminator 2)",
+          "result": "win",
+          "citation": "Terminator 2: Judgment Day (1991)",
+          "note": "Overpowered the T-800 in hand-to-hand combat before being destroyed by molten steel.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "The T-1000 is a liquid metal cybernetic organism/machine.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full operational limits in extreme chemical baths."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:T-800 (Terminator 2)",
+      "continuity": "Terminator 2: Judgment Day (1991)",
+      "summary": "The T-800 Cyberdyne Systems Model 101 is a humanoid cyborg infiltration unit featuring a hyperalloy endoskeleton covered in living tissue, possessing immense physical strength and tactical processing capabilities.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Firearm proficiency with heavy and small arms",
+          "Hand-to-hand grappling",
+          "Target analysis"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Endoskeleton durability",
+          "Bullet-resistant living tissue facade"
+        ]
+      },
+      "weaknesses": [
+        "Damage to power core (hydrogen fuel cells)",
+        "Severe physical trauma capable of destroying endoskeleton"
+      ],
+      "mobility": [
+        "Running",
+        "Vehicle operation"
+      ],
+      "limitations": [
+        "Powered by a nuclear/hydrogen cell that can fail under heavy structural damage."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Terminator_(character)",
+          "supports": "T-800 endoskeleton, capabilities, and design details."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lifts and throws heavy industrial machinery and opponents.",
+          "citation": "Terminator 2: Judgment Day (1991)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "T-1000",
+          "result": "win",
+          "citation": "Terminator 2: Judgment Day (1991)",
+          "note": "Destroyed the T-1000 using a grenade launcher to push it into molten steel.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Living tissue over a cybernetic metal endoskeleton.",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Cybernetic organism controlled by an internal computer processor.",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Designed as an infiltration unit with living human tissue.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Long-term energy reserves without external maintenance."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:The Bride (Beatrix Kiddo)",
+      "continuity": "Kill Bill (Volume 1 & 2)",
+      "summary": "Beatrix Kiddo, aka The Bride, is an elite assassin trained in various global martial arts and swordplay, possessing extreme pain tolerance and mastery of the Five Point Palm Exploding Heart Technique.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Hattori Hanzo swordsmanship",
+          "Pai Mei kung fu",
+          "Five Point Palm Exploding Heart Technique"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced evasion",
+          "Extreme pain tolerance and mental focus"
+        ]
+      },
+      "weaknesses": [
+        "Physical exhaustion",
+        "Vulnerable when physically trapped or buried"
+      ],
+      "mobility": [
+        "Running",
+        "Acrobatic leaps"
+      ],
+      "limitations": [
+        "Relies on human physical stamina and standard recovery."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Beatrix_Kiddo",
+          "supports": "The Bride's training under Pai Mei, Hattori Hanzo sword, and lethal techniques."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeats dozens of Crazy 88 swordsmen in single combat.",
+          "citation": "Kill Bill: Volume 1",
+          "source": 0
+        },
+        {
+          "claim": "Escapes live burial by breaking out of a wooden coffin.",
+          "citation": "Kill Bill: Volume 2",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "O-Ren Ishii",
+          "result": "win",
+          "citation": "Kill Bill: Volume 1",
+          "note": "Defeated O-Ren Ishii in a traditional garden sword duel.",
+          "source": 0
+        },
+        {
+          "opponent": "Bill",
+          "result": "win",
+          "citation": "Kill Bill: Volume 2",
+          "note": "Killed Bill using the Five Point Palm Exploding Heart Technique.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields a master-crafted Hattori Hanzo steel sword.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of recovery from specialized neurotoxins."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:The Professor",
+      "continuity": "Money Heist (La Casa de Papel)",
+      "summary": "The Professor (Sergio Marquina) is a criminal mastermind and strategist who specializes in elaborate, highly detailed heist planning, psychological manipulation, and contingency management rather than direct combat.",
+      "offense": {
+        "domains": [
+          "control",
+          "tech"
+        ],
+        "techniques": [
+          "Tactical planning",
+          "Surveillance orchestration",
+          "Negotiation"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Safehouses",
+          "Anonymity",
+          "Decoy operations"
+        ]
+      },
+      "weaknesses": [
+        "Unsuited for direct physical confrontations"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Money_Heist",
+          "supports": "The Professor's role as the criminal mastermind and planner."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Designs complex multi-layered heist plans and communication networks.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Thulsa Doom",
+      "continuity": "Conan the Barbarian (1982 film)",
+      "summary": "Thulsa Doom is a charismatic cult leader and sorcerer who commands fanatical followers and possesses the supernatural ability to transform into a giant serpent.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Serpentine transformation",
+          "Hypnotic gaze",
+          "Sorcerous influence"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cult guard protection",
+          "Supernatural resilience"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to decapitation by steel weapon"
+      ],
+      "mobility": [
+        "Walking",
+        "Serpentine slithering"
+      ],
+      "limitations": [
+        "Physical body remains vulnerable when caught off guard."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Thulsa_Doom",
+          "supports": "Thulsa Doom's sorcery, snake cult leadership, and serpentine transformation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transforms into a giant python during confrontation.",
+          "citation": "Conan the Barbarian (1982 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Conan",
+          "result": "loss",
+          "citation": "Conan the Barbarian (1982 film)",
+          "note": "Beheaded by Conan with the Atlantean sword.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Transform into a giant snake",
+          "dependsOn": "Sorcerous focus and ritual will",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Demonstrates serpentine transformation and dark sorcery.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of magical combat spells outside of transformation and hypnosis."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Trinity",
+      "continuity": "The Matrix (1999)",
+      "summary": "Trinity is a master hacker and martial artist inside the Matrix, capable of defying standard physical limits through digital code manipulation, firearms proficiency, and motorcycle navigation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Wire-fu martial arts",
+          "Dual-pistol gunplay",
+          "Hacking and digital infiltration"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic dodging",
+          "Bullet-time evasion"
+        ]
+      },
+      "weaknesses": [
+        "Bound by the rules of the simulation unless overriding code"
+      ],
+      "mobility": [
+        "Running",
+        "Acrobatic leaps",
+        "Motorcycle riding"
+      ],
+      "limitations": [
+        "Physical body in the real world remains vulnerable while jacked into the Matrix."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Trinity_(The_Matrix)",
+          "supports": "Trinity's combat skills, hacking abilities, and feats in the Matrix."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Performs suspended kick mid-air (\"bullet time\" opening sequence).",
+          "citation": "The Matrix (1999)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Agent Smith",
+          "result": "loss",
+          "citation": "The Matrix (1999)",
+          "note": "Overwhelmed by Agents in sustained encounters.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of reality manipulation outside simulated environments."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ujio",
+      "continuity": "The Last Samurai (2003)",
+      "summary": "Ujio is a fierce traditional samurai warrior and master swordsman dedicated to Katsumoto, utilizing precise katana strikes and strict bushido combat discipline.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Katana slashing",
+          "Spear combat",
+          "Mounted charge"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Traditional samurai armor",
+          "Parrying with katana"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ranged firearms if caught at a distance"
+      ],
+      "mobility": [
+        "Running",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Relies entirely on physical weapons and traditional armor."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Last_Samurai",
+          "supports": "Ujio's role as a master samurai warrior in the film."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engages multiple opposing imperial soldiers in skilled sword combat.",
+          "citation": "The Last Samurai (2003)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Nathan Algren",
+          "result": "draw",
+          "citation": "The Last Samurai (2003)",
+          "note": "Fought to a stalemate in a practice wooden sword duel.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Fights effectively on horseback as a mounted samurai.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against modern mechanized military hardware."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
