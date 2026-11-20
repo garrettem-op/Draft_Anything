@@ -1151,6 +1151,8 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/option-c/mcu-research-batch-01.js"></script>
 <script src="data/option-c/research-ledger.js"></script>
 <script src="data/option-c/research-profile.js"></script>
+<script src="data/option-c/research-moves-data.js"></script>
+<script src="data/option-c/research-moves.js"></script>
 <script src="data/option-c/profile-adapter.js"></script>
 <script src="data/option-c/interaction-engine.js"></script>
 <script src="data/option-c/sport-rules.js"></script>
@@ -4032,6 +4034,14 @@ try {
   if (q === '1') localStorage.setItem('da.flag.gauntlet', '1'); else if (q === '0') localStorage.removeItem('da.flag.gauntlet');
 } catch { }
 if (S.mode === 'gauntlet' && !gauntletEnabled()) { S.mode = 'champ'; lsSet('da.mode', S.mode); }
+// Version 2: research powers in Battle Royale are ON by default. ?researchPowers=0 turns them off on this
+// device (remembered) to compare with Version 1; ?researchPowers=1 turns them back on.
+try {
+  const q = new URLSearchParams(location.search).get('researchPowers');
+  if (q === '0') localStorage.setItem('da.flag.researchPowers', '0'); else if (q === '1') localStorage.removeItem('da.flag.researchPowers');
+} catch { }
+function researchPowersOn() { try { return localStorage.getItem('da.flag.researchPowers') !== '0'; } catch { return true; } }
+if (typeof DA_RESEARCH_MOVES !== 'undefined') DA_RESEARCH_MOVES.setEnabled(researchPowersOn());
 // Shared Gauntlet ladder endpoint (separate Supabase project). Voters must opt in before anything is sent.
 Gauntlet.configureSync('https://xijqendpphnclwthqtfy.supabase.co/functions/v1/submit-votes');
 document.addEventListener('visibilitychange', () => { if (document.hidden && S.gauntlet) Gauntlet.flush(S.gauntlet, { includeLatest: true }).catch(() => { }); });
@@ -4998,7 +5008,7 @@ async function createContest() {
   if (!db || !S.cap.uid) return;
   S.h2h.busy = true; S.h2h.err = ''; render();
   const now = Date.now();
-  const doc = { code: makeCode(), sport: f.sport, poolId: f.poolId, poolName: getPool(f.poolId).name, rules: { timer: f.timer, order: f.order, first: f.first, style: f.style, upsets: f.upsets },
+  const doc = { code: makeCode(), sport: f.sport, poolId: f.poolId, poolName: getPool(f.poolId).name, rules: { timer: f.timer, order: f.order, first: f.first, style: f.style, upsets: f.upsets, ...(typeof DA_RESEARCH_MOVES !== 'undefined' ? { researchPowers: DA_RESEARCH_MOVES.enabled() } : {}) },
     status: 'waiting', host: S.cap.uid, guest: null, names: { host: ((f.teamName || '').trim() || suggestedTeamName(f.poolId, 0, 'Home team')).slice(0, 32), guest: '' }, firstSide: null, picks: [], surges: {}, powerReady: {}, deadline: 0, createdAt: now, updatedAt: now };
   try { const ref = await db.collection('contests').add(doc); S.h2h.busy = false; openRoom(ref.id); }
   catch (e) { S.h2h.busy = false; S.h2h.err = dbErr(e); render(); }
@@ -5231,7 +5241,10 @@ function renderH2HPowers(d){
 function renderH2HResult(d) {
   const sp = SPORTS[d.sport], me = mySide(d) || 'host', opp = me === 'host' ? 'guest' : 'host';
   const A = teamScore(d.sport, h2hRoster(d, 'host')), B = teamScore(d.sport, h2hRoster(d, 'guest'));
-  const g = simH2H(d.sport, A, B, d.rules.upsets, d.id);
+  // Both players replay the fight with the host's research-powers setting (V2), whatever their own device says.
+  const g = typeof DA_RESEARCH_MOVES !== 'undefined'
+    ? DA_RESEARCH_MOVES.withEnabled(d.rules.researchPowers !== false, () => simH2H(d.sport, A, B, d.rules.upsets, d.id))
+    : simH2H(d.sport, A, B, d.rules.upsets, d.id);
   const winSide = g.winner === 0 ? 'host' : 'guest', loseSide = winSide === 'host' ? 'guest' : 'host';
   const sc = { host: A, guest: B };
   const iWon = winSide === me, spectator = !mySide(d);

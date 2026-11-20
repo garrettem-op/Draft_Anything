@@ -165,6 +165,9 @@ Not covered by the hook: regular-season games in the six sports are resolved ins
 
 Reports and baselines: `node tools/option-c-shadow-report.cjs --write` regenerates the comparison report; `--golden <checkout>` regenerates `tests/fixtures/option-c-v1-golden.json` from a checkout without this change.
 
+## Activation step 1: research powers in Battle Royale (2026-11-20)
+The owner chose option A, on by default in Version 2. Characters without a V1 combat profile now fight with a move from their research record. See `docs/option-c/RESEARCH_POWERS.md`. The evaluator itself is unchanged and still reports in shadow mode: its estimate does not yet count those moves.
+
 ## Known limits
 
 1. **Coverage.** 26 of 1,304 base characters and 88 of 243 alternate forms have a typed combat profile. With the opt-in research path, 526 more base characters get a provisional, tier-free line of attack; the remaining 752 have neither. Research text is mostly free-form, so only explicit domain wording maps; unmapped domains are reported, not guessed. The ledger is only loadable in Node today (the page ships no research bundle), so the opt-in does nothing in the browser.

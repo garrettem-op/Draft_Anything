@@ -42,8 +42,10 @@ test('the shadow flag is off by default and nothing is recorded until a develope
 test('fixed seeded Version 1 results are byte-identical to the pre-Option-C baseline with shadow OFF and ON', () => {
   const ids = Object.keys(golden.digests);
   assert.ok(ids.length >= 17);
-  const off = runParityFixtures(loadApp(), false);
-  const on = runParityFixtures(loadApp(), true);
+  // V2 research powers (on by default) intentionally change Battle Royale fights; with them switched off
+  // the page must still reproduce Version 1 exactly. tests/research-moves.test.cjs covers the switch-on side.
+  const off = runParityFixtures(loadApp({ search: '?researchPowers=0' }), false);
+  const on = runParityFixtures(loadApp({ search: '?researchPowers=0' }), true);
   const without = runParityFixtures(loadApp({ skip: src => src.startsWith('data/option-c/') }), false);
   for (const id of ids) {
     assert.equal(off.digests[id], golden.digests[id], 'shadow OFF changed ' + id);
