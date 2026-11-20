@@ -1,0 +1,554 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261120-180413 #10",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:Hector Barbossa",
+      "continuity": "Pirates of the Caribbean film series",
+      "summary": "Hector Barbossa is a cunning pirate captain, skilled swordsman, and tactician who wields a cutlass and pistol, and possesses supernatural immortality under moonlight.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Sword fighting with cutlass",
+          "Pistol marksmanship",
+          "Command of pirate crews"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Undead immortality (under moonlight)",
+          "Parrying and dodging"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to mortal wounds once the Aztec curse is lifted"
+      ],
+      "mobility": [
+        "running",
+        "sailing ships"
+      ],
+      "limitations": [
+        "Human physical limits when not cursed"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl",
+          "supports": "Barbossa's immortality, weapons, and abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survived a fatal sword thrust from Jack Sparrow while cursed as an immortal undead",
+          "citation": "Pirates of the Caribbean: The Curse of the Black Pearl (2003)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jack Sparrow",
+          "result": "loss",
+          "citation": "Pirates of the Caribbean: The Curse of the Black Pearl (2003)",
+          "note": "Killed when the curse was lifted and Jack shot him.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Undead immortality and invulnerability",
+          "dependsOn": "Moonlight revealing his skeletal form under the curse of Cortés",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ilsa Faust",
+      "continuity": "Mission: Impossible film series",
+      "summary": "Ilsa Faust is a highly trained MI6 agent and operative who excels in close-quarters combat, firearms, stealth, and covert infiltration.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat",
+          "Sniper rifle marksmanship",
+          "Knife combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Counter-attacking",
+          "Tactical positioning"
+        ]
+      },
+      "weaknesses": [
+        "Standard human limitations"
+      ],
+      "mobility": [
+        "running",
+        "motorcycle riding",
+        "driving"
+      ],
+      "limitations": [
+        "Subject to standard human injury and fatigue"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ilsa_Faust",
+          "supports": "Ilsa Faust's background as an MI6 agent and combat feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged in complex hand-to-hand combat and assassination missions across multiple international operations",
+          "citation": "Mission: Impossible – Rogue Nation (2015)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ethan Hunt",
+          "result": "inconclusive",
+          "citation": "Mission: Impossible – Rogue Nation (2015)",
+          "note": "Fought to a tactical stalemate during operations.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Imhotep",
+      "continuity": "The Mummy (1999)",
+      "summary": "Imhotep is an ancient high priest with vast supernatural powers, including sand manipulation, bodily regeneration, summoning plagues, and controlling the undead.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Sandstorms and sand manipulation",
+          "Summoning swarms of insects and plagues",
+          "Skeletal regeneration"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Immunity to conventional physical weapons when regenerate",
+          "Regeneration from sand and bodily forms"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to the Book of Amun-Ra and mortal weapons when stripped of immortality"
+      ],
+      "mobility": [
+        "natural-flight",
+        "sand form movement"
+      ],
+      "limitations": [
+        "Bound by ancient magical laws and artifacts"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Mummy_(1999_film)",
+          "supports": "Imhotep's supernatural abilities, weaknesses, and lore."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Created a massive sandstorm face resembling his own to terrorize Cairo",
+          "citation": "The Mummy (1999)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rick O'Connell",
+          "result": "loss",
+          "citation": "The Mummy (1999)",
+          "note": "Defeated when stripped of his powers by the Book of Amun-Ra.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Full invulnerability to physical attacks",
+          "dependsOn": "Being in an incomplete or undead state before absorbing organs",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields ancient Egyptian curses and magic",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Regenerates body parts and flesh by consuming victims",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Immortan Joe",
+      "continuity": "Mad Max: Fury Road (2015)",
+      "summary": "Immortan Joe is a brutal warlord who commands a fanatic army from heavily fortified vehicles, relying on heavy armor, respirators, and mechanized warfare.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Commanding vehicular combat forces",
+          "Revolver and firearm combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Clear plastic body armor",
+          "Personal respirator",
+          "Guarded motorcade"
+        ]
+      },
+      "weaknesses": [
+        "Dependent on a life-support respirator for breathing"
+      ],
+      "mobility": [
+        "driving",
+        "vehicle transport"
+      ],
+      "limitations": [
+        "Requires breathing apparatus due to severe respiratory damage"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Immortan_Joe",
+          "supports": "Immortan Joe's armor, status as a warlord, and respirator dependency."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Led heavily armed war parties across the wasteland to pursue escapees",
+          "citation": "Mad Max: Fury Road (2015)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Max Rockatansky",
+          "result": "loss",
+          "citation": "Mad Max: Fury Road (2015)",
+          "note": "Killed aboard his flagship vehicle during pursuit.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Imperator Furiosa",
+      "continuity": "Mad Max: Fury Road (2015)",
+      "summary": "Imperator Furiosa is a resourceful and hardened wasteland warrior, skilled in tactical combat, heavy vehicle operation, and firearms.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Close-quarters combat",
+          "Sniper rifle marksmanship",
+          "War Rig driving and tactical combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tactical cover",
+          "Armored vehicle defense"
+        ]
+      },
+      "weaknesses": [
+        "Missing lower left arm (prosthetic/mechanical brace used)"
+      ],
+      "mobility": [
+        "running",
+        "driving"
+      ],
+      "limitations": [
+        "Physical limits of a human survivor with a prosthetic arm"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Imperator_Furiosa",
+          "supports": "Furiosa's combat skills, prosthetic arm, and role in Fury Road."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully defended the War Rig against multiple waves of wasteland pursuers",
+          "citation": "Mad Max: Fury Road (2015)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Immortan Joe",
+          "result": "win",
+          "citation": "Mad Max: Fury Road (2015)",
+          "note": "Killed Immortan Joe during the final vehicle battle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Expert driver of the heavily modified War Rig",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Iosef Tarasov",
+      "continuity": "John Wick (2014)",
+      "summary": "Iosef Tarasov is a spoiled mobster boss's son who relies on armed bodyguards and standard firearms, possessing limited personal combat competence.",
+      "offense": {
+        "domains": [
+          "tech",
+          "physical"
+        ],
+        "techniques": [
+          "Pistol shooting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armed bodyguards",
+          "Safehouse security"
+        ]
+      },
+      "weaknesses": [
+        "Arrogant, cowardly under pressure, and lacks elite combat training"
+      ],
+      "mobility": [
+        "running",
+        "driving"
+      ],
+      "limitations": [
+        "Relies entirely on numbers and bodyguards for protection"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Wick",
+          "supports": "Iosef Tarasov's role as the primary target and mob boss son."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Ambushed John Wick's home with a crew of armed thugs",
+          "citation": "John Wick (2014)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "John Wick",
+          "result": "loss",
+          "citation": "John Wick (2014)",
+          "note": "Tracked down and killed by John Wick.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Jack Sparrow",
+      "continuity": "Pirates of the Caribbean film series",
+      "summary": "Captain Jack Sparrow is an eccentric and cunning pirate who relies on improvisation, trickery, clever swordplay, and a magical compass.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Unconventional swordplay",
+          "Pistol marksmanship (single shot)",
+          "Deception and negotiation"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Dodge and parry",
+          "Fleeing",
+          "Bluffing opponents"
+        ]
+      },
+      "weaknesses": [
+        "Human physical vulnerability and poor long-term planning"
+      ],
+      "mobility": [
+        "running",
+        "sailing ships"
+      ],
+      "limitations": [
+        "Normal human endurance and physical strength"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jack_Sparrow",
+          "supports": "Jack Sparrow's fighting style, weapons, and characteristics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Escaped numerous executions, naval traps, and supernatural creatures through sheer wit and sword skill",
+          "citation": "Pirates of the Caribbean film series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hector Barbossa",
+          "result": "win",
+          "citation": "Pirates of the Caribbean: The Curse of the Black Pearl (2003)",
+          "note": "Defeated Barbossa by shooting him after the curse was lifted.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Wields a magical compass that points toward what the holder wants most",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Jade Fox",
+      "continuity": "Crouching Tiger, Hidden Dragon (2000)",
+      "summary": "Jade Fox is a lethal assassin and martial artist skilled in internal arts, swordplay, and poisoned weapons.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Wudan martial arts",
+          "Needle throwing and poisoned darts",
+          "Sword combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic leaping",
+          "Parrying"
+        ]
+      },
+      "weaknesses": [
+        "Illiterate and bitter over denied teachings"
+      ],
+      "mobility": [
+        "natural-flight",
+        "acrobatic rooftop running"
+      ],
+      "limitations": [
+        "Human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Crouching_Tiger,_Hidden_Dragon",
+          "supports": "Jade Fox's status as a martial artist and assassin."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Assassinated Master Li Mu Bai using a poisoned needle trap",
+          "citation": "Crouching Tiger, Hidden Dragon (2000)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Yu Shu Lien",
+          "result": "loss",
+          "citation": "Crouching Tiger, Hidden Dragon (2000)",
+          "note": "Defeated in combat before being fatally poisoned.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Jason Bourne",
+      "continuity": "Bourne film series",
+      "summary": "Jason Bourne is a rogue CIA black-ops assassin with severe amnesia, possessing elite hand-to-hand combat skills, improvised weapon mastery, and exceptional tactical awareness.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Kali martial arts and close-quarters combat",
+          "Improvised weapon combat (magazines, pens)",
+          "Firearms proficiency"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Disarming opponents",
+          "Environmental cover"
+        ]
+      },
+      "weaknesses": [
+        "Flashbacks and psychological trauma from government conditioning"
+      ],
+      "mobility": [
+        "running",
+        "parkour",
+        "driving"
+      ],
+      "limitations": [
+        "Subject to standard human physical injury"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jason_Bourne_(character)",
+          "supports": "Jason Bourne's combat abilities, training, and tactical skills."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated multiple trained Treadstone and Blackbriar assassins in close-quarters combat",
+          "citation": "The Bourne Identity (2002) / The Bourne Ultimatum (2007)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Desh Bouksani",
+          "result": "win",
+          "citation": "The Bourne Ultimatum (2007)",
+          "note": "Subdued rival assassin in brutal hand-to-hand combat.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
