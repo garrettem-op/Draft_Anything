@@ -45,6 +45,56 @@ function filmContinuityError(p,films){
  if(f.year&&!c.includes(' '+f.year+' '))return 'continuity must give the year of "'+f.title+'" ('+f.year+'), the roster\'s version';
  return null;
 }
+/* Research scope (owner ruling 2026-11-20). Every fictional character is researched across:
+     source  – the roster's own source (the pool's film, show, game or comic line),
+     sequel  – everything that continues it: sequels, prequels, later seasons, series or games
+               in the same continuity (not remakes or reboots),
+     comic   – any comic depiction of the character, tie-in or not.
+   All three count equally. Records expanded from an earlier single-continuity record also list that old
+   continuity as kind "earlier-record", the label on the evidence carried over from it. Every feat, result and condition names the depiction it comes from.
+   A form held as its own roster identity keeps its feats in its own record.
+   NBA players are real people: the rule does not apply to them. */
+const DEPICTION_SCOPE='all';
+const DEPICTION_KINDS=['source','sequel','comic','earlier-record'];
+const SCOPE_EXEMPT_POOLS=new Set(['nba']);
+const POOL_SOURCES={
+ mcu:'Marvel Cinematic Universe films and Disney+ series',
+ dc:'DC Comics',
+ starwars:'Star Wars films and series',
+ toons:'the animated series or film the character comes from',
+ muppets:'the Muppet, Sesame Street or Fraggle Rock productions the character comes from',
+ games:'the video game series the character comes from',
+ pokemon:'Pokémon games and anime',
+ lotr:'J.R.R. Tolkien\'s Middle-earth writings',
+ harrypotter:'Harry Potter books and films',
+ nba:'NBA career',
+};
+const inScope=id=>!SCOPE_EXEMPT_POOLS.has(String(id).split(':')[0]);
+/* Per-identity research context for prompts: what the roster says the character is and where it comes from.
+   Data only (roster strings), carried to the privileged tick inside the snapshot. */
+function researchContext(game,ids){
+ const byId=new Map(game.roster.map(r=>[r.id,r])),forms=new Map();
+ for(const id of ids)if(id.includes('|')){const b=id.split('|')[0];(forms.get(b)||forms.set(b,[]).get(b)).push(id.slice(b.length+1));}
+ const out={};
+ for(const id of ids){
+  const base=id.split('|')[0],r=byId.get(base);if(!r)continue;
+  const tax=Array.isArray(r.taxonomy)?r.taxonomy:[];
+  let source=FILM_POOLS.has(r.pool)?'the film '+String(tax[0]||''):POOL_SOURCES[r.pool]||'';
+  if(r.pool==='games'&&tax[0])source+=' ('+tax[0]+')';
+  out[id]={source:source.trim(),blurb:String(r.t||'').trim()};
+  if(!id.includes('|')&&forms.has(id))out[id].forms=forms.get(id);
+ }
+ return out;
+}
+/* Film anchors rebuilt from snapshot context (the privileged tick has no roster, only the snapshot). */
+function filmAnchorsFromContext(context){
+ const out=new Map();
+ for(const [id,c] of Object.entries(context||{})){
+  if(id.includes('|')||!FILM_POOLS.has(id.split(':')[0])||!c||typeof c.source!=='string')continue;
+  out.set(id,filmKeys(c.source.replace(/^the film /,'')));
+ }
+ return out;
+}
 function rosterIds(game=loadGame({extraPools:RESEARCH_EXTRA_POOL_IDS})){
  const ids=game.roster.map(r=>r.id);
  const ctx=game.ctx;
@@ -114,6 +164,23 @@ function checkBatch(file,batch,roster,tags,films){
     if(f.source!==undefined&&!(Number.isInteger(f.source)&&f.source>=0&&f.source<nSources))add(where+' '+key+'['+k+'].source must index an existing sources[] entry');
    }
   }
+  // All-depictions records (owner ruling 2026-11-20): declared depictions, each evidence item labelled.
+  if(p.depictionScope!==undefined||p.depictions!==undefined){
+   if(p.depictionScope!==DEPICTION_SCOPE)add(where+' depictionScope must be "'+DEPICTION_SCOPE+'" when depictions are given');
+   else if(!inScope(p.id))add(where+' '+p.id+': the all-depictions scope does not apply to this pool');
+   const ds=Array.isArray(p.depictions)?p.depictions:null,titles=new Set();
+   if(!ds||!ds.length||ds.length>60)add(where+' depictions must list 1–60 depictions');
+   else for(const [k,d] of ds.entries()){
+    if(!d||typeof d.title!=='string'||d.title.trim().length<2){add(where+' depictions['+k+'].title required');continue;}
+    if(!DEPICTION_KINDS.includes(d.kind))add(where+' depictions['+k+'].kind must be one of '+DEPICTION_KINDS.join(', '));
+    if(titles.has(d.title))add(where+' depictions['+k+'] repeats '+d.title);titles.add(d.title);
+   }
+   if(ds&&!ds.some(d=>d&&d.kind==='source'))add(where+' depictions must include the roster source (kind "source")');
+   for(const key of ['feats','notableResults','conditional'])for(const [k,f] of (Array.isArray(p[key])?p[key]:[]).entries()){
+    if(f&&typeof f==='object'&&!titles.has(f.depiction))add(where+' '+key+'['+k+'].depiction must name one of depictions[]');
+   }
+  }
+  if(p.earlierSummary!==undefined&&!isText(p.earlierSummary))add(where+' earlierSummary must be text');
   for(const key of ['limitations','mobility','support','unknowns']){
    if(p[key]!==undefined&&(!Array.isArray(p[key])||p[key].some(x=>typeof x!=='string'||!x.trim())))add(where+' '+key+' must be an array of non-empty strings');
   }
@@ -138,14 +205,15 @@ function checkBatch(file,batch,roster,tags,films){
 function audit(){
  const game=loadGame({extraPools:RESEARCH_EXTRA_POOL_IDS}),films=filmAnchors(game);
  const ids=rosterIds(game),known=new Set(ids),tags=abilityTagVocabulary(),tagSet=new Set(tags),batches=loadBatches(),errors=[],records=new Map();
+ const context=researchContext(game,ids);
  const poolCounts={};
- for(const id of ids){const pool=id.split(':')[0];if(!poolCounts[pool])poolCounts[pool]={total:0,reviewed:0,provisional:0,missing:0,needsReview:0};poolCounts[pool].total++;}
+ for(const id of ids){const pool=id.split(':')[0];if(!poolCounts[pool])poolCounts[pool]={total:0,reviewed:0,provisional:0,missing:0,needsReview:0,allDepictions:0};poolCounts[pool].total++;}
  for(const {file,batch} of batches){
   errors.push(...checkBatch(file,batch,known,tagSet,films));
   for(const p of Array.isArray(batch.characters)?batch.characters:[]){
    if(!p||typeof p.id!=='string')continue;
    if(records.has(p.id))errors.push(file+': duplicate across batches '+p.id);
-   else records.set(p.id,{file,status:p.researchStatus});
+   else records.set(p.id,{file,status:p.researchStatus,...(p.depictionScope===DEPICTION_SCOPE?{scope:DEPICTION_SCOPE}:{})});
   }
  }
  for(const id of ids){
@@ -154,14 +222,23 @@ function audit(){
   else if(status==='provisional')poolCounts[pool].provisional++;
   else if(status)poolCounts[pool].needsReview++;
   else poolCounts[pool].missing++;
+  if(records.get(id)?.scope===DEPICTION_SCOPE)poolCounts[pool].allDepictions++;
  }
- return {ids,records,errors,poolCounts,batches:batches.length,tags};
+ return {ids,records,errors,poolCounts,batches:batches.length,tags,context};
 }
 function nextBatch(a,size=10,claimed=new Set()){
  // Skip identities already recorded on the branch AND identities claimed by open, unmerged PRs.
  const outstanding=a.ids.filter(id=>!a.records.has(id)&&!claimed.has(id));if(!outstanding.length)return {complete:true,ids:[]};
  const firstPool=outstanding[0].split(':')[0];
  return {complete:false,pool:firstPool,ids:outstanding.filter(id=>id.startsWith(firstPool+':')).slice(0,size)};
+}
+/* Expansion queue (owner ruling 2026-11-20): recorded, in-scope identities whose record predates the
+   all-depictions scope, one batch file at a time (expansion edits records in place). */
+function nextExpansion(a,size=10,claimed=new Set()){
+ const todo=[...a.records].filter(([id,r])=>inScope(id)&&r.scope!==DEPICTION_SCOPE&&!claimed.has(id)).sort((x,y)=>x[1].file.localeCompare(y[1].file)||x[0].localeCompare(y[0]));
+ if(!todo.length)return {complete:true,ids:[]};
+ const file=todo[0][1].file;
+ return {complete:false,file,pool:todo[0][0].split(':')[0],ids:todo.filter(([,r])=>r.file===file).map(([id])=>id).slice(0,size)};
 }
 function argValue(argv,name){const i=argv.indexOf(name);return i>=0?argv[i+1]:undefined;}
 function readClaimed(file){
@@ -173,7 +250,7 @@ function readClaimed(file){
 /* Data-only snapshot of the branch: roster ids + merged records. Produced by an UNPRIVILEGED job
    (it executes the branch's game data to read the roster); privileged jobs consume it as JSON. */
 function snapshot(a=audit()){
- return {schemaVersion:1,ids:a.ids,tags:a.tags,records:[...a.records].map(([id,r])=>({id,file:r.file,status:r.status})),errors:a.errors};
+ return {schemaVersion:1,ids:a.ids,tags:a.tags,records:[...a.records].map(([id,r])=>({id,file:r.file,status:r.status,...(r.scope?{scope:r.scope}:{})})),errors:a.errors,context:a.context||{}};
 }
 const ID_RE=/^[a-z0-9_-]+:[^\n\r]{1,200}$/i;
 function fromSnapshot(x){
@@ -185,9 +262,20 @@ function fromSnapshot(x){
  const records=new Map();
  for(const r of x.records){
   if(!r||typeof r.id!=='string'||!ID_RE.test(r.id)||typeof r.file!=='string'||!/^[a-z0-9][a-z0-9_.-]*\.json$/i.test(r.file))throw Error('snapshot: bad record');
-  records.set(r.id,{file:r.file,status:typeof r.status==='string'?r.status:undefined});
+  if(r.scope!==undefined&&r.scope!==DEPICTION_SCOPE)throw Error('snapshot: bad record scope');
+  records.set(r.id,{file:r.file,status:typeof r.status==='string'?r.status:undefined,...(r.scope?{scope:r.scope}:{})});
  }
- return {ids:[...x.ids],tags:[...x.tags],records,errors:x.errors.map(String)};
+ // Prompt context: roster strings only, bounded and free of control characters. Absent in older snapshots.
+ const context={},known=new Set(x.ids),okStr=(s,n)=>typeof s==='string'&&s.length<=n&&!/[\u0000-\u001f\u007f]/.test(s);
+ if(x.context!==undefined){
+  if(!x.context||typeof x.context!=='object'||Array.isArray(x.context))throw Error('snapshot: bad context');
+  for(const [id,c] of Object.entries(x.context)){
+   if(!known.has(id)||!c||typeof c!=='object'||!okStr(c.source,200)||!okStr(c.blurb,300))throw Error('snapshot: bad context for '+String(id).slice(0,80));
+   if(c.forms!==undefined&&(!Array.isArray(c.forms)||c.forms.length>30||c.forms.some(f=>!okStr(f,120))))throw Error('snapshot: bad context forms for '+String(id).slice(0,80));
+   context[id]={source:c.source,blurb:c.blurb,...(c.forms?{forms:[...c.forms]}:{})};
+  }
+ }
+ return {ids:[...x.ids],tags:[...x.tags],records,errors:x.errors.map(String),context};
 }
 function main(argv){
  if(argv.includes('--snapshot')){const a=audit();console.log(JSON.stringify(snapshot(a)));if(a.errors.length)process.exitCode=1;return;}
@@ -202,4 +290,4 @@ function main(argv){
  console.log('Usage: node tools/v2-research-pipeline.cjs --validate | --report | --snapshot | --next [--size N] [--claimed ids.json]');
 }
 if(require.main===module)main(process.argv.slice(2));
-module.exports={rosterIds,abilityTagVocabulary,loadBatches,checkBatch,audit,nextBatch,snapshot,fromSnapshot,filmAnchors,filmKeys,FILM_POOLS};
+module.exports={rosterIds,abilityTagVocabulary,loadBatches,checkBatch,audit,nextBatch,nextExpansion,snapshot,fromSnapshot,filmAnchors,filmAnchorsFromContext,filmKeys,researchContext,inScope,FILM_POOLS,DEPICTION_SCOPE,DEPICTION_KINDS,SCOPE_EXEMPT_POOLS};
