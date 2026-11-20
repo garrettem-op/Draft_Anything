@@ -1,0 +1,468 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261120-180610 #15",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:Maximus Decimus Meridius",
+      "continuity": "Gladiator (2000 film)",
+      "summary": "Maximus is a Roman general turned gladiator who excels in brutal melee combat, tactical leadership, and throwing weapons. He relies on exceptional physical conditioning, peerless swordplay, and unmatched combat experience.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Gladius sword strikes",
+          "Shield bashes",
+          "Throwing daggers"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Roman legionary shield",
+          "Heavy leather and metal gladiator armor",
+          "Parrying and evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to severe physical blood loss and mortal wounds",
+        "Subject to emotional vulnerability regarding the murder of his family"
+      ],
+      "mobility": [
+        "Running",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Human physical limits; cannot survive lethal poisoning or mortal wounds indefinitely"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gladiator_(2000_film)",
+          "supports": "Fictional context, military background, and character fate in Gladiator"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Commodus",
+          "result": "win",
+          "citation": "Gladiator (2000)",
+          "note": "Maximus kills Commodus in the Colosseum while suffering from a mortal poison wound inflicted prior to the match.",
+          "source": 0
+        },
+        {
+          "opponent": "Tigris of Gaul",
+          "result": "win",
+          "citation": "Gladiator (2000)",
+          "note": "Defeated Tigris in the Colosseum arena.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Morpheus",
+      "continuity": "The Matrix (1999)",
+      "summary": "Morpheus is a master martial artist, tactician, and freedom fighter inside and outside the Matrix. He wields firearms, heavy melee weapons, and martial arts with supernatural proficiency enabled by digital simulation physics.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Martial arts kicks and strikes",
+          "Firearms proficiency",
+          "Katana swordplay"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bullet-dodging reflexes",
+          "Tactical awareness"
+        ]
+      },
+      "weaknesses": [
+        "Physical body in the real world remains vulnerable while jacked into the Matrix",
+        "Subject to physical damage if killed inside the simulation"
+      ],
+      "mobility": [
+        "Superhuman leaping",
+        "Running",
+        "Piloting hovercraft"
+      ],
+      "limitations": [
+        "Dependent on being connected to the Matrix to manipulate simulated physics"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Matrix",
+          "supports": "Abilities, role as captain of the Nebuchadnezzar, and combat skills within the Matrix"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Agent Smith",
+          "result": "loss",
+          "citation": "The Matrix (1999)",
+          "note": "Captured by Agents after a protracted rooftop and highway fight while defending Neo.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ms. Perkins",
+      "continuity": "John Wick (2014)",
+      "summary": "Ms. Perkins is a professional, cold-blooded assassin who utilizes handguns, silenced firearms, and brutal close-quarters combat techniques to dispatch targets.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Handgun marksmanship",
+          "Close-quarters combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Stealth and ambush positioning",
+          "Body armor"
+        ]
+      },
+      "weaknesses": [
+        "Standard human limitations; vulnerable to firearms and blunt trauma"
+      ],
+      "mobility": [
+        "Running",
+        "Driving"
+      ],
+      "limitations": [
+        "Relies entirely on standard conventional weaponry and human physical attributes"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Wick",
+          "supports": "Character details and role as a Continental assassin"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "John Wick",
+          "result": "loss",
+          "citation": "John Wick (2014)",
+          "note": "Ambushed John Wick but was ultimately executed for breaking Continental rules.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Murron MacClannough",
+      "continuity": "Braveheart (1995)",
+      "summary": "Murron is a civilian villager from medieval Scotland skilled in rural survival, stone throwing, and evasion against occupying English soldiers.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Stones and improvised throwing weapons"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Hiding in local terrain"
+        ]
+      },
+      "weaknesses": [
+        "Lacks military training, armor, or advanced weaponry"
+      ],
+      "mobility": [
+        "Running"
+      ],
+      "limitations": [
+        "Ordinary human capabilities with no supernatural or heavily armored defense"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Braveheart",
+          "supports": "Murron's role and execution by English soldiers in Braveheart"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "English soldiers",
+          "result": "loss",
+          "citation": "Braveheart (1995)",
+          "note": "Captured and publicly executed by local occupying forces.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Nathan Algren",
+      "continuity": "The Last Samurai (2003)",
+      "summary": "Nathan Algren is a disillusioned American Civil War veteran and master swordsman who adopts traditional samurai warfare, excelling in katana combat, horseback riding, and tactical defense.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Katana swordplay",
+          "Bow and arrow marksmanship",
+          "Firearms usage"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Traditional samurai armor",
+          "Parrying with sword"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to superior numbers of modern firearms and artillery"
+      ],
+      "mobility": [
+        "Horseback riding",
+        "Running"
+      ],
+      "limitations": [
+        "Human stamina and standard physical durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Last_Samurai",
+          "supports": "Algren's military background and samurai training"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Japanese Army",
+          "result": "win",
+          "citation": "The Last Samurai (2003)",
+          "note": "Fought alongside samurai rebels in major tactical engagements against imperial forces.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Neo",
+      "continuity": "The Matrix (1999)",
+      "summary": "Neo is The One, possessing reality-warping capabilities within the Matrix simulation, including flight, telekinetic stopping of projectiles, superhuman speed, and immense martial arts mastery.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand martial arts",
+          "Telekinetic bullet halting",
+          "Flight combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bullet dodging",
+          "Invulnerability to standard simulated trauma once awakened as The One"
+        ]
+      },
+      "weaknesses": [
+        "Real-world physical body remains vulnerable if disconnected or attacked outside",
+        "Agent programs can pose direct threats if caught off guard"
+      ],
+      "mobility": [
+        "Natural flight",
+        "Super-speed",
+        "Superhuman leaping"
+      ],
+      "limitations": [
+        "Powers are native to the simulated digital environment of the Matrix"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Neo_(The_Matrix)",
+          "supports": "Abilities of The One, flight, and reality manipulation within the Matrix"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Agent Smith",
+          "result": "win",
+          "citation": "The Matrix (1999)",
+          "note": "Destroyed Agent Smith from the inside after fully realizing his powers as The One.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Neo flies freely through the skies within the Matrix simulation.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Nux",
+      "continuity": "Mad Max: Fury Road (2015)",
+      "summary": "Nux is a fanatic War Boy driver who utilizes heavily modified vehicular combat, firearms, and explosive thundersticks with suicidal abandon.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Vehicular ramming",
+          "Thunderstick explosive throws",
+          "Submachine gun fire"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored vehicle chassis",
+          "Fanatical disregard for personal safety"
+        ]
+      },
+      "weaknesses": [
+        "Suffers from chronic physical frailty (\"half-life\" condition requiring blood bags)",
+        "Reckless driving habits"
+      ],
+      "mobility": [
+        "Driving modified combat vehicles",
+        "Running"
+      ],
+      "limitations": [
+        "Dependent on vehicles and mechanical equipment for mobility and combat effectiveness"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road",
+          "supports": "Nux's role as a War Boy and vehicular combat feats"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Immortan Joe's forces",
+          "result": "win",
+          "citation": "Mad Max: Fury Road (2015)",
+          "note": "Sacrificed his vehicle to block a mountain pass, defeating the pursuers at the cost of his life.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:O-Ren Ishii",
+      "continuity": "Kill Bill: Volume 1 (2003)",
+      "summary": "O-Ren Ishii, also known as Cottonmouth, is a supreme assassin and leader of the Yakuza, wielding a master-crafted katana with lethal precision and lethal bodyguard support.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Katana swordplay",
+          "Acrobatic close combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Expert parrying",
+          "Bodyguard units (Crazy 88)"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability to sharp-force trauma and fatal blade wounds"
+      ],
+      "mobility": [
+        "Running",
+        "Acrobatic movement"
+      ],
+      "limitations": [
+        "Human physical limits and vulnerability in single combat"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kill_Bill:_Volume_1",
+          "supports": "O-Ren Ishii's status as a master assassin and duel in the House of Blue Leaves"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Beatrix Kiddo",
+          "result": "loss",
+          "citation": "Kill Bill: Volume 1 (2003)",
+          "note": "Defeated and killed by Beatrix Kiddo in a snowy Japanese garden duel.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Peter Pevensie",
+      "continuity": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe (2005 film)",
+      "summary": "Peter Pevensie is High King of Narnia, commanding armies and fighting with a magical steel sword and shield against mythical creatures and enemy soldiers.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Magical sword strikes",
+          "Shield defense and tactical leadership"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Steel shield",
+          "Royal chainmail and plate armor"
+        ]
+      },
+      "weaknesses": [
+        "Human physical vulnerability when unarmored or overwhelmed by magical beasts"
+      ],
+      "mobility": [
+        "Horseback riding",
+        "Running"
+      ],
+      "limitations": [
+        "Relies on physical prowess and standard medieval weaponry"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Chronicles_of_Narnia:_The_Lion,_the_Witch_and_the_Wardrobe_(2005_film)",
+          "supports": "Peter's role as High King, gift of sword and shield, and battle feats"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "General Otmin",
+          "result": "win",
+          "citation": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe (2005)",
+          "note": "Defeated the general of the White Witch's army in single combat during the Battle of Beruna.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields Rhindon, a magically enhanced sword given by Father Christmas.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
