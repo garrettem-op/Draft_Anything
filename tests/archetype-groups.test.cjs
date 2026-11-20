@@ -25,7 +25,7 @@ const TRAIT = {
   blades: /sword|blade|katana|saber|sabre|lightsaber|dagger|knife|knives|claws?\b|\bsai\b|\baxe\b|scythe|ninjato|rapier|leek/i,
   antiheroes: /anti[- ]?hero|vigilante|mercenary|bounty hunter/i,
   quips: /quip|wisecrack|sarcas|snark|\bwit\b|trash[- ]talk|prank|joke|heckl|comic/i,
-  sorcerers: /spell|sorcer|wizard|witch|warlock|\bmage\b|magic|magick|incantation|\bwand\b|enchant|\bhex|curse|mystic arts|thu'um|transfigur/i,
+  sorcerers: /spell|sorcer|wizard|witch|warlock|\bmage\b|magic|magick|incantation|\bwand\b|enchant|\bhex|curse|mystic arts|thu'um|transfigur|necroman|voodoo|dark arts/i,
   green: /\bgreen\b/i, blue: /\bblue\b|turquoise/i, red: /\bred\b/i, yellow: /\byellow\b/i,
   orange: /\borange\b/i, purple: /\bpurple\b|lavender/i, pink: /\bpink\b/i,
 };
@@ -68,7 +68,12 @@ test('every member is a real roster entry, groups stay selective, strengths foll
       if (m.pool === 'mcu' && g.kind === 'archetype') assert.equal(typeof m.mua3, 'boolean', key + ' MCU archetype members record the MUA3 listing');
       perPool[m.pool] = (perPool[m.pool] || 0) + 1;
     }
-    for (const [pool, n] of Object.entries(perPool)) assert.ok(n <= 10, g.name + ' has ' + n + ' members in ' + pool + '; keep groups selective');
+    // Groups stay selective (10 per pool) unless the owner lifted the cap for that group (perPoolCap: null).
+    // Owner ruling 2026-11-20: Sorcerers is uncapped; every sourced spellcaster joins.
+    if (g.slug === 'sorcerers') assert.equal(g.perPoolCap, null, 'Sorcerers is uncapped by owner ruling');
+    else assert.ok(g.perPoolCap === undefined, g.name + ' must keep the default per-pool cap');
+    const cap = g.perPoolCap === null ? Infinity : A.PER_POOL_CAP;
+    for (const [pool, n] of Object.entries(perPool)) assert.ok(n <= cap, g.name + ' has ' + n + ' members in ' + pool + '; keep groups selective');
   }
   for (const s of ['sorcerers', ...COLOR_SLUGS]) assert.ok(ids.has('tag:' + s), 'missing tag ' + s);
   // One colour per character.
