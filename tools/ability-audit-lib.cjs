@@ -11,6 +11,11 @@ const LEGACY_POOL_IDS = ['nba', 'mcu', 'toons', 'muppets', 'games', 'pokemon', '
 // Pools registered by data/new-pool-core.js (DC, Middle-earth, Harry Potter, ...).
 const ADDED_POOL_IDS = ['dc', 'lotr', 'harrypotter'];
 const POOL_IDS = [...LEGACY_POOL_IDS, ...ADDED_POOL_IDS];
+// Pools the V2 research pipeline covers in addition to POOL_IDS. They load only when a caller asks
+// (loadGame({ extraPools })), so the ability and Campaign audits keep their current scope and snapshots.
+// Action Movies (PR #70) was never added to the research queue; V2 step 2 needs its profiles.
+const RESEARCH_EXTRA_POOL_IDS = ['actionmovies'];
+const EXTRA_POOL_FILES = { actionmovies: 'data/pools-action-movies.js' };
 const POWER_TAGS = ['flight', 'magic', 'psychic', 'aquatic', 'fire', 'ice', 'electric',
   'tech', 'stealth', 'teleport', 'healing', 'giants'];
 // Same order as the <script> tags in index.html.
@@ -22,7 +27,9 @@ const DATA_FILES = ['data/mcu-profiles.js', 'data/toons-profiles.js', 'data/game
 
 function read(p) { return fs.readFileSync(path.join(ROOT, p), 'utf8'); }
 
-function loadGame() {
+function loadGame(opts = {}) {
+  const extraPools = opts.extraPools || [];
+  for (const p of extraPools) if (!EXTRA_POOL_FILES[p]) throw new Error('Unknown extra pool ' + p);
   const ctx = vm.createContext({
     window: { DA_CHARACTER_GUIDES: {} },
     S: { campaign: { history: [], roster: {}, step: 0, stageOrder: [] } },
@@ -30,7 +37,11 @@ function loadGame() {
     muppetForceOf: () => null, MUPPET_FORCE_RULE: { campaignMinimum: 65 },
     lsGet: (_, v) => v, lsSet: () => {}, SPORTS: {}
   });
-  for (const f of DATA_FILES) vm.runInContext(read(f), ctx, { filename: f });
+  for (const f of DATA_FILES) {
+    vm.runInContext(read(f), ctx, { filename: f });
+    // Same position as in index.html: added pool files load right after pools-harry-potter.js.
+    if (f === 'data/pools-harry-potter.js') for (const p of extraPools) vm.runInContext(read(EXTRA_POOL_FILES[p]), ctx, { filename: EXTRA_POOL_FILES[p] });
+  }
   const html = read('index.html');
   vm.runInContext('var POOLS=Object.assign({}, window.DA_ADDED_POOLS);', ctx);
   for (const id of LEGACY_POOL_IDS) {
@@ -42,7 +53,7 @@ function loadGame() {
   const pools = vm.runInContext('POOLS', ctx);
   const lore = vm.runInContext('window.DA_POOL_LORE || {}', ctx);
   const roster = [];
-  for (const pool of POOL_IDS) {
+  for (const pool of [...POOL_IDS, ...extraPools]) {
     if (!pools[pool]) throw new Error('Pool ' + pool + ' did not load');
     for (const e of pools[pool].entries) {
       // Mirrors buildCandidates in index.html: lore "short" replaces the roster blurb when present.
@@ -96,4 +107,4 @@ function engineMatrix(game) {
   return out;
 }
 
-module.exports = { ROOT, POOL_IDS, LEGACY_POOL_IDS, ADDED_POOL_IDS, POWER_TAGS, loadGame, engineMatrix, read };
+module.exports = { ROOT, POOL_IDS, LEGACY_POOL_IDS, ADDED_POOL_IDS, RESEARCH_EXTRA_POOL_IDS, POWER_TAGS, loadGame, engineMatrix, read };
