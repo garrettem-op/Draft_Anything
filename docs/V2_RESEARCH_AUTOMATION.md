@@ -31,6 +31,8 @@ The owner widened research for every fictional character, in every pool (Action 
 
 **Gemini context.** The roster snapshot now carries, for every identity, its roster source (for Action Movies, the film), its blurb and its separate forms. The worker sends these with each identity, so the model knows which version to research.
 
+**Battle Royale moves.** Research powers join V2 fights through `data/option-c/research-moves-data.js`. After research merges, regenerate it with `node tools/build-research-moves.cjs`; `--check` reports drift. See `docs/option-c/RESEARCH_POWERS.md`.
+
 ## Research file format
 
 ```json

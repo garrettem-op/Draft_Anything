@@ -11,7 +11,11 @@
   const active=score=>(score?.rows||[]).filter(r=>r.cand&&!r.pos.coach&&!r.pos.bench);
   const abilityApi=(root&&root.DA_BRAWL_ABILITY_API)||
     (typeof module!=='undefined'&&module.exports?require('./brawl-attack-profiles.js'):null);
-  const abilityFor=c=>abilityApi?.brawlAbilityOf?.(c)||null;
+  // Version 2: a character with no V1 combat profile may fight with a move from its research record
+  // (data/option-c/research-moves.js, docs/option-c/RESEARCH_POWERS.md). Looked up at call time, so a
+  // page without those files (Version 1) fights exactly as before, and a V1 profile always wins.
+  const researchFor=c=>{const api=root&&root.DA_RESEARCH_MOVES;return api&&typeof api.researchMoveOf==='function'?api.researchMoveOf(c):null;};
+  const abilityFor=c=>abilityApi?.brawlAbilityOf?.(c)||researchFor(c)||null;
   // Rare, reviewed transformations must feel qualitatively different from a
   // mild stat boost. Tier-5 forms and feat-reviewed flagship forms are Apex;
   // other reviewed tier-4 forms are Empowered. Baseline characters and
