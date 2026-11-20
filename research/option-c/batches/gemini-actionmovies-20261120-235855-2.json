@@ -1,0 +1,757 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261120-235855 #2",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:Dwayne Hicks",
+      "continuity": "Aliens (1986)",
+      "summary": "Dwayne Hicks is a disciplined and experienced Colonial Marine corporal who excels in tactical firearms combat, squad leadership, and survival under extreme pressure against xenomorph infestations.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Pulse rifle fire",
+          "Shotgun blasts",
+          "Pistol combat",
+          "Tactical defensive positioning"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Colonial Marine body armor and helmet",
+          "Tactical cover usage",
+          "Squad coordination and crossfire"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to acid blood upon close-range melee kills",
+        "Limited ammunition reserves in protracted engagements"
+      ],
+      "mobility": [
+        "Running",
+        "Dropship transport",
+        "APCs"
+      ],
+      "limitations": [
+        "Ammunition dependent",
+        "Human physical limitations subject to injury and acid burns"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Aliens_(film)",
+          "supports": "Covers Hicks's role as a Colonial Marine corporal, weapon usage, and encounters with xenomorphs."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully operates a motion tracker and coordinates defensive perimeters against swarming xenomorphs.",
+          "citation": "Aliens (1986)",
+          "source": 0
+        },
+        {
+          "claim": "Survives initial operations in the Hadley's Hope colony and defends the survivors.",
+          "citation": "Aliens (1986)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Xenomorph",
+          "result": "win",
+          "citation": "Aliens (1986)",
+          "note": "Fought off multiple attacking aliens using pulse rifles and coordinated squad defense.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Equipped with futuristic military weaponry, motion trackers, and Colonial Marine body armor.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact fate or operational record outside the primary film continuity and official sequels."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Elizabeth Swann",
+      "continuity": "Pirates of the Caribbean film series",
+      "summary": "Elizabeth Swann evolves from a sheltered governor's daughter into a cunning pirate lord and capable swordfighter who relies on agility, improvised tactics, and charismatic leadership.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Cutlass fencing",
+          "Pistol marksmanship",
+          "Improvised environmental combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Agility and evasion",
+          "Parrying with a cutlass",
+          "Strategic positioning"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability to physical injury and firearms",
+        "Lack of supernatural durability"
+      ],
+      "mobility": [
+        "Sailing ships",
+        "Running",
+        "Climbing rigging"
+      ],
+      "limitations": [
+        "Relies entirely on standard human physical capability and conventional weaponry"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Elizabeth_Swann",
+          "supports": "Covers Elizabeth Swann's character progression, swordfighting skills, and leadership as Pirate King."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fights multiple pirates using a sword and clever environmental traps on Isla de Muerta.",
+          "citation": "Pirates of the Caribbean: The Curse of the Black Pearl (2003)",
+          "source": 0
+        },
+        {
+          "claim": "Leads the pirate fleets into battle as the elected Pirate King.",
+          "citation": "Pirates of the Caribbean: At World's End (2007)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Various crew members of the Black Pearl",
+          "result": "win",
+          "citation": "Pirates of the Caribbean: The Curse of the Black Pearl (2003)",
+          "note": "Used cunning and environment to trap opponents.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific martial training background prior to her adventures."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ellen Ripley",
+      "continuity": "Alien film franchise",
+      "summary": "Ellen Ripley is a resourceful survivor and tactical troubleshooter who overcomes relentless extraterrestrial threats through sheer tenacity, engineering ingenuity, and combat loader operation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Flamethrower sweeps",
+          "Pulse rifle fire",
+          "Power loader mechanical crushing"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy industrial exoskeletons",
+          "Hazard suits",
+          "Defensive cover and tactical retreat"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to biological trauma and xenomorph acid",
+        "Human physical fragility without heavy equipment"
+      ],
+      "mobility": [
+        "Running",
+        "Spaceship navigation",
+        "Power loader movement"
+      ],
+      "limitations": [
+        "Human endurance limits",
+        "Equipment dependency for heavy combat advantages"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ellen_Ripley",
+          "supports": "Covers Ellen Ripley's encounters with xenomorphs, use of power loaders, and survival feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Pilots a P-5000 Work Loader to physically battle and defeat the Alien Queen.",
+          "citation": "Aliens (1986)",
+          "source": 0
+        },
+        {
+          "claim": "Purges an entire xenomorph nest using an integrated flamethrower and pulse rifle.",
+          "citation": "Aliens (1986)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Alien Queen",
+          "result": "win",
+          "citation": "Aliens (1986)",
+          "note": "Fought using a heavy industrial power loader and ejected her into an airlock.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Operates industrial power loaders and advanced futuristic weaponry.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Clones and hybrid physiology variations introduced in later sequels."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ethan Hunt",
+      "continuity": "Mission: Impossible film series",
+      "summary": "Ethan Hunt is an elite IMF agent specializing in high-stakes infiltration, espionage, disguise manipulation, and extreme physical stunts to neutralize global security threats.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat",
+          "Firearms marksmanship",
+          "Infiltration and sabotage",
+          "Explosive rigging"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced tactical gear",
+          "Holographic mask disguise deception",
+          "Acrobatic evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to physical harm and torture like any peak human",
+        "Dependence on IMF tech support and gadgets"
+      ],
+      "mobility": [
+        "Running",
+        "Motorcycle riding",
+        "Free climbing",
+        "Parachuting",
+        "Piloting aircraft"
+      ],
+      "limitations": [
+        "Peak human biological limits",
+        "Requires specialized gadget preparation"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ethan_Hunt",
+          "supports": "Covers Ethan Hunt's background as an IMF agent, espionage skills, and stunt-based action feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrates the CIA headquarters by rappelling into a heavily monitored pressure-sensitive vault.",
+          "citation": "Mission: Impossible (1996)",
+          "source": 0
+        },
+        {
+          "claim": "Climbs the exterior glass of the Burj Khalifa using specialized adhesive gloves.",
+          "citation": "Mission: Impossible – Ghost Protocol (2011)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sean Ambrose",
+          "result": "win",
+          "citation": "Mission: Impossible 2 (2000)",
+          "note": "Defeated in hand-to-hand combat on a beach after a motorcycle chase.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes face-mask generators, climbing gloves, and specialized IMF espionage technology.",
+          "source": 0
+        },
+        {
+          "tag": "infiltration",
+          "claim": "Specializes in covert infiltration of highly secure government and criminal facilities.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Performs undetected espionage entries into high-security vaults.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of IMF technological reserves during off-grid operations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Evelyn Carnahan",
+      "continuity": "The Mummy film series",
+      "summary": "Evelyn Carnahan is an intelligent Egyptologist and librarian who uses her encyclopedic knowledge of ancient artifacts, languages, and occasional firearms to survive supernatural encounters.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Revolving pistol marksmanship",
+          "Recitation of ancient Egyptian incantations",
+          "Improvised weapon strikes"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evasion",
+          "Magical protective artifacts",
+          "Shelter behind structural cover"
+        ]
+      },
+      "weaknesses": [
+        "Standard human physical vulnerability",
+        "Clumsy under direct melee pressure without prep"
+      ],
+      "mobility": [
+        "Running",
+        "Horseback riding",
+        "Biplane passenger"
+      ],
+      "limitations": [
+        "Physical combat relies entirely on basic firearms and defense",
+        "Spells require specific ancient texts and pronunciation"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Evelyn_Carnahan",
+          "supports": "Covers Evelyn Carnahan's expertise in Egyptology, magical lore, and confrontations with mummies."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Recites passages from the Book of Amun-Ra to strip Imhotep of his immortal powers.",
+          "citation": "The Mummy (1999)",
+          "source": 0
+        },
+        {
+          "claim": "Unlocks ancient tombs and translates complex hieroglyphs under hazardous conditions.",
+          "citation": "The Mummy (1999)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Anck-su-namun",
+          "result": "draw",
+          "citation": "The Mummy Returns (2001)",
+          "note": "Fought in hand-to-hand combat utilizing past-life memories before the fight was interrupted.",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Cast anti-undead spells or rituals",
+          "dependsOn": "Access to authentic ancient texts like the Book of Amun-Ra",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Reads and recites ancient Egyptian scrolls capable of affecting supernatural entities.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact extent of her past-life combat abilities when awakened."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Gogo Yubari",
+      "continuity": "Kill Bill: Volume 1 (2003)",
+      "summary": "Gogo Yubari is a lethal teenage assassin serving O-Ren Ishii, utilizing a disguised meteor hammer and ruthless cunning to trap and destroy opponents in close quarters.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Meteor hammer (kusarigama-style chained steel ball with blade)",
+          "Hidden poison darts",
+          "Close-quarters knife fighting"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Acrobatic dodging",
+          "Chain weapon deflection"
+        ]
+      },
+      "weaknesses": [
+        "Prone to reckless overconfidence and sadism",
+        "Vulnerable if her chained weapon gets tangled or caught"
+      ],
+      "mobility": [
+        "Acrobatic flips",
+        "Sprint running"
+      ],
+      "limitations": [
+        "Short range restricted by the length of her chain weapon",
+        "Human physical durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kill_Bill:_Volume_1",
+          "supports": "Covers Gogo Yubari's role as O-Ren Ishii's bodyguard and her fight with Beatrix Kiddo using a meteor hammer."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Effectively wields a meteor hammer in combat, hurling the weighted chain ball to wrap around opponents and obstacles.",
+          "citation": "Kill Bill: Volume 1 (2003)",
+          "source": 0
+        },
+        {
+          "claim": "Assassines businessman Tanaka prior to the House of Blue Leaves sequence.",
+          "citation": "Kill Bill: Volume 1 (2003)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Beatrix Kiddo",
+          "result": "loss",
+          "citation": "Kill Bill: Volume 1 (2003)",
+          "note": "Killed during the House of Blue Leaves fight after getting her own chain wrapped around her neck.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Complete backstory prior to joining the Crazy 88 Yakuza gang."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Gorgo",
+      "continuity": "Gorgo (1960)",
+      "summary": "Gorgo is a massive prehistoric sea monster captured off the coast of Ireland, possessing colossal physical strength, structural devastation capabilities, and high resilience to conventional military weapons.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Building demolition",
+          "Tail swipes",
+          "Stomping",
+          "Rampage charges"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Enormous thick hide",
+          "Immense mass and size"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to capture via specialized electrical nets and heavy trapping equipment",
+        "Susceptible to targeted heavy artillery fire"
+      ],
+      "mobility": [
+        "Swimming",
+        "Heavy terrestrial walking"
+      ],
+      "limitations": [
+        "Slow turning radius due to massive size",
+        "Targetable by coordinated military forces"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gorgo_(film)",
+          "supports": "Covers Gorgo's status as a giant prehistoric monster captured in Ireland and rampaging through London."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Demolishes portions of central London including Piccadilly Circus during a rampage.",
+          "citation": "Gorgo (1960)",
+          "source": 0
+        },
+        {
+          "claim": "Resists standard military tank fire and small arms before being subdued by massed electrical cables.",
+          "citation": "Gorgo (1960)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "British Military",
+          "result": "win",
+          "citation": "Gorgo (1960)",
+          "note": "Overwhelmed tanks and troops in London before reuniting with its even larger mother.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "A towering prehistoric creature standing dozens of feet tall.",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Natural aquatic creature originating from the ocean depths near Ireland.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Spends its life in the sea and breathes underwater.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact biological origins beyond prehistoric monster lore."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Guy of Gisborne",
+      "continuity": "The Adventures of Robin Hood (1938)",
+      "summary": "Sir Guy of Gisborne is a ruthless and skilled Norman knight who serves the corrupt Sheriff of Nottingham, utilizing heavy broadsword combat and armored guards to enforce tyranny.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Broadsword fencing",
+          "Knightly combat charges",
+          "Guarded infantry tactics"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Full medieval plate armor and chainmail",
+          "Steel shield and sword parries"
+        ]
+      },
+      "weaknesses": [
+        "Slowed down by heavy medieval armor",
+        "Arrogance and overreliance on brute force"
+      ],
+      "mobility": [
+        "Horseback riding",
+        "Walking in armor"
+      ],
+      "limitations": [
+        "Restricted mobility due to heavy medieval armor weight",
+        "Vulnerable to agile opponents in close quarters"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Adventures_of_Robin_Hood",
+          "supports": "Covers Sir Guy of Gisborne's role as the Sheriff's enforcer and his sword fights with Robin Hood."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engages Robin Hood in an intense, extended sword duel inside Nottingham Castle.",
+          "citation": "The Adventures of Robin Hood (1938)",
+          "source": 0
+        },
+        {
+          "claim": "Commands Norman soldiers to hunt down and suppress outlaws in Sherwood Forest.",
+          "citation": "The Adventures of Robin Hood (1938)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Robin Hood",
+          "result": "loss",
+          "citation": "The Adventures of Robin Hood (1938)",
+          "note": "Defeated in a duel to the death by Robin Hood in the castle throne room.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance in large-scale medieval warfare outside castle skirmishes."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Han",
+      "continuity": "Fast & Furious franchise",
+      "summary": "Han Lue is a cool-headed, drift-racing specialist and tactician who combines exceptional vehicular control with precise firearms and cool under-fire composure.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Precision high-speed drifting",
+          "Vehicle ramming and tactical driving",
+          "Pistol combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Custom-tuned armored or roll-caged sports cars",
+          "Evasive driving maneuvers"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable while outside of his vehicle",
+        "Human physical limitations"
+      ],
+      "mobility": [
+        "High-performance sports cars",
+        "Street racing motorcycles",
+        "Running"
+      ],
+      "limitations": [
+        "Relies heavily on having a high-performance vehicle for peak tactical effectiveness"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Han_Lue",
+          "supports": "Covers Han's driving skills, involvement in the Fast & Furious crew, and tactical abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Executes complex drift maneuvers through dense Tokyo street traffic to outmaneuver rivals.",
+          "citation": "The Fast and the Furious: Tokyo Drift (2006)",
+          "source": 0
+        },
+        {
+          "claim": "Participates in precision heists and vehicular ambushes across multiple international locations.",
+          "citation": "Fast & Furious 6 (2013)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Deckard Shaw",
+          "result": "loss",
+          "citation": "Furious 7 (2015)",
+          "note": "Caught in an engineered car crash orchestrated by Deckard Shaw.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Expert driver who handles high-performance customized vehicles in complex street chases.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact details of his undercover survival after Tokyo Drift prior to his return in F9."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Hans Gruber",
+      "continuity": "Die Hard (1988)",
+      "summary": "Hans Gruber is a brilliant, cold-blooded intellectual terrorist leader who relies on meticulous planning, psychological manipulation, and armed mercenaries to execute high-stakes heists.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Pistol marksmanship",
+          "Hostage coercion",
+          "Tactical mercenary squad deployment",
+          "Explosive vault breaching"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armed mercenary perimeter guard",
+          "Deception and acting as a civilian hostage"
+        ]
+      },
+      "weaknesses": [
+        "Physically unequipped for direct hand-to-hand combat against trained operators",
+        "Overconfident in intellectual superiority"
+      ],
+      "mobility": [
+        "Elevator usage",
+        "Stairwells",
+        "Vehicle transport"
+      ],
+      "limitations": [
+        "Relies on henchmen and planning rather than personal combat prowess",
+        "Normal human fragility"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Die_Hard",
+          "supports": "Covers Hans Gruber's leadership of the terrorist takeover of Nakatomi Plaza and his use of firearms and tactics."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Seizes control of Nakatomi Plaza and locks down all communications and exits.",
+          "citation": "Die Hard (1988)",
+          "source": 0
+        },
+        {
+          "claim": "Successfully bypasses complex computer-controlled vault security locks using electronic code-breaking teams.",
+          "citation": "Die Hard (1988)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "John McClane",
+          "result": "loss",
+          "citation": "Die Hard (1988)",
+          "note": "Fell to his death from Nakatomi Plaza after John McClane unclipped his wristwatch.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "infiltration",
+          "claim": "Orchestrates a sophisticated covert takeover of Nakatomi Plaza disguised as a terrorist/political group.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his terrorist network's international funding sources."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
