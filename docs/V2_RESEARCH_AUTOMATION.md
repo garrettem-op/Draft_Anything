@@ -11,6 +11,26 @@ Governing plan: [`docs/PROJECT_VISION.md`](https://github.com/garrettem-op/Draft
 - **One merge path.** Merging is done only by the scheduled research tick (`.github/workflows/v2-research-tick.yml` on `main`, #102), which runs the gate (`tools/v2-research-gate.cjs`) from a pinned, already-merged commit. The gate merges a PR only when it touches research batch JSON exclusively, is labeled `v2-research-approved`, has an **APPROVED** review from a non-author, non-bot account **on the current head commit**, has no outstanding `CHANGES_REQUESTED`, and every check on that head completed green, including `validate-research`. It squash-merges through the REST API pinned to the approved head SHA. Any code, workflow, test or scoring change needs manual review and merge. A draft is ineligible. Never apply the approval or label before checking the actual evidence, not just the URL format.
 - The earlier event-driven merge workflow and issue-based assignment queue were removed (2026-11-12). The merge workflow ran mutable branch code with a write token. The queue handed out the same identities the automated worker draws from. The tick replaces both: it polls, so it also works for PRs opened with `GITHUB_TOKEN`, which fire no workflows. A merge waits at most one tick (30 minutes).
 
+## Research scope (owner ruling 2026-11-20)
+
+The owner widened research for every fictional character, in every pool (Action Movies, MCU, DC, Star Wars, Toons, Muppets, Video Games, Pokémon, Middle-earth, Harry Potter). A record covers:
+
+| Kind | What counts |
+|---|---|
+| `source` | The roster's own source: the Action Movies film, the MCU films and series, DC Comics, the game series, and so on. |
+| `sequel` | Everything that continues it in the same continuity: sequels, prequels, later seasons, series or games. Remakes and reboots do not count. |
+| `comic` | Any comic depiction of the character, tie-in or not. |
+
+- **All three count equally.** A comic feat counts as much as a film feat. This replaces the earlier rule that MCU entries use the film portrayal only.
+- Every `feats`, `notableResults` and `conditional` entry names its depiction in `depiction`, which must match a `depictions[]` title. The validator enforces this for any record with `depictionScope: "all"`.
+- A form held as its own roster identity (for example `dc:Batman|Hellbat Armor Batman`) keeps its feats in its own record; the base record does not take them.
+- NBA players are real people, so the rule does not apply to them.
+- Action Movies records must still name the roster film, say it is a film, and give its year when the roster title has one.
+
+**Records written before the ruling** (all 1,447 merged records) cover one continuity. Once no new identities are left, the research tick expands them in place, one batch file per PR. It keeps every earlier claim under an `earlier-record` depiction named after the old continuity, unions the technique, defense, mobility and weakness lists, keeps the old summary as `earlierSummary`, and adds the new depictions. Expanded records become `provisional`; a reviewer checks the new depictions before approving.
+
+**Gemini context.** The roster snapshot now carries, for every identity, its roster source (for Action Movies, the film), its blurb and its separate forms. The worker sends these with each identity, so the model knows which version to research.
+
 ## Research file format
 
 ```json

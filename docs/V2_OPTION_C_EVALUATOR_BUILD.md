@@ -106,6 +106,7 @@ Must preserve existing semantics:
 
 - Begin with a small manually inspected **golden scenario suite** in `data/option-c/benchmark-scenarios.json` and later expand. Never anchor to one manually selected screenshot.
 - Source exact continuity. **The existing roster's `mcu:Silver Surfer` is not automatically the same as mainline Marvel Comics Silver Surfer**; do not import a comics-only matchup outcome from a conversational example without reviewing the roster portrayal. Use Black Adam/Surfer as a *research and continuity fidelity* test before an odds benchmark.
+  - **Updated by owner ruling 2026-11-20:** research now covers the roster source, its sequels and any comic depiction, all counting equally (`docs/V2_RESEARCH_AUTOMATION.md`). Comic feats may now be used for `mcu:Silver Surfer`, but only from his own researched record, each labelled with its depiction. A matchup outcome from conversation is still not evidence.
 - Similarly, distinguish Batman vs selected Hellbat Armor Batman, ordinary Hulk vs World Breaker, King Thanos, and other form identities. Only reviewed selected forms receive Apex/Empowered benefits.
 - Calibrate both **directional correctness** (decisive powers and counters recognized) and **quantitative reliability** (holdout outcome frequencies from seeded simulations, probability calibration, log-loss/Brier score where a defensible outcome benchmark exists). Do not call 80% a verified statistic without a reference distribution.
 - Capture evidence completeness and unresolved issues instead of resolving all disputes by guess.

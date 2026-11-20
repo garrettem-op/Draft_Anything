@@ -22,7 +22,9 @@ For the first PR, the evaluator must be deterministic, independently testable in
 
 Key inspected integration points: `index.html`: `teamScore`, `gameRatings`, `matchRatingBreakdown`, `playGame`, `fitIn` / `fitAI`. Data modules: `data/character-abilities.js`, `data/variant-abilities.js`, `data/brawl-combat.js`, `data/brawl-attack-profiles.js`, `data/brawl-exceptional-power.js`, `data/bench-chemistry.js`, `data/muppet-force.js`, `data/toon-force.js`, `data/after-action.js`.
 
-**Do not equate power tags with confirmed combat proficiency. Do not automatically copy mainline comics feats to an MCU roster entry.**
+**Do not equate power tags with confirmed combat proficiency.**
+
+**Research scope (owner ruling 2026-11-20, replaces the earlier film-only rule for MCU entries):** every fictional character is researched across the roster's own source, everything that continues it (sequels, prequels, later seasons, series or games in the same continuity; not remakes or reboots) and **any comic depiction** of the character. All three count equally, and every feat, result and condition names its depiction. A form held as its own roster identity keeps its feats in its own record. NBA players are exempt. Details: `docs/V2_RESEARCH_AUTOMATION.md`.
 
 ## Merge authority (owner, 2026-11-13; standing approval restated 2026-11-20)
 

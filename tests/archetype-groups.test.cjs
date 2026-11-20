@@ -37,7 +37,8 @@ function findRecord(file, id) {
   return (j.characters || j.records || []).find(c => c.id === id) || null;
 }
 function recordText(r) {
-  return [r.summary, ...(r.offense?.techniques || []), ...(r.defense?.mechanisms || []), ...(r.mobility || []),
+  // earlierSummary: the pre-expansion summary kept when a record is expanded to all depictions (2026-11-20).
+  return [r.summary, r.earlierSummary, ...(r.offense?.techniques || []), ...(r.defense?.mechanisms || []), ...(r.mobility || []),
     ...(r.feats || []).map(f => f.claim), ...(r.sources || []).map(s => s.supports)].filter(Boolean).join(' \n ');
 }
 const originOf = s => (s.record && !s.url) ? 'repo-research' : new URL(s.url).hostname.replace(/^www\./, '').toLowerCase();

@@ -5,7 +5,9 @@
                   validate-research check if its head has none, then run the merge gate.
      generate   – drain the queue with Gemini until it is empty, the free-tier daily quota
                   is used up, or the time budget ends. One PR per batch (opened by the
-                  workflow token, so garrettem-op can independently approve it).
+                  workflow token, so garrettem-op can independently approve it). Once no new
+                  identities are left, it expands records written before the all-depictions
+                  scope (owner ruling 2026-11-20) in place, one batch file per PR.
    It works by polling, so it does not depend on events that GITHUB_TOKEN actions suppress.
 
    Trust boundary: in Actions this file runs from a pinned, already-merged commit and is given
@@ -104,6 +106,69 @@ function mergeRefined(batch, refined) {
   return { batch: { ...batch, characters }, done };
 }
 
+/* ---------- expand (all-depictions scope, edited in place) ---------- */
+/* Replace records by id with their all-depictions version, carrying every earlier claim over so nothing that
+   was already accepted is lost. Earlier evidence is labelled with an "earlier-record" depiction named after
+   the old continuity (its exact depiction was never recorded). Pure: never adds ids, never reorders, keeps
+   unmatched records byte-for-byte. */
+const EXPAND_NOTE = 'Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified.';
+function carryOver(old, nu) {
+  const rec = JSON.parse(JSON.stringify(nu));
+  const key = (t) => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  // Depiction for carried evidence: reuse a matching new title, else add the old continuity as an earlier record.
+  let earlier = rec.depictions.find((d) => key(d.title) && key(d.title) === key(old.continuity));
+  if (!earlier) {
+    const title = String(old.continuity || 'Earlier record').trim();
+    earlier = { title: rec.depictions.some((d) => d.title === title) ? title + ' (earlier record)' : title, kind: 'earlier-record' };
+    rec.depictions.push(earlier);
+  }
+  const sources = rec.sources, idx = new Map();
+  (old.sources || []).forEach((s, i) => {
+    let j = sources.findIndex((x) => x.url === s.url);
+    if (j < 0) { j = sources.length; sources.push({ url: s.url, supports: s.supports }); }
+    idx.set(i, j);
+  });
+  const union = (a, b) => { const out = [...(a || [])]; for (const x of b || []) if (typeof x === 'string' && !out.some((y) => String(y).toLowerCase() === x.toLowerCase())) out.push(x); return out; };
+  rec.offense = { ...rec.offense, domains: union(rec.offense.domains, old.offense && old.offense.domains), techniques: union(rec.offense.techniques, old.offense && old.offense.techniques) };
+  if (!rec.offense.range && old.offense && old.offense.range) rec.offense.range = old.offense.range;
+  rec.defense = { ...rec.defense, mechanisms: union(rec.defense.mechanisms, old.defense && old.defense.mechanisms) };
+  for (const k of ['mobility', 'limitations', 'support']) { const u = union(rec[k], old[k]); if (u.length) rec[k] = u; }
+  let weak = union(rec.weaknesses, old.weaknesses);
+  if (weak.length > 1) weak = weak.filter((w) => !/^not established/i.test(w));
+  rec.weaknesses = weak;
+  const carry = (list, oldList, id, extra) => {
+    const out = [...(list || [])], seen = new Set(out.map(id));
+    for (const it of oldList || []) {
+      if (!it || typeof it !== 'object' || seen.has(id(it))) continue;
+      seen.add(id(it));
+      out.push({ ...it, ...extra, ...(Number.isInteger(it.source) && idx.has(it.source) ? { source: idx.get(it.source) } : {}) });
+    }
+    return out;
+  };
+  const dep = { depiction: earlier.title };
+  const feats = carry(rec.feats, old.feats, (f) => key(f.claim), dep); if (feats.length) rec.feats = feats;
+  const results = carry(rec.notableResults, old.notableResults, (r) => key(r.opponent) + '|' + key(r.citation), dep); if (results.length) rec.notableResults = results;
+  const cond = carry(rec.conditional, old.conditional, (c) => key(c.ability), dep); if (cond.length) rec.conditional = cond;
+  const tags = carry(rec.campaignTags, old.campaignTags, (t) => t.tag, {}); if (tags.length) rec.campaignTags = tags;
+  if (typeof old.summary === 'string' && old.summary.trim().length >= 12 && old.summary !== rec.summary) rec.earlierSummary = old.summary;
+  if (!rec.formDifferences && old.formDifferences) rec.formDifferences = old.formDifferences;
+  for (const [k, v] of Object.entries(old)) if (!(k in rec) && !['reviewedBy', 'reviewNotes', 'researchStatus'].includes(k)) rec[k] = v;
+  rec.unknowns = [...(rec.unknowns || []), ...(old.unknowns || []).filter((u) => !(rec.unknowns || []).includes(u) && u !== EXPAND_NOTE), EXPAND_NOTE];
+  rec.researchStatus = 'provisional';
+  return rec;
+}
+function mergeExpanded(batch, expanded) {
+  const byId = new Map(expanded.map((r) => [r.id, r]));
+  const done = [];
+  const characters = batch.characters.map((old) => {
+    const nu = byId.get(old.id);
+    if (!nu || nu.depictionScope !== 'all' || !Array.isArray(nu.depictions) || !nu.depictions.length || !Array.isArray(nu.sources) || !nu.sources.length) return old;
+    done.push(old.id);
+    return carryOver(old, nu);
+  });
+  return { batch: { ...batch, characters }, done };
+}
+
 async function refine(argv) {
   const size = Number(argValue(argv, '--batch-size', '5'));
   const budgetMs = Number(argValue(argv, '--budget-minutes', '25')) * 60000;
@@ -139,11 +204,11 @@ async function refine(argv) {
       ids.forEach((id) => skip.add(id)); continue;
     }
     // Existing ids are 'known' by design here: refine edits in place and never adds an id.
-    const out = await worker.normalize(raw, ids, { checkUrl: (u, id) => worker.checkSource(u, id), checkBatch: pipe.checkBatch, known: new Set(audit.ids), tags: tagSet });
+    const out = await worker.normalize(raw, ids, { checkUrl: (u, id) => worker.checkSource(u, id), checkBatch: pipe.checkBatch, known: new Set(audit.ids), tags: tagSet, films: pipe.filmAnchorsFromContext(audit.context) });
     ids.forEach((id) => skip.add(id));
     const merged = mergeRefined(batch, out.characters);
     if (!merged.done.length) { say('Refine: no usable output for ' + ids.length + ' record(s) in ' + file); continue; }
-    const errors = pipe.checkBatch(file, merged.batch, new Set(audit.ids), tagSet);
+    const errors = pipe.checkBatch(file, merged.batch, new Set(audit.ids), tagSet, pipe.filmAnchorsFromContext(audit.context));
     if (errors.length) { say('Refine: skipped invalid result for ' + file + ': ' + errors[0]); continue; }
     const branch = 'gemini/v2-refine/' + file.replace(/\.json$/, '') + '-' + Date.now().toString(36);
     restWrite('POST', '/repos/' + REPO + '/git/refs', { ref: 'refs/heads/' + branch, sha: baseSha });
@@ -159,13 +224,13 @@ async function refine(argv) {
 }
 
 /* ---------- reconcile ---------- */
-function validatePR(pr, files, known, mergedRecords, tags) {
+function validatePR(pr, files, known, mergedRecords, tags, films) {
   const errors = [];
   const ids = new Set();
   for (const f of files) {
     let batch;
     try { batch = fileAt(f.filename, pr.head.sha); } catch (e) { errors.push(f.filename + ': unreadable or invalid JSON'); continue; }
-    errors.push(...pipe.checkBatch(path.basename(f.filename), batch, known, tags));
+    errors.push(...pipe.checkBatch(path.basename(f.filename), batch, known, tags, films));
     for (const c of Array.isArray(batch.characters) ? batch.characters : []) {
       if (!c || typeof c.id !== 'string') continue;
       if (ids.has(c.id)) errors.push(f.filename + ': duplicate ' + c.id);
@@ -195,7 +260,7 @@ function reconcile(audit, { dry = false } = {}) {
     if (!files.length || files.some((f) => f.status === 'removed' || !gate.RESEARCH_FILE.test(f.filename))) continue;
     const runs = gate.apiAll('/repos/' + REPO + '/commits/' + pr.head.sha + '/check-runs?per_page=100');
     if (!runs.some((r) => r.name === 'validate-research')) {
-      const v = validatePR(pr, files, known, audit.records, tags);
+      const v = validatePR(pr, files, known, audit.records, tags, pipe.filmAnchorsFromContext(audit.context));
       if (dry) { say('#' + pr.number + ': would post validate-research ' + (v.errors.length ? 'FAILURE: ' + v.errors.slice(0, 3).join(' | ') : 'success (' + v.count + ' records)')); }
       else {
         postCheck(pr.head.sha, !v.errors.length, v.errors.length ? v.errors.length + ' validation error(s)' : v.count + ' record(s) valid',
@@ -223,24 +288,29 @@ async function generate(argv) {
   const system = worker.systemInstruction(vision.text);
   const tagList = audit.tags || [];
   const tagSet = new Set(tagList);
-  const schema = worker.responseSchema(tagList);
+  const context = audit.context || {};
+  const films = pipe.filmAnchorsFromContext(context);
+  // All-depictions scope (owner ruling 2026-11-20) for every pool it covers; NBA keeps the plain schema.
+  const scopeOf = (ids) => (ids.length && pipe.inScope(ids[0]) ? 'all' : null);
+  const schemaFor = (scope) => worker.responseSchema(tagList, { depictions: scope === 'all' });
   say('Instructions: ' + vision.ref + '; ' + tagList.length + ' campaign tags in vocabulary.');
   const skip = new Set([...claimedIds(openResearchPRs()), ...manualIds(manualIssue())]);
   const transient = new Set();
   const failures = new Map();
-  let networkFailures = 0, calls = 0, prs = 0, records = 0, stop = 'queue empty', lastCall = 0;
+  let networkFailures = 0, calls = 0, prs = 0, records = 0, stop = 'queue empty', lastCall = 0, filmRetries = 0;
   const manual = [];
 
   while (true) {
     if (Date.now() - started > budgetMs) { stop = 'time budget reached'; break; }
     const next = pipe.nextBatch(audit, size, new Set([...skip, ...transient]));
     if (next.complete) break;
+    const scope = scopeOf(next.ids);
     const wait = 4500 - (Date.now() - lastCall);
     if (wait > 0) await sleep(wait);
     let raw;
     try {
       lastCall = Date.now(); calls++;
-      raw = await worker.callGemini({ apiKey: process.env.GEMINI_API_KEY, model, system, schema, prompt: worker.buildPrompt(next.ids, { tags: tagList }) });
+      raw = await worker.callGemini({ apiKey: process.env.GEMINI_API_KEY, model, system, schema: schemaFor(scope), prompt: worker.buildPrompt(next.ids, { tags: tagList, context, scope }) });
     } catch (e) {
       if (e instanceof worker.QuotaError && e.daily) { stop = 'Gemini free-tier daily quota reached'; break; }
       if (e instanceof worker.QuotaError) {
@@ -257,7 +327,7 @@ async function generate(argv) {
       next.ids.forEach((id) => transient.add(id));
       continue;
     }
-    const out = await worker.normalize(raw, next.ids, { checkUrl: (u, id) => worker.checkSource(u, id), checkBatch: pipe.checkBatch, known: new Set(audit.ids), tags: tagSet });
+    const out = await worker.normalize(raw, next.ids, { checkUrl: (u, id) => worker.checkSource(u, id), checkBatch: pipe.checkBatch, known: new Set(audit.ids), tags: tagSet, scope, films });
     if (!out.characters.length && out.flags.length && out.flags.every((f) => f.includes('unreachable'))) {
       // Every link unreachable looks like a runner network problem, not bad research: retry later.
       next.ids.forEach((id) => transient.add(id));
@@ -265,7 +335,10 @@ async function generate(argv) {
       continue;
     }
     networkFailures = 0;
-    out.dropped.forEach((d) => { skip.add(d.id); manual.push(d); });
+    // A record that names the wrong film is a model mistake, not missing sources: retry it next tick
+    // instead of parking it on the manual-research list.
+    const filmMiss = (d) => /continuity must (name the roster film|say it is the film|give the year)/.test(d.why);
+    out.dropped.forEach((d) => { if (filmMiss(d)) { transient.add(d.id); filmRetries++; } else { skip.add(d.id); manual.push(d); } });
     if (!out.characters.length) continue;
 
     const slug = next.pool.replace(/[^a-z0-9_-]/gi, '-').toLowerCase();
@@ -280,7 +353,7 @@ async function generate(argv) {
       method: 'Structured JSON from the Gemini API, instructed by ' + vision.ref + '. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.',
       characters: out.characters,
     };
-    const errors = pipe.checkBatch(name + '.json', batch, new Set(audit.ids), tagSet);
+    const errors = pipe.checkBatch(name + '.json', batch, new Set(audit.ids), tagSet, films);
     if (errors.length) { say('Skipped an invalid batch: ' + errors[0]); out.characters.forEach((c) => transient.add(c.id)); continue; }
     // REST only: new branch at develop's head, one added file. No checkout, no git hooks.
     const branch = 'gemini/v2-research/' + name;
@@ -301,10 +374,58 @@ async function generate(argv) {
     out.characters.forEach((c) => skip.add(c.id));
     prs++; records += out.characters.length;
   }
+  // Expansion: once no new identities are left, bring older records up to the all-depictions scope.
+  let expanded = 0, expandPrs = 0;
+  if (stop === 'queue empty') {
+    stop = 'queue empty; every record expanded';
+    while (true) {
+      if (Date.now() - started > budgetMs) { stop = 'time budget reached while expanding'; break; }
+      const exp = pipe.nextExpansion(audit, 20, new Set([...skip, ...transient]));
+      if (exp.complete) break;
+      exp.ids.forEach((id) => skip.add(id)); // attempted this tick, whatever happens
+      const filePath = 'research/option-c/batches/' + exp.file;
+      let meta, batch;
+      try { meta = JSON.parse(gh(['api', '/repos/' + REPO + '/contents/' + encodeURI(filePath) + '?ref=' + baseSha])); batch = JSON.parse(Buffer.from(meta.content, 'base64').toString('utf8')); }
+      catch (e) { say('Expand: cannot read ' + exp.file + '; skipped.'); continue; }
+      const got = [];
+      let halt = null;
+      for (let i = 0; i < exp.ids.length; i += size) {
+        const chunk = exp.ids.slice(i, i + size), old = batch.characters.filter((c) => chunk.includes(c.id));
+        const wait = 4500 - (Date.now() - lastCall);
+        if (wait > 0) await sleep(wait);
+        let raw;
+        try { lastCall = Date.now(); calls++; raw = await worker.callGemini({ apiKey: process.env.GEMINI_API_KEY, model, system, schema: schemaFor('all'), prompt: worker.buildExpandPrompt(old, { tags: tagList, context }) }); }
+        catch (e) {
+          if (e instanceof worker.QuotaError && e.daily) { halt = 'Gemini free-tier daily quota reached'; break; }
+          if (e instanceof worker.QuotaError) { await sleep(Math.min(Math.max(e.retryMs, 10000), 120000)); continue; }
+          if (e instanceof worker.FatalError) { halt = 'fatal: ' + e.message.slice(0, 200); break; }
+          continue; // unparseable output: these ids wait for the next tick
+        }
+        const out = await worker.normalize(raw, chunk, { checkUrl: (u, id) => worker.checkSource(u, id), checkBatch: pipe.checkBatch, known: new Set(audit.ids), tags: tagSet, scope: 'all', films });
+        got.push(...out.characters);
+      }
+      const merged = mergeExpanded(batch, got);
+      if (merged.done.length) {
+        const errors = pipe.checkBatch(exp.file, merged.batch, new Set(audit.ids), tagSet, films);
+        if (errors.length) say('Expand: skipped invalid result for ' + exp.file + ': ' + errors[0]);
+        else {
+          const branch = 'gemini/v2-expand/' + exp.file.replace(/\.json$/, '') + '-' + Date.now().toString(36);
+          restWrite('POST', '/repos/' + REPO + '/git/refs', { ref: 'refs/heads/' + branch, sha: baseSha });
+          restWrite('PUT', '/repos/' + REPO + '/contents/' + filePath, { message: 'research(option-c): expand ' + merged.done.length + ' record(s) in ' + exp.file + ' to all depictions', branch, sha: meta.sha,
+            content: Buffer.from(JSON.stringify(merged.batch, null, 2) + '\n').toString('base64') });
+          restWrite('POST', '/repos/' + REPO + '/pulls', { base: BASE, head: branch, title: 'Gemini V2 expand: ' + merged.done.length + ' record(s) in ' + exp.file + ' (all depictions)',
+            body: 'Automated in-place expansion to the all-depictions scope (owner ruling 2026-11-20: roster source, sequels and continuations, and any comic depiction, all counting equally; ' + vision.ref + '). No new ids. Earlier claims are carried over under an "earlier-record" depiction; records become provisional.\n\n' +
+              merged.done.map((id) => '- `' + id + '`').join('\n') + '\n\nReview: check the new depictions and their cited support, then approve and add `v2-research-approved`. Relates to #101.' });
+          expandPrs++; expanded += merged.done.length;
+        }
+      } else say('Expand: no usable output for ' + exp.ids.length + ' record(s) in ' + exp.file);
+      if (halt) { stop = halt; break; }
+    }
+  }
   addManual(manual);
   const a = audit;
   const remaining = a.ids.filter((id) => !a.records.has(id) && !skip.has(id)).length;
-  say('Generate: ' + calls + ' Gemini call(s), ' + prs + ' PR(s), ' + records + ' record(s), ' + manual.length + ' sent to manual research. Stopped: ' + stop + '.');
+  say('Generate: ' + calls + ' Gemini call(s), ' + prs + ' PR(s), ' + records + ' record(s), ' + manual.length + ' sent to manual research, ' + filmRetries + ' wrong-film record(s) left for retry; expanded ' + expanded + ' record(s) in ' + expandPrs + ' PR(s). Stopped: ' + stop + '.');
   say('Backlog: ' + a.ids.length + ' identities, ' + a.records.size + ' merged, ' + (a.ids.length - a.records.size - remaining) + ' in open PRs or manual list, ' + remaining + ' not yet started.');
   if (stop.startsWith('fatal')) process.exitCode = 1;
 }
@@ -321,4 +442,4 @@ async function main(argv) {
   }
 }
 if (require.main === module) main(process.argv.slice(2)).catch((e) => { console.error(e.stack || e.message); process.exitCode = 1; });
-module.exports = { mergeRefined, validatePR, claimedIds, state, loadVision };
+module.exports = { mergeRefined, mergeExpanded, carryOver, EXPAND_NOTE, validatePR, claimedIds, state, loadVision };
