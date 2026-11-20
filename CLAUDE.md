@@ -14,7 +14,7 @@ This file is intentionally present only on the `develop/v2-option-c` line. It do
 
 **First PR only:** Implement a pure, typed, explainable, no-API qualitative matchup evaluator in **shadow mode**, not an active combat or sports replacement. The live game and published Version 1 continue unchanged.
 
-Start your implementation branch `claude/option-c-shadow-evaluator` **from `develop/v2-option-c`**, not from `main`. Target all implementation PRs at `develop/v2-option-c`. Do not merge them yourself. `releases/v1.0.0` is the immutable recovery baseline. Do not force-push or alter production Pages/Supabase, API credentials, workflows/secrets, or other unrelated features.
+Start your implementation branch `claude/option-c-shadow-evaluator` **from `develop/v2-option-c`**, not from `main`. Target all implementation PRs at `develop/v2-option-c`. Merge them yourself once CI is green (see **Merge authority** below). `releases/v1.0.0` is the immutable recovery baseline. Do not force-push or alter production Pages/Supabase, API credentials, workflows/secrets, or other unrelated features.
 
 Preserve numerical 12-attribute role fits and existing chemistry, signature, coach, sidekick, bench, MuppetForce, ToonForce and variant effects. Use a typed, provenance-aware, per-effect ledger with exact recipients, conditions, caps and one-time application keys. Existing legacy values are already part of `teamScore` and `gameRatings`: **do not double-add them**.
 
@@ -23,6 +23,12 @@ For the first PR, the evaluator must be deterministic, independently testable in
 Key inspected integration points: `index.html`: `teamScore`, `gameRatings`, `matchRatingBreakdown`, `playGame`, `fitIn` / `fitAI`. Data modules: `data/character-abilities.js`, `data/variant-abilities.js`, `data/brawl-combat.js`, `data/brawl-attack-profiles.js`, `data/brawl-exceptional-power.js`, `data/bench-chemistry.js`, `data/muppet-force.js`, `data/toon-force.js`, `data/after-action.js`.
 
 **Do not equate power tags with confirmed combat proficiency. Do not automatically copy mainline comics feats to an MCU roster entry.**
+
+## Merge authority (owner, 2026-11-13; standing approval restated 2026-11-20)
+
+Claude merges its own PRs into `develop/v2-option-c` without asking the owner each time, once CI is green and the PR states what was and was not tested. This matches the review-and-merging rules in `docs/PROJECT_VISION.md` on `main`.
+
+Still reserved for the owner, never done without his explicit go-ahead in the conversation: merging to `main`, anything touching `releases/v1.0.0` or the live V1 game, deploying or releasing V2, production Pages/Supabase, credentials, secrets and repository security settings, new paid API spend, and force-pushes.
 
 ## Verification and delivery
 
