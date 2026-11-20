@@ -1,0 +1,625 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261120-235836 #1",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:Achilles",
+      "continuity": "Troy (2004 film)",
+      "summary": "Achilles fights as an unmatched martial combatant and master of the sword and spear, relying on incredible agility, ferocity, and a reputed invulnerability that ends only at his heel.",
+      "offense": {
+        "domains": [
+          "physical",
+          "melee"
+        ],
+        "techniques": [
+          "Dual-wielding swords",
+          "Spear thrusting and throwing",
+          "Aerial leaping strike"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bronze armor and shield",
+          "Unmatched parrying and dodging",
+          "Fabled near-invulnerability except for his heel"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable heel",
+        "Hubris and emotional volatility"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Troy_(2004_film)",
+          "supports": "General character details, background, and portrayal in the 2004 film Troy."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Killed the giant warrior Boagrius in single combat effortlessly.",
+          "citation": "Troy (2004 film opening scene)",
+          "source": 0
+        },
+        {
+          "claim": "Slew Hector outside the gates of Troy and dragged his body behind a chariot.",
+          "citation": "Troy (2004 film climax)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Boagrius",
+          "result": "win",
+          "citation": "Troy (2004 film)",
+          "note": "Defeated the champion quickly with a single sword strike.",
+          "source": 0
+        },
+        {
+          "opponent": "Hector",
+          "result": "win",
+          "citation": "Troy (2004 film)",
+          "note": "Fought a prolonged duel outside the walls of Troy before prevailing.",
+          "source": 0
+        },
+        {
+          "opponent": "Paris",
+          "result": "loss",
+          "citation": "Troy (2004 film)",
+          "note": "Killed by a poisoned arrow shot to his heel by Paris.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact mechanics of his mythical invulnerability are left unexplained in the gritty realistic tone of the 2004 film."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Agamemnon",
+      "continuity": "Troy (2004 film)",
+      "summary": "Agamemnon commands armies as a political and military leader, typically letting his champions like Achilles fight his duels while he directs strategy and commands troops.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Commanding large military forces",
+          "Standard sword and armor combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Royal armor",
+          "Bodyguards and phalanx formations"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance",
+        "Relies entirely on subordinates for personal combat prowess"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Troy_(2004_film)",
+          "supports": "Agamemnon's role as king and commander of the Greek forces in the 2004 film."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Conquered and subjugated various Greek city-states before launching the invasion of Troy.",
+          "citation": "Troy (2004 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Priam",
+          "result": "win",
+          "citation": "Troy (2004 film)",
+          "note": "Political victory/dominance over Troy, though assassinated by Briseis later.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Personal combat capabilities are limited compared to frontline heroes."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Agent Smith",
+      "continuity": "The Matrix (1999)",
+      "summary": "Agent Smith is a sentient computer program with superhuman physical capabilities, the power to overwrite human minds to clone himself, and complete control over the simulated physics of the Matrix.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech",
+          "control"
+        ],
+        "techniques": [
+          "Hand-to-hand martial arts combat",
+          "Firearms proficiency",
+          "Mind overwriting/cloning",
+          "Simulation manipulation"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superhuman durability",
+          "Rapid healing/regeneration within the simulation",
+          "Transferring consciousness to other agents or humans"
+        ]
+      },
+      "weaknesses": [
+        "Destruction or rewriting by Neo",
+        "Tied to the stability and rules of the Matrix system (initially)"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Agent_Smith",
+          "supports": "Agent Smith's abilities, powers, and role in The Matrix franchise."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Dodged gunfire and exhibited superhuman strength capable of denting concrete and bending steel.",
+          "citation": "The Matrix (1999)",
+          "source": 0
+        },
+        {
+          "claim": "Overwrote the mind of Bane in the real world while possessing him via digital-neural interface.",
+          "citation": "The Matrix Revolutions (2003)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Neo",
+          "result": "loss",
+          "citation": "The Matrix (1999)",
+          "note": "Destroyed when Neo unlocked his full One powers, though Smith returned as a virus.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "self-teleport",
+          "claim": "Can instantly relocate or possess other bodies within the Matrix network.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his assimilation powers outside of simulated environments."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Al Powell",
+      "continuity": "Die Hard (1988)",
+      "summary": "Al Powell is a desk-bound LAPD sergeant who provides crucial radio support, tactical updates, and firearms backup during crisis situations.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Service pistol marksmanship",
+          "Police radio communication"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Police cruiser cover",
+          "Standard LAPD body armor"
+        ]
+      },
+      "weaknesses": [
+        "Psychological trauma from past accidental shootings",
+        "Standard human physical limits"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Die_Hard",
+          "supports": "Al Powell's character details and role in the 1988 film Die Hard."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Shot and killed Karl Vreski to save John McClane at the climax of the Nakatomi Tower siege.",
+          "citation": "Die Hard (1988)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Karl Vreski",
+          "result": "win",
+          "citation": "Die Hard (1988)",
+          "note": "Ambushed Karl with his service revolver to protect McClane.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Not trained for high-intensity solo counter-terrorism combat."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Alexander Conklin",
+      "continuity": "The Bourne Identity (2002)",
+      "summary": "Alexander Conklin is a high-ranking CIA black-ops director who manages elite assassins, utilizing surveillance networks, tactical teams, and operational authority.",
+      "offense": {
+        "domains": [
+          "tech",
+          "control"
+        ],
+        "techniques": [
+          "Covert surveillance coordination",
+          "Directing assassination squads"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Safehouses",
+          "Armed bodyguards and government security"
+        ]
+      },
+      "weaknesses": [
+        "Physically vulnerable human",
+        "Over-reliance on bureaucratic control and technology"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Bourne_Identity_(2002_film)",
+          "supports": "Conklin's role as the CIA controller overseeing Treadstone."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Managed the global tracking and deployment of the Treadstone assassin network.",
+          "citation": "The Bourne Identity (2002)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jason Bourne",
+          "result": "loss",
+          "citation": "The Bourne Identity (2002)",
+          "note": "Outmaneuvered and exposed by Bourne, leading to his downfall.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limited direct hand-to-hand combat capability."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Andi",
+      "continuity": "First Blood (1982)",
+      "summary": "Andi is a local small-town resident/deputy context character who operates within police protocols and local terrain.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Standard law enforcement firearms use"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Standard police uniform and cover"
+        ]
+      },
+      "weaknesses": [
+        "Outmatched by guerrilla warfare tactics",
+        "Standard human limitations"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/First_Blood",
+          "supports": "Context of local law enforcement officers in First Blood."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Participated in the initial local manhunt for John Rambo in the woods.",
+          "citation": "First Blood (1982)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limited screen time and specific feat documentation."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ardeth Bay",
+      "continuity": "The Mummy (1999)",
+      "summary": "Ardeth Bay is a Medjai warrior sworn to protect the world from Imhotep, skilled in horseback riding, scimitar combat, firearms, and ancient desert lore.",
+      "offense": {
+        "domains": [
+          "physical",
+          "melee"
+        ],
+        "techniques": [
+          "Dual scimitar wielding",
+          "Rifle marksmanship",
+          "Mounted cavalry tactics"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Medjai tribal armor and robes",
+          "Agility and defensive sword parrying"
+        ]
+      },
+      "weaknesses": [
+        "Standard human vulnerability to supernatural forces and conventional weapons"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Mummy_(1999_film)",
+          "supports": "Ardeth Bay's background as a Medjai warrior and his combat skills."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought off hordes of mummified priests and undead attackers alongside Rick O'Connell.",
+          "citation": "The Mummy (1999)",
+          "source": 0
+        },
+        {
+          "claim": "Survived the collapse of Hamunaptra.",
+          "citation": "The Mummy (1999)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imhotep's Minions",
+          "result": "win",
+          "citation": "The Mummy (1999)",
+          "note": "Defeated numerous undead ghouls using firearms and blades.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Expertly fights while riding horses across desert terrain.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of survival skills against modern heavily armed military units."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Aslan",
+      "continuity": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe (2005)",
+      "summary": "Aslan is a divine, colossal lion possessing immense supernatural strength, majestic presence, wisdom, and the power of resurrection.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Powerful bite and claw strikes",
+          "Divine roars that shatter stone or paralyze foes",
+          "Magical breath restoration"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Supernatural durability",
+          "Immortality and self-resurrection"
+        ]
+      },
+      "weaknesses": [
+        "Bound by deep magic rules (willingly submitted to death on the Stone Table)"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Chronicles_of_Narnia:_The_Lion,_the_Witch_and_the_Wardrobe_(2005_film)",
+          "supports": "Aslan's attributes, magical abilities, and role in the 2005 film."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Overturned the forces of the White Witch and shattered her stone statues back into living creatures.",
+          "citation": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe (2005)",
+          "source": 0
+        },
+        {
+          "claim": "Resurrected himself from death due to the deeper magic from before the dawn of time.",
+          "citation": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe (2005)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The White Witch's Army",
+          "result": "win",
+          "citation": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe (2005)",
+          "note": "Rushed onto the battlefield and decisively turned the tide of war.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Magnified magical lion significantly larger than any normal lion, towering over humans.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Wields powerful ancient magic capable of resurrection and turning stone back to flesh.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Restores injured or petrified creatures to life with his breath.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Upper limits of his divine combat power when fully unleashed."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:August Walker",
+      "continuity": "Mission: Impossible - Fallout (2018)",
+      "summary": "August Walker is a ruthless CIA/IMF assassin and operative who relies on brutal physical brawling, firearms proficiency, extreme endurance, and high-altitude infiltration.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Brutal heavy-impact close quarters combat",
+          "Assault rifle and pistol marksmanship",
+          "Knife fighting"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Extremely high pain tolerance and physical durability",
+          "Tactical gear and body armor"
+        ]
+      },
+      "weaknesses": [
+        "Arrogance and overconfidence in physical dominance",
+        "Standard human vulnerability to fatal injuries"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mission:_Impossible_%E2%80%93_Fallout",
+          "supports": "August Walker's role as the primary antagonist and his combat feats in Fallout."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Ethan Hunt in an intense multi-stage brawl in a public restroom and on a cliffside.",
+          "citation": "Mission: Impossible - Fallout (2018)",
+          "source": 0
+        },
+        {
+          "claim": "Piloted a helicopter in hazardous mountain terrain while engaging in aerial dogfighting.",
+          "citation": "Mission: Impossible - Fallout (2018)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ethan Hunt",
+          "result": "loss",
+          "citation": "Mission: Impossible - Fallout (2018)",
+          "note": "Defeated and pulled off a cliff edge by Hunt after a grueling struggle.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Executes high-altitude low-opening (HALO) skydiving insertions.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of his underground syndicate network connections prior to exposure."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Azeem",
+      "continuity": "Robin Hood: Prince of Thieves (1991)",
+      "summary": "Azeem is a Moorish swordsman and scientific scholar who fights with an unconventional scimitar, advanced chemical explosives (Greek fire), and exceptional martial skill.",
+      "offense": {
+        "domains": [
+          "physical",
+          "melee",
+          "fire",
+          "tech"
+        ],
+        "techniques": [
+          "Scimitar dual-edge combat",
+          "Creation and deployment of gunpowder/Greek fire explosives",
+          "Medical field surgery"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Moorish lamellar armor and nimble parrying",
+          "Quick tactical positioning"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to heavy armored knights in massed formations",
+        "Racial prejudice and hostility in medieval England limiting local allies"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Robin_Hood:_Prince_of_Thieves",
+          "supports": "Azeem's background, combat style, and use of gunpowder/explosives."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Blasted open the gates of Nottingham Castle using improvised gunpowder explosives.",
+          "citation": "Robin Hood: Prince of Thieves (1991)",
+          "source": 0
+        },
+        {
+          "claim": "Defeated multiple Sheriff of Nottingham guards simultaneously with scimitar combat.",
+          "citation": "Robin Hood: Prince of Thieves (1991)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Guy of Gisborne's guards",
+          "result": "win",
+          "citation": "Robin Hood: Prince of Thieves (1991)",
+          "note": "Successfully cut through armed soldiers during castle infiltrations.",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire-weapon",
+          "claim": "Uses gunpowder and incendiary devices (\"devil's fire\") in combat.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Performs advanced battlefield surgery and herbal healing.",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Creates gunpowder-based explosives and advanced tools in medieval England.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Limits of his chemical formulas when exposed to damp weather conditions."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
