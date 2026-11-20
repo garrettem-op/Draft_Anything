@@ -2862,11 +2862,11 @@ function registerCustomLinks(pool, list) {
   }
 }
 
-// Archetype groups (data/archetype-groups.js): one shared id per archetype across every pool, so the same group,
+// Archetype and tag groups (data/archetype-groups.js): one shared id per group across every pool, so the same group,
 // tier and cap machinery links members within a pool and across universes in Mashup. poolCandidates adds the ids.
-const ARCH_MEMBERS = {};   // pool id -> { name -> [archetype group ids] }
+const ARCH_MEMBERS = {};   // pool id -> { name -> [archetype/tag group ids] }
 if (typeof ArchetypeGroups !== 'undefined') for (const g of ArchetypeGroups.groups) {
-  const id = 'arch:' + g.slug;
+  const id = (g.kind === 'tag' ? 'tag:' : 'arch:') + g.slug;
   GROUPS[id] = { name: g.name, strength: g.strength };
   for (const m of g.members) ((ARCH_MEMBERS[m.pool] = ARCH_MEMBERS[m.pool] || {})[m.name] = ARCH_MEMBERS[m.pool][m.name] || []).push(id);
 }

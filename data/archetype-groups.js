@@ -1,11 +1,20 @@
-/* Shared archetype chemistry groups across every talent pool.
+/* Shared archetype and tag chemistry groups across the talent pools.
  *
  * Idea from the Marvel Ultimate Alliance 3 research note (docs/option-c/MUA3_TEAM_BONUS_RESEARCH.md): besides
  * franchise teams, a squad also gets a bonus for sharing a fighting archetype. Owner rulings 2026-11-18: sourced
  * membership, film-group strength, and ONE shared set across all pools, so members link across universes in Mashup.
+ * Owner rulings 2026-11-19: NBA takes no part (it runs on its own terms); broader tags join at strength 0.25:
+ * Sorcerers (spellcasters only: no Force users, psychics or innate powers) and one group per colour.
  *
- * Wiring (index.html): each group registers once as GROUPS['arch:' + slug] and its id is added to the `g` list of
- * every member candidate in that member's pool. A group's points are strength x LINK_TIER[count], summed with every
+ * Two kinds of group:
+ *  - kind 'archetype' (strength ARCHETYPE_STRENGTH = 1): Martial Artists, Agile Fighters, Blades & Claws,
+ *    Anti-Heroes, Wisecracking Warriors.
+ *  - kind 'tag' (strength TAG_STRENGTH = 0.25): Sorcerers, Greens, Blues, Reds, Yellows, Oranges, Purples, Pinks.
+ *    A character belongs to at most one colour: the body colour (skin, fur, feathers) or the signature colour their
+ *    identity is built on (Green Lantern's ring), as a source states it. Pokémon use their Pokédex colour.
+ *
+ * Wiring (index.html): each group registers once as GROUPS['arch:' + slug] (archetypes) or GROUPS['tag:' + slug]
+ * (tags), and its id is added to the `g` list of every member candidate in that member's pool. A group's points are strength x LINK_TIER[count], summed with every
  * other group and capped by LINK_CAP. No new effect type and no new cap. In a single pool only that pool's members
  * can link; in Mashup, a Martial Artist from any universe links with one from any other.
  *
@@ -24,17 +33,19 @@
  *  - `evidence` follows the owner's evidence standard (2026-11-10): 'corroborated' = two independent origins agree;
  *    'credible' = one source documents the trait; 'needs-review' = a source names the detail without placing it in a
  *    work (still a member; flagged for a second source).
- *  - Strength is 1, the same footing as the MCU film chemistry groups (owner ruling 2026-11-18). Note that Action
- *    Movies' own film groups run at 0.7.
+ *  - Archetype strength is 1, the same footing as the MCU film chemistry groups (owner ruling 2026-11-18), in every
+ *    pool, including Action Movies whose own film groups run at 0.7 (owner confirmed "keep 1 everywhere", 2026-11-19).
  */
 (function (root) {
   'use strict';
-  const STRENGTH = 1;
+  const ARCHETYPE_STRENGTH = 1;   // film-group footing (owner ruling 2026-11-18)
+  const TAG_STRENGTH = 0.25;      // broad tags: Sorcerers and colours (owner ruling 2026-11-19)
   const groups = [
     {
+      kind: "archetype",
       slug: "martial",
       name: "Martial Artists",
-      strength: STRENGTH,
+      strength: ARCHETYPE_STRENGTH,
       mua3Affiliation: "Martial Artists",
       members: [
         {
@@ -676,9 +687,10 @@
       ]
     },
     {
+      kind: "archetype",
       slug: "agile",
       name: "Agile Fighters",
-      strength: STRENGTH,
+      strength: ARCHETYPE_STRENGTH,
       mua3Affiliation: "Agile Fighters",
       members: [
         {
@@ -1168,9 +1180,10 @@
       ]
     },
     {
+      kind: "archetype",
       slug: "blades",
       name: "Blades & Claws",
-      strength: STRENGTH,
+      strength: ARCHETYPE_STRENGTH,
       mua3Affiliation: "Cutting Edge",
       members: [
         {
@@ -1958,9 +1971,10 @@
       ]
     },
     {
+      kind: "archetype",
       slug: "antiheroes",
       name: "Anti-Heroes",
-      strength: STRENGTH,
+      strength: ARCHETYPE_STRENGTH,
       mua3Affiliation: "Anti-Heroes",
       members: [
         {
@@ -2245,9 +2259,10 @@
       ]
     },
     {
+      kind: "archetype",
       slug: "quips",
       name: "Wisecracking Warriors",
-      strength: STRENGTH,
+      strength: ARCHETYPE_STRENGTH,
       mua3Affiliation: "Wise Cracking Warriors",
       members: [
         {
@@ -2376,42 +2391,6 @@
             }
           ],
           basis: "Dry wit."
-        },
-        {
-          pool: "nba",
-          name: "Larry Bird",
-          evidence: "credible",
-          sources: [
-            {
-              title: "Newsweek: Larry Bird named best NBA trash talker",
-              url: "https://www.newsweek.com/sports/nba/legendary-celtic-named-best-nba-trash-talker-ever-12236581"
-            }
-          ],
-          basis: "Named the best NBA trash talker ever."
-        },
-        {
-          pool: "nba",
-          name: "Gary Payton",
-          evidence: "credible",
-          sources: [
-            {
-              record: "research/option-c/batches/gemini-nba-20261113-064635-39.json",
-              id: "nba:Gary Payton"
-            }
-          ],
-          basis: "Elite trash-talking point guard."
-        },
-        {
-          pool: "nba",
-          name: "Reggie Miller",
-          evidence: "credible",
-          sources: [
-            {
-              record: "research/option-c/batches/gemini-nba-20261113-064821-46.json",
-              id: "nba:Reggie Miller"
-            }
-          ],
-          basis: "Prolific trash talker."
         },
         {
           pool: "toons",
@@ -2559,10 +2538,1557 @@
           basis: "Deadpan snarker."
         }
       ]
+    },
+    {
+      kind: "tag",
+      slug: "sorcerers",
+      name: "Sorcerers",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "mcu",
+          name: "Doctor Strange",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-044449-73.json",
+              id: "mcu:Doctor Strange",
+              url: "https://en.wikipedia.org/wiki/Doctor_Strange_(Marvel_Cinematic_Universe)"
+            }
+          ],
+          basis: "Master of the mystic arts."
+        },
+        {
+          pool: "mcu",
+          name: "Scarlet Witch",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/claude-mcu-20261115-missing.json",
+              id: "mcu:Scarlet Witch",
+              url: "https://en.wikipedia.org/wiki/Wanda_Maximoff_(Marvel_Cinematic_Universe)"
+            }
+          ],
+          basis: "Chaos magic and spellcasting."
+        },
+        {
+          pool: "mcu",
+          name: "Agatha Harkness",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-044354-70.json",
+              id: "mcu:Agatha Harkness",
+              url: "https://en.wikipedia.org/wiki/WandaVision"
+            }
+          ],
+          basis: "Witch who drains magic and casts spells."
+        },
+        {
+          pool: "mcu",
+          name: "Wong",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-064240-22.json",
+              id: "mcu:Wong",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/MCUWong"
+            }
+          ],
+          basis: "Kamar-Taj sorcerer."
+        },
+        {
+          pool: "mcu",
+          name: "The Ancient One",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-064148-19.json",
+              id: "mcu:The Ancient One"
+            }
+          ],
+          basis: "Sorcerer Supreme of Kamar-Taj."
+        },
+        {
+          pool: "mcu",
+          name: "Kaecilius",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-044705-80.json",
+              id: "mcu:Kaecilius",
+              url: "https://en.wikipedia.org/wiki/Doctor_Strange_(2016_film)"
+            }
+          ],
+          basis: "Renegade mystic-arts sorcerer."
+        },
+        {
+          pool: "mcu",
+          name: "Mordo",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-064007-13.json",
+              id: "mcu:Mordo",
+              url: "https://hero.fandom.com/wiki/Karl_Mordo"
+            }
+          ],
+          basis: "Kamar-Taj sorcerer."
+        },
+        {
+          pool: "mcu",
+          name: "Loki",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-044725-81.json",
+              id: "mcu:Loki",
+              url: "https://marvelcinematicuniverse.fandom.com/wiki/Loki"
+            }
+          ],
+          basis: "Magic and illusions."
+        },
+        {
+          pool: "dc",
+          name: "Zatanna",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-dc-20261113-042722-16.json",
+              id: "dc:Zatanna",
+              url: "https://en.wikipedia.org/wiki/Zatanna"
+            }
+          ],
+          basis: "Backward-spoken spellcaster."
+        },
+        {
+          pool: "dc",
+          name: "Doctor Fate",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-dc-20261113-042353-5.json",
+              id: "dc:Doctor Fate",
+              url: "https://en.wikipedia.org/wiki/Doctor_Fate"
+            }
+          ],
+          basis: "Lord of Order sorcerer."
+        },
+        {
+          pool: "dc",
+          name: "John Constantine",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-dc-20261113-042428-7.json",
+              id: "dc:John Constantine",
+              url: "https://en.wikipedia.org/wiki/John_Constantine"
+            }
+          ],
+          basis: "Occult magician."
+        },
+        {
+          pool: "dc",
+          name: "Raven",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-dc-20261113-042526-10.json",
+              id: "dc:Raven",
+              url: "https://en.wikipedia.org/wiki/Raven_(DC_Comics)"
+            }
+          ],
+          basis: "Demonic magic user."
+        },
+        {
+          pool: "dc",
+          name: "Circe",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-dc-20261113-042337-4.json",
+              id: "dc:Circe"
+            }
+          ],
+          basis: "Sorceress of Hecate with transmutation spells."
+        },
+        {
+          pool: "dc",
+          name: "Etrigan",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-dc-20261113-042411-6.json",
+              id: "dc:Etrigan",
+              url: "https://en.wikipedia.org/wiki/Etrigan_the_Demon"
+            }
+          ],
+          basis: "Rhyming demon with high command of magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Albus Dumbledore",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043607-43.json",
+              id: "harrypotter:Albus Dumbledore",
+              url: "https://wiki.krisyotam.com/content/wikipedia_en_all_nopic_2026-03/Dumbledore"
+            }
+          ],
+          basis: "Greatest wizard of his age."
+        },
+        {
+          pool: "harrypotter",
+          name: "Lord Voldemort",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Lord Voldemort",
+              url: "https://harrypotter.fandom.com/wiki/Tom_Riddle"
+            }
+          ],
+          basis: "Dark wizard."
+        },
+        {
+          pool: "harrypotter",
+          name: "Harry Potter",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043716-47.json",
+              id: "harrypotter:Harry Potter",
+              url: "https://en.wikipedia.org/wiki/Harry_Potter_(character)"
+            }
+          ],
+          basis: "Wizard and duellist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Hermione Granger",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043716-47.json",
+              id: "harrypotter:Hermione Granger",
+              url: "https://harrypotter.fandom.com/wiki/Hermione_Granger"
+            }
+          ],
+          basis: "Spell-perfect witch."
+        },
+        {
+          pool: "harrypotter",
+          name: "Severus Snape",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043849-53.json",
+              id: "harrypotter:Severus Snape"
+            }
+          ],
+          basis: "Dark-curse specialist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Minerva McGonagall",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043746-49.json",
+              id: "harrypotter:Minerva McGonagall"
+            }
+          ],
+          basis: "Master of Transfiguration."
+        },
+        {
+          pool: "harrypotter",
+          name: "Bellatrix Lestrange",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043624-44.json",
+              id: "harrypotter:Bellatrix Lestrange",
+              url: "https://potterlex.com/bellatrix_lestrange"
+            }
+          ],
+          basis: "Dark witch."
+        },
+        {
+          pool: "harrypotter",
+          name: "Gellert Grindelwald",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043659-46.json",
+              id: "harrypotter:Gellert Grindelwald",
+              url: "https://potterlex.com/grindelwald"
+            }
+          ],
+          basis: "Dark wizard."
+        },
+        {
+          pool: "harrypotter",
+          name: "Filius Flitwick",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043641-45.json",
+              id: "harrypotter:Filius Flitwick",
+              url: "https://www.hp-lexicon.org/?p=109"
+            }
+          ],
+          basis: "Charms master."
+        },
+        {
+          pool: "harrypotter",
+          name: "Ron Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Ron Weasley"
+            }
+          ],
+          basis: "Wizard relying on hexes and jinxes."
+        },
+        {
+          pool: "lotr",
+          name: "Gandalf",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044059-60.json",
+              id: "lotr:Gandalf",
+              url: "https://en.wikipedia.org/wiki/Gandalf"
+            }
+          ],
+          basis: "Istar wizard."
+        },
+        {
+          pool: "lotr",
+          name: "Saruman",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044228-65.json",
+              id: "lotr:Saruman",
+              url: "https://en.wikipedia.org/wiki/Wizards_in_Middle-earth"
+            }
+          ],
+          basis: "Istar wizard and spell-weaver."
+        },
+        {
+          pool: "lotr",
+          name: "Sauron",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044228-65.json",
+              id: "lotr:Sauron"
+            }
+          ],
+          basis: "Master sorcerer."
+        },
+        {
+          pool: "lotr",
+          name: "Witch-king of Angmar",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044314-68.json",
+              id: "lotr:Witch-king of Angmar",
+              url: "https://en.wikipedia.org/wiki/Witch-king_of_Angmar"
+            }
+          ],
+          basis: "Sorcerer-king."
+        },
+        {
+          pool: "lotr",
+          name: "Radagast",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044211-64.json",
+              id: "lotr:Radagast"
+            }
+          ],
+          basis: "Istar wizard."
+        },
+        {
+          pool: "lotr",
+          name: "Lúthien Tinúviel",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044155-63.json",
+              id: "lotr:Lúthien Tinúviel",
+              url: "https://en.wikipedia.org/wiki/L%C3%BAthien"
+            }
+          ],
+          basis: "Enchantress who sang Morgoth to sleep."
+        },
+        {
+          pool: "lotr",
+          name: "Melian",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044155-63.json",
+              id: "lotr:Melian",
+              url: "https://en.wikipedia.org/wiki/Melian_(Middle-earth)"
+            }
+          ],
+          basis: "Maia enchantress, maker of the Girdle."
+        },
+        {
+          pool: "games",
+          name: "Yennefer",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043527-41.json",
+              id: "games:Yennefer",
+              url: "https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt"
+            }
+          ],
+          basis: "Sorceress."
+        },
+        {
+          pool: "games",
+          name: "Zelda",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043527-41.json",
+              id: "games:Zelda",
+              url: "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild"
+            }
+          ],
+          basis: "Light magic."
+        },
+        {
+          pool: "games",
+          name: "Ganondorf",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043003-24.json",
+              id: "games:Ganondorf",
+              url: "https://gamicus.fandom.com/wiki/Ganondorf"
+            }
+          ],
+          basis: "Dark sorcery."
+        },
+        {
+          pool: "games",
+          name: "Bayonetta",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042852-20.json",
+              id: "games:Bayonetta",
+              url: "https://bayonetta.fandom.com/wiki/Bayonetta_(character)"
+            }
+          ],
+          basis: "Umbra Witch."
+        },
+        {
+          pool: "games",
+          name: "Sora",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043457-39.json",
+              id: "games:Sora",
+              url: "https://en.wikipedia.org/wiki/Sora_(Kingdom_Hearts)"
+            }
+          ],
+          basis: "Keyblade wielder who casts magic."
+        },
+        {
+          pool: "games",
+          name: "Aerith Gainsborough",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042833-19.json",
+              id: "games:Aerith Gainsborough"
+            }
+          ],
+          basis: "Magic-focused caster."
+        },
+        {
+          pool: "games",
+          name: "Dovahkiin",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042945-23.json",
+              id: "games:Dovahkiin",
+              url: "https://elderscrolls.fandom.com/wiki/Thu%27um"
+            }
+          ],
+          basis: "Thu'um Shouts, a form of magic."
+        },
+        {
+          pool: "games",
+          name: "Thrall",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043513-40.json",
+              id: "games:Thrall"
+            }
+          ],
+          basis: "Orc shaman wielding elemental magic."
+        },
+        {
+          pool: "toons",
+          name: "Jafar",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-toons-20261113-125815-46.json",
+              id: "toons:Jafar",
+              url: "https://en.wikipedia.org/wiki/Jafar_(Disney)"
+            }
+          ],
+          basis: "Royal vizier and sorcerer."
+        },
+        {
+          pool: "toons",
+          name: "Maleficent",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-toons-20261113-125849-48.json",
+              id: "toons:Maleficent",
+              url: "https://en.wikipedia.org/wiki/Maleficent"
+            }
+          ],
+          basis: "Evil fairy and sorceress."
+        },
+        {
+          pool: "toons",
+          name: "Ursula",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-toons-20261113-130234-59.json",
+              id: "toons:Ursula",
+              url: "https://en.wikipedia.org/wiki/Ursula_(The_Little_Mermaid)"
+            }
+          ],
+          basis: "Sea witch who trades in spells."
+        },
+        {
+          pool: "toons",
+          name: "Mickey Mouse",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: List of Fantasia (franchise) characters",
+              url: "https://en.wikipedia.org/wiki/List_of_Fantasia_(franchise)_characters"
+            }
+          ],
+          basis: "Animates a broom with the sorcerer's hat in The Sorcerer's Apprentice (item-based, counts for the base character)."
+        },
+        {
+          pool: "muppets",
+          name: "Abby Cadabby",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-muppets-20261113-064253-23.json",
+              id: "muppets:Abby Cadabby",
+              url: "https://muppet.fandom.com/wiki/Abby_Cadabby"
+            }
+          ],
+          basis: "Fairy-in-training who casts spells."
+        },
+        {
+          pool: "muppets",
+          name: "The Amazing Mumford",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-muppets-20261113-064435-31.json",
+              id: "muppets:The Amazing Mumford",
+              url: "https://muppet.fandom.com/wiki/The_Amazing_Mumford"
+            }
+          ],
+          basis: "Magician with wand and spells."
+        },
+        {
+          pool: "starwars",
+          name: "Asajj Ventress",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-starwars-20261113-125351-31.json",
+              id: "starwars:Asajj Ventress"
+            }
+          ],
+          basis: "Former Nightsister."
+        },
+        {
+          pool: "actionmovies",
+          name: "Thulsa Doom",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: Conan the Barbarian (1982)",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Film/ConanTheBarbarian1982"
+            }
+          ],
+          basis: "Evil sorcerer: hypnotic gaze, snakes turned into arrows, shapeshifting in Conan the Barbarian."
+        },
+        {
+          pool: "actionmovies",
+          name: "White Witch (Jadis)",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: White Witch",
+              url: "https://en.wikipedia.org/wiki/White_Witch"
+            }
+          ],
+          basis: "Spellcaster whose wand turns foes to stone."
+        },
+        {
+          pool: "actionmovies",
+          name: "Imhotep",
+          evidence: "needs-review",
+          sources: [
+            {
+              title: "Wikipedia: Imhotep (The Mummy)",
+              url: "https://en.wikipedia.org/wiki/Imhotep_(The_Mummy)"
+            }
+          ],
+          basis: "Undead high priest who unleashes the Plagues of Egypt and commands sand; the page does not call it spellcasting."
+        }
+      ]
+    },
+    {
+      kind: "tag",
+      slug: "green",
+      name: "Greens",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "muppets",
+          name: "Kermit the Frog",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Kermit the Frog",
+              url: "https://en.wikipedia.org/wiki/Kermit_the_Frog"
+            }
+          ],
+          basis: "Green frog."
+        },
+        {
+          pool: "muppets",
+          name: "Oscar the Grouch",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): Oscar the Grouch",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Oscar_the_Grouch"
+            }
+          ],
+          basis: "Green since his second season (orange at first)."
+        },
+        {
+          pool: "toons",
+          name: "Mike Wazowski",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): List of Monsters, Inc. characters",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/List_of_Monsters%2C_Inc._characters"
+            }
+          ],
+          basis: "Green cyclops-like monster."
+        },
+        {
+          pool: "toons",
+          name: "Buttercup",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: The Powerpuff Girls heroes",
+              url: "https://www.tvtropes.org/pmwiki/pmwiki.php/Characters/ThePowerpuffGirlsTheHeroes"
+            }
+          ],
+          basis: "Her colour is green."
+        },
+        {
+          pool: "toons",
+          name: "Leonardo",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: TMNT (1987) characters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/Teenagemutantninjaturtles1987"
+            }
+          ],
+          basis: "\"Mean green fighting machines\" (1987 series)."
+        },
+        {
+          pool: "toons",
+          name: "Raphael",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: TMNT (1987) characters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/Teenagemutantninjaturtles1987"
+            }
+          ],
+          basis: "\"Mean green fighting machines\" (1987 series)."
+        },
+        {
+          pool: "toons",
+          name: "Michelangelo",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: TMNT (1987) characters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/Teenagemutantninjaturtles1987"
+            }
+          ],
+          basis: "\"Mean green fighting machines\" (1987 series)."
+        },
+        {
+          pool: "toons",
+          name: "Donatello",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: TMNT (1987) characters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/Teenagemutantninjaturtles1987"
+            }
+          ],
+          basis: "\"Mean green fighting machines\" (1987 series)."
+        },
+        {
+          pool: "pokemon",
+          name: "Bulbasaur",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Ivysaur",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Venusaur",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Caterpie",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Metapod",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Bellsprout",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Weepinbell",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Victreebel",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "pokemon",
+          name: "Scyther",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Green Pokédex colour list",
+              url: "https://serebii.net/pokedex-xy/green.shtml"
+            }
+          ],
+          basis: "Pokédex colour: green."
+        },
+        {
+          pool: "dc",
+          name: "Green Lantern (Hal Jordan)",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-dc-20261113-042411-6.json",
+              id: "dc:Green Lantern (Hal Jordan)"
+            }
+          ],
+          basis: "Green Lantern power ring."
+        },
+        {
+          pool: "dc",
+          name: "Green Lantern (John Stewart)",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/claude-dc-20261114-01.json",
+              id: "dc:Green Lantern (John Stewart)"
+            }
+          ],
+          basis: "Green Lantern power ring."
+        },
+        {
+          pool: "dc",
+          name: "Martian Manhunter",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Martian Manhunter",
+              url: "https://en.wikipedia.org/wiki/Martian_Manhunter"
+            }
+          ],
+          basis: "Green-skinned humanoid from Mars."
+        },
+        {
+          pool: "mcu",
+          name: "Hulk",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: MCU The Hulk",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/MCUTheHulk"
+            }
+          ],
+          basis: "Green skin."
+        }
+      ]
+    },
+    {
+      kind: "tag",
+      slug: "blue",
+      name: "Blues",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "muppets",
+          name: "Grover",
+          evidence: "corroborated",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-muppets-20261113-064334-26.json",
+              id: "muppets:Grover"
+            },
+            {
+              title: "TV Tropes: Sesame Street monsters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SesameStreetMonsters"
+            }
+          ],
+          basis: "Blue furry monster."
+        },
+        {
+          pool: "muppets",
+          name: "Cookie Monster",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikiwand (Wikipedia): Cookie Monster",
+              url: "https://wikiwand.com/en/Cookie_Monster"
+            }
+          ],
+          basis: "Blue fur."
+        },
+        {
+          pool: "muppets",
+          name: "Herry Monster",
+          evidence: "corroborated",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-muppets-20261113-064345-27.json",
+              id: "muppets:Herry Monster"
+            },
+            {
+              title: "TV Tropes: Sesame Street monsters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SesameStreetMonsters"
+            }
+          ],
+          basis: "Large blue monster."
+        },
+        {
+          pool: "muppets",
+          name: "Rosita",
+          evidence: "corroborated",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-muppets-20261113-064421-30.json",
+              id: "muppets:Rosita"
+            },
+            {
+              title: "TV Tropes: Sesame Street monsters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SesameStreetMonsters"
+            }
+          ],
+          basis: "Turquoise / blue-furred monster."
+        },
+        {
+          pool: "muppets",
+          name: "Uncle Deadly",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): List of Muppets",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/List_of_Muppets"
+            }
+          ],
+          basis: "Blue dragon-like monster."
+        },
+        {
+          pool: "toons",
+          name: "Sulley",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): List of Monsters, Inc. characters",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/List_of_Monsters%2C_Inc._characters"
+            }
+          ],
+          basis: "Light-blue fur with purple spots."
+        },
+        {
+          pool: "toons",
+          name: "Stitch",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: Stitch (Lilo & Stitch)",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/LiloAndStitchStitch"
+            }
+          ],
+          basis: "Blue fur."
+        },
+        {
+          pool: "toons",
+          name: "Bubbles",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: The Powerpuff Girls heroes",
+              url: "https://www.tvtropes.org/pmwiki/pmwiki.php/Characters/ThePowerpuffGirlsTheHeroes"
+            }
+          ],
+          basis: "Her colour is blue."
+        },
+        {
+          pool: "games",
+          name: "Sonic the Hedgehog",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: Sonic main trio",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SonicTheHedgehogMainTrio"
+            }
+          ],
+          basis: "Blue fur."
+        }
+      ]
+    },
+    {
+      kind: "tag",
+      slug: "red",
+      name: "Reds",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "muppets",
+          name: "Elmo",
+          evidence: "corroborated",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-muppets-20261113-064323-25.json",
+              id: "muppets:Elmo"
+            },
+            {
+              title: "TV Tropes: Sesame Street monsters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SesameStreetMonsters"
+            }
+          ],
+          basis: "Red monster."
+        },
+        {
+          pool: "games",
+          name: "Knuckles",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: Sonic main trio",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SonicTheHedgehogMainTrio"
+            }
+          ],
+          basis: "Red fur."
+        },
+        {
+          pool: "games",
+          name: "Blinky",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042852-20.json",
+              id: "games:Blinky"
+            }
+          ],
+          basis: "The red ghost."
+        },
+        {
+          pool: "dc",
+          name: "Atrocitus",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/dc-batch-01.json",
+              id: "dc:Atrocitus"
+            }
+          ],
+          basis: "Founder of the Red Lantern Corps."
+        }
+      ]
+    },
+    {
+      kind: "tag",
+      slug: "yellow",
+      name: "Yellows",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "muppets",
+          name: "Big Bird",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-muppets-20261113-064307-24.json",
+              id: "muppets:Big Bird"
+            }
+          ],
+          basis: "Yellow bird."
+        },
+        {
+          pool: "muppets",
+          name: "Bert",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): Bert (Sesame Street)",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Bert_(Sesame_Street)"
+            }
+          ],
+          basis: "Yellow Muppet."
+        },
+        {
+          pool: "toons",
+          name: "Homer Simpson",
+          evidence: "credible",
+          sources: [
+            {
+              title: "/Film: Why the Simpsons are yellow",
+              url: "https://www.slashfilm.com/1093851/theres-a-simple-answer-to-the-question-why-are-the-simpsons-yellow"
+            }
+          ],
+          basis: "Yellow skin, like every Simpson."
+        },
+        {
+          pool: "toons",
+          name: "Marge Simpson",
+          evidence: "credible",
+          sources: [
+            {
+              title: "/Film: Why the Simpsons are yellow",
+              url: "https://www.slashfilm.com/1093851/theres-a-simple-answer-to-the-question-why-are-the-simpsons-yellow"
+            }
+          ],
+          basis: "Yellow skin, like every Simpson."
+        },
+        {
+          pool: "toons",
+          name: "Bart Simpson",
+          evidence: "credible",
+          sources: [
+            {
+              title: "/Film: Why the Simpsons are yellow",
+              url: "https://www.slashfilm.com/1093851/theres-a-simple-answer-to-the-question-why-are-the-simpsons-yellow"
+            }
+          ],
+          basis: "Yellow skin, like every Simpson."
+        },
+        {
+          pool: "toons",
+          name: "Lisa Simpson",
+          evidence: "credible",
+          sources: [
+            {
+              title: "/Film: Why the Simpsons are yellow",
+              url: "https://www.slashfilm.com/1093851/theres-a-simple-answer-to-the-question-why-are-the-simpsons-yellow"
+            }
+          ],
+          basis: "Yellow skin, like every Simpson."
+        },
+        {
+          pool: "pokemon",
+          name: "Pikachu",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Raichu",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Sandshrew",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Sandslash",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Psyduck",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Meowth",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Persian",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Electabuzz",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Jolteon",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "pokemon",
+          name: "Zapdos",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        },
+        {
+          pool: "games",
+          name: "Pikachu",
+          evidence: "credible",
+          sources: [
+            {
+              title: "RankedBoost: Yellow Pokémon by colour",
+              url: "https://rankedboost.com/pokemon/color/yellow/"
+            }
+          ],
+          basis: "Listed yellow by colour."
+        }
+      ]
+    },
+    {
+      kind: "tag",
+      slug: "orange",
+      name: "Oranges",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "muppets",
+          name: "Fozzie Bear",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): Fozzie Bear",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Fozzie_Bear"
+            }
+          ],
+          basis: "An orange bear."
+        },
+        {
+          pool: "muppets",
+          name: "Ernie",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): Ernie (Sesame Street)",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Ernie_(Sesame_Street)"
+            }
+          ],
+          basis: "An orange Muppet."
+        },
+        {
+          pool: "muppets",
+          name: "Gobo Fraggle",
+          evidence: "corroborated",
+          sources: [
+            {
+              title: "Wikipedia: List of Fraggle Rock characters",
+              url: "https://en.wikipedia.org/wiki/List_of_Fraggle_Rock_characters"
+            },
+            {
+              title: "Muppet Wiki: Gobo Fraggle",
+              url: "https://muppet.fandom.com/wiki/Gobo_Fraggle"
+            }
+          ],
+          basis: "Orange fur."
+        },
+        {
+          pool: "muppets",
+          name: "Murray Monster",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: Sesame Street monsters",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SesameStreetMonsters"
+            }
+          ],
+          basis: "A fluffy orange monster."
+        }
+      ]
+    },
+    {
+      kind: "tag",
+      slug: "purple",
+      name: "Purples",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "muppets",
+          name: "The Count",
+          evidence: "needs-review",
+          sources: [
+            {
+              title: "Wikipedia: Count von Count",
+              url: "https://en.wikipedia.org/wiki/Count_von_Count"
+            }
+          ],
+          basis: "Built from the Large Lavender Live Hand pattern; the page never names his colour outright."
+        },
+        {
+          pool: "muppets",
+          name: "Clifford",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia (IPFS mirror): List of Muppets",
+              url: "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/List_of_Muppets"
+            }
+          ],
+          basis: "Lavender-coloured catfish-faced character."
+        },
+        {
+          pool: "games",
+          name: "Spyro",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043457-39.json",
+              id: "games:Spyro"
+            }
+          ],
+          basis: "Young purple dragon."
+        }
+      ]
+    },
+    {
+      kind: "tag",
+      slug: "pink",
+      name: "Pinks",
+      strength: TAG_STRENGTH,
+      members: [
+        {
+          pool: "toons",
+          name: "Blossom",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: The Powerpuff Girls heroes",
+              url: "https://www.tvtropes.org/pmwiki/pmwiki.php/Characters/ThePowerpuffGirlsTheHeroes"
+            }
+          ],
+          basis: "Her colour is pink."
+        },
+        {
+          pool: "games",
+          name: "Amy Rose",
+          evidence: "credible",
+          sources: [
+            {
+              title: "TV Tropes: Sonic Team Rose",
+              url: "https://tvtropes.org/pmwiki/pmwiki.php/Characters/SonicTheHedgehogTeamRose"
+            }
+          ],
+          basis: "Fur entirely pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Clefairy",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Clefable",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Jigglypuff",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Wigglytuff",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Slowpoke",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Slowbro",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Lickitung",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Chansey",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Mr. Mime",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "pokemon",
+          name: "Mew",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Serebii: Pink Pokédex colour list",
+              url: "https://www.serebii.net/pokedex-xy/pink.shtml"
+            }
+          ],
+          basis: "Pokédex colour: pink."
+        }
+      ]
     }
   ];
 
-  const api = { STRENGTH, groups };
+  const api = { STRENGTH: ARCHETYPE_STRENGTH, ARCHETYPE_STRENGTH, TAG_STRENGTH, groups };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.ArchetypeGroups = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
