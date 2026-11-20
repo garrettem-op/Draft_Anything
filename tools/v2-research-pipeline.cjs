@@ -4,13 +4,49 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
-const {loadGame,ROOT}=require('./ability-audit-lib.cjs');
+const {loadGame,ROOT,RESEARCH_EXTRA_POOL_IDS}=require('./ability-audit-lib.cjs');
 const BATCH_DIR=path.join(ROOT,'research/option-c/batches');
 const STATUS=new Set(['reviewed','provisional','needs-review','unknown']);
 const GOOD_URL=/^https:\/\/(?!localhost|127\.|0\.0\.0\.0)[^\s/]+\.[^\s/]+/i;
 const isText=s=>typeof s==='string'&&s.trim().length>=12;
-function rosterIds(){
- const game=loadGame(), ids=game.roster.map(r=>r.id);
+/* Pools whose characters come from one specific film; the roster's taxonomy[0] names it. A record for
+   such a character must name that film, say it is the film, and give the year when the roster title
+   carries one. A record that researched the myth, novel, comic, legend or a remake instead (Homer's
+   Achilles, Ludlum's Bourne, comics Conan, Conan 2011) then fails validation rather than merging. */
+const FILM_POOLS=new Set(['actionmovies']);
+const FILM_ALIASES={'The Raid: Redemption':['The Raid']};   // international release title
+const FILM_WORD=/\b(film|movie|motion picture)s?\b/i;
+const normTitle=s=>' '+String(s).normalize('NFKD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/&/g,' and ').replace(/\bvol\b/g,'volume').replace(/[^a-z0-9]+/g,' ').trim()+' ';
+function filmKeys(title){
+ const year=(title.match(/\((\d{4})\)\s*$/)||[])[1]||null, bare=title.replace(/\s*\(\d{4}\)\s*$/,'').trim();
+ const keys=new Set([normTitle(bare)]);
+ // A long subtitle alone is distinctive ("The Curse of the Black Pearl"); a short one is not ("Fury Road").
+ const i=bare.indexOf(':');
+ if(i>0){const sub=normTitle(bare.slice(i+1));if(sub.trim().split(' ').length>=3)keys.add(sub);}
+ for(const a of FILM_ALIASES[bare]||[])keys.add(normTitle(a));
+ return {title:bare,year,keys:[...keys]};
+}
+function filmAnchors(game){
+ const out=new Map();
+ for(const r of game.roster){
+  if(!FILM_POOLS.has(r.pool))continue;
+  const t=Array.isArray(r.taxonomy)?r.taxonomy[0]:null;
+  if(typeof t!=='string'||!t.trim())throw Error('Film-pool roster entry has no film: '+r.id);
+  out.set(r.id,filmKeys(t));
+ }
+ return out;
+}
+function filmContinuityError(p,films){
+ const f=films&&typeof p.id==='string'?films.get(p.id.split('|')[0]):null;
+ if(!f||!isText(p.continuity))return null;
+ const c=normTitle(p.continuity);
+ if(!f.keys.some(k=>c.includes(k)))return 'continuity must name the roster film "'+f.title+'" (this pool is that film\'s version of the character)';
+ if(!FILM_WORD.test(p.continuity))return 'continuity must say it is the film version of "'+f.title+'" (film / movie)';
+ if(f.year&&!c.includes(' '+f.year+' '))return 'continuity must give the year of "'+f.title+'" ('+f.year+'), the roster\'s version';
+ return null;
+}
+function rosterIds(game=loadGame({extraPools:RESEARCH_EXTRA_POOL_IDS})){
+ const ids=game.roster.map(r=>r.id);
  const ctx=game.ctx;
  for(const file of ['data/variant-abilities.js','data/campaign-variant-expansion.js','data/campaign-strategy.js']){
   vm.runInContext(fs.readFileSync(path.join(ROOT,file),'utf8'),ctx,{filename:file});
@@ -44,7 +80,7 @@ function loadBatches(){
   return {file,batch};
  });
 }
-function checkBatch(file,batch,roster,tags){
+function checkBatch(file,batch,roster,tags,films){
  const errors=[],seen=new Set();
  const add=m=>errors.push(file+': '+m);
  if(!batch||typeof batch!=='object'||Array.isArray(batch))return [file+': expected JSON object'];
@@ -58,6 +94,7 @@ function checkBatch(file,batch,roster,tags){
   if(typeof p.id!=='string'||!roster.has(p.id))add(where+' id is not an exact current roster/form ID: '+p.id);
   if(seen.has(p.id))add(where+' duplicate id '+p.id);seen.add(p.id);
   if(!isText(p.continuity))add(where+' missing specific continuity');
+  const filmErr=filmContinuityError(p,films);if(filmErr)add(where+' '+p.id+': '+filmErr);
   if(!isText(p.summary))add(where+' missing useful summary');
   if(!p.offense||typeof p.offense!=='object'||!Array.isArray(p.offense.domains)||!p.offense.domains.length)add(where+' offense.domains required');
   if(!p.defense||typeof p.defense!=='object'||!Array.isArray(p.defense.mechanisms)||!p.defense.mechanisms.length)add(where+' defense.mechanisms required');
@@ -99,11 +136,12 @@ function checkBatch(file,batch,roster,tags){
  return errors;
 }
 function audit(){
- const ids=rosterIds(),known=new Set(ids),tags=abilityTagVocabulary(),tagSet=new Set(tags),batches=loadBatches(),errors=[],records=new Map();
+ const game=loadGame({extraPools:RESEARCH_EXTRA_POOL_IDS}),films=filmAnchors(game);
+ const ids=rosterIds(game),known=new Set(ids),tags=abilityTagVocabulary(),tagSet=new Set(tags),batches=loadBatches(),errors=[],records=new Map();
  const poolCounts={};
  for(const id of ids){const pool=id.split(':')[0];if(!poolCounts[pool])poolCounts[pool]={total:0,reviewed:0,provisional:0,missing:0,needsReview:0};poolCounts[pool].total++;}
  for(const {file,batch} of batches){
-  errors.push(...checkBatch(file,batch,known,tagSet));
+  errors.push(...checkBatch(file,batch,known,tagSet,films));
   for(const p of Array.isArray(batch.characters)?batch.characters:[]){
    if(!p||typeof p.id!=='string')continue;
    if(records.has(p.id))errors.push(file+': duplicate across batches '+p.id);
@@ -164,4 +202,4 @@ function main(argv){
  console.log('Usage: node tools/v2-research-pipeline.cjs --validate | --report | --snapshot | --next [--size N] [--claimed ids.json]');
 }
 if(require.main===module)main(process.argv.slice(2));
-module.exports={rosterIds,abilityTagVocabulary,loadBatches,checkBatch,audit,nextBatch,snapshot,fromSnapshot};
+module.exports={rosterIds,abilityTagVocabulary,loadBatches,checkBatch,audit,nextBatch,snapshot,fromSnapshot,filmAnchors,filmKeys,FILM_POOLS};
