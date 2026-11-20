@@ -10,6 +10,8 @@
  *  - kind 'archetype' (strength ARCHETYPE_STRENGTH = 1): Martial Artists, Agile Fighters, Blades & Claws,
  *    Anti-Heroes, Wisecracking Warriors.
  *  - kind 'tag' (strength TAG_STRENGTH = 0.25): Sorcerers, Greens, Blues, Reds, Yellows, Oranges, Purples, Pinks.
+ *    Sorcerers has no per-pool cap (perPoolCap: null, owner ruling 2026-11-20): every sourced spellcaster joins, but
+ *    creatures, ghosts, Squibs/Muggles, Force users, psychics and innate or item-only powers stay out.
  *    A character belongs to at most one colour: the body colour (skin, fur, feathers) or the signature colour their
  *    identity is built on (Green Lantern's ring), as a source states it. Pokémon use their Pokédex colour.
  *
@@ -19,7 +21,7 @@
  * can link; in Mashup, a Martial Artist from any universe links with one from any other.
  *
  * Membership rules:
- *  - `pool` + `name` must be a playable roster entry in that pool. Groups stay selective (at most 10 per pool) and
+ *  - `pool` + `name` must be a playable roster entry in that pool. Groups stay selective (at most 10 per pool, except Sorcerers) and
  *    take characters DEFINED by the trait, so the bonus does not become universal (most of Middle-earth carries a
  *    sword; only its signature blade fighters are in Blades & Claws).
  *  - MCU members follow on-screen MCU portrayal; `mua3` (MCU only) records that the MUA3 fan guide lists them.
@@ -40,6 +42,7 @@
   'use strict';
   const ARCHETYPE_STRENGTH = 1;   // film-group footing (owner ruling 2026-11-18)
   const TAG_STRENGTH = 0.25;      // broad tags: Sorcerers and colours (owner ruling 2026-11-19)
+  const PER_POOL_CAP = 10;        // default members per pool per group; a group with perPoolCap: null is uncapped
   const groups = [
     {
       kind: "archetype",
@@ -3167,8 +3170,992 @@
             }
           ],
           basis: "Undead high priest who unleashes the Plagues of Egypt and commands sand; the page does not call it spellcasting."
+        },
+        {
+          pool: "harrypotter",
+          name: "Aberforth Dumbledore",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043607-43.json",
+              id: "harrypotter:Aberforth Dumbledore",
+              url: "https://fanlore.org/wiki/Aberforth_Dumbledore"
+            }
+          ],
+          basis: "Skilled wizard with a corporeal Patronus."
+        },
+        {
+          pool: "harrypotter",
+          name: "Alastor Moody",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043607-43.json",
+              id: "harrypotter:Alastor Moody",
+              url: "https://www.hp-lexicon.org/?p=25697"
+            }
+          ],
+          basis: "Veteran Auror and duellist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Amelia Bones",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043607-43.json",
+              id: "harrypotter:Amelia Bones"
+            }
+          ],
+          basis: "Powerful witch, head of Magical Law Enforcement."
+        },
+        {
+          pool: "harrypotter",
+          name: "Arthur Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043607-43.json",
+              id: "harrypotter:Arthur Weasley",
+              url: "https://www.hp-lexicon.org/?p=297"
+            }
+          ],
+          basis: "Order wizard with a corporeal Patronus."
+        },
+        {
+          pool: "harrypotter",
+          name: "Barty Crouch Jr.",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043607-43.json",
+              id: "harrypotter:Barty Crouch Jr.",
+              url: "https://www.potterlex.com/bartemius_crouch_jr"
+            }
+          ],
+          basis: "Duellist who cast the Imperius Curse."
+        },
+        {
+          pool: "harrypotter",
+          name: "Bill Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043624-44.json",
+              id: "harrypotter:Bill Weasley",
+              url: "https://potterlex.com/_export/xhtml/bill_weasley"
+            }
+          ],
+          basis: "Gringotts Curse-Breaker."
+        },
+        {
+          pool: "harrypotter",
+          name: "Cedric Diggory",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043624-44.json",
+              id: "harrypotter:Cedric Diggory",
+              url: "https://harrypotter.fandom.com/wiki/Cedric_Diggory"
+            }
+          ],
+          basis: "Triwizard champion wizard."
+        },
+        {
+          pool: "harrypotter",
+          name: "Charlie Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043624-44.json",
+              id: "harrypotter:Charlie Weasley"
+            }
+          ],
+          basis: "Wizard dragonologist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Cho Chang",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043624-44.json",
+              id: "harrypotter:Cho Chang",
+              url: "https://harrypotter.fandom.com/wiki/Cho_Chang"
+            }
+          ],
+          basis: "Dumbledore's Army spellcaster."
+        },
+        {
+          pool: "harrypotter",
+          name: "Dobby",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043641-45.json",
+              id: "harrypotter:Dobby",
+              url: "https://harrypotter.fandom.com/wiki/Dobby"
+            }
+          ],
+          basis: "Wandless house-elf magic and Apparition."
+        },
+        {
+          pool: "harrypotter",
+          name: "Dolores Umbridge",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043641-45.json",
+              id: "harrypotter:Dolores Umbridge"
+            }
+          ],
+          basis: "Ministry witch using dark magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Draco Malfoy",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043641-45.json",
+              id: "harrypotter:Draco Malfoy",
+              url: "https://www.hp-lexicon.org/?p=4339"
+            }
+          ],
+          basis: "Wizard duellist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Fleur Delacour",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043641-45.json",
+              id: "harrypotter:Fleur Delacour",
+              url: "https://www.hp-lexicon.org/?p=5512"
+            }
+          ],
+          basis: "Beauxbatons Triwizard champion witch."
+        },
+        {
+          pool: "harrypotter",
+          name: "Fred Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043659-46.json",
+              id: "harrypotter:Fred Weasley"
+            }
+          ],
+          basis: "Fights with jinxes and magical pranks."
+        },
+        {
+          pool: "harrypotter",
+          name: "George Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043659-46.json",
+              id: "harrypotter:George Weasley"
+            }
+          ],
+          basis: "Wizard relying on charms and trick magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Gilderoy Lockhart",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043659-46.json",
+              id: "harrypotter:Gilderoy Lockhart",
+              url: "https://www.harrypotter.com/writing-by-jk-rowling/gilderoy-lockhart"
+            }
+          ],
+          basis: "Wizard whose one real skill is the Memory Charm."
+        },
+        {
+          pool: "harrypotter",
+          name: "Ginny Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043659-46.json",
+              id: "harrypotter:Ginny Weasley",
+              url: "https://www.harrypotter.com/fact-file/characters-and-pets/ginny-weasley"
+            }
+          ],
+          basis: "Talented with a wand; Bat-Bogey Hex specialist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Gregory Goyle",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043659-46.json",
+              id: "harrypotter:Gregory Goyle",
+              url: "https://weirdspace.info/HarryPotter/GregoryGoyle.htm"
+            }
+          ],
+          basis: "Mediocre but practising wizard."
+        },
+        {
+          pool: "harrypotter",
+          name: "Helga Hufflepuff",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043716-47.json",
+              id: "harrypotter:Helga Hufflepuff",
+              url: "https://harrypotter.fandom.com/wiki/Helga_Hufflepuff"
+            }
+          ],
+          basis: "Founder known for food charms."
+        },
+        {
+          pool: "harrypotter",
+          name: "James Potter",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043716-47.json",
+              id: "harrypotter:James Potter",
+              url: "https://harrypotter.fandom.com/wiki/James_Potter_I"
+            }
+          ],
+          basis: "Duellist and Animagus."
+        },
+        {
+          pool: "harrypotter",
+          name: "Karkaroff",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043716-47.json",
+              id: "harrypotter:Karkaroff",
+              url: "https://harrypotter.fandom.com/wiki/Igor_Karkaroff"
+            }
+          ],
+          basis: "Dark wizard using nonverbal spells."
+        },
+        {
+          pool: "harrypotter",
+          name: "Kingsley Shacklebolt",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Kingsley Shacklebolt",
+              url: "https://harrypotter.fandom.com/wiki/Kingsley_Shacklebolt"
+            }
+          ],
+          basis: "Auror duellist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Kreacher",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Kreacher",
+              url: "https://harrypotter.fandom.com/wiki/Kreacher"
+            }
+          ],
+          basis: "Wandless house-elf magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Lavender Brown",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Lavender Brown"
+            }
+          ],
+          basis: "Dumbledore's Army spellcaster."
+        },
+        {
+          pool: "harrypotter",
+          name: "Lee Jordan",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Lee Jordan"
+            }
+          ],
+          basis: "Dumbledore's Army wand combat."
+        },
+        {
+          pool: "harrypotter",
+          name: "Leta Lestrange",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Leta Lestrange"
+            }
+          ],
+          basis: "Powerful witch in the dark and protective arts."
+        },
+        {
+          pool: "harrypotter",
+          name: "Lily Potter",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Lily Potter"
+            }
+          ],
+          basis: "Accomplished charms witch."
+        },
+        {
+          pool: "harrypotter",
+          name: "Lucius Malfoy",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Lucius Malfoy",
+              url: "https://harrypotter.fandom.com/wiki/Lucius_Malfoy"
+            }
+          ],
+          basis: "Dark wizard and nonverbal duellist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Luna Lovegood",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043732-48.json",
+              id: "harrypotter:Luna Lovegood",
+              url: "https://harrypotter.fandom.com/wiki/Luna_Lovegood"
+            }
+          ],
+          basis: "Patronus caster and duellist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Madam Hooch",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043746-49.json",
+              id: "harrypotter:Madam Hooch",
+              url: "https://harrypotter.fandom.com/wiki/Rolanda_Hooch"
+            }
+          ],
+          basis: "Hogwarts witch and flying instructor."
+        },
+        {
+          pool: "harrypotter",
+          name: "Madam Poppy Pomfrey",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043746-49.json",
+              id: "harrypotter:Madam Poppy Pomfrey"
+            }
+          ],
+          basis: "Healing magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Madame Maxime",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043746-49.json",
+              id: "harrypotter:Madame Maxime",
+              url: "https://harrypotter.fandom.com/wiki/Olympe_Maxime"
+            }
+          ],
+          basis: "Cast Conjunctivitis Curses on giants."
+        },
+        {
+          pool: "harrypotter",
+          name: "Molly Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043746-49.json",
+              id: "harrypotter:Molly Weasley",
+              url: "https://harrypotter.fandom.com/wiki/Molly_Weasley"
+            }
+          ],
+          basis: "Nonverbal duellist who killed Bellatrix."
+        },
+        {
+          pool: "harrypotter",
+          name: "Narcissa Malfoy",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043746-49.json",
+              id: "harrypotter:Narcissa Malfoy",
+              url: "https://hp-lexicon.org/?p=6936"
+            }
+          ],
+          basis: "Witch who lost her wand to Dobby."
+        },
+        {
+          pool: "harrypotter",
+          name: "Newt Scamander",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043802-50.json",
+              id: "harrypotter:Newt Scamander",
+              url: "https://harrypotter.fandom.com/wiki/Newton_Scamander"
+            }
+          ],
+          basis: "Nonverbal spells and Shield Charms."
+        },
+        {
+          pool: "harrypotter",
+          name: "Nymphadora Tonks",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043802-50.json",
+              id: "harrypotter:Nymphadora Tonks"
+            }
+          ],
+          basis: "Auror and Metamorphmagus."
+        },
+        {
+          pool: "harrypotter",
+          name: "Ollivander",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043802-50.json",
+              id: "harrypotter:Ollivander",
+              url: "https://harrypotter.fandom.com/wiki/Garrick_Ollivander"
+            }
+          ],
+          basis: "Wandmaker using nonverbal magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Padma Patil",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043802-50.json",
+              id: "harrypotter:Padma Patil"
+            }
+          ],
+          basis: "Dumbledore's Army charms."
+        },
+        {
+          pool: "harrypotter",
+          name: "Percy Weasley",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043817-51.json",
+              id: "harrypotter:Percy Weasley"
+            }
+          ],
+          basis: "Ministry wizard who duelled."
+        },
+        {
+          pool: "harrypotter",
+          name: "Peter Pettigrew",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043817-51.json",
+              id: "harrypotter:Peter Pettigrew",
+              url: "https://harrypotter.fandom.com/wiki/Peter_Pettigrew"
+            }
+          ],
+          basis: "Cast the Killing Curse on Cedric."
+        },
+        {
+          pool: "harrypotter",
+          name: "Pius Thicknesse",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043817-51.json",
+              id: "harrypotter:Pius Thicknesse",
+              url: "https://harrypotter.fandom.com/wiki/Pius_Thicknesse"
+            }
+          ],
+          basis: "Imperiused Minister who duelled."
+        },
+        {
+          pool: "harrypotter",
+          name: "Pomona Sprout",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043817-51.json",
+              id: "harrypotter:Pomona Sprout"
+            }
+          ],
+          basis: "Herbology witch using specialised magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Queenie Goldstein",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043817-51.json",
+              id: "harrypotter:Queenie Goldstein",
+              url: "https://harrypotter.fandom.com/wiki/Queenie_Goldstein"
+            }
+          ],
+          basis: "Wandless and nonverbal magic."
+        },
+        {
+          pool: "harrypotter",
+          name: "Quirinus Quirrell",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043817-51.json",
+              id: "harrypotter:Quirinus Quirrell",
+              url: "https://harrypotter.fandom.com/wiki/Quirinus_Quirrell"
+            }
+          ],
+          basis: "Wandless magic and broom jinx."
+        },
+        {
+          pool: "harrypotter",
+          name: "Regulus Black",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Regulus Black",
+              url: "https://harrypotter.fandom.com/wiki/Regulus_Black"
+            }
+          ],
+          basis: "Dark Arts knowledge."
+        },
+        {
+          pool: "harrypotter",
+          name: "Remus Lupin",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Remus Lupin"
+            }
+          ],
+          basis: "Experienced wizard and Defence teacher."
+        },
+        {
+          pool: "harrypotter",
+          name: "Rita Skeeter",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Rita Skeeter"
+            }
+          ],
+          basis: "Witch journalist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Rodolphus Lestrange",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Rodolphus Lestrange"
+            }
+          ],
+          basis: "Death Eater skilled in curses."
+        },
+        {
+          pool: "harrypotter",
+          name: "Rowena Ravenclaw",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Rowena Ravenclaw",
+              url: "https://harrypotter.fandom.com/wiki/Rowena_Ravenclaw"
+            }
+          ],
+          basis: "Most brilliant witch of her time."
+        },
+        {
+          pool: "harrypotter",
+          name: "Rubeus Hagrid",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Rubeus Hagrid",
+              url: "https://harrypotter.fandom.com/wiki/Rubeus_Hagrid"
+            }
+          ],
+          basis: "Casts with an umbrella hiding his wand."
+        },
+        {
+          pool: "harrypotter",
+          name: "Rufus Scrimgeour",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043834-52.json",
+              id: "harrypotter:Rufus Scrimgeour",
+              url: "https://harrypotter.fandom.com/wiki/Rufus_Scrimgeour"
+            }
+          ],
+          basis: "Head Auror and nonverbal duellist."
+        },
+        {
+          pool: "harrypotter",
+          name: "Salazar Slytherin",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043849-53.json",
+              id: "harrypotter:Salazar Slytherin",
+              url: "https://harrypotter.fandom.com/wiki/Salazar_Slytherin"
+            }
+          ],
+          basis: "Founder with extensive magical abilities."
+        },
+        {
+          pool: "harrypotter",
+          name: "Seamus Finnigan",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043849-53.json",
+              id: "harrypotter:Seamus Finnigan"
+            }
+          ],
+          basis: "General duelling spells."
+        },
+        {
+          pool: "harrypotter",
+          name: "Seraphina Picquery",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043849-53.json",
+              id: "harrypotter:Seraphina Picquery"
+            }
+          ],
+          basis: "MACUSA President commanding Aurors."
+        },
+        {
+          pool: "harrypotter",
+          name: "Sirius Black",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043849-53.json",
+              id: "harrypotter:Sirius Black"
+            }
+          ],
+          basis: "Duelling spells."
+        },
+        {
+          pool: "harrypotter",
+          name: "Theseus Scamander",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043849-53.json",
+              id: "harrypotter:Theseus Scamander",
+              url: "https://harrypotter.fandom.com/wiki/Theseus_Scamander"
+            }
+          ],
+          basis: "Head Auror who duelled Grindelwald."
+        },
+        {
+          pool: "harrypotter",
+          name: "Tina Goldstein",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043904-54.json",
+              id: "harrypotter:Tina Goldstein",
+              url: "https://harrypotter.fandom.com/wiki/Porpentina_Goldstein"
+            }
+          ],
+          basis: "MACUSA Auror spellcaster."
+        },
+        {
+          pool: "harrypotter",
+          name: "Viktor Krum",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043904-54.json",
+              id: "harrypotter:Viktor Krum",
+              url: "https://harrypotter.fandom.com/wiki/Viktor_Krum"
+            }
+          ],
+          basis: "Conjunctivitis Curse and Transfiguration."
+        },
+        {
+          pool: "harrypotter",
+          name: "Vincent Crabbe",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043904-54.json",
+              id: "harrypotter:Vincent Crabbe",
+              url: "https://harrypotter.fandom.com/wiki/Vincent_Crabbe"
+            }
+          ],
+          basis: "Cast Fiendfyre."
+        },
+        {
+          pool: "harrypotter",
+          name: "Winky",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043904-54.json",
+              id: "harrypotter:Winky",
+              url: "https://harrypotter.fandom.com/wiki/Winky"
+            }
+          ],
+          basis: "House-elf magic and Apparition."
+        },
+        {
+          pool: "harrypotter",
+          name: "Yusuf Kama",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-harrypotter-20261113-043904-54.json",
+              id: "harrypotter:Yusuf Kama",
+              url: "https://harrypotter.fandom.com/wiki/Yusuf_Kama"
+            }
+          ],
+          basis: "Pure-blood wizard with wandwork."
+        },
+        {
+          pool: "lotr",
+          name: "Elrond",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044016-58.json",
+              id: "lotr:Elrond"
+            }
+          ],
+          basis: "Ring-bearer of Vilya and master healer."
+        },
+        {
+          pool: "lotr",
+          name: "Galadriel",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044059-60.json",
+              id: "lotr:Galadriel",
+              url: "https://en.wikipedia.org/wiki/Galadriel"
+            }
+          ],
+          basis: "Magical powers; cast down Dol Guldur."
+        },
+        {
+          pool: "lotr",
+          name: "Khamûl the Easterling",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044137-62.json",
+              id: "lotr:Khamûl the Easterling"
+            }
+          ],
+          basis: "Nazgûl using dark sorcery."
+        },
+        {
+          pool: "lotr",
+          name: "Morgoth (Melkor)",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-lotr-20261113-044155-63.json",
+              id: "lotr:Morgoth (Melkor)"
+            }
+          ],
+          basis: "Dark sorcery."
+        },
+        {
+          pool: "games",
+          name: "Arthas Menethil",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042833-19.json",
+              id: "games:Arthas Menethil"
+            }
+          ],
+          basis: "Lich King wielding necromancy."
+        },
+        {
+          pool: "games",
+          name: "Atreus",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042852-20.json",
+              id: "games:Atreus"
+            }
+          ],
+          basis: "Rune magic and magic-imbued arrows."
+        },
+        {
+          pool: "games",
+          name: "Bowser",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042852-20.json",
+              id: "games:Bowser",
+              url: "https://www.mariowiki.com/Bowser"
+            }
+          ],
+          basis: "Dark magic."
+        },
+        {
+          pool: "games",
+          name: "Chrono",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-042927-22.json",
+              id: "games:Chrono",
+              url: "https://squareenix.fandom.com/wiki/Crono"
+            }
+          ],
+          basis: "Lightning/Heaven magic techs."
+        },
+        {
+          pool: "games",
+          name: "Geralt of Rivia",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043022-25.json",
+              id: "games:Geralt of Rivia"
+            }
+          ],
+          basis: "Witcher Signs such as Yrden."
+        },
+        {
+          pool: "games",
+          name: "Illidan Stormrage",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043022-25.json",
+              id: "games:Illidan Stormrage"
+            }
+          ],
+          basis: "Demon hunter wielding fel magic."
+        },
+        {
+          pool: "games",
+          name: "Sephiroth",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-games-20261113-043415-37.json",
+              id: "games:Sephiroth"
+            }
+          ],
+          basis: "Combines swordsmanship with magic."
+        },
+        {
+          pool: "mcu",
+          name: "Doctor Doom",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-044449-73.json",
+              id: "mcu:Doctor Doom"
+            }
+          ],
+          basis: "Scientist and sorcerer."
+        },
+        {
+          pool: "mcu",
+          name: "Odin",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-064024-14.json",
+              id: "mcu:Odin",
+              url: "https://marvelcinematicuniverse.fandom.com/wiki/Odin"
+            }
+          ],
+          basis: "Placed the Mjolnir enchantment."
+        },
+        {
+          pool: "mcu",
+          name: "Ned Leeds",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-mcu-20261113-064024-14.json",
+              id: "mcu:Ned Leeds",
+              url: "https://www.looper.com/711703/how-ned-was-able-to-use-doctor-stranges-artifacts-in-spider-man-no-way-home"
+            }
+          ],
+          basis: "Opens portals with a Sling Ring."
+        },
+        {
+          pool: "dc",
+          name: "Atrocitus",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/dc-batch-01.json",
+              id: "dc:Atrocitus",
+              url: "https://www.comicvine.gamespot.com/red-lantern-corps/65-50747/"
+            }
+          ],
+          basis: "Reached the red light of rage through blood magic."
+        },
+        {
+          pool: "toons",
+          name: "Hades",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-toons-20261113-125815-46.json",
+              id: "toons:Hades"
+            }
+          ],
+          basis: "Potent dark magic."
+        },
+        {
+          pool: "toons",
+          name: "Minnie Mouse",
+          evidence: "credible",
+          sources: [
+            {
+              record: "research/option-c/batches/gemini-toons-20261113-125931-50.json",
+              id: "toons:Minnie Mouse"
+            }
+          ],
+          basis: "White magic in Kingdom Hearts."
         }
-      ]
+      ],
+      perPoolCap: null
     },
     {
       kind: "tag",
@@ -4376,7 +5363,7 @@
     }
   ];
 
-  const api = { STRENGTH: ARCHETYPE_STRENGTH, ARCHETYPE_STRENGTH, TAG_STRENGTH, groups };
+  const api = { STRENGTH: ARCHETYPE_STRENGTH, ARCHETYPE_STRENGTH, TAG_STRENGTH, PER_POOL_CAP, groups };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.ArchetypeGroups = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
