@@ -3427,6 +3427,90 @@
             }
           ],
           basis: "Green skin."
+        },
+        {
+          pool: "toons",
+          name: "Shrek",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Shrek (character)",
+              url: "https://en.wikipedia.org/wiki/Shrek_(character)"
+            }
+          ],
+          basis: "Large, green-skinned ogre."
+        },
+        {
+          pool: "starwars",
+          name: "Yoda",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Yoda",
+              url: "https://en.wikipedia.org/wiki/Yoda"
+            }
+          ],
+          basis: "Small, green, elderly humanoid alien."
+        },
+        {
+          pool: "starwars",
+          name: "Grogu",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Grogu",
+              url: "https://en.wikipedia.org/wiki/Grogu"
+            }
+          ],
+          basis: "Signature green skin."
+        },
+        {
+          pool: "mcu",
+          name: "Gamora",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Gamora (Marvel Cinematic Universe)",
+              url: "https://en.wikipedia.org/wiki/Gamora_(Marvel_Cinematic_Universe)"
+            }
+          ],
+          basis: "Zoe Saldaña on playing \"someone green\" through make-up."
+        },
+        {
+          pool: "games",
+          name: "Luigi",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Super Mario Wiki: Luigi",
+              url: "https://www.mariowiki.com/luigi"
+            }
+          ],
+          basis: "Green shirt and cap (\"green instead of red\")."
+        },
+        {
+          pool: "games",
+          name: "Yoshi",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Super Mario Wiki: Yoshi (species)",
+              url: "https://www.mariowiki.com/Green_Yoshi"
+            }
+          ],
+          basis: "The best-known Yoshi is green and simply named Yoshi."
+        },
+        {
+          pool: "dc",
+          name: "Beast Boy",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Beast Boy",
+              url: "https://en.wikipedia.org/wiki/Beast_Boy"
+            }
+          ],
+          basis: "Green skin, hair and eyes."
         }
       ]
     },
@@ -3555,6 +3639,42 @@
             }
           ],
           basis: "Blue fur."
+        },
+        {
+          pool: "toons",
+          name: "Genie",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Genie (Disney)",
+              url: "https://en.wikipedia.org/wiki/Genie_(Disney)"
+            }
+          ],
+          basis: "Classic blue skin (\"Blue Genie\")."
+        },
+        {
+          pool: "mcu",
+          name: "Nebula",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Nebula (Marvel Cinematic Universe)",
+              url: "https://en.wikipedia.org/wiki/Nebula_(Marvel_Cinematic_Universe)"
+            }
+          ],
+          basis: "Blue-skinned alien warrior."
+        },
+        {
+          pool: "dc",
+          name: "Doctor Manhattan",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Doctor Manhattan",
+              url: "https://en.wikipedia.org/wiki/Doctor_Manhattan"
+            }
+          ],
+          basis: "Completely blue."
         }
       ]
     },
@@ -3615,6 +3735,66 @@
             }
           ],
           basis: "Founder of the Red Lantern Corps."
+        },
+        {
+          pool: "toons",
+          name: "Mr. Krabs",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Mr. Krabs",
+              url: "https://en.wikipedia.org/wiki/Mr._Krabs"
+            }
+          ],
+          basis: "Red crab."
+        },
+        {
+          pool: "toons",
+          name: "Lightning McQueen",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Lightning McQueen",
+              url: "https://en.wikipedia.org/wiki/Lightning_McQueen"
+            }
+          ],
+          basis: "Red body with lightning-bolt decals (repainted blue late in Cars 3)."
+        },
+        {
+          pool: "games",
+          name: "Mario",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Mario",
+              url: "https://en.wikipedia.org/wiki/Mario"
+            }
+          ],
+          basis: "Red cap and long-sleeved red shirt."
+        },
+        {
+          pool: "starwars",
+          name: "Darth Maul",
+          evidence: "credible",
+          sources: [
+            {
+              title: "ComicBook.com: Why Maul is red and Savage Opress is yellow",
+              url: "https://comicbook.com/tv-shows/feature/star-wars-why-maul-is-red-when-his-brother-savage-opress-is-yellow/"
+            }
+          ],
+          basis: "Trademark red skin."
+        },
+        {
+          pool: "starwars",
+          name: "Ahsoka Tano",
+          evidence: "credible",
+          sources: [
+            {
+              title: "/Film: What you should know about Ahsoka's species, the Togruta",
+              url: "https://www.slashfilm.com/1251671/what-you-should-know-about-ahsoka-species-togruta"
+            }
+          ],
+          basis: "Red skin, facial markings and horns."
         }
       ]
     },
@@ -3827,6 +4007,42 @@
             }
           ],
           basis: "Listed yellow by colour."
+        },
+        {
+          pool: "toons",
+          name: "SpongeBob SquarePants",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: SpongeBob SquarePants (character)",
+              url: "https://en.wikipedia.org/wiki/SpongeBob_SquarePants_(character)"
+            }
+          ],
+          basis: "Yellow tube sponge."
+        },
+        {
+          pool: "toons",
+          name: "Tweety",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Tweety",
+              url: "https://en.wikipedia.org/wiki/Tweety"
+            }
+          ],
+          basis: "Yellow canary."
+        },
+        {
+          pool: "games",
+          name: "Pac-Man",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Pac-Man (character)",
+              url: "https://en.wikipedia.org/wiki/Pac-Man_(character)"
+            }
+          ],
+          basis: "Designed yellow."
         }
       ]
     },
@@ -3887,6 +4103,30 @@
             }
           ],
           basis: "A fluffy orange monster."
+        },
+        {
+          pool: "toons",
+          name: "Garfield",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Garfield (character)",
+              url: "https://en.wikipedia.org/wiki/Garfield_(character)"
+            }
+          ],
+          basis: "Orange tabby cat."
+        },
+        {
+          pool: "games",
+          name: "Crash Bandicoot",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Crash Bandicoot (character)",
+              url: "https://en.wikipedia.org/wiki/Crash_Bandicoot_(character)"
+            }
+          ],
+          basis: "Orange fur, chosen by elimination."
         }
       ]
     },
@@ -3931,6 +4171,18 @@
             }
           ],
           basis: "Young purple dragon."
+        },
+        {
+          pool: "mcu",
+          name: "Thanos",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Thanos (Marvel Cinematic Universe)",
+              url: "https://en.wikipedia.org/wiki/Thanos_(Marvel_Cinematic_Universe)"
+            }
+          ],
+          basis: "Purple skin, lightened for the films."
         }
       ]
     },
@@ -4083,6 +4335,42 @@
             }
           ],
           basis: "Pokédex colour: pink."
+        },
+        {
+          pool: "toons",
+          name: "Patrick Star",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Patrick Star",
+              url: "https://en.wikipedia.org/wiki/Patrick_Star"
+            }
+          ],
+          basis: "Coral-pink starfish."
+        },
+        {
+          pool: "games",
+          name: "Kirby",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Kirby (character)",
+              url: "https://en.wikipedia.org/wiki/Kirby_(character)"
+            }
+          ],
+          basis: "Pink, spherical body."
+        },
+        {
+          pool: "games",
+          name: "Princess Peach",
+          evidence: "credible",
+          sources: [
+            {
+              title: "Wikipedia: Princess Peach",
+              url: "https://en.wikipedia.org/wiki/Princess_Peach"
+            }
+          ],
+          basis: "Signature pink dress and colour scheme."
         }
       ]
     }
