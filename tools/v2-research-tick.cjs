@@ -126,6 +126,8 @@ function carryOver(old, nu) {
   (old.sources || []).forEach((s, i) => {
     let j = sources.findIndex((x) => x.url === s.url);
     if (j < 0) { j = sources.length; sources.push({ url: s.url, supports: s.supports }); }
+    // Same page in both records: keep the earlier note too, so evidence it stated is not lost.
+    else if (s.supports && !String(sources[j].supports || '').includes(s.supports)) sources[j] = { ...sources[j], supports: (sources[j].supports ? sources[j].supports + ' | Earlier record: ' : '') + s.supports };
     idx.set(i, j);
   });
   const union = (a, b) => { const out = [...(a || [])]; for (const x of b || []) if (typeof x === 'string' && !out.some((y) => String(y).toLowerCase() === x.toLowerCase())) out.push(x); return out; };
@@ -134,7 +136,9 @@ function carryOver(old, nu) {
   rec.defense = { ...rec.defense, mechanisms: union(rec.defense.mechanisms, old.defense && old.defense.mechanisms) };
   for (const k of ['mobility', 'limitations', 'support']) { const u = union(rec[k], old[k]); if (u.length) rec[k] = u; }
   let weak = union(rec.weaknesses, old.weaknesses);
-  if (weak.length > 1) weak = weak.filter((w) => !/^not established/i.test(w));
+  // Drop "not established" placeholders only when a real weakness is listed (never empty the list).
+  const real = weak.filter((w) => !/^not established/i.test(w));
+  if (real.length) weak = real; else weak = weak.slice(0, 1);
   rec.weaknesses = weak;
   const carry = (list, oldList, id, extra) => {
     const out = [...(list || [])], seen = new Set(out.map(id));

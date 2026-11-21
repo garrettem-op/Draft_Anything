@@ -164,3 +164,17 @@ test('expansion ignores output that is not an all-depictions record', () => {
   assert.deepEqual(mergeExpanded(batch, [rec('mcu:Iron Man', { summary: 'new' })]).done, []);
   assert.deepEqual(mergeExpanded(batch, [{ ...scoped('mcu:Iron Man'), sources: [] }]).done, []);
 });
+
+test('expansion merge keeps an earlier source note and never empties weaknesses', () => {
+  const old = rec('mcu:Iron Man', { summary: 'Earlier summary of the armored hero.', weaknesses: ['Not established in the cited pages'],
+    sources: [{ url: SRC, supports: 'Spyro-style note: a young purple dragon' }] });
+  const nu = { ...scoped('mcu:Iron Man'), weaknesses: ['not established (no page states one)'], sources: [{ url: SRC, supports: 'New overview of abilities' }] };
+  const r = mergeExpanded({ characters: [old] }, [nu]).batch.characters[0];
+  assert.match(r.sources[0].supports, /New overview of abilities \| Earlier record: Spyro-style note: a young purple dragon/);
+  assert.equal(r.sources.length, 1, 'same page, one source');
+  assert.deepEqual(r.weaknesses, ['not established (no page states one)'], 'placeholders collapse to one, never to none');
+  assert.deepEqual(check(r), []);
+  // A real weakness still replaces the placeholders.
+  const r2 = mergeExpanded({ characters: [old] }, [{ ...nu, weaknesses: ['Suit power'] }]).batch.characters[0];
+  assert.deepEqual(r2.weaknesses, ['Suit power']);
+});
