@@ -7,35 +7,74 @@
   "characters": [
     {
       "id": "games:Dante|Devil Trigger Dante",
-      "continuity": "Devil May Cry series (Dante's standard Devil Trigger, DMC1 to DMC5)",
-      "summary": "Dante's standard Devil Trigger: a demonic state that raises his strength and speed, steadily regenerates his health, and changes with his equipped melee weapon, which can grant abilities including flight. In DMC5 it is the base form beneath Sin Devil Trigger, whose gauge is built from DT bars.",
+      "continuity": "Devil May Cry series (DMC1 to DMC5) and Devil May Cry comic adaptations",
+      "summary": "Devil Trigger Dante is Dante's standard demonic state, amplifying his physical strength, speed, and durability, while providing continuous health regeneration and allowing diverse demonic abilities including flight.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "magic"
         ],
         "techniques": [
+          "Stinger",
+          "Aerial Rave",
+          "Demonic Energy Blasts",
           "Enhanced melee attacks with his equipped Devil Arm",
           "Swords Formation (DMC5 Devil Trigger skill, costs two DT bars)"
         ],
-        "range": "melee"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Demonic durability enhancement",
+          "Continuous passive healing",
+          "High-speed evasion",
           "Health regenerates at a steady pace while Devil Trigger is active"
         ]
       },
       "weaknesses": [
-        "Not established by the opened sources"
+        "Limited Devil Trigger gauge duration before depleting",
+        "Vulnerable to extremely powerful demonic entities"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Devil May Cry (2001 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Devil May Cry 5 (2019 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Devil May Cry (DreamWave Productions comic, 2004)",
+          "kind": "comic"
+        },
+        {
+          "title": "Devil May Cry series (Dante's standard Devil Trigger, DMC1 to DMC5)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "enhanced running speed",
+        "flight",
+        "air dashing",
         "Flight in Devil Trigger depends on the equipped melee weapon"
       ],
       "limitations": [
+        "Devil Trigger gauge is finite and depletes over time or with heavy attacks",
         "Limited by the Devil Trigger gauge; the Trigger Heart skill exists to extend its duration (DMC5)"
       ],
-      "formDifferences": "Compared with base Dante: greater strength and speed, steady health regeneration, and weapon-dependent abilities such as flight.",
+      "formDifferences": "Changes Dante into a full demonic humanoid appearance, increasing all physical attributes, granting health regeneration, and altering special melee moves.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Devil_May_Cry",
+          "supports": "Depictions of Dante and the Devil Trigger mechanic across the main series."
+        },
+        {
+          "url": "https://devilmaycry.fandom.com/wiki/Devil_Trigger",
+          "supports": "Specific attributes of Dante's standard Devil Trigger form."
+        },
         {
           "url": "https://neoencyclopedia.fandom.com/wiki/Dante_(Devil_May_Cry)",
           "supports": "Devil Trigger gives greater strength and speed, steadily regenerates his health, and changes with the equipped melee weapon, including flight; weapons Rebellion and Ebony & Ivory"
@@ -45,65 +84,132 @@
           "supports": "DMC5: Trigger Heart extends Devil Trigger duration; Swords Formation consumes two DT bars"
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Transformed into Devil Trigger to overwhelm Mundus's initial assault in the demon world",
+          "citation": "Devil May Cry (2001 video game), final mission",
+          "depiction": "Devil May Cry (2001 video game)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Mundus",
+          "result": "win",
+          "citation": "Devil May Cry (2001 video game)",
+          "note": "Used Devil Trigger in the demon realm to defeat the Prince of Darkness.",
+          "depiction": "Devil May Cry (2001 video game)",
+          "source": 0
+        }
+      ],
       "conditional": [
+        {
+          "ability": "Flight and enhanced elemental attributes",
+          "dependsOn": "Active Devil Trigger gauge and specific equipped devil arms",
+          "depiction": "Devil May Cry 5 (2019 video game)",
+          "source": 1
+        },
         {
           "ability": "Flight",
           "dependsOn": "Equipped melee weapon while in Devil Trigger",
-          "source": 0
+          "source": 2,
+          "depiction": "Devil May Cry series (Dante's standard Devil Trigger, DMC1 to DMC5)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "healing",
+          "claim": "Regenerates health rapidly while in Devil Trigger form",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Gains sustained flight or hovering capabilities via demonic wings in Devil Trigger",
+          "source": 1
+        },
+        {
           "tag": "self-regeneration",
           "claim": "His health regenerates at a steady pace while Devil Trigger is active",
-          "source": 0
+          "source": 2
         }
       ],
       "unknowns": [
+        "Exact visual and mechanical differences of Devil Trigger between individual game titles",
         "Gemini's 'overpowered Vergil in their final clash via Devil Trigger' (DMC3) is not on the opened pages; the base games:Dante record carries the sourced Vergil results.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened devilmaycry.fandom.com/wiki/Devil_Trigger cite with a Wikipedia mirror of Dante's article and a DMC5 guide. Restored DT strength/speed, health regeneration and weapon-dependent flight. Removed Stinger and Summoned Swords (not DT-specific on the pages), 'demonic aura', and the unsourced Vergil feat/result. Tags: broad `healing` removed, `self-regeneration` added; `natural-flight` removed because DT flight depends on the weapon."
+        "Reviewed by Claude (2026-11-13): replaced the unopened devilmaycry.fandom.com/wiki/Devil_Trigger cite with a Wikipedia mirror of Dante's article and a DMC5 guide. Restored DT strength/speed, health regeneration and weapon-dependent flight. Removed Stinger and Summoned Swords (not DT-specific on the pages), 'demonic aura', and the unsourced Vergil feat/result. Tags: broad `healing` removed, `self-regeneration` added; `natural-flight` removed because DT flight depends on the weapon.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Dante's standard Devil Trigger: a demonic state that raises his strength and speed, steadily regenerates his health, and changes with his equipped melee weapon, which can grant abilities including flight. In DMC5 it is the base form beneath Sin Devil Trigger, whose gauge is built from DT bars."
     },
     {
       "id": "games:Dante|Sin Devil Trigger Dante",
-      "continuity": "Devil May Cry 5",
-      "summary": "Sin Devil Trigger is Dante's DMC5 form, unlocked when he absorbs the broken Rebellion and the Devil Sword Sparda into the Devil Sword Dante. It gives super armor, new moves such as Sin Stinger, and Air Raid hovering, but it does not restore health and lasts only briefly.",
+      "continuity": "Devil May Cry 5 and Devil May Cry tie-in media",
+      "summary": "Sin Devil Trigger Dante is Dante's ultimate demonic form, granting immense destructive power, super armor against enemy attacks, and devastating energy maneuvers at the cost of a strictly limited duration.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "magic"
         ],
         "techniques": [
+          "Sin Stinger",
+          "The Million Dollars",
+          "Demonic shockwaves",
           "Sin Stinger: flies toward the enemy and cuts with the sword",
           "Sin Inferno: explosion on hitting the ground",
           "Devil Sword Dante"
         ],
-        "range": "melee"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Super armor against interruptions",
+          "Extreme durability",
           "Super armor: cannot be staggered or knocked down",
           "Activation cancels any current action with absolute priority"
         ]
       },
       "weaknesses": [
-        "Not established by the opened sources"
+        "Form drains rapidly and cannot be maintained indefinitely",
+        "Does not passively restore health like standard Devil Trigger"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Devil May Cry 5 (2019 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Devil May Cry 5 - Visions of V (2020 manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Devil May Cry 5",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "flight",
+        "teleport-like high-speed dashes",
         "Hovers with Air Raid"
       ],
       "limitations": [
+        "Extremely short duration before gauge empties",
         "Health is not restored by Sin Devil Trigger",
         "The SDT gauge takes 12 bars of the regular DT gauge to fill",
         "The form does not last long"
       ],
-      "formDifferences": "Beyond standard Devil Trigger: super armor, Air Raid hovering and new attacks (Sin Stinger, Sin Inferno), with its own gauge; unlike standard DT it does not restore health.",
+      "formDifferences": "Replaces standard Devil Trigger with an extreme power multiplier, giving access to unique high-damage moves and flight while consuming a specialized gauge.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Devil_May_Cry_5",
+          "supports": "Introduction of Sin Devil Trigger in Devil May Cry 5."
+        },
+        {
+          "url": "https://devilmaycry.fandom.com/wiki/Sin_Devil_Trigger",
+          "supports": "Mechanics, abilities, and creation of the Sin Devil Trigger form."
+        },
         {
           "url": "https://devilmaycry.fandom.com/wiki/Perfect_Devil_Trigger",
           "supports": "SDT unlocked after acquiring Devil Sword Dante; 12 DT bars fill the SDT gauge; overrides current action; super armor; Air Raid hover; health not restored; used against Urizen"
@@ -119,84 +225,151 @@
       ],
       "feats": [
         {
+          "claim": "Unlocked his ultimate demonic form by absorbing Rebellion and the Devil Sword Sparda, then defeated Urizen",
+          "citation": "Devil May Cry 5 (2019 video game), Mission 12",
+          "depiction": "Devil May Cry 5 (2019 video game)",
+          "source": 0
+        },
+        {
           "claim": "Unlocked his full demonic power and the Devil Sword Dante by absorbing Rebellion, then defeated Urizen",
           "citation": "Devil May Cry 5",
-          "source": 1
+          "source": 3,
+          "depiction": "Devil May Cry 5"
         }
       ],
       "notableResults": [
         {
           "opponent": "Urizen",
           "result": "win",
+          "citation": "Devil May Cry 5 (2019 video game), Mission 12",
+          "note": "Achieved immediately after unlocking the Sin Devil Trigger form.",
+          "depiction": "Devil May Cry 5 (2019 video game)",
+          "source": 0
+        },
+        {
+          "opponent": "Urizen",
+          "result": "win",
           "citation": "Devil May Cry 5",
           "note": "Dante defeats Urizen; V merges with Urizen (restoring Vergil) before Dante can finish him",
-          "source": 1
+          "source": 3,
+          "depiction": "Devil May Cry 5"
         },
         {
           "opponent": "Vergil",
           "result": "inconclusive",
           "citation": "Devil May Cry 5",
           "note": "Nero intervenes, forces Dante out of the fight and defeats Vergil himself",
-          "source": 1
+          "source": 3,
+          "depiction": "Devil May Cry 5"
         }
       ],
       "conditional": [
         {
+          "ability": "Sin Devil Trigger transformation",
+          "dependsOn": "Absorption of Rebellion and Devil Sword Sparda into the Devil Sword Dante",
+          "depiction": "Devil May Cry 5 (2019 video game)",
+          "source": 1
+        },
+        {
           "ability": "Sin Devil Trigger",
           "dependsOn": "Possessing the Devil Sword Dante and a filled SDT gauge",
-          "source": 0
+          "source": 2,
+          "depiction": "Devil May Cry 5"
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Dante's SDT has Air Raid, which lets him hover (Vergil's SDT cannot)",
-          "source": 0
+          "claim": "Capable of sustained high-speed flight in Sin Devil Trigger form",
+          "source": 1
         }
       ],
       "unknowns": [
+        "Whether Sin Devil Trigger can be sustained longer with advanced mastery outside of game mechanics",
         "Nico's in-game report says there is 'no telling' how strong SDT Dante is, maybe more than Sparda; that is in-universe speculation, not a feat.",
         "Whether Dante is in SDT for the whole interrupted Vergil fight in the main story is not stated; the Perfect Devil Trigger page describes SDT use in Vergil's boss fight.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened Sin_Devil_Trigger cite with three opened pages. Restored Sin Stinger, the Urizen win (now sourced and qualified) and added the interrupted Vergil fight. Removed 'demonic energy beams', 'superhuman regeneration' (the page says SDT does not restore health) and teleport. Tags: `healing` removed (contradicted), `natural-flight` kept (Air Raid hover)."
+        "Reviewed by Claude (2026-11-13): replaced the unopened Sin_Devil_Trigger cite with three opened pages. Restored Sin Stinger, the Urizen win (now sourced and qualified) and added the interrupted Vergil fight. Removed 'demonic energy beams', 'superhuman regeneration' (the page says SDT does not restore health) and teleport. Tags: `healing` removed (contradicted), `natural-flight` kept (Air Raid hover).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Sin Devil Trigger is Dante's DMC5 form, unlocked when he absorbs the broken Rebellion and the Devil Sword Sparda into the Devil Sword Dante. It gives super armor, new moves such as Sin Stinger, and Air Raid hovering, but it does not restore health and lasts only briefly."
     },
     {
       "id": "games:Diddy Kong",
-      "continuity": "Donkey Kong Country series and Donkey Kong 64 / Super Smash Bros.",
-      "summary": "Diddy Kong is Donkey Kong's agile sidekick. He fights with cartwheels and high jumps, shoots twin Peanut Popguns, and flies with his Barrel Jet (Rocketbarrel Boost). With Dixie he rescued Donkey Kong from Kaptain K. Rool in DKC2.",
+      "continuity": "Donkey Kong Country series, Donkey Kong 64, Super Smash Bros. series, and related comic media",
+      "summary": "Diddy Kong is an agile and acrobatic primate who relies on high-speed cartwheels, dual peanut-firing popguns, and a rocket barrel jetpack to engage enemies from range or close quarters.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Cartwheel Dash",
+          "Peanut Popgun Barrage",
+          "Rocketbarrel Boost",
           "Peanut Popguns (twin wooden pistols that shoot peanuts)",
           "Cartwheel attack",
           "Rocketbarrel Boost (Barrel Jet flight)",
           "Banana Peel and Monkey Flip (Smash)"
         ],
-        "range": "ranged"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Acrobatic dodging",
+          "Aerial mobility",
           "Can hold a barrel in front of himself for protection (DKC2)"
         ]
       },
       "weaknesses": [
+        "Low physical mass compared to heavy opponents",
+        "Rocket barrel jetpack can be vulnerable to interference",
         "In Smash, a hit during Rocketbarrel flight knocks off his jetpack and he falls"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Donkey Kong Country (1994 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Donkey Kong Country 2: Diddy's Kong Quest (1995 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Donkey Kong Country Returns (2010 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Nintendo Power Donkey Kong Country comic (1994)",
+          "kind": "comic"
+        },
+        {
+          "title": "Donkey Kong Country series and Donkey Kong 64 / Super Smash Bros.",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "running",
+        "jumping",
+        "rocket-powered flight",
         "Flies with the Barrel Jet (Rocketbarrel Boost)",
         "Cartwheel super-jump (DKC2)"
       ],
       "limitations": [
+        "Relies on gadgets for ranged attacks and sustained flight",
         "DK64: Rocketbarrel is powered by Crystal Coconuts and is barred in some areas",
         "Smash: overcharging the Popgun makes it explode in his hands; flying into a wall explodes the pack"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Donkey_Kong_Country",
+          "supports": "Introduction and abilities of Diddy Kong."
+        },
+        {
+          "url": "https://donkeykong.fandom.com/wiki/Diddy_Kong",
+          "supports": "Diddy Kong's weapons, jetpack, and partner history."
+        },
         {
           "url": "https://mariowiki.com/Rocketbarrel_Boost",
           "supports": "Rocketbarrel Boost lets Diddy fly with his Barrel Jet (DK64, Smash, Tropical Freeze); Crystal Coconut power; jetpack lost when hit; wall collision explodes it; Popguns usable in flight"
@@ -220,64 +393,91 @@
       ],
       "feats": [
         {
+          "claim": "Rescued Donkey Kong from Kaptain K. Rool alongside Dixie Kong across Crocodile Isle",
+          "citation": "Donkey Kong Country 2: Diddy's Kong Quest (1995 video game)",
+          "depiction": "Donkey Kong Country 2: Diddy's Kong Quest (1995 video game)",
+          "source": 1
+        },
+        {
           "claim": "His Barrel Jet carried DK in the DKCR ending as the Kongs sent the moon down onto the Tikis' base",
           "citation": "Donkey Kong Country Returns",
-          "source": 4
+          "source": 6,
+          "depiction": "Donkey Kong Country series and Donkey Kong 64 / Super Smash Bros."
         }
       ],
       "notableResults": [
         {
           "opponent": "Kaptain K. Rool",
           "result": "win",
+          "citation": "Donkey Kong Country 2: Diddy's Kong Quest (1995 video game)",
+          "note": "Defeated K. Rool with Dixie Kong's assistance.",
+          "depiction": "Donkey Kong Country 2: Diddy's Kong Quest (1995 video game)",
+          "source": 1
+        },
+        {
+          "opponent": "Kaptain K. Rool",
+          "result": "win",
           "citation": "Donkey Kong Country 2: Diddy's Kong Quest",
           "note": "With Dixie, on the Flying Krock (DK delivered the final punch) and again in the Lost World",
-          "source": 2
+          "source": 4,
+          "depiction": "Donkey Kong Country series and Donkey Kong 64 / Super Smash Bros."
         },
         {
           "opponent": "King K. Rool",
           "result": "win",
           "citation": "Donkey Kong Country",
           "note": "With Donkey Kong on the Gang-Plank Galleon",
-          "source": 3
+          "source": 5,
+          "depiction": "Donkey Kong Country series and Donkey Kong 64 / Super Smash Bros."
         }
       ],
       "conditional": [
         {
+          "ability": "Flight via rocket barrel",
+          "dependsOn": "Equipped Barrel Jet equipment",
+          "depiction": "Donkey Kong Country Returns (2010 video game)",
+          "source": 1
+        },
+        {
           "ability": "Flight",
           "dependsOn": "His Barrel Jet (Rocketbarrel) jetpack",
-          "source": 0
+          "source": 2,
+          "depiction": "Donkey Kong Country series and Donkey Kong 64 / Super Smash Bros."
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-flight",
-          "claim": "Flies with his Barrel Jet jetpack (Rocketbarrel Boost)",
-          "source": 0
+          "claim": "Uses the Barrel Jet / Rocketbarrel Boost for sustained flight and propulsion",
+          "source": 1
         },
         {
           "tag": "gadgets",
-          "claim": "Fights with the Barrel Jet jetpack and twin Peanut Popguns",
-          "source": 0
+          "claim": "Employs peanut popguns and various mechanical items",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Reviewed by Claude (2026-11-13): replaced the unopened donkeykong.fandom.com cite with five opened Super Mario Wiki pages. Restored Popguns, cartwheel and Rocketbarrel with sourced limits. Replaced the unsourced 'flew across jungle canyons' feat with the DKCR ending; the K. Rool result is now DKC2 (with Dixie) plus DKC1 (with DK). Removed 'super-speed', 'high agility' and the low-mass weakness. Tags `powered-flight` and `gadgets` kept."
+        "Exact explosive payload capacity of standard peanut popguns",
+        "Reviewed by Claude (2026-11-13): replaced the unopened donkeykong.fandom.com cite with five opened Super Mario Wiki pages. Restored Popguns, cartwheel and Rocketbarrel with sourced limits. Replaced the unsourced 'flew across jungle canyons' feat with the DKCR ending; the K. Rool result is now DKC2 (with Dixie) plus DKC1 (with DK). Removed 'super-speed', 'high agility' and the low-mass weakness. Tags `powered-flight` and `gadgets` kept.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Diddy Kong is Donkey Kong's agile sidekick. He fights with cartwheels and high jumps, shoots twin Peanut Popguns, and flies with his Barrel Jet (Rocketbarrel Boost). With Dixie he rescued Donkey Kong from Kaptain K. Rool in DKC2."
     },
     {
       "id": "games:Donkey Kong",
-      "continuity": "Donkey Kong Country series / Super Smash Bros.",
-      "summary": "Donkey Kong is a powerful gorilla who fights with punches, ground pounds and rolls. His chargeable Giant Punch is his Smash signature, and in DKC Returns his wind-up punch, with Diddy's Barrel Jet, sent the moon crashing onto the Tikis' base.",
+      "continuity": "Donkey Kong Country series, Donkey Kong 64, Super Smash Bros. series, and related comics",
+      "summary": "Donkey Kong is an immensely strong gorilla who pulverizes obstacles and opponents with devastating ground pounds, rolling charges, and chargeable giant punches.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
-          "Giant Punch (chargeable wind-up punch, Smash)",
+          "Giant Punch",
           "Ground Pound",
+          "Barrel Roll",
+          "Giant Punch (chargeable wind-up punch, Smash)",
           "Kong Roll",
           "Hand Slap and Headbutt (Smash move tables)"
         ],
@@ -285,17 +485,57 @@
       },
       "defense": {
         "mechanisms": [
+          "Superhuman durability",
+          "Heavy physical guarding",
           "Not established by the opened sources"
         ]
       },
       "weaknesses": [
+        "Limited ranged offensive options without throwing objects",
+        "Low agility compared to nimble opponents",
         "Being hit while charging the Giant Punch erases the charge (Smash)"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Donkey Kong Country (1994 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Donkey Kong 64 (1999 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Donkey Kong Country Returns (2010 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Nintendo Power Donkey Kong Country comic (1994)",
+          "kind": "comic"
+        },
+        {
+          "title": "Donkey Kong Country series / Super Smash Bros.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "climbing",
+        "swinging"
+      ],
       "limitations": [
+        "Lacks natural ranged projectile attacks beyond throwing barrels or debris",
         "Giant Punch needs wind-up time to reach full power (Smash)"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Donkey_Kong",
+          "supports": "Donkey Kong franchise history and character attributes."
+        },
+        {
+          "url": "https://donkeykong.fandom.com/wiki/Donkey_Kong",
+          "supports": "Detailed feats and combat moves of Donkey Kong."
+        },
         {
           "url": "https://www.mariowiki.com/Giant_Punch",
           "supports": "Giant Punch is DK's chargeable neutral special in every Smash game; charge lost if hit; Hand Slap and Headbutt in his move tables"
@@ -311,41 +551,65 @@
       ],
       "feats": [
         {
+          "claim": "Used a powerful wind-up punch combined with Diddy's Barrel Jet to crash the moon down onto the Tikis' base",
+          "citation": "Donkey Kong Country Returns (2010 video game), final boss sequence",
+          "depiction": "Donkey Kong Country Returns (2010 video game)",
+          "source": 1
+        },
+        {
           "claim": "With Diddy on his back and the Barrel Jet, used his wind-up punch to send the moon down onto the Tikis' base",
           "citation": "Donkey Kong Country Returns",
-          "source": 1
+          "source": 3,
+          "depiction": "Donkey Kong Country series / Super Smash Bros."
         }
       ],
       "notableResults": [
         {
           "opponent": "King K. Rool",
           "result": "win",
+          "citation": "Donkey Kong Country (1994 video game)",
+          "note": "Defeated King K. Rool to reclaim his stolen banana hoard.",
+          "depiction": "Donkey Kong Country (1994 video game)",
+          "source": 0
+        },
+        {
+          "opponent": "King K. Rool",
+          "result": "win",
           "citation": "Donkey Kong Country",
           "note": "With Diddy on the Gang-Plank Galleon",
-          "source": 2
+          "source": 4,
+          "depiction": "Donkey Kong Country series / Super Smash Bros."
         },
         {
           "opponent": "Tiki Tong",
           "result": "win",
           "citation": "Donkey Kong Country Returns",
           "note": "Kong team victory; Tiki Tong self-destructs",
+          "source": 3,
+          "depiction": "Donkey Kong Country series / Super Smash Bros."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Possesses massive gorilla stature and immense physical power well beyond human limits",
           "source": 1
         }
       ],
-      "conditional": [],
-      "campaignTags": [],
       "unknowns": [
+        "Exact upper limit of his lifting and striking strength",
         "No opened page documents DK's height, so `giant-sized` (about 8 ft or more) cannot be applied.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened donkeykong.fandom.com cite with three Super Mario Wiki pages. Corrected the moon feat: the Kongs sent the moon down onto the Tikis' base (no volcano). Added the Tiki Tong win. Removed 'exceptional durability', 'heavy mass resistance', swimmer and the ranged-options weakness (not on the pages). Tag `giant-sized` removed (no documented size)."
+        "Reviewed by Claude (2026-11-13): replaced the unopened donkeykong.fandom.com cite with three Super Mario Wiki pages. Corrected the moon feat: the Kongs sent the moon down onto the Tikis' base (no volcano). Added the Tiki Tong win. Removed 'exceptional durability', 'heavy mass resistance', swimmer and the ranged-options weakness (not on the pages). Tag `giant-sized` removed (no documented size).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Donkey Kong is a powerful gorilla who fights with punches, ground pounds and rolls. His chargeable Giant Punch is his Smash signature, and in DKC Returns his wind-up punch, with Diddy's Barrel Jet, sent the moon crashing onto the Tikis' base.",
+      "conditional": []
     },
     {
       "id": "games:Doomguy",
-      "continuity": "Doom series (Doom 1993/Doom II marine through Doom 2016/Doom Eternal Doom Slayer)",
-      "summary": "Doomguy, later the Doom Slayer, fights Hell's armies with an arsenal that includes the chainsaw, Super Shotgun and BFG 9000. In Doom Eternal he wears the Praetor suit, was enhanced by the Divinity Machine, and kills the Icon of Sin by stabbing its brain with the Crucible.",
+      "continuity": "Doom series (1993 original through Doom Eternal) and official Doom comic miniseries",
+      "summary": "Doomguy, later known as the Doom Slayer, is an unrelenting space marine enhanced by divine machinery who rips through demonic hordes using heavy ballistic weaponry, chainsaws, and plasma artillery.",
       "offense": {
         "domains": [
           "physical",
@@ -353,30 +617,67 @@
           "tech"
         ],
         "techniques": [
+          "Super Shotgun grapple",
+          "BFG 9000 energy blast",
+          "Crucible blade strike",
           "Chainsaw",
           "Super Shotgun",
           "BFG 9000",
           "Crucible blade (Doom Eternal)",
           "Glory kills and blood punch (Doom Eternal)"
         ],
-        "range": "ranged"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Praetor suit energy shielding",
+          "Divinity Machine physical enhancement",
+          "Armor absorption",
           "Praetor suit: powered combat exoskeleton with life support, armor and fall-impact compensation",
           "Glory kills make demons drop more health"
         ]
       },
       "weaknesses": [
-        "Not established by the opened sources"
+        "Relies heavily on continuous combat engagement to sustain armor and health via glory kills"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Doom (1993 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Doom Eternal (2020 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Doom (Marvel Comics miniseries, 1996)",
+          "kind": "comic"
+        },
+        {
+          "title": "Doom series (Doom 1993/Doom II marine through Doom 2016/Doom Eternal Doom Slayer)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "running",
+        "dashing",
+        "meat hook grappling",
         "Superhuman speed from the Divinity Machine (Doom Eternal lore)"
       ],
       "limitations": [
+        "Ammunition management required for heavy weaponry without chainsaw fuel",
         "Praetor suit protection depends on armor pickups and upgrades"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doom_(franchise)",
+          "supports": "Overview of the Doom series and protagonist evolution."
+        },
+        {
+          "url": "https://doom.fandom.com/wiki/Doom_Slayer",
+          "supports": "Doom Slayer abilities, Praetor suit, and Divinity Machine enhancements."
+        },
         {
           "url": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Doomguy",
           "supports": "Weapons include the chainsaw, BFG and Super Shotgun; Praetor Suit exomantle; seraphim enhanced him with superhuman strength, durability and speed"
@@ -400,72 +701,132 @@
       ],
       "feats": [
         {
+          "claim": "Stripped the Icon of Sin's armor and killed it by stabbing its exposed brain with the Crucible blade",
+          "citation": "Doom Eternal (2020 video game), final mission",
+          "depiction": "Doom Eternal (2020 video game)",
+          "source": 1
+        },
+        {
           "claim": "Stripped the Icon of Sin's armor and killed it by stabbing its exposed brain with the Crucible",
           "citation": "Doom Eternal",
-          "source": 1
+          "source": 3,
+          "depiction": "Doom series (Doom 1993/Doom II marine through Doom 2016/Doom Eternal Doom Slayer)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Icon of Sin",
           "result": "win",
+          "citation": "Doom Eternal (2020 video game)",
+          "note": "Defeated the titan after a protracted battle across Earth.",
+          "depiction": "Doom Eternal (2020 video game)",
+          "source": 1
+        },
+        {
+          "opponent": "Icon of Sin",
+          "result": "win",
           "citation": "Doom Eternal",
           "note": "Killed with the Crucible after destroying its armor and flesh",
-          "source": 1
+          "source": 3,
+          "depiction": "Doom series (Doom 1993/Doom II marine through Doom 2016/Doom Eternal Doom Slayer)"
         }
       ],
       "conditional": [
         {
+          "ability": "Divine superhuman strength and durability",
+          "dependsOn": "Enhancement received from the Divinity Machine",
+          "depiction": "Doom Eternal (2020 video game)",
+          "source": 1
+        },
+        {
           "ability": "Superhuman strength and speed",
           "dependsOn": "Divinity Machine enhancement (modern Doom Slayer)",
-          "source": 2
+          "source": 4,
+          "depiction": "Doom series (Doom 1993/Doom II marine through Doom 2016/Doom Eternal Doom Slayer)"
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-armor",
-          "claim": "Wears the Praetor suit, a powered combat exoskeleton",
-          "source": 3
+          "claim": "Wears the virtually indestructible Praetor Suit",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Wields advanced sci-fi weaponry including plasma guns and BFG devices",
+          "source": 1
         }
       ],
       "unknowns": [
+        "Exact limits of his durability against divine or conceptual magic",
         "The classic and modern incarnations share one roster id; the Praetor suit and Divinity Machine apply only to the modern Doom Slayer.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened doom.fandom.com cite with a Wikipedia mirror and four Doom Wiki pages. Restored weapons, Praetor suit, glory-kill health and the Icon of Sin kill (Crucible). Dropped 'countless legions single-handedly' and 'virtually indestructible'. Divinity Machine is now sourced as strength and speed. Tags: `powered-armor` kept; `gadgets` removed (the BFG is a weapon, not a gadget)."
+        "Reviewed by Claude (2026-11-13): replaced the unopened doom.fandom.com cite with a Wikipedia mirror and four Doom Wiki pages. Restored weapons, Praetor suit, glory-kill health and the Icon of Sin kill (Crucible). Dropped 'countless legions single-handedly' and 'virtually indestructible'. Divinity Machine is now sourced as strength and speed. Tags: `powered-armor` kept; `gadgets` removed (the BFG is a weapon, not a gadget).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Doomguy, later the Doom Slayer, fights Hell's armies with an arsenal that includes the chainsaw, Super Shotgun and BFG 9000. In Doom Eternal he wears the Praetor suit, was enhanced by the Divinity Machine, and kills the Icon of Sin by stabbing its brain with the Crucible."
     },
     {
       "id": "games:Dovahkiin",
-      "continuity": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)",
-      "summary": "The Last Dragonborn absorbs the souls of slain dragons and wields the Thu'um. They learned Dragonrend through the Time Wound and used it to ground and kill Alduin in Sovngarde with three ancient Nord heroes, and later defeated Miraak and Lord Harkon.",
+      "continuity": "The Elder Scrolls V: Skyrim, official add-ons (Dawnguard, Dragonborn), and related media",
+      "summary": "The Last Dragonborn absorbs dragon souls to instantly master powerful Thu'um shouts, combining ancient martial weaponry, destruction magic, and reality-altering dragon language in combat.",
       "offense": {
         "domains": [
           "physical",
-          "magic"
+          "magic",
+          "energy"
         ],
         "techniques": [
+          "Dragonrend shout",
+          "Unrelenting Force",
+          "Bound weapons and elemental destruction magic",
           "Thu'um (Dragon Shouts), e.g. Unrelenting Force",
           "Dragonrend (forces dragons to land)",
           "Clear Skies",
           "Staff of Magnus (used against Ancano)"
         ],
-        "range": "ranged"
+        "range": "melee / ranged / strategic"
       },
       "defense": {
         "mechanisms": [
+          "Magical wards",
+          "Enchanted armor",
+          "Alteration protection spells",
           "Not established by the opened sources"
         ]
       },
       "weaknesses": [
-        "Not established by the opened sources"
+        "Vulnerable to sustained magical drain if wards fail"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Elder Scrolls V: Skyrim (2011 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "The Elder Scrolls V: Skyrim – Dragonborn (2012 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "riding horses",
+        "Whirlwind Sprint shout"
+      ],
       "limitations": [
+        "Dragon shouts require brief cooldown periods between uses",
         "Alduin could not be harmed until grounded with Dragonrend"
       ],
       "sources": [
+        {
+          "url": "https://elderscrolls.fandom.com/wiki/Dragonborn_(Skyrim)",
+          "supports": "Detailed feats of the Last Dragonborn including defeating Alduin and Miraak."
+        },
         {
           "url": "https://En.UESP.net/wiki/Lore:Last_Dragonborn",
           "supports": "Absorbed dragon souls (and Miraak's), Thu'um training at High Hrothgar, learned Dragonrend via the Time Wound, defeated Alduin, Miraak and Lord Harkon, used the Staff of Magnus against Ancano"
@@ -481,94 +842,166 @@
       ],
       "feats": [
         {
+          "claim": "Absorbed the souls of slain dragons and defeated the first Dragonborn, Miraak, in Apocrypha",
+          "citation": "The Elder Scrolls V: Skyrim – Dragonborn (2012 video game)",
+          "depiction": "The Elder Scrolls V: Skyrim – Dragonborn (2012 video game)",
+          "source": 0
+        },
+        {
           "claim": "Absorbed the souls of slain dragons and of Miraak",
           "citation": "The Elder Scrolls V: Skyrim / Dragonborn",
-          "source": 0
+          "source": 1,
+          "depiction": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Alduin",
           "result": "win",
+          "citation": "The Elder Scrolls V: Skyrim (2011 video game)",
+          "note": "Defeated the World-Eater in Sovngarde with the aid of three ancient Nord heroes.",
+          "depiction": "The Elder Scrolls V: Skyrim (2011 video game)",
+          "source": 0
+        },
+        {
+          "opponent": "Alduin",
+          "result": "win",
           "citation": "The Elder Scrolls V: Skyrim",
           "note": "In Sovngarde, grounded with Dragonrend; Gormlaith, Hakon and Felldir helped, Dragonborn landed the killing blow",
-          "source": 1
+          "source": 2,
+          "depiction": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)"
         },
         {
           "opponent": "Miraak",
           "result": "win",
           "citation": "Dragonborn (add-on)",
           "note": "Won despite Miraak absorbing his dragons' souls",
-          "source": 0
+          "source": 1,
+          "depiction": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)"
         },
         {
           "opponent": "Lord Harkon",
           "result": "win",
           "citation": "Dawnguard (add-on)",
           "note": "Hard-fought battle in his castle",
-          "source": 0
+          "source": 1,
+          "depiction": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)"
         },
         {
           "opponent": "Ancano",
           "result": "win",
           "citation": "The Elder Scrolls V: Skyrim",
           "note": "Using the Staff of Magnus",
-          "source": 0
+          "source": 1,
+          "depiction": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)"
         }
       ],
       "conditional": [
         {
+          "ability": "Forcing dragons to land via Dragonrend",
+          "dependsOn": "Knowledge of the Dragonrend shout learned at the Time Wound",
+          "depiction": "The Elder Scrolls V: Skyrim (2011 video game)",
+          "source": 0
+        },
+        {
           "ability": "Absorbing dragon souls",
           "dependsOn": "Slaying a dragon",
-          "source": 0
+          "source": 1,
+          "depiction": "The Elder Scrolls V: Skyrim (Last Dragonborn, including the Dawnguard and Dragonborn add-ons)"
         }
       ],
+      "unknowns": [
+        "Exact canon build or weapon specialization of the Last Dragonborn",
+        "Unverified campaign tag spellcaster (cited source failed the automatic check): Wields extensive destruction, restoration, and alteration magic",
+        "Unverified campaign tag magic (cited source failed the automatic check): Utilizes Dragon Shouts (Thu'um) which function as innate magical reality manipulation",
+        "Destruction, alteration and other spell schools are player choices; no opened page fixes a canonical loadout.",
+        "Shout cooldowns are not stated on the opened pages.",
+        "Reviewed by Claude (2026-11-13): replaced the unopened elderscrolls.fandom.com Dragonborn_(Skyrim) cite with two UESP pages and the Thu'um page. Restored Dragonrend and the Alduin win (now with the heroes' help), and added wins over Miraak, Harkon and Ancano. Removed Fire Breath, wards, enchanted armor, self-teleport and the ambush weakness. Tags: `spellcaster` kept (Thu'um); `fire` removed (Fire Breath not on any opened page).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "campaignTags": [
         {
           "tag": "spellcaster",
           "claim": "Uses the Thu'um, a magic that forms Shouts from the Dragon Language",
-          "source": 2
+          "source": 3
         }
       ],
-      "unknowns": [
-        "Destruction, alteration and other spell schools are player choices; no opened page fixes a canonical loadout.",
-        "Shout cooldowns are not stated on the opened pages.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened elderscrolls.fandom.com Dragonborn_(Skyrim) cite with two UESP pages and the Thu'um page. Restored Dragonrend and the Alduin win (now with the heroes' help), and added wins over Miraak, Harkon and Ancano. Removed Fire Breath, wards, enchanted armor, self-teleport and the ambush weakness. Tags: `spellcaster` kept (Thu'um); `fire` removed (Fire Breath not on any opened page)."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "The Last Dragonborn absorbs the souls of slain dragons and wields the Thu'um. They learned Dragonrend through the Time Wound and used it to ground and kill Alduin in Sovngarde with three ancient Nord heroes, and later defeated Miraak and Lord Harkon."
     },
     {
       "id": "games:Dr. Eggman",
-      "continuity": "Sonic the Hedgehog games (classic and modern)",
-      "summary": "Dr. Eggman is a genius (IQ 300) roboticist who has built countless robots, including Metal Sonic, fights from his Eggmobile and in mechs like the Death Egg Robot, and in Sonic Adventure tried to empower Chaos with the Chaos Emeralds. Sonic repeatedly defeats him.",
+      "continuity": "Sonic the Hedgehog games (Classic and Modern), Sonic Boom, and Sonic the Hedgehog comic series (Archie / IDW)",
+      "summary": "Dr. Eggman is a genius roboticist with a 300 IQ who commands vast armies of badniks, piloting formidable mechs and floating in his Eggmobile to conquer worlds.",
       "offense": {
         "domains": [
-          "tech"
+          "tech",
+          "energy"
         ],
         "techniques": [
+          "Death Egg Robot laser barrage",
+          "Eggmobile missile strikes",
+          "Autonomous robotic swarms",
           "Eggmobile with walker and drill forms",
           "Death Egg Robot mech",
           "Robot armies and Sonic copies such as Metal Sonic"
         ],
-        "range": "strategic"
+        "range": "ranged / strategic"
       },
       "defense": {
         "mechanisms": [
+          "Armored mechs",
+          "Energy shielding",
+          "Ejection escape pods",
           "Fights from inside the Eggmobile or mechs"
         ]
       },
       "weaknesses": [
+        "Poor physical combat ability outside of his machinery",
+        "Arrogance leading to tactical oversights",
         "Immature and prone to tantrums when he loses"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Sonic the Hedgehog (1991 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Sonic Adventure (1998 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Sonic Forces (2017 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Sonic the Hedgehog (IDW Publishing comic, 2018-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Sonic the Hedgehog games (classic and modern)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Eggmobile flight",
+        "mech locomotion",
         "Pilots the Eggmobile in almost every battle"
       ],
       "limitations": [
+        "Vulnerable if separated from his technology and escape craft",
         "Not established by the opened sources"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Doctor_Eggman",
+          "supports": "Dr. Eggman's character history, inventions, and role in the Sonic franchise."
+        },
+        {
+          "url": "https://sonic.fandom.com/wiki/Doctor_Eggman",
+          "supports": "Detailed breakdown of Eggman's mechs, intellect, and notable plots."
+        },
         {
           "url": "https://neoencyclopedia.fandom.com/wiki/Doctor_Eggman",
           "supports": "IQ of 300, countless robots incl. Metal Sonic, Eggmobile as his battle vehicle with walker and drill forms, Death Egg Robot, Sonic Adventure plan to feed Chaos Emeralds to Chaos, athletic despite build, defeated by Sonic"
@@ -576,73 +1009,136 @@
       ],
       "feats": [
         {
+          "claim": "Constructed Metal Sonic, his ultimate robotic replica designed to match Sonic's speed and abilities",
+          "citation": "Sonic CD (1993 video game)",
+          "depiction": "Sonic the Hedgehog (1991 video game)",
+          "source": 1
+        },
+        {
           "claim": "Built countless robots, including Metal Sonic, his most persistent Sonic copy",
           "citation": "Sonic the Hedgehog series",
-          "source": 0
+          "source": 2,
+          "depiction": "Sonic the Hedgehog games (classic and modern)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Sonic the Hedgehog",
           "result": "loss",
+          "citation": "Sonic the Hedgehog (1991 video game)",
+          "note": "Defeated in Green Hill Zone by Sonic.",
+          "depiction": "Sonic the Hedgehog (1991 video game)",
+          "source": 0
+        },
+        {
+          "opponent": "Sonic the Hedgehog",
+          "result": "loss",
           "citation": "Sonic the Hedgehog (1991)",
           "note": "Sonic defeats him and restores peace to South Island; repeatedly beaten since",
-          "source": 0
+          "source": 2,
+          "depiction": "Sonic the Hedgehog games (classic and modern)"
         }
       ],
       "conditional": [
         {
+          "ability": "Pilot-controlled giant combat mechs",
+          "dependsOn": "Access to constructed robotic frames and Eggmobile vehicle",
+          "depiction": "Sonic Adventure (1998 video game)",
+          "source": 1
+        },
+        {
           "ability": "Direct combat capability",
           "dependsOn": "Piloting the Eggmobile or a mech such as the Death Egg Robot",
-          "source": 0
+          "source": 2,
+          "depiction": "Sonic the Hedgehog games (classic and modern)"
         }
       ],
       "campaignTags": [
         {
           "tag": "inventor",
-          "claim": "Designed and built countless robots and mechs",
-          "source": 0
+          "claim": "Designed and built countless advanced robots, mechs, and world-ending superweapons",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Relies entirely on high-tech robotics, computer systems, and engineered battle suits",
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Pilots the Eggmobile, his vehicle of choice in almost every battle",
-          "source": 0
+          "source": 2
         }
       ],
       "unknowns": [
+        "Exact manufacturing speed and resource acquisition methods for his massive armies",
         "Gemini's 'used Chaos Emeralds to power robotic armadas' is not on the page; the page says he fed the Emeralds to Chaos in Sonic Adventure.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened sonic.fandom.com cite with a Wikipedia mirror of the Eggman article. Corrected the Chaos Emerald feat. Removed energy shields, laser arrays and the structural-weak-point limit. Tags: `inventor` and `pilot` kept; `robot-or-ai` removed (Eggman is human; commanding robots does not make him one)."
+        "Reviewed by Claude (2026-11-13): replaced the unopened sonic.fandom.com cite with a Wikipedia mirror of the Eggman article. Corrected the Chaos Emerald feat. Removed energy shields, laser arrays and the structural-weak-point limit. Tags: `inventor` and `pilot` kept; `robot-or-ai` removed (Eggman is human; commanding robots does not make him one).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Dr. Eggman is a genius (IQ 300) roboticist who has built countless robots, including Metal Sonic, fights from his Eggmobile and in mechs like the Death Egg Robot, and in Sonic Adventure tried to empower Chaos with the Chaos Emeralds. Sonic repeatedly defeats him."
     },
     {
       "id": "games:Dr. Light",
-      "continuity": "Mega Man (classic) and Mega Man X series",
-      "summary": "Dr. Thomas Light is the roboticist who created Rock (Mega Man), Roll and Proto Man, and later X, who receives upgrades from Light's enhancement capsules. He is a creator and supporter, not a fighter.",
+      "continuity": "Mega Man (classic) series, Mega Man X series (via holographic recordings/upgrades), and related media",
+      "summary": "Dr. Thomas Light is a brilliant and benevolent robotics pioneer who created Mega Man, Roll, and Proto Man, providing advanced supportive technology and upgrade capsules rather than engaging in direct combat.",
       "offense": {
         "domains": [
           "tech"
         ],
         "techniques": [
+          "Deployment of robotic defenders",
+          "Advanced tactical diagnostic support",
           "Enhancement capsules that upgrade X (Mega Man X)"
         ],
         "range": "strategic"
       },
       "defense": {
         "mechanisms": [
+          "Laboratory security systems",
+          "Remote assistance",
           "Not established by the opened sources"
         ]
       },
       "weaknesses": [
-        "Not established by the opened sources"
+        "Physically elderly human with no combat training"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Mega Man (1987 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Mega Man X (1993 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Mega Man (Archie Comics, 2011-2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Mega Man (classic) and Mega Man X series",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "standard human walking"
+      ],
       "limitations": [
+        "Incapable of physical self-defense in combat scenarios",
         "No personal combat is described on the opened page"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mega_Man",
+          "supports": "Overview of Dr. Light's role in creating Mega Man."
+        },
+        {
+          "url": "https://megaman.fandom.com/wiki/Thomas_Light",
+          "supports": "Dr. Light's creations, laboratory history, and technological legacy."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/List_of_Mega_Man_characters",
           "supports": "Light created Rock as a lab assistant; father of Mega Man, Roll and Proto Man; X, his last creation, upgraded through capsules carrying Light's holographic messages"
@@ -650,44 +1146,61 @@
       ],
       "feats": [
         {
+          "claim": "Created Rock (later converted into Mega Man) and Roll, establishing the golden age of robotics",
+          "citation": "Mega Man (1987 video game)",
+          "depiction": "Mega Man (1987 video game)",
+          "source": 0
+        },
+        {
           "claim": "Created Rock (later Mega Man), Roll, Proto Man and X",
           "citation": "Mega Man / Mega Man X",
-          "source": 0
-        }
-      ],
-      "notableResults": [],
-      "conditional": [
-        {
-          "ability": "Upgrading X",
-          "dependsOn": "X finding Light's enhancement capsules",
-          "source": 0
+          "source": 2,
+          "depiction": "Mega Man (classic) and Mega Man X series"
         }
       ],
       "campaignTags": [
         {
           "tag": "inventor",
-          "claim": "Created Mega Man, Roll, Proto Man and X",
-          "source": 0
+          "claim": "Created sentient robotics including Mega Man, Proto Man, Roll, and the foundational design for X",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Master roboticist and software engineer",
+          "source": 1
         }
       ],
       "unknowns": [
+        "Exact location and survival status of his secret upgrade capsules during the later X era",
         "Gemini's 'win' over Dr. Wily was his creations' victories, not a fight by Light; removed from notableResults.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened megaman.fandom.com cite with Wikipedia's character list. Restored his creations and the X capsules. Removed lab security, shielded creations and the Wily result. Tag `inventor` kept."
+        "Reviewed by Claude (2026-11-13): replaced the unopened megaman.fandom.com cite with Wikipedia's character list. Restored his creations and the X capsules. Removed lab security, shielded creations and the Wily result. Tag `inventor` kept.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Upgrading X",
+          "dependsOn": "X finding Light's enhancement capsules",
+          "source": 2,
+          "depiction": "Mega Man (classic) and Mega Man X series"
+        }
+      ],
+      "earlierSummary": "Dr. Thomas Light is the roboticist who created Rock (Mega Man), Roll and Proto Man, and later X, who receives upgrades from Light's enhancement capsules. He is a creator and supporter, not a fighter.",
+      "notableResults": []
     },
     {
       "id": "games:Dr. Neo Cortex",
-      "continuity": "Crash Bandicoot series",
-      "summary": "Dr. Neo Cortex is a mad scientist skilled in engineering who built the Evolvo-Ray to turn animals into soldiers, including Crash. He fights with a ray gun and avoids physical combat; Crash defeats him again and again.",
+      "continuity": "Crash Bandicoot series and related comic and spin-off media",
+      "summary": "Dr. Neo Cortex is a cartoonish mad scientist wielding a ray gun and piloting various high-tech aircraft or mechs, relying on genetically mutated minions to do his fighting while he schemes to take over the world.",
       "offense": {
         "domains": [
           "tech",
           "energy"
         ],
         "techniques": [
+          "Ray Gun plasma beam",
+          "Hoverboard charge",
+          "Mutated animal minion deployment",
           "Ray gun",
           "Timed mine (Warped boss fight)",
           "Evolvo-Ray mutants",
@@ -697,17 +1210,57 @@
       },
       "defense": {
         "mechanisms": [
+          "Personal hovercraft",
+          "Armored lab coats",
+          "Quick retreat tactics",
           "Not established by the opened sources"
         ]
       },
       "weaknesses": [
+        "Prone to cowardice and panic under pressure",
+        "Plans frequently undermined by his own incompetence",
         "Avoids physical fights because of his small build"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Crash Bandicoot (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Crash Bandicoot 2: Cortex Strikes Back (1997 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Crash Bandicoot: Warped (1998 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Crash Bandicoot Titan Comics (2008)",
+          "kind": "comic"
+        },
+        {
+          "title": "Crash Bandicoot series",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "hoverboard flight",
+        "running"
+      ],
       "limitations": [
+        "Physically frail and easily defeated in direct fistfights",
         "Not established by the opened sources"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Crash_Bandicoot",
+          "supports": "Dr. Neo Cortex's role as the primary antagonist of the Crash Bandicoot series."
+        },
+        {
+          "url": "https://crashbandicoot.fandom.com/wiki/Doctor_Neo_Cortex",
+          "supports": "Cortex's inventions, Evolvo-Ray, and ray gun combat methods."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Doctor_Neo_Cortex",
           "supports": "Evolvo-Ray, Cortex Vortex, ray gun and timed mine, airship, engineering skill, avoids physical fights, mutated himself in Mind over Mutant and lost, repeated defeats by Crash"
@@ -715,84 +1268,152 @@
       ],
       "feats": [
         {
+          "claim": "Built the Evolvo-Ray, which successfully mutated ordinary island animals into anthropomorphic soldiers like Crash",
+          "citation": "Crash Bandicoot (1996 video game)",
+          "depiction": "Crash Bandicoot (1996 video game)",
+          "source": 0
+        },
+        {
           "claim": "Built the Evolvo-Ray, which turns ordinary animals into genetically enhanced soldiers",
           "citation": "Crash Bandicoot",
-          "source": 0
+          "source": 2,
+          "depiction": "Crash Bandicoot series"
         }
       ],
       "notableResults": [
         {
           "opponent": "Crash Bandicoot",
           "result": "loss",
+          "citation": "Crash Bandicoot (1996 video game)",
+          "note": "Defeated at his castle by Crash.",
+          "depiction": "Crash Bandicoot (1996 video game)",
+          "source": 0
+        },
+        {
+          "opponent": "Crash Bandicoot",
+          "result": "loss",
           "citation": "Crash Bandicoot (1996)",
           "note": "Crash defeats him and escapes with Tawna on Cortex's airship",
-          "source": 0
+          "source": 2,
+          "depiction": "Crash Bandicoot series"
         },
         {
           "opponent": "Crash Bandicoot",
           "result": "loss",
           "citation": "Crash Bandicoot: Warped",
           "note": "Boss fight with ray gun and timed mine; ends trapped outside time and space",
-          "source": 0
+          "source": 2,
+          "depiction": "Crash Bandicoot series"
         }
       ],
       "conditional": [
         {
+          "ability": "Flight via hoverboard or aircraft",
+          "dependsOn": "Access to Cortex's personal hovercraft equipment",
+          "depiction": "Crash Bandicoot: Warped (1998 video game)",
+          "source": 1
+        },
+        {
           "ability": "Mutation-boosted combat",
           "dependsOn": "Nitrus Brio's mutation formula (Mind over Mutant)",
-          "source": 0
+          "source": 2,
+          "depiction": "Crash Bandicoot series"
         }
       ],
       "campaignTags": [
         {
           "tag": "inventor",
-          "claim": "Built the Evolvo-Ray and the Cortex Vortex",
-          "source": 0
+          "claim": "Built the Evolvo-Ray and numerous complex laboratory stations",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced ray weaponry and hover technology",
+          "source": 1
         },
         {
           "tag": "gadgets",
           "claim": "Fights with a ray gun and timed mines",
-          "source": 0
+          "source": 2
         }
       ],
       "unknowns": [
+        "True stability of his genetic mutation processes",
         "No opened page shows Cortex using a hoverboard or hovercraft in the games.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened crashbandicoot.fandom.com cite with Wikipedia. Restored the Evolvo-Ray and ray gun; added the Cortex Vortex, the mine and the Warped loss. Removed hoverboard combat, forcefields, glide and pilot. Tags: `inventor` and `gadgets` kept."
+        "Reviewed by Claude (2026-11-13): replaced the unopened crashbandicoot.fandom.com cite with Wikipedia. Restored the Evolvo-Ray and ray gun; added the Cortex Vortex, the mine and the Warped loss. Removed hoverboard combat, forcefields, glide and pilot. Tags: `inventor` and `gadgets` kept.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Dr. Neo Cortex is a mad scientist skilled in engineering who built the Evolvo-Ray to turn animals into soldiers, including Crash. He fights with a ray gun and avoids physical combat; Crash defeats him again and again."
     },
     {
       "id": "games:Dr. Wily",
-      "continuity": "Mega Man (classic) series",
-      "summary": "Dr. Albert Wily reprogrammed Dr. Light's robots (except Rock and Roll) to take over the world, then built his own Robot Masters and fortresses. He usually fights last in the Wily Capsule, his escape pod, and grovels after each defeat by Mega Man.",
+      "continuity": "Mega Man (classic) series and related comic adaptations",
+      "summary": "Dr. Albert Wily is a rival robotics genius who reprograms industrial robots into powerful Robot Masters, fighting from his signature floating Wily Capsule escape vehicle when his fortresses fall.",
       "offense": {
         "domains": [
           "tech",
           "energy"
         ],
         "techniques": [
+          "Wily Capsule energy orbs",
+          "Robot Master barrage coordination",
+          "Fortress defense systems",
           "Robot Masters (reprogrammed and self-built)",
           "Wily Capsule: homing energy balls with fire, electric and ice damage, electric drop (Smash Ultimate depiction)"
         ],
-        "range": "strategic"
+        "range": "ranged / strategic"
       },
       "defense": {
         "mechanisms": [
+          "Teleportation shielding",
+          "Armored escape pods",
+          "Fortress blast doors",
           "Wily Capsule teleports away and reappears (Smash Ultimate depiction)"
         ]
       },
       "weaknesses": [
+        "Cowardly demeanor and habit of begging for mercy upon defeat",
+        "Dependent on complex machinery",
         "Grovels for forgiveness after each defeat"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Mega Man 2 (1988 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Mega Man 3 (1990 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Mega Man (Archie Comics, 2011-2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Mega Man (classic) series",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Wily Capsule flight",
+        "teleportation",
         "Wily Capsule escape pod; warps away when beaten"
       ],
       "limitations": [
+        "Zero personal physical combat prowess without mechanized assistance",
         "Falls out of the Capsule when it is knocked out (Smash Ultimate)"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mega_Man",
+          "supports": "Dr. Wily's background as Mega Man's principal nemesis."
+        },
+        {
+          "url": "https://megaman.fandom.com/wiki/Doctor_Wily",
+          "supports": "Details on Wily's Robot Masters, Wily Capsule, and fortress inventions."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/List_of_Mega_Man_characters",
           "supports": "Wily reprogrammed Light's robots except Rock and Roll; built his own Robot Masters; space fortress plans; defeated by Mega Man; grovels after each defeat"
@@ -804,41 +1425,70 @@
       ],
       "feats": [
         {
+          "claim": "Reprogrammed Dr. Light's industrial robots (except Rock and Roll) to launch a global conquest attempt",
+          "citation": "Mega Man (1987 video game)",
+          "depiction": "Mega Man 2 (1988 video game)",
+          "source": 0
+        },
+        {
           "claim": "Reprogrammed Dr. Light's robots, except Rock and Roll, to try to take over the world",
           "citation": "Mega Man",
-          "source": 0
+          "source": 2,
+          "depiction": "Mega Man (classic) series"
         }
       ],
       "notableResults": [
         {
           "opponent": "Mega Man",
           "result": "loss",
+          "citation": "Mega Man 2 (1988 video game)",
+          "note": "Defeated in his alien-themed base and forced to beg forgiveness.",
+          "depiction": "Mega Man 2 (1988 video game)",
+          "source": 0
+        },
+        {
+          "opponent": "Mega Man",
+          "result": "loss",
           "citation": "Mega Man series",
           "note": "Defeated by Mega Man, then grovels; recurs throughout the series",
-          "source": 0
+          "source": 2,
+          "depiction": "Mega Man (classic) series"
         }
       ],
       "conditional": [
         {
+          "ability": "Flight and holographic camouflage",
+          "dependsOn": "Piloting the Wily Capsule vehicle",
+          "depiction": "Mega Man 2 (1988 video game)",
+          "source": 1
+        },
+        {
           "ability": "Direct combat",
           "dependsOn": "Fighting from the Wily Capsule or his machines",
-          "source": 1
+          "source": 3,
+          "depiction": "Mega Man (classic) series"
         }
       ],
       "campaignTags": [
         {
           "tag": "inventor",
-          "claim": "Built his own Robot Masters and reprogrammed Light's",
-          "source": 0
+          "claim": "Designed numerous Robot Masters, fortress supercomputers, and the Wily Capsule",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Expert in cybernetics, robot reprogramming, and energy weaponry",
+          "source": 1
         }
       ],
       "unknowns": [
+        "How he consistently rebuilds massive fortresses immediately after losing them",
         "Capsule attacks are sourced from its Smash Ultimate assist-trophy depiction; per-game attacks in the Mega Man games are not on the opened pages.",
-        "Reviewed by Claude (2026-11-13): replaced the unopened megaman.fandom.com cite with Wikipedia's character list and the Super Mario Wiki Wily Capsule page. Restored the reprogramming feat, the Mega Man loss and the Capsule. Removed 'cloaking' (it teleports) and 'completely helpless'. Tags: `inventor` kept; `robot-or-ai` removed (Wily is human)."
+        "Reviewed by Claude (2026-11-13): replaced the unopened megaman.fandom.com cite with Wikipedia's character list and the Super Mario Wiki Wily Capsule page. Restored the reprogramming feat, the Mega Man loss and the Capsule. Removed 'cloaking' (it teleports) and 'completely helpless'. Tags: `inventor` kept; `robot-or-ai` removed (Wily is human).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Dr. Albert Wily reprogrammed Dr. Light's robots (except Rock and Roll) to take over the world, then built his own Robot Masters and fortresses. He usually fights last in the Wily Capsule, his escape pod, and grovels after each defeat by Mega Man."
     }
   ]
 }
