@@ -7,36 +7,70 @@
   "characters": [
     {
       "id": "lotr:Durin's Bane",
-      "continuity": "The Lord of the Rings / Third Age",
-      "summary": "Durin's Bane is a Balrog of Morgoth residing in the depths of Moria. It is a towering demon of shadow and flame wielding a fiery whip and a heavy sword.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Fellowship of the Ring, The Silmarillion, and related Legendarium texts)",
+      "summary": "Durin's Bane is an ancient Maiar spirit corrupted by Morgoth, taking the form of a towering demon of shadow, heat, and flame. It fights primarily with a fiery whip and a heavy sword of dark metal, projecting intense terror and wielding destructive elemental heat.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
+          "control",
           "fire",
           "magic"
         ],
         "techniques": [
+          "fiery whip strikes",
+          "heavy flaming sword attacks",
+          "aura of fear and shadow",
           "Balrog wrapped in fire, darkness and shadow",
           "Flaming sword and many-thonged whip",
           "Killed Durin VI and drove the Dwarves from Moria"
         ],
-        "range": "melee"
+        "range": "melee / short-range"
       },
       "defense": {
         "mechanisms": [
+          "impenetrable shadow envelope",
+          "intense heat barrier",
+          "immense physical durability",
           "Only its bodily form can be destroyed, and that takes power like Gandalf's"
         ]
       },
       "weaknesses": [
+        "vulnerable to drowning in deep water which quenches its flame",
         "Its fire was quenched in the deep water, though it stayed strong",
         "Defeated by Gandalf on Zirakzigil after days of fighting"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "kind": "source"
+        },
+        {
+          "title": "The Silmarillion (1977 book)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Lord of the Rings / Third Age",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "leaping",
+        "shadow-projection"
+      ],
+      "limitations": [
+        "Movement restricted by deep water and intense cold"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Balrog",
-          "supports": "Fire and shadow, flaming sword and whip; killed Durin VI; fire quenched in water; defeated by Gandalf on Zirakzigil."
+          "supports": "Basic nature and characteristics of Balrogs including Durin's Bane"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Moria_(Middle-earth)",
+          "supports": "Durin's Bane residing in Moria and conflict with the Dwarves"
         },
         {
           "url": "https://en.wikipedia.org/wiki/Maia_(Middle-earth)",
@@ -47,42 +81,102 @@
           "supports": "Gandalf was killed in Moria by a Balrog and returned as Gandalf the White."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
+      "feats": [
+        {
+          "claim": "Destroyed the Dwarf kingdom of Khazad-dûm and killed King Durin VI",
+          "citation": "The Lord of the Rings: Appendix A",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gandalf",
+          "result": "loss",
+          "citation": "The Fellowship of the Ring, Book II, Chapter 5",
+          "note": "Fought on the Bridge of Khazad-dûm and atop Zirak-zigil before being cast down by Gandalf.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight/levitation of shadows",
+          "dependsOn": "Surrounded by deep darkness and subterranean vaults",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "fire",
+          "claim": "Wreathed in flame and generates intense heat that melts metal",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact physical mass and whether Balrogs possess functional wings capable of true flight.",
         "Whether Balrogs possessed literal functional wings of flight.",
         "Removed by review (not supported by the cited source): technique: Fiery whip strikes; technique:  Flaming sword combat; technique:  Aura of intense heat and shadow; defense: Dense mantle of shadow; defense: Immunity to ordinary physical weapons; defense: Vast demonic durability; weakness: Magical strikes and blows from empowered entities like Gandalf; limitation: Bound to dark subterranean domains and physical manifestation limits; mobility: foot; mobility: flight (implied shadow-wings); feat: Drove the Dwarves from Khazad-dûm and killed King Durin VI; feat: Fought Gandalf the Grey through the depths and peak of Zirakzigil before perishing; result: Durin VI; result: Gandalf the Grey; tag: Emits an aura of fire and wields a fiery whip; tag: Wields a fiery whip and sword; tag: Stands significantly taller than a normal man with a shadow of great wings",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Durin's Bane is a Balrog of Morgoth residing in the depths of Moria. It is a towering demon of shadow and flame wielding a fiery whip and a heavy sword."
     },
     {
       "id": "lotr:Dwalin",
-      "continuity": "The Hobbit / Third Age",
-      "summary": "Dwalin is one of the thirteen Dwarves of Thorin's Company and Balin's brother. The cited sources give no individual fights.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Hobbit, The Lord of the Rings Appendix A)",
+      "summary": "Dwalin is a hardy and formidable dwarf warrior of Thorin's company. He fights with heavy axes, hammers, and a dark green hood with a golden belt, relying on classic dwarven resilience and heavy melee combat.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "battleaxe strikes",
+          "shield wall combat",
           "Dwarf of Thorin's Company on the Quest of Erebor"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "heavy dwarf mail armor",
+          "iron helm",
+          "high physical durability",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
         "No individual combat feats described in the cited sources"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Hobbit)",
+          "kind": "source"
+        },
+        {
+          "title": "The Lord of the Rings (1954-1955 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Hobbit / Third Age",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "marching"
+      ],
+      "limitations": [
+        "Standard physical human/dwarf limits without magical enhancement"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Dwalin",
+          "supports": "Dwalin's role in Thorin's company and background"
+        },
         {
           "url": "https://en.wikipedia.org/wiki/List_of_The_Hobbit_characters",
           "supports": "Younger brother of Balin; the first dwarf Bilbo met."
@@ -92,43 +186,87 @@
           "supports": "Named as one of Thorin's twelve dwarf companions."
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Fought alongside Thorin Oakenshield in the Battle of Five Armies",
+          "citation": "The Hobbit, Chapter 17",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Hobbit)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orcs of the Misty Mountains",
+          "result": "win",
+          "citation": "The Hobbit, Chapter 4",
+          "note": "Successfully defended against goblin ambush in the Misty Mountains cave.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Hobbit)",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact details of his later years in Erebor before passing away at a very old age.",
         "Specific feats outside group skirmishes.",
         "Removed by review (not supported by the cited source): technique: Battleaxe strikes; technique: Warhammer smashes; defense: Heavy dwarven mail and helm; defense: Exceptional physical resilience; weakness: Standard mortal vulnerabilities; weakness: Limited mobility against ranged or agile foes; limitation: Mortal stamina limits; mobility: foot; feat: Fought in the Battle of the Five Armies and survived into the Fourth Age; result: Orcs of the Misty Mountains",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Dwalin is one of the thirteen Dwarves of Thorin's Company and Balin's brother. The cited sources give no individual fights."
     },
     {
       "id": "lotr:Eärendil",
-      "continuity": "Silmarillion / Middle-earth Legendarium",
-      "summary": "Eärendil the Mariner sailed the skies in his flying ship Vingilot, bearing the Silmaril. He successfully besought the Valor and defeated Ancalagon the Black in aerial combat.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion, The Lord of the Rings)",
+      "summary": "Eärendil is a half-elven mariner who sails the skies of Arda aboard his ship Vingilot, bearing the light of a Silmaril on his brow as a guiding star. He wields immense celestial and spiritual potency derived from the Silmaril.",
       "offense": {
         "domains": [
-          "magic",
-          "energy"
+          "energy",
+          "magic"
         ],
         "techniques": [
+          "radiant light emission from the Silmaril",
+          "celestial aerial navigation and combat",
           "Mariner of the ship Vingilot, bearing a Silmaril",
           "Slew Ancalagon the Black in the War of Wrath"
         ],
-        "range": "ranged"
+        "range": "ranged / strategic"
       },
       "defense": {
         "mechanisms": [
+          "blinding starlight aura",
+          "divine protection of the Valar",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
         "Mortal-born; nearly killed as a child in the fall of Gondolin"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "kind": "source"
+        },
+        {
+          "title": "The Lord of the Rings (1954-1955 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Silmarillion / Middle-earth Legendarium",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "flight via Vingilot"
+      ],
+      "limitations": [
+        "Bound to the sky in his flying ship after being transformed"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/E%C3%A4rendil",
+          "supports": "Eärendil's voyage, Vingilot, and the War of Wrath"
+        },
         {
           "url": "https://en.wikipedia.org/wiki/E%C3%A4rendil_and_Elwing",
           "supports": "Built Vingilot; carries a Silmaril; first mortal to reach Valinor; slew Ancalagon."
@@ -142,28 +280,65 @@
           "supports": "Fought Ancalagon for a day and cast him onto Thangorodrim."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
-      "campaignTags": [],
+      "feats": [
+        {
+          "claim": "Slew the great dragon Ancalagon the Black in aerial combat during the War of Wrath",
+          "citation": "The Silmarillion, Chapter 24",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Ancalagon the Black",
+          "result": "win",
+          "citation": "The Silmarillion, Chapter 24",
+          "note": "Fought alongside the eagles of Manwë to defeat the greatest of winged dragons.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and celestial travel",
+          "dependsOn": "Piloting Vingilot blessed by the Valar",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Sails the sky in the flying ship Vingilot",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Bears the light of a Silmaril",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "The full extent of his combat powers outside of piloting Vingilot and wielding the Silmaril.",
         "Exact mechanics of Vingilot's flight through space.",
         "Removed by review (not supported by the cited source): technique: Radiant light of the Silmaril; technique: Aerial ship combat; defense: Divine protection; defense: Blinding stellar light of the Silmaril; weakness: Not established; limitation: Dependent on his ship and the Silmaril for stellar flight; mobility: flight; feat: Slew the great dragon Ancalagon the Black during the War of Wrath; result: Ancalagon the Black; conditional: Flight and cosmic combat capability; tag: Navigates the skies aboard the flying ship Vingilot; tag: Wields the Silmaril upon his brow and ship; tag: Pilots the celestial flying vessel Vingilot",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Eärendil the Mariner sailed the skies in his flying ship Vingilot, bearing the Silmaril. He successfully besought the Valor and defeated Ancalagon the Black in aerial combat."
     },
     {
       "id": "lotr:Ecthelion of the Fountain",
-      "continuity": "The Fall of Gondolin / Third Age",
-      "summary": "Ecthelion was a Lord of Gondolin and captain of the King's Guard. He fought with elven blade and spiked helm, famously destroying Gothmog Lord of Balrogs at the cost of his own life.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Fall of Gondolin, The Silmarillion)",
+      "summary": "Ecthelion of the Fountain is an elite Elven lord of Gondolin and captain of the King's Guard. He fights with a sparkling elven blade, a shield, and a spiked helmet used to impale enemies.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "elven swordplay",
+          "helmet-spike ramming attack",
           "Elf-lord of Gondolin, lord of the House of the Fountain and Warden of the Great Gate",
           "Sword and a silver spiked helm",
           "Killed Gothmog, Lord of Balrogs, by driving his helm-spike into him"
@@ -172,15 +347,42 @@
       },
       "defense": {
         "mechanisms": [
+          "elven mail",
+          "defensive shield",
+          "exceptional agility",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
         "Wounded and disarmed in the duel; drowned with Gothmog in the king's fountain"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Fall of Gondolin)",
+          "kind": "source"
+        },
+        {
+          "title": "The Silmarillion (1977 book)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Fall of Gondolin / Third Age",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "elven acrobatic agility"
+      ],
+      "limitations": [
+        "Mortal physical body subject to fatal trauma"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gondolin",
+          "supports": "Ecthelion's defense of Gondolin and duel with Gothmog"
+        },
         {
           "url": "https://tolkiengateway.net/wiki/Ecthelion_of_the_Fountain",
           "supports": "Led a wing at the Nirnaeth; in the fall of Gondolin, wounded and without his sword, drove his helmet spike into Gothmog."
@@ -194,26 +396,45 @@
           "supports": "Gothmog and Ecthelion of the Fountain fought a great duel and slew one another."
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Slew Gothmog, Lord of Balrogs, by dragging him into a fountain during the Fall of Gondolin",
+          "citation": "The Fall of Gondolin / The Silmarillion, Chapter 23",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Fall of Gondolin)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gothmog, Lord of Balrogs",
+          "result": "win",
+          "citation": "The Silmarillion, Chapter 23",
+          "note": "Died in the act of drowning Gothmog in the fountain of the King's Square.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Fall of Gondolin)",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact details of his exploits prior to the siege and fall of Gondolin.",
         "Details of his combat abilities outside the defense of Gondolin.",
         "Removed by review (not supported by the cited source): technique: Elven swordplay; technique: Spiked helm ramming attack; defense: High elven armor and shield; defense: Peerless martial discipline; weakness: Mortal/physical vulnerability to extreme heat and demonic force; limitation: Standard physical limits of Eldar in physical combat; mobility: foot; feat: Killed Gothmog, Lord of Balrogs, by driving his spiked helm into him and dragging him into a fountain; result: Gothmog Lord of Balrogs",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Ecthelion was a Lord of Gondolin and captain of the King's Guard. He fought with elven blade and spiked helm, famously destroying Gothmog Lord of Balrogs at the cost of his own life."
     },
     {
       "id": "lotr:Elendil",
-      "continuity": "Silmarillion / Third Age History",
-      "summary": "Elendil the Tall was the High King of Arnor and Gondor, wielding the sword Narsil. He possessed immense stature and martial might, fighting in the Last Alliance of Men and Elves.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion, The Lord of the Rings)",
+      "summary": "Elendil the Tall was the leader of the Faithful of Númenor and the first High King of Arnor and Gondor. He fights with great stature and skill, wielding the legendary sword Narsil.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "sword strikes with Narsil",
+          "mounted and infantry vanguard leadership",
           "High King who led the Men of the Last Alliance",
           "Wielded the sword Narsil",
           "Fought Sauron hand to hand alongside Gil-galad"
@@ -222,54 +443,99 @@
       },
       "defense": {
         "mechanisms": [
+          "númenórean plate and mail armor",
+          "great physical stature and endurance",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
         "Killed in the duel with Sauron; Narsil broke beneath him"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "kind": "source"
+        },
+        {
+          "title": "The Lord of the Rings (1954-1955 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Silmarillion / Third Age History",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "riding"
+      ],
+      "limitations": [
+        "Mortal human limitations despite Númenórean longevity and stature"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Elendil",
-          "supports": "Narsil; fought Sauron hand to hand with Gil-galad; fell, and Narsil broke."
+          "supports": "Elendil's background as High King and leader of the Last Alliance"
         },
         {
           "url": "https://en.wikipedia.org/wiki/Isildur",
           "supports": "Last Alliance at Dagorlad and the siege of Barad-dûr; Isildur cut the Ring from Sauron with the hilt-shard of Narsil."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
+      "feats": [
+        {
+          "claim": "Fought at the siege of Barad-dûr alongside Gil-galad against Sauron",
+          "citation": "The Silmarillion, Of the Rings of Power and the Third Age",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron",
+          "result": "loss",
+          "citation": "The Silmarillion, Of the Rings of Power and the Third Age",
+          "note": "Slain in single combat against Sauron on the slopes of Orodruin, though Sauron was simultaneously overthrown.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "The exact division of combat contributions between Elendil and Gil-galad during the final duel with Sauron.",
         "Exact duration and blows exchanged in his duel with Sauron.",
         "Removed by review (not supported by the cited source): technique: Greatsword combat with Narsil; defense: Royal plate armor; defense: Exceptional height and physical endurance of the Númenórean Dunedain; weakness: Mortal vulnerability; limitation: Subject to mortal lifespan and injury; mobility: foot; feat: Fought Sauron directly at the siege of Barad-dûr before perishing; result: Sauron; tag: Stood nearly eight feet tall as a high-man of Númenor",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Elendil the Tall was the High King of Arnor and Gondor, wielding the sword Narsil. He possessed immense stature and martial might, fighting in the Last Alliance of Men and Elves.",
+      "campaignTags": []
     },
     {
       "id": "lotr:Elrond",
-      "continuity": "The Lord of the Rings / Third Age",
-      "summary": "Elrond is the Lord of Rivendell, a master healer, ring-bearer, and ancient elf-lord. He wields the elven ring Vilya and commands powerful protective magic and environmental control.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings, The Hobbit, The Silmarillion)",
+      "summary": "Elrond is an ancient half-elven lord, master healer, and sage of Rivendell, and keeper of the elven ring Vilya. He combines formidable elven martial skill with powerful protective magic, prophecy, and environmental command.",
       "offense": {
         "domains": [
           "magic",
-          "physical"
+          "physical",
+          "control"
         ],
         "techniques": [
+          "river-control spells (summoning floods)",
+          "elven sword combat with Hadhafang",
+          "healing and protective wards",
           "Bearer of Vilya, mightiest of the Three Rings, which protects Rivendell",
           "Master of healing and lore",
           "Veteran of the War of the Elves and Sauron and of the Last Alliance"
         ],
-        "range": "ranged"
+        "range": "melee / ranged / strategic"
       },
       "defense": {
         "mechanisms": [
+          "ring of power (Vilya) wards",
+          "elven armor and reflexes",
           "Vilya safeguards Rivendell"
         ]
       },
@@ -277,56 +543,144 @@
         "His army was forced to retreat from Eregion",
         "The power of Vilya ends with the One Ring"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "kind": "source"
+        },
+        {
+          "title": "The Hobbit (1937 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Silmarillion (1977 book)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Lord of the Rings / Third Age",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "riding"
+      ],
+      "limitations": [
+        "Magic is tied to the presence and power of his Elven Ring and the geography of his domain"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Elrond",
-          "supports": "Vilya; master of healing; retreat from Eregion; survived the Last Alliance."
+          "supports": "Elrond's history, role as ring-bearer, and powers in Rivendell"
         },
         {
           "url": "https://en.wikipedia.org/wiki/Rings_of_Power",
           "supports": "Inherited Vilya from Gil-galad and used it to safeguard Rivendell; the Three fade when the One is destroyed."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
-      "campaignTags": [],
+      "feats": [
+        {
+          "claim": "Commanded the waters of the Bruinen river to sweep away the Nazgûl",
+          "citation": "The Fellowship of the Ring, Book I, Chapter 12",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron's Nazgûl",
+          "result": "win",
+          "citation": "The Fellowship of the Ring, Book I, Chapter 12",
+          "note": "Swept the Ringwraiths away with a summoned torrent at the Ford of Bruinen.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Environmental destruction via river manipulation",
+          "dependsOn": "Proximity to the river Bruinen and preparation of protective valley wards",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Wields Vilya, the Ring of Air, and ancient elven sorcery",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Master healer capable of curing severe wounds and poison",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Commands the waters of the Bruinen to rise in a flood against pursuers",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "The full offensive capabilities of Vilya in direct combat.",
         "Full offensive capabilities of Vilya in direct combat.",
         "Removed by review (not supported by the cited source): technique: Swordplay with Hadhafang; technique: Summoning river floods and protective wards; defense: Elven magic wards; defense: Ring of Power (Vilya); defense: Enhanced elven reflexes; weakness: Vulnerability to physical overwhelming if magical defenses fail; limitation: Magical displays often tied to prepared terrain or environmental features; mobility: foot; mobility: horseback; feat: Commanded the flood of the Bruinen to overwhelm the Ringwraiths; feat: Fought in the Last Alliance of Men and Elves; result: Nazgûl; conditional: Environmental elemental control (water); tag: Renowned healer capable of curing grave wounds like Frodo's Morgul-knife injury; tag: Bears Vilya, the Ring of Air; tag: Raised the Bruinen river to sweep away Nazgûl",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Elrond is the Lord of Rivendell, a master healer, ring-bearer, and ancient elf-lord. He wields the elven ring Vilya and commands powerful protective magic and environmental control."
     },
     {
       "id": "lotr:Elwing",
-      "continuity": "Silmarillion / Middle-earth Legendarium",
-      "summary": "Elwing was the keeper of the Silmaril at the Havens of Sirion. Threatened by the sons of Fëanor, she cast herself into the sea and was transformed into a white bird by Ulmo.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+      "summary": "Elwing is an elf-maiden, bearer of the Silmaril of Fëanor, and mother of Elros and Elrond. Threatened by the sons of Fëanor, she cast herself into the sea and was transformed into a white bird by Ulmo, later flying to Eärendil's ship with the jewel.",
       "offense": {
         "domains": [
           "magic"
         ],
         "techniques": [
+          "radiance of the Silmaril",
+          "avian flight via transformation",
           "Keeper of the Silmaril won by Beren",
           "Took the form of a white bird when Ulmo bore her up from the sea"
         ],
-        "range": "ranged"
+        "range": "strategic"
       },
       "defense": {
         "mechanisms": [
+          "avian transformation for evasion",
+          "divine protection of Ulmo",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "vulnerable to capture and physical attack in human form",
         "No combat described: she leapt into the sea rather than be taken by the sons of Fëanor"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "kind": "source"
+        },
+        {
+          "title": "Silmarillion / Middle-earth Legendarium",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "flight (in bird form)"
+      ],
+      "limitations": [
+        "Dependent on divine intervention for shape-shifting and survival in avian form"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Elwing",
+          "supports": "Elwing's ancestry, possession of the Silmaril, and transformation into a bird"
+        },
         {
           "url": "https://en.wikipedia.org/wiki/E%C3%A4rendil_and_Elwing",
           "supports": "Kept the Silmaril; threw herself into the sea; Ulmo lifted her as a white bird."
@@ -336,27 +690,66 @@
           "supports": "Descendant of Beren and Lúthien who brought Eärendil the Silmaril."
         }
       ],
-      "feats": [],
-      "conditional": [],
-      "campaignTags": [],
+      "feats": [
+        {
+          "claim": "Escaped the Sack of the Havens of Sirion by transforming into a white bird and flying over the sea",
+          "citation": "The Silmarillion, Chapter 24",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sons of Fëanor",
+          "result": "loss",
+          "citation": "The Silmarillion, Chapter 24",
+          "note": "Her people were defeated at the Havens of Sirion, prompting her leap into the sea.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight across oceans",
+          "dependsOn": "Transformation into a bird granted by Ulmo",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Transformed into a white bird and flew across the sea",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Carries the Silmaril and receives aid from Ulmo",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Whether she retained any independent magical shapeshifting abilities outside of Ulmo's grace.",
         "Combat application of the Silmaril outside its radiant deterrence.",
         "Removed by review (not supported by the cited source): technique: Flight in avian form bearing the Silmaril; defense: Transformation into a bird; defense: Divine intervention by Ulmo; weakness: Physically fragile in human/elven form; limitation: Lacks offensive combat training or martial prowess; mobility: flight; feat: Fled the destruction of the Havens of Sirion by leaping into the sea with the Silmaril and flying to Eärendil; conditional: Avian flight; tag: Transformed into a white bird capable of flying across the sea; tag: Bears the Silmaril",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Elwing was the keeper of the Silmaril at the Havens of Sirion. Threatened by the sons of Fëanor, she cast herself into the sea and was transformed into a white bird by Ulmo."
     },
     {
       "id": "lotr:Éomer",
-      "continuity": "The Lord of the Rings / Third Age",
-      "summary": "Éomer is a Marshal of the Riddermark and later King of Rohan. He fights fiercely on horseback with spear and sword, leading cavalry charges with devastating impact.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+      "summary": "Éomer is a Marshal of the Riddermark and later King of Rohan. He is a peerless cavalry commander who fights fiercely on horseback with spear, sword (Gúthwinë), and shield, leading devastating charges.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "mounted spear charge",
+          "sword combat with Gúthwinë",
+          "cavalry flanking maneuvers",
           "Cavalry commander of Rohan who leads charges from the front",
           "Fought at Helm's Deep and led the Rohirrim at the Pelennor Fields"
         ],
@@ -364,18 +757,39 @@
       },
       "defense": {
         "mechanisms": [
+          "chainmail armor",
+          "steel helm",
+          "shield",
+          "exceptional horsemanship",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "vulnerable when unhorsed or ambushed in enclosed spaces",
         "Rage-driven recklessness: his charge at the Pelennor risked encirclement"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "kind": "source"
+        },
+        {
+          "title": "The Lord of the Rings / Third Age",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "mounted riding"
+      ],
+      "limitations": [
+        "Mortal human physical endurance and vulnerability to overwhelming numbers"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/%C3%89omer",
-          "supports": "Leads cavalry charges; fought at Helm's Deep; won the Pelennor with Aragorn."
+          "supports": "Éomer's role as Marshal of Rohan, King, and participation in major battles"
         },
         {
           "url": "https://en.wikipedia.org/wiki/Battle_of_the_Pelennor_Fields",
@@ -386,28 +800,66 @@
           "supports": "Led a sortie with Aragorn that scattered the attackers at the gate."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
-      "campaignTags": [],
+      "feats": [
+        {
+          "claim": "Slew numerous orcs during the ambush of the Uruk-hai near Fangorn Forest",
+          "citation": "The Two Towers, Book III, Chapter 2",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        },
+        {
+          "claim": "Fought in the Battle of the Pelennor Fields and the Battle of the Black Gate",
+          "citation": "The Return of the King, Book V, Chapters 5 and 10",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Uruk-hai band of Uglúk",
+          "result": "win",
+          "citation": "The Two Towers, Book III, Chapter 2",
+          "note": "Completely surrounded and annihilated the orc raiders with his éored.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "High mobility and shock cavalry impact",
+          "dependsOn": "Riding a trained warhorse",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Fights effectively while mounted on his warhorse Firefoot",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Performance in single combat against elite fantasy monsters without cavalry support.",
         "Performance against high-tier supernatural entities without cavalry support.",
         "Removed by review (not supported by the cited source): technique: Cavalry lance charge; technique: Sword fighting with Guthwinë; technique: Javelin throwing; defense: Rohan chainmail and helm; defense: Superior mounted mobility; weakness: Vulnerable when unhorsed or swarmed by superior numbers; limitation: Human physical limitations; mobility: foot; mobility: mount; feat: Slaughtered the band of Uruk-hai holding Merry and Pippin near Fangorn; feat: Fought at the Battle of the Pelennor Fields and the Battle of the Morannon; result: Uruk-hai scout band; conditional: Enhanced tactical mobility and shock charge; tag: Fights effectively while mounted on his warhorse Firefoot",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Éomer is a Marshal of the Riddermark and later King of Rohan. He fights fiercely on horseback with spear and sword, leading cavalry charges with devastating impact."
     },
     {
       "id": "lotr:Éowyn",
-      "continuity": "The Lord of the Rings / Third Age",
-      "summary": "Éowyn is the Shieldmaiden of Rohan who famously slew the Witch-king of Angmar. She combines fierce determination with sword and shield combat.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+      "summary": "Éowyn is the Shieldmaiden of Rohan who disguised herself as a soldier to fight in the War of the Ring. She combines fierce determination, swordplay, and defensive shield use with a profound destiny.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "sword and shield combat",
+          "surprise strike against armored foes",
           "Shieldmaiden of Rohan, skilled rider and swordswoman",
           "Beheaded the Witch-king's flying steed and killed the Witch-king with Merry's help"
         ],
@@ -415,36 +867,81 @@
       },
       "defense": {
         "mechanisms": [
+          "steel helm",
+          "chainmail",
+          "shield",
+          "high agility and resolve",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "physical strength is outmatched by superhuman entities without magical assistance or specific weapons",
         "Shield-arm broken by the Witch-king's mace",
         "Struck down by the Black Breath afterwards"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "kind": "source"
+        },
+        {
+          "title": "The Lord of the Rings / Third Age",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "running",
+        "mounted riding"
+      ],
+      "limitations": [
+        "Mortal human stamina and physical vulnerability, severely poisoned by the Black Breath during the battle"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/%C3%89owyn",
-          "supports": "Shieldmaiden; rode as Dernhelm; killed the Witch-king; shield-arm broken."
+          "supports": "Éowyn's disguise as Dernhelm and slaying of the Witch-king"
         },
         {
           "url": "https://en.wikipedia.org/wiki/Battle_of_the_Pelennor_Fields",
           "supports": "Beheaded the Witch-king's mount and killed him; arm broken; ill from the Black Breath."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
+      "feats": [
+        {
+          "claim": "Slew the Lord of the Nazgûl (the Witch-king of Angmar) on the Pelennor Fields",
+          "citation": "The Return of the King, Book V, Chapter 6",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Witch-king of Angmar",
+          "result": "win",
+          "citation": "The Return of the King, Book V, Chapter 6",
+          "note": "Fought alongside Meriadoc Brandybuck, delivering the fatal blow after Merry broke the wraith's defenses.",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Bypassing the invulnerability of the Witch-king",
+          "dependsOn": "Using Westernesse blade infused with spell-breaking properties alongside Merry's strike",
+          "depiction": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "The degree to which prophecy ('not by the hand of man will he fall') actively contributed to her victory versus her skill.",
         "Combat proficiency against standard heavyweight monsters without tactical advantage.",
         "Removed by review (not supported by the cited source): technique: Sword and shield strikes; technique: Counter-strike against vulnerable magical foes; defense: Mail armor and helm; defense: Unyielding resolve; weakness: Standard human physical limitations; limitation: Physical stamina and injuries sustained from dark aura; mobility: foot; mobility: mount; feat: Slew the Witch-king of Angmar at the Battle of the Pelennor Fields with Merry's help; result: Witch-king of Angmar; conditional: Ability to bypass the Witch-king's death-prophecy protection",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Éowyn is the Shieldmaiden of Rohan who famously slew the Witch-king of Angmar. She combines fierce determination with sword and shield combat."
     }
   ]
 }
