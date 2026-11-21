@@ -7,28 +7,53 @@
   "characters": [
     {
       "id": "lotr:Estë",
-      "continuity": "The Silmarillion / J.R.R. Tolkien Legendarium",
-      "summary": "Estë is the Vala of healing and rest, spouse of Irmo. The cited sources describe no combat.",
+      "continuity": "The Silmarillion / J.R.R. Tolkien Legendarium; History of Middle-earth writings",
+      "summary": "Estë is one of the Valar, specifically the Valië of healing, rest, and sleep. Dwelling in the gardens of Lórien with her spouse Irmo, she does not engage in physical warfare or combat, instead offering restoration, gentle slumber, and relief from weariness to both Elves and Men.",
       "offense": {
         "domains": [
+          "control",
           "magic"
         ],
         "techniques": [
+          "Inducing sleep and rest",
+          "Healing fatigue and weariness",
           "Vala called the Gentle, whose gift is healing and rest"
         ],
-        "range": "ranged"
+        "range": "strategic"
       },
       "defense": {
         "mechanisms": [
+          "Divine invulnerability as one of the Valar",
+          "Restorative sanctuary",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
         "No combat described in the cited sources"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Silmarillion (1977)",
+          "kind": "source"
+        },
+        {
+          "title": "The History of Middle-earth (1983–1996)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Silmarillion / J.R.R. Tolkien Legendarium",
+          "kind": "earlier-record"
+        }
+      ],
+      "limitations": [
+        "Lacks combat capability or offensive powers, as her domain is strictly healing and rest."
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Valar",
+          "supports": "Estë's status as a Vala, her association with healing and rest, and her dwelling in Lórien with Irmo."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Valinor",
           "supports": "Estë dwells on an isle in Lake Lórellin within the Gardens of Lórien."
@@ -38,16 +63,24 @@
           "supports": "Estë the Gentle brings healing and rest; spouse of Lórien, with whom she dwells in his gardens."
         }
       ],
-      "feats": [],
-      "campaignTags": [],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Estë is the Vala of healing, bringing rest and recovery to weary spirits.",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Specific details regarding direct interactions or interventions in physical conflicts are absent in the legendarium.",
         "Specific active combat applications of her healing or power beyond restorative rest are not detailed in the texts.",
         "Removed by review (not supported by the cited source): technique: Restorative healing; technique: Soothing presence; defense: Divine resilience as a Vala; defense: Residing in the protected sanctuary of Valinor; weakness: not established; limitation: Not a combatant; her power is directed toward healing and rest rather than offensive combat.; mobility: Standard Valian movement / teleportation across realms; feat: Heals weariness and hurt of body and spirit in the gardens of Lórien.; tag: Estë is the Vala of healing and rest, restoring weariness.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Estë is the Vala of healing and rest, spouse of Irmo. The cited sources describe no combat.",
+      "mobility": [],
+      "feats": []
     },
     {
       "id": "lotr:Faramir",
