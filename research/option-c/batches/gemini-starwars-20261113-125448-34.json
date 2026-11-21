@@ -7,17 +7,21 @@
   "characters": [
     {
       "id": "starwars:Darth Vader",
-      "continuity": "Star Wars Canon (Films and Comics)",
-      "summary": "Darth Vader is a cybernetic Sith Lord who relies on overwhelming physical strength, telekinesis, and a relentless lightsaber combat style. He absorbs attacks using his suit and breaks enemies mentally and physically through sheer force projection.",
+      "continuity": "Star Wars films, series, and Star Wars Marvel/Dark Horse comics",
+      "summary": "Darth Vader is a cybernetic Sith Lord who combines relentless lightsaber proficiency with devastating telekinetic offense and intimidation. Supported by heavy life-support armor, he exerts crushing pressure on opponents.",
       "offense": {
         "domains": [
           "physical",
           "energy",
-          "magic"
+          "magic",
+          "control"
         ],
         "techniques": [
-          "Lightsaber combat (Form V)",
+          "Lightsaber combat (Form V Djem So)",
           "Force choke",
+          "Telekinetic throw and crush",
+          "Force lightning resistance / redirection via blade",
+          "Lightsaber combat (Form V)",
           "Force push",
           "Lightsaber throw"
         ],
@@ -25,151 +29,263 @@
       },
       "defense": {
         "mechanisms": [
+          "Heavy armored cybernetic suit resilient to physical trauma and blasters",
+          "Lightsaber blade block and deflection",
+          "Force barrier",
           "Heavy cybernetic armor resistant to glancing blows",
-          "Lightsaber deflection",
-          "Force barrier"
+          "Lightsaber deflection"
         ]
       },
       "weaknesses": [
+        "Vulnerability to severe electrical discharges targeting life-support control panel",
+        "Restricted mobility and breathing dependence on suit machinery",
         "Critical reliance on suit life support systems",
         "Vulnerability to intense electrical discharges such as Force lightning"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series (1977-2023)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars (Marvel Comics, 2015-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Films and Comics)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Walking",
         "Starfighter piloting"
       ],
       "limitations": [
+        "Suit life support systems are vulnerable to external sabotage or heavy electrical overload.",
+        "Limited natural agility compared to pre-injury state.",
         "Reduced agility and flexibility due to heavy cybernetic suit",
         "Life support vulnerabilities"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Darth_Vader",
+          "supports": "Overview of character attributes, origins, and combat capabilities in canon."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Darth_Vader",
-          "supports": "Abilities, cybernetic suit, weaknesses, and Force powers."
+          "supports": "Detailed breakdown of feats, lightsaber form, and notable encounters."
         }
       ],
       "feats": [
         {
+          "claim": "Rips a heavy metallic doorway apart and pulls opponents with the Force.",
+          "citation": "Star Wars Rebels season 2",
+          "depiction": "Star Wars films and series (1977-2023)",
+          "source": 1
+        },
+        {
+          "claim": "Defeats multiple rebel soldiers and handles multiple adversaries simultaneously using lightsaber and Force powers.",
+          "citation": "Rogue One: A Star Wars Story (2016 film)",
+          "depiction": "Star Wars films and series (1977-2023)",
+          "source": 0
+        },
+        {
           "claim": "Rips a doorway apart and pulls opponents with the Force.",
           "citation": "Rogue One: A Star Wars Story",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and Comics)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Obi-Wan Kenobi",
           "result": "loss",
+          "citation": "Star Wars: Episode III - Revenge of the Sith (2005 film)",
+          "note": "Lost due to overconfidence and tactical disadvantage on Mustafar.",
+          "depiction": "Star Wars films and series (1977-2023)",
+          "source": 0
+        },
+        {
+          "opponent": "Luke Skywalker",
+          "result": "loss",
+          "citation": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "note": "Overpowered in a duel when provoked by threats to his son.",
+          "depiction": "Star Wars films and series (1977-2023)",
+          "source": 0
+        },
+        {
+          "opponent": "Obi-Wan Kenobi",
+          "result": "loss",
           "citation": "Star Wars: Episode IV - A New Hope",
           "note": "Kenobi allowed himself to be struck down to enable escape.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and Comics)"
         },
         {
           "opponent": "Luke Skywalker",
           "result": "loss",
           "citation": "Star Wars: Episode VI - Return of the Jedi",
           "note": "Defeated when Luke surrendered to anger and overwhelmed him.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and Comics)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "powered-armor",
+          "claim": "Advanced life-support armor that enhances durability and provides structural protection.",
+          "source": 1
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Manipulates dark side energies to project telekinetic force and destructive impacts.",
+          "source": 1
+        },
+        {
           "tag": "cyborg",
           "claim": "Vader's body is heavily replaced by cybernetics and life-support systems.",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Expert starfighter pilot who flew in the Battle of Yavin.",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "telekinesis",
           "claim": "Extensive use of Force choke and object manipulation.",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact limits of his raw power compared to Prime Anakin Skywalker."
+        "Exact limits of durability against sustained high-yield plasma weaponry.",
+        "Exact limits of his raw power compared to Prime Anakin Skywalker.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Darth Vader is a cybernetic Sith Lord who relies on overwhelming physical strength, telekinesis, and a relentless lightsaber combat style. He absorbs attacks using his suit and breaks enemies mentally and physically through sheer force projection."
     },
     {
       "id": "starwars:Darth Vader|Vader of Mustafar (Fully Restored)",
       "continuity": "Star Wars Legends / Comic Visions",
-      "summary": "Representing a hypothetical fully restored Vader without suit limitations, this variant combines immense raw Force potential with unrestricted physical mobility.",
+      "summary": "Representing a hypothetical or restored Vader free of suit limitations, combining maximum biological potential with mastery of the dark side.",
       "offense": {
         "domains": [
           "physical",
           "energy",
+          "control",
           "magic"
         ],
         "techniques": [
           "Unrestricted lightsaber acrobatics",
+          "Peak dark side telekinesis",
           "Advanced telekinetic blasts"
         ],
         "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Enhanced physical agility and uninhibited reflexes",
+          "Force barrier",
           "Lightsaber parrying",
           "Force deflection"
         ]
       },
       "weaknesses": [
-        "Not established"
+        "Psychological vulnerability to internal conflict"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series (1977-2023)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Legends / Comic Visions",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Acrobatic movement",
+        "Natural flight / levitation via Force",
         "Acrobatic running",
         "Natural-flight"
       ],
-      "formDifferences": "Removes the cybernetic suit limitations, granting full biological movement and eliminating the critical life-support weakness.",
+      "formDifferences": "Removes all mechanical suit weaknesses, breathing dependencies, and mobility restrictions of standard Darth Vader.",
       "sources": [
         {
           "url": "https://starwars.fandom.com/wiki/Darth_Vader",
-          "supports": "Base potential and historical context of Anakin/Vader."
+          "supports": "Refers to theoretical uninjured capabilities prior to Mustafar."
         }
       ],
       "unknowns": [
-        "Purely speculative variant configuration."
+        "Canon continuity depiction is entirely hypothetical or visionary.",
+        "Purely speculative variant configuration.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Representing a hypothetical fully restored Vader without suit limitations, this variant combines immense raw Force potential with unrestricted physical mobility."
     },
     {
       "id": "starwars:Death Trooper",
-      "continuity": "Star Wars Canon (Films and Series)",
-      "summary": "Elite Imperial commandos who utilize advanced tactical gear, encrypted communications, and heavy weaponry to eliminate high-value targets.",
+      "continuity": "Star Wars films, series, and expanded tie-in media",
+      "summary": "Elite Imperial commandos specialized in stealth, advanced tactical weaponry, and brutal efficiency in high-risk zones.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Encrypted tactical squad coordination",
+          "Blaster rifle marksmanship",
+          "Close-quarters combat",
           "Precise squad-based firefights",
           "SE-14R blaster pistol combat",
           "D-191 heavy blaster rifle combat"
         ],
-        "range": "ranged"
+        "range": "ranged / melee"
       },
       "defense": {
         "mechanisms": [
+          "Encrypted armor plating",
+          "Advanced helmet sensory suites",
           "Specialized stormtrooper armor",
           "Tactical helmets with integrated multi-spectral sensors"
         ]
       },
       "weaknesses": [
+        "Vulnerable to overwhelming firepower or specialized guerrilla tactics",
         "Vulnerable to overwhelming specialized forces or Jedi intervention"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series (1977-2023)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Rebels (Animated Series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (Films and Series)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Tactical infantry movement",
         "Standard foot movement"
       ],
       "limitations": [
+        "Relies heavily on squad cohesion and technological support.",
         "Standard human physical limits"
       ],
       "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/Death_Trooper",
+          "supports": "Overview of Death Trooper equipment, training, and combat roles."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Death_trooper",
           "supports": "Equipment, tactical role, and armament details."
@@ -178,48 +294,53 @@
       "feats": [
         {
           "claim": "Operates effectively in low-visibility jungle conditions on Eadu.",
-          "citation": "Rogue One: A Star Wars Story",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Rogue One squad",
-          "result": "loss",
-          "citation": "Rogue One: A Star Wars Story",
-          "note": "Engaged during the battle of Scarif.",
+          "citation": "Rogue One: A Star Wars Story (2016 film)",
+          "depiction": "Star Wars films and series (1977-2023)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "tech",
-          "claim": "Utilizes advanced encrypted comms and multi-spectral sensors.",
+          "claim": "Utilizes specialized encrypted comms and advanced helmet sensory equipment.",
           "source": 0
         },
         {
           "tag": "infiltration",
-          "claim": "Trained for covert operations and bodyguard duties.",
+          "claim": "Employed for covert operations and high-value target elimination.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact augmentation procedures used to create death troopers."
+        "Performance against high-tier Force users without tactical surprise.",
+        "Exact augmentation procedures used to create death troopers.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Rogue One squad",
+          "result": "loss",
+          "citation": "Rogue One: A Star Wars Story",
+          "note": "Engaged during the battle of Scarif.",
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and Series)"
+        }
+      ],
+      "earlierSummary": "Elite Imperial commandos who utilize advanced tactical gear, encrypted communications, and heavy weaponry to eliminate high-value targets."
     },
     {
       "id": "starwars:Director Krennic",
-      "continuity": "Star Wars Canon (Films)",
-      "summary": "Orson Krennic is an Imperial military administrator who relies on standard Imperial security forces and personal sidearms rather than direct frontline combat prowess.",
+      "continuity": "Star Wars films and tie-ins",
+      "summary": "Orson Krennic is an Imperial military administrator who directs security operations, relying on personal sidearms and loyal death troopers rather than frontline prowess.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Standard issue blaster pistol combat",
+          "Command authority over Imperial forces",
           "A-180 blinder pistol usage",
           "Command authority"
         ],
@@ -227,55 +348,78 @@
       },
       "defense": {
         "mechanisms": [
+          "Standard Imperial officer uniform",
+          "Bodyguard protection",
           "Imperial white tunic and personal bodyguards"
         ]
       },
       "weaknesses": [
+        "Lacks superhuman durability or advanced martial combat training",
         "Low personal combat durability",
         "Arrogance"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Rogue One: A Star Wars Story (2016 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Canon (Films)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard foot movement and transport craft",
         "Walking"
       ],
       "limitations": [
+        "Dependent on subordinates for physical security.",
         "Not a frontline warrior"
       ],
       "sources": [
         {
           "url": "https://starwars.fandom.com/wiki/Orson_Krennic",
-          "supports": "Role, equipment, and fate."
+          "supports": "Details on Krennic's administrative role and combat equipment."
         }
       ],
       "feats": [
         {
           "claim": "Shoots rebel soldiers with his blaster on Scarif.",
-          "citation": "Rogue One: A Star Wars Story",
+          "citation": "Rogue One: A Star Wars Story (2016 film)",
+          "depiction": "Rogue One: A Star Wars Story (2016 film)",
           "source": 0
         }
       ],
+      "unknowns": [
+        "Combat effectiveness outside of administrative command.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "notableResults": [
         {
           "opponent": "Cassian Andor",
           "result": "loss",
           "citation": "Rogue One: A Star Wars Story",
           "note": "Shot and incapacitated prior to the Death Star strike.",
-          "source": 0
+          "source": 0,
+          "depiction": "Star Wars Canon (Films)"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Orson Krennic is an Imperial military administrator who relies on standard Imperial security forces and personal sidearms rather than direct frontline combat prowess."
     },
     {
       "id": "starwars:Droideka",
-      "continuity": "Star Wars Canon (Films and Series)",
-      "summary": "Heavy destroyer droids capable of transforming into a fast wheel form and deploying personal deflector shield generators during combat.",
+      "continuity": "Star Wars films and series",
+      "summary": "Heavy destroyer droids capable of high-speed wheel transformation and deployment of powerful personal deflector shields.",
       "offense": {
         "domains": [
           "energy",
           "tech"
         ],
         "techniques": [
+          "Twin heavy repeating blaster cannons",
+          "Rolling high-speed ramming",
           "Twin repeating blasters",
           "Rolling attack mode"
         ],
@@ -283,60 +427,99 @@
       },
       "defense": {
         "mechanisms": [
+          "Personal deflector shield generator impervious to most standard direct fire",
+          "Durable metallic chassis",
           "Personal deflector shield generator",
           "Durable durasteel chassis"
         ]
       },
       "weaknesses": [
+        "Vulnerable to slow-moving projectiles or attacks penetrating the shield perimeter at close range",
         "Vulnerable to slow-moving objects penetrating the shield",
         "Vulnerability to EMP or ion weapons"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series (1977-2023)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (Animated Series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (Films and Series)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "High-speed rolling wheel mode",
+        "Bipedal walking",
         "Wheel form rolling",
         "Short mechanical strides"
       ],
       "limitations": [
+        "Cannot fire while transformed into wheel form.",
         "Stationary when firing with shields active"
       ],
       "sources": [
         {
           "url": "https://starwars.fandom.com/wiki/Droideka",
-          "supports": "Shield capabilities, weaponry, and wheel form."
+          "supports": "Specifications on destroyer droid shielding and weaponry."
         }
       ],
       "feats": [
         {
+          "claim": "Forces Jedi Knights Qui-Gon Jinn and Obi-Wan Kenobi to retreat through heavy repeating fire and shielding.",
+          "citation": "Star Wars: Episode I - The Phantom Menace (1999 film)",
+          "depiction": "Star Wars films and series (1977-2023)",
+          "source": 0
+        },
+        {
           "claim": "Forces Jedi Knights Qui-Gon Jinn and Obi-Wan Kenobi to retreat.",
           "citation": "Star Wars: Episode I - The Phantom Menace",
+          "source": 0,
+          "depiction": "Star Wars Canon (Films and Series)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Autonomous automated combat droid.",
           "source": 0
         }
       ],
+      "unknowns": [
+        "Shield capacity limit against continuous heavy artillery.",
+        "Unsupported by cited source (term check, 1/4 key terms found): robot-or-ai: Fully automated combat droid.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "notableResults": [
         {
           "opponent": "Qui-Gon Jinn and Obi-Wan Kenobi",
           "result": "win",
           "citation": "Star Wars: Episode I - The Phantom Menace",
           "note": "Ambushed and out-gunned them on the Trade Federation ship.",
-          "source": 0
+          "source": 0,
+          "depiction": "Star Wars Canon (Films and Series)"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
-      "unknowns": [
-        "Unsupported by cited source (term check, 1/4 key terms found): robot-or-ai: Fully automated combat droid."
-      ]
+      "earlierSummary": "Heavy destroyer droids capable of transforming into a fast wheel form and deploying personal deflector shield generators during combat."
     },
     {
       "id": "starwars:Dryden Vos",
-      "continuity": "Star Wars Canon (Films)",
-      "summary": "A high-ranking leader of the Crimson Dawn syndicate who combines physical combat with sophisticated weapons and wealth.",
+      "continuity": "Star Wars films and media",
+      "summary": "A high-ranking crime boss of Crimson Dawn who combines wealth, syndicate influence, and lethal close-quarters combat skill.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Dual push-dagger combat",
+          "Hand-to-hand martial arts",
           "Teras Kasi martial arts",
           "Prattâkar blades"
         ],
@@ -344,49 +527,76 @@
       },
       "defense": {
         "mechanisms": [
+          "Personal bodyguards",
+          "Armored ceremonial garments",
           "Personal syndicate bodyguards",
           "Formal armor plating beneath clothing"
         ]
       },
       "weaknesses": [
+        "Standard biological vulnerability",
         "Arrogance and reliance on subordinates"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Solo: A Star Wars Story (2018 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Canon (Films)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard foot movement",
         "Walking"
       ],
       "limitations": [
+        "Relies on syndicate assets for strategic power.",
         "Standard biological limits"
       ],
       "sources": [
         {
           "url": "https://starwars.fandom.com/wiki/Dryden_Vos",
-          "supports": "Combat style, weapons, and criminal status."
+          "supports": "Background on Dryden Vos and his combat weapons."
         }
       ],
       "feats": [
         {
+          "claim": "Engages in hand-to-hand combat using dual blades against skilled opponents.",
+          "citation": "Solo: A Star Wars Story (2018 film)",
+          "depiction": "Solo: A Star Wars Story (2018 film)",
+          "source": 0
+        },
+        {
           "claim": "Engages in hand-to-hand combat using dual blades.",
           "citation": "Solo: A Star Wars Story",
-          "source": 0
+          "source": 0,
+          "depiction": "Star Wars Canon (Films)"
         }
       ],
+      "unknowns": [
+        "Feats outside of close-quarters syndicate enforcement.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "notableResults": [
         {
           "opponent": "Han Solo",
           "result": "loss",
           "citation": "Solo: A Star Wars Story",
           "note": "Killed by Solo during a confrontation over coaxial.",
-          "source": 0
+          "source": 0,
+          "depiction": "Star Wars Canon (Films)"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "A high-ranking leader of the Crimson Dawn syndicate who combines physical combat with sophisticated weapons and wealth."
     },
     {
       "id": "starwars:Emperor Palpatine",
-      "continuity": "Star Wars Canon (Films and Series)",
-      "summary": "A master of the dark side of the Force who manipulates politics and commands devastating Force lightning alongside exceptional lightsaber skill.",
+      "continuity": "Star Wars films, series, and Expanded Universe comics",
+      "summary": "Darth Sidious is a master of manipulation and dark side mastery, wielding devastating Force lightning and unmatched political and mystical power.",
       "offense": {
         "domains": [
           "energy",
@@ -394,39 +604,65 @@
           "control"
         ],
         "techniques": [
-          "Force lightning",
+          "Force lightning storm projection",
           "Lightsaber combat",
+          "Dark side telekinesis and manipulation",
+          "Force lightning",
           "Force storm / manipulation"
         ],
-        "range": "melee / ranged"
+        "range": "ranged / melee"
       },
       "defense": {
         "mechanisms": [
           "Force barrier",
+          "Advanced evasive maneuverability",
           "Precognition"
         ]
       },
       "weaknesses": [
+        "Arrogance and overconfidence in controlled outcomes",
         "Arrogance",
         "Physical frailty of aged body"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series (1977-2023)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Darth Vader (Marvel Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Films and Series)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Force-enhanced speed and agility",
         "Force leap",
         "Walking"
       ],
       "limitations": [
+        "Physical body subject to aging and degradation when overchanneling dark energy.",
         "Physical body ages and degrades under dark side corruption"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Emperor_Palpatine",
+          "supports": "Overview of Palpatine's abilities and role in galactic history."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Palpatine",
-          "supports": "Force powers, lightsaber combat, and status."
+          "supports": "Details on Sith powers, lightning feats, and lightsaber mastery."
         }
       ],
       "feats": [
         {
           "claim": "Defeats multiple Jedi Masters rapidly in lightsaber combat.",
-          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "citation": "Star Wars: Episode III - Revenge of the Sith (2005 film)",
+          "depiction": "Star Wars films and series (1977-2023)",
           "source": 0
         }
       ],
@@ -434,38 +670,51 @@
         {
           "opponent": "Mace Windu",
           "result": "loss",
+          "citation": "Star Wars: Episode III - Revenge of the Sith (2005 film)",
+          "note": "Overpowered by reflected lightning before intervention by Anakin Skywalker.",
+          "depiction": "Star Wars films and series (1977-2023)",
+          "source": 0
+        },
+        {
+          "opponent": "Mace Windu",
+          "result": "loss",
           "citation": "Star Wars: Episode III - Revenge of the Sith",
           "note": "Overpowered in blade lock, though turned the situation with Anakin's help.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and Series)"
         },
         {
           "opponent": "Yoda",
           "result": "draw",
           "citation": "Star Wars: Episode III - Revenge of the Sith",
           "note": "Senate chamber duel ended inconclusively after Palpatine gained high ground.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and Series)"
         }
       ],
       "campaignTags": [
         {
-          "tag": "electric",
-          "claim": "Employs devastating Force lightning.",
-          "source": 0
-        },
-        {
           "tag": "electric-control",
-          "claim": "Generates and directs lightning bolts from hands.",
-          "source": 0
+          "claim": "Projects devastating arcs of Force lightning from his hands.",
+          "source": 1
         },
         {
           "tag": "spellcaster",
-          "claim": "Practitioner of ancient and dark side Force rituals.",
-          "source": 0
+          "claim": "Master of arcane dark side rituals and sorcery.",
+          "source": 1
+        },
+        {
+          "tag": "electric",
+          "claim": "Employs devastating Force lightning.",
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Full scale of dark side potential without physical host limitations.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "A master of the dark side of the Force who manipulates politics and commands devastating Force lightning alongside exceptional lightsaber skill."
     },
     {
       "id": "starwars:Emperor Palpatine|Clone Emperor Palpatine",
@@ -522,49 +771,68 @@
           "magic"
         ],
         "techniques": [
-          "Fleet-disabling Force lightning arc",
-          "Life drain"
+          "Fleet-disabling Force lightning storm",
+          "Life drain",
+          "Fleet-disabling Force lightning arc"
         ],
-        "range": "strategic"
+        "range": "ranged / strategic"
       },
       "defense": {
         "mechanisms": [
-          "Machinery life support",
-          "Cultist protection"
+          "Machinery life support tether",
+          "Cultist protection",
+          "Machinery life support"
         ]
       },
       "weaknesses": [
+        "Completely immobile without life-support machinery hookups",
         "Immobile without heavy life support equipment",
         "Vulnerable to his own reflected lightning"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: Episode IX - The Rise of Skywalker (2019 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Canon (Rise of Skywalker)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Immobile without mechanical harness",
         "Hoisting apparatus",
         "Limited movement"
       ],
-      "limitations": [
-        "Tethered to life support apparatus on Exegol"
-      ],
-      "formDifferences": "Extremely physically decayed, hooked to life support on Exegol, but capable of disabling entire fleets with Force lightning.",
+      "formDifferences": "Decrepit and physically tethered to massive machinery, relying entirely on massive scale energy projection rather than mobility.",
       "sources": [
         {
           "url": "https://starwars.fandom.com/wiki/Palpatine",
-          "supports": "Exegol revival state and Exegol fleet lightning."
+          "supports": "Details on Exegol incarnation and fleet-scale lightning attack."
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Exact transference mechanics to a new vessel.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Tethered to life support apparatus on Exegol"
+      ]
     },
     {
       "id": "starwars:Enfys Nest",
-      "continuity": "Star Wars Canon (Films)",
-      "summary": "Leader of the Cloud-Riders who uses specialized repulsorlift gear and an electric plasma staff to fight syndicates.",
+      "continuity": "Star Wars films and comics",
+      "summary": "Leader of the Cloud-Riders marauders who uses specialized repulsorlift gear and an electric plasma staff to fight crime syndicates.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Electric plasma staff combat",
+          "Repulsorlift swoop bike tactics",
           "Plasma staff strikes",
           "Swoop bike combat"
         ],
@@ -572,45 +840,68 @@
       },
       "defense": {
         "mechanisms": [
+          "Specialized protective helmet and armored clothing",
           "Mask and armored raiding gear"
         ]
       },
       "weaknesses": [
+        "Standard biological limitations",
         "Standard biological limits"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Solo: A Star Wars Story (2018 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Beckett (Marvel Comic)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Films)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Repulsorlift swoop bike riding",
+        "Glide",
         "Swoop bike",
         "Running"
       ],
       "limitations": [
+        "Relies on specialized equipment for mobility advantage.",
         "Relies on specialized equipment for mobility advantages"
       ],
       "sources": [
         {
           "url": "https://starwars.fandom.com/wiki/Enfys_Nest",
-          "supports": "Weapons, armor, and Cloud-Riders leadership."
+          "supports": "Overview of Enfys Nest, Cloud-Riders, and plasma staff equipment."
         }
       ],
       "feats": [
         {
+          "claim": "Ambushes shipments of coaxium with the Cloud-Riders using repulsorlift speeders.",
+          "citation": "Solo: A Star Wars Story (2018 film)",
+          "depiction": "Solo: A Star Wars Story (2018 film)",
+          "source": 0
+        },
+        {
           "claim": "Ambushes shipments of coaxial with the Cloud-Riders.",
           "citation": "Solo: A Star Wars Story",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Han Solo",
-          "result": "win",
-          "citation": "Solo: A Star Wars Story",
-          "note": "Intercepted and disarmed Solo's crew before revealing true motives.",
-          "source": 0
+          "source": 0,
+          "depiction": "Star Wars Canon (Films)"
         }
       ],
       "campaignTags": [
         {
           "tag": "electric-weapon",
-          "claim": "Wields an electric plasma staff.",
+          "claim": "Wields an electric plasma staff in combat.",
+          "source": 0
+        },
+        {
+          "tag": "glide",
+          "claim": "Utilizes repulsorlift gear for high-mobility aerial maneuvers.",
           "source": 0
         },
         {
@@ -619,9 +910,22 @@
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Performance in prolonged direct sieges against military garrisons.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Han Solo",
+          "result": "win",
+          "citation": "Solo: A Star Wars Story",
+          "note": "Intercepted and disarmed Solo's crew before revealing true motives.",
+          "source": 0,
+          "depiction": "Star Wars Canon (Films)"
+        }
+      ],
+      "earlierSummary": "Leader of the Cloud-Riders who uses specialized repulsorlift gear and an electric plasma staff to fight syndicates."
     }
   ]
 }
