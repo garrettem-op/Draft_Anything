@@ -1,0 +1,721 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261121-065942 #5",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:John Connor (1991)",
+      "continuity": "Terminator 2: Judgment Day (1991 film)",
+      "summary": "John Connor is a young future resistance leader who relies on resourcefulness, hacking skills, and the protection of a reprogrammed Terminator to survive lethal cybernetic assassins.",
+      "offense": {
+        "domains": [
+          "tech"
+        ],
+        "techniques": [
+          "Hacking ATMs and public electronics",
+          "Distraction and evasion"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Evading pursuers",
+          "Relying on bodyguard protection"
+        ]
+      },
+      "weaknesses": [
+        "Human vulnerability",
+        "Lack of combat training"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Terminator 2: Judgment Day (1991 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Dirt bike",
+        "Foot"
+      ],
+      "limitations": [
+        "Normal human physical abilities",
+        "No formal military combat training at this age"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Terminator_2:_Judgment_Day",
+          "supports": "John Connor's role as the young resistance leader in 1991 and his use of tech/hacking."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Hacks an ATM using an Atari Portfolio handheld computer to steal money.",
+          "citation": "Terminator 2: Judgment Day (1991 film)",
+          "depiction": "Terminator 2: Judgment Day (1991 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "T-1000",
+          "result": "loss",
+          "citation": "Terminator 2: Judgment Day (1991 film)",
+          "note": "Fled from the liquid metal assassin with the aid of the T-800.",
+          "depiction": "Terminator 2: Judgment Day (1991 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses hacking devices and electronic lockpicks.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Future combat exploits and tactical command capabilities from later timelines are excluded as this profile focuses strictly on the 1991 depiction."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:John McClane",
+      "continuity": "Die Hard (1988 film) and sequels",
+      "summary": "John McClane is a gritty, exceptionally resilient NYPD detective who uses urban guerrilla tactics, firearms, and sheer endurance to overcome heavily armed terrorists in confined environments.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Improvised explosives",
+          "Firearms combat",
+          "Ambush tactics"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Pain tolerance",
+          "Cover and concealment"
+        ]
+      },
+      "weaknesses": [
+        "Prone to heavy physical injury and exhaustion",
+        "Stubbornness"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Die Hard (1988 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Foot",
+        "Vehicles"
+      ],
+      "limitations": [
+        "Human physical limits",
+        "Vulnerable to gunshot wounds and blunt force trauma"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Die_Hard",
+          "supports": "John McClane's actions resisting terrorists inside Nakatomi Plaza."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Eliminates multiple heavily armed terrorists inside a skyscraper using firearms and improvised explosives.",
+          "citation": "Die Hard (1988 film)",
+          "depiction": "Die Hard (1988 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hans Gruber's terrorist crew",
+          "result": "win",
+          "citation": "Die Hard (1988 film)",
+          "note": "Single-handedly dismantled the terrorist cell inside Nakatomi Plaza.",
+          "depiction": "Die Hard (1988 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact inventory of firearms varies depending on the specific encounter."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:John Rambo",
+      "continuity": "First Blood (1982 film) and sequels",
+      "summary": "John Rambo is a traumatized Vietnam War Green Beret veteran who specializes in guerrilla warfare, tracking, wilderness survival, and silent elimination.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Bow and arrow combat",
+          "Guerrilla traps",
+          "Knife combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Camouflage",
+          "High pain tolerance",
+          "Wilderness evasion"
+        ]
+      },
+      "weaknesses": [
+        "Severe psychological trauma",
+        "Vulnerable to overwhelming firepower if cornered"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "First Blood (1982 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Foot",
+        "Military vehicles"
+      ],
+      "limitations": [
+        "Human physiological limits",
+        "Emotional triggers related to wartime experiences"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/First_Blood",
+          "supports": "John Rambo's survival and guerrilla tactics against police forces in a mountain town."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Evades and systematically disables an entire pursuing National Guard and police force in mountain terrain.",
+          "citation": "First Blood (1982 film)",
+          "depiction": "First Blood (1982 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hope, Washington Police Department",
+          "result": "win",
+          "citation": "First Blood (1982 film)",
+          "note": "Neutralized pursuers non-fatally using traps and guerrilla tactics.",
+          "depiction": "First Blood (1982 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Later sequels escalate his conflict scale from survivalist to full military rescue operations."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:John Wick",
+      "continuity": "John Wick (2014 film) and sequels",
+      "summary": "John Wick is a legendary retired assassin known for his relentless focus, expert firearms handling, martial arts proficiency, and terrifying reputation in the criminal underworld.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Gun-fu (close-quarters firearm and martial arts integration)",
+          "Knife throwing",
+          "Tactical wrestling"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Ballistic-resistant suits",
+          "Parry and counter techniques"
+        ]
+      },
+      "weaknesses": [
+        "Susceptible to exhaustion and overwhelming numbers when isolated"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "John Wick (2014 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Foot",
+        "High-performance vehicles"
+      ],
+      "limitations": [
+        "Human physiology subject to injury and fatigue"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Wick",
+          "supports": "John Wick's assassin skills and combat encounters in the 2014 film."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Eliminates dozens of armed mobsters single-handedly in a nightclub assault.",
+          "citation": "John Wick (2014 film)",
+          "depiction": "John Wick (2014 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Viggo Tarasov's syndicate",
+          "result": "win",
+          "citation": "John Wick (2014 film)",
+          "note": "Dismantled the entire criminal organization after coming out of retirement.",
+          "depiction": "John Wick (2014 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears bespoke ballistic-weave suits providing protection against small arms fire.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Continental Hotel rules restrict combat within certain grounds, though he frequently violates them."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Jungle Hunter Predator",
+      "continuity": "Predator (1987 film)",
+      "summary": "The Jungle Hunter is an extraterrestrial warrior equipped with active camouflage, thermal vision, advanced plasma weaponry, and brutal physical strength, hunting worthy prey in dense jungles.",
+      "offense": {
+        "domains": [
+          "energy",
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Plasma caster shoulder cannon",
+          "Wrist blades",
+          "Smart disc"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Active camouflage cloak",
+          "Energy shield/armor"
+        ]
+      },
+      "weaknesses": [
+        "Thermal vision can be confused by extreme temperature changes (e.g., mud caking)",
+        "Overconfidence"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Predator (1987 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Natural-flight (none)",
+        "Leaping",
+        "Tree canopy acrobatics"
+      ],
+      "limitations": [
+        "Relies heavily on technological gear for tactical advantage"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Predator_(1987_film)",
+          "supports": "Jungle Hunter Predator's weaponry, cloaking, and combat feats in the 1987 film."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Systematically hunts and eliminates an elite rescue team in the Central American jungle.",
+          "citation": "Predator (1987 film)",
+          "depiction": "Predator (1987 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dutch Schaeffer",
+          "result": "loss",
+          "citation": "Predator (1987 film)",
+          "note": "Defeated in single combat after Dutch utilized mud concealment and improvised traps.",
+          "depiction": "Predator (1987 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "invisibility",
+          "claim": "Uses active optical camouflage to render itself nearly invisible.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Employs plasma energy weapons and wrist-mounted blades.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact biological limits outside of its hunting gear remain unverified in this film."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Karl Vreski",
+      "continuity": "Die Hard (1988 film)",
+      "summary": "Karl Vreski is a ruthless, cold-blooded terrorist and Hans Gruber's primary enforcer, specializing in relentless firearm assaults and hand-to-hand combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Assault rifle fire",
+          "Close-quarters combat"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tactical body armor",
+          "Aggressive counter-attacks"
+        ]
+      },
+      "weaknesses": [
+        "Driven by vengeance, leading to reckless tactical decisions"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Die Hard (1988 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Foot"
+      ],
+      "limitations": [
+        "Human physical limitations"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Die_Hard",
+          "supports": "Karl Vreski's role as a principal terrorist gunman in Die Hard."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engages John McClane in multiple intense gunfights and survives sustained physical confrontations.",
+          "citation": "Die Hard (1988 film)",
+          "depiction": "Die Hard (1988 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "John McClane",
+          "result": "loss",
+          "citation": "Die Hard (1988 film)",
+          "note": "Defeated and hanged during the final confrontation.",
+          "depiction": "Die Hard (1988 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Background details prior to the terrorist takeover are sparse."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Katsumoto",
+      "continuity": "The Last Samurai (2003 film)",
+      "summary": "Katsumoto is a noble and formidable samurai leader dedicated to traditional Japanese martial arts, philosophy, and resisting forced westernization with disciplined swordplay.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Katana mastery",
+          "Mounted cavalry charge",
+          "Archery"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Traditional samurai armor",
+          "Parry and counter techniques"
+        ]
+      },
+      "weaknesses": [
+        "Outdated weaponry against modern firearms and artillery"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Last Samurai (2003 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Foot",
+        "Horseback"
+      ],
+      "limitations": [
+        "Human physical vulnerability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Last_Samurai",
+          "supports": "Katsumoto's leadership, samurai combat skills, and historical context."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Leads a disciplined samurai rebellion against imperial forces using traditional swords and bows.",
+          "citation": "The Last Samurai (2003 film)",
+          "depiction": "The Last Samurai (2003 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Japanese Army",
+          "result": "loss",
+          "citation": "The Last Samurai (2003 film)",
+          "note": "Overwhelmed by modern Gatling guns and artillery fire in a final stand.",
+          "depiction": "The Last Samurai (2003 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Fights effectively while riding a horse into battle.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific tactical feats outside of traditional warfare are limited."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Kim Mills",
+      "continuity": "Taken (2008 film) and sequels",
+      "summary": "Kim Mills is a teenager whose abduction sparks an international rescue mission by her former CIA operative father, functioning primarily as a captive in the initial narrative.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Basic evasion"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Hiding and shelter-seeking"
+        ]
+      },
+      "weaknesses": [
+        "Inexperienced in combat",
+        "Vulnerable human"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Taken (2008 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Foot"
+      ],
+      "limitations": [
+        "No combat or tactical training during the events of the primary film"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Taken_(film)",
+          "supports": "Kim Mills' role as the abducted teenager in Taken."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully follows emergency phone instructions to hide and describe her kidnappers before capture.",
+          "citation": "Taken (2008 film)",
+          "depiction": "Taken (2008 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Human traffickers",
+          "result": "loss",
+          "citation": "Taken (2008 film)",
+          "note": "Abducted in Paris before being rescued by Bryan Mills.",
+          "depiction": "Taken (2008 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Later sequels depict minor investigative involvement, but her primary narrative role is non-combatant."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:King Edward I",
+      "continuity": "Braveheart (1995 film)",
+      "summary": "King Edward I ('Longshanks') is a ruthless, pragmatic English monarch who commands vast armies and uses calculated political brutality to subjugate Scotland.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Strategic military command",
+          "Siege warfare"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Royal guards",
+          "Fortified castles"
+        ]
+      },
+      "weaknesses": [
+        "Advanced age",
+        "Physical frailty"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Braveheart (1995 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Horseback",
+        "Carriage"
+      ],
+      "limitations": [
+        "Physically frail due to old age; relies entirely on armies and subordinates for combat."
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Braveheart",
+          "supports": "King Edward I's historical depiction and military campaigns in Braveheart."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Orchestrates large-scale military invasions and political suppression across Britain.",
+          "citation": "Braveheart (1995 film)",
+          "depiction": "Braveheart (1995 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "William Wallace",
+          "result": "inconclusive",
+          "citation": "Braveheart (1995 film)",
+          "note": "Engaged in a long political and military struggle, ultimately dying of illness shortly before Wallace's execution.",
+          "depiction": "Braveheart (1995 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Historical accuracy of the film depiction differs from actual history, but this profile follows the 1995 film continuity."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Lee",
+      "continuity": "Enter the Dragon (1973 film)",
+      "summary": "Lee is a peerless martial artist recruited by intelligence agencies to infiltrate a criminal lord's island fortress tournament using bare hands, staff, and traditional weapons.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Jeet Kune Do martial arts",
+          "Staff fighting",
+          "Nunchaku combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Superior reflexes",
+          "Parrying and evasion"
+        ]
+      },
+      "weaknesses": [
+        "Human physical limitations against armed groups"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Enter the Dragon (1973 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Foot"
+      ],
+      "limitations": [
+        "Human vulnerability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Enter_the_Dragon",
+          "supports": "Lee's martial arts techniques, infiltration, and combat feats in Enter the Dragon."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeats dozens of armed thugs and martial arts experts single-handedly within a subterranean stronghold.",
+          "citation": "Enter the Dragon (1973 film)",
+          "depiction": "Enter the Dragon (1973 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Han",
+          "result": "win",
+          "citation": "Enter the Dragon (1973 film)",
+          "note": "Defeated the crime lord inside a mirrored hall after an intense duel.",
+          "depiction": "Enter the Dragon (1973 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Details of prior espionage missions are not explicitly shown."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
