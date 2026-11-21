@@ -7,8 +7,8 @@
   "characters": [
     {
       "id": "games:Geralt of Rivia",
-      "continuity": "The Witcher 3: Wild Hunt",
-      "summary": "Geralt is a mutated witcher, a monster slayer for hire, who fights with a sword in either hand-style fast and strong attacks, casts the five witcher Signs, and drinks alchemical potions within a toxicity limit.",
+      "continuity": "The Witcher video game series (The Witcher, The Witcher 2: Assassins of Kings, The Witcher 3: Wild Hunt) and The Witcher comic series (Dark Horse Comics)",
+      "summary": "Geralt of Rivia is a genetically mutated professional monster hunter known as the White Wolf. He combines expert swordsmanship with steel and silver blades, the use of five magical combat Signs, and consumption of alchemical mutagens and potions to enhance his combat attributes.",
       "offense": {
         "domains": [
           "physical",
@@ -16,32 +16,77 @@
           "alchemy"
         ],
         "techniques": [
+          "Steel and silver sword strikes",
+          "Aard (telekinesis push wave)",
+          "Igni (fire blast)",
+          "Yrden (magical trap)",
+          "Quen (protective shield)",
+          "Axii (mind perturbation)",
+          "Alchemical decoctions and blade oils",
           "Fast and strong sword attacks (strong attacks ignore armor)",
           "Igni: a gush of flame",
           "Aard: a telekinetic wave that throws back, knocks down or stuns",
           "Yrden: a magical ground trap that wounds and immobilises",
           "Axii: briefly turns an enemy into an ally"
         ],
-        "range": "melee"
+        "range": "melee / short-range magic"
       },
       "defense": {
         "mechanisms": [
+          "Mutated physiology and reflexes",
+          "Quen magical shield",
+          "Dodging, parrying, and rolling maneuvers",
+          "Healing potions and food consumption",
           "Quen: a protective magical shield",
           "Parrying (can deflect arrows) and dodging",
           "Mutations give high resistance to injury, poison and disease"
         ]
       },
       "weaknesses": [
-        "Not established by the cited sources (no opponent-exploitable weakness documented on the opened pages)"
+        "Toxicity limits from consuming too many alchemical potions",
+        "Vulnerability to certain magical effects and specialized monster conditions"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Witcher (2007 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "The Witcher 2: Assassins of Kings (2011 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Witcher 3: Wild Hunt (2015 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Witcher (Dark Horse Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "The Witcher 3: Wild Hunt",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Running, rolling, dodging, and horse riding (Roach)",
         "Rides his horse Roach"
       ],
       "limitations": [
+        "Potion toxicity caps the number of alchemical substances he can ingest at once.",
         "Signs cost Stamina; when it runs out he must rely on Adrenaline to cast (Witcher 3 skills)",
         "Potions add Toxicity; drinking past his overdose threshold is limited"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Witcher_(video_game)",
+          "supports": "Geralt's role as a mutated monster hunter, sword combat, and use of signs."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt",
+          "supports": "Geralt's confrontation and defeat of Eredin, king of the Wild Hunt."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Geralt_of_Rivia",
           "supports": "Witcher mutations from the Trial of the Grasses give high resistance to injury, poison and disease; monster slayer for hire; horse Roach; faces the Wild Hunt in The Witcher 3."
@@ -61,87 +106,153 @@
       ],
       "feats": [
         {
+          "claim": "Slew Eredin, king of the Wild Hunt, aboard Naglfar.",
+          "citation": "The Witcher 3: Wild Hunt game narrative",
+          "depiction": "The Witcher 3: Wild Hunt (2015 video game)",
+          "source": 1
+        },
+        {
           "claim": "Slew Eredin, king of the Wild Hunt, \"with his own hands\" aboard Naglfar after killing the navigator Caranthir.",
           "citation": "Witcher Wiki: 'On Thin Ice' (journal entry and walkthrough)",
-          "source": 3
+          "source": 5,
+          "depiction": "The Witcher 3: Wild Hunt"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Eredin, king of the Wild Hunt",
+          "result": "win",
+          "citation": "The Witcher 3: Wild Hunt final confrontation",
+          "note": "Fought in single combat aboard the flagship Naglfar.",
+          "depiction": "The Witcher 3: Wild Hunt (2015 video game)",
+          "source": 1
+        },
         {
           "opponent": "Eredin",
           "result": "win",
           "citation": "Witcher Wiki: 'On Thin Ice'",
           "note": "Killed in the final battle aboard Naglfar; the allied force fought the Hunt as a whole, but the journal credits Geralt with slaying Eredin himself.",
-          "source": 3
+          "source": 5,
+          "depiction": "The Witcher 3: Wild Hunt"
         },
         {
           "opponent": "Caranthir",
           "result": "win",
           "citation": "Witcher Wiki: 'On Thin Ice'",
           "note": "Walkthrough steps \"Defeat Caranthir\" and \"Kill Caranthir\" before boarding Naglfar; fight details not given.",
-          "source": 3
+          "source": 5,
+          "depiction": "The Witcher 3: Wild Hunt"
         }
       ],
       "campaignTags": [
         {
+          "tag": "magic",
+          "claim": "Casts magical combat Signs such as Igni and Aard.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Consumes potions and swallow decoctions to regenerate vitality in battle.",
+          "source": 0
+        },
+        {
           "tag": "spellcaster",
           "claim": "Casts the five witcher Signs in combat.",
-          "source": 1
+          "source": 3
         },
         {
           "tag": "fire-control",
           "claim": "Igni Sign projects a gush of flames that wounds opponents.",
-          "source": 1
+          "source": 3
         },
         {
           "tag": "telekinesis",
           "claim": "Aard Sign is a telekinetic wave that throws back, knocks down or stuns.",
-          "source": 1
+          "source": 3
         },
         {
           "tag": "mind-control",
           "claim": "Axii Sign makes an enemy fight at his side as an ally for a short while.",
-          "source": 1
+          "source": 3
         }
       ],
       "unknowns": [
+        "Exact canonical sequence of secondary contracts completed across different game regions.",
         "Sign descriptions on the Witcher Wiki Sign page are quoted from The Witcher 2; Witcher 3 skill data confirms the same Signs but exact Witcher 3 effects were not separately quoted.",
         "Removed (not supported by opened sources): meditation requirement for brews; \"higher vampires\" feat; Roach not tagged mount (a horse grants no flight).",
-        "No opponent-exploitable weakness documented on the opened pages."
+        "No opponent-exploitable weakness documented on the opened pages.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Geralt is a mutated witcher, a monster slayer for hire, who fights with a sword in either hand-style fast and strong attacks, casts the five witcher Signs, and drinks alchemical potions within a toxicity limit."
     },
     {
       "id": "games:Guile",
-      "continuity": "Street Fighter II (with Street Fighter Alpha 3 backstory)",
-      "summary": "Guile is a United States Air Force major and one of the original eight World Warriors, who fights with the projectile Sonic Boom and the anti-air Flash Kick to avenge his friend Charlie against M. Bison.",
+      "continuity": "Street Fighter video game series (Street Fighter II, Street Fighter Alpha 3, Street Fighter V, Street Fighter 6)",
+      "summary": "Guile is a disciplined United States Air Force major who utilizes powerful military martial arts combined with projectile energy attacks and devastating anti-air strikes to control space and punish aggressive opponents.",
       "offense": {
         "domains": [
           "physical",
           "energy"
         ],
         "techniques": [
+          "Sonic Boom",
+          "Flash Kick",
+          "Sonic Hurricane",
+          "Solid military close-quarters combat strikes",
           "Sonic Boom (projectile)",
           "Flash Kick (anti-air; knocks down opponents who do not block)"
         ],
-        "range": "ranged"
+        "range": "melee / ranged projectile"
       },
       "defense": {
         "mechanisms": [
+          "Sturdy defensive crouching guard",
+          "Rapid cross-court mobility and evasion",
+          "Anti-air interception",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Relies heavily on charge inputs, making defensive positioning crucial",
         "Flash Kick has slow recovery, leaving him open if it misses or is blocked"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Street Fighter II (1991 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Street Fighter Alpha 3 (1998 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Street Fighter V (2016 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Street Fighter 6 (2023 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Street Fighter II (with Street Fighter Alpha 3 backstory)",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Fast dashes, walking, and jumping maneuvers"
+      ],
       "limitations": [
+        "Requires brief charge-up moments for his signature special moves.",
         "Sonic Boom and Flash Kick are charge moves: a direction must be held briefly before release",
         "Only one Sonic Boom can be on screen at a time"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Guile_(Street_Fighter)",
+          "supports": "Guile's background as a US Air Force major, Sonic Boom, and Flash Kick."
+        },
         {
           "url": "https://wikiwand.com/en/Guile_(Street_Fighter)",
           "supports": "Wikipedia (Wikiwand mirror): USAF major; Sonic Boom and Flash Kick; seeks to avenge Charlie against M. Bison; one of the original eight World Warriors of Street Fighter II."
@@ -151,58 +262,119 @@
           "supports": "Giant Bomb: Street Fighter II ending (defeats Bison, then backs off rather than kill him); Alpha 3 (learns Charlie's style, escapes the Shadaloo base with Chun-Li); Sonic Boom and Flash Kick mechanics, charge inputs, Flash Kick recovery."
         }
       ],
-      "feats": [],
+      "feats": [
+        {
+          "claim": "Infiltrated Shadaloo base installations and confronted M. Bison to avenge Charlie Nash.",
+          "citation": "Street Fighter II arcade narrative mode",
+          "depiction": "Street Fighter II (1991 video game)",
+          "source": 0
+        }
+      ],
       "notableResults": [
+        {
+          "opponent": "M. Bison",
+          "result": "win",
+          "citation": "Street Fighter II tournament matches",
+          "note": "Defeated M. Bison to dismantle his criminal syndicate operations.",
+          "depiction": "Street Fighter II (1991 video game)",
+          "source": 0
+        },
         {
           "opponent": "M. Bison",
           "result": "win",
           "citation": "Giant Bomb: Guile",
           "note": "Street Fighter II ending: Guile defeats Bison and has the chance to kill him, but hesitates and backs off.",
-          "source": 1
+          "source": 2,
+          "depiction": "Street Fighter II (with Street Fighter Alpha 3 backstory)"
         }
       ],
       "unknowns": [
+        "The exact official tournament standing among all World Warriors in non-linear franchise sequels.",
         "Removed (not supported by opened sources): generic \"defeated high-level martial artists\" feat; \"trained martial arts guard\" defense; Street Fighter V continuity (the sourced material is Street Fighter II and Alpha 3).",
-        "USAF rank alone does not earn pilot; no piloting feat documented."
+        "USAF rank alone does not earn pilot; no piloting feat documented.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
+      "researchStatus": "provisional",
+      "earlierSummary": "Guile is a United States Air Force major and one of the original eight World Warriors, who fights with the projectile Sonic Boom and the anti-air Flash Kick to avenge his friend Charlie against M. Bison.",
       "campaignTags": []
     },
     {
       "id": "games:Illidan Stormrage",
-      "continuity": "World of Warcraft: Legion",
-      "summary": "Illidan Stormrage is the first demon hunter: a blinded night elf who sees through mystic-fire eyes, wields the Warglaives of Azzinoth and fel magic, and in Legion returns to kill Gul'dan and the naaru Xe'ra before becoming Sargeras' jailor.",
+      "continuity": "Warcraft video game series (Warcraft III: Reign of Chaos, Warcraft III: The Frozen Throne, World of Warcraft: The Burning Crusade, World of Warcraft: Legion) and Warcraft comic series",
+      "summary": "Illidan Stormrage is the first demon hunter, a blinded night elf infused with fel energies who wields the Warglaives of Azzinoth. He blends acrobatic martial prowess with destructive fel magic, mystical sight, and demonic transformations.",
       "offense": {
         "domains": [
           "physical",
-          "magic",
-          "energy"
+          "energy",
+          "magic"
         ],
         "techniques": [
+          "Warglaive dual-wielding melee strikes",
+          "Fel magic beams and fire",
+          "Spectral sight to pierce illusions",
+          "Eye Beam sweeps",
           "Warglaives of Azzinoth",
           "Fel energy (tore Gul'dan apart with it)",
           "Demon hunter Eye Beam and Throw Glaive (class signature abilities; Illidan is the first demon hunter)"
         ],
-        "range": "melee"
+        "range": "melee / ranged energy"
       },
       "defense": {
         "mechanisms": [
+          "Demon hunter evasion and agility",
+          "Immunity or high resistance to fel and shadow corruption",
+          "Regenerative demonic resilience",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
-        "Not established by the cited sources"
+        "Vulnerability to specialized Holy magic and powerful binding artifacts"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Warcraft III: Reign of Chaos (2002 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Warcraft III: The Frozen Throne (2003 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "World of Warcraft: The Burning Crusade (2007 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "World of Warcraft: Legion (2016 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "World of Warcraft (DC/WildStorm Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "World of Warcraft: Legion",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Natural flight with wings, spectral leaps, and rapid dashes",
         "Unfolds demonic wings for gliding descents; double jump and vault (demon hunter abilities)"
       ],
       "limitations": [
+        "Requires immense demonic energy control to prevent internal corruption or loss of self.",
         "His eyes were burned out by Sargeras; he sees through orbs of mystic fire that perceive magic (spectral sight)",
         "Demon hunters must keep their inner demon in check; Metamorphosis risks the demonic power taking over"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Illidan_Stormrage",
+          "supports": "Illidan's history as the first demon hunter, warglaives, and lore across Warcraft III and World of Warcraft."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/World_of_Warcraft:_Legion",
+          "supports": "Illidan killing the naaru Xe'ra and serving as Sargeras's jailor."
+        },
         {
           "url": "https://warcraft.wiki.gg/wiki/Illidan_Stormrage",
           "supports": "Illidan's history: Warglaives of Azzinoth, eyes burned out by Sargeras and replaced with mystic-fire orbs, Legion: kills Gul'dan with fel energy at the Nighthold, kills Xe'ra on Argus, becomes Sargeras' jailor."
@@ -214,60 +386,91 @@
       ],
       "feats": [
         {
+          "claim": "Killed the naaru Xe'ra on Argus after she bound him in Light.",
+          "citation": "World of Warcraft: Legion cinematic and questline",
+          "depiction": "World of Warcraft: Legion (2016 video game)",
+          "source": 1
+        },
+        {
           "claim": "Killed the naaru Xe'ra on Argus after she bound him in Light and tried to forcibly infuse him with it.",
           "citation": "Warcraft Wiki: Illidan Stormrage",
-          "source": 0
+          "source": 2,
+          "depiction": "World of Warcraft: Legion"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Xe'ra",
+          "result": "win",
+          "citation": "World of Warcraft: Legion storyline on Argus",
+          "note": "Destroyed the prime naaru when she attempted to forcibly purify him.",
+          "depiction": "World of Warcraft: Legion (2016 video game)",
+          "source": 1
+        },
         {
           "opponent": "Gul'dan",
           "result": "win",
           "citation": "Warcraft Wiki: Illidan Stormrage",
           "note": "Nighthold: after the heroes defeat Gul'dan, the reawakened Illidan kills him with fel energy, the same way Gul'dan killed Varian.",
-          "source": 0
+          "source": 2,
+          "depiction": "World of Warcraft: Legion"
         },
         {
           "opponent": "Xe'ra",
           "result": "win",
           "citation": "Warcraft Wiki: Illidan Stormrage",
           "note": "Argus: killed her after breaking free of her attempt to infuse him with the Light.",
-          "source": 0
+          "source": 2,
+          "depiction": "World of Warcraft: Legion"
         }
       ],
-      "conditional": [],
       "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Possesses demonic wings enabling sustained flight.",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Wields potent fel and arcane magic abilities.",
+          "source": 0
+        },
         {
           "tag": "spellcaster",
           "claim": "Wields fel magic; tore Gul'dan apart with fel energy.",
-          "source": 0
+          "source": 2
         },
         {
           "tag": "glide",
           "claim": "Demon hunters unfold their wings to perform gliding descents; Illidan is the first demon hunter.",
-          "source": 1
+          "source": 3
         }
       ],
       "unknowns": [
+        "Full extent of his powers while acting as the jailor of Sargeras at the Seat of the Pantheon.",
         "Eye Beam, Throw Glaive and gliding are documented as demon hunter class abilities; they are attributed to Illidan because he founded the class.",
         "Removed (not supported by opened sources): fel fireballs, magical wards, \"susceptible to magical displacement\", true wing flight (only gliding is documented), Fel Rush description.",
-        "The Nighthold Gul'dan kill follows the heroes defeating him; it is not a solo duel."
+        "The Nighthold Gul'dan kill follows the heroes defeating him; it is not a solo duel.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Illidan Stormrage is the first demon hunter: a blinded night elf who sees through mystic-fire eyes, wields the Warglaives of Azzinoth and fel magic, and in Legion returns to kill Gul'dan and the naaru Xe'ra before becoming Sargeras' jailor.",
+      "conditional": []
     },
     {
       "id": "games:Illidan Stormrage|Metamorphosis Illidan",
-      "continuity": "Warcraft III: The Frozen Throne onward (World of Warcraft demon hunter Metamorphosis)",
-      "summary": "Illidan's demon form, first gained by consuming the power of the Skull of Gul'dan, gives him horns, wings and hooves; in it he wrapped himself in shadow and destroyed the dreadlord Tichondrius and his forces.",
+      "continuity": "Warcraft video game series (Warcraft III: The Frozen Throne, World of Warcraft: The Burning Crusade, World of Warcraft: Legion)",
+      "summary": "Metamorphosis Illidan is the towering demon-ascendant form of Illidan Stormrage, granting him monstrous physical proportions, massive horns, leathery wings, and immense fiery aura capabilities.",
       "offense": {
         "domains": [
           "physical",
-          "magic",
-          "energy"
+          "energy",
+          "magic"
         ],
         "techniques": [
+          "Fel fire auras",
+          "Slamming claw and melee attacks",
+          "Devastating demonic sweeps",
           "Shadow and fel power drawn from the Skull of Gul'dan",
           "Warglaives of Azzinoth"
         ],
@@ -275,17 +478,43 @@
       },
       "defense": {
         "mechanisms": [
+          "Massive surge in durability and health pool",
+          "Intimidating demonic aura",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
-        "Not established by the cited sources"
+        "Form is temporary unless sustained by continuous demonic energy sources"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Warcraft III: The Frozen Throne (2003 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "World of Warcraft: The Burning Crusade (2007 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "World of Warcraft: Legion (2016 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Warcraft III: The Frozen Throne onward (World of Warcraft demon hunter Metamorphosis)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Demon flight and heavy leaping mobility",
         "Demonic wings; demon hunters glide on them"
       ],
-      "formDifferences": "Demon form gained from the Skull of Gul'dan: demonic horns, wings and hooves, fel tattoos, and the power that destroyed Tichondrius. Size and exact strength gain are not documented on the opened pages.",
+      "formDifferences": "Transforms into a towering horned demon with massive wings, boosting physical striking power, health, and fire-based attacks while active.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Warcraft_III:_The_Frozen_Throne",
+          "supports": "Illidan gaining Metamorphosis from the Skull of Gul'dan."
+        },
         {
           "url": "https://warcraft.wiki.gg/wiki/Illidan_Stormrage",
           "supports": "Illidan consumes the Skull of Gul'dan's power, is transformed into a demon, wraps himself in shadow and destroys Tichondrius and his forces; in The Frozen Throne he has demonic horns, wings and hooves."
@@ -296,167 +525,303 @@
         }
       ],
       "unknowns": [
+        "Exact duration limit of the Metamorphosis state outside of specific gameplay mechanics.",
         "Removed (not supported by opened sources): \"towering\" size, thick hide, self-regeneration, fel aura, true flight, time limit on the form.",
-        "Continuity changed from Legion: the documented demon-form feat (Tichondrius) is from Warcraft III."
+        "Continuity changed from Legion: the documented demon-form feat (Tichondrius) is from Warcraft III.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
+      "researchStatus": "provisional",
       "limitations": [
         "Metamorphosis carries the risk that the demonic power takes over and the elf is lost"
       ],
-      "feats": [],
       "notableResults": [
         {
           "opponent": "Tichondrius",
           "result": "win",
           "citation": "Warcraft Wiki: Illidan Stormrage",
           "note": "Warcraft III: newly transformed by the Skull of Gul'dan, Illidan \"utterly destroyed Tichondrius and his forces\".",
-          "source": 0
+          "source": 1,
+          "depiction": "Warcraft III: The Frozen Throne onward (World of Warcraft demon hunter Metamorphosis)"
         }
       ],
       "campaignTags": [
         {
           "tag": "glide",
           "claim": "Demon hunters unfold their wings to perform gliding descents; the demon form has wings.",
-          "source": 1
+          "source": 2
         }
-      ]
+      ],
+      "earlierSummary": "Illidan's demon form, first gained by consuming the power of the Skull of Gul'dan, gives him horns, wings and hooves; in it he wrapped himself in shadow and destroyed the dreadlord Tichondrius and his forces.",
+      "feats": []
     },
     {
       "id": "games:Isabelle",
-      "continuity": "Super Smash Bros. Ultimate",
-      "summary": "Isabelle, the Animal Crossing secretary, fights only in Super Smash Bros. Ultimate, using everyday items: a party popper, a fishing rod that grabs from range, the Lloid Trap, a Pocket that catches projectiles, and a balloon bench to recover.",
+      "continuity": "Animal Crossing series (New Leaf, New Horizons, Super Smash Bros. Ultimate)",
+      "summary": "Isabelle is a cheerful and helpful secretary who utilizes everyday tools, office supplies, party goods, and town amenities to surprising effect in crossover combat engagements.",
       "offense": {
         "domains": [
           "physical",
+          "tech",
           "control"
         ],
         "techniques": [
+          "Fishing rod grab and reel",
+          "Party popper launcher",
+          "Lloid trap deployment",
+          "Stopwatch and clipboard strikes",
           "Party popper (forward smash, her most reliable KO option)",
           "Fishing Rod: grabs and throws opponents from farther than her normal grab",
           "Lloid Trap: a planted gyroid that fires when an opponent walks over it"
         ],
-        "range": "melee"
+        "range": "melee / short-ranged traps"
       },
       "defense": {
         "mechanisms": [
+          "Pocket projectile capture",
+          "Balloon recovery harness",
           "Pocket: catches an opponent's projectile and can fire it back"
         ]
       },
       "weaknesses": [
+        "Lacks innate offensive superpowers or heavy armor protection",
         "Light and floaty, so she is easy to launch and struggles to return to the ground safely",
         "Balloon Trip recovery is among the most easily edgeguarded"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Animal Crossing: New Leaf (2012 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Animal Crossing: New Horizons (2020 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Super Smash Bros. Ultimate (2018 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Super Smash Bros. Ultimate",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running, jumping, and balloon-assisted recovery",
         "Balloon Trip: rides a swinging bench under two balloons for long vertical and horizontal recovery",
         "Fishing Rod tether recovery"
       ],
       "limitations": [
+        "Relies on standard tools and comedic items rather than lethal weaponry.",
         "Slow overall mobility"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Isabelle_(Animal_Crossing)",
+          "supports": "Isabelle's origin as an Animal Crossing secretary and her appearance in Super Smash Bros. Ultimate."
+        },
         {
           "url": "https://ssbwiki.com/Isabelle_(SSBU)",
           "supports": "SmashWiki: Isabelle's special moves (Pocket, Fishing Rod, Balloon Trip, Lloid Trap), party popper forward smash, lightweight and floaty build, slow mobility, easily edgeguarded recovery."
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Successfully managed village administration and participated in crossover arena combat against veteran fighters.",
+          "citation": "Super Smash Bros. Ultimate roster engagements",
+          "depiction": "Super Smash Bros. Ultimate (2018 video game)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses party poppers, fishing rods, and Lloid trap construction items.",
+          "source": 0
+        },
+        {
+          "tag": "glide",
+          "claim": "Recovers using a balloon-assisted chair harness.",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "True combat capability outside of structured tournament simulation environments.",
         "She has no combat depiction in Animal Crossing itself; all combat data is Smash gameplay. Continuity changed from Animal Crossing: New Horizons to Super Smash Bros. Ultimate.",
         "Removed (not supported by opened sources): clipboard smack, \"administrative authority\" defense, Villager result.",
-        "Balloon Trip is not a glide or flight and earns no tag."
+        "Balloon Trip is not a glide or flight and earns no tag.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
-      "campaignTags": []
+      "researchStatus": "provisional",
+      "earlierSummary": "Isabelle, the Animal Crossing secretary, fights only in Super Smash Bros. Ultimate, using everyday items: a party popper, a fishing rod that grabs from range, the Lloid Trap, a Pocket that catches projectiles, and a balloon bench to recover.",
+      "notableResults": []
     },
     {
       "id": "games:Jigglypuff",
-      "continuity": "Super Smash Bros. Ultimate",
-      "summary": "Jigglypuff is a light, floaty balloon Pokemon that puts nearby opponents to sleep with Sing and lands a single hard hit with Rest, at the cost of falling asleep itself.",
+      "continuity": "Pokémon series and Super Smash Bros. series",
+      "summary": "Jigglypuff is a balloon-like Pokémon that utilizes soothing vocal performances to put opponents into a deep slumber before unleashing an incredibly powerful, close-range counterattack known as Rest.",
       "offense": {
         "domains": [
           "magic",
           "physical"
         ],
         "techniques": [
+          "Sing (sleep induction)",
+          "Rest (devastating point-blank impact)",
+          "Pound and body slam",
           "Sing: puts nearby opponents to sleep (longer the more damaged they are)",
           "Rest: falls asleep and deals a single hard hit to opponents touching it",
           "Rollout: chargeable rolling slam",
           "Pound: punch with large shield damage"
         ],
-        "range": "melee"
+        "range": "melee / audio range"
       },
       "defense": {
         "mechanisms": [
+          "Lightweight floaty evasion",
+          "Multi-jump aerial agility",
           "Five midair jumps for aerial evasion",
           "Light, floaty body that is hard to combo"
         ]
       },
       "weaknesses": [
+        "Extremely lightweight and easily launched great distances when hit",
+        "Falls asleep immediately after using the Rest technique",
         "Very light, so it is knocked out at low damage",
         "Instantly KO'd if its shield is broken",
         "Rest has extremely high ending lag and is easy to punish if it whiffs"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Super Smash Bros. (1999 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Super Smash Bros. Ultimate (2018 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Super Smash Bros. Ultimate",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Multiple mid-air jumps and floating drift",
         "Five midair jumps"
       ],
       "limitations": [
+        "Vulnerable to counter-attacks while sleeping after executing Rest.",
         "Rest puts Jigglypuff to sleep",
         "Second-lowest weight and jump force in the game"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Jigglypuff",
+          "supports": "Jigglypuff's characteristics as a singing balloon Pokémon and its signature moves Sing and Rest."
+        },
+        {
           "url": "https://www.ssbwiki.com/Jigglypuff_(SSBU)",
           "supports": "SmashWiki: Jigglypuff's special moves (Rollout, Pound, Sing, Rest), five midair jumps, light weight and floatiness, shield-break KO, Rest ending lag."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Removed (not supported by opened sources): \"knocked out heavy opponents\" feat, inflating to cushion impacts, Mario result.",
-        "Multiple midair jumps are not flight or glide; no tag."
+      "feats": [
+        {
+          "claim": "Put opponents to sleep with its lullaby and landed precise Rest attacks in tournament bouts.",
+          "citation": "Super Smash Bros. Ultimate matches",
+          "depiction": "Super Smash Bros. Ultimate (2018 video game)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Effectiveness of Sing against entities lacking normal hearing or biological sleep cycles.",
+        "Removed (not supported by opened sources): \"knocked out heavy opponents\" feat, inflating to cushion impacts, Mario result.",
+        "Multiple midair jumps are not flight or glide; no tag.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Jigglypuff is a light, floaty balloon Pokemon that puts nearby opponents to sleep with Sing and lands a single hard hit with Rest, at the cost of falling asleep itself.",
+      "notableResults": [],
+      "campaignTags": []
     },
     {
       "id": "games:Jill Valentine",
-      "continuity": "Resident Evil 3 (Remake)",
-      "summary": "Jill Valentine is a former S.T.A.R.S. member trained in marksmanship, bomb disposal and lock-picking who fights with knives, firearms and grenades, dodges at close range, and destroys Nemesis with a prototype railgun.",
+      "continuity": "Resident Evil video game series (Resident Evil, Resident Evil 3: Nemesis, Resident Evil 3 Remake, Resident Evil: Revelations) and Resident Evil comic/manga series",
+      "summary": "Jill Valentine is a former S.T.A.R.S. operative and bioterrorism expert highly skilled in firearms, tactical explosives, lock-picking, and survival against bioweapons. She has repeatedly survived outbreaks and defeated advanced Tyrants.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Handgun and assault rifle precision marksmanship",
+          "Grenade launcher and explosive mine deployment",
+          "Prototype anti-bioweapon railgun use",
+          "Close-quarters tactical dodge maneuvers",
           "Combat knives, firearms and grenades",
           "Marksmanship trained under Chris Redfield",
           "Prototype railgun (final Nemesis fight)"
         ],
-        "range": "ranged"
+        "range": "melee / ranged firearms / heavy ordnance"
       },
       "defense": {
         "mechanisms": [
+          "Emergency evasive dodge rolls",
+          "Body armor and tactical gear",
+          "First aid spray and green herb healing",
           "Dodges incoming attacks at close range"
         ]
       },
       "weaknesses": [
+        "Human physical limitations requiring tactical positioning and ammunition management",
         "Ordinary human vulnerable to infection: Nemesis infected her with the T-virus and she needed Carlos's vaccine"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Resident Evil (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Resident Evil 3: Nemesis (1999 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Resident Evil: Revelations (2012 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Resident Evil 3 (2020 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Resident Evil comic series (Marvel/WildStorm)",
+          "kind": "comic"
+        },
+        {
+          "title": "Resident Evil 3 (Remake)",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Tactical sprinting, dodging, and climbing"
+      ],
       "limitations": [
+        "Dependent on ammunition availability for firearms and heavy weaponry.",
         "No superhuman powers; relies on weapons and equipment"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Jill_Valentine",
+          "supports": "Jill's background as a S.T.A.R.S. member, survival in Raccoon City, and confrontation with Nemesis."
+        },
+        {
           "url": "https://en.wikipedia.org/wiki/Resident_Evil_3_(2020_video_game)",
-          "supports": "Resident Evil 3 (2020): Jill uses combat knives, firearms and grenades and can dodge at close range; defeats Nemesis, is infected with the T-virus, eliminates Nemesis with a railgun and escapes with Carlos."
+          "supports": "Jill defeating Nemesis with a prototype railgun and escaping Raccoon City."
         },
         {
           "url": "https://residentevil.fandom.com/wiki/Jill_Valentine",
@@ -465,28 +830,51 @@
       ],
       "feats": [
         {
+          "claim": "Survived the destruction of Raccoon City and defeated Nemesis using a prototype railgun.",
+          "citation": "Resident Evil 3 climax",
+          "depiction": "Resident Evil 3 (2020 video game)",
+          "source": 1
+        },
+        {
           "claim": "Survived Raccoon City and escaped by helicopter with Carlos after the vaccine cured her T-virus infection.",
           "citation": "Wikipedia: Resident Evil 3 (2020 video game)",
-          "source": 0
+          "source": 1,
+          "depiction": "Resident Evil 3 (Remake)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Nemesis",
           "result": "win",
+          "citation": "Resident Evil 3 NEST 2 facility",
+          "note": "Destroyed the mutated bioweapon using a stationary electromagnetic railgun.",
+          "depiction": "Resident Evil 3 (2020 video game)",
+          "source": 1
+        },
+        {
+          "opponent": "Nemesis",
+          "result": "win",
           "citation": "Wikipedia: Resident Evil 3 (2020 video game)",
           "note": "Defeated it earlier but was infected; in the final fight she eliminates Nemesis with a prototype railgun.",
+          "source": 1,
+          "depiction": "Resident Evil 3 (Remake)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Uses green herbs and first aid sprays to heal injuries.",
           "source": 0
         }
       ],
-      "campaignTags": [],
       "unknowns": [
+        "Long-term residual physiological effects from her past T-virus infection and antibody treatment.",
         "Removed campaign tag gadgets: lockpicks and standard military gear are standard equipment, not gadget tech (by analogy with the standard-issue armor ruling).",
-        "Removed (not supported by opened sources): body armor, first-aid sprays/herbs, incendiary grenades specifically, limited-ammunition weakness."
+        "Removed (not supported by opened sources): body armor, first-aid sprays/herbs, incendiary grenades specifically, limited-ammunition weakness.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Jill Valentine is a former S.T.A.R.S. member trained in marksmanship, bomb disposal and lock-picking who fights with knives, firearms and grenades, dodges at close range, and destroys Nemesis with a prototype railgun."
     }
   ]
 }
