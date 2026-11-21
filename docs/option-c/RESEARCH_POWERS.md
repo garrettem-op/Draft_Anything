@@ -23,21 +23,22 @@ Before this, only 26 base characters and 88 reviewed forms used a real power in 
 The fight engine change is one line in `data/brawl-combat.js`: ask the V1 profiles first, then the research moves. A page without the two research-move files fights exactly as Version 1.
 
 ## Who gets a move
-617 research moves (515 base characters and 102 forms) from the research merged as of 2026-11-20:
+651 research moves (545 base characters and 106 forms), regenerated on 2026-11-21 after the first sequels-and-comics batches merged (617 on 2026-11-20):
 
 | Pool | Moves | | Power type | Moves |
 |---|---|---|---|---|
-| Pokémon | 117 | | Energy | 239 |
-| Video Games | 104 | | Magic | 211 |
-| Harry Potter | 94 | | Elemental | 77 |
-| DC | 74 | | Control | 49 |
-| MCU | 72 | | Psychic | 32 |
-| Middle-earth | 49 | | Sonic | 5 |
+| Video Games | 119 | | Energy | 267 |
+| Pokémon | 117 | | Magic | 218 |
+| Harry Potter | 94 | | Elemental | 74 |
+| DC | 76 | | Control | 52 |
+| MCU | 73 | | Psychic | 31 |
+| Middle-earth | 53 | | Sonic | 5 |
 | Star Wars | 45 | | Time | 2 |
 | Toons | 39 | | Shadow | 2 |
 | Muppets | 23 | | | |
+| Action Movies | 12 | | | |
 
-Action Movies has no research yet; its characters get moves once their records merge and the file is regenerated.
+Action Movies has 90 of its 100 characters researched so far. Most fight physically (swords, guns, martial arts), so only 12 get a research move.
 
 ## The switch
 - **On by default** on the V2 branch.
