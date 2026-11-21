@@ -7,14 +7,17 @@
   "characters": [
     {
       "id": "starwars:Rose Tico",
-      "continuity": "Star Wars Canon (Sequel Trilogy)",
-      "summary": "Rose Tico is a Resistance maintenance worker and combatant who relies on standard blasters, stun batons, and specialized tools. She fights with pragmatic determination rather than elite combat training.",
+      "continuity": "Star Wars films and series (Star Wars Canon Sequel Trilogy and tie-in media)",
+      "summary": "Rose Tico is a resilient Resistance mechanic and soldier who uses standard small arms, stun tools, and practical engineering skills in combat. She approaches combat with steadfast dedication and resourcefulness rather than elite martial arts.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Blaster pistol fire",
+          "Stun baton strikes",
+          "Vehicle and system sabotage",
           "Blaster rifle combat",
           "Stun baton melee"
         ],
@@ -22,22 +25,48 @@
       },
       "defense": {
         "mechanisms": [
+          "Standard Resistance body armor",
+          "Cover and concealment tactics",
           "Resistance combat armor",
           "Cover and tactical positioning"
         ]
       },
       "weaknesses": [
+        "Lacks superhuman physical attributes or advanced Force powers",
+        "Vulnerable to heavy enemy firepower without defensive barriers",
         "Lacks innate supernatural abilities",
         "Standard human physical vulnerabilities"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Last Jedi (2017 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Rise of Skywalker (2019 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (Sequel Trilogy)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard running and ground movement",
+        "Pilots resistance speeders and starship passenger",
         "Standard foot movement",
         "Ground vehicles and starship transport"
       ],
       "limitations": [
+        "Relies entirely on standard-issue weapons and tactical gear.",
         "Normal human endurance and capabilities"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Rose_Tico",
+          "supports": "Role as a Resistance mechanic, combat actions in the sequel trilogy, and general equipment."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Rose_Tico",
           "supports": "Basic combat capabilities, equipment, and Resistance affiliation"
@@ -45,38 +74,68 @@
       ],
       "feats": [
         {
+          "claim": "Participated in the defense of the Resistance fleet and traveled to Canto Bight.",
+          "citation": "Star Wars: The Last Jedi",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
+          "source": 0
+        },
+        {
+          "claim": "Fought alongside ground forces during the Resistance campaign.",
+          "citation": "Star Wars: The Rise of Skywalker",
+          "depiction": "Star Wars: The Rise of Skywalker (2019 film)",
+          "source": 0
+        },
+        {
           "claim": "Participated in the defense of the Resistance fleet and mission to Canto Bight",
           "citation": "Star Wars: Episode VIII The Last Jedi",
+          "source": 1,
+          "depiction": "Star Wars Canon (Sequel Trilogy)"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "First Order Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars: The Last Jedi",
+          "note": "Engaged enemy forces during skirmishes with fellow Resistance members.",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "pilot",
-          "claim": "Pilots speeders and assists with Resistance craft",
+          "tag": "tech",
+          "claim": "Works as a Resistance maintenance technician and slices computer systems.",
           "source": 0
         },
         {
-          "tag": "tech",
-          "claim": "Skilled maintenance technician and mechanic",
-          "source": 0
+          "tag": "pilot",
+          "claim": "Pilots speeders and assists with Resistance craft",
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Exact breadth of combat training outside of standard Resistance security instruction.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Rose Tico is a Resistance maintenance worker and combatant who relies on standard blasters, stun batons, and specialized tools. She fights with pragmatic determination rather than elite combat training."
     },
     {
       "id": "starwars:Sabine Wren",
-      "continuity": "Star Wars Canon (Rebels & Ahsoka)",
-      "summary": "Sabine Wren is a Mandalorian warrior, artist, and explosives expert proficient in ranged firefights, heavy weaponry, and eventually rudimentary lightsaber combat. She employs diverse high-tech gadgetry and tactical versatility.",
+      "continuity": "Star Wars films and series (Star Wars Rebels, Ahsoka, and related Canon comics)",
+      "summary": "Sabine Wren is a Mandalorian warrior, explosives expert, and artist who blends traditional armor and weaponry with high-tech demolition and improvised gadgets. Over time, she also trains extensively in lightsaber combat and rudimentary Force manipulation.",
       "offense": {
         "domains": [
           "physical",
           "energy",
-          "tech"
+          "tech",
+          "magic"
         ],
         "techniques": [
+          "Blaster pistol and rifle marksmanship",
+          "Explosive charges and wrist-mounted flamethrowers",
+          "Lightsaber and vibroblade melee combat",
           "Dual blasters",
           "Explosives and wrist gauntlet weaponry",
           "Jetpack-assisted aerial combat",
@@ -86,24 +145,54 @@
       },
       "defense": {
         "mechanisms": [
+          "Customized Mandalorian beskar armor",
+          "Energy shield gauntlets and jetpack evasion",
           "Beskar armor",
           "Energy shields",
           "Evasive jetpack movement"
         ]
       },
       "weaknesses": [
+        "Vulnerable in close quarters when overwhelmed by superior numbers or heavy Force users",
+        "Initial limitations in natural Force connectivity",
         "Vulnerable in close quarters when disarmed",
         "Initially untrained in Force abilities despite later training"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Rebels (2014-2018 TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "Ahsoka (2023 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Mandalorian Armor comic tie-ins",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Rebels & Ahsoka)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Jetpack-assisted flight",
+        "Acrobatic movement",
         "Powered flight via jetpack",
         "Standard ground movement"
       ],
       "limitations": [
+        "Armor does not cover every joint entirely, leaving small gaps vulnerable to precision strikes.",
         "Limited ammunition and explosive supplies",
         "Jetpack fuel capacity"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sabine_Wren",
+          "supports": "Mandalorian heritage, explosive expertise, weapons use, and Ahsoka series appearances."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Sabine_Wren",
           "supports": "Mandalorian armor, weapons, combat training, and gadgetry"
@@ -111,38 +200,75 @@
       ],
       "feats": [
         {
+          "claim": "Fought imperial forces and duelists using custom weapons, explosives, and lightsabers.",
+          "citation": "Star Wars Rebels",
+          "depiction": "Star Wars Rebels (2014-2018 TV series)",
+          "source": 0
+        },
+        {
+          "claim": "Engaged imperial remnant forces and trained in lightsaber combat under Ahsoka Tano.",
+          "citation": "Ahsoka series",
+          "depiction": "Ahsoka (2023 TV series)",
+          "source": 0
+        },
+        {
           "claim": "Fought imperial forces and duelists using custom weapons and explosives across multiple star systems",
           "citation": "Star Wars Rebels",
+          "source": 1,
+          "depiction": "Star Wars Canon (Rebels & Ahsoka)"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Supercommandos",
+          "result": "win",
+          "citation": "Star Wars Rebels",
+          "note": "Defeated imperial-aligned Mandalorians using tactical traps and combat skill.",
+          "depiction": "Star Wars Rebels (2014-2018 TV series)",
           "source": 0
         }
       ],
       "conditional": [
         {
           "ability": "Lightsaber combat",
-          "dependsOn": "Access to the Darksaber or a lightsaber",
+          "dependsOn": "Access to a lightsaber weapon",
+          "depiction": "Star Wars Rebels (2014-2018 TV series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-flight",
-          "claim": "Uses a Mandalorian jetpack for aerial mobility",
+          "claim": "Utilizes a Mandalorian jetpack for aerial mobility.",
+          "source": 0
+        },
+        {
+          "tag": "fire-weapon",
+          "claim": "Employs wrist-mounted flamethrowers in combat.",
           "source": 0
         },
         {
           "tag": "gadgets",
-          "claim": "Employs custom wrist gauntlets, explosives, and grappling lines",
+          "claim": "Carries explosives, spray paint explosives, and specialized wrist gauntlets.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields lightsabers including the Darksaber and Ezra's lightsaber.",
           "source": 0
         },
         {
           "tag": "pilot",
           "claim": "Experienced starfighter and transport pilot",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Full potential of her developing Force sensitivities in future conflicts.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Sabine Wren is a Mandalorian warrior, artist, and explosives expert proficient in ranged firefights, heavy weaponry, and eventually rudimentary lightsaber combat. She employs diverse high-tech gadgetry and tactical versatility."
     },
     {
       "id": "starwars:Savage Opress",
@@ -230,14 +356,17 @@
     },
     {
       "id": "starwars:Saw Gerrera",
-      "continuity": "Star Wars Canon",
-      "summary": "Saw Gerrera is a hardened insurgent leader who employs guerrilla warfare, heavy weapons, and extreme interrogation tactics. He fights with ruthless pragmatism honed across decades of rebellion.",
+      "continuity": "Star Wars films and series (Star Wars Rebels, Rogue One, The Bad Batch, Andor)",
+      "summary": "Saw Gerrera is a veteran extremist insurgent leader who employs brutal guerrilla warfare, heavy armaments, and uncompromising interrogation tactics. He fights with ruthless pragmatism honed across decades of rebellion against multiple galactic regimes.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Heavy blaster rifle engagements",
+          "Explosive traps and guerrilla sabotage",
+          "Close-quarters tactical combat",
           "Heavy blaster rifle combat",
           "Guerrilla ambush tactics",
           "Explosives"
@@ -246,23 +375,54 @@
       },
       "defense": {
         "mechanisms": [
+          "Combat armor vests",
+          "Defensive fortification of insurgent bases",
+          "Breathing apparatus support in later years",
           "Combat armor",
           "Fortified defensive positions",
           "Respiratory support equipment in later years"
         ]
       },
       "weaknesses": [
+        "Declining physical health and respiratory dependence in later years",
+        "Paranoid temperament that alienates allies",
         "Impaired physical health and respiratory dependence in later years",
         "Paranoid and uncompromising leadership style"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Rogue One: A Star Wars Story (2016 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Rebels (2014-2018 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Andor (2022-present TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard foot movement",
+        "Transport via partisan starships",
         "Standard ground movement",
         "Transport vehicles"
       ],
       "limitations": [
+        "Impaired mobility and stamina due to chronic injuries and aging.",
         "Compromised physical stamina due to injuries and age"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Saw_Gerrera",
+          "supports": "Saw Gerrera's history across Clone Wars, Rebels, Rogue One, and Andor."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Saw_Gerrera",
           "supports": "Insurgent background, combat tactics, and physical condition"
@@ -270,54 +430,104 @@
       ],
       "feats": [
         {
-          "claim": "Led partisan cells against the Galactic Republic, Confederacy, and Galactic Empire across multiple decades",
-          "citation": "Rogue One: A Star Wars Story / Star Wars Rebels",
+          "claim": "Led partisan cells against the Galactic Republic, Confederacy, and Galactic Empire across multiple decades.",
+          "citation": "Rogue One / Rebels / Andor",
+          "depiction": "Rogue One: A Star Wars Story (2016 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Galactic Empire Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars Rebels",
+          "note": "Ambushed Imperial patrols to capture resources.",
+          "depiction": "Star Wars Rebels (2014-2018 TV series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "gadgets",
+          "claim": "Utilizes partisan explosives, detonators, and specialized insurgent communication gear.",
+          "source": 0
+        },
+        {
           "tag": "infiltration",
           "claim": "Master of guerrilla warfare and insurgent infiltration",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "The exact casualty counts of his extreme insurgent operations.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Saw Gerrera is a hardened insurgent leader who employs guerrilla warfare, heavy weapons, and extreme interrogation tactics. He fights with ruthless pragmatism honed across decades of rebellion."
     },
     {
       "id": "starwars:Stormtrooper",
-      "continuity": "Star Wars Canon",
-      "summary": "Standard infantry units of the Galactic Empire equipped with standardized armor and blaster rifles. They operate in squad formations to overwhelm opponents through coordinated volume of fire.",
+      "continuity": "Star Wars films and series (Galactic Empire Canon appearances)",
+      "summary": "Standard shock infantry units of the Galactic Empire equipped with standardized white armor and blaster rifles. They operate in organized squad formations to overwhelm opponents through coordinated volume of fire.",
       "offense": {
         "domains": [
-          "physical",
           "energy",
+          "physical",
           "tech"
         ],
         "techniques": [
           "E-11 blaster rifle volleys",
+          "Thermal detonator deployment",
+          "Squad flanking maneuvers",
           "Squad suppression tactics"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Standard-issue white plastoid armor plates designed to disperse energy bolt trauma",
           "Plastoid armor plating designed to disperse energy bolt trauma"
         ]
       },
       "weaknesses": [
+        "Armor provides limited protection against direct heavy blaster fire or melee blunt trauma",
+        "Restricted peripheral vision inside helmets",
         "Armor offers limited protection against direct heavy impacts or close-range blaster fire",
         "Restricted peripheral vision through standard helmets"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard infantry movement",
+        "Transport via Imperial spacecraft",
         "Standard infantry marching and running"
       ],
       "limitations": [
+        "Dependent on central command orders and squad cohesion.",
         "Dependent on central command and squad cohesion"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Stormtrooper_(Star_Wars)",
+          "supports": "Standard equipment, tactical role, and appearance across Star Wars canon."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Stormtrooper",
           "supports": "Standard equipment, tactics, and armor specifications"
@@ -325,19 +535,33 @@
       ],
       "feats": [
         {
-          "claim": "Successfully suppressed insurgent cells and secured imperial installations across the galaxy",
-          "citation": "Star Wars Original Trilogy",
+          "claim": "Successfully suppressed insurgent cells and secured imperial installations across the galaxy.",
+          "citation": "Original Trilogy films",
+          "depiction": "Star Wars: Episode IV - A New Hope (1977 film)",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Rebel Alliance Troopers",
+          "result": "win",
+          "citation": "Star Wars: Episode IV - A New Hope",
+          "note": "Breached and captured the Rebel blockade runner at the beginning of the film.",
+          "depiction": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Individual tactical initiative outside of direct orders.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Standard infantry units of the Galactic Empire equipped with standardized armor and blaster rifles. They operate in squad formations to overwhelm opponents through coordinated volume of fire."
     },
     {
       "id": "starwars:Supreme Leader Snoke",
-      "continuity": "Star Wars Canon (Sequel Trilogy)",
-      "summary": "Supreme Leader Snoke is a dark side master wielding immense telekinetic power and lightning manipulation without needing a lightsaber in standard combat. He commands subordinates and dominates foes through sheer force presence.",
+      "continuity": "Star Wars films and series (Star Wars Sequel Trilogy)",
+      "summary": "Supreme Leader Snoke is a powerful dark side master wielding immense telekinetic power and dark lightning manipulation without needing a physical lightsaber in standard combat. He commands subordinates and dominates foes through sheer intimidating force presence.",
       "offense": {
         "domains": [
           "energy",
@@ -345,6 +569,9 @@
           "control"
         ],
         "techniques": [
+          "Force lightning and electrokinesis",
+          "Advanced telekinetic manipulation and torture",
+          "Mind domination and telepathy",
           "Advanced Force manipulation",
           "Force lightning",
           "Telekinetic projection and restraint"
@@ -353,21 +580,46 @@
       },
       "defense": {
         "mechanisms": [
+          "Dark side barrier generation",
+          "Subordinate guards interception",
           "Force barrier",
           "Elite Praetorian Guard protection"
         ]
       },
       "weaknesses": [
+        "Overconfident arrogance and failure to sense immediate betrayal by his apprentice",
+        "Physically disfigured and fragile frame",
         "Arrogance and overconfidence leading to blind spots regarding apprentices",
         "Physically frail body susceptible to surprise physical attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Force Awakens (2015 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Last Jedi (2017 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (Sequel Trilogy)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard levitation and movement via the Force",
         "Standard walking"
       ],
       "limitations": [
+        "Relies entirely on mental domination and Force attacks rather than active physical dueling prowess.",
         "Physical body is severely damaged and fragile"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Supreme_Leader_Snoke",
+          "supports": "Dark side abilities, mastery over Kylo Ren, and sequel trilogy feats."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Snoke",
           "supports": "Dark side Force mastery, abilities, and status as First Order leader"
@@ -375,42 +627,69 @@
       ],
       "feats": [
         {
-          "claim": "Tortured and manipulated Rey and Kylo Ren simultaneously using dark side abilities",
-          "citation": "Star Wars: Episode VIII The Last Jedi",
+          "claim": "Tortured and manipulated Rey and Kylo Ren simultaneously using dark side abilities.",
+          "citation": "Star Wars: The Last Jedi",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Rey",
+          "result": "win",
+          "citation": "Star Wars: The Last Jedi",
+          "note": "Easily subdued Rey and held her captive using telekinesis.",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "magic",
+          "claim": "Wields dark side Force abilities.",
+          "source": 0
+        },
+        {
           "tag": "telekinesis",
-          "claim": "Demonstrated effortless mass telekinesis and torture via the Force",
+          "claim": "Lifts and tortures targets effortlessly with the Force.",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Reads and manipulates thoughts across vast distances.",
           "source": 0
         },
         {
           "tag": "electric",
-          "claim": "Wields powerful Force lightning",
+          "claim": "Generates powerful dark side lightning.",
           "source": 0
         },
         {
           "tag": "mind-control",
           "claim": "Capable of advanced mental domination and bridging minds across space",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "The full extent of his creation origins in relation to Project Necromancer.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Supreme Leader Snoke is a dark side master wielding immense telekinetic power and lightning manipulation without needing a lightsaber in standard combat. He commands subordinates and dominates foes through sheer force presence."
     },
     {
       "id": "starwars:Tech",
-      "continuity": "Star Wars Canon (The Bad Batch)",
-      "summary": "Tech is a genetically enhanced clone commando specializing in slicing, engineering, linguistic analysis, and piloting. He utilizes advanced technological tools rather than brute force.",
+      "continuity": "Star Wars films and series (Star Wars: The Bad Batch)",
+      "summary": "Tech is a genetically enhanced clone commando specializing in slicing, advanced engineering, linguistic analysis, and expert piloting. He utilizes high-tech tactical equipment, computers, and specialized tools rather than raw brute force.",
       "offense": {
         "domains": [
-          "physical",
-          "tech"
+          "tech",
+          "physical"
         ],
         "techniques": [
+          "Blaster pistol precision shooting",
+          "Electronic slicing and system overrides",
+          "Improvised technological gadgetry",
           "Blaster pistol combat",
           "Slicing and electronic warfare",
           "Improvised gadget deployment"
@@ -419,22 +698,48 @@
       },
       "defense": {
         "mechanisms": [
+          "Specialized Clone Force 99 tactical armor",
+          "Built-in helmet computer visor defenses",
           "Clone commando-derived armor",
           "Tactical computing and sensor analysis"
         ]
       },
       "weaknesses": [
+        "Lacks superhuman physical strength compared to standard brute enforcers",
+        "Vulnerable in open melee combat without his technical preparations",
         "Relies primarily on intellect and equipment over raw physical confrontation",
         "Prone to distraction when analyzing complex technical data"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Bad Batch (2021-2023 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (The Bad Batch)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Pilots starships and speeders",
+        "Standard commando physical movement",
         "Standard ground movement",
         "Piloted starships and speeders"
       ],
       "limitations": [
+        "Relies heavily on electronic equipment for tactical advantages.",
         "Standard clone physiology without specialized supernatural enhancements"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/List_of_Star_Wars:_The_Bad_Batch_episodes",
+          "supports": "Tech's role as engineer, slicer, and pilot of Clone Force 99."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/CT-9902",
           "supports": "Abilities as engineer, slicer, and pilot of Clone Force 99"
@@ -442,43 +747,67 @@
       ],
       "feats": [
         {
-          "claim": "Infiltrated secure imperial databanks and bypassed complex security systems across multiple missions",
+          "claim": "Infiltrated secure imperial databanks and bypassed complex security systems across multiple missions.",
           "citation": "Star Wars: The Bad Batch",
+          "depiction": "Star Wars: The Bad Batch (2021-2023 animated series)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial security systems",
+          "result": "win",
+          "citation": "Star Wars: The Bad Batch",
+          "note": "Bypassed imperial lockdown protocols to rescue allies.",
+          "depiction": "Star Wars: The Bad Batch (2021-2023 animated series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "pilot",
-          "claim": "Expert pilot of the Marauder and various imperial vessels",
+          "tag": "tech",
+          "claim": "Master slicer and tech engineer.",
           "source": 0
         },
         {
-          "tag": "tech",
-          "claim": "Advanced computer slicer and technological inventor/modifier",
+          "tag": "pilot",
+          "claim": "Expert pilot of the Havoc Marauder and various starships.",
           "source": 0
         },
         {
           "tag": "inventor",
-          "claim": "Constructs and repairs specialized equipment and decrypts encrypted codes",
+          "claim": "Builds and modifies specialized tactical gear and decryption devices.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries data pads, slicer tools, and multi-analyzers.",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Full capabilities in direct unarmed martial arts combat against trained assassins.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Tech is a genetically enhanced clone commando specializing in slicing, engineering, linguistic analysis, and piloting. He utilizes advanced technological tools rather than brute force."
     },
     {
       "id": "starwars:The Mandalorian",
-      "continuity": "Star Wars Canon (The Mandalorian)",
-      "summary": "Din Djarin is a battle-hardened Mandalorian bounty hunter equipped with impenetrable beskar armor, a versatile arsenal of integrated weaponry, and expert hand-to-hand and gunfighting skills.",
+      "continuity": "Star Wars films and series (The Mandalorian, The Book of Boba Fett)",
+      "summary": "Din Djarin is a battle-hardened Mandalorian bounty hunter equipped with virtually impenetrable beskar armor, an extensive integrated weaponry arsenal, and expert hand-to-hand and gunfighting skills.",
       "offense": {
         "domains": [
           "physical",
           "energy",
-          "tech"
+          "tech",
+          "magic"
         ],
         "techniques": [
+          "Heavy blaster pistol and rifle marksmanship",
+          "Whistling birds micro-missile barrages",
+          "Flamethrower gauntlet blasts",
+          "Darksaber melee combat",
           "Blaster pistol and rifle marksmanship",
           "Flamethrower gauntlet",
           "Whistling birds micro-missiles",
@@ -488,23 +817,48 @@
       },
       "defense": {
         "mechanisms": [
+          "Full body forged beskar steel armor impervious to lightsabers and heavy blaster bolts",
+          "Energy shield gauntlets",
           "Full-body Beskar steel armor impervious to most blaster bolts and lightsaber glancing blows",
           "Energy shield bracer"
         ]
       },
       "weaknesses": [
+        "Helmet must remain on according to the Creed, limiting peripheral visibility in certain angles",
+        "Vulnerable if joints or unarmored areas are targeted with extreme precision",
         "Joints and gaps in armor remain vulnerable to precise attacks",
         "Relies heavily on equipment functionality"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Mandalorian (2019-present TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "The Book of Boba Fett (2021 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (The Mandalorian)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Jetpack-assisted flight",
+        "Starship piloting",
         "Powered flight via jetpack",
-        "Ground movement",
-        "Starship piloting"
+        "Ground movement"
       ],
       "limitations": [
+        "Encumbered by heavy armor weight during prolonged strenuous physical exertion without mechanical assistance.",
         "Ammunition limits for specialized weapons like whistling birds"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Mandalorian",
+          "supports": "Din Djarin's beskar armor, weapons loadout, and combat encounters."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Din_Djarin",
           "supports": "Mandalorian armor, weapons, bounty hunting feats, and combat style"
@@ -512,41 +866,68 @@
       ],
       "feats": [
         {
-          "claim": "Defeated numerous bounty targets, Imperial Remnant forces, and dangerous beasts in combat",
+          "claim": "Defeated numerous bounty targets, Imperial Remnant forces, and dangerous beasts in combat.",
+          "citation": "The Mandalorian series",
+          "depiction": "The Mandalorian (2019-present TV series)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Remnant Stormtroopers",
+          "result": "win",
           "citation": "The Mandalorian",
+          "note": "Defeated waves of imperial troops defending client outposts.",
+          "depiction": "The Mandalorian (2019-present TV series)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Darksaber melee combat",
+          "dependsOn": "Possession and wielding of the Darksaber",
+          "depiction": "The Mandalorian (2019-present TV series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-flight",
-          "claim": "Utilizes a Mandalorian jetpack for aerial mobility",
-          "source": 0
-        },
-        {
-          "tag": "gadgets",
-          "claim": "Employs flamethrowers, grappling hooks, and whistling birds",
+          "claim": "Uses a Mandalorian jetpack for aerial mobility.",
           "source": 0
         },
         {
           "tag": "fire-weapon",
-          "claim": "Equipped with a wrist-mounted flamethrower",
+          "claim": "Employs a wrist-mounted flamethrower.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries whistling birds missiles, tracking fobs, grapple lines, and thermal detonators.",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields the Darksaber.",
           "source": 0
         },
         {
           "tag": "pilot",
-          "claim": "Experienced pilot of the Razor Crest and N-1 starfighter",
+          "claim": "Pilots the Razor Crest and N-1 starfighter.",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Long-term survivability against continuous concentrated orbital bombardment.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Din Djarin is a battle-hardened Mandalorian bounty hunter equipped with impenetrable beskar armor, a versatile arsenal of integrated weaponry, and expert hand-to-hand and gunfighting skills."
     },
     {
       "id": "starwars:Tobias Beckett",
-      "continuity": "Star Wars Canon (Solo: A Star Wars Story)",
-      "summary": "Tobias Beckett is a cynical professional criminal, expert marksman, and heist planner who relies on dual blasters, dirty tricks, and cold tactical calculation.",
+      "continuity": "Star Wars films and series (Solo: A Star Wars Story)",
+      "summary": "Tobias Beckett is a cynical professional criminal, expert marksman, and heist planner who relies on dual blaster pistols, dirty tricks, and cold tactical calculation to survive in the galactic underworld.",
       "offense": {
         "domains": [
           "physical",
@@ -554,28 +935,52 @@
         ],
         "techniques": [
           "Dual blaster quick-draw marksmanship",
+          "Ambush tactics and deception",
+          "Explosive charges",
           "Ambushes and deception"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Heavy criminal trench coat armor padding",
+          "Quick-draw counter-attacks",
           "Heavy coat and concealment",
           "Preemptive strikes"
         ]
       },
       "weaknesses": [
+        "Lacks supernatural defenses or heavy armor plating",
+        "Prone to betrayal and opportunistic double-crossing",
         "Normal human vulnerabilities",
         "Prone to betrayal and untrustworthiness"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Solo: A Star Wars Story (2018 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Canon (Solo: A Star Wars Story)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard human movement",
+        "Vehicle and freighter piloting",
         "Standard ground movement",
         "Transport vehicles"
       ],
       "limitations": [
+        "Vulnerable to ambush when outmaneuvered by faster or more numerous adversaries.",
         "Standard human physical limits"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Solo:_A_Star_Wars_Story",
+          "supports": "Tobias Beckett's background as criminal mentor, gunman, and heist leader."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Tobias_Beckett",
           "supports": "Criminal background, marksmanship, and heist expertise"
@@ -583,36 +988,64 @@
       ],
       "feats": [
         {
+          "claim": "Successfully planned and executed multiple high-risk coaxium heists across criminal syndicates.",
+          "citation": "Solo: A Star Wars Story",
+          "depiction": "Solo: A Star Wars Story (2018 film)",
+          "source": 0
+        },
+        {
           "claim": "Successfully planned and executed multiple high-risk coaxium heists",
           "citation": "Solo: A Star Wars Story",
+          "source": 1,
+          "depiction": "Star Wars Canon (Solo: A Star Wars Story)"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Crimson Dawn enforcers",
+          "result": "win",
+          "citation": "Solo: A Star Wars Story",
+          "note": "Outgunned rival syndicate members during train heists.",
+          "depiction": "Solo: A Star Wars Story (2018 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "gadgets",
+          "claim": "Employs thermal detonators and specialized heist gear.",
+          "source": 0
+        },
+        {
           "tag": "infiltration",
           "claim": "Executes complex criminal heists and covert infiltrations",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Capable starship pilot and crew leader",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Full extent of his combat efficacy against trained Force users.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Tobias Beckett is a cynical professional criminal, expert marksman, and heist planner who relies on dual blasters, dirty tricks, and cold tactical calculation."
     },
     {
       "id": "starwars:Wampa",
-      "continuity": "Star Wars Canon",
-      "summary": "The Wampa is a large, predatory ice beast native to Hoth possessing immense physical strength, sharp claws, and natural camouflage in snowy environments.",
+      "continuity": "Star Wars films and series (Star Wars Canon appearances)",
+      "summary": "The Wampa is a large, predatory ice beast native to Hoth possessing immense physical strength, sharp claws, and natural white fur camouflage in snowy environments.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Claw slashes and physical mauling",
+          "Stealth ambush tactics in snowstorms",
+          "Dragging prey to ice caves",
           "Claw slashes",
           "Physical crushing and mauling",
           "Ambush hunting"
@@ -621,20 +1054,46 @@
       },
       "defense": {
         "mechanisms": [
+          "Thick fur hide insulating against extreme cold",
+          "Natural camouflage in snow",
           "Thick fur and blubber offering resistance to cold and minor physical blows"
         ]
       },
       "weaknesses": [
+        "Vulnerable to extreme heat or lightsaber blade amputation of limbs",
+        "Low intelligence compared to sentient humanoids",
         "Vulnerable to extreme heat or lightsaber strikes",
         "Low intelligence compared to sentient combatants"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars canon comic adaptations",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Quadrupedal and bipedal running in snow",
+        "Climbing ice walls",
         "Quadrupedal and bipedal snow running and climbing"
       ],
       "limitations": [
+        "Ineffective in temperate or warm environments outside of ice biomes.",
         "Lacks ranged attacks or advanced tactics"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Wampa",
+          "supports": "Wampa physical traits, Hoth habitat, and encounter with Luke Skywalker."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Wampa",
           "supports": "Physical characteristics, predatory behavior, and native environment"
@@ -642,8 +1101,9 @@
       ],
       "feats": [
         {
-          "claim": "Ambushed and incapacitated Luke Skywalker in his ice cave on Hoth",
-          "citation": "Star Wars: Episode V The Empire Strikes Back",
+          "claim": "Ambushed and incapacitated Luke Skywalker in his ice cave on Hoth.",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back",
+          "depiction": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
           "source": 0
         }
       ],
@@ -651,26 +1111,35 @@
         {
           "opponent": "Luke Skywalker",
           "result": "win",
-          "citation": "Star Wars: Episode V The Empire Strikes Back",
-          "note": "Ambushed Luke in the snow wastes",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back",
+          "note": "Successfully ambushed and knocked out the young Jedi before dragging him to its cave.",
+          "depiction": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "stealth",
+          "claim": "Utilizes white fur camouflage to ambush prey undetected in snowstorms.",
+          "source": 0
+        },
+        {
           "tag": "giant-sized",
-          "claim": "Massive predatory beast standing well over 2 meters tall",
+          "claim": "Stands over two meters tall with massive predatory proportions.",
           "source": 0
         },
         {
           "tag": "giants",
           "claim": "Classified as a large monstrous creature",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Population density and societal structure of Wampas on Hoth.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "The Wampa is a large, predatory ice beast native to Hoth possessing immense physical strength, sharp claws, and natural camouflage in snowy environments."
     }
   ]
 }
