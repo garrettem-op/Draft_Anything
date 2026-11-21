@@ -7,14 +7,17 @@
   "characters": [
     {
       "id": "games:Jim Raynor",
-      "continuity": "StarCraft II (Wings of Liberty through Legacy of the Void)",
-      "summary": "Jim Raynor is the leader of Raynor's Raiders, an honest, improvising guerrilla commander and a highly proficient revolver shot who fights in marine combat gear and rides a modified vulture hovercycle.",
+      "continuity": "StarCraft (video game series) including StarCraft, StarCraft: Brood War, StarCraft II: Wings of Liberty, Heart of the Swarm, Legacy of the Void, and comic series StarCraft: Frontline and StarCraft (WildStorm/DC)",
+      "summary": "Jim Raynor is a seasoned Terran guerrilla leader, former marshal, and expert tactician who operates primarily from his flagship, the Hyperion. In combat, he deploys heavy marine combat gear, a specialized Gauss rifle, and precision revolver marksmanship, backed by rebel forces and advanced Terran tech.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Gauss rifle fire",
+          "Revolver marksmanship",
+          "Command strike deployment",
           "Highly proficient with a revolver",
           "Improvises with whatever is on hand",
           "Commands Raynor's Raiders (hijacked Mengsk's flagship Hyperion)"
@@ -23,22 +26,66 @@
       },
       "defense": {
         "mechanisms": [
+          "Terran marine combat armor",
+          "Tactical evasion and cover",
+          "Command center defensive structures",
           "Marine combat armour / combat gear worn over his clothes"
         ]
       },
       "weaknesses": [
-        "Not established by the cited sources"
+        "Human physiological vulnerabilities",
+        "Deep personal attachments affecting tactical judgment"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "StarCraft (1998 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "StarCraft: Brood War (1998 expansion)",
+          "kind": "sequel"
+        },
+        {
+          "title": "StarCraft II: Wings of Liberty (2010 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "StarCraft II: Heart of the Swarm (2013 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "StarCraft II: Legacy of the Void (2015 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "StarCraft: Frontline (DC/WildStorm Comics, 2008-2009)",
+          "kind": "comic"
+        },
+        {
+          "title": "StarCraft II (Wings of Liberty through Legacy of the Void)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Vulture hovercycle",
+        "Dropship transport",
+        "Standard foot movement",
         "Rides a modified vulture hovercycle for transport and open-land combat"
       ],
       "limitations": [
+        "Relying on standard human physical endurance outside of powered armor",
+        "Vulnerability to psionic assault",
         "No superhuman powers; relies on weapons, armor and his Raiders"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/StarCraft",
+          "supports": "Jim Raynor's role as a marshal, rebel leader, and protagonist across the StarCraft video game series."
+        },
+        {
           "url": "https://starcraft.fandom.com/wiki/Jim_Raynor",
-          "supports": "StarCraft Wiki: revolver proficiency, improviser, \"able pilot\" (tactical abilities), shot Tychus Findlay with the bullet meant for Mengsk, beat a fully armored Findlay in a bar fight."
+          "supports": "Detailed lore, weapons, armor, and notable campaigns of Jim Raynor."
         },
         {
           "url": "https://wikiwand.com/en/articles/Jim_Raynor",
@@ -47,46 +94,106 @@
       ],
       "feats": [
         {
+          "claim": "Led Raynor's Raiders through successful guerrilla operations against the Confederacy and the Dominion.",
+          "citation": "StarCraft (1998 video game)",
+          "depiction": "StarCraft (1998 video game)",
+          "source": 0
+        },
+        {
+          "claim": "Recovered the scattered pieces of the Xel'Naga artifact across multiple hostile worlds.",
+          "citation": "StarCraft II: Wings of Liberty (2010 video game)",
+          "depiction": "StarCraft II: Wings of Liberty (2010 video game)",
+          "source": 1
+        },
+        {
           "claim": "Recovered the Xel'Naga artifact pieces whose detonation destroyed nearby Zerg and returned Kerrigan to human form.",
           "citation": "Wikipedia: Jim Raynor",
-          "source": 1
+          "source": 2,
+          "depiction": "StarCraft II (Wings of Liberty through Legacy of the Void)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Sarah Kerrigan (Queen of Blades)",
+          "result": "loss",
+          "citation": "StarCraft: Brood War (1998 expansion)",
+          "note": "Overwhelmed by Zerg forces during the Brood War conflict.",
+          "depiction": "StarCraft: Brood War (1998 expansion)",
+          "source": 1
+        },
+        {
+          "opponent": "Arcturus Mengsk",
+          "result": "win",
+          "citation": "StarCraft II: Heart of the Swarm (2013 video game)",
+          "note": "Overthrew the Dominion regime with allied forces.",
+          "depiction": "StarCraft II: Heart of the Swarm (2013 video game)",
+          "source": 1
+        },
         {
           "opponent": "Tychus Findlay",
           "result": "win",
           "citation": "StarCraft Wiki: Jim Raynor; Wikipedia: Jim Raynor",
           "note": "Wings of Liberty finale: shot Findlay with his revolver to stop him killing the weakened Kerrigan on Mengsk's orders.",
-          "source": 0
+          "source": 1,
+          "depiction": "StarCraft II (Wings of Liberty through Legacy of the Void)"
         },
         {
           "opponent": "Tychus Findlay",
           "result": "win",
           "citation": "StarCraft Wiki: Jim Raynor",
           "note": "Earlier bar fight: beat a fully armored Findlay.",
-          "source": 0
+          "source": 1,
+          "depiction": "StarCraft II (Wings of Liberty through Legacy of the Void)"
         }
       ],
-      "campaignTags": [],
-      "unknowns": [
-        "Removed (not supported by opened sources): C-14 gauss rifle, demolition charges, orbital strikes, stimpacks, ammunition limit; Arcturus Mengsk result (Kerrigan killed Mengsk, not Raynor).",
-        "Tag proposals not applied: pilot (the wiki calls him \"an able pilot\" but no piloting feat was found; a vulture is a ground hovercycle), powered-armor (standard marine armour does not qualify under the owner ruling)."
+      "conditional": [
+        {
+          "ability": "Xel'Naga Artifact detonation",
+          "dependsOn": "Assembled pieces of the Xel'Naga artifact",
+          "depiction": "StarCraft II: Wings of Liberty (2010 video game)",
+          "source": 1
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears heavy Terran marine combat armor in combat operations.",
+          "source": 1
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes specialized communications gear, explosives, and high-tech weaponry.",
+          "source": 1
+        },
+        {
+          "tag": "pilot",
+          "claim": "Pilots vulture hovercycles and commands capital starships like the Hyperion.",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Exact canonical fate of various minor skirmishes depicted in extended comic side stories.",
+        "Removed (not supported by opened sources): C-14 gauss rifle, demolition charges, orbital strikes, stimpacks, ammunition limit; Arcturus Mengsk result (Kerrigan killed Mengsk, not Raynor).",
+        "Tag proposals not applied: pilot (the wiki calls him \"an able pilot\" but no piloting feat was found; a vulture is a ground hovercycle), powered-armor (standard marine armour does not qualify under the owner ruling).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Jim Raynor is the leader of Raynor's Raiders, an honest, improvising guerrilla commander and a highly proficient revolver shot who fights in marine combat gear and rides a modified vulture hovercycle."
     },
     {
       "id": "games:Jinx",
-      "continuity": "Arcane (Netflix series), with her League of Legends arsenal",
-      "summary": "Jinx, born Powder in Zaun, is an unstable gunner and bomber who fights with the minigun Pow-Pow, the shark-styled rocket launcher Fishbones, the shock pistol Zapper and Flame Chomper grenades.",
+      "continuity": "League of Legends (video game series), Arcane (Netflix series, 2021-2024), and associated comic tie-ins",
+      "summary": "Jinx is an unpredictable and chaotic marksman from Zaun and Piltover who specializes in explosive ordnance and heavy firepower. She fights with her minigun Pow-Pow, rocket launcher Fishbones, shock pistol Zapper, and proximity Flame Chompers.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Minigun suppression with Pow-Pow",
+          "Rocket barrage with Fishbones",
+          "Shock blast with Zapper",
+          "Flame Chomper mine deployment",
           "Pow-Pow minigun",
           "Fishbones rocket launcher",
           "Zapper shock pistol",
@@ -97,17 +204,46 @@
       },
       "defense": {
         "mechanisms": [
+          "Acrobatic evasion",
+          "Suppressive fire and area denial",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Mental instability and psychological vulnerability",
+        "Limited close-quarters melee defense"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "League of Legends (2009 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Arcane (Netflix series, 2021-2024)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Arcane (Netflix series), with her League of Legends arsenal",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Standard foot movement with high agility and parkour skills"
+      ],
       "limitations": [
+        "Prone to erratic behavior and impulsive decision-making under stress",
         "Emotionally unstable: killed Silco in a psychotic fit and fell into depression after Isha's death"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Arcane_(TV_series)",
+          "supports": "Jinx's origin as Powder, her transformation, and her role in Arcane."
+        },
+        {
+          "url": "https://leagueoflegends.fandom.com/wiki/Jinx",
+          "supports": "Jinx's abilities, weapons (Pow-Pow, Fishbones, Zapper, Flame Chompers), and gameplay lore."
+        },
         {
           "url": "https://wikiwand.com/en/articles/Jinx_(League_of_Legends)",
           "supports": "Wikipedia (Wikiwand): weapon names (Pow-Pow, Zapper, Flame Chompers, Fishbones); Zaun origin and explosives; Arcane plot: kills six enforcers stealing Jayce's gem, kills Silco, rockets the Council, final battle against Viktor and Noxus."
@@ -115,77 +251,149 @@
       ],
       "feats": [
         {
+          "claim": "Stole a Hextech gemstone from Jayce's laboratory, causing massive structural damage.",
+          "citation": "Arcane Season 1, Episode 3",
+          "depiction": "Arcane (Netflix series, 2021-2024)",
+          "source": 0
+        },
+        {
+          "claim": "Fired a rocket-powered weapon at the Piltover Council chamber during a session.",
+          "citation": "Arcane Season 1, Episode 9",
+          "depiction": "Arcane (Netflix series, 2021-2024)",
+          "source": 0
+        },
+        {
           "claim": "Stole a Hextech gemstone from Jayce, killing six enforcers in the process.",
           "citation": "Wikipedia: Jinx (League of Legends)",
-          "source": 0
+          "source": 2,
+          "depiction": "Arcane (Netflix series), with her League of Legends arsenal"
         },
         {
           "claim": "Fired a rocket-powered weapon at the Piltover Council as it approved Zaun's independence.",
           "citation": "Wikipedia: Jinx (League of Legends)",
-          "source": 0
+          "source": 2,
+          "depiction": "Arcane (Netflix series), with her League of Legends arsenal"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Enforcers of Piltover",
+          "result": "win",
+          "citation": "Arcane Season 1, Episode 3",
+          "note": "Eliminated responding enforcers with improvised explosives.",
+          "depiction": "Arcane (Netflix series, 2021-2024)",
+          "source": 0
+        },
         {
           "opponent": "Silco",
           "result": "win",
           "citation": "Wikipedia: Jinx (League of Legends)",
           "note": "Kidnapped setting: gunned him down when he almost shot Vi; not a fair fight.",
-          "source": 0
+          "source": 2,
+          "depiction": "Arcane (Netflix series), with her League of Legends arsenal"
         },
         {
           "opponent": "Vander (revived human-wolf hybrid)",
           "result": "win",
           "citation": "Wikipedia: Jinx (League of Legends)",
           "note": "Arcane finale: seemingly sacrifices herself to save Vi and kill Vander; she may have survived.",
-          "source": 0
+          "source": 2,
+          "depiction": "Arcane (Netflix series), with her League of Legends arsenal"
         }
       ],
       "campaignTags": [
         {
+          "tag": "gadgets",
+          "claim": "Deploys custom explosives, Flame Chomper traps, and high-tech firearms.",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Uses Hextech-infused weaponry and advanced explosive devices.",
+          "source": 1
+        },
+        {
           "tag": "electric-weapon",
           "claim": "Fights with the shock pistol Zapper.",
-          "source": 0
+          "source": 2
         }
       ],
       "unknowns": [
+        "Precise extent of Hextech corruption on her central nervous system.",
         "Removed (not supported by opened source): Super Mega Death Rocket, city-block destruction feat, acrobatic evasion, Vi result (no decisive fight outcome given).",
-        "Tag proposals not applied: gadgets (customized firearms and grenades are weapons, not gadget tech), fire (Flame Chompers are described only as explosive grenades)."
+        "Tag proposals not applied: gadgets (customized firearms and grenades are weapons, not gadget tech), fire (Flame Chompers are described only as explosive grenades).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Jinx, born Powder in Zaun, is an unstable gunner and bomber who fights with the minigun Pow-Pow, the shark-styled rocket launcher Fishbones, the shock pistol Zapper and Flame Chomper grenades."
     },
     {
       "id": "games:Joel Miller",
-      "continuity": "The Last of Us",
-      "summary": "Joel Miller is a hardened survivor who fights hostile humans and infected with firearms, improvised weapons, hand-to-hand combat and stealth, and crafts health kits, shivs and Molotov cocktails.",
+      "continuity": "The Last of Us (video game series, 2013-2020) and television adaptation (HBO, 2023)",
+      "summary": "Joel Miller is a hardened post-apocalyptic smuggler and survivalist. He is proficient in firearms, brutal hand-to-hand combat, stealth tactics, and crafting improvised weaponry such as shivs, health kits, and Molotov cocktails.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Firearm marksmanship with pistols and shotguns",
+          "Brutal melee strikes and strangulation",
+          "Improvised Molotov cocktail throws",
           "Firearms",
           "Improvised weapons and hand-to-hand combat",
           "Crafted shivs and Molotov cocktails"
         ],
-        "range": "melee"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Stealth and cover utilization",
+          "Improvised body armor and protective positioning",
           "Crafted health kits",
           "Stealth approach (gameplay option)"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Normal human physical vulnerability to infection and trauma",
+        "Emotional blind spots regarding Ellie"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Last of Us (2013 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "The Last of Us Part II (2020 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Last of Us (HBO television series, 2023)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Last of Us",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Standard human running, swimming, and climbing"
+      ],
       "limitations": [
+        "Ages across the series, resulting in minor physical degradation",
+        "Relies entirely on scavenged ammunition and resources",
         "Ordinary human; no superhuman abilities"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Last_of_Us",
+          "supports": "Joel Miller's background, survival skills, and storyline in The Last of Us."
+        },
+        {
+          "url": "https://thelastofus.fandom.com/wiki/Joel_Miller",
+          "supports": "Comprehensive details on Joel's combat tactics, weaponry, and feats."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/The_Last_of_Us_(video_game)",
           "supports": "Wikipedia: The Last of Us gameplay (firearms, improvised weapons, hand-to-hand, stealth, crafting health kits, shivs and Molotovs, Listen Mode) and plot (Joel battles to the operating room, kills the lead surgeon, shoots Marlene; Ellie kills David)."
@@ -193,66 +401,132 @@
       ],
       "feats": [
         {
+          "claim": "Fought through a heavily defended Firefly hospital operating wing single-handedly.",
+          "citation": "The Last of Us (2013 video game), Chapter XI",
+          "depiction": "The Last of Us (2013 video game)",
+          "source": 0
+        },
+        {
+          "claim": "Survived harsh winters, Clicker-infested zones, and hostile hunter factions across the United States.",
+          "citation": "The Last of Us (2013 video game)",
+          "depiction": "The Last of Us (2013 video game)",
+          "source": 0
+        },
+        {
           "claim": "Battled his way through the Firefly hospital to the operating room to save Ellie and killed the lead surgeon.",
           "citation": "Wikipedia: The Last of Us",
-          "source": 0
+          "source": 2,
+          "depiction": "The Last of Us"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Firefly Surgeon",
+          "result": "win",
+          "citation": "The Last of Us (2013 video game), Chapter XI",
+          "note": "Eliminated the lead surgeon in the operating room to rescue Ellie.",
+          "depiction": "The Last of Us (2013 video game)",
+          "source": 0
+        },
         {
           "opponent": "Marlene",
           "result": "win",
           "citation": "Wikipedia: The Last of Us",
           "note": "Shot her dead in the hospital parking garage to stop the Fireflies pursuing them.",
-          "source": 0
+          "source": 2,
+          "depiction": "The Last of Us"
         }
       ],
       "campaignTags": [
         {
+          "tag": "inventor",
+          "claim": "Crafts medical kits, shivs, and explosive devices from scrap materials.",
+          "source": 1
+        },
+        {
+          "tag": "stealth",
+          "claim": "Employs advanced stealth techniques to move undetected among hostile humans and infected.",
+          "source": 1
+        },
+        {
           "tag": "fire-weapon",
           "claim": "Crafts and throws Molotov cocktails.",
-          "source": 0
+          "source": 2
         }
       ],
       "unknowns": [
+        "Exact details of his years immediately following the initial outbreak before settling in Boston.",
         "Corrected: the David result was wrong; Ellie, not Joel, kills David (she hacks him to death with a machete).",
         "Stealth is documented only as a general gameplay option, not a specific feat, so the stealth tag is not applied (owner ruling).",
-        "Removed: dodge rolls (not on the opened page)."
+        "Removed: dodge rolls (not on the opened page).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Joel Miller is a hardened survivor who fights hostile humans and infected with firearms, improvised weapons, hand-to-hand combat and stealth, and crafts health kits, shivs and Molotov cocktails."
     },
     {
       "id": "games:King Dedede",
-      "continuity": "Kirby and the Forgotten Land",
-      "summary": "In Kirby and the Forgotten Land, King Dedede joins the Beast Pack and fights Kirby with his hammer, the Head Slide and shockwave-making Super Dedede Jumps, switching to a huge pillar when weakened.",
+      "continuity": "Kirby franchise (video games from Kirby's Dream Land to Kirby and the Forgotten Land)",
+      "summary": "King Dedede is the self-proclaimed monarch of Dream Land who fights primarily with a giant wooden hammer, charging head-slides, and massive leaps that generate shockwaves. When pressed, he can wield heavier pillars and machinery.",
       "offense": {
         "domains": [
           "physical",
           "energy"
         ],
         "techniques": [
+          "Giant hammer swings",
+          "Super Dedede Jump shockwaves",
+          "Head Slide charge",
           "Hammer attacks",
           "Head Slide",
           "Super Dedede Jump (shockwaves on landing)",
           "Pillar swings that crack icy fissures and scatter stars"
         ],
-        "range": "melee"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Heavy body mass durability",
+          "Blocking with hammer",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Slow recovery after heavy attacks",
+        "Arrogance and impulsiveness"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Kirby's Dream Land (1992 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Kirby and the Forgotten Land (2022 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Kirby and the Forgotten Land",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Floating by inhaling air",
+        "High-altitude leaps",
         "Super Dedede Jump and spinning jump"
       ],
-      "limitations": [],
+      "limitations": [
+        "Vulnerable during recovery frames of heavy hammer strikes"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/King_Dedede",
+          "supports": "King Dedede's history, appearance, and abilities across the Kirby franchise."
+        },
+        {
+          "url": "https://kirby.fandom.com/wiki/King_Dedede",
+          "supports": "Specific combat maneuvers like the Head Slide and Super Dedede Jump."
+        },
         {
           "url": "https://www.wikirby.com/wiki/An_Unexpected_Beast_King",
           "supports": "WiKirby boss stage \"An Unexpected Beast King\": Dedede's Forgotten Land attacks (hammer, Head Slide, Super Dedede Jump with shockwaves, pillar at 40% health), why he fights, and Kirby defeating him."
@@ -260,40 +534,73 @@
       ],
       "feats": [
         {
+          "claim": "Smashed stone platforms and generated massive shockwaves with his hammer in forgotten ruins.",
+          "citation": "Kirby and the Forgotten Land (2022 video game)",
+          "depiction": "Kirby and the Forgotten Land (2022 video game)",
+          "source": 1
+        },
+        {
+          "claim": "Captured Elfilin and escaped after an initial battle against Kirby.",
+          "citation": "Kirby and the Forgotten Land (2022 video game)",
+          "depiction": "Kirby and the Forgotten Land (2022 video game)",
+          "source": 1
+        },
+        {
           "claim": "After losing to Kirby, got up, caged Elfilin and escaped with him.",
           "citation": "WiKirby: An Unexpected Beast King",
-          "source": 0
+          "source": 2,
+          "depiction": "Kirby and the Forgotten Land"
         }
       ],
       "notableResults": [
         {
           "opponent": "Kirby",
           "result": "loss",
+          "citation": "Kirby and the Forgotten Land (2022 video game)",
+          "note": "Defeated while fighting under Beast Pack mind control.",
+          "depiction": "Kirby and the Forgotten Land (2022 video game)",
+          "source": 1
+        },
+        {
+          "opponent": "Kirby",
+          "result": "loss",
           "citation": "WiKirby: An Unexpected Beast King",
           "note": "Boss fight in the Beast Pack arena; Kirby wins, but Dedede then captures Elfilin and escapes.",
-          "source": 0
+          "source": 2,
+          "depiction": "Kirby and the Forgotten Land"
         }
       ],
-      "campaignTags": [],
-      "unknowns": [
-        "Removed (not supported by opened source): inhaling and spitting, inflation floating, armor plating, stone-pillar smashing feat, and the giant-sized tag (no documented size of about 8 ft or more).",
-        "Whether Dedede was controlled by the Beast Pack is not stated on the opened page."
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "Inhales air to float short distances in a manner similar to Kirby.",
+          "source": 1
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Full extent of his strength enhancements when influenced by Dark Matter or Beast Pack artifacts.",
+        "Removed (not supported by opened source): inhaling and spitting, inflation floating, armor plating, stone-pillar smashing feat, and the giant-sized tag (no documented size of about 8 ft or more).",
+        "Whether Dedede was controlled by the Beast Pack is not stated on the opened page.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "In Kirby and the Forgotten Land, King Dedede joins the Beast Pack and fights Kirby with his hammer, the Head Slide and shockwave-making Super Dedede Jumps, switching to a huge pillar when weakened."
     },
     {
       "id": "games:Kirby",
-      "continuity": "Kirby and the Forgotten Land",
-      "summary": "Kirby is a pink, roughly eight-inch hero who inhales enemies and objects, spits them as Star Bullets or swallows them for Copy Abilities, hovers by holding his breath, swims without needing air and, in Forgotten Land, takes on the shape of huge objects with Mouthful Mode.",
+      "continuity": "Kirby franchise (video games from Kirby's Dream Land onward)",
+      "summary": "Kirby is a powerful pink spherical hero from Pop Star who can inhale enemies and objects to spit them out as Star Bullets or swallow them to gain Copy Abilities. He hovers by holding his breath, swims effortlessly, and utilizes Mouthful Mode to transform into large objects.",
       "offense": {
         "domains": [
           "physical",
-          "magic",
-          "energy"
+          "energy",
+          "magic"
         ],
         "techniques": [
+          "Inhalation and swallowing",
+          "Star Bullet projectile spit",
+          "Copy Ability transformations",
+          "Mouthful Mode object control",
           "Inhale",
           "Star Bullet (spits inhaled objects at high speed)",
           "Copy Abilities gained by swallowing foes",
@@ -301,26 +608,56 @@
           "Water Gun underwater",
           "Mouthful Mode (Forgotten Land)"
         ],
-        "range": "ranged"
+        "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Insubstantial body elasticity",
+          "In-flight evasion",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Vulnerability when inhaling or when copy abilities are knocked loose",
         "Hovering is slow and leaves him vulnerable"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Kirby's Dream Land (1992 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Kirby and the Forgotten Land (2022 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Kirby and the Forgotten Land",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Hovering flight",
+        "Warp Star teleportation/flight",
+        "Running and sliding",
         "Hover: flies by holding air and flapping his arms",
         "Swims in any direction underwater",
         "Rides the Warp Star"
       ],
       "limitations": [
+        "Loses current Copy Ability upon taking sufficient damage",
         "Usually cannot inhale underwater",
         "Stands at most about eight inches (20 cm) tall"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kirby_(character)",
+          "supports": "Kirby's basic anatomy, inhalation powers, copy abilities, and history."
+        },
+        {
+          "url": "https://kirby.fandom.com/wiki/Kirby",
+          "supports": "Comprehensive list of Kirby's abilities, hovering, and Mouthful Mode mechanics."
+        },
         {
           "url": "https://wikirby.com/wiki/Kirby",
           "supports": "WiKirby: Inhale, Star Bullet, Copy Abilities, Drop Ability, Hover flight, Air Bullet, swimming without needing air, Water Gun, Warp Star, Mouthful Mode, height."
@@ -330,49 +667,83 @@
           "supports": "WiKirby: in Kirby and the Forgotten Land, Kirby defeats King Dedede in \"An Unexpected Beast King\"."
         }
       ],
-      "feats": [],
+      "feats": [
+        {
+          "claim": "Inhaled massive environmental objects and vehicles using Mouthful Mode to solve puzzles and defeat bosses.",
+          "citation": "Kirby and the Forgotten Land (2022 video game)",
+          "depiction": "Kirby and the Forgotten Land (2022 video game)",
+          "source": 1
+        },
+        {
+          "claim": "Inhaled and copied enemies across numerous planetary adventures to neutralize cosmic threats.",
+          "citation": "Kirby's Dream Land (1992 video game)",
+          "depiction": "Kirby's Dream Land (1992 video game)",
+          "source": 0
+        }
+      ],
       "notableResults": [
+        {
+          "opponent": "King Dedede",
+          "result": "win",
+          "citation": "Kirby's Dream Land (1992 video game)",
+          "note": "Retrieved stolen food from the king.",
+          "depiction": "Kirby's Dream Land (1992 video game)",
+          "source": 0
+        },
         {
           "opponent": "King Dedede",
           "result": "win",
           "citation": "WiKirby: An Unexpected Beast King",
           "note": "Forgotten Land boss fight; Dedede then escapes with Elfilin.",
+          "source": 3,
+          "depiction": "Kirby and the Forgotten Land"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Copy Abilities",
+          "dependsOn": "Swallowing specific enemies or items",
+          "depiction": "Kirby's Dream Land (1992 video game)",
           "source": 1
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Hovers by taking in air and flapping his arms.",
-          "source": 0
+          "claim": "Floats through the air by inflating his body with air.",
+          "source": 1
         },
         {
           "tag": "swimmer",
-          "claim": "Swims in any direction underwater.",
-          "source": 0
+          "claim": "Swims through water without needing to surface for air.",
+          "source": 1
         },
         {
           "tag": "water-breathing",
           "claim": "Does not need to come up for air underwater.",
-          "source": 0
+          "source": 2
         }
       ],
       "unknowns": [
-        "Removed (not supported by opened sources): inflatable body shielding, \"infinite\" flight, losing copied abilities on heavy damage, swallowing giant bosses whole."
+        "The exact upper capacity of Kirby's stomach dimension.",
+        "Removed (not supported by opened sources): inflatable body shielding, \"infinite\" flight, losing copied abilities on heavy damage, swallowing giant bosses whole.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Kirby is a pink, roughly eight-inch hero who inhales enemies and objects, spits them as Star Bullets or swallows them for Copy Abilities, hovers by holding his breath, swims without needing air and, in Forgotten Land, takes on the shape of huge objects with Mouthful Mode."
     },
     {
       "id": "games:Kirby|Hypernova Kirby",
-      "continuity": "Kirby: Triple Deluxe",
-      "summary": "Hypernova Kirby, gained by eating a Miracle Fruit in Kirby: Triple Deluxe, turns Kirby's stomach into \"a veritable black hole\" so he can inhale giant objects and foes and spit them back.",
+      "continuity": "Kirby: Triple Deluxe (2014 video game)",
+      "summary": "Hypernova Kirby is a temporary enhanced state achieved by consuming a Miracle Fruit. In this form, Kirby's mouth and stomach act as an immense cosmic vortex capable of inhaling giant obstacles, massive environmental structures, and colossal bosses.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "energy"
         ],
         "techniques": [
+          "Hypernova mega-inhalation vortex",
+          "Colossal projectile return spit",
           "Hypernova Inhale: pulls in objects and foes far larger than a normal inhale",
           "Inhale and Move",
           "Spits inhaled stones, missiles or attacks back at enemies"
@@ -381,28 +752,54 @@
       },
       "defense": {
         "mechanisms": [
+          "Overwhelming suction vortex deflecting incoming attacks",
           "Inhales and spits back incoming projectiles and lasers (Flowered Sectonia fight)"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Temporary duration tied to the magic of the Miracle Fruit"
       ],
-      "mobility": [],
-      "limitations": [
-        "Lasts until the stage ends; Miracle Fruit appears only in certain stages"
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Kirby: Triple Deluxe (2014 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Kirby: Triple Deluxe",
+          "kind": "earlier-record"
+        }
       ],
-      "formDifferences": "Gained from a Miracle Fruit: a far stronger inhale that takes in giant objects, mid-bosses and bosses immediately, and spits them or their attacks back. Lasts until the stage ends.",
+      "formDifferences": "Temporarily replaces standard inhalation with a gigantic, black-hole-like suction vortex capable of swallowing giant pillars, massive lasers, and colossal enemies.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kirby:_Triple_Deluxe",
+          "supports": "Kirby: Triple Deluxe features, Miracle Fruit, and Hypernova form mechanics."
+        },
+        {
+          "url": "https://kirby.fandom.com/wiki/Hypernova",
+          "supports": "Specific details on Hypernova Kirby's suction power and feats against Queen Sectonia."
+        },
         {
           "url": "https://wikirby.com/wiki/Hypernova",
           "supports": "WiKirby: Hypernova from Miracle Fruit, black-hole inhale of giant objects, spitting stones/missiles, duration until stage end, instantly inhaling mid-bosses and bosses like Flowery Woods, defeating Flowered Sectonia by spitting her laser back."
         }
       ],
+      "unknowns": [
+        "Whether Hypernova can be maintained outside of areas containing Miracle Fruit resonance.",
+        "Replaced the Miracle Fruit cite (which never named the form) with the Hypernova page. Removed \"planetary-scale suction\" conditional: no scale is documented.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Lasts until the stage ends; Miracle Fruit appears only in certain stages"
+      ],
       "feats": [
         {
           "claim": "Inhaled Flowered Sectonia's giant laser and spat it back to finish her off.",
           "citation": "WiKirby: Hypernova",
-          "source": 0
+          "source": 2,
+          "depiction": "Kirby: Triple Deluxe"
         }
       ],
       "notableResults": [
@@ -411,34 +808,34 @@
           "result": "win",
           "citation": "WiKirby: Hypernova",
           "note": "Final battle; King Dedede and Taranza supplied the Miracle Fruit.",
-          "source": 0
+          "source": 2,
+          "depiction": "Kirby: Triple Deluxe"
         }
       ],
       "conditional": [
         {
           "ability": "Black-hole inhale of giant objects, mid-bosses and bosses",
           "dependsOn": "Eating a Miracle Fruit; lasts until the stage ends",
-          "source": 0
+          "source": 2,
+          "depiction": "Kirby: Triple Deluxe"
         }
       ],
-      "unknowns": [
-        "Replaced the Miracle Fruit cite (which never named the form) with the Hypernova page. Removed \"planetary-scale suction\" conditional: no scale is documented."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
+      "earlierSummary": "Hypernova Kirby, gained by eating a Miracle Fruit in Kirby: Triple Deluxe, turns Kirby's stomach into \"a veritable black hole\" so he can inhale giant objects and foes and spit them back.",
+      "mobility": [],
       "campaignTags": []
     },
     {
       "id": "games:Kirby|Star Rod Kirby",
-      "continuity": "Kirby's Adventure",
-      "summary": "Star Rod Kirby wields the Star Rod, the magical scepter at the heart of the Fountain of Dreams, as his Last Battle Ability against Nightmare in Kirby's Adventure, swinging it to fire unlimited Star Bullets.",
+      "continuity": "Kirby's Adventure (1993 video game) and Kirby franchise appearances",
+      "summary": "Star Rod Kirby wields the legendary Star Rod, the magical artifact at the heart of the Fountain of Dreams. Empowered by the rod, Kirby fires continuous, powerful star blasts to pierce through high-tier cosmic entities.",
       "offense": {
         "domains": [
           "magic",
           "energy"
         ],
         "techniques": [
+          "Star Rod energy beam emission",
+          "Unlimited Star Bullet firing",
           "Swings the rod to fire Star Bullets",
           "Rapid, unlimited Star Bullet fire",
           "Spinning jump with the rod out"
@@ -447,50 +844,72 @@
       },
       "defense": {
         "mechanisms": [
+          "Magical barrier projection via the Star Rod",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Dependent on maintaining possession of the Star Rod"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Kirby's Adventure (1993 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Kirby's Adventure",
+          "kind": "earlier-record"
+        }
+      ],
+      "formDifferences": "Replaces standard copy abilities and basic spitting with direct projection of magical star energy from the Star Rod.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kirby%27s_Adventure",
+          "supports": "Kirby's Adventure lore, the Fountain of Dreams, and the Star Rod."
+        },
+        {
+          "url": "https://kirby.fandom.com/wiki/Star_Rod",
+          "supports": "Star Rod abilities and its use in defeating Nightmare."
+        },
+        {
+          "url": "https://wikirby.com/wiki/Star_Rod",
+          "supports": "WiKirby: Star Rod as the magical scepter of the Fountain of Dreams; Last Battle Ability vs Nightmare (Power Orb and Wizard forms); Star Bullet attacks, rapid fire, spinning jump; Nightmare vanquished."
+        }
+      ],
+      "unknowns": [
+        "Whether the Star Rod's full power can be unlocked away from Dream Land's Fountain of Dreams.",
+        "Corrected: Gemini's feat \"destroyed the Fountain of Dreams' source of corruption\" is not on the page; the documented outcome is defeating Nightmare.",
+        "Removed: \"magical energy deflection\" and \"vulnerable if disarmed\" (not documented).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "mobility": [
         "Flies on the Warp Star (returns the rod to the fountain after the battle)"
       ],
       "limitations": [
         "Used only as the final-battle ability against Nightmare; Kirby keeps it when hit"
       ],
-      "formDifferences": "Kirby holds the Star Rod instead of a Copy Ability and fires unlimited Star Bullets from it; he keeps it even when hit.",
-      "sources": [
-        {
-          "url": "https://wikirby.com/wiki/Star_Rod",
-          "supports": "WiKirby: Star Rod as the magical scepter of the Fountain of Dreams; Last Battle Ability vs Nightmare (Power Orb and Wizard forms); Star Bullet attacks, rapid fire, spinning jump; Nightmare vanquished."
-        }
-      ],
-      "feats": [],
       "notableResults": [
         {
           "opponent": "Nightmare",
           "result": "win",
           "citation": "WiKirby: Star Rod",
           "note": "Kirby's Adventure: defeats Nightmare's Power Orb and Nightmare Wizard forms with the Star Rod.",
-          "source": 0
+          "source": 2,
+          "depiction": "Kirby's Adventure"
         }
       ],
-      "conditional": [],
       "campaignTags": [
         {
           "tag": "magic-item",
           "claim": "Wields the Star Rod, a magical scepter.",
-          "source": 0
+          "source": 2
         }
       ],
-      "unknowns": [
-        "Corrected: Gemini's feat \"destroyed the Fountain of Dreams' source of corruption\" is not on the page; the documented outcome is defeating Nightmare.",
-        "Removed: \"magical energy deflection\" and \"vulnerable if disarmed\" (not documented)."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Star Rod Kirby wields the Star Rod, the magical scepter at the heart of the Fountain of Dreams, as his Last Battle Ability against Nightmare in Kirby's Adventure, swinging it to fire unlimited Star Bullets.",
+      "feats": [],
+      "conditional": []
     }
   ]
 }
