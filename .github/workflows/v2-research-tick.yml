@@ -22,10 +22,10 @@ concurrency:
   cancel-in-progress: false
 env:
   BASE: develop/v2-option-c
-  # Merge commit of #419 (all-depictions research scope, roster context for Gemini, in-place expansion)
-  # on develop/v2-option-c (2026-11-20). Previous pin: 87c16f0 (#350, adds `refine`). Empty = scheduler idle.
-  # Every change to this line needs a reviewed PR to main.
-  TOOLS_SHA: '4fd3ae21c2d5373be68162e39ada9b77419a3370'
+  # Merge commit of #486 (expansion merge keeps earlier source notes, never empties weaknesses) on
+  # develop/v2-option-c (2026-11-21). Previous pins: 4fd3ae2 (#419, all-depictions scope), 87c16f0 (#350).
+  # Empty = scheduler idle. Every change to this line needs a reviewed PR to main.
+  TOOLS_SHA: '9455dd449ccf437ad89420d46f6d20aba3dd0fbc'
 jobs:
   snapshot:
     if: github.repository == 'garrettem-op/Draft_Anything'
