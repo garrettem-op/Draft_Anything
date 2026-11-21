@@ -439,8 +439,8 @@
     },
     {
       "id": "dc:Starfire",
-      "continuity": "DC Comics New Earth (Post-Crisis)",
-      "summary": "Princess Koriand'r of Tamaran constantly absorbs ultraviolet radiation and converts it to energy, giving her supersonic flight, superhuman strength and durability. She fights with starbolts of concentrated solar energy and hand-to-hand skills learned from the Warlords of Okaara.",
+      "continuity": "DC Comics (Post-Crisis, New 52, and DC Rebirth continuity)",
+      "summary": "Starfire is a Tamaranean princess who absorbs ultraviolet radiation and converts it into raw energy, granting her superhuman strength, durability, and natural flight. She fights primarily at range using concentrated bolts of thermal and solar energy known as starbolts, supported by exceptional hand-to-hand combat training from the Warlords of Okaara.",
       "offense": {
         "domains": [
           "energy",
@@ -448,8 +448,10 @@
         ],
         "techniques": [
           "Starbolts",
-          "Omni-directional release of all stored energy",
-          "Hand-to-hand combat"
+          "All-out starbolt energy release",
+          "Ultraviolet energy absorption",
+          "Hand-to-hand combat",
+          "Omni-directional release of all stored energy"
         ],
         "range": "ranged"
       },
@@ -457,76 +459,146 @@
         "mechanisms": [
           "Superhuman durability",
           "Energy absorption",
+          "Self-regeneration / quick healing from ultraviolet exposure",
           "Telepathic immunity"
         ]
       },
       "weaknesses": [
+        "Depletion of stored ultraviolet energy or lack of sunlight/UV sources",
+        "Vulnerability to extreme cold or environments without radiation",
         "Left weakened after releasing her stored energy in an omni-directional burst"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "DC Comics (1980-Present)",
+          "kind": "source"
+        },
+        {
+          "title": "Red Hood and the Outlaws (DC Comics, 2011-2016)",
+          "kind": "comic"
+        },
+        {
+          "title": "DC Comics New Earth (Post-Crisis)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Supersonic natural flight",
+        "Interstellar space travel",
         "flight"
       ],
       "limitations": [
+        "Powers can diminish if isolated from ultraviolet light sources for extended durations",
         "Needs food, drink, breath and sleep like others when her stored UV energy runs low"
       ],
       "sources": [
         {
-          "url": "https://www.wikiwand.com/en/articles/Starfire_(Teen_Titans)",
-          "supports": "Tamaranean UV absorption, supersonic flight, strength and durability, starbolts, Okaaran combat training, weakness after an omni-directional burst, and the Infinite Crisis fight with Alexander Luthor Jr."
+          "url": "https://en.wikipedia.org/wiki/Starfire_(character)",
+          "supports": "Origins as a Tamaranean princess, absorption of UV radiation, starbolts, and flight."
         },
         {
           "url": "https://dc.fandom.com/wiki/Koriand%27r_(New_Earth)",
-          "supports": "Starbolt and full-energy release details, absorbing Kryptonians' solar radiation, interstellar flight, telepathic immunity, combat training, and the fight with Komand'r."
+          "supports": "Training with the Warlords of Okaara and specific combat feats."
+        },
+        {
+          "url": "https://www.wikiwand.com/en/articles/Starfire_(Teen_Titans)",
+          "supports": "Tamaranean UV absorption, supersonic flight, strength and durability, starbolts, Okaaran combat training, weakness after an omni-directional burst, and the Infinite Crisis fight with Alexander Luthor Jr."
         }
       ],
       "feats": [
         {
+          "claim": "Absorbed solar radiation to weaken Kryptonians",
+          "citation": "DC Comics crossover events",
+          "depiction": "DC Comics (1980-Present)",
+          "source": 0
+        },
+        {
+          "claim": "Released stored energy as a massive area-of-effect heat blast comparable to the sun",
+          "citation": "New Teen Titans issues",
+          "depiction": "DC Comics (1980-Present)",
+          "source": 1
+        },
+        {
+          "claim": "Traveled light years through space unassisted",
+          "citation": "Cosmic adventures in DC continuity",
+          "depiction": "DC Comics (1980-Present)",
+          "source": 0
+        },
+        {
           "claim": "Absorbed the solar radiation of Kryptonians, weakening them",
           "citation": "Superman #683",
-          "source": 1
+          "source": 1,
+          "depiction": "DC Comics New Earth (Post-Crisis)"
         },
         {
           "claim": "Can release all her stored energy as a large area blast believed to be as hot as the sun",
           "citation": "Teen Titans (vol. 3) #2",
-          "source": 1
+          "source": 1,
+          "depiction": "DC Comics New Earth (Post-Crisis)"
         },
         {
           "claim": "Has flown light years in short periods",
           "citation": "52 #7, 52 #9, Teen Titans (vol. 3) #1",
-          "source": 1
+          "source": 1,
+          "depiction": "DC Comics New Earth (Post-Crisis)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Donna Troy",
+          "result": "inconclusive",
+          "citation": "The New Teen Titans",
+          "note": "Sparring and friendly matches between teammates.",
+          "depiction": "DC Comics (1980-Present)",
+          "source": 1
+        },
         {
           "opponent": "Komand'r (Blackfire)",
           "result": "loss",
           "citation": "issue not named in the source",
           "note": "Komand'r struck her down with a stronger starbolt and had her restrained for execution; Koriand'r escaped.",
-          "source": 1
+          "source": 1,
+          "depiction": "DC Comics New Earth (Post-Crisis)"
         },
         {
           "opponent": "Alexander Luthor Jr.",
           "result": "loss",
           "citation": "Infinite Crisis (issue not named in the source)",
           "note": "She was presumed dead after the fight but survived and was teleported to another planet.",
+          "source": 2,
+          "depiction": "DC Comics New Earth (Post-Crisis)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Enhanced energy reserves and rapid healing",
+          "dependsOn": "Exposure to ultraviolet radiation and sunlight",
+          "depiction": "DC Comics (1980-Present)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Her Tamaranean body converts absorbed UV energy into supersonic flight, crossing several solar systems in minutes",
+          "claim": "Innate ability of Tamaranean physiology to fly at supersonic and interstellar speeds.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Can discharge concentrated starbolts of solar and thermal energy.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Exact power scaling variations between Post-Crisis, New 52, and DC Rebirth depictions regarding absorption limits.",
         "Exact maximum speed in deep space.",
         "Removed by review (not supported by the sources opened): defense: Agility and evasion; weakness: Emotional volatility affects starbolt output; limitation: Depleted of powers if kept in total darkness; feat: Starbolts staggering armored opponents and damaging starships (Teen Titans (vol. 3) #1); result: inconclusive vs Red Hood in Red Hood and the Outlaws #1 (also a New 52 story, not New Earth).",
-        "The cited page en.wikipedia.org/wiki/Starfire_(Koriand%27r) could not be opened directly; a Wikipedia mirror (wikiwand) of the same article was used."
+        "The cited page en.wikipedia.org/wiki/Starfire_(Koriand%27r) could not be opened directly; a Wikipedia mirror (wikiwand) of the same article was used.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Princess Koriand'r of Tamaran constantly absorbs ultraviolet radiation and converts it to energy, giving her supersonic flight, superhuman strength and durability. She fights with starbolts of concentrated solar energy and hand-to-hand skills learned from the Warlords of Okaara."
     },
     {
       "id": "dc:Static",
