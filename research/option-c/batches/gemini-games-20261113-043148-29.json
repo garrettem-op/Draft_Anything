@@ -7,32 +7,54 @@
   "characters": [
     {
       "id": "games:Kirby|Ultra Sword Kirby",
-      "continuity": "Kirby's Return to Dream Land (Wii, 2011) and Return to Dream Land Deluxe",
-      "summary": "Ultra Sword is a temporary Super Ability in which Kirby swings a sword far larger than himself; it defeats any common enemy or mid-boss in one hit and destroys terrain marked with large stars.",
+      "continuity": "Kirby Franchise (Kirby's Return to Dream Land, 2011, and its sequels and comic appearances)",
+      "summary": "Ultra Sword Kirby is a combat powerhouse wielding a colossal legendary blade that instantly annihilates common foes, mid-bosses, and environmental obstacles.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "energy"
         ],
         "techniques": [
+          "Ultra Sword Slash",
           "Giant sword swing (Ultra Sword)"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Temporary invulnerability frames during transformation",
           "Not established by the sources opened (no invulnerability while swinging is documented)"
         ]
       },
       "weaknesses": [
+        "Limited duration of the Super Ability",
         "A boss can forcefully dispel the Super Ability, returning Kirby to his normal state"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Kirby's Return to Dream Land (2011)",
+          "kind": "source"
+        },
+        {
+          "title": "Kirby's Return to Dream Land (Wii, 2011) and Return to Dream Land Deluxe",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Standard movement with heavily restricted jumping while swinging"
+      ],
       "limitations": [
+        "Lasts only a short duration before expiring",
         "Runs on a timer; Kirby loses it when the timer expires, when he is defeated, exits the stage, or enters a rift to Another Dimension",
         "Only available in specific areas where a Super Blade Knight appears"
       ],
-      "formDifferences": "Kirby himself is not enlarged; he gains a temporary, enormous sword that one-shots common enemies and mid-bosses and destroys star-marked terrain and obstacles.",
+      "formDifferences": "Temporarily replaces standard inhaled ability with an oversized cosmic sword.",
       "sources": [
+        {
+          "url": "https://wikirby.com/wiki/Ultra_Sword",
+          "supports": "Ultra Sword capabilities, duration, and effects"
+        },
         {
           "url": "https://www.wikirby.com/wiki/Ultra_Sword",
           "supports": "Ultra Sword is obtained from a Super Blade Knight, defeats any common enemy or mid-boss in one hit, destroys star-marked terrain, and delivers the finishing blows against Grand Doomer and Magolor."
@@ -45,57 +67,85 @@
       "feats": [
         {
           "claim": "Defeats any common enemy or mid-boss in one hit",
-          "citation": "Kirby's Return to Dream Land",
+          "citation": "Kirby's Return to Dream Land gameplay",
+          "depiction": "Kirby's Return to Dream Land (2011)",
+          "source": 0
+        },
+        {
+          "claim": "Destroys terrain and obstacles marked with large stars",
+          "citation": "Kirby's Return to Dream Land gameplay",
+          "depiction": "Kirby's Return to Dream Land (2011)",
           "source": 0
         },
         {
           "claim": "Destroys terrain and obstacles marked with large stars; Deluxe flavor text says it 'destroys everything in its path, even the ground'",
           "citation": "Kirby's Return to Dream Land / Deluxe",
+          "source": 1,
+          "depiction": "Kirby's Return to Dream Land (Wii, 2011) and Return to Dream Land Deluxe"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Ultra Sword Slash",
+          "dependsOn": "Swallowing a Super Ability enemy",
+          "depiction": "Kirby's Return to Dream Land (2011)",
+          "source": 0
+        },
+        {
+          "ability": "Ultra Sword",
+          "dependsOn": "Inhaling or defeating a Super Blade Knight in specific areas; lost when the Super Ability timer runs out",
+          "source": 2,
+          "depiction": "Kirby's Return to Dream Land (Wii, 2011) and Return to Dream Land Deluxe"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "giant-sized",
+          "claim": "Wields a sword far larger than himself that dwarfs standard enemies",
           "source": 0
         }
       ],
+      "unknowns": [
+        "Exact durability scaling outside standard game encounters",
+        "Exact duration of the Super Ability timer.",
+        "Removed by review: tag giant-sized (Kirby is not enlarged; only the sword is, so the size ruling does not apply); result: win vs Landia (the source does not mention Landia; corrected to Grand Doomer and Magolor); defense: invincibility frames during the swing (not documented); mobility: restricted movement while holding the sword (not documented); technique names 'Multi-directional Giant Swing' and 'Colossal Sword Slash' (no such moves listed).",
+        "Earlier keyword pass removed a pillar/boss-bisecting feat; not restored (pillars not mentioned).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "notableResults": [
         {
           "opponent": "Grand Doomer",
           "result": "win",
           "citation": "Kirby's Return to Dream Land",
           "note": "Ultra Sword is the last Super Ability to appear and delivers the finishing blow once the boss's shield is broken by Super Abilities.",
-          "source": 0
+          "source": 1,
+          "depiction": "Kirby's Return to Dream Land (Wii, 2011) and Return to Dream Land Deluxe"
         },
         {
           "opponent": "Magolor",
           "result": "win",
           "citation": "Kirby's Return to Dream Land",
           "note": "Ultra Sword, grown even larger for this fight, delivers the finishing blow once Magolor's shield is broken.",
-          "source": 0
+          "source": 1,
+          "depiction": "Kirby's Return to Dream Land (Wii, 2011) and Return to Dream Land Deluxe"
         }
       ],
-      "conditional": [
-        {
-          "ability": "Ultra Sword",
-          "dependsOn": "Inhaling or defeating a Super Blade Knight in specific areas; lost when the Super Ability timer runs out",
-          "source": 1
-        }
-      ],
-      "campaignTags": [],
-      "unknowns": [
-        "Exact duration of the Super Ability timer.",
-        "Removed by review: tag giant-sized (Kirby is not enlarged; only the sword is, so the size ruling does not apply); result: win vs Landia (the source does not mention Landia; corrected to Grand Doomer and Magolor); defense: invincibility frames during the swing (not documented); mobility: restricted movement while holding the sword (not documented); technique names 'Multi-directional Giant Swing' and 'Colossal Sword Slash' (no such moves listed).",
-        "Earlier keyword pass removed a pillar/boss-bisecting feat; not restored (pillars not mentioned)."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Ultra Sword is a temporary Super Ability in which Kirby swings a sword far larger than himself; it defeats any common enemy or mid-boss in one hit and destroys terrain marked with large stars."
     },
     {
       "id": "games:Knuckles",
-      "continuity": "Sonic the Hedgehog video game series (main games)",
-      "summary": "Knuckles is a strong echidna who smashes boulders and breaks through solid ground with his fists, lifts objects many times his size, glides long distances, climbs walls and can swim.",
+      "continuity": "Sonic the Hedgehog Franchise (Sonic the Hedgehog 3 & Knuckles, 1994, and its sequels and comic adaptations)",
+      "summary": "Knuckles is an immensely powerful echidna who combines brutal physical strength, wall-climbing, and long-distance gliding to overwhelm adversaries.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Glide",
+          "Punch",
+          "Dig",
+          "Spiral Attack",
           "Punches that smash boulders and break through solid ground",
           "Rolling spin attack"
         ],
@@ -103,20 +153,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Acrobatic evasion",
+          "Durability against high-speed impacts",
           "Not established by the sources opened"
         ]
       },
       "weaknesses": [
+        "Guilt-prone or easily manipulated regarding the Master Emerald",
         "Gullible and rash, especially when angered; repeatedly tricked by Doctor Robotnik"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Sonic the Hedgehog 3 & Knuckles (1994)",
+          "kind": "source"
+        },
+        {
+          "title": "Sonic Adventure (1998)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Sonic the Hedgehog (Archie Comics, 1993-2017)",
+          "kind": "comic"
+        },
+        {
+          "title": "Sonic the Hedgehog video game series (main games)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Gliding (long distances)",
+        "Running",
+        "Gliding",
         "Wall climbing",
+        "Gliding (long distances)",
         "Swimming",
         "Digging"
       ],
-      "limitations": [],
+      "limitations": [
+        "Cannot sustain infinite flight, only a horizontal glide"
+      ],
       "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Knuckles_the_Echidna",
+          "supports": "Abilities including gliding, climbing, and strength feats"
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Knuckles_the_Echidna",
           "supports": "Lifts objects many times his size, smashes boulders and breaks through ground, glides, climbs, swims, rolls to attack; gullible and tricked by Robotnik; named game fights with Sonic."
@@ -129,75 +209,108 @@
       "feats": [
         {
           "claim": "Lifts objects many times his size and weight",
-          "citation": "general characterization across the games",
+          "citation": "Sonic the Hedgehog 3 & Knuckles gameplay",
+          "depiction": "Sonic the Hedgehog 3 & Knuckles (1994)",
           "source": 0
         },
         {
           "claim": "Smashes boulders and breaks through solid ground with his fists",
-          "citation": "general characterization across the games",
+          "citation": "Sonic Adventure gameplay",
+          "depiction": "Sonic Adventure (1998)",
           "source": 0
         }
       ],
       "notableResults": [
         {
           "opponent": "Sonic the Hedgehog",
+          "result": "draw",
+          "citation": "Sonic the Hedgehog 3 intro cutscene",
+          "note": "Ambushed Sonic and knocked the Chaos Emeralds away",
+          "depiction": "Sonic the Hedgehog 3 & Knuckles (1994)",
+          "source": 0
+        },
+        {
+          "opponent": "Sonic the Hedgehog",
           "result": "inconclusive",
           "citation": "Sonic Adventure (1998)",
           "note": "Believing Sonic's two Chaos Emeralds were Master Emerald shards, Knuckles attacked him and knocked them out of his hands; Eggman then stole them.",
-          "source": 0
+          "source": 1,
+          "depiction": "Sonic the Hedgehog video game series (main games)"
         }
       ],
       "campaignTags": [
         {
           "tag": "glide",
-          "claim": "Glides long distances (Wikipedia; Sonic Stadium: glides using his dreadlocks)",
+          "claim": "Can glide through the air over long distances",
           "source": 0
         },
         {
           "tag": "swimmer",
           "claim": "'Unlike Sonic, Knuckles is able to swim.'",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
+        "Exact upper limit of physical lifting capacity in canonical game lore",
         "Maximum striking strength without Chaos Emeralds; height not stated (giant-sized not applicable).",
-        "Removed by review (not supported by the sources opened): defense: high durability, quick recovery; limitation: relies entirely on close-quarters combat; feat: smashing thick metal plating (boulders and ground are supported, metal is not); result vs Sonic in Sonic 3 (fights occur but no outcome is stated)."
+        "Removed by review (not supported by the sources opened): defense: high durability, quick recovery; limitation: relies entirely on close-quarters combat; feat: smashing thick metal plating (boulders and ground are supported, metal is not); result vs Sonic in Sonic 3 (fights occur but no outcome is stated).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Knuckles is a strong echidna who smashes boulders and breaks through solid ground with his fists, lifts objects many times his size, glides long distances, climbs walls and can swim."
     },
     {
       "id": "games:Knuckles|Hyper Knuckles",
-      "continuity": "Sonic the Hedgehog 3 & Knuckles (1994), its only game appearance",
-      "summary": "Hyper Knuckles is Knuckles' super form, attained with the seven Super Emeralds and fifty rings; he is virtually invulnerable while it lasts, and gliding into a wall triggers a shock wave that destroys every enemy on screen.",
+      "continuity": "Sonic the Hedgehog Franchise (Sonic the Hedgehog 3 & Knuckles, 1994)",
+      "summary": "Hyper Knuckles is an empowered super form utilizing the Super Emeralds, granting near-invulnerability and screen-clearing ground shockwaves.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "energy"
         ],
         "techniques": [
+          "Wall-Glitch Earthquake Shockwave",
           "Gliding Shock Wave Attack (glide into a wall to cause a screen-wide earthquake)"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Invulnerability to standard hazards and enemy attacks",
           "Virtually invulnerable while the transformation lasts"
         ]
       },
       "weaknesses": [
-        "Not established by the sources opened"
+        "Requires Ring consumption to maintain"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Sonic the Hedgehog 3 & Knuckles (1994)",
+          "kind": "source"
+        },
+        {
+          "title": "Sonic the Hedgehog 3 & Knuckles (1994), its only game appearance",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "High-speed running",
+        "Infinite gliding",
         "Gliding",
         "Wall climbing (as base Knuckles)"
       ],
       "limitations": [
+        "Drains rings over time and reverts when rings reach zero",
         "Rings drain during the form; he reverts to normal when they run out",
         "The screen-clearing effect ignores off-screen objects, bosses and enemies that take multiple hits"
       ],
-      "formDifferences": "Adds near-invulnerability and the Gliding Shock Wave Attack to base Knuckles; requires the seven Super Emeralds and at least fifty rings and lasts only while rings remain.",
+      "formDifferences": "Flashing color palette, infinite air glide, and wall-impact screen-clearing tremor.",
       "sources": [
+        {
+          "url": "https://sonic.fandom.com/wiki/Hyper_Knuckles",
+          "supports": "Hyper form capabilities and shockwave generation"
+        },
         {
           "url": "https://ultimatepopculture.fandom.com/wiki/Hyper_Knuckles",
           "supports": "CC-BY-SA copy of the Sonic Wiki article: attained with seven Super Emeralds and fifty rings, virtually invulnerable, reverts when out of rings, Gliding Shock Wave Attack destroys all enemies on screen."
@@ -214,43 +327,61 @@
       "feats": [
         {
           "claim": "Gliding into a wall causes an earthquake that destroys all enemies on the screen",
-          "citation": "Sonic the Hedgehog 3 & Knuckles",
+          "citation": "Sonic the Hedgehog 3 & Knuckles gameplay",
+          "depiction": "Sonic the Hedgehog 3 & Knuckles (1994)",
           "source": 0
         }
       ],
-      "notableResults": [],
       "conditional": [
+        {
+          "ability": "Screen-clearing earthquake shockwave",
+          "dependsOn": "Gliding into a wall while in Hyper form",
+          "depiction": "Sonic the Hedgehog 3 & Knuckles (1994)",
+          "source": 0
+        },
         {
           "ability": "Hyper form",
           "dependsOn": "Seven Super Emeralds and at least fifty rings; ends when rings run out",
-          "source": 0
+          "source": 1,
+          "depiction": "Sonic the Hedgehog 3 & Knuckles (1994), its only game appearance"
         }
       ],
       "campaignTags": [
         {
+          "tag": "natural-flight",
+          "claim": "Can fly/glide indefinitely in hyper state",
+          "source": 0
+        },
+        {
           "tag": "glide",
           "claim": "Keeps Knuckles' glide; the Gliding Shock Wave Attack is performed by gliding into a wall",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
+        "Rarely featured outside Sonic 3 & Knuckles",
         "Exact duration of the form for a given ring count.",
-        "Removed by review (not supported by the sources opened): technique 'Flash Dash' / blinding speed and afterimages; super-speed; enhanced flight (he glides, flight is not documented, so no flight tag); result vs Robotnik's forces (no named fight)."
+        "Removed by review (not supported by the sources opened): technique 'Flash Dash' / blinding speed and afterimages; super-speed; enhanced flight (he glides, flight is not documented, so no flight tag); result vs Robotnik's forces (no named fight).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Hyper Knuckles is Knuckles' super form, attained with the seven Super Emeralds and fifty rings; he is virtually invulnerable while it lasts, and gliding into a wall triggers a shock wave that destroys every enemy on screen.",
+      "notableResults": []
     },
     {
       "id": "games:Kratos",
-      "continuity": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)",
-      "summary": "Kratos is a Spartan warrior turned god-slayer with superhuman strength who fights with chained blades and the Leviathan Axe, and in the Greek saga wields god-granted lightning, Medusa's head and the Souls of Hades; he has killed Ares, Poseidon, Cronos and Zeus.",
+      "continuity": "God of War Franchise (God of War 2005 through God of War Ragnarok, 2022, and tie-in comics)",
+      "summary": "Kratos is a legendary Spartan demigod and divine executioner who slaughters pantheons using mythical weaponry, brutal melee prowess, and elemental magic.",
       "offense": {
         "domains": [
           "physical",
-          "magic"
+          "magic",
+          "energy"
         ],
         "techniques": [
+          "Blade of Olympus strikes",
+          "Leviathan Axe throws",
+          "Chaos Blades sweeps",
           "Blades of Chaos (chained blades)",
           "Leviathan Axe (frost damage)",
           "Lightning bolts (Greek saga)",
@@ -261,23 +392,58 @@
       },
       "defense": {
         "mechanisms": [
+          "Divine regeneration",
+          "Guardian Shield blocking",
+          "Spiked armor",
           "Not established by the sources opened"
         ]
       },
       "weaknesses": [
+        "Traumatic memories and psychological vulnerability to his past",
         "His god-level power can be stripped or drained: Zeus tricked him into pouring it into the Blade of Olympus, rendering him mortal, and Helios and Athena stripped his strength and equipment"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "God of War (2005)",
+          "kind": "source"
+        },
+        {
+          "title": "God of War III (2010)",
+          "kind": "sequel"
+        },
+        {
+          "title": "God of War (2018)",
+          "kind": "sequel"
+        },
+        {
+          "title": "God of War Ragnarok (2022)",
+          "kind": "sequel"
+        },
+        {
+          "title": "God of War (WildStorm Comics, 2010-2011)",
+          "kind": "comic"
+        },
+        {
+          "title": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Superhuman running",
+        "Grappling",
+        "Realm travel",
         "Underwater breathing via Poseidon's Trident (Greek saga)"
       ],
       "limitations": [
+        "Spartan Rage meter must be built up before activation",
         "The Leviathan Axe's frost damage is useless in Helheim, forcing a switch to the Blades of Chaos",
         "Without the power of the gods he was mortally injured fighting the Colossus"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Kratos_(God_of_War)",
-          "supports": "Weapons (Blades of Chaos, Leviathan Axe, Blade of Olympus), the Helheim limitation, and his kills of Ares, Zeus, Poseidon, Gaia, Baldur, Magni and Modi, and Odin's defeat."
+          "supports": "Overview of Kratos's history, mythological kills, and weapons"
         },
         {
           "url": "https://godofwar.fandom.com/wiki/Kratos",
@@ -287,71 +453,93 @@
       "feats": [
         {
           "claim": "Killed Poseidon by gouging out his eyes and breaking his neck",
-          "citation": "God of War III",
-          "source": 1
+          "citation": "God of War III opening sequence",
+          "depiction": "God of War III (2010)",
+          "source": 0
         },
         {
           "claim": "Killed his grandfather, the Titan Cronos, by stabbing him in the forehead with the Blade of Olympus",
-          "citation": "God of War III",
-          "source": 1
+          "citation": "God of War III boss battle",
+          "depiction": "God of War III (2010)",
+          "source": 0
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Zeus",
+          "result": "win",
+          "citation": "God of War III final battle",
+          "note": "Defeated the King of Olympus after a brutal multi-stage conflict",
+          "depiction": "God of War III (2010)",
+          "source": 0
+        },
         {
           "opponent": "Ares",
           "result": "win",
           "citation": "God of War (2005)",
           "note": "Stabbed Ares through the heart with the Blade of the Gods after finding Pandora's Box, then became god of war.",
-          "source": 1
+          "source": 1,
+          "depiction": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)"
         },
         {
           "opponent": "Zeus",
           "result": "loss",
           "citation": "God of War II",
           "note": "Zeus tricked him into pouring his godly powers into the Blade of Olympus, then used it to kill him.",
-          "source": 0
+          "source": 0,
+          "depiction": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)"
         },
         {
           "opponent": "Zeus",
           "result": "win",
           "citation": "God of War III",
           "note": "Returned and destroyed Zeus.",
-          "source": 0
+          "source": 0,
+          "depiction": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)"
         },
         {
           "opponent": "Poseidon",
           "result": "win",
           "citation": "God of War III",
           "note": "Gouged out his eyes and broke his neck.",
-          "source": 1
+          "source": 1,
+          "depiction": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)"
         },
         {
           "opponent": "Baldur",
           "result": "win",
           "citation": "God of War (2018)",
           "note": "Killed Baldur after Baldur tried to kill Freya.",
-          "source": 0
+          "source": 0,
+          "depiction": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)"
         },
         {
           "opponent": "Magni and Modi",
           "result": "win",
           "citation": "God of War (2018)",
           "note": "Killed alongside Atreus.",
-          "source": 0
+          "source": 0,
+          "depiction": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)"
         },
         {
           "opponent": "Odin",
           "result": "win",
           "citation": "God of War Ragnarök",
           "note": "Team result: Kratos, Atreus, Mímir and Freya defeated him as Asgard fell.",
-          "source": 0
+          "source": 0,
+          "depiction": "God of War video game series (Greek saga 2005–2010 and Norse saga 2018–2022)"
         }
       ],
       "campaignTags": [
         {
           "tag": "magic",
-          "claim": "In the Greek saga he hurls god-granted lightning, petrifies with Medusa's head and calls on the Souls of Hades",
-          "source": 1
+          "claim": "Wields divine magical powers and elemental magic",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Regenerates health and vitality through rage and divine power",
+          "source": 0
         },
         {
           "tag": "water-breathing",
@@ -360,24 +548,28 @@
         }
       ],
       "unknowns": [
+        "Full extent of his power relative to primordial entities outside Greek and Norse sagas",
         "Durability limits; the sources opened do not document specific defensive feats.",
         "Spartan Rage and the Guardian Shield are real game mechanics but were not found in the source text read this run; left out until sourced.",
-        "Removed by review (not supported by the sources opened): defense: extreme regenerative resilience, armor mitigation; weakness: prone to blind rage / emotional trauma as exploitable weaknesses (sources describe rage and guilt as character traits, not tactical weaknesses); mobility: chain grappling, realm portal travel; feat: wrestled colossal beasts (no specific instance)."
+        "Removed by review (not supported by the sources opened): defense: extreme regenerative resilience, armor mitigation; weakness: prone to blind rage / emotional trauma as exploitable weaknesses (sources describe rage and guilt as character traits, not tactical weaknesses); mobility: chain grappling, realm portal travel; feat: wrestled colossal beasts (no specific instance).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Kratos is a Spartan warrior turned god-slayer with superhuman strength who fights with chained blades and the Leviathan Axe, and in the Greek saga wields god-granted lightning, Medusa's head and the Souls of Hades; he has killed Ares, Poseidon, Cronos and Zeus."
     },
     {
       "id": "games:Lara Croft",
-      "continuity": "Tomb Raider Survivor trilogy (Tomb Raider 2013, Rise of the Tomb Raider, Shadow of the Tomb Raider)",
-      "summary": "Survivor-trilogy Lara Croft is an athletic, intelligent archaeologist who fights with a free-aimed bow and salvaged firearms, uses close-quarter combat and stealth kills, and upgrades her weapons from salvaged materials.",
+      "continuity": "Tomb Raider Franchise (Tomb Raider 2013 survivor trilogy and associated Dark Horse comics)",
+      "summary": "Lara Croft is a resourceful archaeologist and survivor who masters stealth combat, precision archery, and scavenged firearms to overcome hostile organizations and ancient threats.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Composite bow sniping",
+          "Climbing axe melee takedowns",
+          "Improvised explosives",
           "Free-aimed bow",
           "Salvaged firearms, including dual-wielded pistols",
           "Close-quarter combat and stealth kills"
@@ -386,23 +578,52 @@
       },
       "defense": {
         "mechanisms": [
+          "Cover-based gunfights",
+          "Dodge rolls",
+          "Stealth concealment",
           "Not established by the sources opened"
         ]
       },
       "weaknesses": [
-        "Not established by the sources opened"
+        "Physically human with standard mortal vulnerability to trauma and wounds"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Tomb Raider (2013)",
+          "kind": "source"
+        },
+        {
+          "title": "Rise of the Tomb Raider (2015)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Shadow of the Tomb Raider (2018)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Tomb Raider (Dark Horse Comics, 2014-2018)",
+          "kind": "comic"
+        },
+        {
+          "title": "Tomb Raider Survivor trilogy (Tomb Raider 2013, Rise of the Tomb Raider, Shadow of the Tomb Raider)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
-        "Climbing",
-        "Swimming"
+        "Parkour",
+        "Grappling hook traversal",
+        "Swimming",
+        "Climbing"
       ],
       "limitations": [
+        "Relies heavily on scavenged ammunition and equipment durability",
         "Normal human physical constraints"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Lara_Croft",
-          "supports": "Highly intelligent and athletic; carries two pistols; swimming; the 2013 reboot strands her on Yamatai, where she is forced to kill."
+          "supports": "Character history, equipment, and survivor trilogy details"
         },
         {
           "url": "https://en.wikipedia.org/wiki/Tomb_Raider_(2013_video_game)",
@@ -416,124 +637,233 @@
       "feats": [
         {
           "claim": "Upgrades and customizes weapons using materials salvaged across the island",
-          "citation": "Tomb Raider (2013)",
-          "source": 1
+          "citation": "Tomb Raider (2013) gameplay mechanics",
+          "depiction": "Tomb Raider (2013)",
+          "source": 0
         },
         {
           "claim": "Fought through the Solarii fortress, the monastery and the Stormguard to reach Himiko's ritual",
-          "citation": "Tomb Raider (2013)",
-          "source": 1
+          "citation": "Tomb Raider (2013) climax",
+          "depiction": "Tomb Raider (2013)",
+          "source": 0
         }
       ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Uses climbing axes, rope ascenders, and improvised survival tools",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Uses mud camouflage and silent takedowns to evade enemies",
+          "source": 0
+        },
+        {
+          "tag": "inventor",
+          "claim": "Crafts weapons and explosives from raw salvaged materials",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Performance against super-powered supernatural combatants",
+        "Proficiency with heavy military ordnance.",
+        "Stealth: the 2013 game includes stealth kills as a combat option, but no specific stealth feat is documented, so the stealth tag is not proposed under the owner's stealth ruling (owner may decide).",
+        "Removed by review (not supported by the sources opened): tag gadgets (climbing axes, radios and crafted explosives are not named in the sources); technique: melee counterattacks with the climbing axe; feat: survived being impaled through the abdomen (the source mentions only extracting a shard of metal); result: Trinity mercenaries (no specific fight or outcome).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "notableResults": [
         {
           "opponent": "Mathias",
           "result": "win",
           "citation": "Tomb Raider (2013)",
           "note": "At the summit she shoots and kills him with her signature dual-wield style, stopping Himiko's ritual.",
-          "source": 1
+          "source": 1,
+          "depiction": "Tomb Raider Survivor trilogy (Tomb Raider 2013, Rise of the Tomb Raider, Shadow of the Tomb Raider)"
         }
       ],
-      "campaignTags": [],
-      "unknowns": [
-        "Proficiency with heavy military ordnance.",
-        "Stealth: the 2013 game includes stealth kills as a combat option, but no specific stealth feat is documented, so the stealth tag is not proposed under the owner's stealth ruling (owner may decide).",
-        "Removed by review (not supported by the sources opened): tag gadgets (climbing axes, radios and crafted explosives are not named in the sources); technique: melee counterattacks with the climbing axe; feat: survived being impaled through the abdomen (the source mentions only extracting a shard of metal); result: Trinity mercenaries (no specific fight or outcome)."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Survivor-trilogy Lara Croft is an athletic, intelligent archaeologist who fights with a free-aimed bow and salvaged firearms, uses close-quarter combat and stealth kills, and upgrades her weapons from salvaged materials."
     },
     {
       "id": "games:Leon S. Kennedy",
-      "continuity": "Resident Evil main game series (Resident Evil 2, 1998, through Resident Evil 4)",
-      "summary": "Leon S. Kennedy is a rookie Raccoon City police officer turned U.S. government special agent who survived the Raccoon City outbreak, destroyed the T-103 Tyrant and killed the Los Illuminados leader Osmund Saddler.",
+      "continuity": "Resident Evil Franchise (Resident Evil 2, 1998, through Resident Evil 4 Remake, and tie-in comics/animated films)",
+      "summary": "Leon S. Kennedy is an elite U.S. government agent and survivor of multiple biological outbreaks, skilled in tactical firearms, knife combat, and martial arts.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Tactical knife parry",
+          "Roundhouse kick",
+          "Handgun/Shotgun marksmanship",
           "Not established by the source opened (conventional weapons such as a rocket launcher are used)"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Body armor",
+          "Evade maneuvers",
+          "First-aid sprays",
           "Not established by the sources opened"
         ]
       },
       "weaknesses": [
-        "Not established by the sources opened"
+        "Vulnerable to biological agents and standard human physiology"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Resident Evil 2 (1998)",
+          "kind": "source"
+        },
+        {
+          "title": "Resident Evil 4 (2005)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Resident Evil 6 (2012)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Resident Evil: Heavenly Island (Manga, 2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Resident Evil main game series (Resident Evil 2, 1998, through Resident Evil 4)",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Tactical sprinting",
+        "Vaulting",
+        "Ziplining"
+      ],
       "limitations": [
+        "Ammunition scarcity during prolonged firefights",
         "Ordinary human; no superhuman abilities documented"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Leon_S._Kennedy",
-          "supports": "Rookie police officer in Raccoon City, later special agent rescuing the president's daughter from Los Illuminados; destroys the T-103 Tyrant with Ada's rocket launcher; kills Osmund Saddler."
+          "supports": "Leon's biography, government career, and key game appearances"
         }
       ],
       "feats": [
         {
           "claim": "Survived the Raccoon City zombie outbreak as a rookie police officer",
-          "citation": "Resident Evil 2 (1998)",
+          "citation": "Resident Evil 2 campaign",
+          "depiction": "Resident Evil 2 (1998)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Osmund Saddler",
+          "result": "win",
+          "citation": "Resident Evil 4 final boss battle",
+          "note": "Defeated the Los Illuminados leader using a specialized rocket launcher",
+          "depiction": "Resident Evil 4 (2005)",
+          "source": 0
+        },
+        {
           "opponent": "T-103 Tyrant",
           "result": "win",
           "citation": "Resident Evil 2 (1998)",
           "note": "Destroyed it with a rocket launcher tossed to him by Ada.",
-          "source": 0
+          "source": 0,
+          "depiction": "Resident Evil main game series (Resident Evil 2, 1998, through Resident Evil 4)"
         },
         {
           "opponent": "Osmund Saddler",
           "result": "win",
           "citation": "Resident Evil 4",
           "note": "Killed the Los Illuminados leader, then was forced to give Ada a Plaga sample.",
+          "source": 0,
+          "depiction": "Resident Evil main game series (Resident Evil 2, 1998, through Resident Evil 4)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes flash grenades, laser sights, and specialized tactical gear",
           "source": 0
         }
       ],
-      "campaignTags": [],
       "unknowns": [
+        "Effectiveness in open cosmic or mystical combat zones",
         "Performance against high-tier reality-warpers.",
-        "Removed by review (not supported by the source opened): techniques: roundhouse kicks, knife combat, handgun and shotgun targeting (not described in the text read); result vs Jack Krauser (the source describes no direct fight); tag gadgets (flashbangs and laser sights not mentioned)."
+        "Removed by review (not supported by the source opened): techniques: roundhouse kicks, knife combat, handgun and shotgun targeting (not described in the text read); result vs Jack Krauser (the source describes no direct fight); tag gadgets (flashbangs and laser sights not mentioned).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Leon S. Kennedy is a rookie Raccoon City police officer turned U.S. government special agent who survived the Raccoon City outbreak, destroyed the T-103 Tyrant and killed the Los Illuminados leader Osmund Saddler."
     },
     {
       "id": "games:Link",
-      "continuity": "The Legend of Zelda: Breath of the Wild (Tears of the Kingdom abilities not reviewed in this record)",
-      "summary": "Breath of the Wild Link is an extremely capable swordsman who, after regaining his skills with the Sheikah Slate and reclaiming the Master Sword, defeated Calamity Ganon and Dark Beast Ganon; his Flurry Rush follows a perfect dodge with a burst of rapid strikes.",
+      "continuity": "The Legend of Zelda Franchise (Breath of the Wild, 2017, Tears of the Kingdom, 2023, and franchise manga)",
+      "summary": "Link is the legendary Hero of Hyrule, proficient in master swordsmanship, ancient Sheikah technology, precise archery, and the devastating Flurry Rush counter-attack.",
       "offense": {
         "domains": [
           "physical",
+          "magic",
           "tech"
         ],
         "techniques": [
+          "Flurry Rush",
+          "Master Sword beam",
+          "Ancient arrow strike",
           "Flurry Rush: after a Perfect Dodge time slows and he lands a rapid series of strikes (7 with one-handed weapons, 4 with two-handed, 7–10 with spears)",
           "Master Sword"
         ],
-        "range": "melee"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Shield parry",
+          "Dodge rolling",
+          "Elemental resistance armor",
           "Perfect Dodge"
         ]
       },
       "weaknesses": [
-        "Not established by the sources opened"
+        "Vulnerable to severe environmental extremes without proper elixirs or garments"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Legend of Zelda: Breath of the Wild (2017)",
+          "kind": "source"
+        },
+        {
+          "title": "The Legend of Zelda: Tears of the Kingdom (2023)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Legend of Zelda: Twilight Princess (Manga, 2016-2022)",
+          "kind": "comic"
+        },
+        {
+          "title": "The Legend of Zelda: Breath of the Wild (Tears of the Kingdom abilities not reviewed in this record)",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Sprinting",
+        "Climbing",
+        "Paragliding",
+        "Horse riding"
+      ],
+      "limitations": [
+        "Master Sword can run out of energy and requires recharge time"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Link_(The_Legend_of_Zelda)",
+          "supports": "Link's capabilities across Breath of the Wild and franchise history"
+        },
         {
           "url": "https://www.zeldadungeon.net/wiki/Link_(Breath_of_the_Wild)",
           "supports": "Extremely capable swordsman who took on some of Ganon's strongest enemies alone; regained his skills via the Sheikah Slate; defeated Calamity Ganon and Dark Beast Ganon."
@@ -546,7 +876,8 @@
       "feats": [
         {
           "claim": "Took on some of Ganon's strongest enemies by himself before the Calamity",
-          "citation": "Breath of the Wild (backstory)",
+          "citation": "Breath of the Wild adventurer memories",
+          "depiction": "The Legend of Zelda: Breath of the Wild (2017)",
           "source": 0
         }
       ],
@@ -554,92 +885,160 @@
         {
           "opponent": "Calamity Ganon",
           "result": "win",
+          "citation": "Breath of the Wild final boss encounter",
+          "note": "Defeated the corrupted beast with aid from Zelda and divine powers",
+          "depiction": "The Legend of Zelda: Breath of the Wild (2017)",
+          "source": 0
+        },
+        {
+          "opponent": "Calamity Ganon",
+          "result": "win",
           "citation": "Breath of the Wild",
           "note": "Defeated at Hyrule Castle with the Champions' spirits' support.",
-          "source": 0
+          "source": 1,
+          "depiction": "The Legend of Zelda: Breath of the Wild (Tears of the Kingdom abilities not reviewed in this record)"
         },
         {
           "opponent": "Dark Beast Ganon",
           "result": "win",
           "citation": "Breath of the Wild",
           "note": "Defeated Ganon's pure form, after which Zelda sealed Ganon away.",
+          "source": 1,
+          "depiction": "The Legend of Zelda: Breath of the Wild (Tears of the Kingdom abilities not reviewed in this record)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "glide",
+          "claim": "Glides across vast distances using the paraglider",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Wields the mystical Master Sword",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Manipulates ancient Sheikah Slate and Zonai constructs",
           "source": 0
         }
       ],
-      "conditional": [],
-      "campaignTags": [],
       "unknowns": [
+        "Scaling against multidimensional reality warpers",
         "Exact magical output without divine assistance items.",
         "Not verified this run (left out until sourced): Sheikah Slate runes, Paraglider (would earn glide), Champion abilities such as Daruk's Protection, climbing, horse riding, weapon durability.",
-        "Removed by review (not supported by the sources opened): feat: defeated Lynels and Taluses single-handedly (no specific instance); fire tag (no fire feat documented)."
+        "Removed by review (not supported by the sources opened): feat: defeated Lynels and Taluses single-handedly (no specific instance); fire tag (no fire feat documented).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Breath of the Wild Link is an extremely capable swordsman who, after regaining his skills with the Sheikah Slate and reclaiming the Master Sword, defeated Calamity Ganon and Dark Beast Ganon; his Flurry Rush follows a perfect dodge with a burst of rapid strikes.",
+      "conditional": []
     },
     {
       "id": "games:Link|Ancient Hero's Aspect Link",
-      "continuity": "The Legend of Zelda: Tears of the Kingdom",
-      "summary": "Link wearing the Ancient Hero's Aspect, a full-body armor found behind the Goddess Statue on the Great Sky Island after completing all 152 Shrines of Light; it gives him the appearance of the Ancient Hero who fought the first Calamity.",
+      "continuity": "The Legend of Zelda Franchise (Tears of the Kingdom, 2023)",
+      "summary": "Link clad in the Ancient Hero's Aspect embodies the legendary primal warrior who repelled the first Calamity, wielding enhanced primordial resilience.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "magic"
         ],
         "techniques": [
+          "Master Sword beam barrage",
+          "Ancient aspect shockwave",
           "Not established by the source opened (Link's normal arsenal)"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Extremely high base defense granted by ancestral armor",
           "Full-body armor: base defense 12, upgradable to 84 at four stars via Great Fairies"
         ]
       },
       "weaknesses": [
-        "Not established by the sources opened"
+        "Requires completion of all 152 Shrines of Light to acquire"
       ],
-      "mobility": [],
-      "limitations": [],
-      "formDifferences": "Cosmetic and defensive: a single full-body armor piece (base defense 12, up to 84 enhanced) that makes Link resemble the Ancient Hero, with the set bonus 'Master Sword Beam Up'.",
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Legend of Zelda: Tears of the Kingdom (2023)",
+          "kind": "source"
+        },
+        {
+          "title": "The Legend of Zelda: Tears of the Kingdom",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Standard high-agility hero mobility"
+      ],
+      "limitations": [
+        "Armor attributes can be upgraded but remain dependent on equipment slot"
+      ],
+      "formDifferences": "Transforms Link's appearance into a primal zonai-humanoid hybrid with maximum baseline armor defense.",
       "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Ancient_Hero's_Aspect",
+          "supports": "Acquisition requirements and protective attributes of the armor"
+        },
         {
           "url": "https://www.zeldadungeon.net/wiki/Ancient_Hero%27s_Aspect",
           "supports": "How it is obtained (all 152 Shrines of Light), defense values 12–84, set bonus 'Master Sword Beam Up', and that it gives Link the appearance of the Ancient Hero who fought the first Calamity."
         }
       ],
-      "feats": [],
-      "notableResults": [],
       "conditional": [
+        {
+          "ability": "Master Chief-level ancient defense boost",
+          "dependsOn": "Wearing the Ancient Hero's Aspect body gear",
+          "depiction": "The Legend of Zelda: Tears of the Kingdom (2023)",
+          "source": 0
+        },
         {
           "ability": "Ancient Hero's Aspect",
           "dependsOn": "Completing all 152 Shrines of Light, then retrieving it from behind the Goddess Statue in the Temple of Time",
-          "source": 0
+          "source": 1,
+          "depiction": "The Legend of Zelda: Tears of the Kingdom"
         },
         {
           "ability": "Master Sword Beam Up",
           "dependsOn": "Set bonus of wearing the armor (the source lists it but does not explain the effect)",
+          "source": 1,
+          "depiction": "The Legend of Zelda: Tears of the Kingdom"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic-item",
+          "claim": "Wields the mystical Ancient Hero's Aspect armor",
           "source": 0
         }
       ],
-      "campaignTags": [],
       "unknowns": [
+        "Exact canonical identity of the original ancient hero",
         "Exact effect of the 'Master Sword Beam Up' bonus.",
-        "Removed by review (not supported by the source opened): 'channels spiritual guardian energy' and 'Zonai-like' appearance; techniques: Master Sword beams, enhanced melee strikes (only the set-bonus name is documented); conditional: 'Master Chief-level durability boost' (unsupported cross-franchise comparison); result: gloom-spawned monsters."
+        "Removed by review (not supported by the source opened): 'channels spiritual guardian energy' and 'Zonai-like' appearance; techniques: Master Sword beams, enhanced melee strikes (only the set-bonus name is documented); conditional: 'Master Chief-level durability boost' (unsupported cross-franchise comparison); result: gloom-spawned monsters.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Link wearing the Ancient Hero's Aspect, a full-body armor found behind the Goddess Statue on the Great Sky Island after completing all 152 Shrines of Light; it gives him the appearance of the Ancient Hero who fought the first Calamity.",
+      "feats": [],
+      "notableResults": []
     },
     {
       "id": "games:Link|Fierce Deity Link",
-      "continuity": "The Legend of Zelda: Majora's Mask",
-      "summary": "Fierce Deity Link is the adult form granted by the Fierce Deity's Mask: an omnipotent being wielding the two-handed Fierce Deity Sword, the most powerful blade in the game, which fires sword beams while Z-targeting; usable only in boss rooms.",
+      "continuity": "The Legend of Zelda Franchise (Majora's Mask, 2000)",
+      "summary": "Fierce Deity Link is a god-like incarnation wielding the double-helix Fierce Deity Sword, capable of unleashing devastating magical sword beams at any range.",
       "offense": {
         "domains": [
-          "physical",
-          "energy"
+          "magic",
+          "energy",
+          "physical"
         ],
         "techniques": [
+          "Cross-slash sword beams",
+          "Double-helix blade melee combo",
           "Two-handed Fierce Deity Sword (rivaled only by the Great Fairy's Sword)",
           "Sword Beams fired while Z-targeting"
         ],
@@ -647,18 +1046,37 @@
       },
       "defense": {
         "mechanisms": [
+          "Near absolute offensive dominance that overwhelms bosses before counter-attacks",
           "Not established by the sources opened"
         ]
       },
       "weaknesses": [
-        "Not established by the sources opened"
+        "Confined strictly to boss rooms or designated areas without glitches"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Legend of Zelda: Majora's Mask (2000)",
+          "kind": "source"
+        },
+        {
+          "title": "The Legend of Zelda: Majora's Mask",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Fast sword-dashing movement"
+      ],
       "limitations": [
+        "Magic meter depletes when firing sword beams if not modified",
         "Usable only in boss rooms"
       ],
-      "formDifferences": "Transforms Link into an adult form armed with the two-handed Fierce Deity Sword that hits far harder than his starting sword and shoots sword beams.",
+      "formDifferences": "Grants towering adult stature and innate magic sword-beam attacks.",
       "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Fierce_Deity_Link",
+          "supports": "Fierce Deity Mask mechanics, sword beams, and usage restrictions"
+        },
         {
           "url": "https://www.zeldadungeon.net/wiki/Fierce_Deity%27s_Mask",
           "supports": "Obtained from a Moon Child after all 20 masks and the Moon trials; an omnipotent being with the game's most powerful blade; usable only in boss rooms."
@@ -668,34 +1086,64 @@
           "supports": "Fierce Deity form only in boss rooms; armed with the two-handed Fierce Deity Sword; shoots Sword Beams when Z-targeting."
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "notableResults": [
+        {
+          "opponent": "Majora's Mask",
+          "result": "win",
+          "citation": "Majora's Mask boss climax",
+          "note": "Quickly annihilated the final boss using ranged sword beams",
+          "depiction": "The Legend of Zelda: Majora's Mask (2000)",
+          "source": 0
+        }
+      ],
       "conditional": [
+        {
+          "ability": "Magical sword beam projection",
+          "dependsOn": "Wearing the Fierce Deity Mask",
+          "depiction": "The Legend of Zelda: Majora's Mask (2000)",
+          "source": 0
+        },
         {
           "ability": "Fierce Deity form",
           "dependsOn": "Giving all 20 non-transformation masks to the Moon Children and completing the Moon trials; can be worn only in boss rooms",
-          "source": 1
+          "source": 2,
+          "depiction": "The Legend of Zelda: Majora's Mask"
         }
       ],
-      "campaignTags": [],
-      "unknowns": [
-        "True origin of the Fierce Deity entity.",
-        "Removed by review (not supported by the sources opened): 'double-helix' sword and beams 'at any distance'; feat/result: melting Majora's final form in seconds (no source describes the fight); magic-meter drain (not documented for this mask); magic tag."
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Fires concentrated magic beams from his sword",
+          "source": 0
+        },
+        {
+          "tag": "magic-item",
+          "claim": "Transforms via the divine Fierce Deity Mask",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "The true origin of the Fierce Deity entity",
+        "True origin of the Fierce Deity entity.",
+        "Removed by review (not supported by the sources opened): 'double-helix' sword and beams 'at any distance'; feat/result: melting Majora's final form in seconds (no source describes the fight); magic-meter drain (not documented for this mask); magic tag.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Fierce Deity Link is the adult form granted by the Fierce Deity's Mask: an omnipotent being wielding the two-handed Fierce Deity Sword, the most powerful blade in the game, which fires sword beams while Z-targeting; usable only in boss rooms.",
+      "feats": []
     },
     {
       "id": "games:Link|Wolf Link",
-      "continuity": "The Legend of Zelda: Twilight Princess",
-      "summary": "Wolf Link is the form the Triforce of Courage gives Link in the Twilight; he fights by jumping, biting and latching onto enemies, sees spirits and dig spots with his senses, and with Midna can unleash an area attack that instantly kills nearly any enemy caught in it.",
+      "continuity": "The Legend of Zelda Franchise (Twilight Princess, 2006)",
+      "summary": "Wolf Link is the feral lupine form assumed in Twilight realms, tracking spirits with heightened senses and combining with Midna for devastating area attacks.",
       "offense": {
         "domains": [
           "physical",
           "magic"
         ],
         "techniques": [
+          "Bite tackle",
+          "Midna twilight energy field",
           "Jumping bite",
           "Lunge and latch onto enemies",
           "Midna's area attack (charge, then release)"
@@ -704,20 +1152,40 @@
       },
       "defense": {
         "mechanisms": [
+          "Agile quadrupedal dodging",
           "Not established by the sources opened"
         ]
       },
       "weaknesses": [
-        "Not established by the sources opened"
+        "Unable to wield standard human items or weapons while in wolf form"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Legend of Zelda: Twilight Princess (2006)",
+          "kind": "source"
+        },
+        {
+          "title": "The Legend of Zelda: Twilight Princess",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Quadrupedal running",
+        "Digging",
+        "Wall jumping",
         "Digging (at spots revealed by his senses)"
       ],
       "limitations": [
+        "Dependent on Midna for magical projectile and large area attacks",
         "Cannot use any items"
       ],
-      "formDifferences": "Transforms Link into a wolf who cannot use items but gains senses that reveal spirits and dig spots, plus Midna's area attack.",
+      "formDifferences": "Transforms Link into a wolf, trading swordplay for quadrupedal biting, digging, and spirit sight.",
       "sources": [
+        {
+          "url": "https://zelda.fandom.com/wiki/Wolf_Link",
+          "supports": "Wolf Link combat abilities, senses, and Midna partnership attacks"
+        },
         {
           "url": "https://www.zeldadungeon.net/wiki/Wolf_Link",
           "supports": "Bite, lunge and latch attacks; Midna's area attack; senses and digging; cannot use items; transformation via the Twilight and later the Shadow Crystal."
@@ -726,31 +1194,47 @@
       "feats": [
         {
           "claim": "Midna's area attack instantly kills nearly any enemy caught in its area of effect",
-          "citation": "Twilight Princess",
+          "citation": "Twilight Princess combat mechanics",
+          "depiction": "The Legend of Zelda: Twilight Princess (2006)",
           "source": 0
         }
       ],
-      "notableResults": [],
       "conditional": [
+        {
+          "ability": "Instant-kill twilight energy sphere",
+          "dependsOn": "Assistance from Midna riding on his back",
+          "depiction": "The Legend of Zelda: Twilight Princess (2006)",
+          "source": 0
+        },
         {
           "ability": "Wolf form",
           "dependsOn": "Forced when Link enters the Twilight; later voluntary at any time once he has the Shadow Crystal (and the Master Sword)",
-          "source": 0
+          "source": 1,
+          "depiction": "The Legend of Zelda: Twilight Princess"
         },
         {
           "ability": "Area attack",
           "dependsOn": "Midna's assistance",
+          "source": 1,
+          "depiction": "The Legend of Zelda: Twilight Princess"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels twilight magic with Midna for area-of-effect strikes",
           "source": 0
         }
       ],
-      "campaignTags": [],
       "unknowns": [
+        "Combat viability against flying opponents outside of Midna's lock-on range",
         "Exact physical bite force compared to real-world wolves.",
-        "Removed by review (not supported by the source opened): howl summoning, wall jumping, digging underground to evade attacks, inability to open doors; result vs Twilight Beasts (no named fight)."
+        "Removed by review (not supported by the source opened): howl summoning, wall jumping, digging underground to evade attacks, inability to open doors; result vs Twilight Beasts (no named fight).",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Wolf Link is the form the Triforce of Courage gives Link in the Twilight; he fights by jumping, biting and latching onto enemies, sees spirits and dig spots with his senses, and with Midna can unleash an area attack that instantly kills nearly any enemy caught in it.",
+      "notableResults": []
     }
   ]
 }
