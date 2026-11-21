@@ -7,34 +7,56 @@
   "characters": [
     {
       "id": "pokemon:Vileplume",
-      "continuity": "Pokémon Generation I - IX games and anime",
-      "summary": "Vileplume is a Grass and Poison-type Pokémon that utilizes toxic pollen and powders from its massive petals to incapacitate opponents from a distance. It relies on status-inflicting moves and special grass-type attacks in combat.",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
+      "summary": "Vileplume is a Grass and Poison-type Pokémon equipped with massive, heavy petals that scatter toxic, allergy-inducing pollen. It fights by deploying hazardous status powders and powerful plant-based attacks from a stationary or semi-mobile position.",
       "offense": {
         "domains": [
-          "grass",
+          "plant",
           "poison",
+          "gas",
+          "grass",
           "status"
         ],
         "techniques": [
           "Solar Beam",
+          "Petal Dance",
+          "Toxic",
+          "Stun Spore",
           "Petal Blizzard",
           "Sludge Bomb",
-          "Sleep Powder",
-          "Stun Spore"
+          "Sleep Powder"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Pollen cloud screen",
+          "Poisonous body deterrent",
           "Type resistances to water, electric, grass, fighting, and fairy attacks",
           "Status infliction to disrupt enemy actions"
         ]
       },
       "weaknesses": [
+        "Fire",
+        "Flying",
+        "Psychic",
+        "Ice",
         "Vulnerable to fire, flying, psychic, and ice-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
-        "Walking"
+        "Walking",
+        "Hovering/Short flight"
       ],
       "limitations": [
         "Heavy petals restrict rapid movement and agility."
@@ -42,88 +64,111 @@
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Vileplume_(Pok%C3%A9mon)",
-          "supports": "Abilities, type, and combat moves for Vileplume"
+          "supports": "Basic traits, typing, and moveset data for Vileplume across games and anime."
         }
       ],
       "feats": [
         {
           "claim": "Disperses heavy toxic pollen capable of causing severe allergic reactions and status conditions.",
-          "citation": "Pokémon anime and game Pokédex entries",
+          "citation": "Pokémon standard game mechanics and anime episodes featuring Vileplume",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Vileplume possesses leaves that allow it to lift off the ground or float temporarily in various media.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Vileplume is a Grass and Poison-type Pokémon that utilizes toxic pollen and powders from its massive petals to incapacitate opponents from a distance. It relies on status-inflicting moves and special grass-type attacks in combat.",
       "unknowns": [
         "Exact toxicity levels of individual pollen varieties outside standard game mechanics.",
-        "Unsupported by cited source (term check, 4/11 key terms found): natural-flight: Vileplume possesses wings implicitly capable of flight in certain contexts or Dex entries, though primarily terrestrial."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Unsupported by cited source (term check, 4/11 key terms found): natural-flight: Vileplume possesses wings implicitly capable of flight in certain contexts or Dex entries, though primarily terrestrial.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Voltorb",
-      "continuity": "Pokémon Generation I - IX games and anime",
-      "summary": "Voltorb is an Electric-type Pokémon that resembles a Poké Ball. It fights by utilizing high-speed rolling movements and detonating itself using explosive moves like Self-Destruct and Explosion.",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
+      "summary": "Voltorb is an Electric-type Pokémon resembling a Poké Ball. It relies on rapid high-speed rolling movements to crash into opponents and self-detonates using explosive moves when provoked or cornered.",
       "offense": {
         "domains": [
           "electric",
-          "physical",
-          "explosive"
+          "explosive",
+          "physical"
         ],
         "techniques": [
-          "Spark",
-          "Thunderbolt",
           "Self-Destruct",
           "Explosion",
-          "Rollout"
+          "Spark",
+          "Rollout",
+          "Thunderbolt"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Spherical bounce and high-speed evasive rolling",
           "Sturdy metallic or synthetic shell",
           "Resistance to electric, flying, and steel-type attacks"
         ]
       },
       "weaknesses": [
+        "Ground",
         "Vulnerable to ground-type attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
       ],
       "mobility": [
         "Rolling"
       ],
       "limitations": [
+        "Prone to exploding from minor shocks or triggers.",
         "Relies heavily on proximity for explosion-based attacks."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Voltorb_(Pok%C3%A9mon)",
-          "supports": "Voltorb types, moves, and explosive nature"
+          "supports": "Voltorb biology, explosive nature, and electric typing."
         }
       ],
       "feats": [
         {
           "claim": "Capable of detonating its own body to deal massive explosive damage to opponents.",
-          "citation": "Pokémon Red and Blue",
+          "citation": "Standard gameplay and anime encounters where Voltorb uses Self-Destruct",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "electric",
-          "claim": "Voltorb generates and stores electricity within its body.",
+          "claim": "Voltorb generates electricity naturally as an Electric-type Pokémon.",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Voltorb is an Electric-type Pokémon that resembles a Poké Ball. It fights by utilizing high-speed rolling movements and detonating itself using explosive moves like Self-Destruct and Explosion.",
       "unknowns": [
-        "The true origin of its resemblance to manufactured Poké Balls."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "The true origin of its resemblance to manufactured Poké Balls.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Vulpix",
-      "continuity": "Pokémon Generation I - IX games and anime",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
       "summary": "Vulpix is a Fire-type fox Pokémon that controls internal flames to project fireballs at its opponents. It uses speed and agility to evade attacks while maintaining ranged pressure.",
       "offense": {
         "domains": [
@@ -132,58 +177,76 @@
         ],
         "techniques": [
           "Flamethrower",
-          "Fire Blast",
+          "Fire Spin",
           "Will-O-Wisp",
+          "Fire Blast",
           "Quick Attack"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Agile evasion",
           "High agility and evasive movement",
           "Resistance to fire, grass, ice, bug, steel, and fairy attacks"
         ]
       },
       "weaknesses": [
+        "Water",
+        "Ground",
+        "Rock",
         "Vulnerable to water, ground, and rock-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
+        "Quadrupedal running",
         "Running"
       ],
       "limitations": [
+        "Vulnerable to water and heavy moisture environments.",
         "Physically fragile compared to evolved or larger Pokémon."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Vulpix_(Pok%C3%A9mon)",
-          "supports": "Vulpix baseline abilities, fire moves, and attributes"
+          "supports": "Vulpix base stats, fire attacks, and physical description."
         }
       ],
       "feats": [
         {
           "claim": "Controls six streams of fire from birth, manipulating flame temperature precisely.",
-          "citation": "Pokémon anime and game Pokédex entries",
+          "citation": "Pokédex entries and anime appearances for Vulpix",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "fire",
-          "claim": "Vulpix generates and projects fire naturally.",
+          "claim": "Vulpix controls internal flames and uses fire-type moves.",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "unknowns": [
-        "Exact internal mechanism for maintaining continuous flame storage."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact internal mechanism for maintaining continuous flame storage.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Vulpix|Alolan Vulpix",
-      "continuity": "Pokémon Sun, Moon, and later generations",
-      "summary": "Alolan Vulpix is an Ice-type regional variant of Vulpix inhabiting snowy mountain environments. It exhales freezing air to encase opponents in ice and maneuver across frozen terrain.",
+      "continuity": "Pokémon Sun, Moon, and later generations games and anime",
+      "summary": "Alolan Vulpix is an Ice-type regional variant inhabiting snowy mountain environments. It exhales freezing air to encase opponents in ice and maneuver across frozen terrain.",
       "offense": {
         "domains": [
           "ice",
@@ -192,57 +255,76 @@
         "techniques": [
           "Ice Beam",
           "Blizzard",
-          "Aurora Veil",
-          "Powder Snow"
+          "Powder Snow",
+          "Aurora Veil"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Snow camouflage and ice armor",
           "Aurora Veil to reduce incoming physical and special damage",
           "Resistance to ice-type attacks"
         ]
       },
       "weaknesses": [
+        "Fire",
+        "Fighting",
+        "Rock",
+        "Steel",
         "Vulnerable to fire, fighting, rock, and steel-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sun, Moon, and later generations",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
+        "Quadrupedal running across snow and ice",
         "Running"
       ],
       "limitations": [
+        "Extremely vulnerable to intense heat and fire.",
         "Vulnerable to high heat environments."
       ],
-      "formDifferences": "Changes typing from Fire to Ice, altering its elemental moveset, weaknesses, and resistances.",
+      "formDifferences": "Changes typing from pure Fire to pure Ice, replacing fire attacks with sub-zero freezing breath and ice manipulation.",
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Vulpix_(Pok%C3%A9mon)",
-          "supports": "Alolan Vulpix variant stats, moves, and ice typing"
+          "supports": "Alolan Vulpix regional variant traits and ice abilities."
         }
       ],
       "feats": [
         {
           "claim": "Exhales breath reaching sub-zero temperatures capable of freezing anything solid.",
-          "citation": "Pokémon Sun and Moon Pokédex",
+          "citation": "Alolan Vulpix Pokédex entries across Generation VII-IX games",
+          "depiction": "Pokémon Sun, Moon, and later generations",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "ice",
-          "claim": "Alolan Vulpix generates and projects freezing ice and snow.",
+          "claim": "Alolan Vulpix exhales sub-zero freezing air and ice attacks.",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Alolan Vulpix is an Ice-type regional variant of Vulpix inhabiting snowy mountain environments. It exhales freezing air to encase opponents in ice and maneuver across frozen terrain.",
       "unknowns": [
-        "Ecological adaptation triggers compared to standard Vulpix."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Ecological adaptation triggers compared to standard Vulpix.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Wartortle",
-      "continuity": "Pokémon Generation I - IX games and anime",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
       "summary": "Wartortle is a Water-type turtle Pokémon that combines durable shell defense with powerful water cannons and tail-based strikes. It uses its furry ears and tail for balance while swimming or fighting.",
       "offense": {
         "domains": [
@@ -252,64 +334,80 @@
         "techniques": [
           "Water Gun",
           "Hydro Pump",
-          "Aqua Tail",
+          "Skull Bash",
           "Bite",
-          "Skull Bash"
+          "Aqua Tail"
         ],
-        "range": "ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Heavy shell retraction",
+          "Thick hide",
           "Hard shell protection",
           "Resistance to fire, water, ice, and steel-type attacks"
         ]
       },
       "weaknesses": [
+        "Electric",
+        "Grass",
         "Vulnerable to electric and grass-type attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
       ],
       "mobility": [
         "Swimming",
         "Walking"
       ],
       "limitations": [
+        "Reduced mobility when limbs and head are retracted into the shell.",
         "Limited mobility on dry land compared to water."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Wartortle_(Pok%C3%A9mon)",
-          "supports": "Wartortle evolution details, moves, and capabilities"
+          "supports": "Wartortle combat traits, water attacks, and shell defense."
         }
       ],
       "feats": [
         {
           "claim": "Hides inside its heavy shell to deflect incoming attacks and uses its large furry tail as a symbol of longevity.",
-          "citation": "Pokémon anime",
+          "citation": "Pokédex profiles and anime battles featuring Wartortle",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "swimmer",
-          "claim": "Wartortle is highly adept at swimming and moves swiftly through water.",
+          "claim": "Wartortle is adept at swimming in aquatic environments.",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "unknowns": [
-        "Maximum diving depth under extreme water pressure."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Maximum diving depth under extreme water pressure.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Weedle",
-      "continuity": "Pokémon Generation I - IX games and anime",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
       "summary": "Weedle is a Bug and Poison-type caterpillar Pokémon. It defends itself using a sharp stinger on its head capable of injecting mild venom into attackers.",
       "offense": {
         "domains": [
-          "bug",
           "poison",
-          "physical"
+          "physical",
+          "bug"
         ],
         "techniques": [
           "Poison Sting",
@@ -319,51 +417,70 @@
       },
       "defense": {
         "mechanisms": [
+          "Camouflage among leaves and foliage",
           "Resistance to grass, fighting, poison, and bug-type attacks"
         ]
       },
       "weaknesses": [
+        "Fire",
+        "Flying",
+        "Rock",
+        "Psychic",
         "Vulnerable to fire, flying, and rock-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
+        "Cawling",
         "Crawling"
       ],
       "limitations": [
+        "Very slow movement speed and weak physical constitution.",
         "Very low physical strength and durability."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Weedle_(Pok%C3%A9mon)",
-          "supports": "Weedle stats, moves, and stinger details"
+          "supports": "Weedle stinger details and venom characteristics."
         }
       ],
       "feats": [
         {
           "claim": "Uses the sharp stinger on top of its head to ward off enemies with venom.",
-          "citation": "Pokémon Red and Blue Pokédex",
+          "citation": "Pokédex entries detailing Weedle's defense mechanism",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "unknowns": [
-        "Effectiveness of its stinger against larger armored opponents."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Effectiveness of its stinger against larger armored opponents.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Weepinbell",
-      "continuity": "Pokémon Generation I - IX games and anime",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
       "summary": "Weepinbell is a Grass and Poison-type pitcher plant Pokémon that traps prey with acidic fluids and sharp razor leaves. It hangs from tree branches to ambush passersby.",
       "offense": {
         "domains": [
-          "grass",
+          "plant",
+          "acid",
           "poison",
-          "acid"
+          "grass"
         ],
         "techniques": [
-          "Razor Leaf",
           "Acid",
+          "Razor Leaf",
           "Vine Whip",
           "Wrap",
           "Sleep Powder"
@@ -372,51 +489,72 @@
       },
       "defense": {
         "mechanisms": [
+          "Hanging camouflage and tough outer casing",
           "Resistance to water, electric, grass, fighting, and fairy-type attacks"
         ]
       },
       "weaknesses": [
+        "Fire",
+        "Flying",
+        "Ice",
+        "Psychic",
         "Vulnerable to fire, flying, psychic, and ice-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
+        "Swinging / Slow crawling",
         "Walking",
         "Vine swinging"
       ],
       "limitations": [
+        "Inability to move quickly when rooted or hanging from branches.",
         "Immobile when rooted or hanging from a vine."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Weepinbell_(Pok%C3%A9mon)",
-          "supports": "Weepinbell moves, types, and biology"
+          "supports": "Weepinbell acidic digestion and plant attacks."
         }
       ],
       "feats": [
         {
           "claim": "Dissolves any captured prey using a harsh internal fluid acting as acid.",
-          "citation": "Pokémon anime and game Pokédex",
+          "citation": "Pokédex profiles describing Weepinbell's predatory habits",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "unknowns": [
-        "Chemical composition of its digestive fluids."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Chemical composition of its digestive fluids.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Weezing",
-      "continuity": "Pokémon Generation I - IX games and anime",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
       "summary": "Weezing is a Poison-type floating Pokémon formed of twin connected bodies that generate toxic gases. It uses pollution and noxious fumes to overwhelm opponents in close combat or area-of-effect engagement.",
       "offense": {
         "domains": [
           "poison",
-          "gas"
+          "gas",
+          "explosive"
         ],
         "techniques": [
           "Sludge Bomb",
           "Smog",
+          "Clear Smog",
+          "Self-Destruct",
           "Smokescreen",
           "Toxic",
           "Explosion"
@@ -425,111 +563,151 @@
       },
       "defense": {
         "mechanisms": [
+          "Levitation and thick gaseous shroud",
           "Levitation to avoid ground-based strikes",
           "Resistance to grass, fighting, poison, bug, and fairy attacks"
         ]
       },
       "weaknesses": [
+        "Ground",
+        "Psychic",
         "Vulnerable to psychic and ground-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
+        "Levitation",
         "Floating"
       ],
       "limitations": [
+        "Dependent on maintaining internal gas pressure to float.",
         "Dependent on maintaining internal gas pressure to stay afloat."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Weezing_(Pok%C3%A9mon)",
-          "supports": "Weezing types, abilities, and gas attacks"
+          "supports": "Weezing gas mixing capabilities and poison typings."
         }
       ],
       "feats": [
         {
           "claim": "Mixes gases between its two bodies to create highly toxic and explosive concoctions.",
-          "citation": "Pokémon anime and game Pokédex",
+          "citation": "Pokédex entries and anime episodes featuring Weezing",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Weezing floats continuously in the air via internal lighter-than-air gases.",
+          "claim": "Weezing floats permanently in the air via internal gases.",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "unknowns": [
-        "Environmental impact of prolonged toxin release in enclosed spaces."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Environmental impact of prolonged toxin release in enclosed spaces.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Wigglytuff",
-      "continuity": "Pokémon Generation I - IX games and anime",
-      "summary": "Wigglytuff is a Normal and Fairy-type Pokémon known for its elastic body and ability to lull opponents to sleep with soothing lullabies. It absorbs impacts and expands its body to deflect physical strikes.",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
+      "summary": "Wigglytuff is a Normal and Fairy-type Pokémon known for its elastic body and ability to lull opponents to sleep with soothing lullabies. It absorbs physical impacts and expands its body to deflect strikes.",
       "offense": {
         "domains": [
-          "normal",
+          "sound",
           "fairy",
+          "physical",
+          "normal",
           "status"
         ],
         "techniques": [
-          "Hyper Voice",
-          "Dazzling Gleam",
           "Sing",
+          "Dazzling Gleam",
           "Body Slam",
+          "Hyper Voice",
           "Play Rough"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Rubber-like elasticity and shock absorption",
           "High HP pool allowing it to absorb heavy damage",
           "Immunity to ghost and dragon-type attacks"
         ]
       },
       "weaknesses": [
+        "Steel",
+        "Poison",
         "Vulnerable to poison and steel-type attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
       ],
       "mobility": [
         "Walking",
+        "Bouncing",
         "Floating slightly by inflating"
       ],
       "limitations": [
+        "Vulnerable to heavy armor-piercing physical strikes despite elasticity.",
         "Relies on landing status moves like Sing to control aggressive opponents."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Wigglytuff_(Pok%C3%A9mon)",
-          "supports": "Wigglytuff stats, movepool, and abilities"
+          "supports": "Wigglytuff body elasticity, abilities, and move sets."
         }
       ],
       "feats": [
         {
           "claim": "Inflatably expands its body to enormous proportions when angered or taking deep breaths.",
-          "citation": "Pokémon anime",
+          "citation": "Pokédex descriptions of Wigglytuff's elastic biology",
+          "depiction": "Pokémon Generation I - IX games and anime",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Wigglytuff is a Normal and Fairy-type Pokémon known for its elastic body and ability to lull opponents to sleep with soothing lullabies. It absorbs impacts and expands its body to deflect physical strikes.",
       "unknowns": [
-        "Exact elasticity limits of its fur and skin."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact elasticity limits of its fur and skin.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Zapdos",
-      "continuity": "Pokémon Generation I - IX games and anime",
+      "continuity": "Pokémon games and anime, including main series games, spin-offs, and Pokémon Adventures manga",
       "summary": "Zapdos is a legendary Electric and Flying-type bird Pokémon that controls lightning and generates massive thunderstorms wherever it flies. It strikes with high-speed aerial dive-bombs and devastating electrical discharges.",
       "offense": {
         "domains": [
           "electric",
+          "aerial",
           "flying"
         ],
         "techniques": [
+          "Thunder",
+          "Thunderbolt",
+          "Zap Cannon",
+          "Drill Peck",
           "Legendary bird that controls electricity and drops lightning bolts",
           "Gains power when struck by lightning",
           "Pressure ability drains opponents' move uses"
@@ -538,20 +716,40 @@
       },
       "defense": {
         "mechanisms": [
+          "High-speed flight evasion and electric aura shield",
           "Immune to Ground-type moves",
           "Resists Grass, Fighting, Flying, Bug and Steel"
         ]
       },
       "weaknesses": [
+        "Rock",
+        "Ice",
         "Weak to Ice and Rock"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Generation I - IX games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
+        "High-speed natural flight",
         "Flight"
       ],
       "limitations": [
+        "Vulnerable to grounding attacks and stealth rock hazards.",
         "Vulnerable to concentrated cold or projectile rock arrays."
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Zapdos_(Pok%C3%A9mon)",
+          "supports": "Zapdos legendary status, thunder generation, and flying capabilities."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon",
           "supports": "Zapdos is an Electric/Flying legendary bird that controls electricity and gains power from thunderstorms."
@@ -561,16 +759,35 @@
           "supports": "Zapdos is weak to Ice and Rock, resists five types, is immune to Ground, and has the Pressure and Static abilities."
         }
       ],
+      "feats": [
+        {
+          "claim": "Creates massive thunderstorms and hurls lightning bolts spontaneously from its body while soaring through clouds.",
+          "citation": "Pokédex entries and legendary bird encounters across multiple Pokémon games and anime arcs",
+          "depiction": "Pokémon Generation I - IX games and anime",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Zapdos flies naturally using large wings as a Flying-type Pokémon.",
+          "source": 0
+        },
+        {
+          "tag": "electric",
+          "claim": "Zapdos commands massive thunderstorms and lightning strikes.",
+          "source": 0
+        }
+      ],
+      "researchStatus": "provisional",
       "unknowns": [
         "Full extent of its power output during peak thunderstorm conditions.",
         "Unsupported by cited source (term check, 0/8 key terms found): Causes massive thunderstorms and lightning strikes merely by appearing in the clouds.",
         "Unsupported by cited source (term check, 0/7 key terms found): natural-flight: Zapdos flies naturally using large wings and generates electricity as it moves.",
         "Unsupported by cited source (term check, 0/6 key terms found): electric: Zapdos controls and projects immense electrical energy naturally.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     }
   ]
 }
