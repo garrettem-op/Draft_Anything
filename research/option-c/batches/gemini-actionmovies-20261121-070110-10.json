@@ -1,0 +1,779 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261121-070110 #10",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:T-1000",
+      "continuity": "Terminator 2: Judgment Day (1991 film) and Terminator 2 comics",
+      "summary": "An advanced mimetic polyalloy assassin capable of liquid-metal fluidity, blade generation, and shape-shifting infiltration.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Liquid-metal stabbing implements",
+          "Mimicry and shape-shifting disguise",
+          "Ramming vehicle attacks"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Mimetic polyalloy regeneration from physical damage",
+          "Immunity to conventional ballistic trauma"
+        ]
+      },
+      "weaknesses": [
+        "Extreme heat causing structural disruption",
+        "Molten metal immersion leading to operational failure"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Terminator 2: Judgment Day (1991 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Running",
+        "Fluid morphing through narrow bars",
+        "Vehicle driving"
+      ],
+      "limitations": [
+        "Cannot replicate complex machines such as firearms or power sources due to physical composition limits",
+        "Vulnerable to extreme thermal environments"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/T-1000",
+          "supports": "Abilities, mimetic polyalloy composition, and weaknesses."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Reformative recovery after being shattered by liquid nitrogen and a gunshot",
+          "citation": "Terminator 2: Judgment Day steel mill climax",
+          "depiction": "Terminator 2: Judgment Day (1991 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "actionmovies:T-800 (Terminator 2)",
+          "result": "loss",
+          "citation": "Terminator 2: Judgment Day steel mill climax",
+          "note": "Overpowered and cast into molten steel by the T-800.",
+          "depiction": "Terminator 2: Judgment Day (1991 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Advanced liquid-metal synthetic intelligence unit",
+          "source": 0
+        },
+        {
+          "tag": "cyborg",
+          "claim": "Constructed from mimetic polyalloy technology",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of data storage capacity during deep infiltration tasks."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:T-800 (Terminator 2)",
+      "continuity": "Terminator 2: Judgment Day (1991 film)",
+      "summary": "A reprogrammed cybernetic organism equipped with heavy weaponry, advanced targeting HUD, and immense structural strength.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Firearms proficiency",
+          "Hand-to-hand combat throws",
+          "Heavy tactical weaponry deployment"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Durable metallic endoskeleton",
+          "Living tissue outer layer"
+        ]
+      },
+      "weaknesses": [
+        "Severe structural damage to power cell",
+        "Immersion in molten metal"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Terminator 2: Judgment Day (1991 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Running",
+        "Motorcycle riding"
+      ],
+      "limitations": [
+        "Requires external power source replacement if primary cell fails",
+        "Limited tactical emotional comprehension"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Terminator_2:_Judgment_Day",
+          "supports": "T-800 specifications, feats, and plot outcomes."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Lifted and hurled an adult human with one arm",
+          "citation": "Terminator 2: Judgment Day bar scene",
+          "depiction": "Terminator 2: Judgment Day (1991 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "actionmovies:T-1000",
+          "result": "win",
+          "citation": "Terminator 2: Judgment Day steel mill climax",
+          "note": "Destroyed the T-1000 using a grenade launcher and crane mechanism.",
+          "depiction": "Terminator 2: Judgment Day (1991 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "cyborg",
+          "claim": "Cybernetic organism with living tissue over a metal endoskeleton",
+          "source": 0
+        },
+        {
+          "tag": "robot-or-ai",
+          "claim": "Autonomous machine intelligence core",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of neural net learning capabilities over decades."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:The Bride (Beatrix Kiddo)",
+      "continuity": "Kill Bill: Volume 1 (2003 film) and Kill Bill: Volume 2 (2004 film)",
+      "summary": "An elite assassin trained in multiple martial arts disciplines, wielding a master-crafted Hattori Hanzo sword.",
+      "offense": {
+        "domains": [
+          "physical",
+          "magic"
+        ],
+        "techniques": [
+          "Hattori Hanzo sword combat",
+          "Five Point Palm Exploding Heart Technique",
+          "Pai Mei martial arts training"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Exceptional pain tolerance",
+          "Advanced evasive tumbling and counter-striking"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to ambush when unarmed",
+        "Human physiological limits"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Kill Bill: Volume 1 (2003 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Kill Bill: Volume 2 (2004 film)",
+          "kind": "sequel"
+        }
+      ],
+      "mobility": [
+        "Acrobatic leaping",
+        "Running",
+        "Vehicle operation"
+      ],
+      "limitations": [
+        "Relies on physical stamina and weapons",
+        "Subject to standard human injury thresholds"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kill_Bill:_Volume_1",
+          "supports": "Combat skills, Hattori Hanzo blade, and target list."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated dozens of Crazy 88 swordsmen and O-Ren Ishii in single combat",
+          "citation": "Kill Bill: Volume 1 House of Blue Leaves sequence",
+          "depiction": "Kill Bill: Volume 1 (2003 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "actionmovies:Vernita Green",
+          "result": "win",
+          "citation": "Kill Bill: Volume 1 opening confrontation",
+          "note": "Engaged in knife and close-quarters combat inside residential home.",
+          "depiction": "Kill Bill: Volume 1 (2003 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Five Point Palm Exploding Heart Technique",
+          "dependsOn": "Pai Mei instruction",
+          "depiction": "Kill Bill: Volume 2 (2004 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Recovered from physical paralysis and severe injuries through sheer willpower and training",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of recovery training under Pai Mei."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:The Professor",
+      "continuity": "The Bourne Identity (2002 film)",
+      "summary": "A highly trained Treadstone contract sniper who utilizes stealth, precision rifle fire, and disciplined close combat.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Long-range sniper rifle engagement",
+          "Surprise knife and firearm combat"
+        ],
+        "range": "ranged / melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Tactical concealment",
+          "Defensive positioning"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to close-quarters improvisation by elite opponents"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Bourne Identity (2002 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Tactical movement",
+        "Driving"
+      ],
+      "limitations": [
+        "Dependent on specialized firearms and reconnaissance data"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Bourne_Identity_(2002_film)",
+          "supports": "Character role as Treadstone assassin."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Tracked Jason Bourne across rural European terrain with sniper equipment",
+          "citation": "The Bourne Identity farm encounter",
+          "depiction": "The Bourne Identity (2002 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jason Bourne",
+          "result": "loss",
+          "citation": "The Bourne Identity woodland shootout",
+          "note": "Fatally wounded by Jason Bourne after an ambush.",
+          "depiction": "The Bourne Identity (2002 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Employs field concealment and sniper stalking tactics",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full operational history before Treadstone program enrollment."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Thulsa Doom",
+      "continuity": "Conan the Barbarian (1982 film)",
+      "summary": "A charismatic cult leader and sorcerer who commands absolute devotion and possesses shape-shifting capabilities.",
+      "offense": {
+        "domains": [
+          "magic",
+          "physical"
+        ],
+        "techniques": [
+          "Serpent transformation",
+          "Hypnotic voice command",
+          "Swordsmanship"
+        ],
+        "range": "melee / strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Cult guard protection",
+          "Magical deception"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to decapitation by heavy bladed weapons"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Conan the Barbarian (1982 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Walking",
+        "Riding"
+      ],
+      "limitations": [
+        "Relies heavily on psychological control and followers rather than solo combat prowess"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Thulsa_Doom",
+          "supports": "Cult leadership, serpent transformation, and death by Conan."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Transformed into a giant serpent before a crowd of followers",
+          "citation": "Conan the Barbarian mound ritual scene",
+          "depiction": "Conan the Barbarian (1982 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "actionmovies:Conan the Barbarian",
+          "result": "loss",
+          "citation": "Conan the Barbarian temple climax",
+          "note": "Decapitated by Conan with Atlantean sword.",
+          "depiction": "Conan the Barbarian (1982 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Performs serpent transformation and hypnotic mind influence",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact origins of his mystical abilities."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Trinity",
+      "continuity": "The Matrix (1999 film), The Matrix Reloaded (2003 film), and The Matrix Revolutions (2003 film)",
+      "summary": "An elite Matrix operative skilled in digital martial arts, firearms combat, and high-speed motorcycle navigation.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Wire-fu martial arts kicks and strikes",
+          "Dual-pistol gunplay",
+          "Hacking terminal access"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bullet-dodging reflexes",
+          "Acrobatic evasion"
+        ]
+      },
+      "weaknesses": [
+        "Physical body in the real world remains vulnerable to trauma",
+        "Agent possession of digital avatar"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Matrix (1999 film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Matrix Reloaded (2003 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Matrix Revolutions (2003 film)",
+          "kind": "sequel"
+        }
+      ],
+      "mobility": [
+        "Acrobatic leaping",
+        "Motorcycle riding",
+        "Running"
+      ],
+      "limitations": [
+        "Bound by the rules of the Matrix simulation unless hacking constructs"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Trinity_(The_Matrix)",
+          "supports": "Abilities, martial arts feats, and role within the resistance."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Executed suspended mid-air kick to neutralize police officers",
+          "citation": "The Matrix opening hotel rooftop scene",
+          "depiction": "The Matrix (1999 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Agent Smith",
+          "result": "loss",
+          "citation": "The Matrix Revolutions hovercraft flight sequence",
+          "note": "Fatally wounded during crash landing in the real world.",
+          "depiction": "The Matrix Revolutions (2003 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots Nebuchadnezzar hovercraft and various aircraft",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact duration of her life before extraction from the Matrix."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ujio",
+      "continuity": "The Last Samurai (2003 film)",
+      "summary": "A stern, traditional samurai master highly proficient in katana combat and disciplined warrior philosophy.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Katana sword strikes",
+          "Mounted spear combat"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Traditional samurai armor",
+          "Parrying and defensive guard stances"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to modern firearms at range"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Last Samurai (2003 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Running",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Relies on traditional melee weaponry"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Last_Samurai",
+          "supports": "Ujio's role as samurai trainer and combatant."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated Nathan Algren in wooden sword training duel",
+          "citation": "The Last Samurai village training yard",
+          "depiction": "The Last Samurai (2003 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperial Japanese Army soldiers",
+          "result": "loss",
+          "citation": "The Last Samurai final battle",
+          "note": "Killed by Gatling gun and rifle fire during final charge.",
+          "depiction": "The Last Samurai (2003 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Fights effectively while riding a warhorse",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Complete backstory before joining Katsumoto's rebellion."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Valeria",
+      "continuity": "Conan the Barbarian (1982 film)",
+      "summary": "An expert thief and fierce warrior companion to Conan, skilled with swordplay and stealth infiltration.",
+      "offense": {
+        "domains": [
+          "physical"
+        ],
+        "techniques": [
+          "Sword combat",
+          "Acrobatic vaulting",
+          "Thievery tools"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Leather armor",
+          "Agile dodging"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to supernatural entities and piercing projectiles"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Conan the Barbarian (1982 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Acrobatic climbing",
+        "Running",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Standard human physical durability"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)",
+          "supports": "Valeria's combat feats and role as companion to Conan."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Infiltrated Tower of Serpents and stole the Eye of Serpent gem",
+          "citation": "Conan the Barbarian tower heist sequence",
+          "depiction": "Conan the Barbarian (1982 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thulsa Doom's archers",
+          "result": "loss",
+          "citation": "Conan the Barbarian battle mounds",
+          "note": "Fatally wounded by a poisoned arrow while saving Conan.",
+          "depiction": "Conan the Barbarian (1982 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Infiltrates guarded tower via grappling hook and acrobatics",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Early life before becoming a master thief."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Vernita Green",
+      "continuity": "Kill Bill: Volume 1 (2003 film)",
+      "summary": "A former Deadly Viper Assassination Squad member who lives under a suburban alias until confronted.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat",
+          "Hidden firearm use"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Close-quarters blocking and evasion"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to surprise blade attacks by superior assassins"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Kill Bill: Volume 1 (2003 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Running",
+        "House maneuvering"
+      ],
+      "limitations": [
+        "Confined to suburban cover without active squad support"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Kill_Bill:_Volume_1",
+          "supports": "Vernita Green background as Copperhead assassin."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Drew concealed pistol hidden inside cereal box during kitchen duel",
+          "citation": "Kill Bill: Volume 1 suburban kitchen scene",
+          "depiction": "Kill Bill: Volume 1 (2003 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "actionmovies:The Bride (Beatrix Kiddo)",
+          "result": "loss",
+          "citation": "Kill Bill: Volume 1 kitchen confrontation",
+          "note": "Killed by the Bride with a knife throw after a fierce kitchen brawl.",
+          "depiction": "Kill Bill: Volume 1 (2003 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact missions undertaken during her time in the Deadly Viper squad."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Viggo Tarasov",
+      "continuity": "John Wick (2014 film)",
+      "summary": "A ruthless New York Russian crime syndicate boss who coordinates vast criminal resources and armed enforcers.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Handgun combat",
+          "Syndicate asset deployment"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Bodyguard squads",
+          "Armored vehicle transport"
+        ]
+      },
+      "weaknesses": [
+        "Aging physical condition and overreliance on subordinates"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "John Wick (2014 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Walking",
+        "Car transport"
+      ],
+      "limitations": [
+        "Physical decline due to age"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/John_Wick",
+          "supports": "Viggo Tarasov syndicate leadership and final confrontation."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought John Wick with a knife in a rain-slicked alleyway",
+          "citation": "John Wick docks climax",
+          "depiction": "John Wick (2014 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "John Wick",
+          "result": "loss",
+          "citation": "John Wick docks climax",
+          "note": "Fatally stabbed and overpowered by John Wick in final duel.",
+          "depiction": "John Wick (2014 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Complete history of how he built the Tarasov syndicate."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
