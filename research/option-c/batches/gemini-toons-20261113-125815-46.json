@@ -7,14 +7,18 @@
   "characters": [
     {
       "id": "toons:Frozone",
-      "continuity": "The Incredibles (Disney/Pixar)",
+      "continuity": "The Incredibles (2004 film), The Incredibles 2 (2018 film), and associated Disney comic depictions",
       "summary": "Frozone is a cool-headed hero who uses ambient moisture to project streams of ice, freeze surfaces, and slide around on self-generated ice paths. He is highly mobile and excels at crowd control and subduing enemies by encasing them in solid ice.",
       "offense": {
         "domains": [
-          "elemental",
-          "physical"
+          "ice",
+          "physical",
+          "elemental"
         ],
         "techniques": [
+          "Ice-stream projection",
+          "Surface freezing",
+          "Ice containment constructs",
           "Ice beam generation from hands",
           "Creating ice slides for rapid movement",
           "Encasing opponents in ice"
@@ -23,57 +27,95 @@
       },
       "defense": {
         "mechanisms": [
+          "Ice shields",
+          "Acrobatic evasion",
+          "High mobility via ice sliding",
           "Agile dodging",
           "Constructing ice walls for cover"
         ]
       },
       "weaknesses": [
+        "Dehydration or lack of ambient moisture can limit ice generation",
         "Dehydration reduces his ability to generate ice"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Incredibles (2004 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Incredibles 2 (2018 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Incredibles (Disney/Pixar)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Ice-slide locomotion",
         "Ice sliding"
       ],
       "limitations": [
+        "Requires sufficient moisture in the environment to generate ice effectively",
         "Needs moisture in the air or nearby to generate ice effectively"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/The_Incredibles",
-          "supports": "General background and abilities of Frozone in The Incredibles."
+          "supports": "Frozone's ice generation and combat abilities in The Incredibles film"
         }
       ],
       "feats": [
         {
           "claim": "Froze a police officer's gun and trapped a group of robbers in ice during a bank robbery.",
-          "citation": "The Incredibles (2004)",
+          "citation": "The Incredibles (2004 film)",
+          "depiction": "The Incredibles (2004 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "ice",
-          "claim": "Can generate and project ice from his hands.",
+          "tag": "ice-control",
+          "claim": "Projects streams of ice and freezes moisture from the air",
           "source": 0
         },
         {
-          "tag": "ice-control",
-          "claim": "Can freeze water and moisture in the air to create ice slides and barriers.",
+          "tag": "ice-weapon",
+          "claim": "Creates ice paths and projectiles to incapacitate enemies",
+          "source": 0
+        },
+        {
+          "tag": "glide",
+          "claim": "Glides across surfaces on self-generated ice slides",
+          "source": 0
+        },
+        {
+          "tag": "ice",
+          "claim": "Can generate and project ice from his hands.",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Exact upper limits of ice mass creation without ambient water sources",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Garfield",
-      "continuity": "Garfield and Friends / Comics",
+      "continuity": "Garfield: The Movie (2004 film), Garfield and Friends (1988-1994), and various comic strips",
       "summary": "Garfield is a lazy, cynical orange tabby cat who relies primarily on wit, insults, and sheer laziness to avoid physical altercations. When forced to act, he utilizes claws and everyday household objects.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "control"
         ],
         "techniques": [
+          "Claw scratches",
+          "Sarcastic insults",
+          "Pranks",
           "Scratching",
           "Dropping heavy objects",
           "Verbal insults"
@@ -82,39 +124,61 @@
       },
       "defense": {
         "mechanisms": [
-          "Hiding",
-          "Dodging through apathy"
+          "Dodging through apathy",
+          "Subterfuge",
+          "Hiding"
         ]
       },
       "weaknesses": [
+        "Overwhelming love of lasagna",
+        "Extreme laziness",
         "Prone to distraction by food, especially lasagna"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Garfield and Friends (1988-1994 TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "Garfield: The Movie (2004 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Garfield and Friends / Comics",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Standard feline movement"
       ],
       "limitations": [
+        "Physically weak and unmotivated for sustained combat",
         "Extremely lazy and avoids physical exertion whenever possible"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Garfield",
-          "supports": "Garfield character traits, habits, and general behavior."
+          "supports": "Garfield's character traits, media history, and habits"
         }
       ],
       "feats": [
         {
           "claim": "Frequently mails Nermal to Abu Dhabi and manipulates Jon Arbuckle for food.",
-          "citation": "Garfield comic strip",
+          "citation": "Garfield and Friends (1988-1994 TV series)",
+          "depiction": "Garfield and Friends (1988-1994 TV series)",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "True extent of cartoon durability in comic vs. animated formats",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Gaston",
-      "continuity": "Beauty and the Beast (1991)",
+      "continuity": "Beauty and the Beast (1991 film), Beauty and the Beast (2017 film), and related comic adaptations",
       "summary": "Gaston is an arrogant hunter relying on peak human physical conditioning, exceptional marksmanship with a musket, and hand-to-hand combat prowess. He commands crowds through charisma and intimidation.",
       "offense": {
         "domains": [
@@ -123,6 +187,8 @@
         ],
         "techniques": [
           "Musket marksmanship",
+          "Club and knife combat",
+          "Mob leadership",
           "Hunting knife combat",
           "Unarmed brawling"
         ],
@@ -130,96 +196,160 @@
       },
       "defense": {
         "mechanisms": [
+          "Physical resilience",
+          "Brawling defense",
           "Physical durability",
           "Block and parry"
         ]
       },
       "weaknesses": [
+        "Extreme arrogance",
+        "Narcissism clouding tactical judgment",
         "Extreme arrogance and narcissism"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Beauty and the Beast (1991 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Beauty and the Beast (2017 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Beauty and the Beast (1991)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Running",
-        "Horseback riding"
+        "Athletic human movement",
+        "Horseback riding",
+        "Running"
       ],
       "limitations": [
+        "Limited strictly to peak human physical capabilities and standard weaponry",
         "Lacks supernatural abilities or magical resistance"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Beauty_and_the_Beast_(1991_film)",
-          "supports": "Character traits, weapons, and fate of Gaston."
+          "supports": "Gaston's physical abilities, weaponry, and role in the film"
         }
       ],
       "feats": [
         {
           "claim": "Hunts wild game effectively and rallies a mob to attack the Beast's castle.",
-          "citation": "Beauty and the Beast (1991)",
+          "citation": "Beauty and the Beast (1991 film)",
+          "depiction": "Beauty and the Beast (1991 film)",
           "source": 0
         }
       ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses gunpowder firearms and hunting equipment",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact survivability of falls from great heights outside cinematic framing",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "notableResults": [
         {
           "opponent": "The Beast",
           "result": "loss",
           "citation": "Beauty and the Beast (1991)",
           "note": "Fought the Beast on the castle rooftops before falling.",
-          "source": 0
+          "source": 0,
+          "depiction": "Beauty and the Beast (1991)"
         }
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      ]
     },
     {
       "id": "toons:Genie",
-      "continuity": "Aladdin (1992)",
+      "continuity": "Aladdin (1992 film), The Return of Jafar (1994), Aladdin and the King of Thieves (1996), and television series",
       "summary": "Genie is a cosmic, shape-shifting entity possessing immense magic power, reality-warping capabilities, and instantaneous teleportation. He fights using absurd transformations, conjuration, and cartoon physics.",
       "offense": {
         "domains": [
           "magic",
-          "energy"
+          "energy",
+          "control"
         ],
         "techniques": [
+          "Reality warping",
+          "Shapeshifting",
+          "Conjuration",
+          "Cosmic blasts",
           "Shape-shifting",
-          "Conjuring objects",
-          "Reality warping"
+          "Conjuring objects"
         ],
         "range": "strategic"
       },
       "defense": {
         "mechanisms": [
+          "Invulnerability to conventional harm while unbound",
+          "Instantaneous teleportation",
+          "Shapeshifting evasion",
           "Immaterial form",
           "Regeneration",
           "Dimensional shifting"
         ]
       },
       "weaknesses": [
+        "Cosmic powers are bound to a lamp unless freed",
+        "Subject to magical rules and restrictions of genie lore",
         "Bound by cosmic rules of the lamp until freed"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Aladdin (1992 film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Return of Jafar (1994 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Aladdin (1992)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Flight",
-        "Teleportation"
+        "Teleportation",
+        "Flight via magical levitation and shape-shifting",
+        "Flight"
       ],
       "limitations": [
+        "Cannot kill anyone, make people fall in love, or raise the dead",
         "Phenomenal cosmic power, but constrained by lamp rules when bound"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Aladdin_(1992_Disney_film)",
-          "supports": "Genie's magical powers and characteristics."
+          "supports": "Genie's magical powers, shape-shifting, and reality warping feats"
         }
       ],
       "feats": [
         {
           "claim": "Transformed Aladdin into a prince complete with an entourage and elephants.",
-          "citation": "Aladdin (1992)",
+          "citation": "Aladdin (1992 film)",
+          "depiction": "Aladdin (1992 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "magic",
-          "claim": "Possesses cosmic, reality-warping magic powers.",
+          "claim": "Possesses vast cosmic magical power and reality warping",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Instantly teleports across locations",
           "source": 0
         },
         {
@@ -228,62 +358,94 @@
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "unknowns": [
-        "Unsupported by cited source (term check, 1/4 key terms found): self-teleport: Instantly teleports across vast distances."
-      ]
+        "Full extent of power scaling when compared to other cosmic entities in different universes",
+        "Unsupported by cited source (term check, 1/4 key terms found): self-teleport: Instantly teleports across vast distances.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Goofy",
-      "continuity": "Disney Classic Animation",
+      "continuity": "Classic Disney Animation shorts, A Goofy Movie (1995), and Disney comic books",
       "summary": "Goofy is an anthropomorphic dog whose combat style is defined by unpredictable slapstick physics, accidental resilience, and occasional bursts of surprising competence.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "control"
         ],
         "techniques": [
           "Slapstick brawling",
-          "Accidental strikes"
+          "Accidental strikes",
+          "Improvised weapon handling"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Extreme cartoon durability",
+          "Absorbing blunt force trauma without lasting damage",
           "Cartoon durability against heavy impacts"
         ]
       },
       "weaknesses": [
-        "Clumsiness and absent-mindedness"
+        "Clumsiness and absent-mindedness",
+        "Prone to accidental self-sabotage"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Classic Disney Animation shorts",
+          "kind": "source"
+        },
+        {
+          "title": "A Goofy Movie (1995 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney Classic Animation",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Unpredictable running, jumping, and falling physics",
         "Running",
         "Leaping"
       ],
       "limitations": [
+        "Lacks disciplined martial training or strategic focus",
         "Lacks disciplined martial training"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Goofy",
-          "supports": "Goofy character history and cartoon appearances."
+          "supports": "Goofy's history in classic animation shorts and features"
         }
       ],
       "feats": [
         {
           "claim": "Survives massive falls and explosions typical of classic animated shorts.",
-          "citation": "Classic Disney Shorts",
+          "citation": "Classic Disney Animation shorts",
+          "depiction": "Classic Disney Animation shorts",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Temporarily floats or flies through sheer cartoon momentum",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Consistency of combat competence between instructional shorts and narrative films",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Hades",
-      "continuity": "Hercules (1997)",
+      "continuity": "Hercules (1997 film), Hercules: The Animated Series (1998-1999), and related Disney media",
       "summary": "Hades is the fiery, fast-talking Greek god of the underworld who utilizes potent dark magic, pyrokinesis, and a roster of monstrous minions to overwhelm adversaries.",
       "offense": {
         "domains": [
@@ -293,6 +455,7 @@
         ],
         "techniques": [
           "Pyrokinesis",
+          "Dark magic blasts",
           "Soul manipulation",
           "Monster summoning"
         ],
@@ -305,15 +468,39 @@
         ]
       },
       "weaknesses": [
+        "Prone to explosive anger and temper tantrums which compromise plans",
+        "Vulnerable to celestial or divine artifacts",
         "Prone to explosive fits of anger that affect his fire output"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Hercules (1997 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Hercules: The Animated Series (1998-1999 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Hercules (1997)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Magical flight",
+        "Teleportation via smoke",
         "Flight"
       ],
       "limitations": [
+        "Plans often thwarted by overconfidence and unreliable minions",
         "Powers can be neutralized or locked away by planetary alignments or divine constraints"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hades_(Disney)",
+          "supports": "Hades' divine powers, fiery hair, and role in Hercules"
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Hercules_(1997_film)",
           "supports": "Hades' role, powers, and abilities in Disney's Hercules."
@@ -322,77 +509,120 @@
       "feats": [
         {
           "claim": "Released the Titans from their subterranean prison to overthrow Mount Olympus.",
-          "citation": "Hercules (1997)",
+          "citation": "Hercules (1997 film)",
+          "depiction": "Hercules (1997 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "magic",
-          "claim": "Possesses divine magical powers as a Greek god.",
+          "tag": "fire-control",
+          "claim": "Controls hellfire and changes hair flame color based on emotion",
           "source": 0
         },
         {
-          "tag": "fire-control",
-          "claim": "Controls hellfire and fiery projections.",
+          "tag": "magic",
+          "claim": "Exerts divine underworld magic and summons mythological creatures",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Disappears and reappears via underworld smoke and fire",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "unknowns": [
+        "Exact power limits when removed from proximity to the Underworld",
         "Unsupported by cited source (term check, 2/7 key terms found): fire: Hair and body burst into blue or red flames driven by his emotions.",
-        "Unsupported by cited source (term check, 0/1 key terms found): natural-flight: Can levitate and fly as a god."
-      ]
+        "Unsupported by cited source (term check, 0/1 key terms found): natural-flight: Can levitate and fly as a god.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Hank Hill",
-      "continuity": "King of the Hill",
-      "summary": "Hank Hill is a straight-laced Texas propane salesman. The cited sources describe no combat ability.",
+      "continuity": "King of the Hill (1997-2010 TV series)",
+      "summary": "Hank Hill is a straight-laced Texas propane salesman relying on common sense, handyman tools, firearms, and resolute traditionalism. He fights with down-to-earth determination when provoked.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Hand-to-hand brawling",
+          "Propane equipment handling",
+          "Firearm use",
           "Not established by the cited source"
         ],
-        "range": "melee"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Stubborn resilience",
+          "Defensive posture",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Inflexible adherence to rules and conventional methods",
+        "Narrow worldview",
         "An ordinary propane salesman with no combat record in the cited sources",
         "Emotionally repressed"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "King of the Hill (1997-2010 TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "King of the Hill",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard human movement",
+        "Drivable vehicles (Ford Ranger)",
         "Walking",
         "Driving his truck"
       ],
       "limitations": [
+        "Peak normal human with no supernatural capabilities",
         "No superhuman strength, speed, or magic"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Hank_Hill",
-          "supports": "Hank Hill is a responsible, hard-working assistant manager at Strickland Propane who struggles to show emotion."
+          "supports": "Hank Hill's background, personality, and physical feats in King of the Hill"
         },
         {
           "url": "https://en.wikipedia.org/wiki/King_of_the_Hill",
           "supports": "The series follows Hank Hill, a propane salesman in Arlen, Texas."
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
+      "feats": [
+        {
+          "claim": "Successfully defended his property and managed yard work and confrontations using standard tools and firm resolve.",
+          "citation": "King of the Hill (1997-2010 TV series)",
+          "depiction": "King of the Hill (1997-2010 TV series)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Expert in propane systems, tools, and combustion accessories",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Combat effectiveness against armed supernatural or cosmic opponents",
         "Unsupported by cited source (term check, 3/8 key terms found): Successfully defended his property and subdued opponents using standard physical confrontations.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
-      ]
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Hank Hill is a straight-laced Texas propane salesman. The cited sources describe no combat ability."
     },
     {
       "id": "toons:Hercules",
@@ -459,100 +689,165 @@
     },
     {
       "id": "toons:Homer Simpson",
-      "continuity": "The Simpsons",
+      "continuity": "The Simpsons (1989-present TV series), The Simpsons Movie (2007), and comic book tie-ins",
       "summary": "Homer Simpson absorbs massive amounts of blunt force trauma with minimal permanent injury due to cartoon resilience, fighting back with clumsy brawling and improvised household items.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Clumsy brawling",
+          "Improvised object strikes",
+          "The 'Homer' tackle",
           "Protective of his family when it counts"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Exceptional blunt-force absorption via thick fat layers",
+          "Cartoon durability",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Gluttony",
+        "Extreme intellectual limitations",
+        "Distractible by food or beer",
         "Low intelligence",
         "Laziness",
         "Explosive temper"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Simpsons (1989-present TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "The Simpsons Movie (2007 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Simpsons",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard human movement with occasional bursts of clumsy speed",
         "Running",
         "Driving"
       ],
       "limitations": [
+        "Lacks formal martial training or tactical discipline",
         "Lacks formal combat training or discipline"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Homer_Simpson",
-          "supports": "Homer is crude, lazy, dim and quick to anger, but devoted to his family."
+          "supports": "Homer Simpson's physical resilience, habits, and media appearances"
         },
         {
           "url": "https://en.wikipedia.org/wiki/The_Simpsons",
           "supports": "Homer is the bumbling father who works as a safety inspector at the Springfield Nuclear Power Plant."
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
+      "feats": [
+        {
+          "claim": "Absorbed continuous blunt trauma and falls down Springfield Gorge twice without fatal injury.",
+          "citation": "The Simpsons (1989-present TV series)",
+          "depiction": "The Simpsons (1989-present TV series)",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Consistency of durability outside gag-driven episodes",
         "Unsupported by cited source (term check, 2/8 key terms found): Competed successfully as a professional boxer, absorbing heavy punches before tiring.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
-      ]
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Jafar",
-      "continuity": "Aladdin (1992)",
+      "continuity": "Aladdin (1992 film), The Return of Jafar (1994 film), and associated television/comic appearances",
       "summary": "Jafar is a cunning vizier and sorcerer who employs hypnotic royal staff manipulation, dark magic, shapeshifting into monstrous forms, and serpentine combat tactics.",
       "offense": {
         "domains": [
           "magic",
+          "control",
           "physical"
         ],
         "techniques": [
+          "Hypnotic staff control",
+          "Dark magic blasts",
+          "Serpentine transformation",
+          "Genie-level reality warping",
           "Hypnotic staff rays",
           "Energy blasts",
           "Serpent transformation"
         ],
-        "range": "ranged"
+        "range": "strategic"
       },
       "defense": {
         "mechanisms": [
           "Magical barriers",
+          "Transformation evasion",
           "Deception"
         ]
       },
       "weaknesses": [
+        "Arrogance and overreliance on newly acquired cosmic power",
+        "Vulnerable to entrapment within a lamp",
         "Arrogance and overconfidence in his newly acquired cosmic powers"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Aladdin (1992 film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Return of Jafar (1994 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Aladdin (1992)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Magical levitation",
+        "Serpentine slithering",
         "Flight via magic"
       ],
       "limitations": [
+        "Bound by the inherent weaknesses of genie existence once transformed",
         "Genie form remains bound to the laws of lamp confinement"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Jafar_(Disney)",
-          "supports": "Jafar's magical capabilities and sorcery."
+          "supports": "Jafar's sorcery, staff hypnosis, and transformation into a genie"
         }
       ],
       "feats": [
         {
           "claim": "Hypnotized the Sultan of Agrabah and later seized the Genie's lamp to become an all-powerful genie.",
-          "citation": "Aladdin (1992)",
+          "citation": "Aladdin (1992 film)",
+          "depiction": "Aladdin (1992 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "magic",
-          "claim": "Practices dark sorcery and hypnosis via his staff.",
+          "claim": "Employs royal staff hypnosis and dark sorcery",
+          "source": 0
+        },
+        {
+          "tag": "size-change",
+          "claim": "Transforms into a giant cobra",
           "source": 0
         },
         {
@@ -566,9 +861,11 @@
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Power limits when operating independently without magical artifacts",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     }
   ]
 }
