@@ -7,69 +7,110 @@
   "characters": [
     {
       "id": "pokemon:Muk",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Muk is a sludge-type Pokémon that fights by covering opponents in toxic waste and utilizing physical poison attacks. Its body is composed of hazardous, foul-smelling slime that naturally deters physical contact.",
+      "continuity": "Pokémon games and anime, plus Pokémon Adventures manga",
+      "summary": "Muk is a pure Poison-type sludge Pokémon that fights by enveloping enemies in toxic waste, emitting overpowering stenches, and executing crushing physical strikes.",
       "offense": {
         "domains": [
           "physical",
-          "energy"
+          "energy",
+          "toxic"
         ],
         "techniques": [
-          "Sludge",
           "Sludge Bomb",
           "Gunk Shot",
+          "Body Slam",
+          "Sludge",
           "Toxic"
         ],
         "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Semi-fluid body that absorbs physical blows",
+          "Naturally repulsive toxic coating that discourages melee engagement",
           "Poison touch body that naturally repels physical attackers",
           "High special defense and HP pool"
         ]
       },
       "weaknesses": [
-        "Ground attacks",
-        "Psychic attacks"
+        "Psychic attacks",
+        "Ground attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Crawling / ooze movement",
         "Slithering/crawling movement"
       ],
       "limitations": [
-        "Vulnerable to ground and psychic maneuvers",
-        "Slow movement speed"
+        "Slow movement speed",
+        "Leaves toxic residue everywhere it travels",
+        "Vulnerable to ground and psychic maneuvers"
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Muk_(Pok%C3%A9mon)",
-          "supports": "General information, abilities, moveset, and typing of Muk."
+          "supports": "Abilities, moves, and biological traits across game and anime continuities."
         }
       ],
       "feats": [
         {
+          "claim": "Emits an overpowering stench capable of causing fainting or withering nearby vegetation.",
+          "citation": "Pokémon Red Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
+          "source": 0
+        },
+        {
           "claim": "Emits such a heavy stench that it causes nosebleeds and can wither plants simply by passing near them.",
           "citation": "Pokémon Red and Blue Pokédex entries",
+          "source": 0,
+          "depiction": "Pokémon Red and Blue / Generation I games"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "water-breathing",
+          "claim": "Can survive and move through aquatic environments without breathing air.",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Muk is a sludge-type Pokémon that fights by covering opponents in toxic waste and utilizing physical poison attacks. Its body is composed of hazardous, foul-smelling slime that naturally deters physical contact.",
       "unknowns": [
-        "Exact chemical composition of its toxic secretions varies between organic waste sources."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact chemical composition of its toxic secretions varies between organic waste sources.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Muk|Alolan Muk",
-      "continuity": "Pokémon Sun and Moon / Generation VII games",
-      "summary": "Alolan Muk is a Poison/Dark-type variant that consumes garbage, altering its coloration and developing toxic crystals on its body. It fights by striking with these venomous crystals and using bite attacks.",
+      "continuity": "Pokémon Sun and Moon and subsequent games, plus related media",
+      "summary": "Alolan Muk is a Poison/Dark-type variant that consumes garbage and industrial waste, giving it multicolored toxic crystals and biting dark attacks.",
       "offense": {
         "domains": [
           "physical",
+          "toxic",
           "dark",
           "poison"
         ],
         "techniques": [
+          "Bite",
           "Gunk Shot",
           "Crunch",
           "Venom Drench",
@@ -79,6 +120,8 @@
       },
       "defense": {
         "mechanisms": [
+          "Toxic crystalline armor secretions",
+          "Resistant to Psychic-type maneuvers due to Dark typing",
           "Toxic crystal armor that deflects or poisons attackers",
           "Dark-type immunity to psychic tactics"
         ]
@@ -86,27 +129,41 @@
       "weaknesses": [
         "Ground attacks"
       ],
-      "formDifferences": "Changes typing from pure Poison to Poison/Dark, adds toxic crystal structures on its body, alters coloration, and changes immunities/weaknesses.",
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sun and Moon (2016)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Sun and Moon / Generation VII games",
+          "kind": "earlier-record"
+        }
+      ],
+      "formDifferences": "Adds Dark-typing, colorful toxic crystals on its body, and changes its diet to garbage, removing its weakness to psychic attacks while adding a ground weakness.",
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Muk_(Pok%C3%A9mon)",
-          "supports": "Alolan Muk regional variant details, typing, and abilities."
+          "supports": "Alolan form typing, behavior, and physiological traits."
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Alolan Muk is a Poison/Dark-type variant that consumes garbage, altering its coloration and developing toxic crystals on its body. It fights by striking with these venomous crystals and using bite attacks.",
       "unknowns": [
-        "Exact mechanics of how it processes artificial trash into non-foul-smelling crystal toxins."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact mechanics of how it processes artificial trash into non-foul-smelling crystal toxins.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Nidoking",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Nidoking is a powerful Poison/Ground-type brawler that uses its thick tail, immense physical strength, and a wide array of elemental moves to overwhelm opponents.",
+      "continuity": "Pokémon games, anime, and manga adaptations",
+      "summary": "Nidoking is a robust Poison/Ground-type bruiser that combines heavy physical strikes with elemental breath weapons and seismic impacts.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
+          "ground",
+          "toxic",
           "earth",
           "poison"
         ],
@@ -120,152 +177,245 @@
       },
       "defense": {
         "mechanisms": [
+          "Thick hide",
+          "Hard tail used for parrying and striking",
           "Heavy hide serving as physical armor",
           "Sturdy physical constitution"
         ]
       },
       "weaknesses": [
+        "Water",
+        "Ice",
+        "Ground",
+        "Psychic",
         "Water attacks",
         "Ice attacks",
         "Ground attacks",
         "Psychic attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Bipedal running / leaping",
         "Bipedal running"
       ],
       "limitations": [
+        "Vulnerable to specialized elemental counters",
         "Vulnerable to water, ice, ground, and psychic elements."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoking_(Pok%C3%A9mon)",
-          "supports": "Nidoking typing, movepool, and characteristics."
+          "supports": "Nidoking stats, abilities, and feats across generations."
         }
       ],
       "feats": [
         {
+          "claim": "Uses its thick, muscular tail to topple metal transmission towers with single strikes.",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
+          "source": 0
+        },
+        {
           "claim": "Can topple a metal transmission tower with a single swing of its thick tail.",
           "citation": "Pokémon Red and Blue Pokédex entries",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Red and Blue / Generation I games"
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Nidoking is a powerful Poison/Ground-type brawler that uses its thick tail, immense physical strength, and a wide array of elemental moves to overwhelm opponents.",
       "unknowns": [
-        "Limits of its tail strength against reinforced magical structures."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Limits of its tail strength against reinforced magical structures.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Nidoqueen",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Nidoqueen is a robust Poison/Ground-type Pokémon equipped with a scaly, defensive hide and exceptional maternal combat instincts, using body slams and earth tremors to fight.",
+      "continuity": "Pokémon games, anime, and manga adaptations",
+      "summary": "Nidoqueen is an armored Poison/Ground-type fighter that utilizes defensive shielding capabilities and crushing bodily impacts to protect its territory and offspring.",
       "offense": {
         "domains": [
           "physical",
+          "ground",
+          "toxic",
           "earth",
           "poison"
         ],
         "techniques": [
-          "Earthquake",
           "Body Slam",
+          "Earth Power",
           "Superpower",
+          "Earthquake",
           "Toxic"
         ],
         "range": "melee / ranged"
       },
       "defense": {
         "mechanisms": [
+          "Rugged, needle-covered armor hide",
+          "Maternal protective stances",
           "Armored, needle-free scaly hide designed for protecting its young"
         ]
       },
       "weaknesses": [
+        "Water",
+        "Ice",
+        "Ground",
+        "Psychic",
         "Water attacks",
         "Ice attacks",
         "Ground attacks",
         "Psychic attacks"
       ],
-      "mobility": [
-        "Bipedal running"
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
       ],
-      "limitations": [
-        "Vulnerable to water, ice, ground, and psychic attacks."
+      "mobility": [
+        "Bipedal locomotion",
+        "Bipedal running"
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoqueen_(Pok%C3%A9mon)",
-          "supports": "Nidoqueen stats, moves, and defensive traits."
+          "supports": "Nidoqueen moveset, scale armor description, and general attributes."
         }
       ],
       "feats": [
         {
+          "claim": "Uses its rugged, scaled body to shield its offspring from incoming attacks without flinching.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
+          "source": 0
+        },
+        {
           "claim": "Uses its rugged body to shield its offspring from any attack without flinching.",
           "citation": "Pokémon Yellow Pokédex entries",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Red and Blue / Generation I games"
         }
       ],
-      "unknowns": [
-        "Exact maximum weight it can lift with body slams."
+      "researchStatus": "provisional",
+      "limitations": [
+        "Vulnerable to water, ice, ground, and psychic attacks."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Nidoqueen is a robust Poison/Ground-type Pokémon equipped with a scaly, defensive hide and exceptional maternal combat instincts, using body slams and earth tremors to fight.",
+      "unknowns": [
+        "Exact maximum weight it can lift with body slams.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Nidoran♀",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Nidoran♀ is a small, quadrupedal poison-type rodent that uses small horns and venomous barbs to defend itself against predators.",
+      "continuity": "Pokémon games, anime, and manga adaptations",
+      "summary": "Nidoran♀ is a small, quadrupedal poison rodent that utilizes a venom-secreting horn and cautious defensive tactics against larger threats.",
       "offense": {
         "domains": [
           "physical",
+          "toxic",
           "poison"
         ],
         "techniques": [
           "Poison Sting",
-          "Double Kick",
-          "Scratch"
+          "Scratch",
+          "Double Kick"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Small size",
+          "Hard barbs and defensive posture",
           "Small size and quick reflexes to dodge attacks"
         ]
       },
       "weaknesses": [
+        "Psychic",
+        "Ground",
         "Ground attacks",
         "Psychic attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Quadrupedal running"
       ],
       "limitations": [
+        "Limited physical reach due to small size",
         "Low physical strength compared to evolved forms."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoran%E2%99%80_(Pok%C3%A9mon)",
-          "supports": "Nidoran female basic information and moveset."
+          "supports": "Attributes, horn mechanics, and poison gland details."
         }
       ],
       "feats": [
         {
+          "claim": "Equipped with a small horn that secretes powerful venom capable of severe harm if injected.",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
+          "source": 0
+        },
+        {
           "claim": "Possesses a small horn that secretes a powerful venom capable of fatal outcomes if injected.",
           "citation": "Pokémon Red and Blue Pokédex entries",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Red and Blue / Generation I games"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Nidoran♀ is a small, quadrupedal poison-type rodent that uses small horns and venomous barbs to defend itself against predators.",
+      "unknowns": [
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Nidoran♂",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Nidoran♂ is a small, aggressive poison-type creature that uses its large ears to sense danger and a toxic horn to jab opponents.",
+      "continuity": "Pokémon games, anime, and manga adaptations",
+      "summary": "Nidoran♂ is a small, aggressive poison-type creature that uses oversized ears for early detection and a toxic horn to jab opponents.",
       "offense": {
         "domains": [
           "physical",
+          "toxic",
           "poison"
         ],
         "techniques": [
@@ -277,91 +427,150 @@
       },
       "defense": {
         "mechanisms": [
+          "Large sensitive ears for early threat evasion",
           "Large sensitive ears used to detect hidden foes before attacks occur"
         ]
       },
       "weaknesses": [
+        "Psychic",
+        "Ground",
         "Ground attacks",
         "Psychic attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Quadrupedal running"
       ],
       "limitations": [
+        "Physically fragile due to juvenile status",
         "Fragile build before evolution."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoran%E2%99%82_(Pok%C3%A9mon)",
-          "supports": "Nidoran male attributes and combat style."
+          "supports": "Physiological details, ear function, and combat style."
         }
       ],
       "feats": [
         {
+          "claim": "Stiffens its large ears to listen for danger while keeping its toxic horn aimed at potential threats.",
+          "citation": "Pokémon Yellow Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
+          "source": 0
+        },
+        {
           "claim": "Stiffens its large ears to listen for danger while keeping its horn aimed at potential threats.",
           "citation": "Pokémon Yellow Pokédex entries",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Red and Blue / Generation I games"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Nidoran♂ is a small, aggressive poison-type creature that uses its large ears to sense danger and a toxic horn to jab opponents.",
+      "unknowns": [
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Nidorina",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Nidorina is the middle-evolution female Nidoran, utilizing its horn and claw attacks alongside a gentle temperament that turns fierce when cornered.",
+      "continuity": "Pokémon games, anime, and manga adaptations",
+      "summary": "Nidorina is the middle-evolution female counterpart that relies on claw strikes, a retractable horn, and protective family instincts in combat.",
       "offense": {
         "domains": [
           "physical",
+          "toxic",
           "poison"
         ],
         "techniques": [
           "Double Kick",
           "Bite",
+          "Poison Fang",
           "Poison Tail"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Thickened hide",
+          "Retractable horn that prevents accidental injury to companions",
           "Thickening skin and defensive stance"
         ]
       },
       "weaknesses": [
+        "Psychic",
+        "Ground",
         "Ground attacks",
         "Psychic attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Quadrupedal running"
       ],
-      "limitations": [
-        "Moderate reach and limited ranged options."
-      ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Nidorina_(Pok%C3%A9mon)",
-          "supports": "Nidorina evolution stats and moves."
+          "supports": "Evolutionary traits, horn mechanics, and temperament."
         }
       ],
       "feats": [
         {
+          "claim": "Its horn retracts when feeling calm or friendly and extends when preparing for battle.",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
+          "source": 0
+        },
+        {
           "claim": "Its horn retracts when it is feeling calm or friendly, and extends when preparing for battle.",
           "citation": "Pokémon Red and Blue Pokédex entries",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Red and Blue / Generation I games"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "limitations": [
+        "Moderate reach and limited ranged options."
+      ],
+      "earlierSummary": "Nidorina is the middle-evolution female Nidoran, utilizing its horn and claw attacks alongside a gentle temperament that turns fierce when cornered.",
+      "unknowns": [
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Nidorino",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Nidorino is an aggressive middle-evolution male Pokémon that fights fiercely with an exceptionally hard horn that can pierce diamond.",
+      "continuity": "Pokémon games, anime, and manga adaptations",
+      "summary": "Nidorino is an aggressive middle-evolution male Pokémon that fights fiercely with an exceptionally hard horn capable of piercing tough barriers.",
       "offense": {
         "domains": [
           "physical",
+          "toxic",
           "poison"
         ],
         "techniques": [
@@ -373,106 +582,161 @@
       },
       "defense": {
         "mechanisms": [
+          "Agile reflexes",
+          "Aggressive posture",
           "Sturdy hide and aggressive counter-attacking posture"
         ]
       },
       "weaknesses": [
+        "Psychic",
+        "Ground",
         "Ground attacks",
         "Psychic attacks"
       ],
-      "mobility": [
-        "Quadrupedal running"
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
       ],
-      "limitations": [
-        "Prone to reckless charges if angered."
+      "mobility": [
+        "Quadrupedal charging",
+        "Quadrupedal running"
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Nidorino_(Pok%C3%A9mon)",
-          "supports": "Nidorino combat abilities and traits."
+          "supports": "Horn hardness claims, evolution details, and battle behavior."
         }
       ],
       "feats": [
         {
+          "claim": "Has a horn harder than diamond, capable of shattering boulders upon impact.",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
+          "source": 0
+        },
+        {
           "claim": "Has a horn that is harder than a diamond, capable of shattering boulders upon impact.",
           "citation": "Pokémon Red and Blue Pokédex entries",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Red and Blue / Generation I games"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "limitations": [
+        "Prone to reckless charges if angered."
+      ],
+      "earlierSummary": "Nidorino is an aggressive middle-evolution male Pokémon that fights fiercely with an exceptionally hard horn that can pierce diamond.",
+      "unknowns": [
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Ninetales",
-      "continuity": "Pokémon Red and Blue / Generation I games",
-      "summary": "Ninetales is a mystical, fox-like Fire-type Pokémon that commands intense flames, creates illusory psychics attacks, and fights with nine magical tails.",
+      "continuity": "Pokémon games, anime, and manga adaptations",
+      "summary": "Ninetales is a mystical fox-like Fire-type Pokémon that commands intense flames, creates psychic illusions, and uses its nine magical tails.",
       "offense": {
         "domains": [
-          "magic",
           "fire",
-          "energy"
+          "energy",
+          "psychic",
+          "magic"
         ],
         "techniques": [
           "Flamethrower",
           "Fire Blast",
+          "Confuse Ray",
           "Will-O-Wisp",
           "Extrasensory"
         ],
-        "range": "ranged"
+        "range": "ranged / strategic"
       },
       "defense": {
         "mechanisms": [
+          "Agile movement",
+          "Illusionary misdirection",
           "Agile movement to dodge projectiles",
           "High special defense"
         ]
       },
       "weaknesses": [
+        "Water",
+        "Ground",
+        "Rock",
         "Water attacks",
         "Ground attacks",
         "Rock attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Generation I games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Quadrupedal sprinting",
         "Quadrupedal running"
       ],
       "limitations": [
+        "Fragile compared to heavy physical brawlers",
         "Vulnerable to water, ground, and rock moves."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Ninetales_(Pok%C3%A9mon)",
-          "supports": "Ninetales stats, fire abilities, and lore."
+          "supports": "Abilities, mystical lore, and fire move mastery."
         }
       ],
       "feats": [
         {
           "claim": "Can curse anyone who grabs one of its nine tails with a thousand years of hardship.",
-          "citation": "Pokémon Red and Blue Pokédex entries",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "fire-control",
-          "claim": "Commands intense fire blasts and flamethrowers from its mouth.",
+          "claim": "Commands intense, high-temperature flames and fire blasts.",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Ninetales is a mystical, fox-like Fire-type Pokémon that commands intense flames, creates illusory psychics attacks, and fights with nine magical tails.",
       "unknowns": [
-        "Exact duration and mechanism of the legendary curse."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact duration and mechanism of the legendary curse.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Ninetales|Alolan Ninetales",
-      "continuity": "Pokémon Sun and Moon / Generation VII games",
-      "summary": "Alolan Ninetales is an Ice/Fairy-type regional variant that lives on snowy mountain peaks, firing freezing blizzards and manipulating ice crystals to disorient adversaries.",
+      "continuity": "Pokémon Sun and Moon and subsequent games, plus related media",
+      "summary": "Alolan Ninetales is an Ice/Fairy-type regional variant that inhabits snowy mountains, generating freezing blizzards and manipulating ice crystals.",
       "offense": {
         "domains": [
-          "energy",
           "ice",
+          "energy",
+          "fairy",
           "magic"
         ],
         "techniques": [
@@ -481,32 +745,49 @@
           "Dazzling Gleam",
           "Aurora Veil"
         ],
-        "range": "ranged"
+        "range": "ranged / strategic"
       },
       "defense": {
         "mechanisms": [
+          "Snow Cloak evasion",
+          "Ice crystal barriers",
           "Snow cloak and veil barriers reducing incoming damage"
         ]
       },
       "weaknesses": [
+        "Steel",
+        "Fire",
+        "Poison",
+        "Rock",
         "Steel attacks",
         "Rock attacks",
         "Fire attacks",
         "Poison attacks"
       ],
-      "formDifferences": "Changes typing from Fire to Ice/Fairy, replaces fire abilities with ice and fairy maneuvers, and alters weaknesses.",
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sun and Moon (2016)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Sun and Moon / Generation VII games",
+          "kind": "earlier-record"
+        }
+      ],
+      "formDifferences": "Changes type from Fire to Ice/Fairy, replacing fire attacks and curses with freezing blizzards, ice manipulation, and fairy light constructs.",
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Ninetales_(Pok%C3%A9mon)",
-          "supports": "Alolan Ninetales typing, moves, and ice-based variants."
+          "supports": "Alolan typing, blizzard techniques, and habitat adaptations."
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Alolan Ninetales is an Ice/Fairy-type regional variant that lives on snowy mountain peaks, firing freezing blizzards and manipulating ice crystals to disorient adversaries.",
       "unknowns": [
-        "Exact temperature minimums of its generated ice storms."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact temperature minimums of its generated ice storms.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     }
   ]
 }
