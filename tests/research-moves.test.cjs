@@ -83,7 +83,9 @@ test('in the page: research moves fight beside V1 profiles; V1 kits win; switch 
   const by = (r) => Object.fromEntries(r.f.map((x) => [x.name, x]));
   const a = by(on), b = by(off);
   assert.equal(a.Pikachu.move, 'Thunderbolt'); assert.ok(a.Pikachu.uses > 0); assert.match(a.Pikachu.limit, /Research move/);
-  assert.equal(a.Gandalf.move, 'Fire magic'); assert.equal(a['Darth Vader'].domain, 'energy');
+  // Names follow the research, which keeps growing (sequels and comics); compare with the generated file, not a fixed name.
+  const row = (id) => DATA.rows.find((r) => r[0] === id);
+  assert.equal(a.Gandalf.move, row('lotr:Gandalf')[1]); assert.equal(a['Darth Vader'].domain, row('starwars:Darth Vader')[2]);
   assert.equal(a.Darkseid.move, 'Omega Beams', 'V1 profile kept'); assert.equal(a.Superman.move, 'Kryptonian power');
   assert.equal(a.Hulk.move, '', 'physical-only research: plain attacks, as in V1');
   for (const x of on.f) if (/Research move/.test(x.limit)) { assert.equal(x.ward, 0, x.name + ' gets no ward'); assert.equal(x.apex, 0, x.name + ' gets no Apex rank'); }

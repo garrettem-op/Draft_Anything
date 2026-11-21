@@ -65,8 +65,8 @@ Action Movies has 90 of its 100 characters researched so far. Most fight physica
 | Mixed (all but NBA) | 41% | 2% | 9% | 23% |
 
 **Example from the matchup explainer.** Crossover (Hulk, Superman, Gandalf, Bugs Bunny, Darth Vader) against Heavy Hitters (Doomsday, Thanos, Scarlet Witch, Pikachu, Darkseid), 400 seeded fights:
-- Crossover wins **34%** with the switch off and **48%** with it on.
-- Gandalf casts Fire magic about 2.6 times a fight. Bugs Bunny uses Disguise and deception, Darth Vader Lightsaber combat, and Pikachu Thunderbolt.
+- Crossover wins **34%** with the switch off. With it on, it won **48%** on 2026-11-20 and **50%** after the 2026-11-21 research refresh.
+- Gandalf casts magic about 2.6 times a fight. His move's name follows his record: "Fire magic" at first, then "Spells of closing" once the sequels-and-comics expansion added more of his writings. Bugs Bunny uses Disguise and deception, Darth Vader Lightsaber combat, and Pikachu Thunderbolt.
 - Pikachu's damage rises from 136 to 177 per fight. His attributes still make him the weakest fighter there: a move adds a power type, not raw strength.
 
 ## Unchanged
