@@ -48,7 +48,7 @@ Version 1's phases are respected rather than replayed: `teamScore` already conta
 | `interaction-engine.js` | **Ability Interaction Engine.** General typed rules for who has a documented way to hurt whom | `assessThreat(att, def)`, `assessBattle(as, bs)`, `RULES` |
 | `sport-rules.js` | **Sport Rules Evaluator.** Five-step officiating test per character, capability and position | `evaluateApplication()`, `evaluateLineup()`, `RULEBOOK`, `POSITION_RULES` |
 | `team-ledger.js` | **Team Intelligence Engine.** The unified effect ledger with reconciliation and double-count guards | `observeTeam()`, `validate()` |
-| `probability.js` | **Probability Evaluator.** Transparent, uncalibrated first-pass model | `estimate()`, `MODEL` |
+| `probability.js` | **Probability Evaluator.** Transparent model; Battle Royale constants fitted to simulated V2 fights (`docs/option-c/CALIBRATION.md`) | `estimate()`, `MODEL` |
 | `explain.js` | **Explanation Engine.** Plain-language win conditions, risks, constraints | `brawlSide()`, `sportSide()`, `characterSummary()` |
 | `evaluator.js` | Facade `DA_OPTION_C` and the shadow recorder | `evaluateMatchup()`, `shadow.*` |
 
@@ -114,7 +114,9 @@ Every entry carries `id`, `sourceSystem`, `sourceCharacterId`, `sourceAbilityId`
 
 Safeguards, all tested: the `inRating` entries add up to `score.rating` (within 1e-4); MuppetForce and bench chemistry are recomputed through their own modules and must agree; a second entry with an existing stack key is recorded as `blocked`; a derived entry of kind `rating-add`/`rating-multiplier` is `blocked`; a derived entry that restates a legacy effect names it in `overlaps`. Seeded effects are listed with `value: null` and are never rolled.
 
-## Probability model (uncalibrated)
+## Probability model
+
+**Updated 2026-11-21:** Battle Royale now uses two fitted rating scales (3.6 points per logit up to a team score of 99.2, 10.6 above it), a matchup-edge weight of 1.0, and a range of about ±25% that may reach 0% and 100%. Held-out results land inside the range 89% of the time. See `docs/option-c/CALIBRATION.md`. The original first-pass description follows for the record.
 
 ```
 numeric      = (effective rating A − effective rating B) / scale      scale: 20 Battle Royale; 0.6 × sigma (min 1.5) or 4 for sports

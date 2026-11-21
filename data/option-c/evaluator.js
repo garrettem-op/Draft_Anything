@@ -68,7 +68,9 @@
     /* Evidence coverage. */
     const fighters = active[0].concat(active[1]);
     const count = s => fighters.filter(r => r.profile.evidence.combat === s).length;
-    const typed = count(EVIDENCE.REVIEWED);
+    // A V2 research move is a typed power in the fight that is actually played, so it counts as typed coverage.
+    const liveMove = r => !!(r.profile.signature && r.profile.signature.origin === 'research-move');
+    const typed = count(EVIDENCE.REVIEWED) + fighters.filter(liveMove).length;
     const researchDerivedN = fighters.filter(r => r.profile.researchDerived && r.profile.signature && r.profile.signature.origin === 'research-record').length;
     const coverage = fighters.length ? typed / fighters.length : 0;
     /* Weight of the typed (qualitative) term. Research-derived lines count at half weight: editorial, uncalibrated. */
@@ -144,14 +146,16 @@
       .sort((a, b) => b.weight - a.weight || (a.text < b.text ? -1 : a.text > b.text ? 1 : 0)).slice(0, 8);
 
     const uncertainties = [];
-    const unknownKits = fighters.filter(r => r.profile.evidence.combat !== EVIDENCE.REVIEWED && !(useResearch && r.profile.signature && r.profile.signature.origin === 'research-record')).map(r => r.profile.displayName);
+    const unknownKits = fighters.filter(r => r.profile.evidence.combat !== EVIDENCE.REVIEWED && !liveMove(r) && !(useResearch && r.profile.signature && r.profile.signature.origin === 'research-record')).map(r => r.profile.displayName);
     if (brawl && unknownKits.length) uncertainties.push({ kind: 'unresearched-kits', impact: 'high', text: 'No typed combat profile for ' + RT.uniq(unknownKits).sort().join(', ') + '. Their real abilities could change this estimate (research issues #82/#83).' });
     if (continuityOpen.length) uncertainties.push({ kind: 'continuity', impact: 'medium', text: 'Continuity is not adjudicated for ' + RT.uniq(continuityOpen).sort().join(', ') + '; feats from another adaptation are not assumed.' });
     for (const u of unresolved) uncertainties.push({ kind: 'officiating', impact: 'medium', teamKey: u.teamKey, text: u.character + ': "' + u.action + '" has no approved ruling (' + u.ruleId + '). ' + u.reason });
     for (const u of pendingEvidence) uncertainties.push({ kind: 'capability-evidence', impact: 'low', teamKey: u.teamKey, text: u.character + ': ' + u.capability + ' is granted in the ability index but its evidence still needs review.' });
     if (seeded) uncertainties.push({ kind: 'seeded-events', impact: 'low', text: 'Bench heat, playoff boom/clutch and ToonForce spotlight are seeded per match and are not rolled here.' });
     if (useResearch && researchDerivedN) uncertainties.push({ kind: 'research-derived-lines', impact: 'medium', text: researchDerivedN + ' fighter(s) are assessed from research records only: a documented line of attack and defenses, with no tier, ward or combat proficiency. They count at half weight (' + RESEARCH_WEIGHT + ', an uncalibrated editorial choice).' });
-    uncertainties.push({ kind: 'calibration', impact: 'medium', text: 'The probability model is a first-pass, uncalibrated editorial model.' });
+    uncertainties.push({ kind: 'calibration', impact: 'medium', text: brawl
+      ? 'Battle Royale odds are fitted to simulated Version 2 fights (2026-11-21): they predict this game engine, not canon. Every research move uses one standard strength.'
+      : 'Sports odds come from the rating model, which matches simulated games; power uses in each position are reported but not yet valued.' });
     const conflicts = ledgers.flatMap((l, i) => l.conflicts.map(c => ({ teamKey: keys[i], ...c })))
       .concat(rows.flatMap((rs, i) => rs.flatMap(r => r.profile.deniedTags.map(d => ({ teamKey: keys[i], system: 'ability-index', detail: r.profile.key + ': tag "' + d.tag + '" was reviewed and rejected. ' + d.reason })))));
 

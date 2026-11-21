@@ -116,7 +116,7 @@ test('evaluator: default output is byte-identical with research loaded; the opt-
     const B = ocTeam('brawl', { d1: ['dc', 'Darkseid'] }, 'dc');
     return DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: A, teamB: B, teamNames: ['A', 'B'], context: ${JSON.stringify(ctx)} });
   })())`);
-  const cleanApp = loadApp();
+  const cleanApp = loadApp({ search: '?researchPowers=0' });
   const cleanRun = ctx => cleanApp.run(`JSON.stringify((() => {
     const A = ocTeam('brawl', { d1: [${JSON.stringify(pool)}, ${JSON.stringify(name)}] }, ${JSON.stringify(pool)});
     const B = ocTeam('brawl', { d1: ['dc', 'Darkseid'] }, 'dc');
