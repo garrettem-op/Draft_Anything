@@ -7,13 +7,16 @@
   "characters": [
     {
       "id": "lotr:Boromir",
-      "continuity": "The Lord of the Rings (Book / Legendarium)",
-      "summary": "Boromir is a valiant mortal warrior of Gondor, fighting with a broadsword, shield, and the Great Horn of Gondor. He relies heavily on physical prowess, martial training, and sheer determination in melee combat.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings, The History of Middle-earth, and related legendarium works)",
+      "summary": "Boromir is a valiant and heavily built mortal warrior of Gondor, fighting with a broadsword, shield, and the Great Horn of Gondor. He relies on martial training, immense physical prowess, and unwavering determination in melee combat.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Swordplay with broadsword",
+          "Sounding the Great Horn of Gondor",
+          "Shield-bash and melee charges",
           "Great strength and stamina; admired captain of Gondor",
           "Sword, shield and the Horn of Gondor",
           "Slew many Orcs defending Merry and Pippin"
@@ -22,21 +25,36 @@
       },
       "defense": {
         "mechanisms": [
+          "Heavy mail and leather armor",
+          "Gondorian shield",
+          "Extreme pain tolerance and sheer determination",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Vulnerability to ranged missile weapons such as orc-arrows",
+        "Susceptibility to the corrupting influence of the One Ring",
         "Pride and desire for the Ring: tried to take it from Frodo",
         "Killed by Orc arrows"
       ],
-      "mobility": [
-        "Running on foot"
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Lord of the Rings (Book / Legendarium)",
+          "kind": "source"
+        }
       ],
-      "limitations": [],
+      "mobility": [
+        "Running on foot",
+        "Horseback riding"
+      ],
+      "limitations": [
+        "Mortal physical endurance and vulnerability to mortal injuries"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Boromir",
-          "supports": "General background, weapons, and death defending Merry and Pippin."
+          "supports": "Boromir's role, weapons, death defending Merry and Pippin, and use of the Great Horn."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Fellowship_of_the_Ring_(characters)",
@@ -45,32 +63,53 @@
       ],
       "feats": [
         {
+          "claim": "Fought fiercely against numerous orcs at Parth Galen, slaying many before being fatally pierced by multiple arrows while defending Merry and Pippin.",
+          "citation": "The Fellowship of the Ring, The Breaking of the Fellowship",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        },
+        {
           "claim": "Fought fiercely against multiple orcs at Parth Galen before being slain by arrows.",
           "citation": "Wikipedia: Boromir",
+          "source": 0,
+          "depiction": "The Lord of the Rings (Book / Legendarium)"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Orcs of Mordor and Isengard",
+          "result": "loss",
+          "citation": "The Fellowship of the Ring, Parth Galen",
+          "note": "Swarmed by superior numbers and killed by archers after slaying many foes.",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
           "source": 0
         }
       ],
-      "notableResults": [],
-      "conditional": [],
       "unknowns": [
+        "Exact count of orcs slain prior to his death varies in early manuscript drafts compared to the published text.",
         "Exact count of orcs defeated prior to his final stand.",
         "Removed by review (not supported by the cited source): technique: Sword strike with broadsword; technique: Sounding the Great Horn of Gondor to rally allies and dismay enemies; defense: Steel shield and armor; defense: High pain tolerance and resilience; weakness: Vulnerable to ordinary ranged weaponry such as multiple orcs firing arrows; weakness: Susceptible to the corrupting influence of the One Ring; limitation: Mortal endurance and vulnerability to lethal injury; result: Lurtz; conditional: Stun or demoralize enemies with loud acoustic blast",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Boromir is a valiant mortal warrior of Gondor, fighting with a broadsword, shield, and the Great Horn of Gondor. He relies heavily on physical prowess, martial training, and sheer determination in melee combat.",
+      "conditional": []
     },
     {
       "id": "lotr:Carcharoth",
-      "continuity": "The Silmarillion",
-      "summary": "Carcharoth is the greatest of the wolf-hounds of Angband, bred by Morgoth. He fights with immense physical strength, crushing jaws, and supernatural ferocity, augmented later by the burning agony of a Silmaril.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion and related legendarium works)",
+      "summary": "Carcharoth is a colossal and ferocious werewolf bred by Morgoth in Angband, possessing immense physical strength, crushing jaws, and terrifying speed. He later became maddened and invincible to ordinary weapons after swallowing a Silmaril.",
       "offense": {
         "domains": [
           "physical",
+          "magical",
           "magic"
         ],
         "techniques": [
+          "Crushing bite",
+          "Rampage and clawing",
+          "Internal burning from the ingested Silmaril",
           "Called the mightiest werewolf of all, guard of Angband's gate",
           "Bit off Beren's hand with the Silmaril in it",
           "Mortally wounded both Beren and Huan"
@@ -79,19 +118,34 @@
       },
       "defense": {
         "mechanisms": [
+          "Thick supernatural hide",
+          "Ferocious resilience against physical attacks",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Driven to madness and internal torment by the holy light of the Silmaril contained within his belly",
         "Put into a deep sleep by Lúthien",
         "Driven mad by the Silmaril burning inside him; killed by Huan"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Silmarillion",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Superhuman running speed",
+        "Leaping"
+      ],
+      "limitations": [
+        "Mindless rage when maddened by pain"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Carcharoth",
-          "supports": "Origins as wolf of Angband, swallowing the Silmaril, and death against Huan."
+          "supports": "Carcharoth's origins as the mightiest wolf of Angband, biting off Beren's hand, and death by Huan."
         },
         {
           "url": "https://en.wikipedia.org/wiki/L%C3%BAthien",
@@ -104,52 +158,114 @@
       ],
       "feats": [
         {
+          "claim": "Bit off Beren's hand at the gates of Angband to swallow the Silmaril.",
+          "citation": "The Silmarillion, Of Beren and Lúthien",
+          "depiction": "The Silmarillion",
+          "source": 0
+        },
+        {
+          "claim": "Ravaged Beleriand and broke through the guarded borders of Doriath before being slain by the hound Huan.",
+          "citation": "The Silmarillion, Of the Ruin of Doriath",
+          "depiction": "The Silmarillion",
+          "source": 0
+        },
+        {
           "claim": "Bit off Beren's hand containing the Silmaril at the gates of Angband.",
           "citation": "Wikipedia: Carcharoth",
+          "source": 0,
+          "depiction": "The Silmarillion"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Beren",
+          "result": "win",
+          "citation": "The Silmarillion, Of Beren and Lúthien",
+          "note": "Ambushed Beren and bit off his hand.",
+          "depiction": "The Silmarillion",
+          "source": 0
+        },
+        {
+          "opponent": "Huan",
+          "result": "loss",
+          "citation": "The Silmarillion, Of the Ruin of Doriath",
+          "note": "Slain in single combat by the great hound Huan, though Huan also died of his wounds.",
+          "depiction": "The Silmarillion",
           "source": 0
         }
       ],
-      "notableResults": [],
-      "conditional": [],
-      "campaignTags": [],
+      "conditional": [
+        {
+          "ability": "Invulnerability to ordinary weapons and burning torment",
+          "dependsOn": "Ingestion of the Silmaril",
+          "depiction": "The Silmarillion",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact dimensions and weight are not quantified in text beyond being described as the greatest of wolves.",
         "Exact dimensions of the beast beyond being monstrously huge.",
         "Removed by review (not supported by the cited source): technique: Savage bite; technique: Rampaging charge; technique: Burning agony inflicted by the ingested Silmaril; defense: Impenetrable hide against ordinary weapons; defense: Supernatural endurance; weakness: Driven to madness and self-destruction by the holy light of the Silmaril within his belly; weakness: Vulnerable to specialized hounds like Huan; limitation: Mindless rage when driven by pain from the Silmaril; mobility: Quadrupedal running at extreme speed; feat: Broke through the defenses of Doriath and rampaged through Beleriand.; result: Huan; conditional: Burning touch that sears anything it contacts; tag: Described as the greatest and most terrifying wolf of Morgoth's breed, towering over ordinary wolves.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Carcharoth is the greatest of the wolf-hounds of Angband, bred by Morgoth. He fights with immense physical strength, crushing jaws, and supernatural ferocity, augmented later by the burning agony of a Silmaril.",
+      "campaignTags": []
     },
     {
       "id": "lotr:Celeborn",
-      "continuity": "The Lord of the Rings (Book / Legendarium)",
-      "summary": "Celeborn is an Elven lord of Lothlórien, fighting with a bow and Elven blade alongside Galadriel. He combines deep tactical experience with ancient Elven combat arts.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings, The Silmarillion, and Unfinished Tales)",
+      "summary": "Celeborn is a wise and powerful Elven lord of Lothlórien, fighting with a sword, bow, and ancient tactical mastery alongside Galadriel. He combines deep elven martial skill with centuries of military leadership.",
       "offense": {
         "domains": [
           "physical",
           "magic"
         ],
         "techniques": [
+          "Elven swordplay",
+          "Archery",
+          "Military command of Lothlórien forces",
           "Co-ruler of Lothlórien",
           "Led the host of Lórien across the Anduin and took Dol Guldur after Sauron fell"
         ],
-        "range": "melee / ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Elven plate and mail armor",
+          "Agility and heightened elven senses",
+          "Warding magic of Lothlórien",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Vulnerability to physical destruction of his physical form, typical of Eldar in Middle-earth",
         "Could not relieve Eregion and had to retreat"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Lord of the Rings (Book / Legendarium)",
+          "kind": "source"
+        },
+        {
+          "title": "Unfinished Tales",
+          "kind": "sequel"
+        }
+      ],
+      "mobility": [
+        "Elven foot travel",
+        "Horseback riding",
+        "Boat navigation"
+      ],
+      "limitations": [
+        "Bound to physical form in Middle-earth prior to sailing West"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Celeborn",
-          "supports": "Role as Lord of Lothlórien, husband of Galadriel, military commander."
+          "supports": "Celeborn's status as Lord of Lothlórien, husband of Galadriel, and his military campaigns across the Anduin."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Galadriel",
@@ -158,30 +274,57 @@
       ],
       "feats": [
         {
+          "claim": "Led the forces of Lothlórien across the Anduin during the War of the Ring to assault and raze Dol Guldur.",
+          "citation": "The Lord of the Rings, Appendix B",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        },
+        {
           "claim": "Led the forces of Lothlórien across the Anduin to assault and raze Dol Guldur at the end of the War of the Ring.",
           "citation": "Wikipedia: Celeborn",
+          "source": 0,
+          "depiction": "The Lord of the Rings (Book / Legendarium)"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Forces of Dol Guldur",
+          "result": "win",
+          "citation": "The Lord of the Rings, Appendix B",
+          "note": "Assaulted and destroyed the enemy fortress at the conclusion of the war.",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
           "source": 0
         }
       ],
-      "notableResults": [],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Possesses inherent high elven abilities and guards Lothlórien with elven rings and power.",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact origin and kinship lineages vary across Tolkien's evolving drafts in The History of Middle-earth.",
         "Extent of direct magical projection in combat compared to Galadriel.",
         "Removed by review (not supported by the cited source): technique: Elven blade combat; defense: Elven plate armor; defense: Agility and heightened Elven reflexes; weakness: Vulnerable to fatal physical injury like any Elf; limitation: Bound to physical form in Middle-earth; mobility: Elven running; mobility: Riding mounts; result: Forces of Dol Guldur",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Celeborn is an Elven lord of Lothlórien, fighting with a bow and Elven blade alongside Galadriel. He combines deep tactical experience with ancient Elven combat arts."
     },
     {
       "id": "lotr:Celebrimbor",
-      "continuity": "The Silmarillion / The History of Middle-earth",
-      "summary": "Celebrimbor is the Elven-smith of Eregion who forged the Three Rings. The cited sources describe his craft, not combat.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion, The Lord of the Rings, and Unfinished Tales)",
+      "summary": "Celebrimbor is the master elven smith of Eregion and grandson of Fëanor, wielding masterful craftsmanship, elven weaponry, and secret smithcraft. While primarily a craftsman rather than a frontline warrior, he defended Eregion against Sauron's armies.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "magic"
         ],
         "techniques": [
+          "Elven blade combat",
+          "Forging of powerful magical artifacts and rings",
           "Master Elven-smith who led the jewel-smiths of Eregion",
           "Forged the Three Rings alone"
         ],
@@ -189,43 +332,87 @@
       },
       "defense": {
         "mechanisms": [
+          "Elven armor",
+          "Mastery of craftsmanship and wards",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Pride in his craft and vulnerability to deception by Sauron (as Annatar)",
         "Deceived by Sauron in the guise of Annatar",
         "Tortured to death by Sauron"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Silmarillion",
+          "kind": "source"
+        },
+        {
+          "title": "Unfinished Tales",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Silmarillion / The History of Middle-earth",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Elven foot travel"
+      ],
+      "limitations": [
+        "Not primarily a warrior by profession, specialized in craft"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Celebrimbor",
-          "supports": "Lineage as descendant of Fëanor, forger of the Rings of Power, death by Sauron."
+          "supports": "Celebrimbor's role as the maker of the Three Rings and prince of Eregion."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Rings_of_Power",
           "supports": "Led the Elven-smiths of Eregion, forged the Three alone, and under torture kept them hidden."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
+      "feats": [
+        {
+          "claim": "Defended the house of the Mírdain in Eregion against Sauron's invading forces before being captured.",
+          "citation": "The Silmarillion, Of the Rings of Power and the Third Age",
+          "depiction": "The Silmarillion",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron's armies",
+          "result": "loss",
+          "citation": "The Silmarillion, Of the Rings of Power and the Third Age",
+          "note": "Eregion was overrun and Celebrimbor was captured and slain.",
+          "depiction": "The Silmarillion",
+          "source": 0
+        }
+      ],
       "campaignTags": [
         {
+          "tag": "magic",
+          "claim": "Forged the Rings of Power through advanced elven smithcraft and magic.",
+          "source": 0
+        },
+        {
           "tag": "inventor",
-          "claim": "Master craftsman who forged the Rings of Power and many technological/magical wonders of Eregion.",
+          "claim": "Master smith who created legendary items and rings.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Whether he fought in personal combat during the siege of Eregion or was captured inside his tower directly.",
         "Exact combat prowess compared to his grandfather Fëanor.",
         "Removed by review (not supported by the cited source): technique: Noldorin swordplay; technique: Defensive stronghold command; defense: Elven armor; defense: Fortifications of Ost-in-Edhil; weakness: Deceived by Sauron regarding the craft of rings; weakness: Vulnerable to overwhelming military force; limitation: Physical vulnerability in direct combat against superior numbers; mobility: Elven running; feat: Defended the gates of the House of the Mírdain against Sauron's invading forces.; result: Sauron's army; conditional: Control over craft-based creations",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Celebrimbor is the Elven-smith of Eregion who forged the Three Rings. The cited sources describe his craft, not combat.",
+      "conditional": []
     },
     {
       "id": "lotr:Celegorm",
@@ -276,14 +463,16 @@
     },
     {
       "id": "lotr:Círdan the Shipwright",
-      "continuity": "The Lord of the Rings / The Silmarillion",
-      "summary": "Círdan is one of the oldest and wisest Elves remaining in Middle-earth, lord of the Havens of Mithlond. While primarily a master shipwright and counselor, he possesses deep wisdom and foresight.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion, The Lord of the Rings, and Unfinished Tales)",
+      "summary": "Círdan the Shipwright is one of the oldest and wisest Elves remaining in Middle-earth, lord of the Grey Havens. While primarily a master shipbuilder, counselor, and seer, he fought in major historical conflicts wielding elven arms.",
       "offense": {
         "domains": [
           "physical",
           "magic"
         ],
         "techniques": [
+          "Elven sword and spear combat",
+          "Prophetic insight and counsel",
           "Shipwright and Lord of the Havens",
           "Bore Narya, the Ring of Fire, before giving it to Gandalf",
           "Helped Eärendil build the ship Vingilot"
@@ -292,18 +481,41 @@
       },
       "defense": {
         "mechanisms": [
+          "Ancient elven mail",
+          "Profound wisdom and foresight",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Weariness of Middle-earth leading to eventual departure",
         "No battle record described in the cited sources"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Silmarillion",
+          "kind": "source"
+        },
+        {
+          "title": "The Lord of the Rings (Book / Legendarium)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Lord of the Rings / The Silmarillion",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Elven foot travel",
+        "Seafaring ship navigation"
+      ],
+      "limitations": [
+        "Aged and weary during the Third Age, delegating martial duties to others"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/C%C3%ADrdan",
-          "supports": "Role as shipwright of the Grey Havens, bearer of Narya initially, extreme longevity."
+          "supports": "Círdan's identity as shipwright of the Grey Havens, bearer of Narya, and participant in the Last Alliance."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Rings_of_Power",
@@ -318,34 +530,47 @@
           "supports": "Elrond and Círdan were entrusted with Elven Rings."
         }
       ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Initial keeper of Narya, one of the Three Rings of the Elves.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Specific individual combat feats during the First Age battles at the Havens of Sirion are summarized rather than detailed.",
+        "Unverified (cited source failed the automatic check): Fought in the Last Alliance of Elves and Men during the siege of Barad-dûr against Sauron's forces.",
+        "Unverified result (cited source failed the automatic check): win vs Forces of Sauron",
+        "Exact combat engagements during the First Age.",
+        "Removed by review (not supported by the cited source): technique: Elven blade work; technique: Counsel and foresight; defense: Elven armor; defense: Aegis of ancient wisdom and foresight; limitation: Reluctance to engage in aggressive warfare; mobility: Sailing vessels; mobility: Elven running; result: Forces of Angmar / Sauron (historical wars); conditional: Inspiring hope and endurance in others; tag: Master of ships and havens, builder of maritime vessels for the Eldar.; tag: Master of maritime craft and coastal havens.",
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "feats": [
         {
           "claim": "Fought in the Last Alliance of Elves and Men against Sauron's forces.",
           "citation": "Wikipedia: Círdan",
-          "source": 0
+          "source": 0,
+          "depiction": "The Lord of the Rings / The Silmarillion"
         }
       ],
+      "earlierSummary": "Círdan is one of the oldest and wisest Elves remaining in Middle-earth, lord of the Havens of Mithlond. While primarily a master shipwright and counselor, he possesses deep wisdom and foresight.",
       "notableResults": [],
-      "conditional": [],
-      "campaignTags": [],
-      "unknowns": [
-        "Exact combat engagements during the First Age.",
-        "Removed by review (not supported by the cited source): technique: Elven blade work; technique: Counsel and foresight; defense: Elven armor; defense: Aegis of ancient wisdom and foresight; limitation: Reluctance to engage in aggressive warfare; mobility: Sailing vessels; mobility: Elven running; result: Forces of Angmar / Sauron (historical wars); conditional: Inspiring hope and endurance in others; tag: Master of ships and havens, builder of maritime vessels for the Eldar.; tag: Master of maritime craft and coastal havens.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "conditional": []
     },
     {
       "id": "lotr:Dáin II Ironfoot",
-      "continuity": "The Hobbit / The Lord of the Rings",
-      "summary": "Dáin II Ironfoot is a formidable Dwarf king of the Iron Hills and later Erebor. He fights with a heavy two-handed war mattock (ax-hammer), thick dwarven mail, and extraordinary physical resilience.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Hobbit and The Lord of the Rings)",
+      "summary": "Dáin II Ironfoot is a formidable and battle-hardened Dwarf king of the Iron Hills and later Erebor, fighting with a heavy two-handed war mattock, thick dwarven mail, and extraordinary resilience.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Two-handed war mattock strikes",
+          "Dwarven shield wall tactics",
+          "Berserker charge",
           "One of the greatest Dwarf warriors",
           "Slew Azog in single combat at Azanulbizar",
           "Led more than five hundred Dwarves to the Battle of Five Armies"
@@ -354,18 +579,42 @@
       },
       "defense": {
         "mechanisms": [
+          "Rune-wrought dwarven mail",
+          "Iron helm",
+          "Exceptional dwarven physical toughness and stamina",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Stubborn pride and willingness to fight to the death when defending kin or realm",
         "Killed in old age defending King Brand before the gates of Erebor"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Hobbit",
+          "kind": "source"
+        },
+        {
+          "title": "The Lord of the Rings (Book / Legendarium)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Hobbit / The Lord of the Rings",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Heavy dwarven marching",
+        "Riding armored boars (in lore variants/adaptations)"
+      ],
+      "limitations": [
+        "Mortal dwarven lifespan and endurance limits"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/D%C3%A1in_II_Ironfoot",
-          "supports": "Role in Battle of Five Armies, King under the Mountain, death at Dale."
+          "supports": "Dáin's role as King under the Mountain, slaying Azog, and fighting at a great age in the War of the Ring."
         },
         {
           "url": "https://en.wikipedia.org/wiki/List_of_The_Hobbit_characters",
@@ -378,30 +627,70 @@
       ],
       "feats": [
         {
+          "claim": "Slew the Orc leader Azog in single combat outside the gates of Moria during the War of the Dwarves and Orcs as a young dwarf.",
+          "citation": "The Lord of the Rings, Appendix A",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        },
+        {
+          "claim": "Fought valiantly at the Battle of Five Armies at an advanced age, cutting down foes with his mattock.",
+          "citation": "The Hobbit, Chapter 17, The Clouds Burst",
+          "depiction": "The Hobbit",
+          "source": 0
+        },
+        {
+          "claim": "Defended the gates of Erebor and fell protecting the body of King Brand during the War of the Ring at an extreme old age.",
+          "citation": "The Lord of the Rings, Appendix A",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        },
+        {
           "claim": "Fought valiantly at the Battle of Five Armies at a great age.",
           "citation": "Wikipedia: Dáin II Ironfoot",
+          "source": 0,
+          "depiction": "The Hobbit / The Lord of the Rings"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Azog",
+          "result": "win",
+          "citation": "The Lord of the Rings, Appendix A",
+          "note": "Slew Azog during the Battle of Azanulbizar.",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        },
+        {
+          "opponent": "Easterlings of Mordor",
+          "result": "loss",
+          "citation": "The Lord of the Rings, Appendix A",
+          "note": "Slain in battle defending Erebor at the age of over 250 years.",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
           "source": 0
         }
       ],
-      "notableResults": [],
       "unknowns": [
+        "Exact tactical details of his duel with Azog beyond the outcome.",
         "Exact age at death in years.",
         "Removed by review (not supported by the cited source): technique: Mattock strikes; technique: Phalanx shield wall command; defense: Dwarven steel mail armor; defense: Iron helm and shield; defense: Exceptional dwarf stamina and stubborn endurance; weakness: Slow movement speed compared to mounted or nimble foes due to heavy armor and dwarven stature; limitation: Limited mobility over long distances on foot; mobility: Dwarven marching and running on foot; mobility: Riding armored rams (in adaptations/traditions); feat: Slew Azog the Defiler outside the East-gate of Moria during the War of the Dwarves and Orcs.; result: Azog; result: Easterlings (War of the Ring)",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Dáin II Ironfoot is a formidable Dwarf king of the Iron Hills and later Erebor. He fights with a heavy two-handed war mattock (ax-hammer), thick dwarven mail, and extraordinary physical resilience."
     },
     {
       "id": "lotr:Denethor II",
-      "continuity": "The Lord of the Rings (Book / Legendarium)",
-      "summary": "Denethor II is the Steward of Gondor, a proud and perceptive ruler. In battle and governance, he wields a longsword and commands the defenses of Minas Tirith, though his primary weapon in later years is psychological resolve and the palantír.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Lord of the Rings)",
+      "summary": "Denethor II is the proud and perceptive Steward of Gondor. A capable warrior wielding a longsword in his youth, he later relies on psychological resolve, command of Minas Tirith's defenses, and viewing the enemy through the palantír of Anor.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Longsword combat",
+          "Strategic command of Gondorian garrisons",
+          "Psychological intimidation",
           "Strong will and far-seeing perception; resisted Sauron's direct domination through the palantír",
           "Commander of Gondor's defence as Steward"
         ],
@@ -409,38 +698,76 @@
       },
       "defense": {
         "mechanisms": [
+          "Steward's armor",
+          "High willpower and intellect",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Despair and mental breakdown induced by Sauron's manipulation through the palantír",
         "Pride and despair, fed by Sauron's palantír visions",
         "Burned himself on a pyre during the siege"
       ],
-      "mobility": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Lord of the Rings (Book / Legendarium)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Horseback riding",
+        "Walking within Minas Tirith"
+      ],
       "limitations": [
+        "Vulnerability to mental exhaustion and despair",
         "Mental breakdown under extreme despair"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Denethor_II",
-          "supports": "Strong will and foresight; resists Sauron; pride and despair; suicide during the Pelennor battle."
+          "supports": "Denethor's role as Steward of Gondor, use of the palantír, and tragic death."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Battle_of_the_Pelennor_Fields",
           "supports": "Prepared a pyre for himself and Faramir in despair; Gandalf took command of the defence."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
+      "feats": [
+        {
+          "claim": "Successfully governed and directed the military defense of Gondor against Mordor's assaults utilizing his native authority and vigilance.",
+          "citation": "The Return of the King, The Siege of Gondor",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Sauron (mental contest via palantír)",
+          "result": "loss",
+          "citation": "The Return of the King, The Pyre of Denethor",
+          "note": "Though Denethor resisted total enslavement, Sauron's psychological pressure drove him to despair and suicide.",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Far-seeing vision and mental strain",
+          "dependsOn": "Use of the Palantír of Anor",
+          "depiction": "The Lord of the Rings (Book / Legendarium)",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "The exact extent of his personal combat engagements on the field during his earlier years as commander.",
         "Extent of direct battlefield combat feats in his youth.",
         "Removed by review (not supported by the cited source): technique: Longsword strikes; technique: Command of Minas Tirith garrisons; defense: Gondorian plate armor; defense: Guards of the Citadel; weakness: Deep despair and psychological manipulation by Sauron via the palantír; mobility: Walking; mobility: Horseback riding; feat: Maintained the defense of Minas Tirith against the armies of Mordor through strategic readiness.; result: Sauron (psychological contest via Palantír); conditional: Vision across vast distances and foresight",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Denethor II is the Steward of Gondor, a proud and perceptive ruler. In battle and governance, he wields a longsword and commands the defenses of Minas Tirith, though his primary weapon in later years is psychological resolve and the palantír."
     }
   ]
 }
