@@ -47,6 +47,6 @@ Compared with ratings alone (log loss 0.417), the matchup-edge term adds a small
 
 ## Known limits
 - **It predicts the game engine, not canon.** The odds describe what this game's fights produce. Because every research move currently has the same standard strength, the odds will need refitting once a strength rule is added.
-- **Individual matchups can still miss.** Half of held-out matchups land within 10% of the estimate, and one in ten is more than 35% off. The matchup explainer's example is one of the bigger misses: the evaluator gives Heavy Hitters 80%, while the fights go about 52/48 (48% is inside its 0–50% range). It credits Darkseid's and Scarlet Witch's top-tier powers with more edge against research moves than the fights show. That interaction rule is the next thing to refine.
+- **Individual matchups can still miss.** Half of held-out matchups land within 10% of the estimate, and one in ten is more than 35% off. The matchup explainer's example is one of the bigger misses: the evaluator gives Heavy Hitters 80%, while the fights go about 50/50 (50% is at the edge of its 0–50% range). It credits Darkseid's and Scarlet Witch's top-tier powers with more edge against research moves than the fights show. That interaction rule is the next thing to refine.
 - **Refit after rule changes.** Run the tool again after any change to fight rules, research moves or the support cap, and update the constants in `data/option-c/probability.js`.
 - **Sports power uses are still not valued.** They are reported but not weighted until rulings exist.
