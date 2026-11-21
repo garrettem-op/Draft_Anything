@@ -7,14 +7,18 @@
   "characters": [
     {
       "id": "starwars:Aayla Secura",
-      "continuity": "Star Wars Canon (The Clone Wars / Revenge of the Sith)",
-      "summary": "Aayla Secura is a Jedi Knight and skilled military general who dual-wields lightsabers in a specialized reverse-grip style. She relies on acrobatic movement, tactical awareness, and a deep connection to the Force.",
+      "continuity": "Star Wars films and series, The Clone Wars animated series, Star Wars Marvel and Dark Horse comics",
+      "summary": "Aayla Secura is a Jedi Knight and general who combines acrobatic lightsaber combat in a reverse-grip style with Force abilities and tactical leadership.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
+          "control",
           "magic"
         ],
         "techniques": [
+          "Lightsaber combat (Soresu and Ataru forms, reverse grip)",
+          "Force push and pull",
           "Lightsaber combat (Ataru/Jar'Kai style)",
           "Force push",
           "Force pull",
@@ -30,17 +34,45 @@
         ]
       },
       "weaknesses": [
+        "Vulnerable to surprise attacks and betrayal from close allies",
+        "Standard biological vulnerabilities",
         "Vulnerable to betrayal when surrounded by loyal clone troopers under Order 66"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Republic (Dark Horse Comics, 1998-2006)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars / Revenge of the Sith)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "running",
+        "Running",
+        "Acrobatic leaping",
+        "Starship pilot",
         "acrobatic leaps",
         "starship piloting"
       ],
       "limitations": [
+        "Requires physical presence and focus to wield Force powers effectively",
         "Requires focus to maintain advanced Force techniques in active combat"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Aayla_Secura",
+          "supports": "General biographical details, status as a Jedi General, and appearances in Star Wars media."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Aayla_Secura",
           "supports": "Abilities, status as Jedi Knight, dual lightsaber combat, and death during Order 66."
@@ -50,51 +82,79 @@
         {
           "claim": "Led clone trooper forces and engaged hostile droids on various Clone Wars battlefronts.",
           "citation": "Star Wars: The Clone Wars",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
           "source": 0
         },
         {
           "claim": "Gunned down by her own clone troopers on Felucia during Order 66.",
-          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "citation": "Star Wars Episode III: Revenge of the Sith",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Clone Troopers",
+          "result": "loss",
+          "citation": "Star Wars Episode III: Revenge of the Sith",
+          "note": "Ambushed by subordinate clone troopers executing Order 66",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "source": 0
+        },
+        {
           "opponent": "Clone Troopers (Order 66)",
           "result": "loss",
           "citation": "Star Wars: Episode III - Revenge of the Sith",
           "note": "Ambushed by her own troops without warning.",
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars / Revenge of the Sith)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Lightsaber combat and Force powers",
+          "dependsOn": "Access to a lightsaber and connection to the Force",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Can use Force leap for high airborne maneuverability",
+          "claim": "Demonstrated force-assisted leaps and acrobatic jumps",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Channeling the cosmic energy field known as the Force",
           "source": 0
         },
         {
           "tag": "pilot",
           "claim": "Pilots Republic starfighters and gunships during the Clone Wars",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact mastery level of Force abilities compared to Council members is not deeply specified in canon."
+        "Exact extent of kinetic force resistance varies by continuity.",
+        "Exact mastery level of Force abilities compared to Council members is not deeply specified in canon.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Aayla Secura is a Jedi Knight and skilled military general who dual-wields lightsabers in a specialized reverse-grip style. She relies on acrobatic movement, tactical awareness, and a deep connection to the Force."
     },
     {
       "id": "starwars:Admiral Ackbar",
-      "continuity": "Star Wars Canon (Return of the Jedi / Sequel Trilogy)",
-      "summary": "Gial Ackbar is a legendary Mon Calamari military commander and fleet admiral known for his tactical genius in large-scale space combat. He directs forces from command bridges rather than engaging in direct personal combat.",
+      "continuity": "Star Wars films and series, Star Wars Sequel Trilogy, Star Wars Marvel comics",
+      "summary": "Gial Ackbar is a Mon Calamari fleet admiral who commands large-scale naval engagements, orchestrating tactical traps and fleet maneuvers from command bridges.",
       "offense": {
         "domains": [
-          "tech"
+          "tech",
+          "control"
         ],
         "techniques": [
+          "Capital ship bombardment coordination",
+          "Fleet convergence tactics",
           "Fleet bombardment coordination",
           "Starfighter squadron direction"
         ],
@@ -102,21 +162,51 @@
       },
       "defense": {
         "mechanisms": [
+          "Armored command bridge",
+          "Escorting capital ship deflector shields",
           "Capital ship deflector shields",
           "Escort fighter screening"
         ]
       },
       "weaknesses": [
+        "Not trained for personal melee combat",
+        "Vulnerable if command flagship is destroyed",
         "Vulnerable to personal physical combat and lacks direct combat abilities outside of command"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Sequel Trilogy (2015-2019 films)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics, 2015-2019)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Return of the Jedi / Sequel Trilogy)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Amphibious swimming",
+        "Starship transport",
         "swimming",
         "capital ship transport"
       ],
       "limitations": [
+        "Lacks individual frontline combat capabilities",
         "Lacks personal combat training for frontline melee or ranged skirmishes"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Admiral_Ackbar",
+          "supports": "Biographical data and role as Mon Calamari fleet commander."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Gial_Ackbar",
           "supports": "Military rank, tactical feats as fleet admiral, and leadership role in the Rebel Alliance."
@@ -125,7 +215,8 @@
       "feats": [
         {
           "claim": "Commanded the Rebel fleet at the Battle of Endor and orchestrated the trap maneuver against the second Death Star.",
-          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "citation": "Star Wars Episode VI: Return of the Jedi",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
           "source": 0
         }
       ],
@@ -133,44 +224,57 @@
         {
           "opponent": "Galactic Empire Fleet",
           "result": "win",
-          "citation": "Star Wars: Episode VI - Return of the Jedi",
-          "note": "Led fleet victory at Endor despite an initial imperial trap.",
+          "citation": "Star Wars Episode VI: Return of the Jedi",
+          "note": "Successful entrapment leading to the destruction of the second Death Star",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Fleet command capabilities",
+          "dependsOn": "Access to a functioning fleet command bridge and communications",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "aquatic",
-          "claim": "Mon Calamari species naturally adapted to aquatic environments",
+          "claim": "Mon Calamari species is native to aquatic environments and breathes underwater",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Mon Calamari can breathe underwater",
+          "claim": "Natural amphibious physiology allowing underwater survival",
           "source": 0
         },
         {
           "tag": "pilot",
-          "claim": "Commands capital starships and directs naval combat operations",
+          "claim": "Commands and pilots capital starships",
           "source": 0
         }
       ],
       "unknowns": [
-        "Personal hand-to-hand combat skills are not documented."
+        "Exact combat utility outside of naval command is undocumented.",
+        "Personal hand-to-hand combat skills are not documented.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Gial Ackbar is a legendary Mon Calamari military commander and fleet admiral known for his tactical genius in large-scale space combat. He directs forces from command bridges rather than engaging in direct personal combat."
     },
     {
       "id": "starwars:Admiral Holdo",
-      "continuity": "Star Wars Canon (The Last Jedi)",
-      "summary": "Amilyn Holdo is a high-ranking Resistance Vice Admiral who uses unconventional tactics and absolute resolve to command fleeing forces. She is capable of sacrificing capital ships to decimate hostile armadas.",
+      "continuity": "Star Wars films and series, Star Wars: The Last Jedi, Star Wars tie-in literature and comics",
+      "summary": "Amilyn Holdo is a Resistance Vice Admiral who utilizes absolute resolve and unconventional military tactics, famously executing high-stakes capital ship sacrifices.",
       "offense": {
         "domains": [
-          "tech"
+          "tech",
+          "energy"
         ],
         "techniques": [
+          "Lightspeed ramming maneuver",
+          "Capital ship deployment",
           "Hyperspace ramming maneuver",
           "Fleet command strategies"
         ],
@@ -178,20 +282,44 @@
       },
       "defense": {
         "mechanisms": [
+          "Capital ship deflector shields",
+          "Security detail",
           "Capital ship shields",
           "Evacuation protocols"
         ]
       },
       "weaknesses": [
+        "Relies entirely on technological assets for large-scale offensive impact",
+        "Lacks frontline dueling skills",
         "Lacks direct frontline combat prowess or personal weaponry proficiency"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode VIII: The Last Jedi (2017 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Leia, Princess of Alderaan (2017 novel/comic tie-ins)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Last Jedi)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "starship transport"
+        "Starship transport"
       ],
       "limitations": [
+        "Personal combat ability is limited without military hardware",
         "Relies entirely on starship infrastructure to execute offensive maneuvers"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Amilyn_Holdo",
+          "supports": "Details on Vice Admiral Amilyn Holdo and her role in Star Wars: The Last Jedi."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Amilyn_Holdo",
           "supports": "Resistance leadership, Vice Admiral rank, and hyperspace ramming feat."
@@ -200,7 +328,8 @@
       "feats": [
         {
           "claim": "Executed a lightspeed collision with the First Order dreadnought fleet, destroying the flagship and multiple escort ships.",
-          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "citation": "Star Wars Episode VIII: The Last Jedi",
+          "depiction": "Star Wars Episode VIII: The Last Jedi (2017 film)",
           "source": 0
         }
       ],
@@ -208,35 +337,49 @@
         {
           "opponent": "First Order Fleet",
           "result": "win",
-          "citation": "Star Wars: Episode VIII - The Last Jedi",
-          "note": "Destroyed a massive portion of the pursuing fleet via hyperspace ramming.",
+          "citation": "Star Wars Episode VIII: The Last Jedi",
+          "note": "Sacrificed the Raddus via lightspeed ramming to decimate the enemy armada",
+          "depiction": "Star Wars Episode VIII: The Last Jedi (2017 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Lightspeed collision destruction",
+          "dependsOn": "Access to a capital ship equipped with a functioning hyperdrive",
+          "depiction": "Star Wars Episode VIII: The Last Jedi (2017 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "pilot",
-          "claim": "Commands capital starships as Vice Admiral",
+          "claim": "Pilots and directs capital-class starships",
           "source": 0
         }
       ],
       "unknowns": [
-        "Combat proficiency outside of starship command is unproven."
+        "Combat feats outside of strategic sacrifice are minimal.",
+        "Combat proficiency outside of starship command is unproven.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Amilyn Holdo is a high-ranking Resistance Vice Admiral who uses unconventional tactics and absolute resolve to command fleeing forces. She is capable of sacrificing capital ships to decimate hostile armadas."
     },
     {
       "id": "starwars:Ahsoka Tano",
-      "continuity": "Star Wars Canon (The Clone Wars / Rebels)",
-      "summary": "Ahsoka Tano is an agile and formidable force-wielder who utilizes a dual-wielding reverse-grip lightsaber style (Shien). She combines high acrobatic mobility with strong defensive parries and Force abilities.",
+      "continuity": "Star Wars films and series, The Clone Wars, Rebels, Star Wars comics",
+      "summary": "Ahsoka Tano is an agile and formidable Force-wielder who utilizes a dual-wielding reverse-grip lightsaber style combined with high acrobatic mobility and strong defensive parries.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
+          "control",
           "magic"
         ],
         "techniques": [
+          "Dual lightsabers (Shien reverse grip)",
+          "Force push and pull",
           "Dual lightsaber combat (Shien)",
           "Force push",
           "Force pull",
@@ -246,23 +389,53 @@
       },
       "defense": {
         "mechanisms": [
-          "Lightsaber deflection",
+          "Lightsaber deflections",
+          "Acrobatic dodges",
           "Force barrier",
+          "Lightsaber deflection",
           "Evasive agility"
         ]
       },
       "weaknesses": [
+        "Prone to emotional attachment struggles",
+        "Vulnerable to overwhelming multi-angle ranged fire without cover",
         "Prone to overconfidence in early training years; vulnerable to emotional attachments"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Clone Wars (2008 film and TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Rebels (2014-2018 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Age of Rebellion (Marvel Comics, 2019)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars / Rebels)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "running",
+        "Acrobatic leaping",
+        "Running",
+        "Starship pilot",
         "acrobatic leaps",
         "starship piloting"
       ],
       "limitations": [
+        "Stamina drain during prolonged high-intensity duels",
         "Requires concentration for advanced telekinesis"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ahsoka_Tano",
+          "supports": "Biographical data, abilities, and media appearances."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Ahsoka_Tano",
           "supports": "Abilities, dual lightsabers, Force powers, and combat history across multiple eras."
@@ -272,48 +445,75 @@
         {
           "claim": "Fought and defeated numerous battle droids, inquisitors, and managed to duel Darth Vader.",
           "citation": "Star Wars Rebels",
+          "depiction": "Star Wars Rebels (2014-2018 TV series)",
           "source": 0
         }
       ],
       "notableResults": [
         {
           "opponent": "Darth Vader",
+          "result": "loss",
+          "citation": "Star Wars Rebels season 2 finale",
+          "note": "Saved from defeat via time-manipulation mechanism (World Between Worlds)",
+          "depiction": "Star Wars Rebels (2014-2018 TV series)",
+          "source": 0
+        },
+        {
+          "opponent": "Darth Vader",
           "result": "inconclusive",
           "citation": "Star Wars Rebels - Twilight of the Apprentice",
           "note": "Rescued from a fatal blow via World Between Worlds intervention.",
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars / Rebels)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Lightsaber combat and telekinesis",
+          "dependsOn": "Access to twin lightsabers and Force connection",
+          "depiction": "Star Wars: The Clone Wars (2008 film and TV series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Performs massive Force-enhanced leaps and aerial maneuvers",
+          "claim": "Advanced force-assisted leaps and acrobatic aerial movement",
+          "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Connection to and manipulation of the Force",
           "source": 0
         },
         {
           "tag": "pilot",
           "claim": "Pilots Jedi starfighters and gunships",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Full extent of her potential without lightsabers is rarely tested."
+        "Limits of power evolution before transitioning to the Ahsoka the White persona.",
+        "Full extent of her potential without lightsabers is rarely tested.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Ahsoka Tano is an agile and formidable force-wielder who utilizes a dual-wielding reverse-grip lightsaber style (Shien). She combines high acrobatic mobility with strong defensive parries and Force abilities."
     },
     {
       "id": "starwars:Ahsoka Tano|Ahsoka the White",
-      "continuity": "Star Wars Canon (Rebels / Ahsoka series)",
-      "summary": "Having evolved past her previous Jedi identity, Ahsoka the White wields twin white-bladed lightsabers and demonstrates heightened spiritual connection to the Force, granting superior clarity and combat presence.",
+      "continuity": "Star Wars films and series, Rebels, Ahsoka series, Star Wars tie-in comics",
+      "summary": "Ahsoka the White wields twin white-bladed lightsabers and demonstrates a heightened spiritual connection to the Force, granting superior clarity and combat presence.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
+          "control",
           "magic"
         ],
         "techniques": [
           "Twin white lightsaber combat",
+          "Advanced Force abilities and sensory alignment",
           "Advanced Force barrier",
           "Telekinetic strikes"
         ],
@@ -321,37 +521,69 @@
       },
       "defense": {
         "mechanisms": [
+          "Superior lightsaber parrying",
+          "Heightened Force premonition and defense",
           "Expert lightsaber parrying",
           "Enhanced Force deflection"
         ]
       },
       "weaknesses": [
+        "Standard biological limitations",
+        "Vulnerable to complex psychological manipulation",
         "Vulnerable to psychological manipulation regarding her past and relationship with Anakin Skywalker"
       ],
-      "formDifferences": "Represents Ahsoka after her resurrection/evolution via the World Between Worlds, wielding purified white crystals in her lightsabers and exhibiting mastery over dark-side corruption.",
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Rebels (2018 epilogue)",
+          "kind": "source"
+        },
+        {
+          "title": "Ahsoka (2023 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Adventures (IDW Publishing, 2020-2021)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Rebels / Ahsoka series)",
+          "kind": "earlier-record"
+        }
+      ],
+      "formDifferences": "Represents Ahsoka's evolution past her Jedi past, featuring twin white-bladed lightsabers, enhanced spiritual mastery of the Force, and greater composure.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ahsoka_Tano",
+          "supports": "Evolution into Ahsoka the White and series details."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Ahsoka_Tano",
           "supports": "Ahsoka the White transformation, white lightsabers, and advanced spiritual state."
         }
       ],
       "unknowns": [
-        "Exact limits of her resurrected state are still unfolding in later series eras."
+        "Full upper limit of her white-lightsaber form's capabilities remains explored.",
+        "Exact limits of her resurrected state are still unfolding in later series eras.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Having evolved past her previous Jedi identity, Ahsoka the White wields twin white-bladed lightsabers and demonstrates heightened spiritual connection to the Force, granting superior clarity and combat presence."
     },
     {
       "id": "starwars:Anakin Skywalker",
-      "continuity": "Star Wars Canon (The Clone Wars / Revenge of the Sith)",
+      "continuity": "Star Wars films and series, The Clone Wars, Star Wars Marvel and Dark Horse comics",
       "summary": "Anakin Skywalker is one of the most powerful Force-wielders in galactic history, utilizing an aggressive Djem So lightsaber style coupled with immense telekinetic power and reckless tactical daring.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
+          "control",
           "magic"
         ],
         "techniques": [
+          "Aggressive Djem So lightsaber combat",
+          "Massive Force push, pull, and choke",
           "Heavy lightsaber strikes (Djem So)",
           "Force choke",
           "Force push",
@@ -361,23 +593,53 @@
       },
       "defense": {
         "mechanisms": [
+          "Lightsaber blade blocks",
+          "Force barrier and telekinetic deflection",
           "Lightsaber defense",
           "Force durability",
           "Cybernetic enhanced resilience"
         ]
       },
       "weaknesses": [
+        "Arrogance and emotional instability",
+        "Vulnerable to manipulation through fear for loved ones",
         "Prone to intense emotional volatility, hubris, and anger"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Darth Vader (Marvel Comics, 2015-2020)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars / Revenge of the Sith)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "running",
+        "Acrobatic leaping",
+        "Running",
+        "Expert starfighter pilot",
         "acrobatic leaps",
         "starfighter piloting"
       ],
       "limitations": [
+        "Prone to reckless over-extension when angered",
         "Prone to over-reliance on brute force over cautious strategy"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Anakin_Skywalker",
+          "supports": "Biographical details, powers, and combat feats."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Anakin_Skywalker",
           "supports": "Abilities, Djem So fighting style, Force power, and cybernetics."
@@ -386,7 +648,8 @@
       "feats": [
         {
           "claim": "Defeated Count Dooku in single combat aboard the Invisible Hand.",
-          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "citation": "Star Wars Episode III: Revenge of the Sith",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
           "source": 0
         }
       ],
@@ -394,45 +657,62 @@
         {
           "opponent": "Count Dooku",
           "result": "win",
-          "citation": "Star Wars: Episode III - Revenge of the Sith",
-          "note": "Overcame Dooku by channeling the dark side during their duel.",
+          "citation": "Star Wars Episode III: Revenge of the Sith",
+          "note": "Won through sheer offensive power and overpowering Dooku's defense",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Lightsaber combat and Force mastery",
+          "dependsOn": "Access to lightsaber and connection to the Force",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "cyborg",
-          "claim": "Features a cybernetic right hand/arm",
+          "tag": "natural-flight",
+          "claim": "Force-assisted leaps and acrobatic movement",
           "source": 0
         },
         {
-          "tag": "natural-flight",
-          "claim": "Executes extraordinary Force-powered jumps and acrobatic movements",
+          "tag": "magic",
+          "claim": "Innate mastery of the Force",
           "source": 0
+        },
+        {
+          "tag": "cyborg",
+          "claim": "Features a cybernetic right hand/arm",
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Renowned starfighter pilot capable of flying almost any vessel",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "The absolute ceiling of his raw midi-chlorian potential if he had not been injured on Mustafar."
+        "Full potential if he had never been injured and suited as Darth Vader.",
+        "The absolute ceiling of his raw midi-chlorian potential if he had not been injured on Mustafar.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "starwars:Asajj Ventress",
-      "continuity": "Star Wars Canon (The Clone Wars)",
-      "summary": "Asajj Ventress is a former Nightsister assassin and Sith acolyte who wields dual curved lightsabers that can combine into a single saberstaff. She combines dark-side martial arts, stealth, and Nightsister magicks.",
+      "continuity": "Star Wars films and series, The Clone Wars, Star Wars Dark Horse and Marvel comics",
+      "summary": "Asajj Ventress is a former Nightsister assassin and Sith acolyte who wields dual curved lightsabers that can combine into a single saberstaff, utilizing dark-side martial arts, stealth, and Nightsister magicks.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "magic"
         ],
         "techniques": [
+          "Dual curved lightsabers (saberstaff configuration)",
+          "Nightsister illusion and telekinesis",
           "Dual lightsaber/saberstaff combat",
           "Force choke",
           "Nightsister illusion/magic",
@@ -442,23 +722,54 @@
       },
       "defense": {
         "mechanisms": [
+          "Lightsaber parry",
+          "Magical camouflage and evasion",
           "Lightsaber parrying",
           "Acrobatic evasion",
           "Magical protective barriers"
         ]
       },
       "weaknesses": [
+        "Prone to overconfidence and vengeful impulses",
+        "Vulnerable to powerful direct Force counter-attacks",
         "Prone to arrogance and vengeful fixations"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Bad Batch (2021-2024 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Republic (Dark Horse Comics, 1998-2006)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Acrobatic leaping",
+        "Stealth movement",
+        "Starship pilot",
         "running",
         "acrobatic leaps",
         "starfighter piloting"
       ],
       "limitations": [
+        "Magic casting requires concentration and ritual preparation",
         "Magical rituals require preparation time and focus"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Asajj_Ventress",
+          "supports": "Biographical information, weapons, and Nightsister abilities."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Asajj_Ventress",
           "supports": "Abilities, Nightsister heritage, dual curved lightsabers, and assassination training."
@@ -468,57 +779,78 @@
         {
           "claim": "Assassinated and dueled multiple Jedi Knights across the Clone Wars galaxy.",
           "citation": "Star Wars: The Clone Wars",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
           "source": 0
         }
       ],
       "notableResults": [
         {
           "opponent": "Anakin Skywalker",
+          "result": "inconclusive",
+          "citation": "Star Wars: The Clone Wars (2008 film)",
+          "note": "Dueled evenly before escaping",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "source": 0
+        },
+        {
+          "opponent": "Anakin Skywalker",
           "result": "loss",
           "citation": "Star Wars: The Clone Wars (Movie)",
           "note": "Defeated after an intense duel on Teth.",
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Lightsaber combat and Nightsister magic",
+          "dependsOn": "Access to curved lightsabers and magical focus",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "magic",
-          "claim": "Trained in Nightsister magick and spellcasting",
+          "claim": "Nightsister magic and dark-side arcane arts",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Expert assassin utilizing stealth and magical concealment",
           "source": 0
         },
         {
           "tag": "spellcaster",
           "claim": "Casts Nightsister rituals and illusions",
-          "source": 0
-        },
-        {
-          "tag": "stealth",
-          "claim": "Utilizes assassination stealth and ambush tactics",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Pilots custom starfighters and transports",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact limitations of her dark-side stamina during prolonged campaigns."
+        "Exact limits of Dathomirian magic against non-Force users.",
+        "Exact limitations of her dark-side stamina during prolonged campaigns.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Asajj Ventress is a former Nightsister assassin and Sith acolyte who wields dual curved lightsabers that can combine into a single saberstaff. She combines dark-side martial arts, stealth, and Nightsister magicks."
     },
     {
       "id": "starwars:Aurra Sing",
-      "continuity": "Star Wars Canon (The Clone Wars)",
-      "summary": "Aurra Sing is a lethal bounty hunter with sniper training, enhanced reflexes, and a merciless demeanor. She utilizes long-range weaponry, concealed blasters, and tactical assassinations.",
+      "continuity": "Star Wars films and series, The Clone Wars, Star Wars Marvel and Dark Horse comics",
+      "summary": "Aurra Sing is a lethal bounty hunter with sniper training, enhanced reflexes, and a merciless demeanor, utilizing long-range weaponry, concealed blasters, and tactical assassinations.",
       "offense": {
         "domains": [
-          "physical",
-          "tech"
+          "tech",
+          "physical"
         ],
         "techniques": [
+          "Long-range sniper rifle marksmanship",
+          "Concealed blaster pistol combat",
           "Sniper rifle precision shots",
           "Dual blaster pistol combat",
           "Hand-to-hand combat"
@@ -527,22 +859,52 @@
       },
       "defense": {
         "mechanisms": [
+          "Long-range positioning",
+          "Stealth cover and armor plating",
           "Cover usage",
           "Armor plating",
           "Evasive positioning"
         ]
       },
       "weaknesses": [
+        "Less effective in direct prolonged close-quarters lightsaber combat against Force users",
+        "Arrogance when cornered",
         "Lacks heavy defensive resilience against Force powers or direct lightsaber onslaughts"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Bounty Hunters (Marvel Comics, 2020-2023)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "running",
+        "Running",
+        "Climbing",
+        "Starship pilot",
         "starship piloting"
       ],
       "limitations": [
+        "Dependent on specialized firearms and ammunition",
         "Dependent on equipment and vantage points for sniping efficiency"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Aurra_Sing",
+          "supports": "Biographical data and bounty hunter background."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Aurra_Sing",
           "supports": "Bounty hunter status, sniper skills, and weapons expertise."
@@ -552,6 +914,7 @@
         {
           "claim": "Successfully targeted and eliminated numerous high-profile political and military targets across the galaxy.",
           "citation": "Star Wars: The Clone Wars",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
           "source": 0
         }
       ],
@@ -560,57 +923,103 @@
           "opponent": "Ahsoka Tano",
           "result": "loss",
           "citation": "Star Wars: The Clone Wars",
-          "note": "Defeated and captured after attempting to assassinate Senator Amidala.",
+          "note": "Defeated and captured during a bounty operation",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Long-range sniping",
+          "dependsOn": "Access to a high-powered sniper rifle and vantage point",
+          "depiction": "Star Wars Episode I: The Phantom Menace (1999 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "stealth",
+          "claim": "Employs sniper concealment and assassin ambush tactics",
+          "source": 0
+        },
+        {
           "tag": "pilot",
-          "claim": "Pilots custom starships and getaway vessels",
+          "claim": "Pilots custom starfighters and speeders",
           "source": 0
         }
       ],
       "unknowns": [
+        "Exact extent of mutated or enhanced human physiology.",
         "Extent of her cybernetic enhancements in canon vs legends.",
-        "Unsupported by cited source (term check, 1/5 key terms found): stealth: Employs stalking and sniping camouflage tactics"
+        "Unsupported by cited source (term check, 1/5 key terms found): stealth: Employs stalking and sniping camouflage tactics",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Aurra Sing is a lethal bounty hunter with sniper training, enhanced reflexes, and a merciless demeanor. She utilizes long-range weaponry, concealed blasters, and tactical assassinations."
     },
     {
       "id": "starwars:Bail Organa",
-      "continuity": "Star Wars Canon (Revenge of the Sith / Rebels)",
-      "summary": "Bail Organa is a principled Senator from Alderaan and a founding leader of the Rebel Alliance. He operates primarily through political influence, diplomacy, and covert resource allocation rather than personal combat.",
+      "continuity": "Star Wars films and series, Rebels, Star Wars Marvel and Dark Horse comics",
+      "summary": "Bail Organa is a principled Senator from Alderaan and a founding leader of the Rebel Alliance who operates primarily through political influence, diplomacy, and covert resource allocation.",
       "offense": {
         "domains": [
+          "control",
           "tech"
         ],
         "techniques": [
           "Political maneuvering",
+          "Diplomatic immunity and negotiation",
           "Resistance funding and logistics"
         ],
         "range": "strategic"
       },
       "defense": {
         "mechanisms": [
-          "Diplomatic immunity",
           "Bodyguards",
+          "Political status and diplomatic protection",
+          "Diplomatic immunity",
           "Secure transport"
         ]
       },
       "weaknesses": [
+        "Lacks offensive martial combat training",
+        "Vulnerable to direct physical attacks",
         "Lacks combat training or physical offense capabilities"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Rebels (2014-2018 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Princess Leia (Marvel Comics, 2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Revenge of the Sith / Rebels)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard walking",
+        "Diplomatic transport pilot",
         "speeder transport",
         "starship piloting"
       ],
       "limitations": [
+        "Physically unequipped for frontline combat",
         "No personal combat proficiencies"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bail_Organa",
+          "supports": "Biographical info and political role in the Galactic Senate and Rebel Alliance."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Bail_Organa",
           "supports": "Senator status, role as a Rebel founder, and political resistance history."
@@ -619,40 +1028,52 @@
       "feats": [
         {
           "claim": "Helped rescue Yoda and Obi-Wan Kenobi during the execution of Order 66.",
-          "citation": "Star Wars: Episode III - Revenge of the Sith",
+          "citation": "Star Wars Episode III: Revenge of the Sith",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Galactic Empire Security",
+          "result": "win",
+          "citation": "Star Wars Episode III: Revenge of the Sith",
+          "note": "Successfully evacuated Jedi Masters using political cover",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "source": 0
+        },
+        {
           "opponent": "Galactic Empire",
           "result": "inconclusive",
           "citation": "Star Wars Rebels",
           "note": "Operated covertly against imperial oversight until Alderaan's destruction.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Revenge of the Sith / Rebels)"
         }
       ],
       "campaignTags": [
         {
           "tag": "pilot",
-          "claim": "Pilots consular transport craft and official speeders",
+          "claim": "Pilots diplomatic transport shuttles",
           "source": 0
         }
       ],
       "unknowns": [
-        "Direct tactical decisions in ground combat are unrecorded."
+        "No combat-specific metrics available.",
+        "Direct tactical decisions in ground combat are unrecorded.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Bail Organa is a principled Senator from Alderaan and a founding leader of the Rebel Alliance. He operates primarily through political influence, diplomacy, and covert resource allocation rather than personal combat."
     },
     {
       "id": "starwars:Battle Droid",
-      "continuity": "Star Wars Canon (The Clone Wars / Prequel Trilogy)",
-      "summary": "Standard B1 battle droids are mass-produced infantry units controlled by a central command network. They fight in synchronized squads using standard blaster rifles, relying on numerical superiority rather than individual skill.",
+      "continuity": "Star Wars films and series, The Clone Wars, Star Wars Marvel and Dark Horse comics",
+      "summary": "Standard B1 battle droids are mass-produced infantry units controlled by a central command network that fight in synchronized squads using standard blaster rifles.",
       "offense": {
         "domains": [
-          "tech"
+          "tech",
+          "energy"
         ],
         "techniques": [
           "Blaster rifle volley fire",
@@ -662,21 +1083,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Metal chassis armor",
+          "Numerical redundancy",
           "Metallic chassis plating",
           "Numerical swarm redundancy"
         ]
       },
       "weaknesses": [
+        "Fragile mechanical construction easily severed by lightsabers",
+        "Dependent on central control signal or command ship",
         "Fragile mechanical structure; prone to comedic malfunctions; dependent on command signal"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Darth Maul (Marvel Comics, 2017)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars / Prequel Trilogy)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "walking",
-        "running"
+        "Walking",
+        "Running",
+        "STAP vehicle pilot"
       ],
       "limitations": [
+        "Lacks independent tactical adaptability when disconnected from network",
         "Lacks independent tactical adaptability without central processor connection"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Battle_droid",
+          "supports": "Structural details, behavior, and role as standard infantry."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/B1_battle_droid",
           "supports": "Mass production, droid weaponry, and mechanical vulnerabilities."
@@ -685,32 +1135,56 @@
       "feats": [
         {
           "claim": "Participated in massive invasions and skirmishes across the Clone Wars galaxy.",
-          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "citation": "Star Wars: The Clone Wars",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Grand Army of the Republic",
+          "result": "loss",
+          "citation": "Star Wars: The Clone Wars",
+          "note": "Routinely defeated in large numbers by clone troopers and Jedi",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 TV series)",
+          "source": 0
+        },
+        {
           "opponent": "Clone Troopers",
           "result": "loss",
           "citation": "Star Wars: The Clone Wars",
           "note": "Regularly overwhelmed in large-scale engagements by disciplined clone forces.",
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars / Prequel Trilogy)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Coordinated squad tactics",
+          "dependsOn": "Active connection to a central command computer or droid control ship",
+          "depiction": "Star Wars Episode I: The Phantom Menace (1999 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "robot-or-ai",
-          "claim": "Completely automated robotic combat unit",
+          "claim": "Mechanical droid infantry unit governed by artificial intelligence",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Advanced robotic engineering and blaster weaponry",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact durability variations across different factory batches."
+        "Individual unit variance in intelligence or humor.",
+        "Exact durability variations across different factory batches.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Standard B1 battle droids are mass-produced infantry units controlled by a central command network. They fight in synchronized squads using standard blaster rifles, relying on numerical superiority rather than individual skill."
     }
   ]
 }
