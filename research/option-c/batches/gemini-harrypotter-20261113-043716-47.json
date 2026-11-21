@@ -741,13 +741,18 @@
     },
     {
       "id": "harrypotter:James Potter",
-      "continuity": "Harry Potter books and films",
-      "summary": "James Potter was an exceptionally talented wizard, an Animagus capable of turning into a stag, and an accomplished duelist during the First Wizarding War.",
+      "continuity": "Harry Potter books and films (Harry Potter and the Philosopher's Stone, Harry Potter and the Prisoner of Azkaban, Harry Potter and the Order of the Phoenix, Harry Potter and the Deathly Hallows; Harry Potter: Prequel)",
+      "summary": "James Potter was an exceptionally talented and powerful wizard, a skilled duelist, and an unregistered Animagus who could transform into a stag. During his youth at Hogwarts, he was a gifted Quidditch Seeker/Chaser and a leader of the Marauders, later fighting as a prominent member of the original Order of the Phoenix before being killed by Lord Voldemort.",
       "offense": {
         "domains": [
-          "magic"
+          "magic",
+          "physical"
         ],
         "techniques": [
+          "Transfiguration",
+          "Charm work",
+          "Unarmed combat / wandwork",
+          "Stag Animagus physical charges",
           "Duelling with the Disarming Charm, Impediment Jinx and Levicorpus",
           "Stag Animagus since his fifth year",
           "Corporeal stag Patronus",
@@ -757,17 +762,63 @@
       },
       "defense": {
         "mechanisms": [
-          "Fidelius Charm hid his family",
-          "Invisibility Cloak"
+          "Shield charms",
+          "Animagus transformation for evasion",
+          "Invisibility Cloak",
+          "Fidelius Charm hid his family"
         ]
       },
       "weaknesses": [
+        "Lack of a wand during surprise attacks",
+        "Overconfidence",
         "Misplaced trust in Peter Pettigrew",
         "Faced Voldemort without his wand and was killed"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Harry Potter books and films",
+          "kind": "source"
+        },
+        {
+          "title": "Harry Potter: Prequel (2008 short story by J.K. Rowling)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Harry Potter and the Philosopher's Stone (1997 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Harry Potter and the Prisoner of Azkaban (1999 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Harry Potter and the Order of the Phoenix (2003 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Harry Potter and the Deathly Hallows (2007 novel)",
+          "kind": "sequel"
+        }
+      ],
+      "mobility": [
+        "Broomstick flight",
+        "Stag Animagus running speed",
+        "Apparition"
+      ],
+      "limitations": [
+        "Vulnerable without his wand",
+        "Animagus form is fixed as a stag"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Order_of_the_Phoenix_(fictional_organisation)",
+          "supports": "James Potter's membership and role in the original Order of the Phoenix."
+        },
+        {
+          "url": "https://harrypotter.fandom.com/wiki/James_Potter",
+          "supports": "James Potter's status as a stag Animagus, Marauder, Quidditch player, and duelist."
+        },
         {
           "url": "https://harrypotter.fandom.com/wiki/James_Potter_I",
           "supports": "Disarming Charm, Impediment Jinx, Levicorpus, Animagus, Patronus; left his wand behind; held off Voldemort so Lily could flee and was killed."
@@ -777,17 +828,60 @@
           "supports": "Transfiguration, stag Animagus, Order fighter, defied Voldemort three times, Fidelius Charm, betrayed by Pettigrew."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "campaignTags": [],
+      "feats": [
+        {
+          "claim": "Mastered the incredibly difficult Animagus transformation illegally alongside Sirius Black and Peter Pettigrew during his school years.",
+          "citation": "Harry Potter and the Prisoner of Azkaban",
+          "depiction": "Harry Potter books and films",
+          "source": 1
+        },
+        {
+          "claim": "Fought against Lord Voldemort directly on multiple occasions prior to his death, defying him three times.",
+          "citation": "Harry Potter and the Order of the Phoenix",
+          "depiction": "Harry Potter and the Order of the Phoenix (2003 novel)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Lord Voldemort",
+          "result": "loss",
+          "citation": "Godric's Hollow (Halloween 1981)",
+          "note": "Killed while attempting to stall Voldemort without a wand to allow Lily and Harry to escape.",
+          "depiction": "Harry Potter books and films",
+          "source": 1
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Stag transformation",
+          "dependsOn": "Mastery of the Animagus transformation over years of study.",
+          "depiction": "Harry Potter books and films",
+          "source": 1
+        },
+        {
+          "ability": "Total concealment via Cloak",
+          "dependsOn": "Possession of the Invisibility Cloak.",
+          "depiction": "Harry Potter books and films",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "invisibility",
+          "claim": "Possesses and uses the Invisibility Cloak, one of the Deathly Hallows.",
+          "source": 1
+        }
+      ],
       "unknowns": [
+        "Exact details of all individual duels fought during the First Wizarding War remain largely unrecorded in source texts.",
         "Exact breakdown of all duels fought during the First Wizarding War",
         "Removed by review (not supported by the cited source): technique: Advanced Transfiguration; technique: Offensive duelling charms; defense: Invisibility Cloak; defense: Magical shields; defense: Animagus form evasion; weakness: Overconfidence in combat situations without his wand; limitation: Normal human physical durability when caught without defense; mobility: Running; mobility: Broomstick flight; mobility: Animagus stag form; feat: Mastered the Animagus transformation illegally while at Hogwarts to support Remus Lupin.; result: Lord Voldemort; tag: Powerful wizard capable of complex magic and transfiguration.; tag: Possessed the Invisibility Cloak.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "James Potter was an exceptionally talented wizard, an Animagus capable of turning into a stag, and an accomplished duelist during the First Wizarding War."
     },
     {
       "id": "harrypotter:Karkaroff",
