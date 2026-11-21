@@ -1,0 +1,146 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261121-152214 #1",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:Immortan Joe",
+      "continuity": "Mad Max film series (2015 film Mad Max: Fury Road)",
+      "summary": "Immortan Joe is a ruthless wasteland warlord who maintains control over water resources and commands a fanatic army of War Boys using heavily modified vehicles and fear.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Commanding vehicular combat forces",
+          "Revolver and melee weapon usage"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored respiratory mask",
+          "Phalanx of armed War Boys",
+          "Fortified Citadel stronghold"
+        ]
+      },
+      "weaknesses": [
+        "Dependent on a life-support breathing apparatus"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Mad Max: Fury Road (2015 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Giga Cola truck",
+        "Modified heavy wasteland vehicles"
+      ],
+      "limitations": [
+        "Frail physical body relying on breathing support and specialized armor"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road",
+          "supports": "Immortan Joe's role as the warlord of the Citadel controlling water and warriors."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Maintained autocratic rule over a massive post-apocalyptic settlement by rationing water",
+          "citation": "Mad Max: Fury Road (2015 film)",
+          "depiction": "Mad Max: Fury Road (2015 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperator Furiosa",
+          "result": "loss",
+          "citation": "Mad Max: Fury Road (2015 film)",
+          "note": "Killed by Furiosa during pursuit on the Fury Road.",
+          "depiction": "Mad Max: Fury Road (2015 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Pre-collapse military rank and exact medical history."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Imperator Furiosa",
+      "continuity": "Mad Max film series (2015 film Mad Max: Fury Road)",
+      "summary": "Imperator Furiosa is a hardened wasteland warrior and master driver of the massive War Rig who uses combat skills, firearms, and mechanical aptitude to lead a daring rescue.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "War Rig tactical driving",
+          "Sniper rifle marksmanship",
+          "Hand-to-hand combat with a prosthetic arm"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Armored vehicle cover",
+          "Prosthetic arm used in blocking melee attacks",
+          "Combat tactical awareness"
+        ]
+      },
+      "weaknesses": [
+        "Missing left arm, relying on a mechanical prosthetic"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Mad Max: Fury Road (2015 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "War Rig driving",
+        "Wasteland motorcycle and vehicle operation"
+      ],
+      "limitations": [
+        "Vulnerable to fuel depletion, ammunition limits, and mechanical failure of her vehicle"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road",
+          "supports": "Furiosa's role as War Rig driver and leader of the rescue mission."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully drove the War Rig across treacherous wasteland terrain while evading and fighting Immortan Joe's entire armada",
+          "citation": "Mad Max: Fury Road (2015 film)",
+          "depiction": "Mad Max: Fury Road (2015 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Immortan Joe",
+          "result": "win",
+          "citation": "Mad Max: Fury Road (2015 film)",
+          "note": "Killed Immortan Joe by ripping off his breathing mask and jaw during a vehicular battle.",
+          "depiction": "Mad Max: Fury Road (2015 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact years spent in servitude before escaping."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
