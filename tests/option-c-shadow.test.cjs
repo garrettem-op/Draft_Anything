@@ -283,8 +283,11 @@ test('sports assessments keep the numeric baseline, separate legal from unresolv
 test('incomplete research is reported, not papered over', () => {
   const out = page(`
     const fill = 'actionmovies';
-    const a = DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Black Adam'] }, fill), teamB: ocTeam('brawl', { d1: ['mcu', 'Silver Surfer'] }, fill) });
-    const b = DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Batman'] }, fill), teamB: ocTeam('brawl', { d1: ['dc', 'Batman', 'Hellbat Armor Batman'] }, fill) });
+    // Pinned with V2 research moves off: this checks how missing research is reported.
+    const [a, b] = DA_RESEARCH_MOVES.withEnabled(false, () => [
+      DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Black Adam'] }, fill), teamB: ocTeam('brawl', { d1: ['mcu', 'Silver Surfer'] }, fill) }),
+      DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Batman'] }, fill), teamB: ocTeam('brawl', { d1: ['dc', 'Batman', 'Hellbat Armor Batman'] }, fill) }),
+    ]);
     const src = ['evaluator', 'probability', 'interaction-engine', 'explain'].map(n => 'data/option-c/' + n + '.js');
     return { a, b, src };`);
   const { a, b } = out;

@@ -16,6 +16,9 @@ const PR = require('../data/option-c/probability.js');
 const OC = require('../data/option-c/evaluator.js');
 const { REVIEWED_CAPABILITIES } = require('../data/option-c/reviewed-capabilities.js');
 const { variantAbilityProfile } = require('../data/variant-abilities.js');
+// These module tests pin the evaluator's Version 1 profile semantics, so V2 research moves are switched
+// off in this process. tests/research-moves.test.cjs covers the evaluator reading live research moves.
+require('../data/option-c/research-moves.js').setEnabled(false);
 
 const freeze = o => { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); Object.values(o).forEach(freeze); } return o; };
 const A = (o = {}) => ['spd', 'agi', 'str', 'siz', 'lep', 'end', 'tch', 'acc', 'ref', 'iq', 'clu', 'ldr'].map(k => o[k] ?? 70);
@@ -147,6 +150,16 @@ test('ToonForce attackers skip the durability gap but gain no automatic win', ()
   assert.equal(t.leverage, 'even');
 });
 
+test('Battle Royale odds: rating points above the support cap (99.2) count for less (fitted 2026-11-21)', () => {
+  const est = (a, b) => PR.estimate({ sportKey: 'brawl', effectiveRating: [a, b], interactionIndex: [0, 0], coverage: 0, flags: {} }).perSide[0].numericLogit;
+  assert.ok(Math.abs(est(99, 89) - 10 / PR.MODEL.brawlScaleBelowCap) < 1e-3, 'below the cap: 3.6 points per logit');
+  assert.ok(Math.abs(est(130, 120) - 10 / PR.MODEL.brawlScaleAboveCap) < 1e-3, 'above the cap: 10.6 points per logit');
+  assert.ok(est(99, 89) > est(130, 120), 'the same 10-point gap matters more below the cap');
+  const lop = PR.estimate({ sportKey: 'brawl', effectiveRating: [140, 60], interactionIndex: [0, 0], coverage: 1, flags: {} });
+  assert.equal(lop.range[0][1], 1, 'the range of results may reach 100%');
+  assert.ok(lop.probability[0] <= 0.95, 'the estimate itself stays below 95%');
+});
+
 test('the interaction engine holds general rules, not named pairwise winners', () => {
   const src = fs.readFileSync(path.join(__dirname, '../data/option-c/interaction-engine.js'), 'utf8')
     + fs.readFileSync(path.join(__dirname, '../data/option-c/probability.js'), 'utf8');
@@ -256,7 +269,10 @@ test('the probability model is symmetric, bounded, coarse and explains itself', 
   assert.equal(none.perSide[0].qualitativeLogit, 0);
   const sport = PR.estimate({ sportKey: 'basketball', effectiveRating: [90, 80], interactionIndex: null, coverage: 0, flags: {} });
   assert.equal(sport.basis, 'numeric-baseline-only');
-  assert.equal(PR.MODEL.calibration, 'uncalibrated');
+  // Battle Royale constants were fitted to simulated V2 fights on 2026-11-21 (docs/option-c/CALIBRATION.md);
+  // the estimate stays provisional and is never labelled final.
+  assert.equal(PR.MODEL.calibration, 'fitted-to-v2-fights-2026-11-21');
+  assert.notEqual(PR.MODEL.calibration, 'final');
   assert.ok(sport.howToRead.length >= 3);
   const wide = PR.estimate({ sportKey: 'brawl', effectiveRating: [90, 80], interactionIndex: [1, 0], coverage: 0.2, flags: { continuity: true, seededEvents: true } });
   const tight = PR.estimate({ sportKey: 'brawl', effectiveRating: [90, 80], interactionIndex: [1, 0], coverage: 1, flags: {} });

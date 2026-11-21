@@ -116,3 +116,17 @@ test('Head-to-Head rooms carry the host setting so both players replay the same 
   })())`));
   assert.equal(res.same, true); assert.equal(res.restored, false);
 });
+
+test('the evaluator reads the same research moves the fight uses', () => {
+  const r = JSON.parse(loadApp().run(`JSON.stringify((() => {
+    const p = DA_OPTION_C_MODULES.profileAdapter.getProfile(getCands('pokemon').find(c => c.n === 'Pikachu'));
+    const A = ocTeam('brawl', { d2: ['pokemon', 'Pikachu'] }, 'pokemon'), B = ocTeam('brawl', {}, 'pokemon');
+    const a = DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: A, teamB: B, mode: 'shadow' });
+    const off = DA_RESEARCH_MOVES.withEnabled(false, () => DA_OPTION_C_MODULES.profileAdapter.getProfile(getCands('pokemon').find(c => c.n === 'Pikachu')));
+    return { sig: p.signature, combat: p.evidence.combat, kits: (a.uncertainties.find(u => u.kind === 'unresearched-kits') || {}).text || '', offSig: off.signature };
+  })())`));
+  assert.equal(r.sig.origin, 'research-move'); assert.equal(r.sig.label, 'Thunderbolt'); assert.equal(r.sig.tier, 2);
+  assert.equal(r.combat, 'provisional', 'a research move is never reviewed evidence');
+  assert.ok(!/Pikachu/.test(r.kits), 'Pikachu is no longer listed as having no typed profile');
+  assert.equal(r.offSig, null, 'with the switch off the evaluator sees Version 1 profiles only');
+});

@@ -80,6 +80,6 @@ The research tick merges records without regenerating, so the file can lag a lit
 
 ## Known limits
 - **Every research move hits equally hard.** A strength rule (for example from attributes, or a reviewed tier) is a later decision.
-- **The evaluator lags behind.** It doesn't yet count research moves in its estimate: it still says "no typed combat profile" for those characters. Bringing it in line is part of calibration.
+- **Evaluator (resolved 2026-11-21).** The evaluator now reads the same research moves and its Battle Royale odds are fitted to these fights. See `docs/option-c/CALIBRATION.md`.
 - **Some move names are descriptive.** For example "Herbology as a weapon" and "Banjo strike". They are the record's own words.
 - **Not separately reviewed.** The moves inherit each record's sourcing. No one has checked a move against its sources separately.

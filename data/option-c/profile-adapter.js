@@ -178,6 +178,26 @@
     let guards = ability ? (ability.guard || []).slice() : [];
     let weakTo = ability ? (ability.weakTo || []).slice() : [];
 
+    /* Version 2: when the live fight gives this character a research move (data/option-c/research-moves.js,
+     * on by default in V2), the evaluator reads the same move, so it judges the fight that is actually played.
+     * Live game values (standard research strength); evidence stays provisional. Looked up at call time. */
+    let researchMove = null;
+    if (!signature) {
+      const RM = root.DA_RESEARCH_MOVES || (isNode ? require('./research-moves.js') : null);
+      const m = RM && typeof RM.researchMoveOf === 'function' ? RM.researchMoveOf(candidate) : null;
+      if (m) {
+        researchMove = m;
+        signature = {
+          id: 'signature', label: m.move, domain: m.domain, domainClass: domainClass(m.domain),
+          tier: m.tier, pierce: m.pierce, cooldown: m.cooldown, selfLimiting: null,
+          source: m.source || null, limitation: m.limit, continuity: m.continuity || null,
+          origin: 'research-move', evidenceStatus: EVIDENCE.PROVISIONAL,
+        };
+        guards = m.guard.slice();
+        weakTo = m.weakTo.slice();
+      }
+    }
+
     /* Opt-in (options.useResearch), shadow only: when Version 1 has NO typed
      * profile for this exact identity, a validated research record for that same
      * exact id may supply a non-physical line of attack, guards and weaknesses.
@@ -225,7 +245,10 @@
 
     const gaps = [];
     let combat;
-    if (researchDerived && signature && signature.origin === 'research-record') {
+    if (researchMove) {
+      combat = EVIDENCE.PROVISIONAL;
+      gaps.push('Fights with a Version 2 research move (' + researchMove.move + ', ' + researchMove.domain + '): power type from its research record at the standard research strength; no tier, ward or Apex rank is inferred.');
+    } else if (researchDerived && signature && signature.origin === 'research-record') {
       combat = EVIDENCE.PROVISIONAL;
       gaps.push('Line of attack derived from the research record for this exact identity (declared status: ' + researchDerived.declaredStatus + '); no tier, ward, Apex rank or combat proficiency is inferred.');
     } else if (isVariant && !variantReviewed) {

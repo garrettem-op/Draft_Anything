@@ -7,8 +7,10 @@ const path = require('node:path');
 const { loadApp, root } = require('./option-c-app-harness.cjs');
 const L = require('../../data/option-c/research-ledger.js');
 
+// The opt-in research-record path is tested with V2 research moves off: a live move would take the
+// signature first (tests/research-moves.test.cjs covers that path).
 function loadAppWithResearch() {
-  const app = loadApp();
+  const app = loadApp({ search: '?researchPowers=0' });
   app.sandbox.__ocValidate = L.canonicalValidator();
   app.run('DA_OPTION_C_MODULES.researchLedger.shared.configure({ validate: __ocValidate }); delete globalThis.__ocValidate;');
   const dir = path.join(root, 'research/option-c/batches');

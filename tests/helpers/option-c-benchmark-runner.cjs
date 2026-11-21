@@ -61,10 +61,14 @@ const PAGE = `
     const cont = a.uncertainties.find(u => u.kind === 'continuity');
     out['combat-continuity-black-adam-surfer'] = {
       poolsPreserved: ad.key === 'dc:Black Adam' && ss.key === 'mcu:Silver Surfer' && ss.pool === 'mcu',
-      surferNotGivenComicsKit: ss.signature === null && ss.exceptional === null && ss.evidence.combat !== 'reviewed',
+      // Owner ruling 2026-11-20: comic depictions count, but only through the Surfer's OWN research record
+      // (a V2 research move); never a reviewed comics profile, an exceptional-power bonus or a conversational result.
+      surferKitOnlyFromOwnRecord: ss.exceptional === null && ss.evidence.combat !== 'reviewed' &&
+        (ss.signature === null || (ss.signature.origin === 'research-move' && /Silver[ _]Surfer/i.test(ss.signature.source || ''))),
       continuityFlagged: !!cont && /dc:Black Adam/.test(cont.text) && /mcu:Silver Surfer/.test(cont.text),
       notHardCoded: ![0.8, 0.2].includes(a.sides[0].probability),
-      reportedUnresolved: a.status === 'insufficient-evidence' && a.probabilityModel.basis === 'numeric-baseline-only',
+      // Still not settled: provisional at best (or insufficient evidence with research moves off).
+      reportedUnresolved: a.status !== 'reviewed' && a.status !== 'final',
     };
   }
   { // Reality/cosmic vs physical
@@ -87,7 +91,7 @@ const PAGE = `
       bothHaveCredibleOffense: x.score >= 1 && y.score >= 1,
       noAutomaticInvulnerability: x.leverage !== 'negligible' && y.leverage !== 'negligible',
       countersConsidered: Array.isArray(x.steps) && Array.isArray(y.steps),
-      noFixedOdds: a.probabilityModel.calibration === 'uncalibrated' && a.sides[0].probabilityRange[0] < a.sides[0].probabilityRange[1],
+      noFixedOdds: a.probabilityModel.calibration !== 'final' && a.sides[0].probabilityRange[0] < a.sides[0].probabilityRange[1],
       reportedUnresolved: a.status === 'provisional',
     };
   }
@@ -272,8 +276,13 @@ const PAGE = `
     const p = prof('dc', 'Batman', form.name);
     out['combat-unreviewed-form-no-powers'] = {
       formExists: !!form,
-      noInventedPower: p.variantReviewed === false && p.signature === null && p.apexRank === 0 && p.guards.length === 0,
-      markedUnknown: p.evidence.combat === 'unknown',
+      // Nothing is inherited from the base. In V2 the form may fight with a move from its OWN research
+      // record (owner decision 2026-11-20); never a tier-4+ power, Apex rank or reviewed status.
+      noInventedPower: p.variantReviewed === false && p.apexRank === 0 && (p.signature === null
+        ? p.guards.length === 0
+        : p.signature.origin === 'research-move' && p.signature.tier === 2 &&
+          DA_RESEARCH_MOVES.researchIdOf({ pool: 'dc', n: form.name, variantBase: 'Batman' }) === 'dc:Batman|' + form.name),
+      markedUnknown: p.signature === null ? p.evidence.combat === 'unknown' : p.evidence.combat === 'provisional',
       baseTagsNotCopiedAsFact: p.abilityTags.every(t => t.status === 'needs-review' && t.inheritedFromBase),
     };
   }

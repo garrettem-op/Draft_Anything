@@ -1,9 +1,12 @@
-/* Option C — Probability Evaluator (transparent initial model, UNCALIBRATED).
+/* Option C — Probability Evaluator (transparent model; Battle Royale constants FITTED 2026-11-21).
  *
  * Turns reviewed qualitative findings plus the existing numeric baseline into
  * an editorial win estimate. The whole model is three documented lines:
  *
- *   numeric   = (effective rating A - effective rating B) / SCALE[mode]
+ *   numeric   = (effective rating A - effective rating B) / SCALE[mode]           (sports)
+ *   numeric   = (capped A - capped B) / BELOW + (excess A - excess B) / ABOVE     (Battle Royale)
+ *               capped = min(rating, 99.2), the score where the fight's support multiplier stops
+ *               rising (rating / 80, capped at 1.24); excess = rating - capped
  *   qualitative (Battle Royale, when any typed profile is on record)
  *             = Q_WEIGHT * (0.5 + 0.5 * typed coverage) * (interaction index A - interaction index B)
  *   P(favored) = logistic(|numeric + qualitative|), reported on a 5% grid
@@ -14,9 +17,11 @@
  * ToonForce spotlight, upset variance) are never rolled here; they widen the
  * reported range instead.
  *
- * These constants are first-pass editorial choices to be calibrated later
- * against benchmark matchups and seeded simulations. An estimate is never a
- * canonical statistic.
+ * Battle Royale's scale, qualitative weight and range width were fitted on 2026-11-21 to the game's own
+ * seeded Version 2 fights (research powers on): tools/option-c-calibrate.cjs, 880 random matchups x 100
+ * fights, fitted on half and scored on the other half (docs/option-c/CALIBRATION.md). The sports scale
+ * already matched simulated games and is unchanged. The fit describes the game engine, not canon:
+ * an estimate is never a canonical statistic, and status stays provisional.
  */
 (function (root) {
   'use strict';
@@ -25,15 +30,21 @@
   const RT = NS.runtime || (isNode ? require('./runtime.js') : null);
 
   const MODEL = Object.freeze({
-    id: 'logistic-baseline-plus-typed-interactions-v1',
-    calibration: 'uncalibrated',
-    brawlScale: 20,          // rating points per logit in Battle Royale (ratings steer live combat only mildly)
+    id: 'logistic-baseline-plus-typed-interactions-v2',
+    calibration: 'fitted-to-v2-fights-2026-11-21',
+    brawlScale: 4.6,         // single-scale fit, kept for reference (4.65 and 4.51 on two seeds; was 20)
+    brawlSupportCap: 99.2,   // team score where Battle Royale support stops rising (80 x 1.24, data/brawl-combat.js)
+    brawlScaleBelowCap: 3.6, // rating points per logit up to the cap (fitted: 3.68 and 3.58)
+    brawlScaleAboveCap: 10.6, // rating points per logit above it: only fits still matter there (fitted: 10.66 and 10.60)
     sportScale: 4,           // rating points per logit in sports when the match variance is not supplied
     sigmaToScale: 0.6,       // logistic scale ~ 0.6 x the Gaussian upset sigma, when supplied
     minSportScale: 1.5,
-    qWeight: 0.8,            // logits per unit of interaction-index difference
+    qWeight: 1.0,            // logits per unit of interaction-index difference (fitted with the cap: 0.97 and 1.09; was 0.8)
     coverageFloor: 0.5,      // qualitative weight = qWeight x (coverageFloor + (1 - coverageFloor) x typed coverage)
     grid: 0.05, floor: 0.05, // reported precision and the least/most certain estimate (5% / 95%)
+    // Range half-width in grid steps. Battle Royale: 4 + up to 2 for missing typed evidence, so the range is
+    // about ±25%, where 80% of held-out fight results landed. Sports: 2 (unchanged).
+    brawlRangeSteps: 4, brawlCoverageSteps: 2, sportRangeSteps: 2,
   });
 
   // Calibration must compare the *observed* frequency, including exact 0% and
@@ -48,7 +59,12 @@
     const brawl = sportKey === 'brawl';
     const scale = brawl ? MODEL.brawlScale
       : Number(sigma) > 0 ? Math.max(MODEL.minSportScale, MODEL.sigmaToScale * Number(sigma)) : MODEL.sportScale;
-    const numeric = [(effectiveRating[0] - effectiveRating[1]) / scale, (effectiveRating[1] - effectiveRating[0]) / scale];
+    const cap = (x) => Math.min(x, MODEL.brawlSupportCap);
+    const diff = brawl
+      ? (cap(effectiveRating[0]) - cap(effectiveRating[1])) / MODEL.brawlScaleBelowCap +
+        ((effectiveRating[0] - cap(effectiveRating[0])) - (effectiveRating[1] - cap(effectiveRating[1]))) / MODEL.brawlScaleAboveCap
+      : (effectiveRating[0] - effectiveRating[1]) / scale;
+    const numeric = [diff, -diff];
     // With no typed profile on either side there is no documented power
     // interaction to weigh, so the estimate rests on the numeric baseline.
     const useQual = brawl && !!interactionIndex && coverage > 0;
@@ -68,12 +84,14 @@
     const probability = favoredIndex === 0 ? [pFav, pDog] : favoredIndex === 1 ? [pDog, pFav] : [0.5, 0.5];
 
     // Uncertainty half-width, in grid steps: base + missing typed evidence + open flags.
-    let widthSteps = 2 + Math.round(3 * (1 - (brawl ? coverage : 1)));
+    let widthSteps = brawl ? MODEL.brawlRangeSteps + Math.round(MODEL.brawlCoverageSteps * (1 - coverage)) : MODEL.sportRangeSteps;
     if (flags && flags.continuity) widthSteps += 1;
     if (flags && flags.seededEvents) widthSteps += 1;
     if (flags && flags.unresolvedRulings) widthSteps += 1;
+    // The 5%–95% floor applies to the estimate, not to the range of results it allows: a lopsided fight can
+    // end 100–0, so in Battle Royale the range may reach 0% and 100% (calibration, 2026-11-21).
     const range = probability.map(p => {
-      const edge = Math.round(MODEL.floor / MODEL.grid);
+      const edge = brawl ? 0 : Math.round(MODEL.floor / MODEL.grid);
       const lo = Math.max(edge, Math.round(p / MODEL.grid) - widthSteps), hi = Math.min(2 * half - edge, Math.round(p / MODEL.grid) + widthSteps);
       return [lo / (2 * half), hi / (2 * half)];
     });
@@ -89,9 +107,13 @@
         logit: RT.round(logit[i], 4),
       })),
       scale, qualitativeWeight: RT.round(q, 4),
-      label: 'Editorial game estimate from an uncalibrated first-pass model; not a canonical or measured win rate.',
+      label: brawl
+        ? 'Game estimate fitted to simulated Version 2 fights (2026-11-21); provisional, not a canonical win rate.'
+        : 'Game estimate from the rating model, which matches simulated games; provisional, not a canonical win rate.',
       howToRead: [
-        'Numeric term: effective rating difference divided by ' + scale + ' rating points per logit.',
+        brawl
+          ? 'Numeric term: rating difference up to a score of ' + MODEL.brawlSupportCap + ' at ' + MODEL.brawlScaleBelowCap + ' points per logit, and above it at ' + MODEL.brawlScaleAboveCap + ' (past that score team bonuses no longer raise fight damage; only fighters\' fits still count).'
+          : 'Numeric term: effective rating difference divided by ' + scale + ' rating points per logit.',
         useQual
           ? 'Qualitative term: ' + RT.round(q, 3) + ' logits per unit of interaction-index difference (who has a documented way to hurt whom); the weight shrinks as typed-evidence coverage (' + RT.round(coverage, 2) + ') falls.'
           : brawl

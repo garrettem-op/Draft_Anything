@@ -322,8 +322,8 @@
       "addedIn": "PR 1 shadow evaluator",
       "basis": "docs/brawl-combat-model.md rule 1 and docs/V2_OPTION_C_EVALUATOR_BUILD.md: unreviewed forms change stats only",
       "checks": [
-        "A selected form without a reviewed ability profile receives no power, guard, weakness or Apex rank",
-        "Its combat evidence is reported as unknown rather than inherited from the base character",
+        "A selected form without a reviewed ability profile receives no power, guard, weakness or Apex rank from its base; since the owner decision of 2026-11-20 it may fight with a standard-strength move from its own research record",
+        "Its combat evidence is reported as unknown (or provisional, with its own research move) rather than inherited from the base character",
         "Base-character ability tags are downgraded to needs-review for the form"
       ]
     },
