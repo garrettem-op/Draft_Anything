@@ -7,13 +7,16 @@
   "characters": [
     {
       "id": "starwars:Watto",
-      "continuity": "Star Wars Canon (Films and The Clone Wars)",
-      "summary": "Watto is a Toydarian junk dealer and merchant on Tatooine who relies entirely on his negotiation skills, hired muscle like mercenaries or slaves, and Toydarian natural flight to avoid physical confrontation.",
+      "continuity": "Star Wars films and series (Star Wars Episode I: The Phantom Menace (1999 film), Star Wars Episode II: Attack of the Clones (2002 film), Star Wars: The Clone Wars (2008-2020 animated series), and Marvel Star Wars comic book series)",
+      "summary": "Watto is a Toydarian junk dealer and scrap merchant operating on Tatooine. He relies primarily on his natural wings for flight, his immunity to Jedi mind tricks, and hired protection or business leverage rather than direct combat proficiency.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "control"
         ],
         "techniques": [
+          "Verbal threats",
+          "Using slave labor or hired thugs",
           "Intimidation",
           "Threats via hired enforcers"
         ],
@@ -21,134 +24,284 @@
       },
       "defense": {
         "mechanisms": [
+          "Natural flight",
+          "Immunity to mental influence/mind tricks due to species biology",
+          "Hiding behind guards or property",
           "Natural flight to evade ground threats",
           "Immunity to some mind-influencing Force tricks due to Toydarian physiology"
         ]
       },
       "weaknesses": [
+        "Addiction to gambling and games of chance",
+        "Physical frailty compared to combatants",
         "Greed and gambling addiction",
         "Lack of direct combat skills"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Episode II: Attack of the Clones (2002 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Films and The Clone Wars)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Natural flight / hovering",
         "Natural flight via wings"
       ],
       "limitations": [
+        "Dependent on financial leverage, gambling success, or hired muscle rather than personal combat strength.",
         "Physically weak and unsuited for direct combat",
         "Cannot be influenced by standard Jedi mind tricks"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Watto",
+          "supports": "Watto's background as a Toydarian junk dealer on Tatooine, immunity to mind tricks, and appearance in Episode I and Episode II."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Watto",
-          "supports": "Toydarian physiology, resistance to Force mind tricks, and occupation as a junk dealer on Tatooine."
+          "supports": "Detailed lore regarding Watto's flight, business operations, and interactions in The Clone Wars and comics."
         }
       ],
       "feats": [
         {
           "claim": "Resisted Qui-Gon Jinn's attempt to use a Jedi mind trick to accept Republic dataries.",
-          "citation": "Star Wars: Episode I – The Phantom Menace",
+          "citation": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "depiction": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "source": 0
+        },
+        {
+          "claim": "Operated a junk shop on Tatooine and owned Anakin Skywalker and Shmi Skywalker as slaves before losing Anakin in a podrace wager.",
+          "citation": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "depiction": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "source": 0
+        },
+        {
+          "claim": "Informed an adult Anakin Skywalker of Shmi Skywalker's freedom and subsequent marriage to Cliegg Lars.",
+          "citation": "Star Wars Episode II: Attack of the Clones (2002 film)",
+          "depiction": "Star Wars Episode II: Attack of the Clones (2002 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Qui-Gon Jinn",
+          "result": "win",
+          "citation": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "note": "Resisted Qui-Gon's mind trick due to Toydarian resistance to Force persuasion.",
+          "depiction": "Star Wars Episode I: The Phantom Menace (1999 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Toydarians possess wings that allow them to fly naturally.",
-          "source": 0
+          "claim": "Toydarians possess natural wings that allow them to hover and fly continuously.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact limits of Toydarian resistance to various psychic or mental manipulations outside of standard Jedi mind tricks."
+        "Exact extent of financial recovery or activities after the Galactic Empire established control over Tatooine.",
+        "Exact limits of Toydarian resistance to various psychic or mental manipulations outside of standard Jedi mind tricks.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Watto is a Toydarian junk dealer and merchant on Tatooine who relies entirely on his negotiation skills, hired muscle like mercenaries or slaves, and Toydarian natural flight to avoid physical confrontation."
     },
     {
       "id": "starwars:Wedge Antilles",
-      "continuity": "Star Wars Canon (Original Trilogy and Expanded Media)",
-      "summary": "Wedge Antilles is an elite veteran starfighter pilot of the Rebel Alliance and New Republic who specializes in commanding squadrons and destroying large enemy capital ships and installations.",
+      "continuity": "Star Wars films and series (Star Wars Episode IV: A New Hope (1977 film), Star Wars Episode V: The Empire Strikes Back (1980 film), Star Wars Episode VI: Return of the Jedi (1983 film), Star Wars Episode IX: The Rise of Skywalker (2019 film), Star Wars Rebels, and Marvel/Dark Horse Star Wars comics)",
+      "summary": "Wedge Antilles is an elite veteran starfighter pilot of the Rebel Alliance, New Republic, and Resistance. He specializes in high-speed dogfighting, squadron command, precision bombing runs, and surviving massive capital ship engagements.",
       "offense": {
         "domains": [
           "tech",
+          "energy",
           "physical"
         ],
         "techniques": [
+          "T-65 X-wing starfighter proton torpedo strikes",
+          "Squadron tactical coordination",
+          "Evasive maneuver patterns",
           "Starfighter combat",
-          "Proton torpedo volleys",
-          "Squadron tactical coordination"
+          "Proton torpedo volleys"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Deflector shields on starfighters",
+          "Superior evasive flying and piloting skill",
+          "Armored cockpit",
           "Starfighter deflector shields",
           "Evasive flight maneuvers",
           "Armor plating"
         ]
       },
       "weaknesses": [
+        "Vulnerable when operating outside of a starfighter or vehicle in direct hand-to-hand combat",
+        "Prone to heavy attrition when facing overwhelming imperial armadas without cover",
         "Vulnerable when his starfighter is disabled or outside a vehicle"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode IV: A New Hope (1977 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Episode IX: The Rise of Skywalker (2019 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Rebels (animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel/Dark Horse Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Original Trilogy and Expanded Media)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Starfighter flight",
+        "Sublight and hyperspace propulsion",
         "Standard foot movement"
       ],
       "limitations": [
+        "Effectiveness is tied directly to the performance and survival of his starfighter or vessel.",
         "Relies entirely on standard military equipment and starfighters for offensive power."
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Wedge_Antilles",
+          "supports": "Wedge Antilles' history across the Original Trilogy, Star Wars Rebels, and Episode IX as an ace pilot."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Wedge_Antilles",
-          "supports": "Status as a premier Rebel pilot, participation in the Death Star trenches, and squadron leadership."
+          "supports": "Detailed combat record, squadron leadership of Rogue Squadron and Red Squadron, and participation in major space battles."
         }
       ],
       "feats": [
         {
+          "claim": "Participated in the destruction of both the first and second Death Stars, piloting during the trench run in A New Hope and destroying the Executor's power generator in Return of the Jedi.",
+          "citation": "Star Wars Episode IV: A New Hope (1977 film) and Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "source": 0
+        },
+        {
+          "claim": "Piloted a snowspeeder and successfully helped trip an Imperial AT-AT walker using tow cables during the Battle of Hoth.",
+          "citation": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
+          "depiction": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
+          "source": 0
+        },
+        {
+          "claim": "Returned from retirement to pilot a transport and fight in the Battle of Exegol with the Resistance fleet.",
+          "citation": "Star Wars Episode IX: The Rise of Skywalker (2019 film)",
+          "depiction": "Star Wars Episode IX: The Rise of Skywalker (2019 film)",
+          "source": 0
+        },
+        {
           "claim": "Participated in the destruction of both the first and second Death Stars.",
           "citation": "Star Wars: Episode IV – A New Hope and Star Wars: Episode VI – Return of the Jedi",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Original Trilogy and Expanded Media)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Galactic Empire Starfighter Corps",
+          "result": "win",
+          "citation": "Star Wars Episode IV: A New Hope (1977 film)",
+          "note": "Survived the trench run and covered Luke Skywalker after defeating pursuers.",
+          "depiction": "Star Wars Episode IV: A New Hope (1977 film)",
+          "source": 0
+        },
+        {
+          "opponent": "AT-AT Walker",
+          "result": "win",
+          "citation": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
+          "note": "Used snowspeeder tow cable to trip and destroy an armored Walker with Janson.",
+          "depiction": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
+          "source": 0
+        },
         {
           "opponent": "Galactic Empire starfighter forces",
           "result": "win",
           "citation": "Battle of Yavin",
           "note": "Flew as Red Two in the assault on the Death Star.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Original Trilogy and Expanded Media)"
         }
       ],
       "conditional": [
         {
+          "ability": "Starfighter combat and capital ship assault",
+          "dependsOn": "Piloting an operational starfighter equipped with weaponry",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "source": 1
+        },
+        {
           "ability": "Advanced starfighter combat and shielding",
           "dependsOn": "Piloting an X-wing or similar starfighter",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Original Trilogy and Expanded Media)"
         }
       ],
       "campaignTags": [
         {
           "tag": "pilot",
-          "claim": "Pilots X-wing starfighters in major battles.",
-          "source": 0
+          "claim": "Pilots starfighters including X-wings and snowspeeders across multiple galactic conflicts.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Extent of hand-to-hand combat proficiency outside of standard military training."
+        "Exact details of all classified missions undertaken during the expansion of the New Republic military.",
+        "Extent of hand-to-hand combat proficiency outside of standard military training.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Wedge Antilles is an elite veteran starfighter pilot of the Rebel Alliance and New Republic who specializes in commanding squadrons and destroying large enemy capital ships and installations."
     },
     {
       "id": "starwars:Wicket",
-      "continuity": "Star Wars Canon (Return of the Jedi and The Clone Wars)",
-      "summary": "Wicket W. Warrick is a courageous Ewok warrior who uses primitive traps, forest terrain knowledge, and small-scale projectile weapons to fight heavily armored adversaries.",
+      "continuity": "Star Wars films and series (Star Wars Episode VI: Return of the Jedi (1983 film), Star Wars: The Clone Wars (2008 animated series), Star Wars: Ewoks (1985 animated series), Caravan of Courage: An Ewok Adventure (1984 film), Ewoks: The Battle for Endor (1985 film), and Marvel Star Wars comics)",
+      "summary": "Wicket W. Warrick is a courageous and resourceful Ewok scout and warrior. He specializes in forest stealth, guerrilla tactics, primitive traps, bow-and-arrow combat, and leveraging local terrain against heavily armed adversaries.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Spears and stone-tipped arrows",
+          "Log traps and snares",
+          "Slings and guerrilla ambush",
           "Spear attacks",
           "Slingshots",
           "Improvised forest traps",
@@ -158,67 +311,147 @@
       },
       "defense": {
         "mechanisms": [
+          "Forest camouflage and stealth",
+          "Agile tumbling and climbing in canopy terrain",
           "Forest camouflage",
           "Agile movement through trees"
         ]
       },
       "weaknesses": [
+        "Physically diminutive compared to humans and large alien species",
+        "Lack of heavy armor or advanced personal energy shielding",
         "Low physical durability against heavy energy weapons and explosions",
         "Limited range with primitive weaponry"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Caravan of Courage: An Ewok Adventure (1984 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Ewoks: The Battle for Endor (1985 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Ewoks (1985 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Return of the Jedi and The Clone Wars)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Agile running",
-        "Tree climbing"
+        "Running",
+        "Tree climbing",
+        "Vine swinging",
+        "Agile running"
       ],
       "limitations": [
+        "Limited reach and physical strength against heavily armored or giant opponents without preparatory traps.",
         "Weapons are restricted to primitive spears, bows, and slingshots."
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Wicket_W._Warrick",
+          "supports": "Wicket's background as an Ewok scout in Return of the Jedi and spin-off films/media."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Wicket_W._Warrick",
-          "supports": "Ewok warrior tactics, weapon usage, and role in the Battle of Endor."
+          "supports": "Detailed weapons, traps, role in the Battle of Endor, and appearances in television series and comics."
         }
       ],
       "feats": [
         {
+          "claim": "Helped defeat Imperial stormtroopers during the Battle of Endor using tripwires, falling logs, and primitive projectile weapons.",
+          "citation": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "source": 0
+        },
+        {
+          "claim": "Assisted Princess Leia Organa after finding her in the forests of Endor and guided her to Bright Tree Village.",
+          "citation": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "source": 0
+        },
+        {
+          "claim": "Fought off Sanyassan Marauders and local predators using traps and coordinated tribal defense.",
+          "citation": "Ewoks: The Battle for Endor (1985 film)",
+          "depiction": "Ewoks: The Battle for Endor (1985 film)",
+          "source": 0
+        },
+        {
           "claim": "Helped defeat Imperial stormtroopers during the Battle of Endor using traps and primitive weapons.",
           "citation": "Star Wars: Episode VI – Return of the Jedi",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Return of the Jedi and The Clone Wars)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Imperial Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "note": "Ambushed Imperial forces alongside the Ewok tribe during the battle for the shield bunker.",
+          "depiction": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "source": 0
+        },
         {
           "opponent": "Galactic Empire Stormtroopers",
           "result": "win",
           "citation": "Star Wars: Episode VI – Return of the Jedi",
           "note": "Fought alongside Rebel forces using environmental traps.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Return of the Jedi and The Clone Wars)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "stealth",
+          "claim": "Expert forest scout capable of moving unseen through heavy brush and ambushing opponents.",
+          "source": 1
+        },
+        {
           "tag": "gadgets",
           "claim": "Constructs and utilizes complex rope snares and forest traps.",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Effectiveness of Ewok weaponry against specialized non-Imperial armor."
+        "Wicket's exact lifespan and activities following the collapse of the Galactic Empire.",
+        "Effectiveness of Ewok weaponry against specialized non-Imperial armor.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Wicket W. Warrick is a courageous Ewok warrior who uses primitive traps, forest terrain knowledge, and small-scale projectile weapons to fight heavily armored adversaries."
     },
     {
       "id": "starwars:Wrecker",
-      "continuity": "Star Wars Canon (The Bad Batch)",
-      "summary": "Wrecker is a genetically modified clone commando who possesses immense superhuman strength, specializing in heavy weapons, demolition, and close-quarters brawling.",
+      "continuity": "Star Wars films and series (Star Wars: The Bad Batch (2021-2024 animated series), Star Wars: The Clone Wars (2008-2020 animated series), and Star Wars tie-in comics)",
+      "summary": "Wrecker is a genetically enhanced clone commando belonging to Clone Force 99 (The Bad Batch). He possesses immense superhuman physical strength, specialized heavy weaponry, explosives mastery, and unyielding brawling capability in close-quarters combat.",
       "offense": {
         "domains": [
           "physical",
-          "tech"
+          "tech",
+          "energy"
         ],
         "techniques": [
+          "Hand-to-hand brawling and lifting heavy objects",
+          "Heavy rotary cannon and explosive demolition charges",
+          "Vibro-knife melee strikes",
           "Heavy blaster cannon fire",
           "Thermal detonators",
           "Hand-to-hand brawling",
@@ -228,162 +461,332 @@
       },
       "defense": {
         "mechanisms": [
-          "Clone commando armor plating",
-          "Exceptional physical durability and pain tolerance"
+          "Specialized heavy clone commando armor",
+          "Exceptional physical durability and pain tolerance",
+          "Clone commando armor plating"
         ]
       },
       "weaknesses": [
+        "Susceptible to psychological trauma and mind-control triggers associated with his inhibitor chip before its removal",
+        "Prone to reckless aggression when provoked",
         "Impulsive nature",
         "Fear of heights (acrophobia)",
         "Susceptible to psychological distress when inhibitor chips activate"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Bad Batch (comic series)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Bad Batch)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running",
+        "Leaping",
+        "Starship piloting as a crew member",
         "Standard foot movement",
         "Jetpack or ship piloting as passenger"
       ],
       "limitations": [
+        "Heavy armor and mass reduce running agility compared to standard nimble scouts.",
         "Prone to recklessness when overwhelmed by battle frenzy."
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/The_Bad_Batch_(TV_series)",
+          "supports": "Overview of Clone Force 99 and Wrecker's role as the heavy muscle and demolition expert."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Wrecker",
-          "supports": "Genetically enhanced strength, role as demolitionist for Clone Force 99, and use of heavy armor."
+          "supports": "Detailed feats of strength, armor specifications, weaponry, and battles across The Bad Batch and The Clone Wars."
         }
       ],
       "feats": [
         {
+          "claim": "Lifted a heavy LAAT/i gunship gun-turret section entirely by hand to free pinned teammates.",
+          "citation": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "depiction": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "source": 0
+        },
+        {
+          "claim": "Punched through blast doors and flipped heavy military transport vehicles in hand-to-hand altercations.",
+          "citation": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "depiction": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "source": 0
+        },
+        {
+          "claim": "Subdued multiple standard clone troopers in close-quarters brawling without sustaining serious injury.",
+          "citation": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "source": 0
+        },
+        {
           "claim": "Lifted a heavy LAAT/i gunship gun-turret section entirely by hand.",
           "citation": "Star Wars: The Bad Batch",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Bad Batch)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Imperial Standard Clone Troopers",
+          "result": "win",
+          "citation": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "note": "Overpowered squads of troopers in close combat using brute force.",
+          "depiction": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "source": 0
+        },
         {
           "opponent": "Standard Imperial stormtroopers",
           "result": "win",
           "citation": "Star Wars: The Bad Batch",
           "note": "Engaged multiple troopers in close quarters and prevailed.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Bad Batch)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "gadgets",
+          "claim": "Carries and deploys specialized demolition charges, detonators, and heavy repeating blasters.",
+          "source": 1
+        },
+        {
           "tag": "powered-armor",
           "claim": "Wears specialized clone commando armor.",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact upper limit of his lifting capacity."
+        "Long-term health impacts of genetic mutation after extended service during the early Imperial era.",
+        "Exact upper limit of his lifting capacity.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Wrecker is a genetically modified clone commando who possesses immense superhuman strength, specializing in heavy weapons, demolition, and close-quarters brawling."
     },
     {
       "id": "starwars:Yoda",
-      "continuity": "Star Wars Canon (Films and The Clone Wars)",
-      "summary": "Yoda is a master of the Force and lightsaber combat with centuries of experience, capable of devastating telekinetic feats, precognition, and swift acrobatic strikes.",
+      "continuity": "Star Wars films and series (Star Wars Episode I: The Phantom Menace (1999 film), Star Wars Episode II: Attack of the Clones (2002 film), Star Wars Episode III: Revenge of the Sith (2005 film), Star Wars Episode V: The Empire Strikes Back (1980 film), Star Wars Episode VI: Return of the Jedi (1983 film), Star Wars Episode VIII: The Last Jedi (2017 film), Star Wars: The Clone Wars (2008-2020 animated series), Star Wars Rebels, and Marvel Star Wars comics)",
+      "summary": "Yoda is a legendary Jedi Grand Master with nearly nine centuries of experience in the Force. He combines peerless telekinetic mastery, precognition, Force absorption, and lightning-fast Ataru lightsaber combat with profound wisdom and spiritual transcendence.",
       "offense": {
         "domains": [
           "magic",
           "energy",
-          "physical"
+          "physical",
+          "control"
         ],
         "techniques": [
+          "Form IV (Ataru) acrobatic lightsaber combat",
+          "Force push, pull, and telekinetic barrage",
+          "Force lightning absorption and redirection",
+          "Mind probe and telepathic communication",
           "Lightsaber combat (Ataru form)",
           "Force push and pull",
           "Force absorption",
           "Force lightning redirection"
         ],
-        "range": "ranged"
+        "range": "strategic"
       },
       "defense": {
         "mechanisms": [
+          "Lightsaber blade deflection",
+          "Advanced Force barrier and tutaminis (energy absorption)",
+          "Precognitive dodging",
           "Lightsaber deflection",
-          "Force barrier",
-          "Precognitive dodging"
+          "Force barrier"
         ]
       },
       "weaknesses": [
+        "Advanced age and small physical stature (though compensated entirely by the Force)",
+        "Adherence to Jedi code can restrict lethal options against redeemable foes",
         "Advanced age and small physical stature can be taxed in prolonged wars of attrition, though compensated by the Force"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Episode I: The Phantom Menace (1999 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Episode II: Attack of the Clones (2002 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Episode VI: Return of the Jedi (1983 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Episode VIII: The Last Jedi (2017 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Rebels (animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Films and The Clone Wars)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Force-enhanced superhuman leaping and acrobatics",
+        "Levitation",
         "Acrobatic leaps enhanced by the Force",
         "Walking"
       ],
       "limitations": [
+        "Stamina is finite in prolonged physical duels against elite dark side users.",
         "Relies on connection to the Force for peak physical agility."
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Yoda",
+          "supports": "Overview of Yoda's role, history, and major appearances across the Skywalker saga films and series."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Yoda",
-          "supports": "Mastery of the Force, lightsaber skills, and historical feats against Sith Lords."
+          "supports": "Comprehensive documentation of Yoda's Force abilities, lightsaber duels, feats, and canon appearances."
         }
       ],
       "feats": [
         {
-          "claim": "Caught and redirected Count Dooku's unleashed Force lightning bare-handed.",
-          "citation": "Star Wars: Episode II – Attack of the Clones",
+          "claim": "Caught and redirected Count Dooku's unleashed Force lightning bare-handed using tutaminis.",
+          "citation": "Star Wars Episode II: Attack of the Clones (2002 film)",
+          "depiction": "Star Wars Episode II: Attack of the Clones (2002 film)",
           "source": 0
         },
         {
           "claim": "Lifted Luke Skywalker's X-wing starfighter out of the swamps of Dagobah using telekinesis.",
-          "citation": "Star Wars: Episode V – The Empire Strikes Back",
+          "citation": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
+          "depiction": "Star Wars Episode V: The Empire Strikes Back (1980 film)",
           "source": 0
+        },
+        {
+          "claim": "Dueled Darth Sidious to a standstill within the Galactic Senate chamber, absorbing Force lightning blasts.",
+          "citation": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "source": 0
+        },
+        {
+          "claim": "Summoned a lightning strike from a spectral plane to destroy the ancient Jedi tree on Ahch-To.",
+          "citation": "Star Wars Episode VIII: The Last Jedi (2017 film)",
+          "depiction": "Star Wars Episode VIII: The Last Jedi (2017 film)",
+          "source": 0
+        },
+        {
+          "claim": "Caught and redirected Count Dooku's unleashed Force lightning bare-handed.",
+          "citation": "Star Wars: Episode II – Attack of the Clones",
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and The Clone Wars)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Count Dooku",
           "result": "inconclusive",
+          "citation": "Star Wars Episode II: Attack of the Clones (2002 film)",
+          "note": "Fought to a stalemate before Dooku diverted Yoda's attention by dropping wreckage on injured Jedi.",
+          "depiction": "Star Wars Episode II: Attack of the Clones (2002 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Darth Sidious",
+          "result": "loss",
+          "citation": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "note": "Knocked down a Senate pod shaft during a climactic duel in the Senate chamber, leading to his exile.",
+          "depiction": "Star Wars Episode III: Revenge of the Sith (2005 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Count Dooku",
+          "result": "inconclusive",
           "citation": "Star Wars: Episode II – Attack of the Clones",
           "note": "Dooku escaped while Yoda saved Anakin and Obi-Wan.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and The Clone Wars)"
         },
         {
           "opponent": "Emperor Palpatine",
           "result": "loss",
           "citation": "Star Wars: Episode III – Revenge of the Sith",
           "note": "Fought in the Galactic Senate chamber; environmental disadvantage forced Yoda into exile.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Films and The Clone Wars)"
         }
       ],
       "campaignTags": [
         {
           "tag": "spellcaster",
-          "claim": "Wields advanced Force powers comparable to magical casting in combat.",
-          "source": 0
-        },
-        {
-          "tag": "telekinesis",
-          "claim": "Lifts massive objects like starfighters and heavy debris using the Force.",
-          "source": 0
+          "claim": "Channels profound Force abilities, telekinesis, illusions, and spiritual manipulation.",
+          "source": 1
         },
         {
           "tag": "telepathy",
-          "claim": "Communicates across vast distances and senses thoughts through the Force.",
-          "source": 0
+          "claim": "Communicates telepathically across star systems and projects conscious spirit forms.",
+          "source": 1
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Lifts starships and massive pillars using advanced telekinesis.",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Levitates effortlessly using the Force.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Full potential of post-mortal Force ghost abilities in a direct material confrontation."
+        "Exact origin species and homeworld name remain unrecorded in galactic history.",
+        "Full potential of post-mortal Force ghost abilities in a direct material confrontation.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Yoda is a master of the Force and lightsaber combat with centuries of experience, capable of devastating telekinetic feats, precognition, and swift acrobatic strikes."
     },
     {
       "id": "starwars:Zeb Orrelios",
-      "continuity": "Star Wars Canon (Star Wars Rebels)",
-      "summary": "Garazeb \"Zeb\" Orrelios is a Lasat honor guard veteran who combines brutal physical strength with an energy Bo-rifle that functions as both a rifle and an electrostaff.",
+      "continuity": "Star Wars films and series (Star Wars Rebels (2014-2018 animated series), Star Wars: The Bad Batch (2023 animated series), and Star Wars tie-in comics)",
+      "summary": "Garazeb \"Zeb\" Orrelios is a veteran Lasat honor guard and stalwart member of the Ghost crew. He combines immense brute strength, martial resilience, and agility with his signature Bo-rifle, which transforms between a blaster carbine and an electrostaff.",
       "offense": {
         "domains": [
           "physical",
-          "energy",
-          "tech"
+          "tech",
+          "energy"
         ],
         "techniques": [
+          "Bo-rifle staff strikes and plasma blasts",
+          "Lasat martial arts and bone-crushing throws",
+          "Charge attacks using heavy body mass",
           "Bo-rifle staff strikes",
           "Blaster fire",
           "Unarmed Lasat brawling",
@@ -393,55 +796,130 @@
       },
       "defense": {
         "mechanisms": [
+          "Dense physical musculature and thick fur/skin",
+          "Energy shields and agile tumbling",
           "Thick fur and dense musculature",
           "Rebel combat armor"
         ]
       },
       "weaknesses": [
+        "Impulsive temper that can lead him into traps",
+        "Emotional attachment to the survival and history of his decimated species",
         "Prone to hotheadedness and emotional provocation in combat"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Rebels (2014-2018 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Bad Batch (animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Rebels (comic series)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Star Wars Rebels)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Acrobatic leaps for a large humanoid",
-        "Running"
+        "Running",
+        "Acrobatic leaps despite large mass",
+        "Starship piloting",
+        "Acrobatic leaps for a large humanoid"
       ],
       "limitations": [
+        "Relies heavily on brute force and weapon utility rather than subtle tactical stealth.",
         "Relies on standard gear and weapon charges for energy attacks."
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Star_Wars_Rebels",
+          "supports": "Overview of Zeb Orrelios as part of the Ghost crew and former Lasat Honor Guard."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Garazeb_Orrelios",
-          "supports": "Lasat physiology, Bo-rifle usage, and combat history with the Spectres."
+          "supports": "Detailed combat abilities, Bo-rifle mechanics, feats in Star Wars Rebels and The Bad Batch, and background."
         }
       ],
       "feats": [
         {
+          "claim": "Defeated multiple Imperial stormtroopers simultaneously in hand-to-hand combat, tossing them across rooms.",
+          "citation": "Star Wars Rebels (2014-2018 animated series)",
+          "depiction": "Star Wars Rebels (2014-2018 animated series)",
+          "source": 0
+        },
+        {
+          "claim": "Navigated and fought through Imperial security checkpoints on multiple worlds, holding off squads of scout troopers and death troopers.",
+          "citation": "Star Wars Rebels (2014-2018 animated series)",
+          "depiction": "Star Wars Rebels (2014-2018 animated series)",
+          "source": 0
+        },
+        {
+          "claim": "Assisted the New Republic military as a veteran security consultant and trainer.",
+          "citation": "Star Wars: The Bad Batch (animated series)",
+          "depiction": "Star Wars: The Bad Batch (animated series)",
+          "source": 0
+        },
+        {
           "claim": "Defeated multiple Imperial stormtroopers simultaneously in hand-to-hand combat.",
           "citation": "Star Wars Rebels",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Star Wars Rebels)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Imperial Stormtroopers",
+          "result": "win",
+          "citation": "Star Wars Rebels (2014-2018 animated series)",
+          "note": "Routinely defeated squads of stormtroopers using hand-to-hand brawling and Bo-rifle strikes.",
+          "depiction": "Star Wars Rebels (2014-2018 animated series)",
+          "source": 0
+        },
+        {
+          "opponent": "Agent Kallus",
+          "result": "draw",
+          "citation": "Star Wars Rebels (2014-2018 animated series)",
+          "note": "Fought Imperial Agent Kallus to a standstill in an ice cave before escaping together.",
+          "depiction": "Star Wars Rebels (2014-2018 animated series)",
+          "source": 0
+        },
         {
           "opponent": "Agent Kallus",
           "result": "draw",
           "citation": "Star Wars Rebels",
           "note": "Fought to a standstill on an ice moon before eventually forming an alliance.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Star Wars Rebels)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Ranged plasma fire and high-voltage staff combat",
+          "dependsOn": "Carrying his specialized Lasat Bo-rifle",
+          "depiction": "Star Wars Rebels (2014-2018 animated series)",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
           "tag": "electric-weapon",
-          "claim": "Uses a Bo-rifle capable of firing energy blasts and discharging electricity in staff mode.",
-          "source": 0
+          "claim": "Wields a Bo-rifle capable of discharging high-voltage electrical energy in staff mode.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Full extent of Lasat martial arts techniques outside of standard military training."
+        "Exact numbers and whereabouts of surviving Lasat hidden across deep space beyond Lira San.",
+        "Full extent of Lasat martial arts techniques outside of standard military training.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Garazeb \"Zeb\" Orrelios is a Lasat honor guard veteran who combines brutal physical strength with an energy Bo-rifle that functions as both a rifle and an electrostaff."
     }
   ]
 }
