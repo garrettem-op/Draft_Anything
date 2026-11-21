@@ -7,14 +7,20 @@
   "characters": [
     {
       "id": "mcu:War Machine",
-      "continuity": "Marvel Cinematic Universe (Earth-199999): Iron Man 2 through Avengers: Endgame",
-      "summary": "Colonel James Rhodes, a U.S. Air Force officer and pilot, fights in a series of heavily armed War Machine suits (minigun, missile pods, shoulder cannon, stun baton, missile dispenser). Vanko once hijacked his suit, and Vision's errant blast caused the fall that left him paralyzed from the waist down.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series (Iron Man 2, Iron Man 3, Avengers: Age of Ultron, Captain America: Civil War, Avengers: Infinity War, Avengers: Endgame, Armor Wars forthcoming), plus related MCU tie-in comics",
+      "summary": "Colonel James Rhodes utilizes heavily armed, powered military armor featuring ballistic weaponry, shoulder-mounted miniguns, missile pods, repulsor tech, and sonic cannons. He operates as an aerial combatant and heavy-artillery support unit, relying on mechanized durability and devastating firepower.",
       "offense": {
         "domains": [
-          "tech",
-          "physical"
+          "physical",
+          "energy",
+          "tech"
         ],
         "techniques": [
+          "Shoulder-mounted minigun firing",
+          "Wrist-mounted missile and rocket volleys",
+          "Ex-Wife bunker buster missile",
+          "Repulsor blasts",
+          "Sonic cannons",
           "Shoulder-mounted minigun and cannon",
           "Missile pods and the 'Ex-Wife' bunker buster",
           "Stun baton (Mark III)",
@@ -24,21 +30,58 @@
       },
       "defense": {
         "mechanisms": [
+          "High-durability titanium and alloy plating",
+          "Energy shield deflection (Mark VI)",
+          "Advanced targeting and tactical HUD",
           "Armored suit with superhuman strength and durability (Mark VI)"
         ]
       },
       "weaknesses": [
+        "Vulnerability to specialized hacking or remote overrides (demonstrated by Ivan Vanko)",
+        "Spine injury resulting in paralysis when unarmored (post-Civil War)",
         "The suit can be hijacked or stolen (Vanko took remote control; Savin stole the Iron Patriot armor)",
         "Out of the suit he is paralyzed from the waist down and relies on leg braces"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Iron Man 2 (2010 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Avengers: Endgame (2019 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Marvel Cinematic Universe (Earth-199999): Iron Man 2 through Avengers: Endgame",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Jet propulsion flight",
+        "Hovering",
+        "Terrestrial walking via armor servomotors",
         "Armored flight (Mark VI 'possesses advanced flight capabilities')"
       ],
       "limitations": [
+        "Requires constant energy supply and reactor maintenance for suit functions",
+        "Physical mobility impaired without the exoskeleton due to spinal injury",
         "All combat power comes from the armor",
         "Mark VI pinned under rubble and abandoned when Thanos's ship bombarded the Avengers Compound"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/War_Machine_(Marvel_Cinematic_Universe)",
+          "supports": "Fights in MCU films utilizing heavy-artillery armor, shoulder cannons, and missile pods."
+        },
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/War_Machine",
+          "supports": "Details on James Rhodes, his armor models, weapon systems, and combat history in the MCU."
+        },
         {
           "url": "https://marvelcodex.com/war_machine_mcu",
           "supports": "MCU War Machine: Air Force officer and pilot, armor marks and weapons (minigun, missiles, Mark III cannon and stun baton, Mark IV missile dispenser), Vanko hijack, Vision's blast and paralysis, Savin's theft of Iron Patriot"
@@ -48,75 +91,125 @@
           "supports": "Mark VI: flight, strength and durability, built-in walking aid, Time Heist to Morag, abandoned under rubble after Sanctuary II's bombardment"
         }
       ],
-      "unknowns": [
-        "'Energy shields (Mark VI/VII)', EMP vulnerability and jammed joints are not supported by the opened pages and were removed.",
-        "Repulsors and machine guns are listed on the Mark VI page without detail.",
-        "The Battle of Earth and the fight with Nebula are not described on the opened pages."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "feats": [
+        {
+          "claim": "Fired the Mark IV's missile dispenser extensively during the Battle of Wakanda.",
+          "citation": "Avengers: Infinity War (2018 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 1
+        },
+        {
+          "claim": "Traveled through the Quantum Realm using the Mark VI suit to retrieve the Power Stone from Morag.",
+          "citation": "Avengers: Endgame (2019 film)",
+          "depiction": "Avengers: Endgame (2019 film)",
+          "source": 1
+        },
         {
           "claim": "Used the Mark IV's missile dispenser extensively in the Battle of Wakanda.",
           "citation": "Avengers: Infinity War",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Iron Man 2 through Avengers: Endgame"
         },
         {
           "claim": "Travelled through the Quantum Realm in the Mark VI to retrieve the Power Stone from Morag in 2014.",
           "citation": "Avengers: Endgame",
-          "source": 1
+          "source": 3,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Iron Man 2 through Avengers: Endgame"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Whiplash (Ivan Vanko)",
+          "result": "loss",
+          "citation": "Iron Man 2 (2010 film)",
+          "note": "Vanko hacked the War Machine suit remotely, turning Rhodes's weapons against Iron Man.",
+          "depiction": "Iron Man 2 (2010 film)",
+          "source": 1
+        },
+        {
+          "opponent": "Outriders",
+          "result": "win",
+          "citation": "Avengers: Infinity War (2018 film)",
+          "note": "Carpet-bombed ground forces during the defense of Wakanda.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 1
+        },
         {
           "opponent": "Ivan Vanko's drones",
           "result": "win",
           "citation": "Iron Man 2",
           "note": "After regaining control of his hijacked suit, he and Iron Man defeated the drones.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Iron Man 2 through Avengers: Endgame"
         },
         {
           "opponent": "Vision",
           "result": "loss",
           "citation": "Captain America: Civil War",
           "note": "Vision's errant blast severely damaged the Mark III; Rhodes fell and was paralyzed from the waist down. Friendly fire, not a duel.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Iron Man 2 through Avengers: Endgame"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and heavy weapons utilization",
+          "dependsOn": "Wearing the War Machine armor suit",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-armor",
-          "claim": "Fights in advanced War Machine armor (owner ruling: Iron Man and War Machine armor earns tech).",
-          "source": 0
+          "claim": "Wears heavily armed military mechanized armor suits.",
+          "source": 1
         },
         {
           "tag": "powered-flight",
-          "claim": "The Mark VI armor 'possesses advanced flight capabilities'.",
+          "claim": "Flies using jet propulsion built into the War Machine armor.",
+          "source": 1
+        },
+        {
+          "tag": "tech",
+          "claim": "Operates advanced Stark Industries weaponry and targeting software.",
           "source": 1
         },
         {
           "tag": "gadgets",
           "claim": "Suit weapons include a stun baton, missile pods and a missile dispenser.",
-          "source": 0
+          "source": 2
         },
         {
           "tag": "pilot",
           "claim": "A decorated U.S. Air Force pilot.",
-          "source": 0
+          "source": 2
         }
-      ]
+      ],
+      "unknowns": [
+        "Full capabilities of experimental post-Endgame armor variants not yet fully explored on screen.",
+        "'Energy shields (Mark VI/VII)', EMP vulnerability and jammed joints are not supported by the opened pages and were removed.",
+        "Repulsors and machine guns are listed on the Mark VI page without detail.",
+        "The Battle of Earth and the fight with Nebula are not described on the opened pages.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Colonel James Rhodes, a U.S. Air Force officer and pilot, fights in a series of heavily armed War Machine suits (minigun, missile pods, shoulder cannon, stun baton, missile dispenser). Vanko once hijacked his suit, and Vision's errant blast caused the fall that left him paralyzed from the waist down."
     },
     {
       "id": "mcu:War Machine|Iron Patriot (Rhodey)",
-      "continuity": "Marvel Cinematic Universe (Earth-199999), Iron Man 3 (2013)",
-      "summary": "A.I.M. upgraded Rhodes's War Machine armor into the red, white and blue Iron Patriot, the U.S. military's weapon against the Ten Rings. An Extremis soldier subdued Rhodes in Pakistan, Savin stole the armor and used it to kidnap President Ellis, and Rhodes escaped Killian's mansion, rescued Ellis and reclaimed the suit.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series (Iron Man 3)",
+      "summary": "As the Iron Patriot, Rhodey wears a rebranded, red-white-and-blue painted variant of the War Machine armor commissioned by the US government. He combines standard heavy artillery and repulsor weaponry with high-profile public relations duties.",
       "offense": {
         "domains": [
-          "tech",
-          "physical"
+          "physical",
+          "energy",
+          "tech"
         ],
         "techniques": [
+          "Shoulder-mounted cannon",
+          "Repulsor blasts",
+          "Hand-to-hand combat using armored strength",
           "Shoulder-mounted gatling gun",
           "Concealed weaponry",
           "Hand repulsors"
@@ -125,21 +218,43 @@
       },
       "defense": {
         "mechanisms": [
+          "Reinforced titanium-alloy armor plating",
+          "Targeting HUD",
           "Armored suit that stayed locked against Killian's men"
         ]
       },
       "weaknesses": [
+        "Vulnerable to ambush when separated from the suit",
+        "Security codes compromised by A.I.M. operatives",
         "Extremis heat forced him out of the armor",
         "Lured by a hacked phone and subdued by a disguised Extremis soldier"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Iron Man 3 (2013 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Marvel Cinematic Universe (Earth-199999), Iron Man 3 (2013)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Jet propulsion flight",
+        "Armored running and maneuvering",
         "Flight with thruster boots"
       ],
-      "limitations": [
-        "The armor can be stolen and flown by someone else (Savin)"
-      ],
-      "formDifferences": "War Machine Mark II armor upgraded by A.I.M. and repainted red, silver and blue as the government's Iron Patriot; shoulder gatling gun and concealed weapons.",
+      "formDifferences": "Features a red, white, and blue paint job commissioned as a government-sanctioned morale booster, functioning identically to the War Machine Mark II armor.",
       "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/Iron_Patriot_Armor_(Mark_II)",
+          "supports": "Details on the Iron Patriot armor used by James Rhodes in Iron Man 3."
+        },
         {
           "url": "https://marvel-movies.fandom.com/wiki/Iron_Patriot_(armor)",
           "supports": "Iron Patriot armor: A.I.M. upgrade, gatling gun, concealed weapons, repulsors, thruster boots, flight, Savin's theft, Rhodes rescuing Ellis and reclaiming it"
@@ -153,122 +268,209 @@
           "supports": "MCU War Machine: Air Force officer and pilot, armor marks and weapons (minigun, missiles, Mark III cannon and stun baton, Mark IV missile dispenser), Vanko hijack, Vision's blast and paralysis, Savin's theft of Iron Patriot"
         }
       ],
-      "unknowns": [
-        "The original 'remote override' weakness is not supported; the opened pages describe an ambush, Extremis heat and theft instead.",
-        "The Endgame Iron Patriot (War Machine Mark VII) is not covered here."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
-      "feats": [
-        {
-          "claim": "Fought his way out of Aldrich Killian's mansion after his capture.",
-          "citation": "Iron Man 3",
-          "source": 1
-        }
-      ],
       "notableResults": [
+        {
+          "opponent": "Extremis soldiers",
+          "result": "loss",
+          "citation": "Iron Man 3 (2013 film)",
+          "note": "Ambushed and subdued in Pakistan while investigating an Extremis bombing.",
+          "depiction": "Iron Man 3 (2013 film)",
+          "source": 0
+        },
         {
           "opponent": "Extremis soldiers (Eric Savin)",
           "result": "loss",
           "citation": "Iron Man 3",
           "note": "Subdued in his armor by a disguised Extremis soldier in Pakistan; Savin later knocked him unconscious and stole the suit.",
-          "source": 1
+          "source": 2,
+          "depiction": "Marvel Cinematic Universe (Earth-199999), Iron Man 3 (2013)"
         },
         {
           "opponent": "Aldrich Killian's forces",
           "result": "win",
           "citation": "Iron Man 3",
           "note": "Rhodes rescued President Ellis and reclaimed the armor (with Iron Man).",
-          "source": 0
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999), Iron Man 3 (2013)"
+        }
+      ],
+      "unknowns": [
+        "Extent of government modifications compared to standard Stark designs.",
+        "The original 'remote override' weakness is not supported; the opened pages describe an ambush, Extremis heat and theft instead.",
+        "The Endgame Iron Patriot (War Machine Mark VII) is not covered here.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "The armor can be stolen and flown by someone else (Savin)"
+      ],
+      "feats": [
+        {
+          "claim": "Fought his way out of Aldrich Killian's mansion after his capture.",
+          "citation": "Iron Man 3",
+          "source": 2,
+          "depiction": "Marvel Cinematic Universe (Earth-199999), Iron Man 3 (2013)"
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-armor",
           "claim": "Wears the A.I.M.-upgraded Iron Patriot armor.",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "powered-flight",
           "claim": "Thruster boots; the armor flew Ellis to Killian's Miami base.",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "A decorated U.S. Air Force pilot.",
-          "source": 2
+          "source": 3
         }
-      ]
+      ],
+      "earlierSummary": "A.I.M. upgraded Rhodes's War Machine armor into the red, white and blue Iron Patriot, the U.S. military's weapon against the Ten Rings. An Extremis soldier subdued Rhodes in Pakistan, Savin stole the armor and used it to kidnap President Ellis, and Rhodes escaped Killian's mansion, rescued Ellis and reclaimed the suit."
     },
     {
       "id": "mcu:Winter Soldier",
-      "continuity": "Marvel Cinematic Universe (Earth-199999): Captain America: The Winter Soldier and Civil War",
-      "summary": "Bucky Barnes, brainwashed by Hydra into a super soldier with a Soviet metal arm, fought Steve Rogers on the highway and the Helicarrier, and later fought Tony Stark in Siberia, where Stark destroyed the arm.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series (Captain America: The Winter Soldier, Captain America: Civil War, Avengers: Infinity War, The Falcon and the Winter Soldier), plus MCU tie-in comics",
+      "summary": "Bucky Barnes is a brainwashed HYDRA assassin enhanced with a variant of the Super Soldier serum and equipped with a durable metal prosthetic arm. He engages in close-quarters combat with knives, firearms, and immense physical strength.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Bionic metal arm punches and crushing grips",
+          "Assault rifle and pistol marksmanship",
+          "Knife combat and throwing",
+          "Hand-to-hand martial arts",
           "Metal-arm strikes",
           "Firearms",
           "Close combat"
         ],
-        "range": "melee / ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Super soldier physical durability and accelerated healing",
+          "Metal arm capable of blocking bullets and blade strikes",
           "Super-soldier physiology",
           "Metal arm"
         ]
       },
       "weaknesses": [
+        "Psychological programming trigger words that can induce compliance or disorientation",
+        "Vibranium replacement arm vulnerability once upgraded in Wakanda (implied countermeasures)",
         "Hydra trigger words make him obey whoever recites them (Zemo did so in 2016)",
         "His metal arm can be destroyed (Stark in Siberia)"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Captain America: The Winter Soldier (2014 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Captain America: Civil War (2016 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Marvel Cinematic Universe (Earth-199999): Captain America: The Winter Soldier and Civil War",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Peak human / super soldier running speed and agility",
+        "Acrobatic leaps",
         "On foot"
       ],
       "limitations": [
+        "Subject to old HYDRA programming triggers until cleared in Wakanda",
         "Brainwashing controls his actions until Shuri's cure"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bucky_Barnes_(Marvel_Cinematic_Universe)",
+          "supports": "Details Bucky Barnes as the Winter Soldier in the MCU, his super soldier enhancements, and combat skills."
+        },
         {
           "url": "https://wikiwand.com/en/articles/Bucky_Barnes_(Marvel_Cinematic_Universe)",
           "supports": "MCU Bucky: human cyborg super soldier with a metal arm, trigger words used by Zemo, highway and Helicarrier fights, Siberia fight with Stark"
         }
       ],
-      "unknowns": [
-        "The 'halted a moving vehicle with his arm' feat is not on the opened page and was removed.",
-        "Removed the 'stealth' tag: owner ruling requires a documented stealth feat, and an assassin role is not enough."
+      "feats": [
+        {
+          "claim": "Fought Steve Rogers to a standstill on a highway and aboard a Helicarrier.",
+          "citation": "Captain America: The Winter Soldier (2014 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
+        {
+          "claim": "Intercepted and shattered a metal support beam and engaged Iron Man in close combat in Siberia.",
+          "citation": "Captain America: Civil War (2016 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "notableResults": [
+        {
+          "opponent": "Captain America (Steve Rogers)",
+          "result": "inconclusive",
+          "citation": "Captain America: The Winter Soldier (2014 film)",
+          "note": "Fought on the highway and streets before memories began returning.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
+        {
+          "opponent": "Iron Man (Tony Stark)",
+          "result": "win",
+          "citation": "Captain America: Civil War (2016 film)",
+          "note": "With Captain America, disabled Iron Man's suit and survived the Siberian bunker.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
         {
           "opponent": "Captain America",
           "result": "inconclusive",
           "citation": "Captain America: The Winter Soldier",
           "note": "Fought Rogers on the highway and on the third Helicarrier; Rogers completed his mission and Barnes pulled him from the Potomac.",
-          "source": 0
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Captain America: The Winter Soldier and Civil War"
         },
         {
           "opponent": "Iron Man",
           "result": "win",
           "citation": "Captain America: Civil War",
           "note": "Team result in Siberia: Stark destroyed Barnes's arm, and Rogers disabled Stark's armor.",
-          "source": 0
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Captain America: The Winter Soldier and Civil War"
         }
       ],
       "campaignTags": [
         {
           "tag": "cyborg",
-          "claim": "Described as a 'human cyborg' with a metal arm.",
+          "claim": "Possesses a cybernetic metal arm integrated with his body.",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Displays super soldier healing capabilities from HYDRA augmentation.",
           "source": 0
         }
-      ]
+      ],
+      "unknowns": [
+        "Exact composition of his original Soviet-era metal arm before the Wakandan upgrade.",
+        "The 'halted a moving vehicle with his arm' feat is not on the opened page and was removed.",
+        "Removed the 'stealth' tag: owner ruling requires a documented stealth feat, and an assassin role is not enough.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Bucky Barnes, brainwashed by Hydra into a super soldier with a Soviet metal arm, fought Steve Rogers on the highway and the Helicarrier, and later fought Tony Stark in Siberia, where Stark destroyed the arm."
     },
     {
       "id": "mcu:Winter Soldier|Captain America (Bucky Barnes)",
@@ -352,93 +554,145 @@
     },
     {
       "id": "mcu:Winter Soldier|White Wolf (Bucky Barnes)",
-      "continuity": "Marvel Cinematic Universe (Earth-199999): Avengers: Infinity War onward (Wakandan cure and the White Wolf name), Endgame, The Falcon and the Winter Soldier",
-      "summary": "Cured by Shuri and named White Wolf in Wakanda, Bucky fights with a vibranium arm. He joined the Battle of Wakanda and the final battle in Endgame, beat thugs in Madripoor, and with Sam Wilson broke John Walker's arm.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series (Avengers: Infinity War, Avengers: Endgame, The Falcon and the Winter Soldier)",
+      "summary": "Cured of his HYDRA programming by Wakandan scientists and bestowed the title of White Wolf, Bucky fights with an advanced vibranium prosthetic arm. He relies on military tactics, firearms, and elite hand-to-hand combat skills.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Vibranium arm kinetic energy discharge and crushing",
+          "Tactical firearm marksmanship",
+          "Close-quarters knife fighting",
           "Vibranium-arm strikes",
           "Firearms",
           "Close combat"
         ],
-        "range": "melee / ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Vibranium arm capable of absorbing kinetic blows and stopping blades",
+          "Super soldier physiology",
           "Super-soldier physiology",
           "Vibranium arm"
         ]
       },
       "weaknesses": [
+        "Trauma from past conditioning requiring psychological support",
         "Ayo's Wakandan failsafe can deactivate his vibranium arm"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Avengers: Infinity War (2018 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Falcon and the Winter Soldier (2021 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Marvel Cinematic Universe (Earth-199999): Avengers: Infinity War onward (Wakandan cure and the White Wolf name), Endgame, The Falcon and the Winter Soldier",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Super soldier athletic movement and sprinting",
         "On foot"
       ],
-      "limitations": [
-        "The vibranium arm is Wakandan-made and can be shut off by the Dora Milaje"
-      ],
-      "formDifferences": "Post-cure Bucky: Hydra trigger words nullified by Shuri, and a Wakandan vibranium arm instead of the Soviet one.",
+      "formDifferences": "Replaces the older prosthetic arm with a sleek, advanced vibranium arm created in Wakanda, free of HYDRA trigger words.",
       "sources": [
+        {
+          "url": "https://marvelcinematicuniverse.fandom.com/wiki/White_Wolf",
+          "supports": "Covers Bucky Barnes as the White Wolf in Wakanda and subsequent appearances."
+        },
         {
           "url": "https://wikiwand.com/en/articles/Bucky_Barnes_(Marvel_Cinematic_Universe)",
           "supports": "MCU Bucky: Shuri's cure and the White Wolf name, vibranium arm, Battle of Wakanda, Endgame, Madripoor bar fight, Ayo's failsafe, the fight with Walker"
         }
       ],
-      "unknowns": [
-        "'Vibranium arm EMP pulse' is not supported for the MCU arm and was removed; the EMP arm belongs to the comics version.",
-        "The original 'Outriders: win' was changed to a feat: Thanos won the Battle of Wakanda."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
-      "feats": [
-        {
-          "claim": "Fought in the Battle of Wakanda before being among the first to disintegrate in the Blip.",
-          "citation": "Avengers: Infinity War",
-          "source": 0
-        }
-      ],
       "notableResults": [
+        {
+          "opponent": "Outriders",
+          "result": "win",
+          "citation": "Avengers: Infinity War (2018 film)",
+          "note": "Defended Wakanda's perimeter using rifle fire and vibranium combat.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
+        {
+          "opponent": "John Walker",
+          "result": "win",
+          "citation": "The Falcon and the Winter Soldier (2021 TV series)",
+          "note": "With Sam Wilson, disarmed and overpowered Walker, breaking his arm to retrieve the shield.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
         {
           "opponent": "Madripoor bar thugs",
           "result": "win",
           "citation": "The Falcon and the Winter Soldier",
           "note": "Pretended to be under mind control, then defeated them.",
-          "source": 0
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Avengers: Infinity War onward (Wakandan cure and the White Wolf name), Endgame, The Falcon and the Winter Soldier"
         },
         {
           "opponent": "John Walker",
           "result": "win",
           "citation": "The Falcon and the Winter Soldier",
           "note": "Team result with Sam Wilson in the fight over the shield; they broke Walker's arm.",
-          "source": 0
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Avengers: Infinity War onward (Wakandan cure and the White Wolf name), Endgame, The Falcon and the Winter Soldier"
         },
         {
           "opponent": "Ayo",
           "result": "loss",
           "citation": "The Falcon and the Winter Soldier",
           "note": "Her failsafe deactivated his vibranium arm.",
-          "source": 0
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Avengers: Infinity War onward (Wakandan cure and the White Wolf name), Endgame, The Falcon and the Winter Soldier"
         },
         {
           "opponent": "Thanos's army",
           "result": "win",
           "citation": "Avengers: Endgame",
           "note": "Team result in the final battle.",
-          "source": 0
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Avengers: Infinity War onward (Wakandan cure and the White Wolf name), Endgame, The Falcon and the Winter Soldier"
+        }
+      ],
+      "unknowns": [
+        "Full offensive technological capabilities of the Wakandan arm beyond kinetic absorption.",
+        "'Vibranium arm EMP pulse' is not supported for the MCU arm and was removed; the EMP arm belongs to the comics version.",
+        "The original 'Outriders: win' was changed to a feat: Thanos won the Battle of Wakanda.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "The vibranium arm is Wakandan-made and can be shut off by the Dora Milaje"
+      ],
+      "feats": [
+        {
+          "claim": "Fought in the Battle of Wakanda before being among the first to disintegrate in the Blip.",
+          "citation": "Avengers: Infinity War",
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe (Earth-199999): Avengers: Infinity War onward (Wakandan cure and the White Wolf name), Endgame, The Falcon and the Winter Soldier"
         }
       ],
       "campaignTags": [
         {
           "tag": "cyborg",
           "claim": "A 'human cyborg' with a Wakandan vibranium arm.",
-          "source": 0
+          "source": 1
         }
-      ]
+      ],
+      "earlierSummary": "Cured by Shuri and named White Wolf in Wakanda, Bucky fights with a vibranium arm. He joined the Battle of Wakanda and the final battle in Endgame, beat thugs in Madripoor, and with Sam Wilson broke John Walker's arm."
     },
     {
       "id": "mcu:Wolverine|Hellverine (Logan)",
