@@ -7,23 +7,28 @@
   "characters": [
     {
       "id": "pokemon:Sandshrew",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Sandshrew is a ground-type Pokémon that burrows underground to escape danger and defense-rolls into a tight sphere to deflect physical blows. It uses sharp claws to scratch opponents and dig deep tunnels.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Sandshrew is a Ground-type mammalian Pokémon that burrows into dry desert sand to avoid heat and danger. When threatened, it curls into a tight, spiked ball to deflect physical attacks and withstand heavy falls.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "earth"
         ],
         "techniques": [
           "Scratch",
-          "Slash",
-          "Dig",
           "Rollout",
+          "Dig",
+          "Sand-Attack",
+          "Slash",
           "Earthquake"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Curling into a defensive ball",
+          "Burrowing underground to evade attacks",
+          "Thick, tough hide",
           "Curling into a hard ball to absorb physical impact",
           "Burrowing underground to avoid attacks"
         ]
@@ -33,15 +38,40 @@
         "Grass-type attacks",
         "Ice-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
         "burrowing",
+        "rolling",
         "walking"
       ],
       "limitations": [
+        "Vulnerable in environments lacking soft earth or sand for burrowing.",
         "Vulnerable in environments lacking loose earth or sand for burrowing",
         "Slow mobility when not rolling or burrowing"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Sandshrew_(Pokémon)",
+          "supports": "Abilities, physical characteristics, burrowing behavior, and elemental weaknesses of Sandshrew."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Sandshrew_(Pok%C3%A9mon)",
           "supports": "Abilities, types, moves, and evolution details of Sandshrew"
@@ -51,25 +81,35 @@
         {
           "claim": "Burrows deep underground in dry, desert-like areas to avoid moisture and find prey.",
           "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         },
         {
           "claim": "Rolls into a ball to protect its hide from hard impacts and falls from heights.",
-          "citation": "Pokémon Yellow Pokédex entry",
+          "citation": "Pokémon anime, episode descriptions",
+          "depiction": "Pokémon anime series",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Can swim across bodies of water when necessary.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact speed while digging through various geological formations"
+        "Exact limits of how deep it can dig through solid rock are not fully detailed across all continuities.",
+        "Exact speed while digging through various geological formations",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Sandshrew is a ground-type Pokémon that burrows underground to escape danger and defense-rolls into a tight sphere to deflect physical blows. It uses sharp claws to scratch opponents and dig deep tunnels."
     },
     {
       "id": "pokemon:Sandshrew|Alolan Sandshrew",
-      "continuity": "Pokémon Sun and Moon / Standard Game Canon",
-      "summary": "Alolan Sandshrew is an Ice/Steel-type variant of Sandshrew that inhabits snowy mountainous regions. It possesses a heavy steel shell covered in ice spikes and curls into an impenetrable ball when threatened.",
+      "continuity": "Pokémon Sun and Moon games, anime, and manga series",
+      "summary": "Alolan Sandshrew is an Ice and Steel-type regional variant inhabiting snowy mountain environments. Covered in a heavy steel shell with protruding ice spikes, it slides across frozen terrain and curls into an impenetrable sphere when threatened.",
       "offense": {
         "domains": [
           "physical",
@@ -77,13 +117,18 @@
         ],
         "techniques": [
           "Ice Ball",
-          "Icicle Crash",
-          "Metal Claw"
+          "Metal Claw",
+          "Powder Snow",
+          "Blizzard",
+          "Icicle Crash"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Heavy steel shell",
+          "Ice spike armor",
+          "Defensive curling",
           "Heavy steel-plated body covered in ice spikes",
           "Curling into a protective ball"
         ]
@@ -93,60 +138,88 @@
         "Fighting-type attacks",
         "Ground-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sun and Moon (2016 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Sun and Moon / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
         "sliding",
         "walking"
       ],
-      "limitations": [
-        "Heavier weight restricts traditional burrowing speed compared to the standard form"
-      ],
-      "formDifferences": "Changes typing from Ground to Ice/Steel, alters appearance to a snow-adapted form with an ice shell, and modifies regional weaknesses and moves.",
+      "formDifferences": "Changes typing from Ground to Ice/Steel, alters habitat to snowy regions, and replaces its sandy hide with a heavy steel shell covered in ice spikes.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Sandshrew_(Pokémon)",
+          "supports": "Alolan regional variant attributes, typing, and behavioral traits."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Sandshrew_(Pok%C3%A9mon)",
           "supports": "Alolan regional variant attributes, typing, and abilities"
         }
       ],
+      "unknowns": [
+        "Movement speed in non-snowy, warm environments is severely hindered by its heavy steel shell.",
+        "Exact durability limits of the ice shell against extreme heat sources",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Heavier weight restricts traditional burrowing speed compared to the standard form"
+      ],
       "feats": [
         {
           "claim": "Slides across snow-covered terrain on its belly like a curling stone to move quickly.",
           "citation": "Pokémon Sun Pokédex entry",
-          "source": 0
+          "source": 1,
+          "depiction": "Pokémon Sun and Moon / Standard Game Canon"
         }
       ],
       "campaignTags": [
         {
           "tag": "ice",
           "claim": "Possesses Ice-type biology and generates ice spikes",
-          "source": 0
+          "source": 1
         }
       ],
-      "unknowns": [
-        "Exact durability limits of the ice shell against extreme heat sources"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Alolan Sandshrew is an Ice/Steel-type variant of Sandshrew that inhabits snowy mountainous regions. It possesses a heavy steel shell covered in ice spikes and curls into an impenetrable ball when threatened."
     },
     {
       "id": "pokemon:Sandslash",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Sandslash is a bipedal ground-type Pokémon armed with massive, sharp claws used for slashing enemies and climbing trees. It can curl into a spiked ball and hurl itself at opponents.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Sandslash is a bipedal Ground-type Pokémon featuring massive, sharp claws used for slicing enemies, climbing trees, and digging. It can curl into a spiked ball to hurl itself directly at adversaries.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "earth"
         ],
         "techniques": [
           "Slash",
           "Earthquake",
-          "Sand Tomb",
           "Rollout",
+          "Sand Tomb",
           "Fury Swipes"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Spiked hard shell",
+          "Burrowing defense",
           "Hardened skin and spikes when curled into a ball",
           "Spiked quills acting as natural deterrents"
         ]
@@ -156,14 +229,40 @@
         "Grass-type attacks",
         "Ice-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "walking",
-        "burrowing"
+        "bipedal running",
+        "burrowing",
+        "rolling",
+        "walking"
       ],
       "limitations": [
+        "Claws can occasionally break if striking overly dense materials like solid diamond.",
         "Spikes can break off or shed during aggressive defensive maneuvers"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Sandslash_(Pokémon)",
+          "supports": "Sandslash physical statistics, claw attacks, and combat capabilities."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Sandslash_(Pok%C3%A9mon)",
           "supports": "Sandslash abilities, baseline stats, typing, and evolution data"
@@ -172,26 +271,29 @@
       "feats": [
         {
           "claim": "Climbs trees by digging its sharp claws into the bark to hunt prey or escape.",
-          "citation": "Pokémon Stadium Pokédex entry",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         },
         {
           "claim": "Shoots quills from its back when violently shaking its body after rolling into an attacker.",
-          "citation": "Pokémon Gold Pokédex entry",
+          "citation": "Pokémon anime episodes featuring Sandslash",
+          "depiction": "Pokémon anime series",
           "source": 0
         }
       ],
       "unknowns": [
-        "Regeneration rate of lost back quills"
+        "Maximum velocity when executing a rolling attack.",
+        "Regeneration rate of lost back quills",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Sandslash is a bipedal ground-type Pokémon armed with massive, sharp claws used for slashing enemies and climbing trees. It can curl into a spiked ball and hurl itself at opponents."
     },
     {
       "id": "pokemon:Sandslash|Alolan Sandslash",
-      "continuity": "Pokémon Sun and Moon / Standard Game Canon",
-      "summary": "Alolan Sandslash is an Ice/Steel regional variant of Sandslash featuring long, sharp ice spikes on its back. It moves swiftly across deep snow and relies on formidable physical strikes and ice attacks.",
+      "continuity": "Pokémon Sun and Moon games, anime, and manga series",
+      "summary": "Alolan Sandslash is an Ice and Steel-type regional variant boasting long, sharp ice spikes on its back. It traverses deep snowfields at high speeds, leaving trench lines in its wake, and executes devastating physical and ice strikes.",
       "offense": {
         "domains": [
           "physical",
@@ -207,6 +309,8 @@
       },
       "defense": {
         "mechanisms": [
+          "Steel shell",
+          "Ice spike shielding",
           "Steel-reinforced body armor",
           "Ice-spike defensive posture"
         ]
@@ -216,52 +320,81 @@
         "Fighting-type attacks",
         "Ground-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sun and Moon (2016 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Sun and Moon / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "running",
+        "sliding",
         "walking"
       ],
-      "limitations": [
-        "Bulky ice quills reduce agility on non-snowy surfaces"
-      ],
-      "formDifferences": "Changes typing from Ground to Ice/Steel, features large crystalline ice quills on its back, and exhibits distinct regional adaptations.",
+      "formDifferences": "Changes typing to Ice/Steel, develops long protruding ice spikes on the back, and gains enhanced physical striking power at the cost of reduced agility on non-frozen ground.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Sandslash_(Pokémon)",
+          "supports": "Alolan Sandslash traits, ice spikes, and weight mechanics."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Sandslash_(Pok%C3%A9mon)",
           "supports": "Alolan Sandslash stats, typing, and dex entries"
         }
       ],
+      "unknowns": [
+        "Durability of the ice spikes when subjected to extreme heat sources.",
+        "Melting point threshold of the ice quills in temperate climates",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Bulky ice quills reduce agility on non-snowy surfaces"
+      ],
       "feats": [
         {
           "claim": "Leaves deep trenches in snowfields as it runs due to the weight of its ice spikes.",
           "citation": "Pokémon Moon Pokédex entry",
-          "source": 0
+          "source": 1,
+          "depiction": "Pokémon Sun and Moon / Standard Game Canon"
         }
       ],
       "campaignTags": [
         {
           "tag": "ice",
           "claim": "Generates and utilizes ice-based attacks and natural ice spikes",
-          "source": 0
+          "source": 1
         }
       ],
-      "unknowns": [
-        "Melting point threshold of the ice quills in temperate climates"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Alolan Sandslash is an Ice/Steel regional variant of Sandslash featuring long, sharp ice spikes on its back. It moves swiftly across deep snow and relies on formidable physical strikes and ice attacks."
     },
     {
       "id": "pokemon:Scyther",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Scyther is a fast Bug/Flying-type Pokémon equipped with razor-sharp scythes on its forelimbs. It uses its incredible agility and wings to slice opponents with lightning-fast strikes.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Scyther is a fast Bug and Flying-type Pokémon equipped with razor-sharp scythes on its forelimbs. It utilizes incredible aerial agility and speed to slice opponents with lightning-fast combat strikes.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "wind"
         ],
         "techniques": [
-          "Slash",
           "X-Scissor",
           "Air Slash",
+          "Slash",
+          "Agility",
           "Wing Attack",
           "Swords Dance"
         ],
@@ -269,6 +402,8 @@
       },
       "defense": {
         "mechanisms": [
+          "High-speed dodging",
+          "Afterimage creation",
           "High-speed evasive maneuvering",
           "Afterimage creation through rapid movement"
         ]
@@ -277,18 +412,43 @@
         "Fire-type attacks",
         "Flying-type attacks",
         "Rock-type attacks",
-        "Bug-type attacks",
-        "Electric-type attacks"
+        "Electric-type attacks",
+        "Bug-type attacks"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "natural-flight",
+        "super-speed",
         "walking"
       ],
       "limitations": [
+        "Light frame makes it susceptible to heavy impact damage if caught.",
         "Vulnerable to sustained dampness which can weigh down its wings",
         "Fragile against heavy elemental damage"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Scyther_(Pokémon)",
+          "supports": "Scyther's attributes, scythe weapons, and flight speed."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Scyther_(Pok%C3%A9mon)",
           "supports": "Scyther moves, typing, evolution methods, and biological traits"
@@ -297,48 +457,54 @@
       "feats": [
         {
           "claim": "Moves so fast that it leaves behind afterimages to confuse opponents.",
-          "citation": "Pokémon Yellow Pokédex entry",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         },
         {
           "claim": "Uses its sharp scythes to cleanly slice through thick logs and heavy underbrush.",
-          "citation": "Pokémon Stadium entry",
+          "citation": "Pokémon anime episode appearances",
+          "depiction": "Pokémon anime series",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Possesses wings and flies at high speeds",
+          "claim": "Has wings enabling natural flight and aerial maneuvering.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Maximum flight altitude and sustained endurance limits"
+        "Exact top flight speed in miles per hour.",
+        "Maximum flight altitude and sustained endurance limits",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Scyther is a fast Bug/Flying-type Pokémon equipped with razor-sharp scythes on its forelimbs. It uses its incredible agility and wings to slice opponents with lightning-fast strikes."
     },
     {
       "id": "pokemon:Seadra",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Seadra is a water-type Pokémon that swims rapidly by flapping its pectoral fins. It defends itself with toxic spikes along its back and fires concentrated streams of water or ink.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Seadra is an aquatic Water-type Pokémon that swims rapidly by fluttering its pectoral fins. It defends itself with toxic spikes lining its back and projects concentrated streams of water or murky ink.",
       "offense": {
         "domains": [
           "water",
+          "toxic",
           "physical"
         ],
         "techniques": [
-          "Water Gun",
           "Hydro Pump",
-          "Dragon Breath",
-          "Smokescreen"
+          "Water Gun",
+          "Smokescreen",
+          "Dragon Breath"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Smokescreen obstruction",
+          "Poisonous spike deterrent",
           "Agile aquatic maneuvering",
           "Toxic barbs acting as a deterrent to predators"
         ]
@@ -347,13 +513,37 @@
         "Electric-type attacks",
         "Grass-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
         "swimming"
       ],
       "limitations": [
+        "Inability to move effectively on dry land without water support.",
         "Incapacitated or severely restricted in movement outside of aquatic environments"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Seadra_(Pokémon)",
+          "supports": "Seadra aquatic movement, toxic spikes, and water attacks."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Seadra_(Pok%C3%A9mon)",
           "supports": "Seadra abilities, evolution requirements, and combat moves"
@@ -363,53 +553,64 @@
         {
           "claim": "Swims backwards just as fast as it swims forwards by rapidly fluttering its fins.",
           "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         },
         {
           "claim": "Spits murky ink or water from its mouth to obscure vision during escape or attack.",
-          "citation": "Pokémon Yellow Pokédex entry",
+          "citation": "Pokémon anime episodes",
+          "depiction": "Pokémon anime series",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Lives and fights exclusively in water environments",
+          "tag": "swimmer",
+          "claim": "Swims rapidly in aquatic environments using pectoral fins.",
           "source": 0
         },
         {
-          "tag": "swimmer",
-          "claim": "Propels itself through water using pectoral fins",
+          "tag": "water-breathing",
+          "claim": "Naturally breathes underwater.",
           "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Lives and fights exclusively in water environments",
+          "source": 1
         }
       ],
       "unknowns": [
+        "Toxicity levels of its back spikes on various species.",
         "Potency and chemical composition of its toxic back spikes",
-        "Unsupported by cited source (term check, 1/4 key terms found): water-breathing: Aquatic organism possessing gills"
+        "Unsupported by cited source (term check, 1/4 key terms found): water-breathing: Aquatic organism possessing gills",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Seadra is a water-type Pokémon that swims rapidly by flapping its pectoral fins. It defends itself with toxic spikes along its back and fires concentrated streams of water or ink."
     },
     {
       "id": "pokemon:Seaking",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Seaking is a water-type Pokémon equipped with a prominent, sharp horn on its head. It swims through rivers and lakes during spawning season, using its horn to bore holes into riverbed rocks.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Seaking is a Water-type Pokémon outfitted with a prominent, sharp horn on its head. It navigates rivers and lakes during spawning season, using its powerful horn to bore holes into riverbed rocks for shelter and nests.",
       "offense": {
         "domains": [
-          "physical",
-          "water"
+          "water",
+          "physical"
         ],
         "techniques": [
           "Waterfall",
           "Horn Attack",
           "Megahorn",
+          "Aqua Ring",
           "Surf"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Swift swimming evasion",
+          "Sturdy body scales",
           "Sturdy body scale armor",
           "Evasive swimming maneuvers"
         ]
@@ -418,13 +619,37 @@
         "Electric-type attacks",
         "Grass-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
         "swimming"
       ],
       "limitations": [
+        "Restricted to aquatic environments for high mobility.",
         "Cannot survive indefinitely out of water without moisture"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Seaking_(Pokémon)",
+          "supports": "Seaking's horn capabilities, spawning habits, and water attacks."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Seaking_(Pok%C3%A9mon)",
           "supports": "Seaking combat statistics, evolution tree, and moveset details"
@@ -434,48 +659,59 @@
         {
           "claim": "Uses its sharp horn to bore holes into rocks on riverbeds to safeguard its eggs.",
           "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Aquatic creature adapted for swimming in rivers and lakes",
+          "tag": "swimmer",
+          "claim": "Swims powerfully through rivers and lakes.",
           "source": 0
         },
         {
-          "tag": "swimmer",
-          "claim": "Strong swimmer capable of navigating rushing waterfalls",
+          "tag": "water-breathing",
+          "claim": "Naturally breathes underwater.",
           "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Aquatic creature adapted for swimming in rivers and lakes",
+          "source": 1
         }
       ],
       "unknowns": [
+        "Penetration limit of its horn against advanced metal armor.",
         "Maximum swimming speed against heavy river currents",
-        "Unsupported by cited source (term check, 1/3 key terms found): water-breathing: Breathes underwater using gills"
+        "Unsupported by cited source (term check, 1/3 key terms found): water-breathing: Breathes underwater using gills",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Seaking is a water-type Pokémon equipped with a prominent, sharp horn on its head. It swims through rivers and lakes during spawning season, using its horn to bore holes into riverbed rocks."
     },
     {
       "id": "pokemon:Seel",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Seel is a water-type pinniped Pokémon that thrives in freezing polar waters. It uses a small horn on its head to break through ice floes and swims with high agility using its flippers.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Seel is a pinniped Water-type Pokémon thriving in freezing polar waters. It utilizes a small horn on its head to break through ice sheets for air and swims with high agility using its flippers.",
       "offense": {
         "domains": [
-          "physical",
-          "water"
+          "water",
+          "ice",
+          "physical"
         ],
         "techniques": [
           "Headbutt",
-          "Water Gun",
+          "Ice Beam",
           "Aurora Beam",
-          "Ice Beam"
+          "Aqua Jet",
+          "Water Gun"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Thick blubber layer insulating against cold",
+          "Agile swimming",
           "Thick layer of blubber protecting against cold and physical impacts"
         ]
       },
@@ -483,14 +719,38 @@
         "Electric-type attacks",
         "Grass-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
         "swimming",
         "walking"
       ],
       "limitations": [
+        "Sluggish movement speed when navigating on dry, non-icy land.",
         "Sluggish and vulnerable when moving across dry land"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Seel_(Pokémon)",
+          "supports": "Seel habitat, horn usage, and ice-breaking abilities."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Seel_(Pok%C3%A9mon)",
           "supports": "Seel abilities, physical traits, and learnable moves"
@@ -500,53 +760,57 @@
         {
           "claim": "Uses the horn on its head to smash through thick ice sheets to surface for air.",
           "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Inhabits cold ocean waters and ice floes",
+          "tag": "swimmer",
+          "claim": "Swims with high agility in polar waters.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Aquatic mammal that breathes air but spends most of its time in water",
+          "claim": "Naturally breathes underwater and holds breath under ice.",
           "source": 0
         },
         {
-          "tag": "swimmer",
-          "claim": "Proficient swimmer using flippers",
-          "source": 0
+          "tag": "aquatic",
+          "claim": "Inhabits cold ocean waters and ice floes",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Deep-sea diving depth limits before resurfacing for air is required"
+        "Maximum thickness of ice it can shatter with a single strike.",
+        "Deep-sea diving depth limits before resurfacing for air is required",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Seel is a water-type pinniped Pokémon that thrives in freezing polar waters. It uses a small horn on its head to break through ice floes and swims with high agility using its flippers."
     },
     {
       "id": "pokemon:Shellder",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Shellder is a water-type bivalve Pokémon protected by an extremely hard shell. It attacks by clamping onto opponents with its shell or shooting icicles and water jets.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Shellder is a Water-type bivalve Pokémon protected by an extremely hard shell. It attacks by clamping onto opponents with its shell or shooting icicles and water jets.",
       "offense": {
         "domains": [
           "water",
-          "physical",
-          "ice"
+          "ice",
+          "physical"
         ],
         "techniques": [
           "Clamp",
           "Icicle Spear",
           "Water Gun",
+          "Aurora Beam",
           "Supersonic"
         ],
-        "range": "melee"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Extremely hard bivalve shell",
           "Impenetrable hard bivalve shell enclosing its soft body"
         ]
       },
@@ -554,13 +818,37 @@
         "Electric-type attacks",
         "Grass-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
         "swimming"
       ],
       "limitations": [
+        "Virtually immobile on land once removed from water.",
         "Completely immobile on land once removed from water, relying entirely on shell defense"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Shellder_(Pokémon)",
+          "supports": "Shellder shell hardness, clamping ability, and water propulsion."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Shellder_(Pok%C3%A9mon)",
           "supports": "Shellder attributes, shell durability, and movepool"
@@ -569,61 +857,67 @@
       "feats": [
         {
           "claim": "Swims backward rapidly by absorbing water and forcefully expelling it out the rear.",
-          "citation": "Pokémon Yellow Pokédex entry",
+          "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Aquatic bivalve living on ocean floors",
+          "tag": "swimmer",
+          "claim": "Swims backwards rapidly by absorbing and expelling water.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Breathes underwater via gills inside its shell",
+          "claim": "Naturally breathes underwater.",
           "source": 0
         },
         {
-          "tag": "swimmer",
-          "claim": "Swims by swallowing water and jetting it out backward",
-          "source": 0
+          "tag": "aquatic",
+          "claim": "Aquatic bivalve living on ocean floors",
+          "source": 1
         },
         {
           "tag": "ice",
           "claim": "Fires ice-based projectiles such as Icicle Spear",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
+        "Durability limits of the shell against high-tier legendary attacks.",
         "Durability limits of the shell against high-tier crushing forces",
-        "Unsupported by cited source (term check, 3/8 key terms found): Cllamps onto enemies with a vice-like grip that cannot be easily broken."
+        "Unsupported by cited source (term check, 3/8 key terms found): Cllamps onto enemies with a vice-like grip that cannot be easily broken.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Shellder is a water-type bivalve Pokémon protected by an extremely hard shell. It attacks by clamping onto opponents with its shell or shooting icicles and water jets."
     },
     {
       "id": "pokemon:Slowbro",
-      "continuity": "Pokémon Red and Blue / Standard Game Canon",
-      "summary": "Slowbro is a Water/Psychic-type Pokémon created when a Shellder clamps onto a Slowpoke's tail. It is characteristically relaxed and absent-minded, but wields formidable psychic abilities and water attacks in combat.",
+      "continuity": "Pokémon games, anime, and manga series",
+      "summary": "Slowbro is a Water and Psychic-type Pokémon created when a Shellder clamps onto a Slowpoke's tail. It is characteristically relaxed and absent-minded, but wields formidable psychic powers and water attacks in combat.",
       "offense": {
         "domains": [
-          "psychic",
           "water",
+          "psychic",
+          "control",
           "physical"
         ],
         "techniques": [
-          "Psychic",
           "Surf",
-          "Water Gun",
+          "Psychic",
+          "Scald",
           "Amnesia",
+          "Water Gun",
           "Confusion"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Thick defensive shell on tail",
+          "Psychic barrier generation",
           "Hard shell armor on the tail",
           "Psychic barriers"
         ]
@@ -635,15 +929,40 @@
         "Dark-type attacks",
         "Bug-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Red and Blue / Standard Game Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "walking",
-        "swimming"
+        "swimming",
+        "bipedal walking",
+        "walking"
       ],
       "limitations": [
+        "Easily distracted and slow to react due to its naturally absent-minded disposition.",
         "Extremely slow-moving and oblivious to surroundings when not provoked",
         "Vulnerable if the Shellder on its tail is detached"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Slowbro_(Pokémon)",
+          "supports": "Slowbro origin, psychic abilities, and symbiotic relationship with Shellder."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Slowbro_(Pok%C3%A9mon)",
           "supports": "Slowbro evolution details, psychic abilities, and typing"
@@ -653,33 +972,48 @@
         {
           "claim": "Fishes for food using the Shellder clamped onto its tail as bait in the ocean.",
           "citation": "Pokémon Red and Blue Pokédex entry",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Psychic power scaling and tail-based fishing",
+          "dependsOn": "Presence of the Shellder clamped onto its tail",
+          "depiction": "Pokémon Red and Blue (1996 video game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Comfortable living and fighting in aquatic habitats",
+          "tag": "swimmer",
+          "claim": "Swims proficiently in ocean waters.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Capable of breathing underwater",
+          "claim": "Naturally breathes underwater.",
           "source": 0
         },
         {
           "tag": "psychic",
-          "claim": "Wields powerful innate psychic attacks like Psychic and Confusion",
+          "claim": "Wields powerful psychic-type attacks and mind capabilities.",
           "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Comfortable living and fighting in aquatic habitats",
+          "source": 1
         }
       ],
       "unknowns": [
+        "What happens to Slowbro's psychic intellect if the Shellder is detached.",
         "Exact cognitive synergy between the Slowpoke body and the Shellder tail attachment",
-        "Unsupported by cited source (term check, 1/3 key terms found): swimmer: Swims proficiently using its limbs"
+        "Unsupported by cited source (term check, 1/3 key terms found): swimmer: Swims proficiently using its limbs",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Slowbro is a Water/Psychic-type Pokémon created when a Shellder clamps onto a Slowpoke's tail. It is characteristically relaxed and absent-minded, but wields formidable psychic abilities and water attacks in combat."
     }
   ]
 }
