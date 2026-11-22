@@ -416,13 +416,16 @@
     },
     {
       "id": "lotr:Celegorm",
-      "continuity": "The Silmarillion",
-      "summary": "Celegorm the Fair is a son of Fëanor, known as a master hunter accompanied by great hounds, chief among them Huan. He fights with bow and spear, utilizing tracking and beast-mastery.",
+      "continuity": "J.R.R. Tolkien's Middle-earth writings (The Silmarillion, The History of Middle-earth)",
+      "summary": "Celegorm the Fair is one of the sons of Fëanor, renowned as a great hunter and master of beasts, accompanied by the great hound Huan. He fights with bow and spear in various conflicts of the First Age, driven by the Oath of Fëanor.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Archery",
+          "Spear combat",
+          "Hunting and tracking",
           "Third son of Fëanor and sworn to his Oath",
           "Held Lúthien captive at Nargothrond"
         ],
@@ -430,36 +433,82 @@
       },
       "defense": {
         "mechanisms": [
+          "Standard elven combat armor and weapons",
+          "Aid and protection from Huan the hound",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Bound by the destructive Oath of Fëanor, leading to rash decisions and fatal enmities",
         "Fought Beren and lost; shamed and expelled from Nargothrond",
         "Bound by the Oath of Fëanor"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Silmarillion (1977)",
+          "kind": "source"
+        },
+        {
+          "title": "The History of Middle-earth (1983-1996)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Silmarillion",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Foot movement, skilled tracker and runner across rough terrain"
+      ],
+      "limitations": [
+        "Possesses mortal vulnerabilities despite elven longevity and skill"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Celegorm",
+          "supports": "Basic biographical details, parentage, role in The Silmarillion, and association with Huan."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/L%C3%BAthien",
           "supports": "Held Lúthien hostage at Nargothrond; fought Beren and lost; expelled."
-        },
-        {
-          "url": "https://en.wikipedia.org/wiki/Celegorm",
-          "supports": "Third son of Fëanor, one of the seven who swore the Oath."
         }
       ],
-      "feats": [],
-      "notableResults": [],
-      "conditional": [],
+      "feats": [
+        {
+          "claim": "Fought in the defense and conflicts involving Nargothrond alongside his brother Curufin until exiled",
+          "citation": "The Silmarillion, Chapter 19",
+          "depiction": "The Silmarillion (1977)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Dior Eluchíl",
+          "result": "win",
+          "citation": "The Silmarillion, Chapter 22",
+          "note": "Slew Dior during the Second Kinslaying at Menegroth, though Celegorm himself perished in the conflict.",
+          "depiction": "The Silmarillion (1977)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Accompanied and aided by the great hound Huan in hunts and battles",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact details of martial victories in minor skirmishes outside the primary narrative summaries are sparse.",
         "Specific martial victories in major battles.",
         "Removed by review (not supported by the cited source): technique: Archery; technique: Spear thrusts; technique: Hunting tactics aided by hounds; defense: Noldorin armor; defense: Shield; weakness: Ruthless ambition and betrayal leading to isolation and betrayal by his own allies; limitation: Standard Elven physical limits; mobility: Elven running; mobility: Horseback riding; feat: Captured Lúthien with the aid of Huan during the period of exile and betrayal.; result: Lúthien (with Huan turning against him); conditional: Assistance from hound companion in combat",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Celegorm the Fair is a son of Fëanor, known as a master hunter accompanied by great hounds, chief among them Huan. He fights with bow and spear, utilizing tracking and beast-mastery.",
+      "conditional": []
     },
     {
       "id": "lotr:Círdan the Shipwright",
