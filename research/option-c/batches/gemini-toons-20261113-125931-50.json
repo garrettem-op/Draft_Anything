@@ -7,14 +7,18 @@
   "characters": [
     {
       "id": "toons:Michelangelo",
-      "continuity": "Teenage Mutant Ninja Turtles (1987 TV series / general toons)",
-      "summary": "Michelangelo is a fun-loving, pizza-obsessed ninja who relies on acrobatic movement, nunchucks, and comedic distraction to overwhelm opponents.",
+      "continuity": "Teenage Mutant Ninja Turtles (1987 TV series) and Teenage Mutant Ninja Turtles (Archie Comics, 1988-1995)",
+      "summary": "Michelangelo is an agile, pizza-loving mutant ninja turtle who wields dual nunchucks and relies on high-speed acrobatics, improvised weapons, and comedic misdirection to neutralize opponents.",
       "offense": {
         "domains": [
           "physical",
+          "martial arts",
           "tech"
         ],
         "techniques": [
+          "Nunchuck strikes",
+          "Acrobatic spinning kicks",
+          "Improvised weapon use",
           "Nunchuck swings and spins",
           "Improvised weapon throwing",
           "Skateboard charging"
@@ -23,36 +27,80 @@
       },
       "defense": {
         "mechanisms": [
+          "Hard shell carapace for blocking strikes",
+          "Agile evasion and tumbling",
+          "Ninja deflection maneuvers",
           "Shell durability",
           "Acrobatic dodging",
           "Turtle shell block"
         ]
       },
       "weaknesses": [
+        "Distracted by pizza and humor",
+        "Vulnerable to blunt trauma past shell durability",
         "Distractibility by pizza",
         "Overconfidence"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Teenage Mutant Ninja Turtles (1987 TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "Teenage Mutant Ninja Turtles (Archie Comics, 1988-1995)",
+          "kind": "comic"
+        },
+        {
+          "title": "Teenage Mutant Ninja Turtles (1987 TV series / general toons)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Acrobatic running",
-        "Skateboard"
+        "Skateboard",
+        "Running",
+        "Swimming",
+        "Acrobatic jumping",
+        "Acrobatic running"
       ],
       "limitations": [
+        "Limited to melee range unless throwing improvised objects",
         "Relies primarily on close-quarters melee combat"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Michelangelo_(Teenage_Mutant_Ninja_Turtles)",
-          "supports": "General abilities, personality, and weapon usage of Michelangelo."
+          "supports": "Basic combat style, weapons, and personality across animation and comics."
+        },
+        {
+          "url": "https://turtlepedia.fandom.com/wiki/Michelangelo_(1987_TV_series)",
+          "supports": "Specific feats and weapon usage in the 1987 animated series."
         }
       ],
       "feats": [
         {
           "claim": "Defeated numerous Foot Soldiers using standard nunchucks and agile maneuvers.",
-          "citation": "Teenage Mutant Ninja Turtles (1987 TV Series)",
-          "source": 0
+          "citation": "Teenage Mutant Ninja Turtles (1987 TV series), Season 1",
+          "depiction": "Teenage Mutant Ninja Turtles (1987 TV series)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Foot Soldiers",
+          "result": "win",
+          "citation": "Teenage Mutant Ninja Turtles (1987 TV series), Episode 1",
+          "note": "Fought alongside his brothers against standard foot soldier infantry.",
+          "depiction": "Teenage Mutant Ninja Turtles (1987 TV series)",
+          "source": 1
         }
       ],
       "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Swims through city sewers and oceans proficiently.",
+          "source": 1
+        },
         {
           "tag": "gadgets",
           "claim": "Uses a skateboard and grappling hook in combat.",
@@ -60,21 +108,25 @@
         }
       ],
       "unknowns": [
-        "Exact power scaling varies wildly between different animated continuities."
+        "Exact scaling between the 1987 cartoon comedy physics and Archie Comics dramatic tones.",
+        "Exact power scaling varies wildly between different animated continuities.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Michelangelo is a fun-loving, pizza-obsessed ninja who relies on acrobatic movement, nunchucks, and comedic distraction to overwhelm opponents."
     },
     {
       "id": "toons:Michigan J. Frog",
-      "continuity": "Warner Bros. Cartoons (One Froggy Evening)",
-      "summary": "Michigan J. Frog is a showman frog who sings and dances exclusively when unobserved by the general public, using theatrical performance as his primary medium.",
+      "continuity": "One Froggy Evening (1955 short film) and Merrie Melodies comic books",
+      "summary": "Michigan J. Frog is a talented, theatrical anthropomorphic frog who sings and dances to classic showtunes, operating under the unusual restriction of performing exclusively when unobserved by the general public.",
       "offense": {
         "domains": [
-          "performance"
+          "performance",
+          "psychological"
         ],
         "techniques": [
+          "Theatrical singing and tap dancing",
+          "Prop manipulation with cane and top hat",
           "Vaudeville singing",
           "Top hat and cane routines"
         ],
@@ -82,101 +134,173 @@
       },
       "defense": {
         "mechanisms": [
+          "Sudden cessation of movement when watched",
           "Refusal to perform in front of crowds"
         ]
       },
       "weaknesses": [
+        "Refuses to perform or display abilities when anyone is actively watching him.",
         "Paralyzed into non-performance if watched by anyone other than his discoverer"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "One Froggy Evening (1955 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Merrie Melodies Comics",
+          "kind": "comic"
+        },
+        {
+          "title": "Warner Bros. Cartoons (One Froggy Evening)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Walking",
+        "Tap dancing",
         "Hopping"
       ],
       "limitations": [
+        "Completely inert and ordinary-acting when perceived by others.",
         "Cannot perform miraculous acts of entertainment if multiple people are watching"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/One_Froggy_Evening",
-          "supports": "Michigan J. Frog's singing, dancing, and behavioral traits."
+          "supports": "Origin, behavior, and performance capabilities of Michigan J. Frog."
         }
       ],
       "feats": [
         {
           "claim": "Sang and danced to classic songs like Hello Ma Baby while wearing a top hat.",
-          "citation": "One Froggy Evening (1955)",
+          "citation": "One Froggy Evening (1955 film)",
+          "depiction": "One Froggy Evening (1955 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Singing and dancing performance",
+          "dependsOn": "Must be completely unobserved by any audience or observer.",
+          "depiction": "One Froggy Evening (1955 film)",
           "source": 0
         }
       ],
       "unknowns": [
-        "Whether his singing has any offensive or combat application beyond psychological torment."
+        "Whether his performance has any supernatural compulsion effects on observers beyond driving them mad with greed.",
+        "Whether his singing has any offensive or combat application beyond psychological torment.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Michigan J. Frog is a showman frog who sings and dances exclusively when unobserved by the general public, using theatrical performance as his primary medium."
     },
     {
       "id": "toons:Mickey Mouse",
-      "continuity": "Classic Disney Cartoons / Mickey Mouse Works",
-      "summary": "Mickey Mouse is a resourceful and optimistic combatant who uses everyday objects, cartoon physics, and quick thinking to outwit adversaries.",
+      "continuity": "Classic Disney Cartoons, Mickey Mouse Works, and Disney comic book adventures",
+      "summary": "Mickey Mouse is a resourceful, highly optimistic protagonist who relies on quick wit, cartoon physics, teamwork, and everyday household objects to outsmart adversaries.",
       "offense": {
         "domains": [
           "physical",
           "gadgets"
         ],
         "techniques": [
+          "Improvised weapon strikes",
+          "Environmental traps",
+          "Cartoon physics manipulation",
           "Slapstick strikes",
-          "Improvised weapon usage",
-          "Cartoon physics manipulation"
+          "Improvised weapon usage"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Cartoon durability",
+          "Dodge and agility",
           "Dodge agility",
           "Plot armor / cartoon resilience"
         ]
       },
       "weaknesses": [
-        "Not established"
+        "Relies heavily on standard physical attributes without magical gear."
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Classic Disney Cartoons (1928-present)",
+          "kind": "source"
+        },
+        {
+          "title": "Walt Disney's Comics and Stories (Dell/Gladstone/Boom!/IDW)",
+          "kind": "comic"
+        },
+        {
+          "title": "Classic Disney Cartoons / Mickey Mouse Works",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Running",
+        "Piloting vehicles",
+        "Swimming",
         "Jumping"
       ],
       "limitations": [
+        "Normal physical limits apply outside of standard cartoon gag resilience.",
         "Relies mostly on standard physical attributes without special powers in his base form"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Mickey_Mouse",
-          "supports": "Mickey Mouse history, general capabilities, and personality."
+          "supports": "History, abilities, and general depictions across shorts and comics."
         }
       ],
       "feats": [
         {
           "claim": "Defeated a giant using cleverness, teamwork, and standard tools.",
-          "citation": "Brave Little Tailor (1938)",
+          "citation": "Brave Little Tailor (1938 film)",
+          "depiction": "Classic Disney Cartoons (1928-present)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Giant",
+          "result": "win",
+          "citation": "Brave Little Tailor (1938 film)",
+          "note": "Used sewing techniques to tie up the giant.",
+          "depiction": "Classic Disney Cartoons (1928-present)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots airplanes and boats in various cartoon shorts.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact limits of his cartoon durability."
+        "Varying portrayals between slapstick theatrical shorts and long-form comic book adventure stories.",
+        "Exact limits of his cartoon durability.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Mickey Mouse is a resourceful and optimistic combatant who uses everyday objects, cartoon physics, and quick thinking to outwit adversaries."
     },
     {
       "id": "toons:Mickey Mouse|Sorcerer's Apprentice Mickey",
-      "continuity": "Fantasia (1940)",
-      "summary": "Sorcerer's Apprentice Mickey wields a magical hat that grants rudimentary elemental control over water and the ability to animate inanimate objects.",
+      "continuity": "Fantasia (1940 film) and Fantasia 2000",
+      "summary": "Sorcerer's Apprentice Mickey utilizes a stolen magical hat to command elemental forces, summon water, and animate inanimate objects through incantations.",
       "offense": {
         "domains": [
           "magic",
           "water-control"
         ],
         "techniques": [
+          "Object animation",
+          "Hydrokinetic summoning and flooding",
           "Water summoning",
           "Wave generation",
           "Spellcasting via magical hat"
@@ -185,49 +309,77 @@
       },
       "defense": {
         "mechanisms": [
+          "Magical barriers and summoned elemental shields",
           "Magical barriers"
         ]
       },
       "weaknesses": [
+        "Inexperienced in controlling high-level magic, leading to runaway spells.",
         "Loss of the magical hat strips him of supernatural abilities"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Fantasia (1940 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Fantasia 2000 (1999 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Fantasia (1940)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running",
+        "Magical levitation/transport",
         "Walking",
         "Swimming in flooded environments"
       ],
       "limitations": [
+        "Spells persist out of control if the caster lacks the skill to reverse them without the grimoire.",
         "Magic can spin out of control if left unmonitored"
       ],
-      "formDifferences": "Grants powerful magic and water control abilities via the magical hat compared to base Mickey.",
+      "formDifferences": "Gains access to potent spellcasting, hydrokinesis, and object animation through the magical hat, trading baseline slapstick for direct magical combat potential.",
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Fantasia_(1940_film)",
-          "supports": "Sorcerer's Apprentice segment details, magical hat, and water manipulation."
+          "supports": "Sorcerer's Apprentice segment details and magical hat capabilities."
         }
       ],
       "feats": [
         {
           "claim": "Animated a broomstick and flooded a castle with water using magical incantations.",
-          "citation": "Fantasia (1940)",
+          "citation": "Fantasia (1940 film)",
+          "depiction": "Fantasia (1940 film)",
           "source": 0
         }
       ],
       "conditional": [
         {
+          "ability": "Spellcasting and object animation",
+          "dependsOn": "Must wear Yen Sid's magical hat.",
+          "depiction": "Fantasia (1940 film)",
+          "source": 0
+        },
+        {
           "ability": "Water manipulation and spellcasting",
           "dependsOn": "Wearing the Sorcerer's hat",
-          "source": 0
+          "source": 0,
+          "depiction": "Fantasia (1940)"
         }
       ],
       "campaignTags": [
         {
           "tag": "magic",
-          "claim": "Uses Yen Sid's magical hat to cast spells.",
+          "claim": "Wields the Sorcerer's magical hat to cast spells.",
           "source": 0
         },
         {
           "tag": "water-control",
-          "claim": "Controls massive volumes of water via spellcasting.",
+          "claim": "Summons and directs massive quantities of water via magic.",
           "source": 0
         },
         {
@@ -237,21 +389,27 @@
         }
       ],
       "unknowns": [
-        "Full extent of the hat's capabilities beyond animating objects and water control."
+        "Limits of the hat's power when wielded by a trained master versus an apprentice.",
+        "Full extent of the hat's capabilities beyond animating objects and water control.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Sorcerer's Apprentice Mickey wields a magical hat that grants rudimentary elemental control over water and the ability to animate inanimate objects."
     },
     {
       "id": "toons:Mike Wazowski",
-      "continuity": "Monsters, Inc. (2001)",
-      "summary": "Mike Wazowski is a one-eyed spherical monster who relies on comedy, verbal distraction, and high agility rather than direct physical combat.",
+      "continuity": "Monsters, Inc. (2001 film), Monsters University (2013 film), and Monsters at Work",
+      "summary": "Mike Wazowski is a one-eyed spherical monster who relies on sharp wit, verbal distraction, high mobility, and comedic timing rather than raw physical strength.",
       "offense": {
         "domains": [
+          "verbal",
+          "stealth",
           "physical"
         ],
         "techniques": [
+          "Verbal distraction",
+          "Inconspicuous maneuvering",
+          "Scare tactics via comedy",
           "Screaming distraction",
           "Dodging and scrambling"
         ],
@@ -260,96 +418,166 @@
       "defense": {
         "mechanisms": [
           "Small target profile",
+          "Agile dodging",
           "Agile tumbling"
         ]
       },
       "weaknesses": [
+        "Lacks offensive physical striking power against large opponents.",
         "Lacks physical offensive power against large opponents"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Monsters, Inc. (2001 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Monsters University (2013 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Monsters at Work (2021 TV series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Monsters, Inc. (2001)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running",
+        "Climbing",
         "Bipedal running"
       ],
       "limitations": [
+        "Extremely limited physical reach due to short limbs and single eye depth perception.",
         "Physically weak and lacking in direct offensive weapons"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Monsters,_Inc.",
-          "supports": "Mike Wazowski physical traits and non-combat role."
+          "supports": "Mike Wazowski capabilities, physical traits, and workplace feats."
         }
       ],
       "feats": [
         {
           "claim": "Navigated complex industrial environments and evaded capture by larger monsters.",
-          "citation": "Monsters, Inc. (2001)",
+          "citation": "Monsters, Inc. (2001 film)",
+          "depiction": "Monsters, Inc. (2001 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Randall Boggs",
+          "result": "win",
+          "citation": "Monsters, Inc. (2001 film)",
+          "note": "Outwitted Randall with teamwork and banishment door tactics.",
+          "depiction": "Monsters, Inc. (2001 film)",
           "source": 0
         }
       ],
       "unknowns": [
-        "Whether his scare training provides any actual combat intimidation."
+        "Exact physical strength thresholds in monster form.",
+        "Whether his scare training provides any actual combat intimidation.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Mike Wazowski is a one-eyed spherical monster who relies on comedy, verbal distraction, and high agility rather than direct physical combat."
     },
     {
       "id": "toons:Minnie Mouse",
-      "continuity": "Classic Disney Cartoons / Mickey Mouse Works",
-      "summary": "Minnie Mouse is a resourceful character who uses quick wit, charming distraction, and standard cartoon props to resolve conflicts.",
+      "continuity": "Classic Disney Cartoons, Mickey Mouse Works, and Disney comic book adventures",
+      "summary": "Minnie Mouse is a quick-witted, resourceful participant in cartoon adventures who uses charm, clever distractions, and environmental props to resolve conflicts.",
       "offense": {
         "domains": [
           "physical",
+          "social",
           "gadgets"
         ],
         "techniques": [
+          "Charming distraction",
+          "Improvised tool usage",
           "Wields white magic in the Kingdom Hearts games"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Cartoon gag evasion",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Relies primarily on non-combat problem-solving.",
         "Often cast as the damsel in distress"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Classic Disney Cartoons (1928-present)",
+          "kind": "source"
+        },
+        {
+          "title": "Walt Disney's Comics and Stories",
+          "kind": "comic"
+        },
+        {
+          "title": "Classic Disney Cartoons / Mickey Mouse Works",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Walking",
-        "Running"
+        "Running",
+        "Driving vehicles",
+        "Walking"
       ],
       "limitations": [
+        "Standard physical capabilities without specialized gear.",
         "Standard physical capabilities without supernatural powers"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Minnie_Mouse",
-          "supports": "Minnie is Mickey's sweetheart, a musician who is frequently the damsel in distress; she appears as a queen in Kingdom Hearts."
+          "supports": "Character history, roles, and appearances in animation and print."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Mickey_Mouse_universe",
           "supports": "Minnie Mouse is Mickey's girlfriend and a core member of the Mickey Mouse cast."
         }
       ],
+      "feats": [
+        {
+          "claim": "Outwitted kidnappers using quick thinking and environmental hazards.",
+          "citation": "Mickey's Rival (1936 film)",
+          "depiction": "Classic Disney Cartoons (1928-present)",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Varying continuity between classic shorts and modern cartoon series.",
         "Combat capabilities in direct confrontations.",
         "Unsupported by cited source (term check, 3/8 key terms found): Successfully managed complex situations and outwitted antagonists using everyday items.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Minnie Mouse is a resourceful character who uses quick wit, charming distraction, and standard cartoon props to resolve conflicts."
     },
     {
       "id": "toons:Moana",
-      "continuity": "Moana (2016)",
-      "summary": "Moana is a determined wayfinder who commands ocean currents with the sea's blessing, utilizing maritime navigation and physical tenacity.",
+      "continuity": "Moana (2016 film), Moana 2 (2024 film), and Disney tie-in comics",
+      "summary": "Moana is a determined Polynesian wayfinder who commands maritime navigation, ocean currents with the sea's direct blessing, and exhibits immense physical tenacity.",
       "offense": {
         "domains": [
-          "physical",
-          "water-control"
+          "water-control",
+          "physical"
         ],
         "techniques": [
+          "Hydrokinetic navigation assistance",
+          "Oar combat",
+          "Wayfinding tactical tracking",
           "Oar strikes",
           "Wayfinding navigation",
           "Ocean wave redirection"
@@ -358,44 +586,92 @@
       },
       "defense": {
         "mechanisms": [
+          "Ocean barrier protection",
+          "High physical endurance",
           "Ocean assistance",
           "Agile movement on watercraft"
         ]
       },
       "weaknesses": [
+        "Relies on the ocean's cooperation for large-scale hydrokinetic feats.",
         "Vulnerable without her boat or open water access"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Moana (2016 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Moana 2 (2024 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney Moana Comic Series (Dark Horse)",
+          "kind": "comic"
+        },
+        {
+          "title": "Moana (2016)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Sailing boat",
-        "Swimming"
+        "Sailing canoe",
+        "Swimming",
+        "Running",
+        "Sailing boat"
       ],
       "limitations": [
+        "Human physical fragility away from water assistance.",
         "Relies heavily on nautical environment and environmental aid"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Moana_(2016_film)",
-          "supports": "Moana's wayfinding skills, relationship with the ocean, and feats."
+          "supports": "Moana abilities, oceanic bond, and wayfinding feats."
         }
       ],
       "feats": [
         {
           "claim": "Navigated treacherous ocean storms and restored the heart of Te Fiti.",
-          "citation": "Moana (2016)",
+          "citation": "Moana (2016 film)",
+          "depiction": "Moana (2016 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Te Kā",
+          "result": "win",
+          "citation": "Moana (2016 film)",
+          "note": "Restored the heart, pacifying the volcanic monster.",
+          "depiction": "Moana (2016 film)",
           "source": 0
         }
       ],
       "conditional": [
         {
+          "ability": "Ocean manipulation and wave parting",
+          "dependsOn": "Assistance from the sentient ocean entity.",
+          "depiction": "Moana (2016 film)",
+          "source": 0
+        },
+        {
           "ability": "Direct ocean wave manipulation",
           "dependsOn": "Proximity to the ocean and its willingness to help",
-          "source": 0
+          "source": 0,
+          "depiction": "Moana (2016)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "swimmer",
+          "claim": "Expert swimmer and ocean voyager.",
+          "source": 0
+        },
+        {
           "tag": "water-control",
-          "claim": "The ocean directly assists her by manipulating water around her enemies.",
+          "claim": "Commands the ocean waters via a mystical bond.",
           "source": 0
         },
         {
@@ -405,16 +681,17 @@
         }
       ],
       "unknowns": [
-        "Combat effectiveness away from coastal or oceanic environments."
+        "Exact limits of her navigational intuition in unfamiliar magical realms.",
+        "Combat effectiveness away from coastal or oceanic environments.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Moana is a determined wayfinder who commands ocean currents with the sea's blessing, utilizing maritime navigation and physical tenacity."
     },
     {
       "id": "toons:Mojo Jojo",
-      "continuity": "The Powerpuff Girls (1998 TV series)",
-      "summary": "Mojo Jojo is an evil genius chimpanzee who invents advanced sci-fi weaponry, giant mechs, and elaborate technological traps to conquer Townsville.",
+      "continuity": "The Powerpuff Girls (1998 TV series) and IDW Powerpuff Girls comics",
+      "summary": "Mojo Jojo is an evil genius mutant chimpanzee who invents advanced sci-fi weaponry, giant battle mechs, laser cannons, and elaborate technological traps to conquer Townsville.",
       "offense": {
         "domains": [
           "tech",
@@ -422,6 +699,9 @@
           "physical"
         ],
         "techniques": [
+          "Laser blaster fire",
+          "Giant mech piloting",
+          "High-tech trap deployment",
           "Laser ray guns",
           "Giant robotic mechs",
           "Hand-to-hand combat using martial arts"
@@ -430,120 +710,212 @@
       },
       "defense": {
         "mechanisms": [
-          "Powered armor suits",
-          "Energy shields"
+          "Powered armor plating",
+          "Energy shields",
+          "Bunker fortifications",
+          "Powered armor suits"
         ]
       },
       "weaknesses": [
+        "Prone to arrogant monologuing and underestimating opponents.",
+        "Brain protruding from skull is a vulnerable target.",
         "Excessive monologuing",
         "Ego and overconfidence"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Powerpuff Girls (1998 TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "The Powerpuff Girls (IDW Comics)",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
         "Jetpack",
+        "Hovercraft",
+        "Giant mech",
         "Walking",
         "Mech piloting"
       ],
       "limitations": [
+        "Base physical body is that of a normal chimpanzee without technological augmentations.",
         "Relies entirely on prep time and technology to contend with superhuman opponents"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Mojo_Jojo",
-          "supports": "Mojo Jojo's intelligence, inventions, and role as a supervillain."
+          "supports": "Mojo Jojo background, inventions, and conflict with the Powerpuff Girls."
         }
       ],
       "feats": [
         {
           "claim": "Constructed giant battle mechs capable of leveling city blocks.",
-          "citation": "The Powerpuff Girls (1998 TV Series)",
+          "citation": "The Powerpuff Girls (1998 TV series), Episode 'Monkey See, Doggie Do'",
+          "depiction": "The Powerpuff Girls (1998 TV series)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Powerpuff Girls",
+          "result": "loss",
+          "citation": "The Powerpuff Girls (1998 TV series), Pilot",
+          "note": "Defeated despite using advanced laser weaponry and robotic minions.",
+          "depiction": "The Powerpuff Girls (1998 TV series)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "City-level destruction and flight",
+          "dependsOn": "Must be piloting his giant battle mechs or jetpack.",
+          "depiction": "The Powerpuff Girls (1998 TV series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "inventor",
-          "claim": "Builds complex robotic mechs, lasers, and mind-control devices.",
+          "tag": "tech",
+          "claim": "Designs and utilizes advanced robotics and laser weaponry.",
           "source": 0
         },
         {
-          "tag": "tech",
-          "claim": "Utilizes advanced lasers and energy weaponry.",
+          "tag": "inventor",
+          "claim": "Engineers complex doom devices and giant mechs.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Pilots skyscraper-sized robotic mechs.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Physical capability without his technological gear."
+        "Exact manufacturing time required for complex machinery.",
+        "Physical capability without his technological gear.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Mojo Jojo is an evil genius chimpanzee who invents advanced sci-fi weaponry, giant mechs, and elaborate technological traps to conquer Townsville."
     },
     {
       "id": "toons:Morty",
-      "continuity": "Rick and Morty",
-      "summary": "Morty Smith is a reluctant adventurer who occasionally wields sci-fi gadgets or defensive tech under extreme duress, though he typically panics in combat.",
+      "continuity": "Rick and Morty (TV series) and Oni Press Rick and Morty comics",
+      "summary": "Morty Smith is a reluctant teenage adventurer who occasionally wields high-tech sci-fi gadgets, defensive forcefields, and mechs under extreme duress, though he frequently panics.",
       "offense": {
         "domains": [
           "tech",
           "physical"
         ],
         "techniques": [
+          "Laser pistol firing",
+          "Improvised weapon swinging",
+          "Exosuit combat",
           "Has wielded a lightsaber and Rick's gadgets on adventures"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Sci-fi energy shields",
+          "Powered armor",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Prone to severe panic and emotional distress in combat.",
+        "Relies entirely on Rick's inventions.",
         "Anxious and easily distressed",
         "An ordinary teenager dependent on Rick's technology"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Rick and Morty (2013 TV series)",
+          "kind": "source"
+        },
+        {
+          "title": "Rick and Morty (Oni Press Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Rick and Morty",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Running",
-        "Spaceship piloting"
+        "Spaceship piloting",
+        "Hover boots",
+        "Running"
       ],
       "limitations": [
+        "Ordinary human capabilities without technological gear.",
         "Lacks innate combat skills without external technological assistance"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Rick_and_Morty",
-          "supports": "Morty's background, equipment usage, and personality."
+          "supports": "Morty Smith character profile, gadgets, and adventures."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Morty_Smith",
           "supports": "Morty is Rick's anxious, good-hearted grandson who acts as the moral compass on their adventures."
         }
       ],
+      "feats": [
+        {
+          "claim": "Fought off alien mercenaries using a customized robotic exoskeleton.",
+          "citation": "Rick and Morty, Season 3 'The Ricklantis Mixup'",
+          "depiction": "Rick and Morty (2013 TV series)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Superhuman durability and offensive projection",
+          "dependsOn": "Must be wearing Rick's exosuit or holding sci-fi weapons.",
+          "depiction": "Rick and Morty (2013 TV series)",
+          "source": 0
+        }
+      ],
       "campaignTags": [
         {
           "tag": "gadgets",
-          "claim": "Frequently carries and uses various alien and sci-fi gadgets.",
+          "claim": "Utilizes alien sci-fi weapons and tech provided by Rick.",
+          "source": 0
+        },
+        {
+          "tag": "powered-armor",
+          "claim": "Operates high-tech exosuits and mech suits.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Variance in competence between accidental combat success and utter panic.",
         "Whether his berserker combat spurts are reliable outside of high-stress survival scenarios.",
         "Unsupported by cited source (term check, 1/7 key terms found): Defeated armed alien combatants using an armored mech suit.",
         "Unsupported by cited source (term check, 3/9 key terms found): Enhanced combat capability depends on Access to Rick's high-tech gear or mechs",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Morty Smith is a reluctant adventurer who occasionally wields sci-fi gadgets or defensive tech under extreme duress, though he typically panics in combat."
     },
     {
       "id": "toons:Mr. Incredible",
-      "continuity": "The Incredibles (2004)",
-      "summary": "Mr. Incredible is a powerhouse superhero boasting immense superhuman strength, high durability, and veteran combat experience against formidable foes.",
+      "continuity": "The Incredibles (2004 film), Incredibles 2 (2018 film), and Boom! Studios Incredibles comics",
+      "summary": "Mr. Incredible is a powerhouse superhero boasting immense superhuman strength, extraordinary physical durability, and extensive veteran combat experience against giant robots and supervillains.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Heavy object throwing",
+          "Overwhelming punches",
+          "Ground slam shockwaves",
           "Heavy punches",
           "Car throwing",
           "Ground slam",
@@ -553,47 +925,86 @@
       },
       "defense": {
         "mechanisms": [
+          "Extreme blunt force durability",
+          "Dense muscle tissue resistance",
           "Extreme blunt-force durability",
           "Dense musculature"
         ]
       },
       "weaknesses": [
+        "Can be injured by exceptionally high-density materials, heavy machinery, or specialized zero-point energy fields.",
+        "Overconfident in his physical invulnerability.",
         "Arrogance",
         "Vulnerability to high-tech containment fields"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Incredibles (2004 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Incredibles 2 (2018 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Incredibles (Boom! Studios Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "The Incredibles (2004)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Superhuman leaping",
+        "Running",
+        "Driving Incredibile vehicle",
         "Superhuman running",
         "Leaping"
       ],
       "limitations": [
+        "Cannot fly or project ranged energy attacks.",
         "Limited ranged attack options relying mostly on throwing heavy objects"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/The_Incredibles",
-          "supports": "Mr. Incredible's strength, durability, and superhero feats."
+          "supports": "Mr. Incredible strength, durability, and feats against Omnidroids."
         }
       ],
       "feats": [
         {
           "claim": "Lifted and threw a heavy omnidroid robot and stopped a speeding train with his body.",
-          "citation": "The Incredibles (2004)",
+          "citation": "The Incredibles (2004 film)",
+          "depiction": "The Incredibles (2004 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Omnidroid v.X1",
+          "result": "win",
+          "citation": "The Incredibles (2004 film)",
+          "note": "Defeated the robot by tricking it into destroying its own power core.",
+          "depiction": "The Incredibles (2004 film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "giant-sized",
-          "claim": "Stands significantly larger and bulkier than standard humans with towering physical presence.",
+          "claim": "Physically grapples with massive skyscraper-sized Omnidroid robots.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact upper bound of his lifting strength."
+        "Exact upper limit of his lifting capacity beyond multi-ton machinery.",
+        "Exact upper bound of his lifting strength.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Mr. Incredible is a powerhouse superhero boasting immense superhuman strength, high durability, and veteran combat experience against formidable foes."
     }
   ]
 }
