@@ -23,22 +23,24 @@ Before this, only 26 base characters and 88 reviewed forms used a real power in 
 The fight engine change is one line in `data/brawl-combat.js`: ask the V1 profiles first, then the research moves. A page without the two research-move files fights exactly as Version 1.
 
 ## Who gets a move
-651 research moves (545 base characters and 106 forms), regenerated on 2026-11-21 after the first sequels-and-comics batches merged (617 on 2026-11-20):
+747 research moves (630 base characters and 117 forms), regenerated on 2026-11-22 after 1,324 of 1,413 non-NBA identities had their sequels-and-comics expansion (651 on 2026-11-21, 617 on 2026-11-20):
 
 | Pool | Moves | | Power type | Moves |
 |---|---|---|---|---|
-| Video Games | 119 | | Energy | 267 |
-| Pokémon | 117 | | Magic | 218 |
-| Harry Potter | 94 | | Elemental | 74 |
-| DC | 76 | | Control | 52 |
-| MCU | 73 | | Psychic | 31 |
-| Middle-earth | 53 | | Sonic | 5 |
-| Star Wars | 45 | | Time | 2 |
-| Toons | 39 | | Shadow | 2 |
-| Muppets | 23 | | | |
+| Pokémon | 131 | | Energy | 313 |
+| Video Games | 125 | | Magic | 211 |
+| Harry Potter | 96 | | Control | 93 |
+| MCU | 87 | | Elemental | 90 |
+| DC | 78 | | Psychic | 32 |
+| Star Wars | 61 | | Sonic | 4 |
+| Middle-earth | 58 | | Shadow | 3 |
+| Toons | 58 | | Time | 1 |
+| Muppets | 41 | | | |
 | Action Movies | 12 | | | |
 
-Action Movies has 90 of its 100 characters researched so far. Most fight physically (swords, guns, martial arts), so only 12 get a research move.
+Most Action Movies characters fight physically (swords, guns, martial arts), so only 12 of its researched characters get a research move.
+
+**Re-measured 2026-11-22** (747 moves; 200 fights per pool): the winner changes in 5–16% of fights depending on the pool (mixed 9%). Research moves now reach 12% (Action Movies) to 88% (Harry Potter) of fighters. The evaluator's calibration was re-checked on two seeds and holds (fitted 3.71 / 3.64 points per logit below the cap, 10.30 / 10.99 above it, interaction weight 0.91 / 1.05), so there was no refit.
 
 ## The switch
 - **On by default** on the V2 branch.
