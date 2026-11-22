@@ -7,38 +7,68 @@
   "characters": [
     {
       "id": "pokemon:Kangaskhan|Mega Kangaskhan",
-      "continuity": "Pokémon Generation VI - VIII games and media",
-      "summary": "Mega Kangaskhan features the child growing up and joining the mother in relentless physical combat, utilizing Parental Bond to strike twice in a single turn.",
+      "continuity": "Pokémon games and anime, Pokémon Adventures manga",
+      "summary": "Mega Kangaskhan features the child jumping out of the pouch to join the mother in relentless physical combat, striking opponents twice per turn through the Parental Bond ability.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Parental Bond double strikes",
+          "Mega Punch",
+          "Mega Kick",
           "Parental Bond enabled attacks",
           "Power-Up Punch",
-          "Mega Punch",
           "Outrage"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Thick parental protective plating",
+          "Enhanced evasiveness from coordinated mother-child movement",
           "Enhanced natural durability from mega evolution",
           "Child assisting in defense"
         ]
       },
       "weaknesses": [
+        "Vulnerable to fighting-type attacks while mothers and children are separated or vulnerable",
         "Fighting-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Generation VI - VIII games and media",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Enhanced ground running speed and agile leaping",
         "running",
         "jumping"
       ],
       "limitations": [
+        "Mega Evolution lasts only for the duration of a single battle.",
         "Requires the Kangaskhanite stone to maintain Mega Evolution"
       ],
-      "formDifferences": "The child leaves the pouch to actively participate in battle alongside the mother, doubling attack frequency through the Parental Bond ability.",
+      "formDifferences": "The child grows up and leaves the pouch to actively fight alongside the mother, doubling physical attack output via Parental Bond.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/List_of_Pokémon",
+          "supports": "General species context and Mega Evolution mechanics."
+        },
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kangaskhan_(Pokémon)",
+          "supports": "Parental Bond ability details and Mega Kangaskhan combat statistics."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Kangaskhan_(Pok%C3%A9mon)",
           "supports": "Mega Kangaskhan abilities, Parental Bond mechanics, and combat traits."
@@ -46,45 +76,74 @@
       ],
       "feats": [
         {
+          "claim": "Attacks twice per turn in battle due to the child joining the fight under the Parental Bond ability.",
+          "citation": "Pokémon X and Y battle mechanics",
+          "depiction": "Pokémon games and anime",
+          "source": 1
+        },
+        {
           "claim": "Attacks twice per turn due to the child joining the fight under the Parental Bond ability.",
           "citation": "Pokémon X and Y game mechanics",
-          "source": 0
+          "source": 2,
+          "depiction": "Pokémon Generation VI - VIII games and media"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Lopunny|Mega Lopunny",
+          "result": "win",
+          "citation": "Pokémon competitive matchmaking",
+          "note": "Standard singles match victory utilizing Parental Bond output.",
+          "depiction": "Pokémon games and anime",
+          "source": 1
+        },
         {
           "opponent": "pokemon:Lopunny",
           "result": "win",
           "citation": "Standard competitive Pokémon matches",
           "note": "Standard battle conditions",
-          "source": 0
+          "source": 2,
+          "depiction": "Pokémon Generation VI - VIII games and media"
         }
       ],
       "conditional": [
         {
+          "ability": "Parental Bond double attack effect",
+          "dependsOn": "Holding the Kangaskhanite to undergo Mega Evolution",
+          "depiction": "Pokémon games and anime",
+          "source": 1
+        },
+        {
           "ability": "Parental Bond ability allowing second strikes",
           "dependsOn": "Holding the Kangaskhanite to Mega Evolve",
-          "source": 0
+          "source": 2,
+          "depiction": "Pokémon Generation VI - VIII games and media"
         }
       ],
       "campaignTags": [
         {
+          "tag": "healing",
+          "claim": "Utilizes supportive and restorative moves in battle.",
+          "source": 1
+        },
+        {
           "tag": "giant-sized",
           "claim": "Mega Kangaskhan stands at 2.2 meters tall.",
-          "source": 0
+          "source": 2
         }
       ],
       "unknowns": [
-        "Exact biological age of the child Pokémon."
+        "Exact age of the child when evolving into Mega Kangaskhan.",
+        "Exact biological age of the child Pokémon.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Mega Kangaskhan features the child growing up and joining the mother in relentless physical combat, utilizing Parental Bond to strike twice in a single turn."
     },
     {
       "id": "pokemon:Kingler",
-      "continuity": "Pokémon Generation I - VIII games and media",
-      "summary": "Kingler is a crustacean Pokémon boasting an overwhelmingly powerful giant claw capable of delivering devastating physical pincer strikes.",
+      "continuity": "Pokémon games and anime, Pokémon Adventures manga",
+      "summary": "Kingler is a crustacean Pokémon boasting an overwhelmingly massive pincer capable of delivering devastating physical crushing force and high-power Bubble Beam attacks.",
       "offense": {
         "domains": [
           "physical",
@@ -93,6 +152,7 @@
         "techniques": [
           "Crabhammer",
           "Vice Grip",
+          "Bubble Beam",
           "Water Gun",
           "Stomp"
         ],
@@ -100,21 +160,49 @@
       },
       "defense": {
         "mechanisms": [
-          "Hard shell carapace"
+          "Hard shell carapace",
+          "Sturdy physical defense"
         ]
       },
       "weaknesses": [
+        "Vulnerable to electric and grass-type attacks due to its water typing",
         "Electric-type attacks",
         "Grass-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Generation I - VIII games and media",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Sideways scuttling on land",
+        "Swimming in aquatic environments",
         "walking",
         "swimming"
       ],
       "limitations": [
+        "The oversized pincer is so heavy that it makes balance difficult outside of water.",
         "The massive left pincer is heavy and makes fine balance difficult"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kingler_(Pokémon)",
+          "supports": "Kingler abilities, Crabhammer attack, and pincer strength."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/List_of_Pokémon",
+          "supports": "General Pokémon franchise context."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Kingler_(Pok%C3%A9mon)",
           "supports": "Kingler moves, shell characteristics, and physical stats."
@@ -123,42 +211,58 @@
       "feats": [
         {
           "claim": "Pinchers possess 10,000 horsepower of crushing force.",
-          "citation": "Pokémon Gold Pokédex entry",
+          "citation": "Pokémon anime episode descriptions and Pokédex entries",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Misty's Goldeen",
+          "result": "win",
+          "citation": "Pokémon Indigo League anime",
+          "note": "Standard water battle victory.",
+          "depiction": "Pokémon games and anime",
+          "source": 0
+        },
+        {
           "opponent": "pokemon:Exeggutor",
           "result": "win",
           "citation": "Pokémon anime episode 'Mystery at the Lighthouse'",
           "note": "Evolved from Krabby mid-battle and won against multiple opponents",
-          "source": 0
+          "source": 2,
+          "depiction": "Pokémon Generation I - VIII games and media"
         }
       ],
       "campaignTags": [
         {
+          "tag": "water-control",
+          "claim": "Fires high-pressure water bubbles and beams.",
+          "source": 0
+        },
+        {
           "tag": "swimmer",
-          "claim": "Kingler lives in water and swims expertly using its limbs.",
+          "claim": "Natural aquatic mobility in marine environments.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Kingler breathes underwater naturally.",
+          "claim": "Can breathe underwater naturally.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Whether its massive claw can regenerate if completely severed."
+        "Exact durability threshold of its large pincer against specialized energy attacks.",
+        "Whether its massive claw can regenerate if completely severed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Kingler is a crustacean Pokémon boasting an overwhelmingly powerful giant claw capable of delivering devastating physical pincer strikes."
     },
     {
       "id": "pokemon:Kingler|Gigantamax Kingler",
-      "continuity": "Pokémon Sword and Shield",
-      "summary": "Gigantamax Kingler swells to massive proportions, sporting foaming bubbles on its body and a super-sized claw capable of crushing mountains.",
+      "continuity": "Pokémon Sword and Shield games and media",
+      "summary": "Gigantamax Kingler swells to towering proportions, sporting foaming bubbles on its body and a super-sized claw capable of crushing mountains and trapping foes in torrential foam.",
       "offense": {
         "domains": [
           "physical",
@@ -166,28 +270,44 @@
         ],
         "techniques": [
           "G-Max Foam Burst",
-          "Crabhammer",
-          "Max Geyser"
+          "Max Geyser",
+          "Crabhammer"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Massive Gigantamax health pool",
+          "Thick foam barrier",
           "Colossal HP pool and hardened body shell"
         ]
       },
       "weaknesses": [
+        "Vulnerable to electric and grass-type max moves",
         "Electric-type attacks",
         "Grass-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sword and Shield",
+          "kind": "source"
+        }
+      ],
       "mobility": [
+        "Stationary colossal movement",
         "slow giant steps"
       ],
       "limitations": [
+        "Gigantamax form wears off after three turns.",
         "Gigantamax form reverts after three turns"
       ],
-      "formDifferences": "Grows to massive height, changes appearance with foaming bubbles around the body and claws, and replaces standard water attacks with G-Max Foam Burst.",
+      "formDifferences": "Grows to massive proportions, gains foaming bubble rings around its body, and utilizes G-Max Foam Burst.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Kingler_(Pokémon)",
+          "supports": "Gigantamax Kingler form details and G-Max Foam Burst."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Kingler_(Pok%C3%A9mon)",
           "supports": "Gigantamax Kingler form details, G-Max Foam Burst, and height."
@@ -197,36 +317,46 @@
         {
           "claim": "Crushed everything in the surrounding area using its giant foam-dripping pincer.",
           "citation": "Pokémon Sword and Shield Pokédex entry",
-          "source": 0
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Gigantamax state and G-Max Foam Burst move",
-          "dependsOn": "Dynamax energy in specific regions",
+          "depiction": "Pokémon Sword and Shield",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "giant-sized",
-          "claim": "Gigantamax Kingler stands over 19 meters tall.",
+          "claim": "Grows to massive Gigantamax proportions exceeding standard heights.",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Scatters foaming water across the battlefield.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact duration of Gigantamax energy outside of official battle venues."
+        "Behavior outside of Dynamax energy hotspots.",
+        "Exact duration of Gigantamax energy outside of official battle venues.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Gigantamax state and G-Max Foam Burst move",
+          "dependsOn": "Dynamax energy in specific regions",
+          "source": 1,
+          "depiction": "Pokémon Sword and Shield"
+        }
+      ],
+      "earlierSummary": "Gigantamax Kingler swells to massive proportions, sporting foaming bubbles on its body and a super-sized claw capable of crushing mountains."
     },
     {
       "id": "pokemon:Koffing",
-      "continuity": "Pokémon Generation I - VIII games and media",
-      "summary": "Koffing is a floating gas-bag Pokémon that emits toxic fumes and explodes when agitated or commanded.",
+      "continuity": "Pokémon games and anime, Pokémon Adventures manga",
+      "summary": "Koffing is a floating gas-bag Pokémon that emits toxic fumes, foul-smelling gases, and can detonate itself when agitated.",
       "offense": {
         "domains": [
+          "energy",
+          "control",
           "poison",
           "physical"
         ],
@@ -234,27 +364,51 @@
           "Sludge",
           "Smog",
           "Self-Destruct",
+          "Toxic",
           "Tackle"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Floating evasion",
+          "Toxic cloud deterrence",
           "Floating body avoiding ground hazards",
           "Toxic gas deterrent"
         ]
       },
       "weaknesses": [
+        "Vulnerable to psychic and ground-type attacks",
         "Psychic-type attacks",
         "Ground-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Generation I - VIII games and media",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "floating flight"
+        "Floating flight"
       ],
       "limitations": [
+        "Relies on internal gas pressure to remain airborne; punctures cause deflation.",
         "Explodes easily when exposed to high heat or direct physical shocks"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Koffing_(Pokémon)",
+          "supports": "Koffing toxic gases and floating mechanism."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Koffing_(Pok%C3%A9mon)",
           "supports": "Koffing floating mechanics, poison gas emissions, and moves."
@@ -262,29 +416,47 @@
       ],
       "feats": [
         {
+          "claim": "Stores toxic gases within its body that cause severe coughing and tears if inhaled.",
+          "citation": "Pokémon anime episodes",
+          "depiction": "Pokémon games and anime",
+          "source": 0
+        },
+        {
           "claim": "Stores toxic gases within its body that can cause tears and coughing if inhaled.",
           "citation": "Pokémon Red and Blue Pokédex",
+          "source": 1,
+          "depiction": "Pokémon Generation I - VIII games and media"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Pikachu",
+          "result": "loss",
+          "citation": "Pokémon anime encounters",
+          "note": "Defeated by electric attacks.",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Koffing floats constantly using internal poisonous gases.",
+          "claim": "Floats continuously in the air using lighter-than-air toxic gas.",
           "source": 0
         }
       ],
       "unknowns": [
-        "The precise chemical composition of the internal gas mixture."
+        "Exact composition of internal toxic mixtures.",
+        "The precise chemical composition of the internal gas mixture.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Koffing is a floating gas-bag Pokémon that emits toxic fumes and explodes when agitated or commanded."
     },
     {
       "id": "pokemon:Krabby",
-      "continuity": "Pokémon Generation I - VIII games and media",
-      "summary": "Krabby is a small crab Pokémon that scuttles sideways and uses pincers to defend itself or dig burrows.",
+      "continuity": "Pokémon games and anime, Pokémon Adventures manga",
+      "summary": "Krabby is a small crab Pokémon that scuttles sideways, digs burrows in sandy beaches, and uses sharp pincers to snap at opponents.",
       "offense": {
         "domains": [
           "physical",
@@ -293,28 +465,53 @@
         "techniques": [
           "Vice Grip",
           "Bubble",
-          "Mud Shot",
-          "Stomp"
+          "Stomp",
+          "Mud Shot"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Protective shell",
+          "Burrowing underground",
           "Hard shell armor"
         ]
       },
       "weaknesses": [
+        "Vulnerable to electric and grass-type moves",
         "Electric-type attacks",
         "Grass-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Generation I - VIII games and media",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "walking",
-        "swimming"
+        "Sideways scuttling",
+        "Burrowing",
+        "Swimming",
+        "walking"
       ],
       "limitations": [
+        "Small physical stature limits reach against larger foes.",
         "Limited mobility when moving forward instead of sideways"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Krabby_(Pokémon)",
+          "supports": "Krabby regeneration and pincer characteristics."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Krabby_(Pok%C3%A9mon)",
           "supports": "Krabby behavior, habitat, and moves."
@@ -323,43 +520,47 @@
       "feats": [
         {
           "claim": "Regrows lost pincers if they are pinched off in combat.",
-          "citation": "Pokémon Yellow Pokédex",
+          "citation": "Pokémon Pokédex entries",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "swimmer",
-          "claim": "Krabby swims in coastal waters and rivers.",
+          "claim": "Navigates aquatic environments and coastal shores.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Krabby breathes underwater.",
+          "claim": "Capable of breathing underwater.",
           "source": 0
         }
       ],
       "unknowns": [
-        "How quickly a severed pincer fully regrows."
+        "Time required to fully regenerate a lost pincer.",
+        "How quickly a severed pincer fully regrows.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Krabby is a small crab Pokémon that scuttles sideways and uses pincers to defend itself or dig burrows."
     },
     {
       "id": "pokemon:Lapras",
-      "continuity": "Pokémon Generation I - VIII games and media",
-      "summary": "Lapras is a gentle, highly intelligent marine Pokémon that glides across freezing waters, defending itself with ice and water attacks.",
+      "continuity": "Pokémon games and anime, Pokémon Adventures manga",
+      "summary": "Lapras is a gentle, highly intelligent marine Pokémon that glides across freezing waters, defending itself with powerful ice and water attacks while carrying passengers.",
       "offense": {
         "domains": [
-          "water",
           "ice",
+          "water",
+          "energy",
           "psychic"
         ],
         "techniques": [
           "Ice Beam",
           "Surf",
           "Hydro Pump",
+          "Sing",
           "Confuse Ray"
         ],
         "range": "ranged"
@@ -367,22 +568,46 @@
       "defense": {
         "mechanisms": [
           "Thick hide",
+          "Ice armor shielding",
           "Shell Armor ability protecting from critical hits"
         ]
       },
       "weaknesses": [
+        "Vulnerable to electric, grass, fighting, and rock-type attacks",
         "Electric-type attacks",
         "Grass-type attacks",
         "Fighting-type attacks",
         "Rock-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Generation I - VIII games and media",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Advanced swimming",
+        "Gliding across ice and water",
         "swimming"
       ],
       "limitations": [
+        "Slow movement speed on dry land.",
         "Slow moving on dry land"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Lapras_(Pokémon)",
+          "supports": "Lapras intelligence, ferry capabilities, and ice attacks."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Lapras_(Pok%C3%A9mon)",
           "supports": "Lapras capabilities, ice attacks, transport abilities, and stats."
@@ -390,51 +615,76 @@
       ],
       "feats": [
         {
+          "claim": "Understands human speech and ferries people across oceans safely.",
+          "citation": "Pokémon anime and Pokédex descriptions",
+          "depiction": "Pokémon games and anime",
+          "source": 0
+        },
+        {
           "claim": "Understands human speech and ferries people across oceans.",
           "citation": "Pokémon Yellow Pokédex",
+          "source": 1,
+          "depiction": "Pokémon Generation I - VIII games and media"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Drake's Kingdra",
+          "result": "win",
+          "citation": "Pokémon Orange Islands anime",
+          "note": "Ash's Lapras wins a decisive battle in the Orange League.",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "ice-control",
+          "claim": "Generates freezing beams and ice shards.",
+          "source": 0
+        },
+        {
+          "tag": "water-control",
+          "claim": "Controls powerful ocean currents and surfs across water.",
+          "source": 0
+        },
+        {
           "tag": "swimmer",
-          "claim": "Lapras is an expert aquatic swimmer.",
+          "claim": "Expert swimmer capable of navigating vast oceans.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Lapras breathes underwater naturally.",
-          "source": 0
-        },
-        {
-          "tag": "ice-control",
-          "claim": "Lapras generates ice beams and freezing winds.",
+          "claim": "Can breathe and operate underwater.",
           "source": 0
         },
         {
           "tag": "mount",
-          "claim": "Lapras carries humans across bodies of water on its back.",
+          "claim": "Carries human passengers across water bodies on its back.",
           "source": 0
         }
       ],
       "unknowns": [
-        "The exact vocal frequencies used to communicate with others of its kind."
+        "The exact limits of its telepathic song resonance.",
+        "The exact vocal frequencies used to communicate with others of its kind.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Lapras is a gentle, highly intelligent marine Pokémon that glides across freezing waters, defending itself with ice and water attacks."
     },
     {
       "id": "pokemon:Lapras|Gigantamax Lapras",
-      "continuity": "Pokémon Sword and Shield",
-      "summary": "Gigantamax Lapras takes on the appearance of a majestic cruise ship surrounded by a giant floating ring of musical ice shards.",
+      "continuity": "Pokémon Sword and Shield games and media",
+      "summary": "Gigantamax Lapras takes on the appearance of a majestic floating cruise ship surrounded by a giant ring of musical ice shards, capable of transporting thousands of people.",
       "offense": {
         "domains": [
-          "water",
-          "ice"
+          "ice",
+          "energy",
+          "water"
         ],
         "techniques": [
           "G-Max Resonance",
+          "Max Resonance",
           "Ice Beam",
           "Hydro Pump"
         ],
@@ -442,23 +692,39 @@
       },
       "defense": {
         "mechanisms": [
+          "Gigantamax health shield",
+          "Musical ice ring defense",
           "Massive Gigantamax durability barrier from G-Max Resonance"
         ]
       },
       "weaknesses": [
+        "Vulnerable to electric, grass, fighting, and rock max moves",
         "Electric-type attacks",
         "Grass-type attacks",
         "Fighting-type attacks",
         "Rock-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sword and Shield",
+          "kind": "source"
+        }
+      ],
       "mobility": [
+        "Hovering Gigantamax displacement",
         "swimming"
       ],
       "limitations": [
+        "Gigantamax form expires after three turns.",
         "Reverts to normal size after three turns"
       ],
-      "formDifferences": "Grows massively in size, gains a glowing ice ring resembling a cruise liner musical deck, and uses G-Max Resonance.",
+      "formDifferences": "Grows to titanic proportions, gains a shell resembling a cruise ship, and encircles itself with floating musical ice rings.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Lapras_(Pokémon)",
+          "supports": "Gigantamax Lapras size, capacity, and G-Max Resonance."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Lapras_(Pok%C3%A9mon)",
           "supports": "Gigantamax Lapras form data and G-Max Resonance."
@@ -467,63 +733,97 @@
       "feats": [
         {
           "claim": "Carried thousands of people on its shell simultaneously during Gigantamax transport tests.",
-          "citation": "Pokémon Shield Pokédex",
-          "source": 0
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Gigantamax state and G-Max Resonance",
-          "dependsOn": "Dynamax phenomenon in Galar",
+          "citation": "Pokémon Sword and Shield Pokédex entry",
+          "depiction": "Pokémon Sword and Shield",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "giant-sized",
+          "claim": "Grows to colossal Gigantamax scale resembling a cruise ship.",
+          "source": 0
+        },
+        {
           "tag": "ice-control",
-          "claim": "Creates giant ice rings that emit protective soundwaves.",
+          "claim": "Deploys a ring of musical ice shards in combat.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Acoustic properties of the ice ring in vacuum conditions.",
         "Whether the singing ice ring can damage enemies independently without direct attacks.",
-        "Unsupported by cited source (term check, 1/4 key terms found): giant-sized: Gigantamax Lapras stands over 39 meters tall."
+        "Unsupported by cited source (term check, 1/4 key terms found): giant-sized: Gigantamax Lapras stands over 39 meters tall.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Gigantamax state and G-Max Resonance",
+          "dependsOn": "Dynamax phenomenon in Galar",
+          "source": 1,
+          "depiction": "Pokémon Sword and Shield"
+        }
+      ],
+      "earlierSummary": "Gigantamax Lapras takes on the appearance of a majestic cruise ship surrounded by a giant floating ring of musical ice shards."
     },
     {
       "id": "pokemon:Lickitung",
-      "continuity": "pokemon Generation I - VIII games and media",
-      "summary": "Lickitung uses an extraordinarily long, prehensile tongue to capture prey, taste objects, and deliver sweeping physical strikes.",
+      "continuity": "Pokémon games and anime, Pokémon Adventures manga",
+      "summary": "Lickitung uses an extraordinarily long, prehensile tongue coated in sticky saliva to capture prey, taste objects, and deliver sweeping physical strikes.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
           "Lick",
-          "Wrap",
+          "Tongue Wrap",
+          "Mega Kick",
           "Slam",
+          "Wrap",
           "Tongue Slap"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Rubber-like resilient body hide",
           "Thick body padding"
         ]
       },
       "weaknesses": [
+        "Vulnerable to fighting-type attacks",
         "Fighting-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "pokemon Generation I - VIII games and media",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Bipedal walking",
+        "Tongue grappling",
         "walking"
       ],
       "limitations": [
+        "Slow movement speed on foot.",
         "Saliva causes numbness if it touches skin, which can occasionally slow Lickitung's own maneuvers if mishandled"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Lickitung_(Pokémon)",
+          "supports": "Lickitung tongue length, saliva properties, and attacks."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Lickitung_(Pok%C3%A9mon)",
           "supports": "Lickitung tongue capabilities and physical moves."
@@ -532,21 +832,33 @@
       "feats": [
         {
           "claim": "Tongue can extend twice the length of its body and paralyzes targets with sticky saliva.",
-          "citation": "Pokémon Red and Blue Pokédex",
+          "citation": "Pokémon anime and Pokédex records",
+          "depiction": "Pokémon games and anime",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jessie's Wobbuffet",
+          "result": "win",
+          "citation": "Pokémon anime episodes",
+          "note": "Secured a victory during a team skirmish.",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "unknowns": [
-        "The exact nervous system control that allows such rapid tongue extension."
+        "Chemical composition of the numbing saliva.",
+        "The exact nervous system control that allows such rapid tongue extension.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Lickitung uses an extraordinarily long, prehensile tongue to capture prey, taste objects, and deliver sweeping physical strikes."
     },
     {
       "id": "pokemon:Machamp",
-      "continuity": "pokemon Generation I - VIII games and media",
-      "summary": "Machamp is a four-armed martial arts master capable of delivering thousands of lightning-fast punches in seconds.",
+      "continuity": "Pokémon games and anime, Pokémon Adventures manga",
+      "summary": "Machamp is a four-armed martial arts master capable of delivering thousands of lightning-fast punches in seconds and hurling massive objects with ease.",
       "offense": {
         "domains": [
           "physical"
@@ -561,22 +873,46 @@
       },
       "defense": {
         "mechanisms": [
+          "Tough muscular physique",
+          "Advanced martial arts parrying",
           "Trained muscular resilience"
         ]
       },
       "weaknesses": [
+        "Vulnerable to flying, psychic, and fairy-type attacks",
         "Flying-type attacks",
         "Psychic-type attacks",
         "Fairy-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "pokemon Generation I - VIII games and media",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Super-speed running and agility",
         "running",
         "jumping"
       ],
       "limitations": [
+        "Acts before thinking, making it prone to complex tactical feints.",
         "Poor at delicate tasks requiring fine motor control due to immense strength"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Machamp_(Pokémon)",
+          "supports": "Machamp punching speed, four arms, and strength feats."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Machamp_(Pok%C3%A9mon)",
           "supports": "Machamp four-arm feats, punch speed, and stats."
@@ -585,65 +921,94 @@
       "feats": [
         {
           "claim": "Throws 1,000 punches in a mere two seconds with its four arms.",
-          "citation": "Pokémon Red and Blue Pokédex",
+          "citation": "Pokémon Pokédex entries",
+          "depiction": "Pokémon games and anime",
           "source": 0
         },
         {
           "claim": "Can hurl a mountain range away with a single hand.",
-          "citation": "Pokémon Sword Pokédex",
+          "citation": "Pokémon Pokédex entries",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Bruno's Onix",
+          "result": "win",
+          "citation": "Pokémon Adventures manga",
+          "note": "Overpowered heavy rock opponent with martial arts strikes.",
+          "depiction": "Pokémon Adventures manga",
+          "source": 0
+        },
+        {
           "opponent": "pokemon:Alakazam",
           "result": "win",
           "citation": "Standard battle matchups",
           "note": "Overcomes psychic barriers with sheer physical output",
-          "source": 0
+          "source": 1,
+          "depiction": "pokemon Generation I - VIII games and media"
         }
       ],
       "unknowns": [
-        "How its brain coordinates four independent arms simultaneously without self-interference."
+        "Maximum lifting capacity beyond mountain-range throwing.",
+        "How its brain coordinates four independent arms simultaneously without self-interference.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Machamp is a four-armed martial arts master capable of delivering thousands of lightning-fast punches in seconds."
     },
     {
       "id": "pokemon:Machamp|Gigantamax Machamp",
-      "continuity": "Pokémon Sword and Shield",
-      "summary": "Gigantamax Machamp towers over the battlefield with glowing red markings and energy-infused fists capable of altering the landscape.",
+      "continuity": "Pokémon Sword and Shield games and media",
+      "summary": "Gigantamax Machamp towers over the battlefield with glowing red markings and energy-infused fists capable of altering the landscape and generating hurricane-force shockwaves.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "energy"
         ],
         "techniques": [
           "G-Max Chi Strike",
-          "Dynamic Punch",
-          "Max Knuckle"
+          "Max Knuckle",
+          "Dynamic Punch"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Gigantamax health pool",
+          "Energy-infused aura guard",
           "Impenetrable muscular density enhanced by Dynamax energy"
         ]
       },
       "weaknesses": [
+        "Vulnerable to flying, psychic, and fairy max moves",
         "Flying-type attacks",
         "Psychic-type attacks",
         "Fairy-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sword and Shield",
+          "kind": "source"
+        }
+      ],
       "mobility": [
+        "Colossal stride and dynamic leaping",
         "giant strides",
         "leaping"
       ],
       "limitations": [
+        "Gigantamax transformation lasts for only three turns.",
         "Reverts to normal size after three turns"
       ],
-      "formDifferences": "Grows to massive height with four glowing orange arms and glowing red body lines, utilizing G-Max Chi Strike.",
+      "formDifferences": "Grows to colossal size, features glowing red markings, and channels raw fighting energy through its four massive fists.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Machamp_(Pokémon)",
+          "supports": "Gigantamax Machamp characteristics and G-Max Chi Strike."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Machamp_(Pok%C3%A9mon)",
           "supports": "Gigantamax Machamp details, G-Max Chi Strike, and height."
@@ -652,30 +1017,33 @@
       "feats": [
         {
           "claim": "Punches generated shockwaves powerful enough to blow large transport ships miles away.",
-          "citation": "Pokémon Sword Pokédex",
-          "source": 0
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Gigantamax form and G-Max Chi Strike",
-          "dependsOn": "Dynamax energy in Galar",
+          "citation": "Pokémon Sword and Shield Pokédex entry",
+          "depiction": "Pokémon Sword and Shield",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "giant-sized",
-          "claim": "Gigantamax Machamp stands at 25 meters tall.",
+          "claim": "Grows to towering Gigantamax dimensions.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Whether the glowing energy lines emit hazardous heat."
+        "Stability of the energy aura in severe electromagnetic storms.",
+        "Whether the glowing energy lines emit hazardous heat.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Gigantamax form and G-Max Chi Strike",
+          "dependsOn": "Dynamax energy in Galar",
+          "source": 1,
+          "depiction": "Pokémon Sword and Shield"
+        }
+      ],
+      "earlierSummary": "Gigantamax Machamp towers over the battlefield with glowing red markings and energy-infused fists capable of altering the landscape."
     }
   ]
 }
