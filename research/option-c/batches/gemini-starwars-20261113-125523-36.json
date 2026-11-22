@@ -7,14 +7,16 @@
   "characters": [
     {
       "id": "starwars:Greef Karga",
-      "continuity": "Star Wars Canon (The Mandalorian)",
-      "summary": "Greef Karga relies on administrative authority, a trusted crew, and a blaster pistol for self-defense. He is a pragmatic former magistrate who prefers negotiation or hiring mercenaries over direct hand-to-hand combat.",
+      "continuity": "Star Wars films and series (The Mandalorian, Star Wars: The Clone Wars, Star Wars comics)",
+      "summary": "Greef Karga transitions from a corrupt magistrate of the Bounty Hunters' Guild to a respected magistrate of Nevarro, fighting with a reliable blaster pistol and commanding loyal local defense forces.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Blaster pistol precision shots",
+          "Commanding security forces",
           "Blaster pistol marksmanship",
           "Directing bounty hunters and security forces"
         ],
@@ -22,138 +24,275 @@
       },
       "defense": {
         "mechanisms": [
+          "Heavy magistrate robes/armor",
+          "Cover and tactical positioning",
+          "Guards and bodyguards",
           "Bodyguard protection",
           "Armored clothing",
           "Defensive positioning behind cover"
         ]
       },
       "weaknesses": [
+        "Human physical limitations",
+        "Vulnerable when caught without bodyguards in hostile territory",
         "Vulnerable in close-quarters physical combat without protection"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "The Mandalorian (2019-2023 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Mandalorian (Marvel Comics, 2022)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Mandalorian)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard foot movement",
+        "Rides in planetary transports",
         "Walking",
         "Riding in speeders"
       ],
       "limitations": [
+        "Lacks superhuman strength or durability",
+        "Dependent on allies and conventional firearms",
         "Relies heavily on external allies and guards for safety"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/The_Mandalorian",
+          "supports": "Greef Karga's role as magistrate of Nevarro and combat encounters against Imperial remnants."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Greef_Karga",
-          "supports": "General abilities, blaster use, and history as magistrate of Nevarro."
+          "supports": "History as head of the Bounty Hunters' Guild and weapons use."
         }
       ],
       "feats": [
         {
           "claim": "Fired a blaster to defend himself against Imperial remnants on Nevarro.",
-          "citation": "The Mandalorian, Season 1, Chapter 8: 'Redemption'",
+          "citation": "The Mandalorian, Season 1, Chapter 7: The Reckoning",
+          "depiction": "The Mandalorian (2019-2023 series)",
           "source": 0
+        },
+        {
+          "claim": "Fought off bounty hunter assassins in a cantina ambush alongside Din Djarin.",
+          "citation": "The Mandalorian, Season 1, Chapter 3: The Sin",
+          "depiction": "The Mandalorian (2019-2023 series)",
+          "source": 1
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Imperial Remnant stormtroopers",
+          "result": "win",
+          "citation": "The Mandalorian, Season 1, Chapter 7: The Reckoning",
+          "note": "Fought alongside Din Djarin, Cara Dune, and IG-11.",
+          "depiction": "The Mandalorian (2019-2023 series)",
+          "source": 0
+        },
         {
           "opponent": "Imperial stormtroopers",
           "result": "win",
           "citation": "The Mandalorian, Season 1, Chapter 7: 'The Reckoning'",
           "note": "Fought alongside Din Djarin and Cara Dune.",
+          "source": 1,
+          "depiction": "Star Wars Canon (The Mandalorian)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Command of Nevarro defense forces",
+          "dependsOn": "Being within his jurisdiction on the planet Nevarro",
+          "depiction": "The Mandalorian (2019-2023 series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "pilot",
-          "claim": "Pilots transports and manages starfighter logistics on Nevarro.",
+          "claim": "Pilots or commands various transport ships and coordinates starfighter defense on Nevarro.",
           "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with standard-issue blaster pistols and commlinks.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Full extent of his combat training prior to becoming magistrate of the Bounty Hunters' Guild."
+        "Exact details of his early life before joining the Bounty Hunters' Guild.",
+        "Full extent of his combat training prior to becoming magistrate of the Bounty Hunters' Guild.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Greef Karga relies on administrative authority, a trusted crew, and a blaster pistol for self-defense. He is a pragmatic former magistrate who prefers negotiation or hiring mercenaries over direct hand-to-hand combat."
     },
     {
       "id": "starwars:Grogu",
-      "continuity": "Star Wars Canon (The Mandalorian, The Book of Boba Fett)",
-      "summary": "Grogu is an infant Force-sensitive alien who employs telekinesis, barrier generation, and animal taming. Due to his youth, he tires quickly after using demanding Force abilities.",
+      "continuity": "Star Wars films and series (The Mandalorian, The Book of Boba Fett, Star Wars comics)",
+      "summary": "Grogu is an infant member of Yoda's species who wields powerful telekinetic abilities, barrier projection, and empathy-based creature control, though he tires rapidly due to his youth.",
       "offense": {
         "domains": [
           "magic",
+          "control",
           "physical"
         ],
         "techniques": [
+          "Telekinetic push and pull",
+          "Force barrier projection",
+          "Force choke",
+          "Animal taming",
           "Force push",
           "Telekinetic choke",
-          "Energy barrier creation",
-          "Animal taming"
+          "Energy barrier creation"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Force energy barrier",
+          "Dodge and crawl evasion",
+          "Protection by Mandalorian armor and allies",
           "Telekinetic barriers",
           "Evasion",
           "Concealment in his hoverpram"
         ]
       },
       "weaknesses": [
+        "Physical infancy and small size",
+        "Exhaustion and fainting after heavy Force usage",
         "Physical immaturity and vulnerability when exhausted by Force usage"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "The Mandalorian (2019-2023 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Book of Boba Fett (2021-2022 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Mandalorian (Marvel Comics, 2022)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Mandalorian, The Book of Boba Fett)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Walking and crawling",
+        "Floating in a repulsorlift pram",
+        "Force-assisted levitation",
         "Hoverpram levitation",
         "Walking",
         "Leaping"
       ],
       "limitations": [
+        "Sleeps frequently to recover energy after exertion",
+        "Limited physical offensive repertoire due to age",
         "Falls unconscious or experiences severe fatigue after exerting heavy Force powers"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Grogu",
+          "supports": "Grogu's abilities, species background, and role in The Mandalorian."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Grogu",
-          "supports": "Force abilities, hoverpram usage, and fatigue limitations."
+          "supports": "Detailed feats involving telekinesis and training under Luke Skywalker and Din Djarin."
         }
       ],
       "feats": [
         {
-          "claim": "Lifted a massive Mudhorn into the air using telekinesis.",
-          "citation": "The Mandalorian, Season 1, Chapter 2: 'The Child'",
+          "claim": "Lifted a massive Mudhorn into the air using telekinesis to save Din Djarin.",
+          "citation": "The Mandalorian, Season 1, Chapter 2: The Child",
+          "depiction": "The Mandalorian (2019-2023 series)",
           "source": 0
         },
         {
           "claim": "Created a protective kinetic barrier against a burst of fire from an incinerator trooper.",
-          "citation": "The Mandalorian, Season 1, Chapter 8: 'Redemption'",
-          "source": 0
+          "citation": "The Mandalorian, Season 1, Chapter 8: Redemption",
+          "depiction": "The Mandalorian (2019-2023 series)",
+          "source": 1
+        },
+        {
+          "claim": "Calmed and pacified a raging Rancor on Tatooine using the Force.",
+          "citation": "The Book of Boba Fett, Chapter 6: From the Desert Comes a Stranger",
+          "depiction": "The Book of Boba Fett (2021-2022 series)",
+          "source": 1
+        },
+        {
+          "claim": "Lifted a massive Mudhorn into the air using telekinesis.",
+          "citation": "The Mandalorian, Season 1, Chapter 2: 'The Child'",
+          "source": 1,
+          "depiction": "Star Wars Canon (The Mandalorian, The Book of Boba Fett)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Mudhorn",
           "result": "win",
-          "citation": "The Mandalorian, Season 1, Chapter 2: 'The Child'",
-          "note": "Used the Force to heal and lift the creature.",
+          "citation": "The Mandalorian, Season 1, Chapter 2: The Child",
+          "note": "Subdued the beast using telekinesis before it could kill Din Djarin.",
+          "depiction": "The Mandalorian (2019-2023 series)",
           "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Advanced Force mastery and lightsaber combat training",
+          "dependsOn": "Guidance from Jedi masters such as Luke Skywalker",
+          "depiction": "The Book of Boba Fett (2021-2022 series)",
+          "source": 1
         }
       ],
       "campaignTags": [
         {
-          "tag": "telekinesis",
-          "claim": "Demonstrated ability to lift heavy objects and creatures with the Force.",
+          "tag": "flight",
+          "claim": "Levitates objects and occasionally himself using the Force.",
           "source": 0
+        },
+        {
+          "tag": "magic",
+          "claim": "Uses the Force for telekinesis, barriers, and healing/soothing.",
+          "source": 1
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Lifts massive creatures and objects with his mind.",
+          "source": 1
         }
       ],
       "unknowns": [
+        "Exact origin and full lineage of his species.",
         "Exact limits of his potential without formal Jedi academy training.",
-        "Unsupported by cited source (term check, 0/1 key terms found): teleport: Not applicable"
+        "Unsupported by cited source (term check, 0/1 key terms found): teleport: Not applicable",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Grogu is an infant Force-sensitive alien who employs telekinesis, barrier generation, and animal taming. Due to his youth, he tires quickly after using demanding Force abilities."
     },
     {
       "id": "starwars:Han Solo",
-      "continuity": "Star Wars Original Trilogy and Canon",
-      "summary": "Han Solo is a veteran smuggler and sharpshooter who relies on quick reflexes, a DL-44 heavy blaster pistol, and unorthodox tactics. He is exceptionally skilled at improvising under pressure.",
+      "continuity": "Star Wars films and series (Original Trilogy, Sequel Trilogy, Solo: A Star Wars Story, Star Wars Marvel/Dark Horse comics)",
+      "summary": "Han Solo is a legendary smuggler, ace pilot, and expert marksman who relies on his DL-44 heavy blaster, incredible luck, and quick improvisational tactics.",
       "offense": {
         "domains": [
           "physical",
@@ -161,6 +300,8 @@
         ],
         "techniques": [
           "Quick-draw blaster shooting",
+          "Improvisational explosives usage",
+          "Starship dogfighting",
           "Improvised explosives",
           "Ship-to-ship combat piloting"
         ],
@@ -168,74 +309,143 @@
       },
       "defense": {
         "mechanisms": [
+          "Dodge and cover",
+          "Millennium Falcon shields",
+          "Quick reflexes",
           "Jukes and evasive movement",
           "Hard cover",
           "Vests and basic armor"
         ]
       },
       "weaknesses": [
+        "Human vulnerability to blaster fire and physical trauma",
+        "Overconfident in negotiations and close corners",
         "Human physiology with standard physical vulnerability"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Solo: A Star Wars Story (2018 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics, 2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Original Trilogy and Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running and acrobatics",
+        "Piloting starships (Millennium Falcon)",
         "Millennium Falcon starship",
         "Running",
         "Climbing"
       ],
       "limitations": [
+        "Ordinary human physical attributes",
+        "Relies heavily on functioning starship technology for escape",
         "Relies entirely on equipment, weapons, and starship availability"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Han_Solo",
+          "supports": "Han Solo's history across films, piloting skills, and DL-44 blaster use."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Han_Solo",
-          "supports": "Blaster marksmanship, piloting skills, and notable engagements."
+          "supports": "Detailed feats in piloting the Millennium Falcon and combat engagements."
         }
       ],
       "feats": [
         {
           "claim": "Shot Greedo under the table before Greedo could fire.",
-          "citation": "Star Wars: Episode IV - A New Hope",
+          "citation": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "depiction": "Star Wars: Episode IV - A New Hope (1977 film)",
           "source": 0
         },
         {
           "claim": "Piloted the Millennium Falcon through an asteroid field to evade Imperial pursuers.",
-          "citation": "Star Wars: Episode V - The Empire Strikes Back",
-          "source": 0
+          "citation": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "depiction": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "source": 1
+        },
+        {
+          "claim": "Triggered an explosion inside the shield bunker on Endor to disable the second Death Star's shield.",
+          "citation": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "depiction": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "source": 1
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Greedo",
+          "result": "win",
+          "citation": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "note": "Quick-draw execution in the Mos Eisley cantina.",
+          "depiction": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "source": 0
+        },
         {
           "opponent": "Boba Fett",
           "result": "win",
           "citation": "Star Wars: Episode VI - Return of the Jedi",
           "note": "Accidentally activated Fett's jetpack while blind, sending him into the Sarlacc pit.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Original Trilogy and Canon"
         }
       ],
       "campaignTags": [
         {
           "tag": "pilot",
-          "claim": "Captain of the Millennium Falcon, renowned throughout the galaxy for piloting feats.",
+          "claim": "Captain and expert pilot of the Millennium Falcon.",
           "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with a customized DL-44 heavy blaster pistol and thermal detonators.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Precise combat effectiveness when completely separated from his gear and ship."
+        "Exact origins of his birth family prior to his time on Corellia.",
+        "Precise combat effectiveness when completely separated from his gear and ship.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Han Solo is a veteran smuggler and sharpshooter who relies on quick reflexes, a DL-44 heavy blaster pistol, and unorthodox tactics. He is exceptionally skilled at improvising under pressure."
     },
     {
       "id": "starwars:Hera Syndulla",
-      "continuity": "Star Wars Rebels and Canon",
-      "summary": "Hera Syndulla is a master pilot, rebel leader, and tactical commander. She specializes in starfighter combat, leadership coordination, and small arms proficiency.",
+      "continuity": "Star Wars films and series (Star Wars Rebels, The Bad Batch, Ahsoka, Star Wars comics)",
+      "summary": "Hera Syndulla is a master Twi'lek pilot, revolutionary leader, and general who commands starfighter squadrons with tactical brilliance and fights with precise small arms fire.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Starfighter dogfighting",
           "Blaster pistol combat",
+          "Tactical military coordination",
           "Advanced starfighter maneuvers",
           "Tactical ambush orchestration"
         ],
@@ -243,297 +453,572 @@
       },
       "defense": {
         "mechanisms": [
+          "Ghost starship shields and evasive flying",
+          "Cover and tactical positioning",
           "Starship shields",
           "Combat evasive maneuvers",
           "Cover and concealment"
         ]
       },
       "weaknesses": [
+        "Biological Twi'lek vulnerability",
+        "Deep emotional attachments to her crew and son",
         "Standard Twi'lek physiological vulnerability"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Rebels (2014-2018 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Ahsoka (2023 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Kanan (Marvel Comics, 2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Rebels and Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard foot movement",
+        "Expert starfighter pilot",
         "The Ghost (VCX-100 light freighter)",
         "Running",
         "Climbing"
       ],
       "limitations": [
+        "Dependent on starship capability for space combat",
+        "Humanoid physical limits",
         "Relies on tactical planning and equipment rather than superhuman traits"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Hera_Syndulla",
+          "supports": "Hera Syndulla's background as leader of the Ghost crew and New Republic General."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Hera_Syndulla",
-          "supports": "Pilot qualifications, leadership role, and combat feats."
+          "supports": "Piloting feats, combat engagements against Imperial forces, and military rank."
         }
       ],
       "feats": [
         {
           "claim": "Flew the Ghost through Imperial blockade lines during intense space combat.",
-          "citation": "Star Wars Rebels",
+          "citation": "Star Wars Rebels, Season 1, 'Fire Across the Galaxy'",
+          "depiction": "Star Wars Rebels (2014-2018 series)",
           "source": 0
+        },
+        {
+          "claim": "Led New Republic starfighter forces in defense of core systems.",
+          "citation": "Ahsoka, Season 1, Episode 5 'Shadow Warrior'",
+          "depiction": "Ahsoka (2023 series)",
+          "source": 1
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Imperial blockade fleet",
+          "result": "win",
+          "citation": "Star Wars Rebels, Season 1, 'Fire Across the Galaxy'",
+          "note": "Successfully breached blockade using the Ghost.",
+          "depiction": "Star Wars Rebels (2014-2018 series)",
+          "source": 0
+        },
         {
           "opponent": "Imperial pilots",
           "result": "win",
           "citation": "Star Wars Rebels",
           "note": "Out-maneuvered Imperial TIE fighters in atmospheric dogfights.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Rebels and Canon"
         }
       ],
       "campaignTags": [
         {
           "tag": "pilot",
-          "claim": "Commander and pilot of the Ghost and general in the New Republic defense forces.",
+          "claim": "Master pilot of the VCX-100 light freighter Ghost and various starfighters.",
           "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries standard blaster pistols and tactical equipment.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Hand-to-hand proficiency against specialized martial artists."
+        "Full extent of her combat capabilities outside of piloting and leadership.",
+        "Hand-to-hand proficiency against specialized martial artists.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Hera Syndulla is a master pilot, rebel leader, and tactical commander. She specializes in starfighter combat, leadership coordination, and small arms proficiency."
     },
     {
       "id": "starwars:Hunter",
-      "continuity": "Star Wars: The Bad Batch",
-      "summary": "Hunter is a genetically enhanced clone sergeant with heightened sensory perception, expert tracking abilities, and proficiency in knife and blaster combat.",
+      "continuity": "Star Wars films and series (Star Wars: The Bad Batch, Star Wars: The Clone Wars, Star Wars comics)",
+      "summary": "Hunter is a genetically enhanced clone sergeant with heightened sensory perception, exceptional tracking skills, and proficiency in knife and blaster combat.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
-          "Vibro-blade close quarters combat",
+          "Vibro-knife close quarters combat",
           "Blaster rifle marksmanship",
+          "Electromagnetic tracking",
+          "Vibro-blade close quarters combat",
           "Stealth assassination and tracking"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Customized clone armor",
+          "Stealth tactics",
+          "Heightened reflexes",
           "Advanced clone commando armor",
           "Tactical evasion",
           "Environmental camouflage"
         ]
       },
       "weaknesses": [
+        "Vulnerable to overwhelming firepower or chemical/sonic disruption",
+        "Protective instincts toward his squadmates",
         "Susceptible to standard lethal weaponry despite advanced armor"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Bad Batch (2021-2024 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Bad Batch - Captives (Marvel Comics tie-in)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars: The Bad Batch",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Acrobatic and tactical movement",
+        "Pilots specialized gunships",
         "Running",
         "Climbing",
         "Piloting squad transport"
       ],
       "limitations": [
+        "Enhanced senses can be overwhelmed by intense electromagnetic interference",
+        "Mortally human despite genetic enhancements",
         "Sensory overload risk in high-intensity electromagnetic environments"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Star_Wars:_The_Bad_Batch",
+          "supports": "Hunter's role as leader of Clone Force 99 and his enhanced sensory abilities."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Hunter",
-          "supports": "Genetic enhancements, tracking skills, and combat gear."
+          "supports": "Details on tracking capabilities, combat style, and weapons."
         }
       ],
       "feats": [
         {
           "claim": "Tracked targets across hostile worlds using enhanced electromagnetic and sensory perception.",
-          "citation": "Star Wars: The Bad Batch",
+          "citation": "Star Wars: The Bad Batch, Season 1, Episode 1 'Aftermath'",
+          "depiction": "Star Wars: The Bad Batch (2021-2024 series)",
           "source": 0
+        },
+        {
+          "claim": "Overpowered standard clone troopers in close-quarters knife combat.",
+          "citation": "Star Wars: The Bad Batch, Season 1, Episode 3 'Replacements'",
+          "depiction": "Star Wars: The Bad Batch (2021-2024 series)",
+          "source": 1
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Standard Imperial clone commandos",
+          "result": "win",
+          "citation": "Star Wars: The Bad Batch, Season 2, Episode 14 'Tipping Point'",
+          "note": "Defeated pursuers using stealth and tactical traps.",
+          "depiction": "Star Wars: The Bad Batch (2021-2024 series)",
+          "source": 1
+        },
         {
           "opponent": "Standard clone troopers",
           "result": "win",
           "citation": "Star Wars: The Bad Batch",
           "note": "Defeated squads of standard troopers using guerrilla tactics.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars: The Bad Batch"
         }
       ],
       "campaignTags": [
         {
           "tag": "stealth",
-          "claim": "Utilizes acute sensory mutations and stealth tactics to infiltrate enemy installations undetected.",
+          "claim": "Expert tracker and infiltrator utilizing silent movement and camouflage.",
           "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with specialized armor, vibro-knife, and DC-17 blaster carbine.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Performance against Force-wielding opponents in solo combat."
+        "Full genetic limits of Kaminoan experimental modifications.",
+        "Performance against Force-wielding opponents in solo combat.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Hunter is a genetically enhanced clone sergeant with heightened sensory perception, expert tracking abilities, and proficiency in knife and blaster combat."
     },
     {
       "id": "starwars:IG-11",
-      "continuity": "Star Wars Canon (The Mandalorian)",
-      "summary": "IG-11 is a lethal assassin droid programmed with rapid 360-degree firing arcs, extreme precision, and a self-destruct protocol. It fights with relentless calculation.",
+      "continuity": "Star Wars films and series (The Mandalorian, Star Wars comics)",
+      "summary": "IG-11 is a lethal assassin and nurse droid programmed with 360-degree firing arcs, extreme target precision, and a self-destruct protocol.",
       "offense": {
         "domains": [
-          "physical",
-          "tech"
+          "tech",
+          "physical"
         ],
         "techniques": [
+          "360-degree dual blaster firing",
+          "Thermal self-destruction",
+          "Mechanical hand-to-hand combat",
           "Dual blaster pistol firing",
           "360-degree rotating torso targeting",
-          "Thermal detonators",
-          "Thermal self-destruction"
+          "Thermal detonators"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
           "Durasteel chassis",
+          "Self-repair programming",
+          "Unflinching robotic calculation",
           "Built-in computational threat calculation"
         ]
       },
       "weaknesses": [
+        "Vulnerable to heavy energy weapons or disabling electromagnetic pulses",
+        "Rigid adherence to primary programming until altered",
         "Vulnerable to precise electromagnetic pulses or heavy ordnance targeting critical internal processors"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "The Mandalorian (2019-2023 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Mandalorian (Marvel Comics, 2022)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Mandalorian)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Mechanical running",
+        "Rigid mechanical agility",
         "Jumping"
       ],
       "limitations": [
+        "Destruction of processing core results in permanent death",
+        "Limited mobility compared to agile biological fighters",
         "Rigid adherence to programming parameters until modified"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/IG-11",
+          "supports": "IG-11's programming as an assassin/nurse droid and durability."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/IG-11",
-          "supports": "Assassin droid capabilities, weaponry, and self-destruct mechanism."
+          "supports": "Combat feats, blaster precision, and self-destruct sequence."
         }
       ],
       "feats": [
         {
           "claim": "Executed a thermal self-destruction sequence to eliminate a squad of stormtroopers.",
-          "citation": "The Mandalorian, Season 1, Chapter 8: 'Redemption'",
+          "citation": "The Mandalorian, Season 1, Chapter 8: Redemption",
+          "depiction": "The Mandalorian (2019-2023 series)",
           "source": 0
+        },
+        {
+          "claim": "Cleared an entire encampment of Klatooinian raiders using simultaneous dual-blaster targeting.",
+          "citation": "The Mandalorian, Season 1, Chapter 1: The Mandalorian",
+          "depiction": "The Mandalorian (2019-2023 series)",
+          "source": 1
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Klatooinian raiders",
+          "result": "win",
+          "citation": "The Mandalorian, Season 1, Chapter 1: The Mandalorian",
+          "note": "Soloed a fortified compound.",
+          "depiction": "The Mandalorian (2019-2023 series)",
+          "source": 0
+        },
         {
           "opponent": "Weequay pirates",
           "result": "win",
           "citation": "The Mandalorian, Season 1, Chapter 1: 'The Mandalorian'",
           "note": "Fought alongside Din Djarin to clear out a camp.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Mandalorian)"
         }
       ],
       "campaignTags": [
         {
           "tag": "robot-or-ai",
-          "claim": "Fully autonomous mechanical assassin droid.",
+          "claim": "Is an autonomous mechanical assassin droid.",
           "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with built-in thermal detonators and heavy repeating blasters.",
+          "source": 1
         }
       ],
       "unknowns": [
+        "Full extent of memories retained after complete memory wipes.",
         "Durability limits against continuous heavy starship-grade artillery.",
-        "Unsupported by cited source (term check, 2/7 key terms found): Cleaned out a fortified encampment of dozens of guards in a rapid firefight."
+        "Unsupported by cited source (term check, 2/7 key terms found): Cleaned out a fortified encampment of dozens of guards in a rapid firefight.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "IG-11 is a lethal assassin droid programmed with rapid 360-degree firing arcs, extreme precision, and a self-destruct protocol. It fights with relentless calculation."
     },
     {
       "id": "starwars:IG-88",
-      "continuity": "Star Wars Legends and Canon",
-      "summary": "IG-88 is an assassin droid equipped with heavy ordnance, encrypted communication links, and lethal combat processing algorithms.",
+      "continuity": "Star Wars films and series (Original Trilogy, The Mandalorian mentions, Star Wars Legends/Canon comics)",
+      "summary": "IG-88 is an elite assassin droid equipped with heavy ordnance, encrypted communication arrays, and ruthless combat processing algorithms.",
       "offense": {
         "domains": [
-          "physical",
-          "tech"
+          "tech",
+          "physical"
         ],
         "techniques": [
+          "Heavy pulse cannon fire",
+          "Poison gas deployment",
+          "Encrypted tactical hacking",
           "Heavy repeating blaster fire",
-          "Pulse cannons",
-          "Poison gas deployment"
+          "Pulse cannons"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
           "Heavy durasteel armor plating",
+          "Redundant processing systems",
           "Backup processor cores"
         ]
       },
       "weaknesses": [
+        "Susceptible to specialized EMP traps and ion weapons",
+        "Cold logic leaves little room for unpredictable emotional intuition",
         "Vulnerable to specialized slicing and ion weapon disablement"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Bounty Hunters (Marvel Comics, 2020)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Legends and Canon",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Mechanical stride",
+        "Starship piloting",
         "Starfighter piloting"
       ],
       "limitations": [
+        "Vulnerable to ion damage and total power disconnection",
+        "Heavy build restricts stealth movement",
         "Dependent on ammunition and power cells"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/IG-88",
+          "supports": "IG-88's status as a top bounty hunter droid in the Empire Strikes Back lineup."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/IG-88",
-          "supports": "Assassin droid armament, armor, and bounty hunting record."
+          "supports": "Weapons loadout, heavy ordnance, and assassin specifications."
         }
       ],
       "feats": [
         {
+          "claim": "Tracked targets across multiple star systems as part of the galaxy's elite bounty hunters summoned by Darth Vader.",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "depiction": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "source": 0
+        },
+        {
+          "claim": "Engaged rival bounty hunters in crossfire on multiple planetary assignments.",
+          "citation": "Star Wars: Bounty Hunters #1 (Marvel Comics, 2020)",
+          "depiction": "Star Wars: Bounty Hunters (Marvel Comics, 2020)",
+          "source": 1
+        },
+        {
           "claim": "Tracked targets across multiple star systems as part of the galaxy's elite bounty hunters.",
           "citation": "Star Wars: Episode V - The Empire Strikes Back",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Legends and Canon"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Rival bounty hunters",
+          "result": "inconclusive",
+          "citation": "Star Wars: Bounty Hunters (Marvel Comics, 2020)",
+          "note": "Fought to a standstill during a multi-faction bounty dispute.",
+          "depiction": "Star Wars: Bounty Hunters (Marvel Comics, 2020)",
+          "source": 1
+        },
         {
           "opponent": "Rebel security forces",
           "result": "win",
           "citation": "Star Wars Tales of the Bounty Hunters",
           "note": "Eliminated targets with heavy ordnance.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Legends and Canon"
         }
       ],
       "campaignTags": [
         {
           "tag": "robot-or-ai",
-          "claim": "Independent mechanical droid intelligence.",
+          "claim": "Autonomous assassin droid with advanced neural network processing.",
           "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Carries pulse rifles, concussion grenades, and flamethrowers.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact canonical status of expanded universe consciousness-transfer feats."
+        "Exact canonical status of his expanded Legends consciousness transference into the second Death Star.",
+        "Exact canonical status of expanded universe consciousness-transfer feats.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "IG-88 is an assassin droid equipped with heavy ordnance, encrypted communication links, and lethal combat processing algorithms."
     },
     {
       "id": "starwars:Jabba the Hutt",
-      "continuity": "Star Wars Original Trilogy and Canon",
-      "summary": "Jabba the Hutt is a powerful crime lord who relies entirely on his criminal empire, guards, mercenaries, and execution methods rather than personal physical combat.",
+      "continuity": "Star Wars films and series (Original Trilogy, The Clone Wars, Star Wars comics)",
+      "summary": "Jabba the Hutt is a supreme crime lord of Tatooine who relies entirely on his vast criminal syndicate, mercenaries, guards, and execution methods rather than personal physical combat.",
       "offense": {
         "domains": [
+          "control",
+          "tech",
           "physical"
         ],
         "techniques": [
+          "Syndicate execution orders",
+          "Feeding enemies to beasts (Rancor)",
+          "Bounty contracts",
           "Ordering executions via rancor or trapdoor",
           "Financial coercion"
         ],
-        "range": "melee"
+        "range": "strategic"
       },
       "defense": {
         "mechanisms": [
+          "Armies of mercenaries",
+          "Gamorrean guards",
+          "Bounty hunter protection",
           "Armored palace guards",
           "Bounty hunter bodyguards"
         ]
       },
       "weaknesses": [
+        "Immobile and physically vulnerable without guards",
+        "Prone to hubris and underestimating resilient foes",
         "Immobile slug-like physiology makes him entirely defenseless in direct physical combat"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008 film and series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics, 2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Original Trilogy and Canon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Slithering on palace floors (very slow)",
+        "Transported via repulsorlift barge",
         "Slithering/crawling slowly",
         "Sedan transport"
       ],
       "limitations": [
+        "Completely immobile on foot due to immense slug-like body mass",
+        "Zero personal hand-to-hand combat ability",
         "Cannot walk or move quickly on his own"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jabba_the_Hutt",
+          "supports": "Jabba the Hutt's role as crime lord and syndicate boss on Tatooine."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Jabba_the_Hutt",
+          "supports": "Details on his palace guards, pet rancor, and execution methods."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Jabba_Desilijic_Tiure",
           "supports": "Crime lord status, palace security, and physical vulnerability."
@@ -542,30 +1027,47 @@
       "feats": [
         {
           "claim": "Fed disobedient underlings and enemies to his pet rancor.",
-          "citation": "Star Wars: Episode VI - Return of the Jedi",
+          "citation": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "depiction": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
           "source": 0
+        },
+        {
+          "claim": "Ordered the execution of Luke Skywalker, Han Solo, and Chewbacca via the Sarlacc pit.",
+          "citation": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "depiction": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "source": 1
         }
       ],
       "notableResults": [
         {
           "opponent": "Princess Leia Organa",
           "result": "loss",
+          "citation": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "note": "Strangled to death by Leia using her chains while on his sail barge.",
+          "depiction": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Princess Leia Organa",
+          "result": "loss",
           "citation": "Star Wars: Episode VI - Return of the Jedi",
           "note": "Strangled to death by Leia using his own chains while incapacitated on his barge.",
-          "source": 0
+          "source": 2,
+          "depiction": "Star Wars Original Trilogy and Canon"
         }
       ],
       "unknowns": [
-        "Resistance to specific poisons or toxins."
+        "Exact age and lifespan limits of the Hutt species.",
+        "Resistance to specific poisons or toxins.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Jabba the Hutt is a powerful crime lord who relies entirely on his criminal empire, guards, mercenaries, and execution methods rather than personal physical combat."
     },
     {
       "id": "starwars:Jango Fett",
-      "continuity": "Star Wars Canon (Attack of the Clones)",
-      "summary": "Jango Fett is a premier Mandalorian bounty hunter equipped with beskar armor, flamethrowers, wrist rockets, toxic darts, and a jetpack. He fights with lethal precision at all ranges.",
+      "continuity": "Star Wars films and series (Attack of the Clones, Star Wars: Bounty Hunter game, Star Wars comics)",
+      "summary": "Jango Fett is a premier Mandalorian bounty hunter equipped with beskar armor, flamethrowers, wrist rockets, toxic darts, and a jetpack, fighting with lethal precision at all ranges.",
       "offense": {
         "domains": [
           "physical",
@@ -573,6 +1075,10 @@
           "fire"
         ],
         "techniques": [
+          "WESTAR-34 blaster pistol dual-wielding",
+          "Flamethrower barrage",
+          "Wrist rocket deployment",
+          "Poison dart assassination",
           "Dual WESTAR-34 blaster pistols",
           "Jetpack missile launch",
           "Wrist-mounted flamethrower",
@@ -582,54 +1088,96 @@
       },
       "defense": {
         "mechanisms": [
+          "Beskar alloy armor plating",
+          "Energy shielding",
+          "Jetpack aerial evasion",
           "Full Beskar alloy armor suit",
-          "Energy shields",
-          "Jetpack aerial evasion"
+          "Energy shields"
         ]
       },
       "weaknesses": [
+        "Vulnerable to critical jetpack malfunctions or precise strikes to unarmored joints",
+        "Limited defense against overwhelming Jedi force powers",
         "Vulnerable at the neck seam and joint areas if exposed to precise strikes"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Jango Fett - Open Seasons (Dark Horse Comics, 2002)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Attack of the Clones)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Jetpack flight",
+        "Acrobatic dodging and running",
         "Running",
         "Acrobatic dodging"
       ],
       "limitations": [
+        "Jetpack is susceptible to explosive damage or tether entanglement",
+        "Human endurance limits",
         "Jetpack malfunction renders him vulnerable to grounded traps"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Jango_Fett",
+          "supports": "Jango Fett's role as template for clone army and combat gear."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Jango_Fett",
-          "supports": "Mandalorian armor, weapons, jetpack, and combat capabilities."
+          "supports": "Detailed duels with Obi-Wan Kenobi and weapons loadout."
         }
       ],
       "feats": [
         {
           "claim": "Assassinated Zam Wesell with a poisoned dart across a city distance.",
-          "citation": "Star Wars: Episode II - Attack of the Clones",
+          "citation": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "depiction": "Star Wars: Episode II - Attack of the Clones (2002 film)",
           "source": 0
         },
         {
           "claim": "Fought Obi-Wan Kenobi to a standstill on Kamino using ranged gadgets and physical strikes.",
-          "citation": "Star Wars: Episode II - Attack of the Clones",
-          "source": 0
+          "citation": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "depiction": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "source": 1
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Mace Windu",
+          "result": "loss",
+          "citation": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "note": "Killed in the Geonosis arena after his jetpack malfunctioned due to a reek attack.",
+          "depiction": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "source": 0
+        },
         {
           "opponent": "Obi-Wan Kenobi",
           "result": "win",
           "citation": "Star Wars: Episode II - Attack of the Clones",
           "note": "Successfully escaped Kamino after an intense duel.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Attack of the Clones)"
         },
         {
           "opponent": "Mace Windu",
           "result": "loss",
           "citation": "Star Wars: Episode II - Attack of the Clones",
           "note": "Jetpack malfunctioned during the Geonosis arena battle, leading to his decapitation by Windu's lightsaber.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Attack of the Clones)"
         }
       ],
       "campaignTags": [
@@ -639,28 +1187,43 @@
           "source": 0
         },
         {
+          "tag": "powered-armor",
+          "claim": "Wears durable Mandalorian beskar armor.",
+          "source": 1
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with flamethrowers, wrist lasers, grappling hooks, and toxic darts.",
+          "source": 1
+        },
+        {
           "tag": "fire-weapon",
           "claim": "Utilizes a wrist-mounted flamethrower in close combat.",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
+        "Full extent of his combat victories during the Mandalorian Civil Wars before Open Seasons.",
         "Performance in prolonged unarmed combat without armor.",
-        "Unsupported by cited source (term check, 1/7 key terms found): gadgets: Employs grappling hooks, wrist rockets, and toxic darts."
+        "Unsupported by cited source (term check, 1/7 key terms found): gadgets: Employs grappling hooks, wrist rockets, and toxic darts.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Jango Fett is a premier Mandalorian bounty hunter equipped with beskar armor, flamethrowers, wrist rockets, toxic darts, and a jetpack. He fights with lethal precision at all ranges."
     },
     {
       "id": "starwars:Jar Jar Binks",
-      "continuity": "Star Wars Canon (The Phantom Menace, The Clone Wars)",
-      "summary": "Jar Jar Binks relies on bizarre slapstick acrobatics, clumsy reflex evasion, and occasional accidental strikes. He is surprisingly resilient despite his chaotic style.",
+      "continuity": "Star Wars films and series (Prequel Trilogy, The Clone Wars, Star Wars comics)",
+      "summary": "Jar Jar Binks relies on bizarre slapstick acrobatics, clumsy reflex evasion, and accidental combat strikes, exhibiting surprising resilience despite his chaotic style.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "tech"
         ],
         "techniques": [
+          "Frantic tumbling strikes",
+          "Accidental energy binder activation",
+          "Electro-pole swinging",
           "Accidental tumbling strikes",
           "Electro-pole combat",
           "Booma energy ball throwing"
@@ -669,61 +1232,123 @@
       },
       "defense": {
         "mechanisms": [
+          "Unpredictable stumbling evasion",
+          "Gungan aquatic agility",
+          "Sturdy alien physique",
           "Inadvertent dodging",
           "Gungan aquatic flexibility"
         ]
       },
       "weaknesses": [
+        "Complete lack of tactical discipline or formal martial training",
+        "Cowardly disposition under genuine peril",
         "Extreme clumsiness and lack of formal tactical discipline"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode I - The Phantom Menace (1999 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics, 2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Phantom Menace, The Clone Wars)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "High-leaping acrobatic bounds",
+        "Fast swimming",
         "High leaping",
         "Swimming",
         "Running"
       ],
       "limitations": [
+        "Inability to control his luck or replicate slapstick maneuvers intentionally",
+        "Easily panicked",
         "Completely lacks intentional martial skill or composure"
       ],
       "sources": [
         {
+          "url": "https://en.wikipedia.org/wiki/Jar_Jar_Binks",
+          "supports": "Jar Jar Binks' role in the Gungan army and prequel films."
+        },
+        {
           "url": "https://starwars.fandom.com/wiki/Jar_Jar_Binks",
-          "supports": "Gungan biology, clumsy combat style, and participation in battles."
+          "supports": "Battle of Naboo antics and combat encounters in The Clone Wars."
         }
       ],
       "feats": [
         {
           "claim": "Defeated battle droids in the Battle of Naboo through accidental entanglement and frantic tumbling.",
-          "citation": "Star Wars: Episode I - The Phantom Menace",
+          "citation": "Star Wars: Episode I - The Phantom Menace (1999 film)",
+          "depiction": "Star Wars: Episode I - The Phantom Menace (1999 film)",
           "source": 0
+        },
+        {
+          "claim": "Swam through planetary core channels to reach Otoh Gunga.",
+          "citation": "Star Wars: Episode I - The Phantom Menace (1999 film)",
+          "depiction": "Star Wars: Episode I - The Phantom Menace (1999 film)",
+          "source": 1
         }
       ],
       "notableResults": [
         {
           "opponent": "Battle droids",
           "result": "win",
+          "citation": "Star Wars: Episode I - The Phantom Menace (1999 film)",
+          "note": "Achieved victory entirely through frantic, accidental slapstick maneuvers.",
+          "depiction": "Star Wars: Episode I - The Phantom Menace (1999 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Battle droids",
+          "result": "win",
           "citation": "Star Wars: Episode I - The Phantom Menace",
           "note": "Survived and disrupted droid formations through chaotic slapstick accidents.",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Phantom Menace, The Clone Wars)"
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Gungan species capable of prolonged underwater breathing and swimming.",
+          "tag": "swimmer",
+          "claim": "Natural Gungan amphibious physiology allows rapid underwater swimming and breath-holding.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Natural lung adaptation for breathing underwater.",
-          "source": 0
+          "claim": "Can breathe underwater indefinitely.",
+          "source": 1
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Gungan species capable of prolonged underwater breathing and swimming.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "True extent of potential latent Force sensitivity explored in fan theories."
+        "Exact fate after the rise of the Galactic Empire beyond brief mentions in canon reference books.",
+        "True extent of potential latent Force sensitivity explored in fan theories.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Jar Jar Binks relies on bizarre slapstick acrobatics, clumsy reflex evasion, and occasional accidental strikes. He is surprisingly resilient despite his chaotic style."
     }
   ]
 }
