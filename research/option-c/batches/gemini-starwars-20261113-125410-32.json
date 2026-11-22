@@ -7,8 +7,8 @@
   "characters": [
     {
       "id": "starwars:Baze Malbus",
-      "continuity": "Star Wars Canon (Rogue One)",
-      "summary": "Baze Malbus is a heavy-weapons specialist and former Guardian of the Whills who relies on massive repeating cannons, explosive ordnance, and stubborn tactical defense.",
+      "continuity": "Star Wars Canon (Rogue One, Star Wars Rebels, Star Wars comics)",
+      "summary": "Baze Malbus is a heavy-weapons specialist and former Guardian of the Whills who engages enemies with massive repeating cannons, heavy artillery, and resolute defensive stances.",
       "offense": {
         "domains": [
           "physical",
@@ -16,6 +16,7 @@
         ],
         "techniques": [
           "Heavy repeating cannon fire",
+          "Explosive ordnance deployment",
           "Grenade throwing",
           "Close-quarters tactical combat"
         ],
@@ -23,22 +24,42 @@
       },
       "defense": {
         "mechanisms": [
+          "Durable tactical vest",
+          "Cover-based positioning",
           "Heavy tactical armor",
-          "Durable physical resilience",
-          "Cover-based positioning"
+          "Durable physical resilience"
         ]
       },
       "weaknesses": [
+        "Lacks agile mobility",
+        "Vulnerable when separated from heavy weaponry",
         "Lacks supernatural or mystical defenses",
         "Slow mobility due to heavy weaponry"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Rogue One: A Star Wars Story (2016 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Canon (Rogue One)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Walking",
         "Foot movement"
       ],
       "limitations": [
+        "Heavy weaponry limits movement speed and agility.",
         "Heavy weaponry reduces movement speed"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Rogue_One",
+          "supports": "Baze Malbus's role as a heavy-weapons specialist and combat feats during Rogue One."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Baze_Malbus",
           "supports": "Abilities, weapons, and feats from Rogue One"
@@ -46,43 +67,62 @@
       ],
       "feats": [
         {
-          "claim": "Destroyed multiple Imperial stormtroopers and an AT-ST walker using his heavy repeating cannon during the Battle of Scarif",
-          "citation": "Rogue One: A Star Wars Story",
+          "claim": "Destroyed multiple Imperial stormtroopers and an AT-ST walker using his heavy repeating cannon during the Battle of Scarif.",
+          "citation": "Rogue One: A Star Wars Story (2016 film)",
+          "depiction": "Rogue One: A Star Wars Story (2016 film)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Imperial stormtroopers",
+          "result": "win",
+          "citation": "Rogue One: A Star Wars Story (2016 film)",
+          "note": "Fought alongside Alliance forces on Scarif.",
+          "depiction": "Rogue One: A Star Wars Story (2016 film)",
+          "source": 0
+        },
+        {
           "opponent": "Galactic Empire stormtroopers",
           "result": "win",
           "citation": "Rogue One: A Star Wars Story",
           "note": "Engaged in prolonged firefights during the Rebel assault on Scarif",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Rogue One)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "gadgets",
+          "claim": "Uses specialized heavy repeating cannons and explosive devices in combat.",
+          "source": 0
+        },
+        {
           "tag": "tech",
           "claim": "Uses advanced heavy repeating cannons and military equipment",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact combat history before joining the Guardians of the Whills"
+        "Exact extent of combat training outside of the Guardians of the Whills remains sparsely detailed.",
+        "Exact combat history before joining the Guardians of the Whills",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Baze Malbus is a heavy-weapons specialist and former Guardian of the Whills who relies on massive repeating cannons, explosive ordnance, and stubborn tactical defense."
     },
     {
       "id": "starwars:BB-8",
-      "continuity": "Star Wars Canon (Sequel Trilogy)",
-      "summary": "BB-8 is an agile astromech droid capable of quick maneuvers, slicing into computer terminals, and utilizing built-in tools to assist allies.",
+      "continuity": "Star Wars Canon (Sequel Trilogy films, animated shorts, and comics)",
+      "summary": "BB-8 is an agile spherical astromech droid that utilizes high-speed rolling mobility, integrated tools, and computer slicing interfaces to aid resistance fighters.",
       "offense": {
         "domains": [
-          "tech"
+          "tech",
+          "physical"
         ],
         "techniques": [
+          "Welding torch attack",
+          "Improvised vehicle piloting",
           "Arc welder shock",
           "Cable projection",
           "Piloting assistance"
@@ -91,22 +131,51 @@
       },
       "defense": {
         "mechanisms": [
+          "Spherical rolling evasion",
+          "Durable metallic outer shell",
           "Spherical rolling mobility",
           "Compact and hard-to-hit profile",
           "Improvised cover usage"
         ]
       },
       "weaknesses": [
+        "Small size limits direct physical combat effectiveness",
+        "Dependent on external mechanical systems for heavy tasks",
         "Vulnerable to EMP and ion weaponry",
         "Limited physical combat capability against large opponents"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Force Awakens (2015 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Last Jedi (2017 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Rise of Skywalker (2019 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (Sequel Trilogy)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Rolling locomotion",
         "Spherical rolling locomotion"
       ],
       "limitations": [
+        "Cannot engage in direct humanoid combat without specialized equipment or vehicles.",
         "Dependent on mechanical tools and slicing interfaces"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Star_Wars_Sequel_Trilogy",
+          "supports": "BB-8's capabilities and role across the sequel trilogy."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/BB-8",
           "supports": "Abilities, tools, and technical specifications"
@@ -114,48 +183,59 @@
       ],
       "feats": [
         {
-          "claim": "Piloted an AT-ST walker temporarily with Finn during the battle on Crait",
-          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "claim": "Piloted an AT-ST walker temporarily with Finn during the battle on Crait.",
+          "citation": "Star Wars: The Last Jedi (2017 film)",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "First Order stormtroopers",
+          "result": "win",
+          "citation": "Star Wars: The Last Jedi (2017 film)",
+          "note": "Operated an AT-ST to clear enemy forces.",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
+          "source": 0
+        },
+        {
           "opponent": "First Order Stormtroopers",
           "result": "win",
           "citation": "Star Wars: Episode VIII - The Last Jedi",
           "note": "Operated an AT-ST walker to clear out enemy troops",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Sequel Trilogy)"
         }
       ],
       "campaignTags": [
         {
           "tag": "robot-or-ai",
-          "claim": "Autonomous astromech droid",
+          "claim": "BB-8 is a fully autonomous astromech droid.",
+          "source": 0
+        },
+        {
+          "tag": "pilot",
+          "claim": "Temporarily piloted an AT-ST walker during the battle on Crait.",
           "source": 0
         },
         {
           "tag": "gadgets",
           "claim": "Equipped with integrated arc welder, tools, and slicing cables",
-          "source": 0
-        },
-        {
-          "tag": "pilot",
-          "claim": "Operates starship controls and assists starfighter pilots",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Full extent of modifications made by Poe Dameron"
+        "Full processing capacity compared to standard cylindrical astromechs.",
+        "Full extent of modifications made by Poe Dameron",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "BB-8 is an agile astromech droid capable of quick maneuvers, slicing into computer terminals, and utilizing built-in tools to assist allies."
     },
     {
       "id": "starwars:Bo-Katan Kryze",
-      "continuity": "Star Wars Canon (The Mandalorian / The Clone Wars)",
-      "summary": "Bo-Katan Kryze is a veteran Mandalorian warrior and leader who combines advanced powered armor, a jetpack, and a diverse arsenal of ranged and melee weapons.",
+      "continuity": "Star Wars Canon (The Clone Wars, Star Wars Rebels, The Mandalorian)",
+      "summary": "Bo-Katan Kryze is a veteran Mandalorian warrior and leader who combines advanced beskar armor, jetpack flight, and a diverse arsenal of ranged and melee weaponry.",
       "offense": {
         "domains": [
           "physical",
@@ -163,6 +243,9 @@
           "tech"
         ],
         "techniques": [
+          "Jetpack aerial maneuvers",
+          "Blaster pistol fusillades",
+          "Darksaber combat",
           "Blaster pistol fire",
           "Wrist-mounted flamethrower and rocket",
           "Jetpack-assisted aerial combat"
@@ -177,16 +260,44 @@
         ]
       },
       "weaknesses": [
+        "Jetpack is vulnerable to targeted damage",
+        "Prone to political and factional friction",
         "Vulnerable when jetpack or armor systems are compromised"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Rebels (2014-2018 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Mandalorian (2019-present live-action series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (The Mandalorian / The Clone Wars)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Powered-flight",
+        "Running",
         "Powered flight via jetpack",
         "Foot movement"
       ],
       "limitations": [
+        "Relies on mechanical fuel for sustained jetpack flight.",
         "Jetpack fuel is limited during prolonged engagements"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bo-Katan_Kryze",
+          "supports": "Bo-Katan Kryze's history, equipment, and appearances in animation and live-action."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Bo-Katan_Kryze",
           "supports": "Combat skills, Mandalorian armor, and weapon loadout"
@@ -194,52 +305,68 @@
       ],
       "feats": [
         {
-          "claim": "Fought multiple Imperial loyalists and creatures using her jetpack and beskar armor",
-          "citation": "The Mandalorian",
+          "claim": "Fought multiple Imperial loyalists and creatures using her jetpack and beskar armor.",
+          "citation": "The Mandalorian (live-action series)",
+          "depiction": "The Mandalorian (2019-present live-action series)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Imperial loyalists",
+          "result": "win",
+          "citation": "The Mandalorian (live-action series)",
+          "note": "Fought alongside allied Mandalorians.",
+          "depiction": "The Mandalorian (2019-present live-action series)",
+          "source": 0
+        },
+        {
           "opponent": "Death Watch and Imperial forces",
           "result": "win",
           "citation": "The Clone Wars / The Mandalorian",
           "note": "Led tactical strikes and guerrilla operations",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Mandalorian / The Clone Wars)"
         }
       ],
       "campaignTags": [
         {
-          "tag": "powered-armor",
-          "claim": "Wears custom Mandalorian beskar armor",
+          "tag": "powered-flight",
+          "claim": "Utilizes a Mandalorian jetpack for rapid aerial mobility.",
           "source": 0
         },
         {
-          "tag": "powered-flight",
-          "claim": "Equipped with a combat jetpack",
+          "tag": "gadgets",
+          "claim": "Equipped with wrist-mounted weapons and advanced Mandalorian armor.",
           "source": 0
+        },
+        {
+          "tag": "powered-armor",
+          "claim": "Wears custom Mandalorian beskar armor",
+          "source": 1
         },
         {
           "tag": "fire-weapon",
           "claim": "Uses wrist-mounted flamethrower",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Expert pilot of starfighters and gauntlets",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact longevity granted by Mandalorian training"
+        "Exact proficiency with the Darksaber across all shifting political eras.",
+        "Exact longevity granted by Mandalorian training",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Bo-Katan Kryze is a veteran Mandalorian warrior and leader who combines advanced powered armor, a jetpack, and a diverse arsenal of ranged and melee weapons."
     },
     {
       "id": "starwars:Boba Fett",
-      "continuity": "Star Wars Canon (Original Trilogy / The Mandalorian / The Book of Boba Fett)",
+      "continuity": "Star Wars Canon (Original Trilogy, The Mandalorian, The Book of Boba Fett)",
       "summary": "Boba Fett is a legendary bounty hunter who utilizes customized Mandalorian armor, a versatile jetpack, flamethrowers, wrist lasers, and precise marksmanship.",
       "offense": {
         "domains": [
@@ -249,6 +376,8 @@
         ],
         "techniques": [
           "EE-3 carbine rifle fire",
+          "Flamethrower sweep",
+          "Wrist-rocket barrage",
           "Rocket launcher",
           "Wrist flamethrower",
           "CQC combat"
@@ -257,23 +386,53 @@
       },
       "defense": {
         "mechanisms": [
+          "Beskar-alloy Mandalorian armor",
+          "Energy shielding",
           "Beskar armor",
           "Helmet sensory suite",
           "Evasive jetpack maneuvers"
         ]
       },
       "weaknesses": [
+        "Jetpack susceptibility to blind-spot impacts",
+        "Past physical trauma from the Sarlacc pit",
         "Blind spots in jetpack controls can be exploited",
         "Physical vulnerability if armor gaps are targeted"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode VI - Return of the Jedi (1983 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Book of Boba Fett (2021-2022 live-action series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (Original Trilogy / The Mandalorian / The Book of Boba Fett)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Powered-flight",
+        "Running",
         "Powered flight via jetpack",
         "Foot movement"
       ],
       "limitations": [
+        "Armor weight limits extreme acrobatic flexibility.",
         "Jetpack relies on fuel and mechanical integrity"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Boba_Fett",
+          "supports": "Boba Fett's history, equipment, and appearances across films and series."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Boba_Fett",
           "supports": "Weapons, armor capabilities, and tactical history"
@@ -281,56 +440,84 @@
       ],
       "feats": [
         {
+          "claim": "Tracked down and captured high-value targets across the galaxy including Han Solo.",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "depiction": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "source": 0
+        },
+        {
           "claim": "Tracked down and captured high-value targets across the galaxy",
           "citation": "The Empire Strikes Back",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Original Trilogy / The Mandalorian / The Book of Boba Fett)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Han Solo",
           "result": "win",
+          "citation": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "note": "Successfully captured and carbon-frozen.",
+          "depiction": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Han Solo",
+          "result": "win",
           "citation": "The Empire Strikes Back",
           "note": "Captured Solo with help from the Empire",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Original Trilogy / The Mandalorian / The Book of Boba Fett)"
         }
       ],
       "campaignTags": [
         {
-          "tag": "powered-armor",
-          "claim": "Wears durable Mandalorian armor",
+          "tag": "powered-flight",
+          "claim": "Equipped with a Z-6 jetpack for aerial mobility.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes wrist gauntlets equipped with flamethrowers and rockets.",
           "source": 0
         },
         {
           "tag": "fire-weapon",
-          "claim": "Equipped with wrist flamethrower",
+          "claim": "Deploys an integrated wrist flamethrower in combat.",
           "source": 0
+        },
+        {
+          "tag": "powered-armor",
+          "claim": "Wears durable Mandalorian armor",
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Expert pilot of the Slave I",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
+        "Exact status of armor heritage prior to modification.",
         "Full extent of modifications to his armor over the decades",
-        "Unsupported by cited source (term check, 1/3 key terms found): powered-flight: Uses a jetpack for aerial mobility"
+        "Unsupported by cited source (term check, 1/3 key terms found): powered-flight: Uses a jetpack for aerial mobility",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "starwars:Bossk",
-      "continuity": "Star Wars Canon (The Clone Wars / Original Trilogy Era)",
+      "continuity": "Star Wars Canon (The Clone Wars, Original Trilogy era, Star Wars comics)",
       "summary": "Bossk is a Trandoshan bounty hunter possessing natural reptilian regeneration, sharp claws, and heavy ordnance including a concussive rifle.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "tech"
         ],
         "techniques": [
           "Relby-v10 micro-grenade launcher fire",
+          "CQC claw slashing",
           "Claw slashes",
           "Thermal detonators"
         ],
@@ -338,21 +525,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Reptilian natural armor",
+          "Cellular self-regeneration",
           "Natural Trandoshan healing factor",
           "Thick reptilian hide"
         ]
       },
       "weaknesses": [
+        "Temperamental and prone to overconfidence",
+        "Vulnerable to extreme cold environments",
         "Prone to aggressive overconfidence",
         "Susceptible to extreme cold and specialized toxins"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics, 2015 series)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars / Original Trilogy Era)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running",
         "Foot movement"
       ],
       "limitations": [
+        "Lacks advanced technological shielding or armor.",
         "Relies on heavy physical strength and brutal tactics over finesse"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bossk",
+          "supports": "Bossk's background as a Trandoshan bounty hunter and combat style."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Bossk",
           "supports": "Trandoshan physiology, weaponry, and bounty hunting history"
@@ -360,8 +576,9 @@
       ],
       "feats": [
         {
-          "claim": "Hunted Jedi younglings and other targets across hostile planets",
-          "citation": "Star Wars: The Clone Wars",
+          "claim": "Hunted Jedi younglings and other targets across hostile planets.",
+          "citation": "Star Wars: The Clone Wars (animated series)",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 animated series)",
           "source": 0
         }
       ],
@@ -369,39 +586,50 @@
         {
           "opponent": "Republic clone cadets",
           "result": "inconclusive",
+          "citation": "Star Wars: The Clone Wars (animated series)",
+          "note": "Hunt on Wasskah.",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "source": 0
+        },
+        {
+          "opponent": "Republic clone cadets",
+          "result": "inconclusive",
           "citation": "Star Wars: The Clone Wars",
           "note": "Engaged in protracted tracking on Wasskah",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars / Original Trilogy Era)"
         }
       ],
       "campaignTags": [
         {
           "tag": "healing",
-          "claim": "Possesses rapid Trandoshan biological regeneration",
+          "claim": "Trandoshan biology grants rapid cellular regeneration from injuries.",
           "source": 0
         },
         {
           "tag": "self-regeneration",
-          "claim": "Heals from severe physical trauma naturally",
+          "claim": "Possesses innate biological self-healing capabilities.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact upper limits of his regenerative healing rate"
+        "Full physiological limits of Trandoshan regeneration under heavy plasma fire.",
+        "Exact upper limits of his regenerative healing rate",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "starwars:C-3PO",
-      "continuity": "Star Wars Canon (Main Saga)",
+      "continuity": "Star Wars Canon (Main Saga films, animated series, and comics)",
       "summary": "C-3PO is a protocol droid fluent in millions of forms of communication, typically serving non-combat roles while occasionally operating machinery or translating complex systems.",
       "offense": {
         "domains": [
           "tech"
         ],
         "techniques": [
+          "Linguistic translation",
+          "System interface operation",
           "Verbal negotiation",
           "System translation"
         ],
@@ -409,22 +637,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Metallic chassis",
           "Metal chassis",
           "Stealth evasion (when functional)"
         ]
       },
       "weaknesses": [
+        "Zero combat capabilities",
+        "Prone to panic and anxiety",
         "Deals no direct combat damage",
         "Prone to panic and dismemberment",
         "Lacks combat programming"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Episode IX - The Rise of Skywalker (2019 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars (Marvel Comics, 2015 series)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Main Saga)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Walking",
         "Bipedal walking"
       ],
       "limitations": [
+        "Completely lacking in offensive combat programming.",
         "Completely unequipped for direct physical combat"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/C-3PO",
+          "supports": "C-3PO's linguistic abilities and role in the Star Wars saga."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/C-3PO",
           "supports": "Protocol droid specifications and lack of combat capability"
@@ -432,44 +688,64 @@
       ],
       "feats": [
         {
+          "claim": "Translated ancient Sith language using his programmed memory banks despite safety restrictions.",
+          "citation": "Star Wars: Episode IX - The Rise of Skywalker (2019 film)",
+          "depiction": "Star Wars: Episode IX - The Rise of Skywalker (2019 film)",
+          "source": 0
+        },
+        {
           "claim": "Translated ancient Sith language using his programmed memory banks",
           "citation": "Star Wars: Episode IX - The Rise of Skywalker",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Main Saga)"
         }
       ],
       "notableResults": [
         {
           "opponent": "Battle Droids",
           "result": "loss",
+          "citation": "Star Wars: Episode II - Attack of the Clones (2002 film)",
+          "note": "Head swapped with a battle droid on Geonosis.",
+          "depiction": "Star Wars: Episode IV - A New Hope (1977 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Battle Droids",
+          "result": "loss",
           "citation": "Star Wars: Episode II - Attack of the Clones",
           "note": "Head swapped onto a battle droid body accidentally",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Main Saga)"
         }
       ],
       "campaignTags": [
         {
           "tag": "robot-or-ai",
-          "claim": "Protocol droid artificial intelligence",
+          "claim": "C-3PO is a programmed protocol droid.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Full capability of mind-wipe memory restoration"
+        "Full extent of memory wipes affecting past linguistic data.",
+        "Full capability of mind-wipe memory restoration",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "starwars:Cad Bane",
-      "continuity": "Star Wars Canon (The Clone Wars / The Bad Batch)",
+      "continuity": "Star Wars Canon (The Clone Wars, The Bad Batch, The Book of Boba Fett)",
       "summary": "Cad Bane is a cold, calculated Duros bounty hunter armed with dual blaster pistols, rocket boots, flamethrowers, and specialized anti-Jedi tactics.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "tech"
         ],
         "techniques": [
+          "Dual LL-30 blaster pistol draw",
+          "Rocket boots aerial strike",
+          "Stun glove application",
           "Dual LL-30 blaster pistol rapid fire",
           "Wrist gauntlet stun blasts",
           "Breathing apparatus manipulation"
@@ -479,21 +755,50 @@
       "defense": {
         "mechanisms": [
           "Wide-brimmed hat deflection",
+          "Breathing tube resilience",
           "Rocket boots evasion",
           "Tactical trap setting"
         ]
       },
       "weaknesses": [
+        "Vulnerable to direct Force manipulation",
+        "Overreliance on specialized gadgets",
         "Vulnerable to Force attacks when caught off guard"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Book of Boba Fett (2021-2022 live-action series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars / The Bad Batch)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Powered-flight",
+        "Running",
         "Rocket boots",
         "Foot movement"
       ],
       "limitations": [
+        "Breathing apparatus is a critical external vulnerability.",
         "Dependent on specialized breathing tubes and technical gear"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Cad_Bane",
+          "supports": "Cad Bane's background, weaponry, and appearances across animated and live-action series."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Cad_Bane",
           "supports": "Bounty hunter weapons, gadgets, and feats against Jedi"
@@ -501,52 +806,62 @@
       ],
       "feats": [
         {
-          "claim": "Successfully infiltrated the Jedi Temple and stole a holocron",
-          "citation": "Star Wars: The Clone Wars",
+          "claim": "Successfully infiltrated the Jedi Temple and stole a holocron.",
+          "citation": "Star Wars: The Clone Wars (animated series)",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 animated series)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Jedi Knight Obi-Wan Kenobi",
+          "result": "inconclusive",
+          "citation": "Star Wars: The Clone Wars (animated series)",
+          "note": "Escaped custody using tactical cunning.",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "source": 0
+        },
+        {
           "opponent": "Obi-Wan Kenobi",
           "result": "inconclusive",
           "citation": "Star Wars: The Clone Wars",
           "note": "Fought evenly before escaping custody",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars / The Bad Batch)"
         }
       ],
       "campaignTags": [
         {
-          "tag": "gadgets",
-          "claim": "Uses rocket boots, wrist gauntlets, and breath control devices",
+          "tag": "powered-flight",
+          "claim": "Utilizes rocket boots for short-burst aerial mobility.",
           "source": 0
         },
         {
-          "tag": "powered-flight",
-          "claim": "Uses rocket boots for short aerial propulsion",
+          "tag": "gadgets",
+          "claim": "Equipped with specialized gauntlets, breath filters, and stun tech.",
           "source": 0
         },
         {
           "tag": "fire-weapon",
-          "claim": "Equipped with wrist flamethrower",
+          "claim": "Deploys integrated flamethrowers from wrist gauntlets.",
           "source": 0
         },
         {
           "tag": "pilot",
           "claim": "Expert pilot of the Justifier",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Exact lifespan and survival limits of Duros physiology"
+        "Exact biological adaptations of Duros breathing tubes.",
+        "Exact lifespan and survival limits of Duros physiology",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "starwars:Cal Kestis",
-      "continuity": "Star Wars Canon (Jedi: Fallen Order / Jedi: Survivor)",
+      "continuity": "Star Wars Canon (Jedi: Fallen Order, Jedi: Survivor, tie-in media)",
       "summary": "Cal Kestis is a Jedi survivor who combines lightsaber combat forms, Force powers such as push, pull, and slow, and agile acrobatic movement.",
       "offense": {
         "domains": [
@@ -555,8 +870,10 @@
           "magic"
         ],
         "techniques": [
-          "Lightsaber strikes",
+          "Lightsaber dual-wielding and double-bladed forms",
           "Force Push and Pull",
+          "Time-dilation slow",
+          "Lightsaber strikes",
           "Force Slow",
           "Dual-wielding and blaster stance"
         ],
@@ -570,18 +887,47 @@
         ]
       },
       "weaknesses": [
+        "Past emotional trauma causing temporary disconnection from the Force",
+        "Vulnerable to overwhelming numbers of ranged attackers",
         "Struggles against overwhelming dark side forces without focus",
         "Vulnerable when Force energy is depleted"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars Jedi: Fallen Order (2019 video game)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Jedi: Survivor (2023 video game)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Jedi: Battle Scars (2023 novel)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (Jedi: Fallen Order / Jedi: Survivor)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running",
+        "Wall-running",
+        "Acrobatic leaps",
         "Acrobatic wall-running",
         "Grapple hook",
         "Foot movement"
       ],
       "limitations": [
+        "Force energy requires brief replenishment after heavy usage.",
         "Force abilities require concentration and energy reserve"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Star_Wars_Jedi:_Fallen_Order",
+          "supports": "Cal Kestis's Jedi abilities, lightsaber combat, and Force powers."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Cal_Kestis",
           "supports": "Jedi training, lightsaber stances, and Force abilities"
@@ -589,52 +935,67 @@
       ],
       "feats": [
         {
-          "claim": "Defeated Second Sister Trilla Suduri in lightsaber combat",
-          "citation": "Star Wars Jedi: Fallen Order",
+          "claim": "Defeated Second Sister Trilla Suduri in lightsaber combat.",
+          "citation": "Star Wars Jedi: Fallen Order (2019 video game)",
+          "depiction": "Star Wars Jedi: Fallen Order (2019 video game)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Second Sister Trilla Suduri",
+          "result": "win",
+          "citation": "Star Wars Jedi: Fallen Order (2019 video game)",
+          "note": "Confronted on Zeffo and Fortress Inquisitorius.",
+          "depiction": "Star Wars Jedi: Fallen Order (2019 video game)",
+          "source": 0
+        },
+        {
           "opponent": "Trilla Suduri (Second Sister)",
           "result": "win",
           "citation": "Star Wars Jedi: Fallen Order",
           "note": "Defeated the Inquisitor in single combat",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Jedi: Fallen Order / Jedi: Survivor)"
         }
       ],
       "campaignTags": [
         {
-          "tag": "flight",
-          "claim": "Performs extended aerial jumps and grapple-assisted mobility",
-          "source": 0
-        },
-        {
-          "tag": "healing",
-          "claim": "Uses Stim canisters and Force healing techniques",
+          "tag": "teleport",
+          "claim": "Utilizes Force dash maneuvers for rapid repositioning.",
           "source": 0
         },
         {
           "tag": "telekinesis",
-          "claim": "Utilizes Force Push, Pull, and Lift",
+          "claim": "Manipulates objects and enemies using Force push and pull.",
           "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Uses Stim canisters and Force recovery to heal wounds.",
+          "source": 0
+        },
+        {
+          "tag": "flight",
+          "claim": "Performs extended aerial jumps and grapple-assisted mobility",
+          "source": 1
         },
         {
           "tag": "pilot",
           "claim": "Pilots the Stinger Mantis starship",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Full potential of his dark-side channeling state"
+        "Full potential of dark-side channeling observed during intense stress.",
+        "Full potential of his dark-side channeling state",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "starwars:Captain Phasma",
-      "continuity": "Star Wars Canon (Sequel Trilogy)",
+      "continuity": "Star Wars Canon (Sequel Trilogy films, Captain Phasma novel, and comics)",
       "summary": "Captain Phasma is a ruthless First Order commander clad in chromium-coated armor, wielding a blaster rifle and spear with brutal efficiency.",
       "offense": {
         "domains": [
@@ -643,29 +1004,58 @@
           "tech"
         ],
         "techniques": [
-          "F-11D blaster rifle fire",
+          "Blaster rifle suppressive fire",
           "Quarterstaff melee strikes",
+          "F-11D blaster rifle fire",
           "Tactical command"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Chromium-coated armor resistant to energy blasts",
           "Crater-resistant chromium armor",
           "Close-quarters melee blocking"
         ]
       },
       "weaknesses": [
+        "Arrogant tactical overconfidence",
+        "Vulnerable to structural vulnerabilities in armor joints",
         "Overconfident in authority",
         "Armor can be bypassed by targeted heavy explosives"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Force Awakens (2015 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Last Jedi (2017 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: Captain Phasma (2017 comic miniseries)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Canon (Sequel Trilogy)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running",
         "Foot movement"
       ],
       "limitations": [
+        "Armor is heavy and restricts high-speed agility.",
         "Relies primarily on standard military equipment and foot mobility"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Captain_Phasma",
+          "supports": "Captain Phasma's armor specifications, weaponry, and combat appearances."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/Phasma",
           "supports": "Chromium armor durability, weapons, and combat record"
@@ -673,8 +1063,9 @@
       ],
       "feats": [
         {
-          "claim": "Fought Finn in close-quarters combat using a quarterstaff on the crashing Supremacy",
-          "citation": "Star Wars: Episode VIII - The Last Jedi",
+          "claim": "Fought Finn in close-quarters combat using a quarterstaff on the crashing Supremacy.",
+          "citation": "Star Wars: The Last Jedi (2017 film)",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
           "source": 0
         }
       ],
@@ -682,35 +1073,47 @@
         {
           "opponent": "Finn",
           "result": "loss",
+          "citation": "Star Wars: The Last Jedi (2017 film)",
+          "note": "Defeated during the hangar deck clash.",
+          "depiction": "Star Wars: The Last Jedi (2017 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Finn",
+          "result": "loss",
           "citation": "Star Wars: Episode VIII - The Last Jedi",
           "note": "Defeated after her armor integrity was breached in a duel",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (Sequel Trilogy)"
         }
       ],
       "campaignTags": [
         {
           "tag": "powered-armor",
-          "claim": "Wears high-grade chromium-coated armor",
+          "claim": "Wears advanced chromium-coated armor providing exceptional protection.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Exact combat background before rising within the First Order"
+        "Complete backstory before joining the First Order ranks.",
+        "Exact combat background before rising within the First Order",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "starwars:Captain Rex",
-      "continuity": "Star Wars Canon (The Clone Wars / Rebels)",
+      "continuity": "Star Wars Canon (The Clone Wars, Star Wars Rebels, The Bad Batch)",
       "summary": "Captain Rex is an elite clone trooper commander who excels in tactical marksmanship, dual blaster pistol combat, and military leadership.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "tech"
         ],
         "techniques": [
+          "Dual DC-17 blaster pistol crossfire",
+          "Tactical grenade deployment",
           "Dual DC-17 blaster pistol fire",
           "DC-15A rifle combat",
           "Thermal detonator deployment"
@@ -719,20 +1122,49 @@
       },
       "defense": {
         "mechanisms": [
-          "Standard clone trooper armor plating",
-          "Tactical cover utilization"
+          "Phase II clone trooper armor",
+          "Tactical cover utilization",
+          "Standard clone trooper armor plating"
         ]
       },
       "weaknesses": [
+        "Aging at an accelerated clone rate in later years",
+        "Vulnerable to inhibitor chip neurological triggers",
         "Human physiological limitations against extreme environments or heavy weapons"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars Rebels (2014-2018 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Bad Batch (2021-2024 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars / Rebels)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Running",
+        "Tactical movement",
         "Foot movement"
       ],
       "limitations": [
+        "Standard clone armor offers limited defense against sustained heavy artillery.",
         "Subject to standard human stamina and physical aging constraints"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Captain_Rex",
+          "supports": "Captain Rex's military career, combat skills, and equipment across animated series."
+        },
         {
           "url": "https://starwars.fandom.com/wiki/CT-7567",
           "supports": "Clone captain combat feats, weapons, and leadership record"
@@ -740,33 +1172,48 @@
       ],
       "feats": [
         {
-          "claim": "Led clone battalions against droid armies across numerous hostile planets",
-          "citation": "Star Wars: The Clone Wars",
+          "claim": "Led clone battalions against droid armies across numerous hostile planets.",
+          "citation": "Star Wars: The Clone Wars (animated series)",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 animated series)",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Separatist battle droids",
+          "result": "win",
+          "citation": "Star Wars: The Clone Wars (animated series)",
+          "note": "Successful campaigns across multiple star systems.",
+          "depiction": "Star Wars: The Clone Wars (2008-2020 animated series)",
+          "source": 0
+        },
+        {
           "opponent": "Battle Droids",
           "result": "win",
           "citation": "Star Wars: The Clone Wars",
           "note": "Successfully completed numerous tactical campaigns",
-          "source": 0
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars / Rebels)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "gadgets",
+          "claim": "Equipped with standardized clone tactical gear and thermal detonators.",
+          "source": 0
+        },
+        {
           "tag": "pilot",
           "claim": "Pilots gunships and starfighters during campaign operations",
-          "source": 0
+          "source": 1
         }
       ],
       "unknowns": [
-        "Long-term health effects of accelerated clone aging in later years"
+        "Exact combat efficacy after surgical removal of his inhibitor chip in advanced age.",
+        "Long-term health effects of accelerated clone aging in later years",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     }
   ]
 }
