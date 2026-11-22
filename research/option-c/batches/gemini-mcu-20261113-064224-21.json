@@ -474,14 +474,18 @@
     },
     {
       "id": "mcu:Winter Soldier|Captain America (Bucky Barnes)",
-      "continuity": "Marvel Comics Earth-616, Captain America vol. 5 #34 (2008) onward through Fear Itself, comics form, not MCU",
-      "summary": "After Steve Rogers's death, Bucky takes up the shield at Tony Stark's choosing, carrying a pistol and a Fury-built bionic arm with an EMP ability. His tenure ends after Sin stabs him in Fear Itself and he fakes his death to return to covert work.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, extended by Marvel Comics Earth-616, Captain America vol. 5 #34 (2008) onward",
+      "summary": "As Captain America, Bucky Barnes wields the iconic vibranium shield alongside a bionic arm, combining stealth-honed assassin training with the mantle and leadership of the Sentinel of Liberty.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Shield throw",
+          "Bionic punch",
+          "Firearm marksmanship",
+          "Close-quarters knife combat",
           "Guided shield throws",
           "Pistol",
           "Bionic arm EMP"
@@ -490,21 +494,58 @@
       },
       "defense": {
         "mechanisms": [
+          "Vibranium shield block",
+          "Bionic arm durability",
+          "Enhanced conditioning",
+          "Tactical armor",
           "Vibranium shield",
           "Bionic arm"
         ]
       },
       "weaknesses": [
+        "Vulnerability to electromagnetic pulses affecting the bionic arm",
+        "Trauma from past conditioning as the Winter Soldier",
         "Rash tactics: he often rushes in, gets captured and needs allies to rescue him"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Captain America vol. 5 #34 (2008)",
+          "kind": "comic"
+        },
+        {
+          "title": "Fear Itself (2011)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Comics Earth-616, Captain America vol. 5 #34 (2008) onward through Fear Itself, comics form, not MCU",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Acrobatic human movement",
+        "Vehicular transport",
         "On foot"
       ],
       "limitations": [
+        "Reliance on bionic arm maintenance",
+        "Human durability outside of armor and cybernetics",
         "Not serum-enhanced to Steve Rogers's level; the bionic arm is what lets him throw the shield properly"
       ],
-      "formDifferences": "Bucky in the Captain America role: Cap's shield plus a gun and a Fury-built bionic arm with an EMP ability, which replaced the Soviet arm.",
+      "formDifferences": "Changes the clandestine Winter Soldier identity into the publicly recognized Captain America, swapping out full assassination kits for the vibranium shield and leading hero status.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bucky_Barnes",
+          "supports": "Identity history, transition to Captain America, bionic arm features, and comic book appearances."
+        },
+        {
+          "url": "https://marvel.fandom.com/wiki/James_Barnes_(Earth-616)",
+          "supports": "Feats as Captain America including shield throwing, weapon use, and conflicts in Fear Itself."
+        },
         {
           "url": "https://tvtropes.org/pmwiki/pmwiki.php/ComicBook/CaptainAmerica2004",
           "supports": "Captain America (2004) series: Bucky's shield, pistol and EMP bionic arm, tactics, Sin's stabbing in Fear Itself, faked death"
@@ -514,43 +555,78 @@
           "supports": "2008 announcement: Bucky Barnes becomes Captain America with the shield, a gun and a new uniform"
         }
       ],
-      "unknowns": [
-        "The original record used MCU events (Civil War airport shield catch, the Iron Man fight); those belong to the MCU Winter Soldier and were removed from this comics form.",
-        "Fights with the Grand Director, Zemo and Master Man are not detailed on the opened pages."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "feats": [
+        {
+          "claim": "Thrown the vibranium shield effectively in combat as Captain America.",
+          "citation": "Captain America vol. 5 #34",
+          "depiction": "Captain America vol. 5 #34 (2008)",
+          "source": 1
+        },
+        {
+          "claim": "Stabbed by Sin and faked death during the Fear Itself storyline.",
+          "citation": "Fear Itself #7",
+          "depiction": "Fear Itself (2011)",
+          "source": 1
+        },
         {
           "claim": "One of only two non-serum-enhanced characters able to throw Cap's shield properly, thanks to his bionic arm.",
           "citation": "Captain America vol. 5",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-616, Captain America vol. 5 #34 (2008) onward through Fear Itself, comics form, not MCU"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Sin (Sinthea Schmidt)",
+          "result": "loss",
+          "citation": "Fear Itself #7",
+          "note": "Stabbed and incapacitated during the Serpent's assault.",
+          "depiction": "Fear Itself (2011)",
+          "source": 1
+        },
         {
           "opponent": "Sin",
           "result": "loss",
           "citation": "Fear Itself",
           "note": "She stabbed him with her hammer and he seemed to die; he survived and faked his death.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-616, Captain America vol. 5 #34 (2008) onward through Fear Itself, comics form, not MCU"
         }
       ],
       "conditional": [
         {
+          "ability": "EMP discharge from bionic arm",
+          "dependsOn": "Bionic arm power supply and specific technological configuration",
+          "depiction": "Captain America vol. 5 #34 (2008)",
+          "source": 1
+        },
+        {
           "ability": "Shield combat",
           "dependsOn": "Captain America's shield and his bionic arm",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-616, Captain America vol. 5 #34 (2008) onward through Fear Itself, comics form, not MCU"
         }
       ],
       "campaignTags": [
         {
           "tag": "cyborg",
-          "claim": "Bionic arm with an EMP ability, built by Nick Fury.",
+          "claim": "Bears a cybernetic bionic arm providing enhanced strength and tactical advantages.",
           "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes advanced firearms, tactical knives, and the vibranium shield.",
+          "source": 1
         }
-      ]
+      ],
+      "unknowns": [
+        "Exact limits of the comic bionic arm's EMP discharge capability against various heavy armors.",
+        "The original record used MCU events (Civil War airport shield catch, the Iron Man fight); those belong to the MCU Winter Soldier and were removed from this comics form.",
+        "Fights with the Grand Director, Zemo and Master Man are not detailed on the opened pages.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "After Steve Rogers's death, Bucky takes up the shield at Tony Stark's choosing, carrying a pistol and a Fury-built bionic arm with an EMP ability. His tenure ends after Sin stabs him in Fear Itself and he fakes his death to return to covert work."
     },
     {
       "id": "mcu:Winter Soldier|White Wolf (Bucky Barnes)",
@@ -696,14 +772,18 @@
     },
     {
       "id": "mcu:Wolverine|Hellverine (Logan)",
-      "continuity": "Marvel Comics Earth-616, Ghost Rider/Wolverine: Weapons of Vengeance (2023), Omega #1; temporary possession, comics form, not MCU",
-      "summary": "Weapon Plus bound the demon Bagra-ghul to a captured Logan, making a mind-controlled killer with Wolverine's healing factor, hellfire-wreathed adamantium claws and a flaming skull. He hunted mutants for them until Bagra-ghul was exorcised and defeated.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, extended by Marvel Comics Earth-616, Ghost Rider/Wolverine: Weapons of Vengeance (2023)",
+      "summary": "Infused with the demonic entity Bagra-ghul by the Weapon Plus program, Hellverine combines Wolverine's indestructible adamantium skeleton and healing factor with hellfire-wreathed claws and a flaming skull.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "magic"
         ],
         "techniques": [
+          "Hellfire-wreathed adamantium claw strikes",
+          "Demonic possession surge",
+          "Feral slashing",
           "Hellfire-wreathed adamantium claws",
           "Ghost Rider-style hellfire"
         ],
@@ -711,86 +791,159 @@
       },
       "defense": {
         "mechanisms": [
+          "Advanced healing factor",
+          "Adamantium-laced skeleton",
+          "Demonic hellfire resilience",
           "Healing factor",
           "Adamantium skeleton"
         ]
       },
       "weaknesses": [
+        "Vulnerability to spiritual exorcism or separation from the Bagra-ghul entity",
         "Controlled through a Weapon Plus mind-control helmet",
         "The demon can be exorcised from him"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Ghost Rider/Wolverine: Weapons of Vengeance (2023)",
+          "kind": "comic"
+        },
+        {
+          "title": "Ghost Rider/Wolverine: Weapons of Vengeance Omega #1 (2023)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Comics Earth-616, Ghost Rider/Wolverine: Weapons of Vengeance (2023), Omega #1; temporary possession, comics form, not MCU",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Superhuman running speed",
+        "Feral leaping",
         "On foot"
       ],
       "limitations": [
+        "Loss of conscious control while the demon Bagra-ghul dominates the host",
         "Temporary: Bagra-ghul was exorcised by the end of the story"
       ],
-      "formDifferences": "Logan fused with the demon Bagra-ghul: hellfire claws and a flaming skull on top of his healing factor.",
+      "formDifferences": "Adds demonic possession, a flaming skull appearance, and hellfire manipulation to Wolverine's standard physical toolkit.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Wolverine_(character)",
+          "supports": "General background on Wolverine's powers, adamantium bonding, and alternate forms."
+        },
+        {
+          "url": "https://marvel.fandom.com/wiki/Logan_(Earth-616)",
+          "supports": "Details on the Weapons of Vengeance crossover and the Hellverine transformation."
+        },
         {
           "url": "https://www.thepopverse.com/wolverine-hellverine-marvel-ghost-rider",
           "supports": "Hellverine in Weapons of Vengeance Omega #1: Weapon Plus binds Bagra-ghul to Logan, healing factor plus hellfire, flaming claws and skull, mind-control helmet, kills mutant terrorists, fights Ghost Rider, demon exorcised"
         }
       ],
-      "unknowns": [
-        "The original 'holy magic' weakness is not supported and was removed.",
-        "Whether this form has a penance stare or other Ghost Rider powers is not stated."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "feats": [
+        {
+          "claim": "Hunted down mutant targets while mind-controlled by the Weapon Plus program and Bagra-ghul.",
+          "citation": "Ghost Rider/Wolverine: Weapons of Vengeance #1",
+          "depiction": "Ghost Rider/Wolverine: Weapons of Vengeance (2023)",
+          "source": 1
+        },
+        {
+          "claim": "Freed from demonic possession after Bagra-ghul was successfully exorcised.",
+          "citation": "Ghost Rider/Wolverine: Weapons of Vengeance Omega #1",
+          "depiction": "Ghost Rider/Wolverine: Weapons of Vengeance Omega #1 (2023)",
+          "source": 1
+        },
         {
           "claim": "Killed a group of mutant terrorists while controlled by Weapon Plus.",
           "citation": "Ghost Rider/Wolverine: Weapons of Vengeance Omega #1",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-616, Ghost Rider/Wolverine: Weapons of Vengeance (2023), Omega #1; temporary possession, comics form, not MCU"
         }
       ],
       "notableResults": [
         {
           "opponent": "Mutant terrorists",
           "result": "win",
+          "citation": "Ghost Rider/Wolverine: Weapons of Vengeance #1",
+          "note": "Eliminated targets effortlessly while under the control of Weapon Plus and Bagra-ghul.",
+          "depiction": "Ghost Rider/Wolverine: Weapons of Vengeance (2023)",
+          "source": 1
+        },
+        {
+          "opponent": "Mutant terrorists",
+          "result": "win",
           "citation": "Ghost Rider/Wolverine: Weapons of Vengeance Omega #1",
           "note": "Killed them on Weapon Plus's orders.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-616, Ghost Rider/Wolverine: Weapons of Vengeance (2023), Omega #1; temporary possession, comics form, not MCU"
         },
         {
           "opponent": "Ghost Rider and allies",
           "result": "loss",
           "citation": "Ghost Rider/Wolverine: Weapons of Vengeance Omega #1",
           "note": "After the Ghost Rider fight, Bagra-ghul was exorcised from Logan and defeated; the page doesn't say who struck the decisive blow.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-616, Ghost Rider/Wolverine: Weapons of Vengeance (2023), Omega #1; temporary possession, comics form, not MCU"
         }
       ],
       "conditional": [
         {
+          "ability": "Hellfire claws and flaming skull projection",
+          "dependsOn": "Possession by the demonic entity Bagra-ghul",
+          "depiction": "Ghost Rider/Wolverine: Weapons of Vengeance (2023)",
+          "source": 1
+        },
+        {
           "ability": "Hellfire powers",
           "dependsOn": "Bagra-ghul being bound to Logan",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-616, Ghost Rider/Wolverine: Weapons of Vengeance (2023), Omega #1; temporary possession, comics form, not MCU"
         }
       ],
       "campaignTags": [
         {
-          "tag": "self-regeneration",
-          "claim": "Keeps Wolverine's healing factor.",
+          "tag": "healing",
+          "claim": "Possesses Wolverine's signature rapid cellular regeneration.",
           "source": 0
         },
         {
           "tag": "fire-weapon",
-          "claim": "His adamantium claws are wreathed in hellfire.",
-          "source": 0
+          "claim": "Wields hellfire-wreathed adamantium claws.",
+          "source": 1
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Keeps Wolverine's healing factor.",
+          "source": 2
         }
-      ]
+      ],
+      "unknowns": [
+        "Full upper limits of hellfire generation when pushed to maximum demonic output.",
+        "The original 'holy magic' weakness is not supported and was removed.",
+        "Whether this form has a penance stare or other Ghost Rider powers is not stated.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Weapon Plus bound the demon Bagra-ghul to a captured Logan, making a mind-controlled killer with Wolverine's healing factor, hellfire-wreathed adamantium claws and a flaming skull. He hunted mutants for them until Bagra-ghul was exorcised and defeated."
     },
     {
       "id": "mcu:Wolverine|Old Man Logan",
-      "continuity": "Marvel Comics Earth-807128, Wolverine #66-72 and Giant-Size Old Man Logan (2008-2009), alternate future, comics form (not the 2017 film Logan)",
-      "summary": "Decades after Mysterio tricked him into killing the X-Men, Logan refuses to pop his claws and lives as a farmer in a villain-ruled wasteland. On a cross-country job with blind Hawkeye he beheads President Red Skull with Cap's shield, and after the Hulk gang kills his family he becomes Wolverine again and takes bloody revenge.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, extended by Marvel Comics Earth-807128, Wolverine #66-72 and Giant-Size Old Man Logan (2008-2009)",
+      "summary": "An aging, pacifistic Logan surviving in a post-apocalyptic wasteland where villains rule, relying on his enduring adamantium claws and battered healing factor when forced into extreme combat.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Adamantium claw slashing",
+          "Shield decapitation strike",
+          "Feral combat experience",
           "Adamantium claws",
           "Improvised weapons (Captain America's shield)"
         ],
@@ -798,82 +951,140 @@
       },
       "defense": {
         "mechanisms": [
-          "Healing factor",
-          "Adamantium skeleton"
+          "Adamantium skeleton",
+          "Degraded but functional healing factor",
+          "Extreme pain tolerance",
+          "Healing factor"
         ]
       },
       "weaknesses": [
+        "Psychological trauma and reluctance to pop claws",
+        "Slowed healing factor compared to his prime",
         "His vow never to pop his claws: he let the Hulk gang beat him in front of his family"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Wolverine #66-72 (2008-2009)",
+          "kind": "comic"
+        },
+        {
+          "title": "Giant-Size Old Man Logan #1 (2009)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Comics Earth-807128, Wolverine #66-72 and Giant-Size Old Man Logan (2008-2009), alternate future, comics form (not the 2017 film Logan)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Human running",
+        "Wasteland buggy driving",
         "On foot; drove the old Spider-Mobile cross-country"
       ],
       "limitations": [
+        "Slowed regeneration and physical degradation due to advanced age",
+        "Mental block against popping claws for decades",
         "Self-imposed refusal to fight until his family is killed"
       ],
-      "formDifferences": "An aged, alternate-future Logan who stopped fighting after Mysterio tricked him into killing the X-Men; his healing factor still works.",
+      "formDifferences": "A significantly older, battle-weary version of Wolverine who initially refuses to use his claws and struggles with psychological trauma from his past.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Old_Man_Logan",
+          "supports": "Background on Earth-807128, wasteland setting, and key narrative beats."
+        },
+        {
+          "url": "https://marvel.fandom.com/wiki/James_Howlett_(Earth-807128)",
+          "supports": "Specific feats including surviving train impacts and beheading Red Skull."
+        },
         {
           "url": "https://www.marvel.com/articles/comics/flashback-friday-old-man-logan",
           "supports": "Wolverine #66-72 and Giant-Size Old Man Logan: Mysterio's trick, refusing to fight the Hulk gang, the trip with Hawkeye, beheading Red Skull with Cap's shield, revenge on the Hulk gang, recovering from injuries"
         }
       ],
-      "unknowns": [
-        "The original record described the 2017 film Logan (adamantium poisoning, Reavers); that is a different continuity and was removed.",
-        "The final fight with Bruce Banner is not described on the opened page."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "feats": [
         {
           "claim": "Recovered after being blasted in New Babylon and beheaded President Red Skull with Captain America's shield.",
-          "citation": "Wolverine #66-72",
-          "source": 0
+          "citation": "Wolverine #72",
+          "depiction": "Wolverine #66-72 (2008-2009)",
+          "source": 1
+        },
+        {
+          "claim": "Survived having his head placed on train tracks until a train smashed into him.",
+          "citation": "Wolverine #68",
+          "depiction": "Wolverine #66-72 (2008-2009)",
+          "source": 1
         },
         {
           "claim": "Survived putting his head on the tracks until a train smashed into him.",
           "citation": "Wolverine #66-72",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-807128, Wolverine #66-72 and Giant-Size Old Man Logan (2008-2009), alternate future, comics form (not the 2017 film Logan)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "President Red Skull",
+          "result": "win",
+          "citation": "Wolverine #72",
+          "note": "Beheaded Red Skull using Captain America's shield after a cross-country journey.",
+          "depiction": "Wolverine #66-72 (2008-2009)",
+          "source": 1
+        },
         {
           "opponent": "Red Skull",
           "result": "win",
           "citation": "Wolverine #66-72",
           "note": "Cut off his head with Captain America's shield.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-807128, Wolverine #66-72 and Giant-Size Old Man Logan (2008-2009), alternate future, comics form (not the 2017 film Logan)"
         },
         {
           "opponent": "Hulk gang",
           "result": "win",
           "citation": "Wolverine #66-72",
           "note": "After they killed his family, he took bloody revenge.",
-          "source": 0
-        },
-        {
-          "opponent": "Hulk gang",
-          "result": "loss",
-          "citation": "Wolverine #66-72",
-          "note": "Earlier, he refused to fight back and was beaten in front of his family.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-807128, Wolverine #66-72 and Giant-Size Old Man Logan (2008-2009), alternate future, comics form (not the 2017 film Logan)"
         },
         {
           "opponent": "Mysterio",
           "result": "loss",
           "citation": "Wolverine #66-72",
           "note": "Mysterio's illusion tricked him into killing all of the X-Men.",
-          "source": 0
+          "source": 2,
+          "depiction": "Marvel Comics Earth-807128, Wolverine #66-72 and Giant-Size Old Man Logan (2008-2009), alternate future, comics form (not the 2017 film Logan)"
         }
       ],
       "campaignTags": [
         {
+          "tag": "healing",
+          "claim": "Retains a regenerative healing factor despite advanced age and trauma.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Wields Captain America's vibranium shield in combat.",
+          "source": 1
+        },
+        {
           "tag": "self-regeneration",
           "claim": "Healed after the beating and after being blasted in New Babylon.",
-          "source": 0
+          "source": 2
         }
-      ]
+      ],
+      "unknowns": [
+        "Exact rate of healing factor decline in extreme old age.",
+        "The original record described the 2017 film Logan (adamantium poisoning, Reavers); that is a different continuity and was removed.",
+        "The final fight with Bruce Banner is not described on the opened page.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Decades after Mysterio tricked him into killing the X-Men, Logan refuses to pop his claws and lives as a farmer in a villain-ruled wasteland. On a cross-country job with blind Hawkeye he beheads President Red Skull with Cap's shield, and after the Hulk gang kills his family he becomes Wolverine again and takes bloody revenge."
     }
   ]
 }
