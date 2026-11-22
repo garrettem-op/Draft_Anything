@@ -838,8 +838,8 @@
     },
     {
       "id": "toons:Donkey",
-      "continuity": "Shrek (Animated Film Series)",
-      "summary": "Donkey is an articulate, talkative animal companion who fights using chaotic agility, vocal distraction, and occasionally aided by dragon flight. He relies heavily on humor and persistence.",
+      "continuity": "Shrek (2001 film), Shrek 2 (2004 film), Shrek the Third (2007 film), Shrek Forever After (2010 film), and Shrek comic book series published by Dark Horse Comics and DreamWorks.",
+      "summary": "Donkey is an anthropomorphic donkey who relies on extreme verbosity, chaotic agility, relentless persistence, and close alliance with Dragon to survive dangerous encounters. While primarily a non-combatant who avoids direct physical confrontation, he utilizes erratic movements and verbal distraction to disorient enemies.",
       "offense": {
         "domains": [
           "physical"
@@ -847,67 +847,129 @@
         "techniques": [
           "Hoof kicks",
           "Biting",
+          "Verbal harassment and distraction",
           "Incessant verbal harassment"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
-          "Erratic dodging"
+          "Erratic dodging",
+          "Hiding behind allies",
+          "Social persuasion"
         ]
       },
       "weaknesses": [
+        "Cowardice under direct attack",
+        "Lack of offensive superpowers",
+        "Susceptible to being easily startled",
         "Easily frightened by dangerous threats or magical monsters"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Shrek (2001 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Shrek 2 (2004 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Shrek the Third (2007 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Shrek Forever After (2010 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Shrek (Animated Film Series)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard quadrupedal running",
+        "Riding on Dragon for flight",
         "Quadrupedal running",
         "Dragon-assisted flight"
       ],
       "limitations": [
+        "Cannot deal significant physical damage to armored or large opponents on his own.",
         "Physically limited to standard quadruped animal capabilities"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Donkey_(Shrek)",
-          "supports": "Overview of Donkey's character, abilities, and partnership with Shrek."
+          "supports": "General character background, traits, and film appearances."
         }
       ],
       "feats": [
         {
+          "claim": "Helped breach Lord Farquaad's castle and confronted his guards alongside Shrek.",
+          "citation": "Shrek (2001 film) climax",
+          "depiction": "Shrek (2001 film)",
+          "source": 0
+        },
+        {
+          "claim": "Infiltrated the Far Far Away royal palace by distracting guards with relentless singing and talking.",
+          "citation": "Shrek 2 (2004 film)",
+          "depiction": "Shrek 2 (2004 film)",
+          "source": 0
+        },
+        {
           "claim": "Helped defeat Lord Farquaad's guards and breached castle defenses.",
           "citation": "Shrek (2001 film)",
-          "source": 0
+          "source": 0,
+          "depiction": "Shrek (Animated Film Series)"
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Lord Farquaad's guards",
+          "result": "win",
+          "citation": "Shrek (2001 film)",
+          "note": "Fought alongside Shrek and Dragon.",
+          "depiction": "Shrek (2001 film)",
+          "source": 0
+        },
         {
           "opponent": "Dragon guards",
           "result": "win",
           "citation": "Shrek (2001 film)",
           "note": "Defeated castle guards with assistance from Shrek and Dragon.",
-          "source": 0
+          "source": 0,
+          "depiction": "Shrek (Animated Film Series)"
         }
       ],
       "conditional": [
         {
+          "ability": "Flight transport via Dragon",
+          "dependsOn": "Assistance from his mate Dragon",
+          "depiction": "Shrek (2001 film)",
+          "source": 0
+        },
+        {
           "ability": "Aerial fire assault",
           "dependsOn": "Assistance from Dragon",
-          "source": 0
+          "source": 0,
+          "depiction": "Shrek (Animated Film Series)"
         }
       ],
       "campaignTags": [
         {
           "tag": "mount",
-          "claim": "Rides into battle alongside or upon his dragon mate",
+          "claim": "Carries Shrek and Puss in Boots as a mount in combat and travel across multiple films.",
           "source": 0
         }
       ],
       "unknowns": [
-        "Magic potion transformations altering his species temporarily."
+        "Extent of durability changes when transformed into a white stallion in Shrek 2.",
+        "Magic potion transformations altering his species temporarily.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Donkey is an articulate, talkative animal companion who fights using chaotic agility, vocal distraction, and occasionally aided by dragon flight. He relies heavily on humor and persistence."
     }
   ]
 }
