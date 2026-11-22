@@ -703,37 +703,69 @@
     },
     {
       "id": "starwars:Commander Cody",
-      "continuity": "Star Wars Canon (The Clone Wars, Revenge of the Sith)",
-      "summary": "Commander Cody (CC-2224) is a highly disciplined clone marshal commander who specializes in large-scale military strategy, tactical coordination, and heavy blaster combat.",
+      "continuity": "Star Wars films and series (Star Wars: Episode III – Revenge of the Sith, Star Wars: The Clone Wars, Star Wars: The Bad Batch)",
+      "summary": "Commander Cody (CC-2224) is a highly skilled and disciplined clone marshal commander of the 212th Attack Battalion. He excels in tactical warfare, heavy blaster combat, and leading troops through complex planetary sieges before ultimately executing Order 66 and later serving as a training commander for the early stormtrooper ranks.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Blaster rifle fire",
+          "Tactical bombardment coordination",
+          "Hand-to-hand combat",
           "Clone trooper trained for war from birth",
           "Commanded the 212th Attack Battalion under Obi-Wan Kenobi",
           "Ordered his troops to fire on Kenobi when Order 66 came"
         ],
-        "range": "ranged / strategic"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Standard Phase II clone trooper armor",
+          "Tactical cover utilization",
           "Clone trooper armor"
         ]
       },
       "weaknesses": [
+        "Inhibitor chip psychological conditioning making him vulnerable to direct executive orders from the Supreme Chancellor",
         "Inhibitor chip forces obedience to Order 66"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars films and series",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: The Bad Batch (animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars: The Clone Wars (animated film and series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Star Wars Canon (The Clone Wars, Revenge of the Sith)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard foot movement",
+        "Starship piloting",
         "Standard military running and movement",
         "Piloting LAAT gunships and walkers"
       ],
       "limitations": [
+        "Relies heavily on standard clone equipment and unit support rather than superhuman abilities.",
         "Strict adherence to military chain of command and orders",
         "Inhibitor chip vulnerability"
       ],
       "sources": [
+        {
+          "url": "https://starwars.fandom.com/wiki/CC-2224",
+          "supports": "Specific combat history, rank as commander of the 212th, and events in The Clone Wars and The Bad Batch."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Commander_Cody",
           "supports": "Role as a Grand Army of the Republic clone commander, tactics, and equipment."
@@ -749,21 +781,50 @@
       ],
       "feats": [
         {
+          "claim": "Fought alongside General Obi-Wan Kenobi in major engagements across the Clone Wars.",
+          "citation": "Star Wars: The Clone Wars (animated film and series)",
+          "depiction": "Star Wars: The Clone Wars (animated film and series)",
+          "source": 0
+        },
+        {
+          "claim": "Served as a senior clone commander training new Imperial recruits on Desix before questioning Imperial methods.",
+          "citation": "Star Wars: The Bad Batch Season 2",
+          "depiction": "Star Wars: The Bad Batch (animated series)",
+          "source": 0
+        },
+        {
           "claim": "Led clone battalions through complex sieges against separatist droid armies on numerous worlds.",
           "citation": "Star Wars: The Clone Wars",
+          "source": 1,
+          "depiction": "Star Wars Canon (The Clone Wars, Revenge of the Sith)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "pilot",
+          "claim": "Pilots starships and gunships during various military campaigns.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced military technology, communicators, and standard-issue clone armor.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Exact whereabouts and fate following his desertion from the Imperial military during the early years of the Galactic Empire.",
+        "Unverified (cited source failed the automatic check): Led clone battalions through complex sieges against separatist droid armies on numerous worlds, including Utapau.",
+        "Unverified result (cited source failed the automatic check): loss vs Obi-Wan Kenobi",
+        "Unverified condition (cited source failed the automatic check): Execute Order 66 against Jedi Generals depends on Receipt of a direct command from Supreme Chancellor Palatine activating his inhibitor chip",
         "Exact post-Clone Wars military career under the Galactic Empire.",
         "Unsupported by cited source (term check, 1/9 key terms found): win vs Separatist Droid Army",
         "Unsupported by cited source (term check, 2/10 key terms found): tech: Utilizes advanced clone trooper armor, tactical HUDs, and standard Republic blasters.",
         "Unsupported by cited source (term check, 1/5 key terms found): pilot: Pilots gunships and command starfighters during campaigns.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Commander Cody (CC-2224) is a highly disciplined clone marshal commander who specializes in large-scale military strategy, tactical coordination, and heavy blaster combat."
     },
     {
       "id": "starwars:Count Dooku",
