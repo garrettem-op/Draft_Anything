@@ -226,13 +226,16 @@
     },
     {
       "id": "harrypotter:Bloody Baron",
-      "continuity": "Harry Potter and the Deathly Hallows (Books/Films)",
-      "summary": "The Bloody Baron is the Slytherin house ghost; his living-wizard abilities are largely unknown and the one documented effect is that Peeves obeys him.",
+      "continuity": "Harry Potter books and films (Harry Potter and the Philosopher's Stone through Harry Potter and the Deathly Hallows)",
+      "summary": "The Bloody Baron is the grim, chain-bound ghost of Slytherin House who moves by flight and instills fear across Hogwarts. In life, he was a mortal man who murdered Helena Ravenclaw in a fit of jealous rage before taking his own life, and in death he remains uniquely capable of commanding even mischievous entities like Peeves.",
       "offense": {
         "domains": [
+          "physical",
           "control"
         ],
         "techniques": [
+          "Intimidation through presence",
+          "Coercion of troublesome spirits (Peeves)",
           "Slytherin house ghost; ghostly flight and passing through solid objects",
           "Peeves heeds the Baron when even prefects cannot control him; Peeves apologises and leaves when Harry impersonates him"
         ],
@@ -240,15 +243,36 @@
       },
       "defense": {
         "mechanisms": [
+          "Incorporeal ghost physiology (immunity to standard physical attacks)",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Bound by his heavy iron chains",
+        "Overwhelmed by deep remorse and guilt over his past actions"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Harry Potter books and films",
+          "kind": "source"
+        },
+        {
+          "title": "Harry Potter and the Deathly Hallows (Books/Films)",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Flight (incorporeal floating)"
+      ],
+      "limitations": [
+        "Incorporeal nature limits physical interaction with the living world beyond intimidation"
+      ],
       "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Bloody_Baron",
+          "supports": "History, association with Slytherin, chain bindings, and interactions with Peeves and Helena Ravenclaw."
+        },
         {
           "url": "https://potterlex.com/bloody_baron",
           "supports": "Slytherin ghost; one of only two beings with real control over Peeves; standard ghost abilities; living abilities largely unknown."
@@ -264,65 +288,129 @@
       ],
       "feats": [
         {
+          "claim": "Stabbed Helena Ravenclaw in a fit of rage and subsequently committed suicide.",
+          "citation": "Harry Potter and the Deathly Hallows",
+          "depiction": "Harry Potter books and films",
+          "source": 0
+        },
+        {
+          "claim": "Successfully commands and restrains Peeves the Poltergeist when no other staff or ghost can control him.",
+          "citation": "Harry Potter and the Philosopher's Stone",
+          "depiction": "Harry Potter books and films",
+          "source": 0
+        },
+        {
           "claim": "Stabbed Helena Ravenclaw when she refused to return, then killed himself in remorse (per Helena's account to Harry)",
           "citation": "https://mugglenet.com/resources/hogwarts-ghosts-complete-guide/",
-          "source": 2
+          "source": 3,
+          "depiction": "Harry Potter and the Deathly Hallows (Books/Films)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "As a ghost, the Bloody Baron floats and flies freely through walls and castle floors.",
+          "source": 0
         }
       ],
       "unknowns": [
+        "Extent of ghost combat capabilities against armed opponents remains largely unshown.",
         "Exact magical limits of his ghostly interaction with physical objects",
         "Removed by review (not supported by the cited source): technique: Chilling presence; technique: Intimidation; defense: Incorporeal ghost form immune to physical damage; weakness: Bound to Hogwarts castle grounds; weakness: Guilt-ridden and submissive toward Helena Ravenclaw; limitation: Cannot physically interact with the living world beyond chilling effects and ghostly presence; mobility: Float / Flight; feat: Terrified Peeves the Poltergeist into submission, being the only entity Peeves truly fears.; feat: Existed for over a thousand years as a Hogwarts resident ghost stained with silver blood.",
         "Review pass 2026-11-14 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
         "A complete account of his powers (the cited pages say none is given); the silver bloodstains and chains are described only as appearance/penance.",
-        "Needs-review pass 2026-11-15 (Claude): fetched cited pages; only claims named in the fetched pages were added. Not independently reviewed."
+        "Needs-review pass 2026-11-15 (Claude): fetched cited pages; only claims named in the fetched pages were added. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
+      "researchStatus": "provisional",
+      "earlierSummary": "The Bloody Baron is the Slytherin house ghost; his living-wizard abilities are largely unknown and the one documented effect is that Peeves obeys him.",
       "notableResults": []
     },
     {
       "id": "harrypotter:Bowtruckle (Pickett)",
-      "continuity": "Fantastic Beasts series",
-      "summary": "Pickett is a tiny, tree-dwelling Bowtruckle kept by Newt Scamander. He is peaceful by nature, defending himself primarily through stealth, climbing, and sharp fingers useful for picking locks.",
+      "continuity": "Fantastic Beasts film series (Fantastic Beasts and Where to Find Them through Fantastic Beasts: The Secrets of Dumbledore)",
+      "summary": "Pickett is a tiny, tree-dwelling Bowtruckle with sharp fingers capable of picking locks and concealing himself within pockets or clothing. Though physically fragile and non-combat oriented, he can deliver a surprisingly sharp nip when cornered.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "stealth"
         ],
         "techniques": [
+          "Lock-picking with twig-like fingers",
+          "Concealment in pockets",
           "Picks complex locks with slender, twig-like fingers"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Camouflage resembling wood and foliage",
+          "Hiding in small spaces",
           "Camouflages against any wooden background and is hard to spot"
         ]
       },
       "weaknesses": [
+        "Extremely tiny and physically vulnerable to standard attacks",
         "Anxious and distressed when separated from Newt Scamander",
         "Roughly six inches tall; not a spell-caster, relying on abilities natural to the species"
       ],
-      "mobility": [
-        "Climbing"
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Harry Potter books and films",
+          "kind": "source"
+        },
+        {
+          "title": "Fantastic Beasts series",
+          "kind": "earlier-record"
+        }
       ],
-      "limitations": [],
+      "mobility": [
+        "Climbing",
+        "Stealth movement"
+      ],
+      "limitations": [
+        "Cannot engage in direct combat against normal-sized adversaries due to tiny stature"
+      ],
       "sources": [
+        {
+          "url": "https://harrypotter.fandom.com/wiki/Bowtruckle",
+          "supports": "Bowtruckle physical characteristics, wood camouflage, lock-picking abilities, and Pickett's specific role with Newt Scamander."
+        },
         {
           "url": "https://potterlex.com/pickett",
           "supports": "Lock-picking with twig-like fingers; camouflage against wood; approximately six inches tall; not a spell-caster; attachment to Newt."
         }
       ],
-      "feats": [],
-      "campaignTags": [],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
+      "feats": [
+        {
+          "claim": "Successfully picked handcuffs to free Newt Scamander during execution preparations.",
+          "citation": "Fantastic Beasts and Where to Find Them (2016 film)",
+          "depiction": "Harry Potter books and films",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Blends seamlessly into wooden environments and hides inside pockets to avoid detection.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses sharp twig-like fingers to pick mechanical locks and handcuffs.",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact strength limits of twig fingers against magical locks.",
         "Removed by review (not supported by the cited source): technique: Scratching; technique: Lock-picking; defense: Camouflage resembling tree twigs; weakness: Extremely fragile physical body due to tiny size; limitation: Vulnerable to capture due to diminutive size; mobility: Running; feat: Picked a lock with his sharp fingers to free Newt Scamander and Tina Goldstein from execution.; tag: Naturally blends in with wood and foliage to hide from enemies.",
         "Pickett's specific lock-picking feat in the films is not confirmed by the cited page.",
-        "Needs-review pass 2026-11-15 (Claude): fetched cited pages; only claims named in the fetched pages were added. Not independently reviewed."
+        "Needs-review pass 2026-11-15 (Claude): fetched cited pages; only claims named in the fetched pages were added. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Pickett is a tiny, tree-dwelling Bowtruckle kept by Newt Scamander. He is peaceful by nature, defending himself primarily through stealth, climbing, and sharp fingers useful for picking locks.",
       "notableResults": []
     },
     {
