@@ -7,14 +7,23 @@
   "characters": [
     {
       "id": "pokemon:Zubat",
-      "continuity": "Pokémon Generation I-IX games and anime",
-      "summary": "Zubat is a flying/poison-type bat Pokémon that fights by navigating via echolocation, attacking from the air with biting techniques like Leech Life, and disorienting foes with status-inflicting moves such as Confuse Ray.",
+      "continuity": "Pokémon games and anime, including Generations I through IX, associated manga, and anime appearances",
+      "summary": "Zubat is a dual-type Poison/Flying bat Pokémon that relies on echolocation to navigate and locate prey in pitch-black environments. In combat, it utilizes aerial agility, biting techniques that can drain vitality, and status-inflicting sound-based or poison attacks to disorient and wear down opponents.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
+          "control",
           "poison"
         ],
         "techniques": [
+          "Leech Life",
+          "Bite",
+          "Supersonic",
+          "Confuse Ray",
+          "Air Cutter",
+          "Poison Fang",
+          "Venoshock",
           "Supersonic waves that confuse",
           "Leech Life drains health from the target",
           "Bites and poison attacks"
@@ -23,22 +32,51 @@
       },
       "defense": {
         "mechanisms": [
+          "Flight evasion",
+          "Inner Focus ability (prevents flinching)",
+          "Infiltrator ability (bypasses opponent's barriers and substitutes)",
           "Immune to Ground-type moves",
           "Inner Focus prevents flinching"
         ]
       },
       "weaknesses": [
+        "Electric-type attacks",
+        "Ice-type attacks",
+        "Psychic-type attacks",
+        "Rock-type attacks",
         "Weak to Electric, Ice, Psychic and Rock",
         "Eyeless; relies on echolocation and avoids bright light"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures manga",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon Generation I-IX games and anime",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Flight",
         "Natural flight via wings"
       ],
       "limitations": [
+        "Vulnerable to strong sound-disruption or blinding light depending on specific environmental conditions",
+        "Type weaknesses to rock, electric, ice, and psychic attacks",
         "Blind and relies entirely on echolocation, rendering it vulnerable to sound-dampening effects",
         "Fragile physical build before evolving into Golbat"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Zubat_(Pok%C3%A9mon)",
+          "supports": "Zubat abilities, type, combat techniques, evolution, and general characteristics across games and anime."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/List_of_generation_I_Pok%C3%A9mon",
           "supports": "Zubat is a Poison/Flying bat with no eyes that navigates by echolocation and is sensitive to bright light."
@@ -52,16 +90,38 @@
           "supports": "Zubat learns Supersonic, Leech Life, Bite, Poison Fang and Air Slash."
         }
       ],
+      "feats": [
+        {
+          "claim": "Zubat navigates completely dark caves using echolocation waves.",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "depiction": "Pokémon games and anime",
+          "source": 0
+        },
+        {
+          "claim": "Zubat uses Leech Life to drain an opponent's health and restore its own.",
+          "citation": "Standard move mechanics across Pokémon Generation I-IX games",
+          "depiction": "Pokémon games and anime",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Zubat possesses natural wings and actively flies in battle.",
+          "source": 0
+        }
+      ],
       "unknowns": [
+        "Exact battle scaling and outcomes against high-level legendary Pokémon in varied expanded media continuities.",
         "Exact strength variance between wild Zubat and trained trainer-owned Zubat outside standard game scaling.",
         "Unsupported by cited source (term check, 0/9 key terms found): Uses echolocation and ultrasonic waves like Supersonic to disorient or confuse targets in battle.",
         "Unsupported by cited source (term check, 0/6 key terms found): Absorbs life force to recover its own health using Leech Life.",
         "Unsupported by cited source (term check, 0/8 key terms found): natural-flight: Zubat possesses natural wings and flies constantly in caves and dark environments.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Zubat is a flying/poison-type bat Pokémon that fights by navigating via echolocation, attacking from the air with biting techniques like Leech Life, and disorienting foes with status-inflicting moves such as Confuse Ray."
     }
   ]
 }
