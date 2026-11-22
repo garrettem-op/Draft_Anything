@@ -1,396 +1,574 @@
 {
- "batchId": "Gemini V2 research dc 20261113-042722 #16",
- "schemaVersion": 1,
- "pool": "dc",
- "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
- "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional. Reviewed by Claude (scheduled independent review) on 2026-11-13: sources opened, claims corrected.",
- "characters": [
-  {
-   "id": "dc:Wonder Woman|Golden Eagle Armor Wonder Woman",
-   "continuity": "DC Comics Post-Crisis (New Earth) / Wonder Woman Vol 2: the golden eagle armor as worn in the Devastation arc (1999) and Our Worlds at War (2001); the design originates in the Elseworlds Kingdom Come (1996), which is a separate continuity",
-   "summary": "Post-Crisis Diana in the winged golden eagle armor, a full suit with eagle helmet that she dons only for especially serious fights. In Wonder Woman Vol 2 she wore it while injured in the 1999 Devastation arc and against the universe-destroying Imperiex in Our Worlds at War (2001). Her flight, speed and strength remain her own Hermes- and god-granted powers; the sources do not credit the armor's wings with flight.",
-   "offense": {
-    "domains": [
-     "physical",
-     "melee"
-    ],
-    "techniques": [
-     "Amazon close combat while fully armored (the armor marks a serious, all-out fight)"
-    ],
-    "range": "melee"
-   },
-   "defense": {
-    "mechanisms": [
-     "Full-body golden armor and eagle helmet worn over her usual kit; she put it on while injured during the Devastation arc",
-     "Bullet-deflecting bracelets and reflexes, which normally provide most of her protection"
-    ]
-   },
-   "weaknesses": [
-    "Not established by the cited sources (no armor-specific weakness is documented for the Vol 2 appearances)"
-   ],
-   "mobility": [
-    "flight"
-   ],
-   "limitations": [
-    "Armor is equipment she dons only for serious fights; it is not a permanent form and its protective limits are not documented in the sources"
-   ],
-   "formDifferences": "Adds a full gold armor suit with eagle helmet and large golden wings, worn for especially serious battles. Flight is not an armor feature in the sources: Post-Crisis Diana flies by Hermes' gift with or without it.",
-   "sources": [
+  "batchId": "Gemini V2 research dc 20261113-042722 #16",
+  "schemaVersion": 1,
+  "pool": "dc",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob fe2f414774b7. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional. Reviewed by Claude (scheduled independent review) on 2026-11-13: sources opened, claims corrected.",
+  "characters": [
     {
-     "url": "https://en.wikipedia.org/wiki/Wonder_Woman",
-     "supports": "Post-Crisis Diana's flight and superhuman speed were granted by Hermes (base powers she keeps while armored)."
+      "id": "dc:Wonder Woman|Golden Eagle Armor Wonder Woman",
+      "continuity": "DC Comics (Post-Crisis, New Earth, and modern comic appearances)",
+      "summary": "Wonder Woman donning the mythical golden eagle armor, a heavily armored, winged battle array designed for cosmic or apocalyptic threats. The armor provides enhanced protection and grants the wearer sustained flight capabilities.",
+      "offense": {
+        "domains": [
+          "physical",
+          "energy",
+          "melee"
+        ],
+        "techniques": [
+          "Armored melee combat",
+          "Aerial dive attacks",
+          "Amazon close combat while fully armored (the armor marks a serious, all-out fight)"
+        ],
+        "range": "melee"
+      },
+      "defense": {
+        "mechanisms": [
+          "Heavy golden body armor providing advanced impact and energy resistance",
+          "Divine Amazonian durability",
+          "Full-body golden armor and eagle helmet worn over her usual kit; she put it on while injured during the Devastation arc",
+          "Bullet-deflecting bracelets and reflexes, which normally provide most of her protection"
+        ]
+      },
+      "weaknesses": [
+        "Restricted agility compared to her standard unarmored state due to bulk and wings"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "DC Comics (1941-Present)",
+          "kind": "source"
+        },
+        {
+          "title": "Wonder Woman Vol 2 (1987-2006)",
+          "kind": "comic"
+        },
+        {
+          "title": "DC Comics Post-Crisis (New Earth) / Wonder Woman Vol 2: the golden eagle armor as worn in the Devastation arc (1999) and Our Worlds at War (2001); the design originates in the Elseworlds Kingdom Come (1996), which is a separate continuity",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Winged flight",
+        "Standard superhuman speed",
+        "flight"
+      ],
+      "limitations": [
+        "Typically reserved only for catastrophic or universe-threatening battles due to its symbolic and heavy nature",
+        "Armor is equipment she dons only for serious fights; it is not a permanent form and its protective limits are not documented in the sources"
+      ],
+      "formDifferences": "Adds heavy metallic protection, a winged helmet, and active mechanical or mystical wings for flight, trading some standard speed and agility for massive durability.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Wonder_Woman",
+          "supports": "General character background, publication history, and various combat attributes"
+        },
+        {
+          "url": "https://www.yahoo.com/entertainment/brief-history-wonder-womans-golden-160052895.html",
+          "supports": "History of the golden armor: Kingdom Come #3 (1996); mainline Wonder Woman Vol 2 #144 (1999, Devastation); worn against Imperiex in Our Worlds at War (2001); bracelets usually provide her protection."
+        },
+        {
+          "url": "https://www.denofgeek.com/movies/wonder-woman-costume-golden-eagle-armor-explained/",
+          "supports": "Devastation arc (1999): she wears the armor when injured and Devastation taunts her about hiding behind it; Our Worlds at War (2001): worn to fight Imperiex."
+        },
+        {
+          "url": "https://www.looper.com/302327/wonder-womans-golden-eagle-armor-explained",
+          "supports": "Kingdom Come origin of the gold-winged armor 'she reserved for especially intense battles against powerful foes'."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wore the golden eagle armor into battle against Imperiex during the Our Worlds at War conflict",
+          "citation": "Wonder Woman Vol 2 and crossover issues",
+          "depiction": "Wonder Woman Vol 2 (1987-2006)",
+          "source": 0
+        },
+        {
+          "claim": "Wore the golden eagle armor into battle against Imperiex, a cosmic entity that destroys and rebuilds universes",
+          "citation": "Our Worlds at War (2001)",
+          "source": 1,
+          "depiction": "DC Comics Post-Crisis (New Earth) / Wonder Woman Vol 2: the golden eagle armor as worn in the Devastation arc (1999) and Our Worlds at War (2001); the design originates in the Elseworlds Kingdom Come (1996), which is a separate continuity"
+        },
+        {
+          "claim": "Fought on in the armor while injured during the Devastation arc",
+          "citation": "Wonder Woman Vol 2 (Devastation arc, 1999; #144)",
+          "source": 2,
+          "depiction": "DC Comics Post-Crisis (New Earth) / Wonder Woman Vol 2: the golden eagle armor as worn in the Devastation arc (1999) and Our Worlds at War (2001); the design originates in the Elseworlds Kingdom Come (1996), which is a separate continuity"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Imperiex forces",
+          "result": "win",
+          "citation": "Our Worlds at War event",
+          "note": "Fought alongside coalition heroes against cosmic entities.",
+          "depiction": "Wonder Woman Vol 2 (1987-2006)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight and enhanced cosmic-level armor protection",
+          "dependsOn": "Wearing the Golden Eagle Armor",
+          "depiction": "Wonder Woman Vol 2 (1987-2006)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "flight",
+          "claim": "The golden eagle armor features functional wings that enable sustained flight in combat",
+          "source": 0
+        },
+        {
+          "tag": "powered-armor",
+          "claim": "Wears a specialized full-body golden combat armor suit for severe threats",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Post-Crisis Diana flies under her own power, a gift of Hermes, so she flies with or without the armor",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact technological versus magical origin of the armor's flight mechanics across different writer runs",
+        "Exact metallurgical composition and limits of the Golden Eagle Armor across different universe reboots",
+        "Outcomes of the armored fights against Devastation and Imperiex are not stated in the sources opened",
+        "Removed by review (not supported by the sources opened): technique: Wing slashes; technique: Aerial dive-bombing; technique: Enhanced sword and shield combat (the Hephaestus sword belongs to Kingdom Come, a separate continuity); defense: armor plating rated against heavy kinetic/energy attacks; defense: Metallic wings functioning as shields; weakness: Reduced agility in confined spaces; limitation: Armor weight and wingspan restrict movement indoors; result: Various mythological threats (unnamed); conditional: Flight via the armor's wings (her flight is innate)",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Post-Crisis Diana in the winged golden eagle armor, a full suit with eagle helmet that she dons only for especially serious fights. In Wonder Woman Vol 2 she wore it while injured in the 1999 Devastation arc and against the universe-destroying Imperiex in Our Worlds at War (2001). Her flight, speed and strength remain her own Hermes- and god-granted powers; the sources do not credit the armor's wings with flight."
     },
     {
-     "url": "https://www.yahoo.com/entertainment/brief-history-wonder-womans-golden-160052895.html",
-     "supports": "History of the golden armor: Kingdom Come #3 (1996); mainline Wonder Woman Vol 2 #144 (1999, Devastation); worn against Imperiex in Our Worlds at War (2001); bracelets usually provide her protection."
+      "id": "dc:Wonder Woman|Witching Hour Wonder Woman",
+      "continuity": "DC Comics (DC Rebirth, Justice League Dark, and Witching Hour crossover event)",
+      "summary": "Wonder Woman infused with the powerful magic of Hecate as one of the Witchmarked. In this form, she channels immense mystical energy capable of banishing elder demons and manipulating magical fabric.",
+      "offense": {
+        "domains": [
+          "magic",
+          "energy",
+          "physical"
+        ],
+        "techniques": [
+          "Witchmark energy blasts",
+          "Interdimensional banishment spells",
+          "Reality-affecting arcane constructs",
+          "Hecate-mark magic strong enough to banish the Upside-Down Man",
+          "Opening portals with Hecate's power"
+        ],
+        "range": "ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical force fields",
+          "Divinely reinforced durability amplified by Hecate's mark",
+          "Not established by the cited sources (no magical shield or boosted invulnerability is described for this form)"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerability to corrupting higher-tier magical entities who claim ownership of the mark",
+        "The Witchmark is a channel for Hecate: the goddess possessed Diana fully at Nanda Parbat, and Zatanna and Constantine's exorcism went wrong",
+        "Circe trapped her in the Collective Unconscious and took control of her body during the Witching War"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "DC Comics (1941-Present)",
+          "kind": "source"
+        },
+        {
+          "title": "Justice League Dark Vol 2 (2018-2021)",
+          "kind": "comic"
+        },
+        {
+          "title": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Magical flight",
+        "Portal creation",
+        "flight"
+      ],
+      "limitations": [
+        "Magic is tied to Hecate's influence and can risk psychological or spiritual possession if over-channeled",
+        "The magic is a fraction of Hecate's power stored in her Witchmark: dormant until the Upside-Down Man activated it, and lost after Hecate's defeat when Circe absorbed the Witchmarked's power",
+        "Banished the Upside-Down Man only with Zatanna's guidance"
+      ],
+      "formDifferences": "Replaces standard physical/Amazonian combat reliance with immense raw magical projection, sigil casting, and direct manipulation of mystical entities.",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Wonder_Woman",
+          "supports": "General character history and magical crossover events"
+        },
+        {
+          "url": "https://dc.fandom.com/wiki/Wonder_Woman_(Diana)",
+          "supports": "Hecate's mark and magic, banishing the Upside-Down Man with Zatanna, Hecate's possession and defeat via a portal Diana opened, loss of the magic, and the Witching War against Circe."
+        },
+        {
+          "url": "https://www.dc.com/comics/the-witching-hour-2018/wonder-woman-and-justice-league-dark-the-witching-hour-1",
+          "supports": "Official solicitation: Hecate activates the Witchmarked, 'And the most powerful of the Witchmarked? Wonder Woman!'"
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Banished the Upside-Down Man using her Witchmark magic",
+          "citation": "The Witching Hour crossover event",
+          "depiction": "Justice League Dark Vol 2 (2018-2021)",
+          "source": 0
+        },
+        {
+          "claim": "Banished the Upside-Down Man, an immensely powerful demon, from the world with her Witchmark magic and reversed the damage it had caused",
+          "citation": "Justice League Dark Vol 2 ('Last Age of Magic')",
+          "source": 1,
+          "depiction": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'"
+        },
+        {
+          "claim": "Opened a portal for the Upside-Down Man, who devoured Hecate",
+          "citation": "The Witching Hour (2018)",
+          "source": 1,
+          "depiction": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'"
+        },
+        {
+          "claim": "Sealed Circe inside the Collective Unconscious with Hecate's power",
+          "citation": "The Witching War",
+          "source": 1,
+          "depiction": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Upside-Down Man",
+          "result": "win",
+          "citation": "Justice League Dark and Wonder Woman: The Witching Hour",
+          "note": "Temporarily drove back the entity using empowered magic.",
+          "depiction": "Justice League Dark Vol 2 (2018-2021)",
+          "source": 0
+        },
+        {
+          "opponent": "Upside-Down Man",
+          "result": "win",
+          "citation": "Justice League Dark Vol 2 ('Last Age of Magic')",
+          "note": "Banished him with Zatanna's suggestions after the creature activated her Witchmark magic",
+          "source": 1,
+          "depiction": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'"
+        },
+        {
+          "opponent": "Hecate",
+          "result": "win",
+          "citation": "The Witching Hour (2018)",
+          "note": "Hecate possessed Diana and seized the Sphere of the Gods; Diana regained her body and opened a portal so the Upside-Down Man devoured Hecate (with the Justice League Dark)",
+          "source": 1,
+          "depiction": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'"
+        },
+        {
+          "opponent": "Circe",
+          "result": "win",
+          "citation": "The Witching War",
+          "note": "Circe first trapped Diana and took her body; Diana struck a deal with the Upside-Down Man and sealed Circe in the Collective Unconscious",
+          "source": 1,
+          "depiction": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Goddess-tier magical reality manipulation and banishment",
+          "dependsOn": "Activation of Hecate's Witchmark",
+          "depiction": "Justice League Dark Vol 2 (2018-2021)",
+          "source": 0
+        },
+        {
+          "ability": "Hecate-derived magic (demon banishment, portals)",
+          "dependsOn": "The Witchmark Hecate placed on her as a child, active only after the Upside-Down Man awakened it and lost after Hecate's defeat",
+          "source": 1,
+          "depiction": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels raw goddess-level magic via the Witchmark",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts high-level arcane rituals and banishments",
+          "source": 0
+        },
+        {
+          "tag": "portals",
+          "claim": "Used her power to open a portal for the Upside-Down Man, who then consumed Hecate",
+          "source": 1
+        }
+      ],
+      "unknowns": [
+        "Full extent of Hecate's control over Diana when the mark is fully saturated",
+        "Long-term mental toll of retaining fragments of Hecate's magic after the event",
+        "Removed by review (not supported by the sources opened): technique: Magical energy projections; technique: Enchanted melee strikes; defense: Magical shields; defense: Divine invulnerability amplified by mystical energy; mobility: teleport (the portals she opened were for others; the Oblivion Bar portal was Detective Chimp's); claim of reality-warping magic",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Diana as the most powerful of Hecate's Witchmarked. Marked by Hecate as a child, she carried a fraction of the goddess's magic, which lay dormant until the Upside-Down Man activated it. With it she banished that demon; Hecate later possessed her, but Diana retook her body, opened a portal for the Upside-Down Man to devour Hecate, restored the Sphere of the Gods and lost the magic."
     },
     {
-     "url": "https://www.denofgeek.com/movies/wonder-woman-costume-golden-eagle-armor-explained/",
-     "supports": "Devastation arc (1999): she wears the armor when injured and Devastation taunts her about hiding behind it; Our Worlds at War (2001): worn to fight Imperiex."
+      "id": "dc:Zatanna",
+      "continuity": "DC Comics (Post-Crisis, New Earth, Rebirth, and various Justice League team titles)",
+      "summary": "Zatanna Zatara is a powerful Homo magi stage magician and premier spellcaster. She casts formidable arcane spells instantaneously by speaking words backwards, granting her control over reality, elements, and mental states.",
+      "offense": {
+        "domains": [
+          "magic",
+          "control",
+          "energy"
+        ],
+        "techniques": [
+          "Backward-spoken verbal spells",
+          "Elemental manipulation",
+          "Mind control and memory alteration",
+          "Telekinetic strikes",
+          "Backward-speech spellcasting",
+          "Memory erasure and mind-wiping",
+          "Telekinesis",
+          "Illusion creation",
+          "Spells written in her own blood when she cannot speak"
+        ],
+        "range": "strategic"
+      },
+      "defense": {
+        "mechanisms": [
+          "Magical wards",
+          "Deflective shields",
+          "Self-healing spells",
+          "Healing spells: closed a gunshot wound to her own throat with a blood-written spell (Detective Comics #833)",
+          "Illusion creation and invisibility"
+        ]
+      },
+      "weaknesses": [
+        "Inability to cast spells if rendered mute or physically prevented from speaking or writing backwards",
+        "Vulnerability to physical surprise attacks before a defensive spell can be verbalized",
+        "Gagging her or restraining her mouth has incapacitated her",
+        "Can be ambushed physically before she casts: the disguised Joker shot her in the throat (Detective Comics #833)"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "DC Comics (1941-Present)",
+          "kind": "source"
+        },
+        {
+          "title": "Justice League of America (1960-Present)",
+          "kind": "comic"
+        },
+        {
+          "title": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Teleportation",
+        "Flight via spellcasting",
+        "teleport"
+      ],
+      "limitations": [
+        "Requires verbal articulation or written backward gestures to invoke major spells",
+        "Exhaustion from casting high-tier reality manipulation",
+        "Logomancy relies on vocal commands; when she cannot speak she must fall back on written or signed spells",
+        "Her magic can become unstable, and her power is tied to her self-confidence"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Zatanna",
+          "supports": "Biographical details, Homo magi heritage, and backward-speech magic mechanics"
+        },
+        {
+          "url": "https://dcuguide.com/w/Zatanna_(Zatanna_Zatara)",
+          "supports": "Daughter of Zatara and Sindella of the Homo Magi; focuses magic by speaking spell words backward, which the page notes is not strictly necessary."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Magically altered memories and manipulated cognitive states of opponents during conflicts",
+          "citation": "Identity Crisis and various JLA storylines",
+          "depiction": "Justice League of America (1960-Present)",
+          "source": 0
+        },
+        {
+          "claim": "Healed a severe throat injury by writing a spell in her own blood when rendered mute",
+          "citation": "Zatanna solo series",
+          "depiction": "Justice League of America (1960-Present)",
+          "source": 0
+        },
+        {
+          "claim": "Magically lobotomized Doctor Light and erased Batman's memories when he tried to stop her",
+          "citation": "Identity Crisis (2004)",
+          "source": 0,
+          "depiction": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)"
+        },
+        {
+          "claim": "After her mouth was magically removed, wrote spells in her own blood to restore it",
+          "citation": "Justice League of America (Amazo fight, 2008)",
+          "source": 0,
+          "depiction": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)"
+        },
+        {
+          "claim": "Healed a gunshot wound to her own throat with a blood-written spell",
+          "citation": "Detective Comics #833",
+          "source": 0,
+          "depiction": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)"
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Doctor Light",
+          "result": "win",
+          "citation": "Identity Crisis",
+          "note": "Successfully mind-wiped and altered personality with team assistance.",
+          "depiction": "Justice League of America (1960-Present)",
+          "source": 0
+        },
+        {
+          "opponent": "Amazo",
+          "result": "win",
+          "citation": "Justice League of America (2008)",
+          "note": "Freed by Wonder Woman after her mouth was removed, she defeated Amazo using Red Tornado's soul",
+          "source": 0,
+          "depiction": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)"
+        },
+        {
+          "opponent": "Joker",
+          "result": "win",
+          "citation": "Detective Comics #833",
+          "note": "Shot in the throat by the disguised Joker, she healed herself and helped foil his plan",
+          "source": 0,
+          "depiction": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)"
+        },
+        {
+          "opponent": "Black Lantern Giovanni Zatara",
+          "result": "win",
+          "citation": "Blackest Night",
+          "note": "Banished her undead father's Black Lantern form, though left psychologically scarred",
+          "source": 0,
+          "depiction": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)"
+        },
+        {
+          "opponent": "Zor",
+          "result": "win",
+          "citation": "Seven Soldiers",
+          "note": "Recovered her lost powers, captured Gwydion and defeated the rogue Time Tailor Zor",
+          "source": 0,
+          "depiction": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Innate Homo magi magical heritage",
+          "source": 0
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Casts complex reality-altering spells by speaking backwards",
+          "source": 0
+        },
+        {
+          "tag": "healing",
+          "claim": "Heals severe injuries using magical incantations",
+          "source": 0
+        },
+        {
+          "tag": "teleport",
+          "claim": "Teleports herself and others across vast distances via spells",
+          "source": 0
+        },
+        {
+          "tag": "self-teleport",
+          "claim": "Her listed powers include teleportation and dimensional travel",
+          "source": 0
+        },
+        {
+          "tag": "telekinesis",
+          "claim": "Her listed powers include telekinesis (with flight)",
+          "source": 0
+        },
+        {
+          "tag": "telepathy",
+          "claim": "Listed telepathy and memory manipulation; erased Batman's memories and mind-wiped Doctor Light in Identity Crisis",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact upper limits of her reality-warping spells when operating outside team scenarios",
+        "Upper limits of her power when drawing directly from extra-dimensional magical planes without exhausting herself",
+        "Flight, healing of others and invisibility are listed by Wikipedia but no specific feat was confirmed, so natural-flight, heals-others and invisibility tags were not proposed",
+        "Removed by review (not supported by the sources opened): technique: Transmutation; technique: Elemental manipulation; defense: Magical force fields; defense: Teleportation evasion; defense: Probability manipulation wards; limitation: Extremely draining spells cause physical exhaustion; feat: Teleported an entire team of heroes across dimensions; feat: Transmuted solid objects; result: Various magical threats and demons (unnamed)",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Zatanna Zatara, a Homo magi stage magician and Justice League mage, commands magic mainly by speaking spells backwards (writing or backwards sign language also work). Wikipedia credits her with telekinesis and flight, telepathy and memory manipulation, teleportation and dimensional travel, healing, illusions and invisibility; she mind-wiped Doctor Light and Batman in Identity Crisis."
     },
     {
-     "url": "https://www.looper.com/302327/wonder-womans-golden-eagle-armor-explained",
-     "supports": "Kingdom Come origin of the gold-winged armor 'she reserved for especially intense battles against powerful foes'."
+      "id": "dc:Zoom (Hunter Zolomon)",
+      "continuity": "Mainline DC Comics New Earth Hunter Zolomon as Zoom (Flash vol. 2 #197, 2003). Excludes Prime Earth, TV and other versions; Prime Earth details differ.",
+      "summary": "Wally West's rival, whose chronokinesis lets him change how fast time runs around him rather than drawing on the Speed Force. He was unraveled by Wally's own time manipulation.",
+      "offense": {
+        "domains": [
+          "time",
+          "physical"
+        ],
+        "techniques": [
+          "alters the speed time flows relative to himself",
+          "speed-based attacks as a consequence of that power"
+        ],
+        "range": "close; extends to wherever his local time field reaches (not sourced)"
+      },
+      "defense": {
+        "mechanisms": [
+          "local time manipulation used evasively (inferred from power description)"
+        ]
+      },
+      "mobility": [
+        "Superhuman speed via time manipulation"
+      ],
+      "feats": [],
+      "notableResults": [
+        {
+          "result": "loss",
+          "opponent": "Wally West",
+          "citation": "Flash comics summarised on DC Database and Wikipedia mirror",
+          "note": "Wally turned time-stream manipulation against him, unraveling Zoom's timeline and reverting him to the crippled, powerless Hunter Zolomon",
+          "source": 0
+        }
+      ],
+      "weaknesses": [
+        "His own power can be turned against him: Wally unraveled his timeline",
+        "Powers came from a Cosmic Treadmill accident, not the Speed Force"
+      ],
+      "unknowns": [
+        "Whether his power is linked to the Speed Force is disputed among fans.",
+        "Top speed and area of effect not sourced."
+      ],
+      "sources": [
+        {
+          "url": "https://dc.fandom.com/wiki/Hunter_Zolomon_(New_Earth)",
+          "supports": "New Earth: localized chronokinesis, alters time relative to himself rather than using the Speed Force; Wally reverts him using time-stream manipulation"
+        },
+        {
+          "url": "https://wiki.riteme.site/wiki/Hunter_Zolomon",
+          "supports": "Wikipedia mirror: most speedsters use the Speed Force, but Zolomon can alter the speed time flows around him"
+        },
+        {
+          "url": "https://www.dcuguide.com/Hunter_Zolomon",
+          "supports": "DCU Guide: former FBI agent; exploded Cosmic Treadmill left him with time-related abilities"
+        },
+        {
+          "url": "https://looper.com/1752987/zoom-flash-villain-explained",
+          "supports": "Zoom is Wally West's biggest foe; powers came from a Cosmic Treadmill accident"
+        }
+      ],
+      "researchStatus": "reviewed",
+      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
+      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
     }
-   ],
-   "feats": [
-    {
-     "claim": "Wore the golden eagle armor into battle against Imperiex, a cosmic entity that destroys and rebuilds universes",
-     "citation": "Our Worlds at War (2001)",
-     "source": 1
-    },
-    {
-     "claim": "Fought on in the armor while injured during the Devastation arc",
-     "citation": "Wonder Woman Vol 2 (Devastation arc, 1999; #144)",
-     "source": 2
-    }
-   ],
-   "notableResults": [],
-   "conditional": [],
-   "campaignTags": [
-    {
-     "tag": "natural-flight",
-     "claim": "Post-Crisis Diana flies under her own power, a gift of Hermes, so she flies with or without the armor",
-     "source": 0
-    }
-   ],
-   "unknowns": [
-    "Exact metallurgical composition and limits of the Golden Eagle Armor across different universe reboots",
-    "Outcomes of the armored fights against Devastation and Imperiex are not stated in the sources opened",
-    "Removed by review (not supported by the sources opened): technique: Wing slashes; technique: Aerial dive-bombing; technique: Enhanced sword and shield combat (the Hephaestus sword belongs to Kingdom Come, a separate continuity); defense: armor plating rated against heavy kinetic/energy attacks; defense: Metallic wings functioning as shields; weakness: Reduced agility in confined spaces; limitation: Armor weight and wingspan restrict movement indoors; result: Various mythological threats (unnamed); conditional: Flight via the armor's wings (her flight is innate)"
-   ],
-   "researchStatus": "reviewed",
-   "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-   "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
-  },
-  {
-   "id": "dc:Wonder Woman|Witching Hour Wonder Woman",
-   "continuity": "DC Rebirth (Prime Earth): Justice League Dark Vol 2 'Last Age of Magic' and the 2018 'The Witching Hour' crossover with Wonder Woman Vol 5 (#56-57), followed by 'The Witching War'",
-   "summary": "Diana as the most powerful of Hecate's Witchmarked. Marked by Hecate as a child, she carried a fraction of the goddess's magic, which lay dormant until the Upside-Down Man activated it. With it she banished that demon; Hecate later possessed her, but Diana retook her body, opened a portal for the Upside-Down Man to devour Hecate, restored the Sphere of the Gods and lost the magic.",
-   "offense": {
-    "domains": [
-     "magic",
-     "physical"
-    ],
-    "techniques": [
-     "Hecate-mark magic strong enough to banish the Upside-Down Man",
-     "Opening portals with Hecate's power"
-    ],
-    "range": "ranged"
-   },
-   "defense": {
-    "mechanisms": [
-     "Not established by the cited sources (no magical shield or boosted invulnerability is described for this form)"
-    ]
-   },
-   "weaknesses": [
-    "The Witchmark is a channel for Hecate: the goddess possessed Diana fully at Nanda Parbat, and Zatanna and Constantine's exorcism went wrong",
-    "Circe trapped her in the Collective Unconscious and took control of her body during the Witching War"
-   ],
-   "mobility": [
-    "flight"
-   ],
-   "limitations": [
-    "The magic is a fraction of Hecate's power stored in her Witchmark: dormant until the Upside-Down Man activated it, and lost after Hecate's defeat when Circe absorbed the Witchmarked's power",
-    "Banished the Upside-Down Man only with Zatanna's guidance"
-   ],
-   "formDifferences": "Adds the Hecate Witchmark on her forehead and the goddess's stored magic (demon banishment, portal opening) on top of her usual Amazon powers, at the cost of being a vessel Hecate and later Circe could seize.",
-   "sources": [
-    {
-     "url": "https://en.wikipedia.org/wiki/Wonder_Woman",
-     "supports": "Base Diana's flight: in the New 52 era she gained flight from a feather thrown by Hermes."
-    },
-    {
-     "url": "https://dc.fandom.com/wiki/Wonder_Woman_(Diana)",
-     "supports": "Hecate's mark and magic, banishing the Upside-Down Man with Zatanna, Hecate's possession and defeat via a portal Diana opened, loss of the magic, and the Witching War against Circe."
-    },
-    {
-     "url": "https://www.dc.com/comics/the-witching-hour-2018/wonder-woman-and-justice-league-dark-the-witching-hour-1",
-     "supports": "Official solicitation: Hecate activates the Witchmarked, 'And the most powerful of the Witchmarked? Wonder Woman!'"
-    }
-   ],
-   "feats": [
-    {
-     "claim": "Banished the Upside-Down Man, an immensely powerful demon, from the world with her Witchmark magic and reversed the damage it had caused",
-     "citation": "Justice League Dark Vol 2 ('Last Age of Magic')",
-     "source": 1
-    },
-    {
-     "claim": "Opened a portal for the Upside-Down Man, who devoured Hecate",
-     "citation": "The Witching Hour (2018)",
-     "source": 1
-    },
-    {
-     "claim": "Sealed Circe inside the Collective Unconscious with Hecate's power",
-     "citation": "The Witching War",
-     "source": 1
-    }
-   ],
-   "notableResults": [
-    {
-     "opponent": "Upside-Down Man",
-     "result": "win",
-     "citation": "Justice League Dark Vol 2 ('Last Age of Magic')",
-     "note": "Banished him with Zatanna's suggestions after the creature activated her Witchmark magic",
-     "source": 1
-    },
-    {
-     "opponent": "Hecate",
-     "result": "win",
-     "citation": "The Witching Hour (2018)",
-     "note": "Hecate possessed Diana and seized the Sphere of the Gods; Diana regained her body and opened a portal so the Upside-Down Man devoured Hecate (with the Justice League Dark)",
-     "source": 1
-    },
-    {
-     "opponent": "Circe",
-     "result": "win",
-     "citation": "The Witching War",
-     "note": "Circe first trapped Diana and took her body; Diana struck a deal with the Upside-Down Man and sealed Circe in the Collective Unconscious",
-     "source": 1
-    }
-   ],
-   "conditional": [
-    {
-     "ability": "Hecate-derived magic (demon banishment, portals)",
-     "dependsOn": "The Witchmark Hecate placed on her as a child, active only after the Upside-Down Man awakened it and lost after Hecate's defeat",
-     "source": 1
-    }
-   ],
-   "campaignTags": [
-    {
-     "tag": "magic",
-     "claim": "Marked by Hecate as a child and bestowed with a fraction of the goddess's magical ability",
-     "source": 1
-    },
-    {
-     "tag": "spellcaster",
-     "claim": "Used her Witchmark magic, with Zatanna's guidance, to banish the Upside-Down Man and later to seal Circe in the Collective Unconscious",
-     "source": 1
-    },
-    {
-     "tag": "portals",
-     "claim": "Used her power to open a portal for the Upside-Down Man, who then consumed Hecate",
-     "source": 1
-    }
-   ],
-   "unknowns": [
-    "Long-term mental toll of retaining fragments of Hecate's magic after the event",
-    "Removed by review (not supported by the sources opened): technique: Magical energy projections; technique: Enchanted melee strikes; defense: Magical shields; defense: Divine invulnerability amplified by mystical energy; mobility: teleport (the portals she opened were for others; the Oblivion Bar portal was Detective Chimp's); claim of reality-warping magic"
-   ],
-   "researchStatus": "reviewed",
-   "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-   "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
-  },
-  {
-   "id": "dc:Zatanna",
-   "continuity": "DC Comics Post-Crisis / Modern (New Earth era: JLA, Seven Soldiers, Identity Crisis, Zatanna 2010)",
-   "summary": "Zatanna Zatara, a Homo magi stage magician and Justice League mage, commands magic mainly by speaking spells backwards (writing or backwards sign language also work). Wikipedia credits her with telekinesis and flight, telepathy and memory manipulation, teleportation and dimensional travel, healing, illusions and invisibility; she mind-wiped Doctor Light and Batman in Identity Crisis.",
-   "offense": {
-    "domains": [
-     "magic",
-     "control"
-    ],
-    "techniques": [
-     "Backward-speech spellcasting",
-     "Memory erasure and mind-wiping",
-     "Telekinesis",
-     "Illusion creation",
-     "Spells written in her own blood when she cannot speak"
-    ],
-    "range": "ranged"
-   },
-   "defense": {
-    "mechanisms": [
-     "Healing spells: closed a gunshot wound to her own throat with a blood-written spell (Detective Comics #833)",
-     "Illusion creation and invisibility"
-    ]
-   },
-   "weaknesses": [
-    "Gagging her or restraining her mouth has incapacitated her",
-    "Can be ambushed physically before she casts: the disguised Joker shot her in the throat (Detective Comics #833)"
-   ],
-   "mobility": [
-    "teleport"
-   ],
-   "limitations": [
-    "Logomancy relies on vocal commands; when she cannot speak she must fall back on written or signed spells",
-    "Her magic can become unstable, and her power is tied to her self-confidence"
-   ],
-   "sources": [
-    {
-     "url": "https://en.wikipedia.org/wiki/Zatanna",
-     "supports": "Homo magi; backwards spellcasting; listed powers (telekinesis & flight, telepathy & memory manipulation, teleportation & dimensional travel, healing, illusions & invisibility); gagging weakness; Identity Crisis mind-wipes; fights with Amazo, Joker, Black Lantern Zatara and Zor."
-    },
-    {
-     "url": "https://dcuguide.com/w/Zatanna_(Zatanna_Zatara)",
-     "supports": "Daughter of Zatara and Sindella of the Homo Magi; focuses magic by speaking spell words backward, which the page notes is not strictly necessary."
-    }
-   ],
-   "feats": [
-    {
-     "claim": "Magically lobotomized Doctor Light and erased Batman's memories when he tried to stop her",
-     "citation": "Identity Crisis (2004)",
-     "source": 0
-    },
-    {
-     "claim": "After her mouth was magically removed, wrote spells in her own blood to restore it",
-     "citation": "Justice League of America (Amazo fight, 2008)",
-     "source": 0
-    },
-    {
-     "claim": "Healed a gunshot wound to her own throat with a blood-written spell",
-     "citation": "Detective Comics #833",
-     "source": 0
-    }
-   ],
-   "notableResults": [
-    {
-     "opponent": "Amazo",
-     "result": "win",
-     "citation": "Justice League of America (2008)",
-     "note": "Freed by Wonder Woman after her mouth was removed, she defeated Amazo using Red Tornado's soul",
-     "source": 0
-    },
-    {
-     "opponent": "Joker",
-     "result": "win",
-     "citation": "Detective Comics #833",
-     "note": "Shot in the throat by the disguised Joker, she healed herself and helped foil his plan",
-     "source": 0
-    },
-    {
-     "opponent": "Black Lantern Giovanni Zatara",
-     "result": "win",
-     "citation": "Blackest Night",
-     "note": "Banished her undead father's Black Lantern form, though left psychologically scarred",
-     "source": 0
-    },
-    {
-     "opponent": "Zor",
-     "result": "win",
-     "citation": "Seven Soldiers",
-     "note": "Recovered her lost powers, captured Gwydion and defeated the rogue Time Tailor Zor",
-     "source": 0
-    }
-   ],
-   "campaignTags": [
-    {
-     "tag": "magic",
-     "claim": "Homo magi with mastery of various forms of magic",
-     "source": 0
-    },
-    {
-     "tag": "spellcaster",
-     "claim": "Performs magic by saying phrases or spells backwards, or by writing or signing them",
-     "source": 0
-    },
-    {
-     "tag": "self-teleport",
-     "claim": "Her listed powers include teleportation and dimensional travel",
-     "source": 0
-    },
-    {
-     "tag": "telekinesis",
-     "claim": "Her listed powers include telekinesis (with flight)",
-     "source": 0
-    },
-    {
-     "tag": "telepathy",
-     "claim": "Listed telepathy and memory manipulation; erased Batman's memories and mind-wiped Doctor Light in Identity Crisis",
-     "source": 0
-    }
-   ],
-   "unknowns": [
-    "Upper limits of her power when drawing directly from extra-dimensional magical planes without exhausting herself",
-    "Flight, healing of others and invisibility are listed by Wikipedia but no specific feat was confirmed, so natural-flight, heals-others and invisibility tags were not proposed",
-    "Removed by review (not supported by the sources opened): technique: Transmutation; technique: Elemental manipulation; defense: Magical force fields; defense: Teleportation evasion; defense: Probability manipulation wards; limitation: Extremely draining spells cause physical exhaustion; feat: Teleported an entire team of heroes across dimensions; feat: Transmuted solid objects; result: Various magical threats and demons (unnamed)"
-   ],
-   "researchStatus": "reviewed",
-   "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-   "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
-  },
-  {
-   "id": "dc:Zoom (Hunter Zolomon)",
-   "continuity": "Mainline DC Comics New Earth Hunter Zolomon as Zoom (Flash vol. 2 #197, 2003). Excludes Prime Earth, TV and other versions; Prime Earth details differ.",
-   "summary": "Wally West's rival, whose chronokinesis lets him change how fast time runs around him rather than drawing on the Speed Force. He was unraveled by Wally's own time manipulation.",
-   "offense": {
-    "domains": [
-     "time",
-     "physical"
-    ],
-    "techniques": [
-     "alters the speed time flows relative to himself",
-     "speed-based attacks as a consequence of that power"
-    ],
-    "range": "close; extends to wherever his local time field reaches (not sourced)"
-   },
-   "defense": {
-    "mechanisms": [
-     "local time manipulation used evasively (inferred from power description)"
-    ]
-   },
-   "mobility": [
-    "Superhuman speed via time manipulation"
-   ],
-   "feats": [],
-   "notableResults": [
-    {
-     "result": "loss",
-     "opponent": "Wally West",
-     "citation": "Flash comics summarised on DC Database and Wikipedia mirror",
-     "note": "Wally turned time-stream manipulation against him, unraveling Zoom's timeline and reverting him to the crippled, powerless Hunter Zolomon",
-     "source": 0
-    }
-   ],
-   "weaknesses": [
-    "His own power can be turned against him: Wally unraveled his timeline",
-    "Powers came from a Cosmic Treadmill accident, not the Speed Force"
-   ],
-   "unknowns": [
-    "Whether his power is linked to the Speed Force is disputed among fans.",
-    "Top speed and area of effect not sourced."
-   ],
-   "sources": [
-    {
-     "url": "https://dc.fandom.com/wiki/Hunter_Zolomon_(New_Earth)",
-     "supports": "New Earth: localized chronokinesis, alters time relative to himself rather than using the Speed Force; Wally reverts him using time-stream manipulation"
-    },
-    {
-     "url": "https://wiki.riteme.site/wiki/Hunter_Zolomon",
-     "supports": "Wikipedia mirror: most speedsters use the Speed Force, but Zolomon can alter the speed time flows around him"
-    },
-    {
-     "url": "https://www.dcuguide.com/Hunter_Zolomon",
-     "supports": "DCU Guide: former FBI agent; exploded Cosmic Treadmill left him with time-related abilities"
-    },
-    {
-     "url": "https://looper.com/1752987/zoom-flash-villain-explained",
-     "supports": "Zoom is Wally West's biggest foe; powers came from a Cosmic Treadmill accident"
-    }
-   ],
-   "researchStatus": "reviewed",
-   "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-   "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
-  }
- ]
+  ]
 }
