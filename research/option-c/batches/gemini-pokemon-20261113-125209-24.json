@@ -7,37 +7,64 @@
   "characters": [
     {
       "id": "pokemon:Pidgey",
-      "continuity": "Pokémon anime and video games",
-      "summary": "Pidgey is a small avian Pokémon that relies on standard flying-type and normal-type physical and wind-based attacks. It uses gusts of wind and quick wing strikes to overwhelm opponents.",
+      "continuity": "Pokémon games and anime, including television series continuations and Pokémon Adventures manga",
+      "summary": "Pidgey is a docile, small avian Pokémon that utilizes flying and normal-type techniques such as Gust and Sand-Attack. It relies on agility, wing flutters, and kicking up sand to evade and disorient opponents.",
       "offense": {
         "domains": [
           "physical",
+          "wind",
           "energy"
         ],
         "techniques": [
           "Gust",
+          "Sand-Attack",
           "Quick Attack",
-          "Tackle",
-          "Sand-Attack"
+          "Wing Attack",
+          "Tackle"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
           "Agility and evasion via flight",
+          "Lowering enemy accuracy using Sand-Attack",
           "Kicking up sand to obscure vision"
         ]
       },
       "weaknesses": [
         "Vulnerable to Electric, Ice, and Rock-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime continuation series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon anime and video games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "flight"
+        "Flight"
       ],
       "limitations": [
+        "Low physical durability compared to evolved forms",
         "Low physical durability due to small size"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgey_(Pok%C3%A9mon)",
+          "supports": "Basic abilities, type advantages, and moves like Sand-Attack and Gust."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgey_(Pokémon)",
           "supports": "Basic stats, types, moves, and abilities of Pidgey."
@@ -46,40 +73,47 @@
       "feats": [
         {
           "claim": "Blinds opponents using Sand-Attack to evade incoming strikes.",
-          "citation": "Pokémon Red and Blue move description",
+          "citation": "Pokémon video game standard mechanics and anime episodes",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Pidgey flies using its natural wings.",
+          "claim": "Pidgey flies naturally using its wings as a bird Pokémon.",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Exact top sustained flight speed across various media adaptations",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Pidgey is a small avian Pokémon that relies on standard flying-type and normal-type physical and wind-based attacks. It uses gusts of wind and quick wing strikes to overwhelm opponents."
     },
     {
       "id": "pokemon:Pikachu",
-      "continuity": "Pokémon anime and video games",
-      "summary": "Pikachu is a nimble electric mouse Pokémon that generates powerful discharges of electricity from its cheek pouches. It combines high-speed movement with versatile electric and physical strikes.",
+      "continuity": "Pokémon games and anime, including television series continuations and Pokémon Adventures manga",
+      "summary": "Pikachu is an iconic electric mouse Pokémon that stores electricity in its cheek pouches to release powerful shocks and lightning bolts. It combines exceptional speed, agility, and varied electric or physical attacks in combat.",
       "offense": {
         "domains": [
-          "energy",
-          "physical"
+          "electric",
+          "physical",
+          "energy"
         ],
         "techniques": [
           "Thunderbolt",
-          "Iron Tail",
           "Quick Attack",
+          "Iron Tail",
           "Volt Tackle"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "High-speed evasion",
+          "Electric discharge to deter physical contact",
           "High agility to dodge attacks",
           "Substitutions and quick reflexes"
         ]
@@ -87,13 +121,38 @@
       "weaknesses": [
         "Vulnerable to Ground-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime continuation series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon anime and video games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Super-speed running and agile leaping",
         "super-speed"
       ],
       "limitations": [
+        "Ground-type immunity to electric attacks",
         "Ineffective against Ground-type Pokémon"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pok%C3%A9mon)",
+          "supports": "Pikachu's electric powers, moves, evolution lines, and canonical feats."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pokémon)",
           "supports": "Abilities, moveset, and combat style of Pikachu."
@@ -103,150 +162,204 @@
         {
           "claim": "Generates a powerful electrical discharge capable of defeating larger opponents.",
           "citation": "Pokémon anime series",
+          "depiction": "Pokémon anime continuation series",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "electric",
-          "claim": "Pikachu generates and controls electricity.",
+          "claim": "Generates and controls powerful electrical energy.",
+          "source": 0
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Manipulates electricity for attacks like Thunderbolt.",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Exact voltage output limits when pushed to absolute extremes",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Pikachu is a nimble electric mouse Pokémon that generates powerful discharges of electricity from its cheek pouches. It combines high-speed movement with versatile electric and physical strikes."
     },
     {
       "id": "pokemon:Pikachu|Gigantamax Pikachu",
-      "continuity": "Pokémon Sword and Shield",
-      "summary": "Gigantamax Pikachu grows to a massive size, its tail expanding into a colossal weapon capable of unleashing maximum-power electric strikes.",
+      "continuity": "Pokémon Sword and Shield games and related media",
+      "summary": "Gigantamax Pikachu grows to a colossal size, storing massive amounts of electrical energy in a giant cloud around its tail. It unleashes devastating area-of-effect electric devastation.",
       "offense": {
         "domains": [
+          "electric",
           "energy",
           "physical"
         ],
         "techniques": [
           "G-Max Volt Crash",
+          "Max Lightning",
           "Thunder"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Massive physical scale and enhanced endurance inherent to Gigantamax forms",
           "Massive physical bulk and high health pool due to Gigantamax transformation"
         ]
       },
       "weaknesses": [
+        "Limited duration of the Gigantamax phenomenon",
         "Vulnerable to Ground-type attacks",
         "Transformation is temporary and limited to specific conditions"
       ],
-      "limitations": [
-        "Gigantamax effect wears off after three turns"
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sword and Shield",
+          "kind": "source"
+        }
       ],
-      "formDifferences": "Grows to giant proportions, gains massive electrical output, and can use exclusive G-Max moves.",
+      "mobility": [
+        "Stationary or slow giant movement"
+      ],
+      "formDifferences": "Expands Pikachu to a giant size, altering its signature move to G-Max Volt Crash and increasing its overall combat footprint.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pok%C3%A9mon)",
+          "supports": "Gigantamax form details and G-Max Volt Crash mechanics."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pokémon)",
           "supports": "Gigantamax form details, G-Max Volt Crash move, and size characteristics."
         }
       ],
+      "unknowns": [
+        "Precise weight limit while under Gigantamax distortion",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Gigantamax effect wears off after three turns"
+      ],
       "feats": [
         {
           "claim": "Paralyzes all opponents on the field with a giant electrical cloud via G-Max Volt Crash.",
           "citation": "Pokémon Sword and Shield battle mechanics",
-          "source": 0
+          "source": 1,
+          "depiction": "Pokémon Sword and Shield"
         }
       ],
       "conditional": [
         {
           "ability": "G-Max Volt Crash",
           "dependsOn": "Gigantamax Phenomenon",
-          "source": 0
+          "source": 1,
+          "depiction": "Pokémon Sword and Shield"
         }
       ],
       "campaignTags": [
         {
           "tag": "electric",
           "claim": "Gigantamax Pikachu generates massive electrical storms.",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "giant-sized",
           "claim": "Gigantamax form increases Pikachu's size significantly.",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Gigantamax Pikachu grows to a massive size, its tail expanding into a colossal weapon capable of unleashing maximum-power electric strikes."
     },
     {
       "id": "pokemon:Pikachu|Partner Pikachu",
-      "continuity": "Pokémon: Let's Go, Pikachu!",
-      "summary": "Partner Pikachu possesses exclusive secret techniques and enhanced stats compared to a wild Pikachu, utilizing special partner moves in battle.",
+      "continuity": "Pokémon: Let's Go, Pikachu! and related media",
+      "summary": "Partner Pikachu possesses exclusive secret techniques, boosted stats, and unique partner moves that allow it to bypass standard tactical limitations.",
       "offense": {
         "domains": [
-          "energy",
-          "physical"
+          "electric",
+          "physical",
+          "various elemental",
+          "energy"
         ],
         "techniques": [
           "Zippy Zap",
           "Splishy Splash",
+          "Floaty Fall",
           "Flattery Fall"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Enhanced evasion and partner-bond synergy",
           "High evasion and enhanced friendship-based bonuses"
         ]
       },
       "weaknesses": [
         "Vulnerable to Ground-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon: Let's Go, Pikachu!",
+          "kind": "source"
+        }
+      ],
       "mobility": [
+        "Super-speed running and agility",
         "super-speed"
       ],
-      "limitations": [
-        "Cannot evolve"
-      ],
-      "formDifferences": "Has access to exclusive partner-only moves and higher base stats than standard Pikachu.",
+      "formDifferences": "Gains access to exclusive partner secret techniques and boosted base statistics compared to standard wild Pikachu.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Partner_Pikachu",
+          "supports": "Exclusive moves like Zippy Zap and enhanced partner statistics."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pokémon)",
           "supports": "Partner Pikachu unique moves and stats in Let's Go games."
         }
       ],
+      "unknowns": [
+        "Compatibility of partner moves outside specialized companion contexts",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Cannot evolve"
+      ],
       "feats": [
         {
           "claim": "Uses Zippy Zap to always land a critical hit with priority.",
           "citation": "Pokémon: Let's Go, Pikachu! gameplay",
-          "source": 0
+          "source": 1,
+          "depiction": "Pokémon: Let's Go, Pikachu!"
         }
       ],
       "campaignTags": [
         {
           "tag": "electric",
           "claim": "Partner Pikachu utilizes specialized electric attacks.",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Partner Pikachu possesses exclusive secret techniques and enhanced stats compared to a wild Pikachu, utilizing special partner moves in battle."
     },
     {
       "id": "pokemon:Pinsir",
-      "continuity": "Pokémon anime and video games",
-      "summary": "Pinsir is a powerful Bug-type beetle Pokémon that relies on crushing opponents with its massive, horn-equipped pincers and high physical strength.",
+      "continuity": "Pokémon games and anime, including television series continuations and Pokémon Adventures manga",
+      "summary": "Pinsir is a formidable Bug-type beetle Pokémon equipped with massive, horned pincers. It relies on immense physical strength to crush, toss, and squeeze opponents in brutal grapples.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Vice Grip",
           "X-Scissor",
           "Superpower",
+          "Submission",
           "Guillotine",
           "Storm Throw"
         ],
@@ -254,17 +367,46 @@
       },
       "defense": {
         "mechanisms": [
+          "Hard outer chitinous shell",
           "Sturdy shell armor",
           "Gripping opponents to restrict counterattacks"
         ]
       },
       "weaknesses": [
+        "Vulnerable to Fire, Flying, Rock, Bug, Steel, and Fairy-type attacks",
         "Vulnerable to Fire, Flying, Rock, and Psychic attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime continuation series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon anime and video games",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Ground movement"
+      ],
       "limitations": [
+        "Lacks ranged offensive projections",
         "Lacks ranged options outside of specific TM moves"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pinsir_(Pok%C3%A9mon)",
+          "supports": "Pinsir's physical pincer attacks, stats, and lore feats."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Pinsir_(Pokémon)",
           "supports": "Pinsir stats, types, and move pool."
@@ -273,87 +415,119 @@
       "feats": [
         {
           "claim": "Crushes foes with pincers capable of bending thick tree trunks.",
-          "citation": "Pokémon Pokédex entry",
+          "citation": "Pokémon game Pokédex entries and anime episodes",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Maximum lifting capacity under extreme duress",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Pinsir is a powerful Bug-type beetle Pokémon that relies on crushing opponents with its massive, horn-equipped pincers and high physical strength."
     },
     {
       "id": "pokemon:Pinsir|Mega Pinsir",
-      "continuity": "Pokémon X and Y",
-      "summary": "Mega Pinsir gains flying capabilities via large membrane wings and increases its physical power significantly, utilizing aerial pincer strikes.",
+      "continuity": "Pokémon X and Y and related media",
+      "summary": "Mega Pinsir gains large membrane wings that grant it powered flight, transforming it into an aerial combatant capable of high-speed pincer impalements.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "flying"
         ],
         "techniques": [
-          "Aerilate-boosted Return",
+          "Aerial Ace",
+          "Giga Impact",
           "X-Scissor",
+          "Aerilate-boosted Return",
           "Close Combat"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Aerial mobility and enhanced chitin armor",
           "Aerial agility and high physical defense"
         ]
       },
       "weaknesses": [
+        "Vulnerable to Fire, Electric, Ice, Flying, and Psychic-type attacks",
         "Vulnerable to Fire, Electric, Ice, Rock, and Flying-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon X and Y",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Omega Ruby and Alpha Sapphire",
+          "kind": "sequel"
+        }
+      ],
       "mobility": [
-        "flight"
+        "Flight"
       ],
-      "limitations": [
-        "Requires the Pinsirite item and Mega Evolution activation"
-      ],
-      "formDifferences": "Gains Bug/Flying type, large wings for flight, and the Aerilate ability which turns normal moves into flying moves.",
+      "formDifferences": "Gains the Flying type, large membrane wings for flight, and substantially increased physical attack power and speed.",
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Pinsir_(Pok%C3%A9mon)",
+          "supports": "Mega Pinsir type change to Bug/Flying and flight capabilities."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Pinsir_(Pokémon)",
           "supports": "Mega Pinsir stats, ability Aerilate, and flying typing."
         }
       ],
+      "campaignTags": [
+        {
+          "tag": "natural-flight",
+          "claim": "Mega Pinsir flies through the air using large membrane wings.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Energy strain limit of maintaining Mega Evolution during prolonged warfare",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "limitations": [
+        "Requires the Pinsirite item and Mega Evolution activation"
+      ],
       "feats": [
         {
           "claim": "Flies through the air at high speeds to impale enemies with its horns.",
           "citation": "Pokémon X and Y battle mechanics",
-          "source": 0
+          "source": 1,
+          "depiction": "Pokémon X and Y"
         }
       ],
       "conditional": [
         {
           "ability": "Aerilate flight and stat boost",
           "dependsOn": "Pinsirite Mega Stone",
-          "source": 0
+          "source": 1,
+          "depiction": "Pokémon X and Y"
         }
       ],
-      "campaignTags": [
-        {
-          "tag": "natural-flight",
-          "claim": "Mega Pinsir gains large wings enabling flight.",
-          "source": 0
-        }
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Mega Pinsir gains flying capabilities via large membrane wings and increases its physical power significantly, utilizing aerial pincer strikes."
     },
     {
       "id": "pokemon:Poliwag",
-      "continuity": "Pokémon anime and video games",
-      "summary": "Poliwag is a small tadpole Pokémon that uses water-based attacks and its slippery body to evade capture.",
+      "continuity": "Pokémon games and anime, including television series continuations and Pokémon Adventures manga",
+      "summary": "Poliwag is a small tadpole Pokémon that utilizes water-based attacks and its slippery body to evade capture, alongside hypnotic techniques.",
       "offense": {
         "domains": [
+          "water",
+          "psychic",
           "energy",
           "physical"
         ],
         "techniques": [
           "Water Gun",
           "Hypnosis",
+          "Bubble",
           "Pound"
         ],
         "range": "ranged"
@@ -364,15 +538,41 @@
         ]
       },
       "weaknesses": [
+        "Vulnerable to Grass and Electric-type attacks",
         "Vulnerable to Grass and Electric attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime continuation series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon anime and video games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Swimming",
         "swimmer"
       ],
       "limitations": [
+        "Restricted movement on dry land due to lack of developed legs",
         "Limited mobility on dry land due to having no legs"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwag_(Pok%C3%A9mon)",
+          "supports": "Poliwag's moveset, including Hypnosis and water capabilities."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwag_(Pokémon)",
           "supports": "Poliwag moves, abilities, and characteristics."
@@ -381,56 +581,97 @@
       "feats": [
         {
           "claim": "Puts opponents to sleep using Hypnosis.",
-          "citation": "Pokémon Red and Blue move list",
+          "citation": "Pokémon game mechanics and anime appearances",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "swimmer",
+          "claim": "Poliwag is an aquatic tadpole Pokémon adapted for swimming.",
+          "source": 0
+        },
+        {
+          "tag": "water-breathing",
+          "claim": "Breathes underwater naturally.",
+          "source": 0
+        },
+        {
           "tag": "aquatic",
           "claim": "Poliwag lives and fights naturally in water.",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "unknowns": [
-        "Unsupported by cited source (term check, 1/3 key terms found): water-breathing: Poliwag breathes underwater via gills."
-      ]
+        "Exact speed when navigating complex land terrain",
+        "Unsupported by cited source (term check, 1/3 key terms found): water-breathing: Poliwag breathes underwater via gills.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Poliwag is a small tadpole Pokémon that uses water-based attacks and its slippery body to evade capture."
     },
     {
       "id": "pokemon:Poliwhirl",
-      "continuity": "Pokémon anime and video games",
-      "summary": "Poliwhirl is the evolved form of Poliwag, now possessing legs for land movement while retaining strong aquatic and hypnotic capabilities.",
+      "continuity": "Pokémon games and anime, including television series continuations and Pokémon Adventures manga",
+      "summary": "Poliwhirl is the evolved form of Poliwag, having developed legs for land mobility while retaining powerful aquatic and hypnotic combat options.",
       "offense": {
         "domains": [
-          "energy",
-          "physical"
+          "water",
+          "physical",
+          "energy"
         ],
         "techniques": [
-          "Water Gun",
           "Body Slam",
+          "Water Gun",
           "Hypnosis",
           "BubbleBeam"
         ],
-        "range": "ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Sweaty skin layer that lets it slip away from grapples",
           "Sweat-coated skin that repels physical attacks"
         ]
       },
       "weaknesses": [
+        "Vulnerable to Grass and Electric-type attacks",
         "Vulnerable to Grass and Electric attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime continuation series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon anime and video games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Swimming",
+        "Bipedal walking",
         "swimmer"
       ],
       "limitations": [
+        "Skin dries out if kept away from water for too long",
         "Moderate physical power compared to fully evolved Pokémon"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwhirl_(Pok%C3%A9mon)",
+          "supports": "Poliwhirl evolution traits, moves like Body Slam, and physical adaptations."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwhirl_(Pokémon)",
           "supports": "Poliwhirl evolutionary details and move pool."
@@ -439,56 +680,95 @@
       "feats": [
         {
           "claim": "Subdues foes with powerful physical strikes like Body Slam after inducing sleep.",
-          "citation": "Pokémon anime series",
+          "citation": "Pokémon game and anime encounters",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "swimmer",
+          "claim": "Exceptional swimmer adept in aquatic environments.",
+          "source": 0
+        },
+        {
           "tag": "water-breathing",
-          "claim": "Poliwhirl breathes underwater.",
+          "claim": "Capable of breathing underwater.",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
       "unknowns": [
-        "Unsupported by cited source (term check, 0/4 key terms found): aquatic: Poliwhirl is adept at swimming and aquatic combat."
-      ]
+        "Maximum endurance time spent entirely out of water",
+        "Unsupported by cited source (term check, 0/4 key terms found): aquatic: Poliwhirl is adept at swimming and aquatic combat.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Poliwhirl is the evolved form of Poliwag, now possessing legs for land movement while retaining strong aquatic and hypnotic capabilities."
     },
     {
       "id": "pokemon:Poliwrath",
-      "continuity": "Pokémon anime and video games",
-      "summary": "Poliwrath is a dual Water and Fighting-type Pokémon that combines relentless swimming prowess with powerful martial arts strikes and freezing capabilities.",
+      "continuity": "Pokémon games and anime, including television series continuations and Pokémon Adventures manga",
+      "summary": "Poliwrath is a dual Water and Fighting-type Pokémon combining relentless swimming stamina with heavy martial arts strikes and freezing capabilities.",
       "offense": {
         "domains": [
+          "water",
           "physical",
+          "ice",
           "energy"
         ],
         "techniques": [
           "DynamicPunch",
-          "Hydro Pump",
+          "Waterfall",
+          "Ice Punch",
           "Submission",
-          "Ice Punch"
+          "Hydro Pump"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Muscular physique absorbing heavy impacts",
+          "Relentless stamina",
           "Muscular physique providing high physical resistance"
         ]
       },
       "weaknesses": [
+        "Vulnerable to Grass, Electric, Psychic, Flying, and Fairy-type attacks",
         "Vulnerable to Electric, Grass, Psychic, Flying, and Fairy attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime continuation series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon anime and video games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Swimming",
+        "Running",
         "swimmer"
       ],
       "limitations": [
+        "Limited long-range projectile options outside of water jets",
         "Susceptible to special-based elemental status moves"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwrath_(Pok%C3%A9mon)",
+          "supports": "Poliwrath stats, dual Water/Fighting typing, and endurance feats."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwrath_(Pokémon)",
           "supports": "Poliwrath typing, stats, and signature moves."
@@ -497,37 +777,47 @@
       "feats": [
         {
           "claim": "Swims across the Pacific Ocean without resting, demonstrating immense stamina.",
-          "citation": "Pokémon Pokédex entry",
+          "citation": "Pokémon Pokédex entries",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Poliwrath crosses vast oceans effortlessly.",
+          "tag": "swimmer",
+          "claim": "Powerful swimmer capable of crossing oceans without tiring.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Poliwrath breathes underwater.",
+          "claim": "Can breathe and operate underwater indefinitely.",
           "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Poliwrath crosses vast oceans effortlessly.",
+          "source": 1
         },
         {
           "tag": "ice-weapon",
           "claim": "Poliwrath can channel freezing energy into physical punches via Ice Punch.",
-          "source": 0
+          "source": 1
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Exact upper bound of punching force under combat pressure",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Poliwrath is a dual Water and Fighting-type Pokémon that combines relentless swimming prowess with powerful martial arts strikes and freezing capabilities."
     },
     {
       "id": "pokemon:Ponyta",
-      "continuity": "Pokémon anime and video games",
+      "continuity": "Pokémon games and anime, including television series continuations and Pokémon Adventures manga",
       "summary": "Ponyta is a fire-horse Pokémon that uses its blazing mane and hooves to deliver burning physical strikes while running at high speeds.",
       "offense": {
         "domains": [
+          "fire",
           "physical",
           "energy"
         ],
@@ -541,19 +831,46 @@
       },
       "defense": {
         "mechanisms": [
+          "Blazing body heat that deters physical grapples",
+          "High-speed movement",
           "Flames surrounding its body act as a deterrent against attackers"
         ]
       },
       "weaknesses": [
         "Vulnerable to Water, Ground, and Rock-type attacks"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon games and anime",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon anime continuation series",
+          "kind": "sequel"
+        },
+        {
+          "title": "Pokémon Adventures (manga)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon anime and video games",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Super-speed running",
         "super-speed"
       ],
       "limitations": [
+        "Flames only burn those Ponyta trusts less or perceives as enemies; unconditioned riders get scorched unless Ponyta lowers its flame temperature",
         "Flames can be extinguished or dampened by heavy water exposure"
       ],
       "sources": [
+        {
+          "url": "https://bulbapedia.bulbagarden.net/wiki/Ponyta_(Pok%C3%A9mon)",
+          "supports": "Ponyta's fire typing, leaping feats, and running capabilities."
+        },
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Ponyta_(Pokémon)",
           "supports": "Ponyta abilities, fire typing, and speed feats."
@@ -562,20 +879,28 @@
       "feats": [
         {
           "claim": "Leaps over towering obstacles and buildings effortlessly due to its powerful leg muscles.",
-          "citation": "Pokémon anime series",
+          "citation": "Pokémon anime and Pokédex entries",
+          "depiction": "Pokémon games and anime",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "fire",
-          "claim": "Ponyta generates and projects intense fire.",
+          "claim": "Emits and controls natural fire from its body and mane.",
+          "source": 0
+        },
+        {
+          "tag": "fire-control",
+          "claim": "Controls fire-based attacks like Flame Wheel.",
           "source": 0
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "unknowns": [
+        "Maximum sustained gallop duration before fatigue sets in",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional"
     }
   ]
 }
