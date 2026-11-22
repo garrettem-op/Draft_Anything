@@ -7,15 +7,17 @@
   "characters": [
     {
       "id": "toons:Jasmine",
-      "continuity": "Disney's Aladdin (1992 film)",
-      "summary": "Princess Jasmine is a resourceful royal who relies primarily on agility, disguise, persuasion, and her tiger companion Rajah to navigate threats. She lacks overt superhuman powers but utilizes environment, quick thinking, and occasional defensive concealment.",
+      "continuity": "Aladdin (1992 film), The Return of Jafar (1994 film), Aladdin and the King of Thieves (1996 film), Aladdin (Animated Series, 1994-1995), and Marvel Comics tie-ins",
+      "summary": "Princess Jasmine is a resourceful royal who relies on agility, disguise, persuasion, and her tiger companion Rajah or magic carpet for transport and support. Across series and sequels, she also engages in magical training and tactical defense of Agrabah alongside Aladdin.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "magic"
         ],
         "techniques": [
-          "Disguise and infiltration",
           "Improvised melee strikes",
+          "Disguise and infiltration",
+          "Rajah assistance",
           "Distraction and deception"
         ],
         "range": "melee"
@@ -23,36 +25,108 @@
       "defense": {
         "mechanisms": [
           "Agility and evasion",
+          "Royal guards and allies",
+          "Magical wards (when equipped)",
           "Royal guards and companions (Rajah)"
         ]
       },
       "weaknesses": [
+        "Lacks innate superhuman durability or offensive magic without external items",
         "Vulnerable to physical capture and imprisonment due to human physiology"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Aladdin (1992 film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Return of Jafar (1994 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Aladdin and the King of Thieves (1996 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Aladdin (Animated Series, 1994-1995)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney's Aladdin (1992 film)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard human running/jumping",
+        "Riding the Magic Carpet for flight",
         "running",
         "swimming",
         "riding (Magic Carpet, though piloted primarily by Aladdin)"
       ],
       "limitations": [
+        "Physically vulnerable human without superpowers",
         "Possesses no innate magical abilities or superhuman strength"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Aladdin_(1992_Disney_film)",
-          "supports": "General character abilities, backstory, and plot events in Aladdin."
+          "supports": "Basic character description, role as princess of Agrabah, and partnership with Rajah."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Return_of_Jafar",
+          "supports": "Jasmine's continued role and defense against Jafar in the sequel."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Sneaks out of the royal palace into the Agrabah marketplace using a disguise",
+          "citation": "Aladdin (1992 film)",
+          "depiction": "Aladdin (1992 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jafar (1992 film)",
+          "result": "loss",
+          "citation": "Aladdin (1992 film)",
+          "note": "Captured and enslaved by Jafar when he takes over Agrabah.",
+          "depiction": "Aladdin (1992 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Flight",
+          "dependsOn": "Magic Carpet",
+          "depiction": "Aladdin (1992 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "mount",
+          "claim": "Rides the Magic Carpet for transport and flight",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Uses commoner disguises to sneak out of the palace undetected",
+          "source": 0
         }
       ],
       "unknowns": [
-        "Exact combat proficiency against trained warriors outside of brief defensive struggles."
+        "Exact extent of magical abilities acquired during the animated series vs film canon.",
+        "Exact combat proficiency against trained warriors outside of brief defensive struggles.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Princess Jasmine is a resourceful royal who relies primarily on agility, disguise, persuasion, and her tiger companion Rajah to navigate threats. She lacks overt superhuman powers but utilizes environment, quick thinking, and occasional defensive concealment."
     },
     {
       "id": "toons:Jerry",
-      "continuity": "Tom and Jerry (Classic MGM Shorts)",
+      "continuity": "Tom and Jerry (Classic MGM Shorts, 1940-1967), various subsequent television series, and comic book adaptations",
       "summary": "Jerry the mouse utilizes extreme toon physics, remarkable speed, improvised traps, and environmental objects to outwit and torment his feline adversary Tom. He exhibits cartoon durability and ingenuity on a microscopic scale.",
       "offense": {
         "domains": [
@@ -60,62 +134,116 @@
           "tech"
         ],
         "techniques": [
+          "Improvised mousetraps",
+          "Anvil drops",
+          "High-speed evasion",
+          "Electrical shocks",
           "Improvised mouse traps",
           "Hit-and-run tactics",
           "Explosive devices",
           "Blunt object trauma"
         ],
-        "range": "melee / ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Toon physics regeneration and resilience",
+          "Extreme agility",
+          "Small target profile",
           "Toon durability",
           "Extreme agility and tiny size",
           "Hiding in mouseholes and tight spaces"
         ]
       },
       "weaknesses": [
+        "Cheese addiction/temptation",
+        "Relies heavily on environment and Tom's clumsiness",
         "Overconfidence",
         "Cheese as a tempting distraction"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Tom and Jerry (Classic MGM Shorts, 1940-1967)",
+          "kind": "source"
+        },
+        {
+          "title": "Tom and Jerry Tales (2006-2008)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Tom and Jerry (Classic MGM Shorts)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Super-speed",
+        "Agility",
         "running",
         "swimming"
       ],
       "limitations": [
+        "Lacks formal martial arts discipline, relies entirely on cartoon physics and improvised items",
         "Physically weak compared to larger animals without tools or traps"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Tom_and_Jerry",
-          "supports": "Classic cartoon traits, physics defiance, and typical antics of Jerry."
+          "supports": "Overview of Tom and Jerry classic shorts and character abilities."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Survives massive explosions and falls using cartoon resilience",
+          "citation": "Classic MGM Shorts",
+          "depiction": "Tom and Jerry (Classic MGM Shorts, 1940-1967)",
+          "source": 0
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Tom Cat",
+          "result": "win",
+          "citation": "Classic MGM Shorts",
+          "note": "Outwits Tom in virtually every encounter.",
+          "depiction": "Tom and Jerry (Classic MGM Shorts, 1940-1967)",
+          "source": 0
+        },
         {
           "opponent": "Tom",
           "result": "win",
           "citation": "Various classic MGM shorts",
           "note": "Wins through clever trap placement and outsmarting Tom's direct attacks.",
+          "source": 0,
+          "depiction": "Tom and Jerry (Classic MGM Shorts)"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Constructs complex Rube Goldberg traps and mousetraps",
           "source": 0
         }
       ],
       "unknowns": [
-        "True biological limits due to shifting cartoon physics rules across different directors."
+        "Extent of physical strength outside of leverage and cartoon gags.",
+        "True biological limits due to shifting cartoon physics rules across different directors.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Johnny Bravo",
-      "continuity": "Johnny Bravo (Animated Series)",
+      "continuity": "Johnny Bravo (Animated Series, 1997-2004) and comic book tie-ins",
       "summary": "Johnny Bravo relies on sheer exaggerated muscular strength, striking poses, and over-the-top physical comedy. While he boasts of his prowess, his combat effectiveness is often hampered by his narcissism and low intellect.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Heavy punch",
+          "Flex pose shockwave",
+          "Improvised clubbing",
           "Powerful punches",
           "Karate chops",
           "Flexing/posing"
@@ -124,44 +252,84 @@
       },
       "defense": {
         "mechanisms": [
+          "Cartoon durability",
+          "Thick pompadour hair absorbing impacts",
           "Toon durability",
           "Thick hair acting as a cushion"
         ]
       },
       "weaknesses": [
+        "Extreme narcissism",
+        "Low intelligence",
+        "Easily distracted by women",
         "Narcissism",
-        "Easily distracted by attractive women",
-        "Low intelligence"
+        "Easily distracted by attractive women"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Johnny Bravo (Animated Series, 1997-2004)",
+          "kind": "source"
+        },
+        {
+          "title": "Johnny Bravo (Animated Series)",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Standard human running",
         "running"
       ],
       "limitations": [
+        "Often defeats himself through sheer incompetence and vanity",
         "Lack of tactical intelligence often leads to self-sabotage"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Johnny_Bravo",
-          "supports": "Character traits, physical gags, and general series background."
+          "supports": "Series overview, character traits, and physical comedy style."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Broke a boulder with his bare fists while showing off",
+          "citation": "Johnny Bravo Season 1",
+          "depiction": "Johnny Bravo (Animated Series, 1997-2004)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Various monster/alien encounters",
+          "result": "inconclusive",
+          "citation": "Johnny Bravo episodes",
+          "note": "Usually results in Johnny getting beaten up by women or fleeing absurd threats.",
+          "depiction": "Johnny Bravo (Animated Series, 1997-2004)",
+          "source": 0
         }
       ],
       "unknowns": [
-        "Consistency of his physical strength feats when not played purely for laughs."
+        "True upper limit of his strength when genuinely motivated.",
+        "Consistency of his physical strength feats when not played purely for laughs.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Katara",
-      "continuity": "Avatar: The Last Airbender (Animated Series)",
-      "summary": "Katara is a master waterbender who manipulates water, ice, and steam for offensive blasts, defensive barriers, and precise healing. Her training under both Northern Tribe masters and Pakku makes her one of the world's most formidable benders.",
+      "continuity": "Avatar: The Last Airbender (Animated Series, 2005-2008), Avatar: The Last Airbender comics, and The Legend of Korra appearances",
+      "summary": "Katara is a master waterbender who manipulates water, ice, and steam for offensive blasts, defensive barriers, and precise healing. Her training under Northern Tribe masters and Pakku makes her one of the world's most formidable benders.",
       "offense": {
         "domains": [
           "magic",
+          "energy",
           "physical"
         ],
         "techniques": [
+          "Water whip",
+          "Ice shards",
+          "Bloodbending (rarely used)",
+          "Tsunami waves",
           "Water whips",
           "Ice shards and projectiles",
           "Bloodbending (under specific moon conditions)",
@@ -173,31 +341,51 @@
         "mechanisms": [
           "Ice walls",
           "Water domes",
+          "Healing water",
           "Self-healing using water and focused energy"
         ]
       },
       "weaknesses": [
+        "Deprived of water sources, her bending power is significantly reduced",
         "Deprivation of water sources severely limits her offensive output",
         "Extreme cold can freeze her water supplies if not controlled"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Avatar: The Last Airbender (Animated Series, 2005-2008)",
+          "kind": "source"
+        },
+        {
+          "title": "Avatar: The Last Airbender (Dark Horse Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Avatar: The Last Airbender (Animated Series)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Water-spout surfing",
+        "Standard running and agile movement",
         "running",
-        "water-spout surfing",
         "swimming"
       ],
       "limitations": [
+        "Requires access to water or moisture in the air to perform waterbending",
         "Requires external water or moisture unless drawing from sweat/plants"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Katara_(Avatar:_The_Last_Airbender)",
-          "supports": "Katara's waterbending mastery, healing abilities, and background."
+          "supports": "Katara's background, waterbending mastery, and healing abilities."
         }
       ],
       "feats": [
         {
           "claim": "Defeats Azula in Agni Kai using smart environmental tactics",
-          "citation": "Avatar: The Last Airbender, Season 3, Episode 21",
+          "citation": "Avatar: The Last Airbender Season 3, 'Sozin's Comet'",
+          "depiction": "Avatar: The Last Airbender (Animated Series, 2005-2008)",
           "source": 0
         }
       ],
@@ -205,40 +393,56 @@
         {
           "opponent": "Azula",
           "result": "win",
+          "citation": "Avatar: The Last Airbender Season 3, 'Sozin's Comet'",
+          "note": "Defeated Azula by trapping her in ice during the Agni Kai.",
+          "depiction": "Avatar: The Last Airbender (Animated Series, 2005-2008)",
+          "source": 0
+        },
+        {
+          "opponent": "Azula",
+          "result": "win",
           "citation": "Avatar: The Last Airbender, Season 3, Episode 21",
           "note": "Won with Zuko's initial help and trapping Azula in ice.",
-          "source": 0
-        }
-      ],
-      "conditional": [
-        {
-          "ability": "Bloodbending",
-          "dependsOn": "Full moon",
-          "source": 0
+          "source": 0,
+          "depiction": "Avatar: The Last Airbender (Animated Series)"
         }
       ],
       "campaignTags": [
         {
           "tag": "healing",
-          "claim": "Heals wounds using glowing water and spiritual focus",
+          "claim": "Heals injuries using glowing spiritual water",
           "source": 0
         },
         {
           "tag": "water-control",
-          "claim": "Manipulates water, ice, and steam in combat",
+          "claim": "Master waterbender capable of shaping water and ice",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Expert swimmer and navigator of aquatic environments",
           "source": 0
         }
       ],
       "unknowns": [
-        "Whether she continued using bloodbending outside of extreme vengeance scenarios."
+        "Full extent of her bloodbending potential given her moral refusal to use it regularly.",
+        "Whether she continued using bloodbending outside of extreme vengeance scenarios.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Bloodbending",
+          "dependsOn": "Full moon",
+          "source": 0,
+          "depiction": "Avatar: The Last Airbender (Animated Series)"
+        }
+      ],
+      "earlierSummary": "Katara is a master waterbender who manipulates water, ice, and steam for offensive blasts, defensive barriers, and precise healing. Her training under both Northern Tribe masters and Pakku makes her one of the world's most formidable benders."
     },
     {
       "id": "toons:King Triton",
-      "continuity": "Disney's The Little Mermaid (1989 film)",
+      "continuity": "The Little Mermaid (1989 film), The Little Mermaid II: Return to the Sea (2000 film), The Little Mermaid: Ariel's Beginning (2008 film), The Little Mermaid (TV series), and related comics",
       "summary": "King Triton is the ruler of Atlantica, wielding the magical Trident which grants immense energy projection, weather control, and shape-shifting powers. He commands marine life and possesses vast superhuman might underwater.",
       "offense": {
         "domains": [
@@ -247,22 +451,49 @@
           "physical"
         ],
         "techniques": [
+          "Trident energy beam",
+          "Marine life command",
+          "Size manipulation (via trident)",
           "Trident energy blasts",
           "Marine life telepathic command",
           "Size and transformation magic"
         ],
-        "range": "ranged / strategic"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Magical force fields from the Trident",
+          "Superhuman durability underwater",
           "Magical force fields generated via the Trident",
           "Durability of an immortal sea god"
         ]
       },
       "weaknesses": [
+        "Loss of the Trident strips him of his primary magical offensive power",
         "Loss of the Trident strips him of his primary magical power source"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Little Mermaid (1989 film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Little Mermaid II: Return to the Sea (2000 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Little Mermaid: Ariel's Beginning (2008 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney's The Little Mermaid (1989 film)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Aquatic tail propulsion",
+        "Magical flight/levitation",
         "swimming"
       ],
       "limitations": [
@@ -271,13 +502,14 @@
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)",
-          "supports": "King Triton's role, power of the Trident, and magical feats."
+          "supports": "King Triton's role, power of the Trident, and dominion over Atlantica."
         }
       ],
       "feats": [
         {
           "claim": "Destroys Ariel's collection of human artifacts with an energy blast from the Trident",
-          "citation": "The Little Mermaid (1989)",
+          "citation": "The Little Mermaid (1989 film)",
+          "depiction": "The Little Mermaid (1989 film)",
           "source": 0
         }
       ],
@@ -285,27 +517,53 @@
         {
           "opponent": "Ursula",
           "result": "loss",
+          "citation": "The Little Mermaid (1989 film)",
+          "note": "Traded his soul and trident to Ursula to free Ariel.",
+          "depiction": "The Little Mermaid (1989 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Ursula",
+          "result": "loss",
           "citation": "The Little Mermaid (1989)",
           "note": "Surrendered the Trident to Ursula under coercion to save Ariel.",
-          "source": 0
+          "source": 0,
+          "depiction": "Disney's The Little Mermaid (1989 film)"
         }
       ],
       "conditional": [
         {
+          "ability": "Energy Projection and Weather Control",
+          "dependsOn": "The Magical Trident",
+          "depiction": "The Little Mermaid (1989 film)",
+          "source": 0
+        },
+        {
           "ability": "Energy blasts and transformation magic",
           "dependsOn": "Possession of the Trident",
-          "source": 0
+          "source": 0,
+          "depiction": "Disney's The Little Mermaid (1989 film)"
         }
       ],
       "campaignTags": [
         {
-          "tag": "aquatic",
-          "claim": "Breathes underwater as a merman king",
+          "tag": "magic",
+          "claim": "Wields the magical Trident capable of vast energy projection",
           "source": 0
         },
         {
-          "tag": "magic",
-          "claim": "Wields the magical Trident capable of energy projection and transformation",
+          "tag": "water-breathing",
+          "claim": "Naturally breathes underwater as ruler of Atlantica",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Possesses supreme aquatic propulsion as a merman king",
+          "source": 0
+        },
+        {
+          "tag": "aquatic",
+          "claim": "Breathes underwater as a merman king",
           "source": 0
         },
         {
@@ -315,22 +573,26 @@
         }
       ],
       "unknowns": [
+        "Exact physical combat capabilities without the Trident outside of standard merman strength.",
         "Limits of his physical combat skill without the magical Trident.",
-        "Unsupported by cited source (term check, 0/3 key terms found): water-breathing: Innate aquatic biology"
+        "Unsupported by cited source (term check, 0/3 key terms found): water-breathing: Innate aquatic biology",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Leonardo",
-      "continuity": "Teenage Mutant Ninja Turtles (1987 Animated Series)",
+      "continuity": "Teenage Mutant Ninja Turtles (1987 Animated Series), subsequent series, films, and IDW/Mirage comics",
       "summary": "Leonardo is the disciplined leader of the Teenage Mutant Ninja Turtles, skilled in ninjutsu and wielding twin ninjato swords. He combines tactical planning, acrobatic agility, and strict martial arts training in combat.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "tech"
         ],
         "techniques": [
+          "Twin katana/ninjato slash",
+          "Stealth strikes",
+          "Acrobatic leaps",
           "Twin ninjato sword strikes",
           "Ninjutsu throwing stars",
           "Coordinated team maneuvers"
@@ -339,52 +601,90 @@
       },
       "defense": {
         "mechanisms": [
+          "Turtle shell defense",
+          "Parrying with dual swords",
+          "Evasion",
           "Shell blocking",
           "Deflection with swords",
           "Evasion and stealth"
         ]
       },
       "weaknesses": [
+        "Carries heavy leadership burden which can be exploited by cunning foes",
         "Carries heavy responsibility for his brothers, which can be exploited"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Teenage Mutant Ninja Turtles (1987 Animated Series)",
+          "kind": "source"
+        },
+        {
+          "title": "Teenage Mutant Ninja Turtles (2003 Animated Series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Teenage Mutant Ninja Turtles (IDW Publishing)",
+          "kind": "comic"
+        }
+      ],
       "mobility": [
+        "Acrobatic rooftop running",
+        "Stealth movement",
         "running",
         "acrobatics",
         "swimming"
       ],
       "limitations": [
+        "Human-sized mutant with standard physical limits of his species",
         "Relies entirely on physical martial arts and standard steel weaponry"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Leonardo_(Teenage_Mutant_Ninja_Turtles)",
-          "supports": "Leonardo's weapons, leadership role, and martial arts background."
+          "supports": "Leonardo's role as leader, ninjutsu training, and weapon loadout."
         }
       ],
       "feats": [
         {
           "claim": "Leads the turtles in successful infiltrations of the Technodrome",
-          "citation": "Teenage Mutant Ninja Turtles (1987 series)",
+          "citation": "Teenage Mutant Ninja Turtles (1987 Animated Series)",
+          "depiction": "Teenage Mutant Ninja Turtles (1987 Animated Series)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Shredder",
+          "result": "win",
+          "citation": "Various TMNT encounters",
+          "note": "Defeats Shredder through tactical discipline and swordsmanship.",
+          "depiction": "Teenage Mutant Ninja Turtles (1987 Animated Series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "stealth",
-          "claim": "Trained in ninjutsu stealth and infiltration tactics",
+          "claim": "Trained ninja skilled in covert operations and silent movement",
+          "source": 0
+        },
+        {
+          "tag": "swimmer",
+          "claim": "Capable swimmer in sewers and open water",
           "source": 0
         }
       ],
       "unknowns": [
-        "Power scaling variations between the 1987 cartoon and darker comic/movie continuities."
+        "Varying portrayals of mystical ninja arts across different comic universes.",
+        "Power scaling variations between the 1987 cartoon and darker comic/movie continuities.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Lightning McQueen",
-      "continuity": "Cars (2006 Film)",
+      "continuity": "Cars (2006 film), Cars 2 (2011 film), Cars 3 (2017 film), and related shorts and comics",
       "summary": "Lightning McQueen is a sentient, highly modified stock car capable of extreme racing speeds and tight cornering maneuvers. While lacking limbs or traditional offensive weaponry, his velocity and mass make him dangerous if used as a ram.",
       "offense": {
         "domains": [
@@ -393,51 +693,92 @@
         ],
         "techniques": [
           "High-speed ramming",
+          "Drifting",
+          "Drafting",
           "Drifting and drafting"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Sturdy racing chassis",
+          "Tires and suspension",
           "Armored automotive body",
           "Racing tires and suspension"
         ]
       },
       "weaknesses": [
+        "Inability to navigate rough off-road terrain without specific modifications",
+        "Lacks arms or hands to manipulate objects",
         "Inability to traverse non-paved or vertical terrain easily without specific modifications",
         "Dependent on fuel and mechanical maintenance"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Cars (2006 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Cars 2 (2011 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Cars 3 (2017 film)",
+          "kind": "sequel"
+        }
+      ],
       "mobility": [
+        "Super-speed driving",
+        "Drifting",
         "driving"
       ],
       "limitations": [
+        "Completely dependent on roads or tracks; cannot climb stairs or enter standard buildings",
         "Cannot operate without a functioning engine and fuel"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Lightning_McQueen",
-          "supports": "Character origin as a Piston Cup race car and automotive capabilities."
+          "supports": "Character profile, racing career, and abilities in the Cars franchise."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Wins multiple Piston Cup championships through elite speed and cornering technique",
+          "citation": "Cars franchise",
+          "depiction": "Cars (2006 film)",
+          "source": 0
         }
       ],
       "notableResults": [
         {
           "opponent": "Chick Hicks",
           "result": "win",
+          "citation": "Cars (2006 film)",
+          "note": "Wins the tie-breaker race after forfeiting to help The King.",
+          "depiction": "Cars (2006 film)",
+          "source": 0
+        },
+        {
+          "opponent": "Chick Hicks",
+          "result": "win",
           "citation": "Cars (2006)",
           "note": "Wins the moral victory and championship context by stopping to help the injured King.",
-          "source": 0
+          "source": 0,
+          "depiction": "Cars (2006 film)"
         }
       ],
       "unknowns": [
-        "How physics apply to a world entirely populated by sentient vehicles."
+        "Durability against heavy military ordinance.",
+        "How physics apply to a world entirely populated by sentient vehicles.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Lilo",
-      "continuity": "Lilo & Stitch (2002 Film)",
+      "continuity": "Lilo & Stitch (2002 film), Stitch! The Movie (2003), Lilo & Stitch: The Series (2003-2006), Leroy & Stitch (2006), and related comics",
       "summary": "Lilo Pelekai is a young human girl skilled in unconventional problem-solving, local Hawaiian traditions, and utilizing her alien companion Stitch's immense destructive capabilities. She fights with resourcefulness and psychological persuasion rather than brute force.",
       "offense": {
         "domains": [
@@ -445,6 +786,9 @@
           "tech"
         ],
         "techniques": [
+          "Voodoo/curse threats",
+          "Directing Stitch in combat",
+          "Improvised traps",
           "Voodoo doll curses (comedic)",
           "Directing Stitch's attacks",
           "Improvised distractions"
@@ -453,42 +797,96 @@
       },
       "defense": {
         "mechanisms": [
+          "Stitch protection",
+          "Agility and hiding",
           "Stitch acting as bodyguard",
           "Hiding and evasion"
         ]
       },
       "weaknesses": [
+        "Normal human child physical attributes",
+        "Relies heavily on alien allies for combat",
         "Standard human physical vulnerability"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Lilo & Stitch (2002 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Lilo & Stitch: The Series (2003-2006)",
+          "kind": "sequel"
+        }
+      ],
       "mobility": [
+        "Standard running",
+        "Surfing",
         "running",
         "swimming"
       ],
       "limitations": [
+        "Vulnerable human child without physical enhancements",
         "Has no innate superhuman physical or magical powers"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Lilo_%26_Stitch",
-          "supports": "Lilo's role, friendship with Stitch, and resourcefulness."
+          "supports": "Lilo's background, relationship with Stitch, and resourcefulness."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Captures and tames multiple dangerous genetic experiments using clever traps",
+          "citation": "Lilo & Stitch: The Series",
+          "depiction": "Lilo & Stitch: The Series (2003-2006)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Gantu",
+          "result": "win",
+          "citation": "Lilo & Stitch (2002 film)",
+          "note": "Outsmarts Gantu with the help of Stitch and friends to rescue her sister.",
+          "depiction": "Lilo & Stitch (2002 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Alien combat support and immense destruction",
+          "dependsOn": "Assistance from Stitch and other experiment allies",
+          "depiction": "Lilo & Stitch (2002 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Expert ocean swimmer and surfer",
+          "source": 0
         }
       ],
       "unknowns": [
-        "Combat viability independently of her alien experiments."
+        "Adult capabilities as continuity focuses primarily on her childhood.",
+        "Combat viability independently of her alien experiments.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Lisa Simpson",
-      "continuity": "The Simpsons (Animated Series)",
+      "continuity": "The Simpsons (Animated Series, 1989-present), The Simpsons Movie (2007), and Bongo Comics tie-ins",
       "summary": "Lisa Simpson is an intellectually gifted eight-year-old child whose combat style centers on verbal debate, saxophone playing as a sonic distraction, and environmental activism. She possesses no combat training or superhuman abilities.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Verbal debate",
+          "Saxophone sonic distraction",
+          "Protest organizing",
           "Intellectual debate",
           "Saxophone sonic disruption (informal)"
         ],
@@ -496,42 +894,84 @@
       },
       "defense": {
         "mechanisms": [
+          "Intellectual evasion",
+          "Hiding behind adult allies",
           "Evasion",
           "Moral persuasion"
         ]
       },
       "weaknesses": [
+        "Physically weak child with zero hand-to-hand combat training",
         "Child physiology makes her physically weak against adults or aggressive peers"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Simpsons (Animated Series, 1989-present)",
+          "kind": "source"
+        },
+        {
+          "title": "The Simpsons Movie (2007)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Simpsons (Animated Series)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard running",
+        "Bicycling",
         "running",
         "cycling"
       ],
       "limitations": [
+        "Standard eight-year-old human physical limitations",
         "No combat skills or physical strength"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Lisa_Simpson",
-          "supports": "Lisa's characteristics as an intellectual child and musician."
+          "supports": "Lisa Simpson's intellectual profile, personality, and lack of combat powers."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Successfully leads school protests and articulates complex political arguments",
+          "citation": "The Simpsons",
+          "depiction": "The Simpsons (Animated Series, 1989-present)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Bulkers (Nelson Muntz, etc.)",
+          "result": "loss",
+          "citation": "The Simpsons",
+          "note": "Overpowered physically by school bullies when cornered.",
+          "depiction": "The Simpsons (Animated Series, 1989-present)",
+          "source": 0
         }
       ],
       "unknowns": [
-        "Any hypothetical future martial arts training shown in flash-forward episodes."
+        "Future timeline potential shown in flash-forward episodes.",
+        "Any hypothetical future martial arts training shown in flash-forward episodes.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     },
     {
       "id": "toons:Lola Bunny",
-      "continuity": "Looney Tunes / Space Jam (1996)",
+      "continuity": "Space Jam (1996 film), Looney Tunes Show (2011), Space Jam: A New Legacy (2021 film), and Looney Tunes comics",
       "summary": "Lola Bunny is an athletic, fast-moving cartoon rabbit gifted in basketball acrobatics, lightning-fast reflexes, and cartoon elasticity. She combines acrobatic flair with high-speed movement.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Basketball slam dunk",
+          "Acrobatic spin move",
+          "High-speed evasion",
           "Acrobatic basketball maneuvers",
           "Spinning kicks",
           "Fast-break evasion"
@@ -540,40 +980,83 @@
       },
       "defense": {
         "mechanisms": [
+          "Cartoon agility and flexibility",
+          "Fast dodging",
           "Cartoon agility",
           "Jumping high to avoid threats"
         ]
       },
       "weaknesses": [
+        "Relies on athletic skill and toon physics rather than lethal combat training",
         "Over-reliance on style and agility over heavy defense"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Space Jam (1996 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Space Jam: A New Legacy (2021 film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "The Looney Tunes Show (2011-2013)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Looney Tunes / Space Jam (1996)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Super-speed leaping",
+        "Acrobatic jumping",
         "running",
         "super-speed (cartoon)",
         "acrobatic leaping"
       ],
       "limitations": [
+        "Cartoon physics apply, but lacks heavy offensive weaponry",
         "Lacks heavy projectile weapons or magical attacks"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Lola_Bunny",
-          "supports": "Lola Bunny's introduction, athletic skills, and Space Jam appearance."
+          "supports": "Character history, athletic skills, and appearance in Space Jam."
         }
       ],
       "feats": [
         {
           "claim": "Performs high-flying dunks and acrobatic evasion against Monstars",
-          "citation": "Space Jam (1996)",
+          "citation": "Space Jam (1996 film)",
+          "depiction": "Space Jam (1996 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Monstars",
+          "result": "win",
+          "citation": "Space Jam (1996 film)",
+          "note": "Defeated the Monstars as part of the Tune Squad basketball team.",
+          "depiction": "Space Jam (1996 film)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "swimmer",
+          "claim": "Shows aquatic agility in sports contexts",
           "source": 0
         }
       ],
       "unknowns": [
-        "Discrepancies in depiction between the 1996 Space Jam and later reboots/The Looney Tunes Show."
+        "Varying design and personality updates between the 1996 original and 2021 reboot continuity.",
+        "Discrepancies in depiction between the 1996 Space Jam and later reboots/The Looney Tunes Show.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional"
     }
   ]
 }
