@@ -7,13 +7,16 @@
   "characters": [
     {
       "id": "mcu:H.E.R.B.I.E.",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "H.E.R.B.I.E. is an artificially intelligent robot developed by the Time Variance Authority or technological creators, acting primarily as an assistant, navigator, and scanner with limited physical combat utility.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus MCU tie-in comics",
+      "summary": "H.E.R.B.I.E. functions primarily as a robotic assistant, data scanner, and technical navigator across various administrative and research facilities. Its combat utility is strictly limited, relying on evasive movement, digital hacking, and environmental interaction rather than direct offensive combat.",
       "offense": {
         "domains": [
           "tech"
         ],
         "techniques": [
+          "Data scanning",
+          "Terminal slicing",
+          "Environmental distraction",
           "Robot assistant that interfaces with computer systems",
           "Built-in tools; in the comics, electrical generators and lasers"
         ],
@@ -21,17 +24,42 @@
       },
       "defense": {
         "mechanisms": [
+          "Robot chassis durability",
+          "Flight evasion",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Vulnerable to EMP and advanced cybernetic hacking",
+        "Lacks offensive weaponry",
         "A helper, not a fighter: capabilities depend on the data tape loaded"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Marvel Cinematic Universe tie-in comics",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Hover flight"
       ],
-      "limitations": [],
+      "limitations": [
+        "Completely lacking in physical offensive combat capabilities"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/H.E.R.B.I.E.",
+          "supports": "Basic robotic nature and fictional history within Marvel media."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/HERBIE",
           "supports": "General background and robot nature of H.E.R.B.I.E."
@@ -44,28 +72,37 @@
       "campaignTags": [
         {
           "tag": "robot-or-ai",
-          "claim": "H.E.R.B.I.E. is a robotic artificial intelligence.",
+          "claim": "H.E.R.B.I.E. is an artificially intelligent robotic assistant.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "H.E.R.B.I.E. uses integrated thrusters to hover and fly.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Specific combat durability limits against energy weapons remain untested in screen appearances.",
         "Exact combat durability and defensive systems within MCU continuity remain unspecified.",
         "Removed by review (not supported by the cited source): technique: Data scanning; technique: System navigation; technique: Information relay; defense: Compact metallic chassis; defense: Evasion via hover locomotion; weakness: Vulnerable to EMP or advanced tech disruption; weakness: Low physical durability against heavy combat opponents; limitation: Lacks offensive weaponry or high-damage combat capabilities",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "H.E.R.B.I.E. is an artificially intelligent robot developed by the Time Variance Authority or technological creators, acting primarily as an assistant, navigator, and scanner with limited physical combat utility."
     },
     {
       "id": "mcu:Hank Pym",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Hank Pym is a brilliant scientist and inventor who created Pym Particles, allowing for size manipulation and control over ants. In combat, he relies on his advanced shrinking and growing technology rather than direct physical brawling.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Ant-Man prequel and tie-in comics",
+      "summary": "Hank Pym is a scientific genius and the original Ant-Man who manipulates subatomic particles to shrink or grow objects and living beings. In field situations, he relies on his specialized suit, disc-based size manipulation technology, and telepathic control over swarms of insects rather than direct brawling.",
       "offense": {
         "domains": [
-          "tech"
+          "tech",
+          "control"
         ],
         "techniques": [
+          "Pym Particle shrinking and growing discs",
+          "Insect swarm coordination",
           "Scientist who discovered the Pym Particles and was the original Ant-Man",
           "Controls ants; shrinking technology"
         ],
@@ -73,19 +110,43 @@
       },
       "defense": {
         "mechanisms": [
+          "Size reduction to evade attacks",
+          "Armored Ant-Man suit helmet and filtration",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Biological vulnerability of an ordinary human if caught at standard size",
+        "Dependence on Pym Particle gas supply",
         "Years of shrinking took a physical toll",
         "Aged and no longer fights; shot during Cross's attack"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Ant-Man Prelude (Marvel Comics, 2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Flying insect mounts",
+        "Size reduction traversal"
+      ],
+      "limitations": [
+        "Physical strength at normal size is that of an aging human scientist"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Hank_Pym",
-          "supports": "Background as creator of Pym Particles and scientific inventor in Marvel adaptations."
+          "supports": "Creation of Pym particles and history as Ant-Man in cinematic works."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Ant-Man_(film)",
@@ -96,44 +157,61 @@
           "supports": "Original Ant-Man and former S.H.I.E.L.D. agent; retrieves Janet from the Quantum Realm."
         }
       ],
+      "feats": [
+        {
+          "claim": "Infiltrated heavily secured S.H.I.E.L.D. facilities utilizing microscopic size.",
+          "citation": "Ant-Man (2015 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
       "conditional": [
         {
           "ability": "Size manipulation",
-          "dependsOn": "Pym Particle suit and discs",
+          "dependsOn": "Pym Particle supply and suit regulator",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "inventor",
-          "claim": "Created Pym Particles and shrinking technology.",
+          "claim": "Hank Pym invented Pym Particles and shrinking technology.",
           "source": 0
         },
         {
           "tag": "size-change",
-          "claim": "Uses Pym Particles to change size.",
+          "claim": "Hank Pym uses Pym Particles to shrink and grow.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced cybernetic helmets and size-altering gear.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Exact long-term physiological toll of prolonged subatomic realm exposure on his older physique.",
         "Specific direct combat feats as an active field agent in the primary MCU timeline versus his historical exploits.",
         "Removed by review (not supported by the cited source): technique: Insect swarm coordination; technique: Disks for shrinking or expanding targets; defense: Evasion through miniaturization; weakness: Advanced age limits physical hand-to-hand endurance; weakness: Reliance on external particle canisters and suit technology; limitation: Subatomic realm traversal carries extreme environmental risks without a regulator.; mobility: Walking; mobility: Shrink-assisted evasion; tag: Relies on advanced scientific suits and technology.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Hank Pym is a brilliant scientist and inventor who created Pym Particles, allowing for size manipulation and control over ants. In combat, he relies on his advanced shrinking and growing technology rather than direct physical brawling."
     },
     {
       "id": "mcu:Happy Hogan",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Happy Hogan is a former boxer, head of security, and close associate of Tony Stark who relies on basic pugilism, improvised weapons, and occasionally armored suits in confrontations.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Iron Man tie-in comics",
+      "summary": "Happy Hogan is a former professional boxer, head of security, and loyal associate of Tony Stark. He relies on basic pugilism, improvised blunt objects, and occasionally specialized armored suits or automated Stark tech during major crises.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Boxing punches",
+          "Improvised weapon strikes",
           "Tony Stark's bodyguard and head of security",
           "Boxing-trained hand-to-hand fighter"
         ],
@@ -141,30 +219,73 @@
       },
       "defense": {
         "mechanisms": [
+          "Boxing defensive guard",
+          "Body armor",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Ordinary human physical limits without technological enhancement",
+        "Prone to being overwhelmed by superhuman opponents",
         "No powers"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Iron Man 3 Prelude (Marvel Comics, 2013)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Standard running and driving vehicles",
         "Running",
         "Driving vehicles"
       ],
-      "limitations": [],
+      "limitations": [
+        "Lacks superhuman durability or agility"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Happy_Hogan_(character)",
-          "supports": "Background as Tony Stark's bodyguard, head of security, and former boxer."
+          "supports": "Role as Tony Stark's driver, bodyguard, and head of security."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Iron_Man_2",
           "supports": "Stark's bodyguard, who infiltrates Hammer's factory with Romanoff."
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Engaged in fistfights with extremist soldiers injected with Extremis.",
+          "citation": "Iron Man 3 (2013 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Extremis soldiers",
+          "result": "loss",
+          "citation": "Iron Man 3 (2013 film)",
+          "note": "Overpowered by superhuman strength and heat generation.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
       "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes Stark Industries security gear and communication devices.",
+          "source": 0
+        },
         {
           "tag": "tech",
           "claim": "Uses Stark Industries security tech and occasional armor components.",
@@ -172,24 +293,28 @@
         }
       ],
       "unknowns": [
+        "Extent of formal combat training outside of standard professional boxing.",
         "Full extent of his combat capabilities when piloting advanced Stark tech outside of standard security work.",
         "Removed by review (not supported by the cited source): technique: Boxing punches; technique: Improvised weapon strikes; defense: Sturdy physical build; defense: Occasional use of powered armor or reinforced security gear; weakness: Vulnerable to supernatural or high-tier cosmic opponents; limitation: Fights primarily as a standard human without innate supernatural traits; feat: Fought multiple Extremis-enhanced guards during security engagements.; result: Extremis soldiers",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Happy Hogan is a former boxer, head of security, and close associate of Tony Stark who relies on basic pugilism, improvised weapons, and occasionally armored suits in confrontations."
     },
     {
       "id": "mcu:Hawkeye",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Clint Barton is an elite master archer, tactical marksman, and hand-to-hand combatant who utilizes a versatile quiver of trick arrows and exceptional situational awareness.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Avengers tie-in comics",
+      "summary": "Clint Barton is a master archer, tactical marksman, and hand-to-hand combatant with peak human conditioning. He utilizes a versatile quiver of high-tech trick arrows and exceptional situational awareness to handle superhuman threats.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Precision archery",
+          "Explosive and tether trick arrows",
+          "Close-quarters knife and staff fighting",
           "Master archer and marksman with trick arrows",
           "Expert hand-to-hand fighter; katana as Ronin",
           "Defeated Maya Lopez"
@@ -198,20 +323,44 @@
       },
       "defense": {
         "mechanisms": [
+          "Tactical armored vest",
+          "Acrobatic dodging and evasion",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Normal human biology vulnerable to lethal trauma",
+        "Ammunition supply is finite",
         "No superpowers",
         "Hearing loss",
         "Was mind-controlled by Loki's scepter"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Avengers MCU Prelude (Marvel Comics, 2012)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Acrobatic movement",
+        "Grappling lines"
+      ],
+      "limitations": [
+        "Relies entirely on physical conditioning and archery equipment"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Hawkeye_(Marvel_Cinematic_Universe)",
-          "supports": "Overview of Clint Barton as an expert archer and SHIELD agent in the MCU."
+          "supports": "Background as S.H.I.E.L.D. agent and founding Avenger."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Clint_Barton_(Marvel_Cinematic_Universe)",
@@ -222,61 +371,136 @@
           "supports": "Master archer with trick arrows; hearing loss; fights the Tracksuit Mafia, Maya and Yelena."
         }
       ],
-      "feats": [],
+      "feats": [
+        {
+          "claim": "Fought evenly with Black Widow during close-quarters combat infiltration.",
+          "citation": "The Avengers (2012 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
       "notableResults": [
+        {
+          "opponent": "Black Widow",
+          "result": "inconclusive",
+          "citation": "The Avengers (2012 film)",
+          "note": "Fought while mind-controlled until knocked unconscious.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
         {
           "opponent": "Black Widow",
           "result": "win",
           "citation": "Wikipedia: Hawkeye (Marvel Cinematic Universe)",
           "note": "Freed her from Loki's mind control after physical combat.",
+          "source": 0,
+          "depiction": "Marvel Cinematic Universe"
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Utilizes specialized trick arrows containing explosives, hacking devices, and grapples.",
+          "source": 0
+        },
+        {
+          "tag": "stealth",
+          "claim": "Operates effectively as a covert infiltration agent and archer.",
           "source": 0
         }
       ],
-      "campaignTags": [],
       "unknowns": [
+        "Long-term physical wear from hearing impairment managed in later series.",
         "Performance against high-tier cosmic entities without environmental or tactical advantages.",
         "Removed by review (not supported by the cited source): technique: Precision archery with trick arrows (explosive, grappling, electrical); technique: Close-quarters knife and baton combat; defense: Tactical evasion; defense: Agile acrobatics; defense: Protective tactical clothing; weakness: Vulnerable to overwhelming area-of-effect attacks; limitation: Ammunition is finite and requires resupply; mobility: Acrobatic movement; mobility: Grappling line traversal; mobility: Aircraft piloting; feat: Fought off numerous Chitauri infantry units and closed the portal device using a specialized arrow head.; tag: Utilizes specialized trick arrows and tactical gear.; tag: Pilots Quinjets and other aircraft.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Clint Barton is an elite master archer, tactical marksman, and hand-to-hand combatant who utilizes a versatile quiver of trick arrows and exceptional situational awareness."
     },
     {
       "id": "mcu:Heimdall",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Heimdall is the all-seeing Asgardian sentinel of the Bifrost, possessing superhuman Asgardian strength, enhanced senses capable of tracking souls across the cosmos, and proficiency with a massive enchanted sword.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Thor tie-in comics",
+      "summary": "Heimdall is the all-seeing Asgardian sentinel of the Bifrost, possessing vast Asgardian strength, enhanced cosmic senses capable of tracking souls across the universe, and mastery over his enchanted Uru sword Hofund.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "magic"
         ],
         "techniques": [
+          "Bifrost sword strikes",
+          "Cosmic sensory tracking",
+          "Asgardian martial combat",
           "Enchanted sword combat"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Asgardian physiological durability",
+          "Golden armored plating",
           "Asgardian physiology"
         ]
       },
       "weaknesses": [
+        "Sensory overload if overwhelmed by widespread chaos",
+        "Vulnerable to powerful celestial or divine entities",
         "Vulnerable to fatal injuries from powerful celestial beings or weapons"
       ],
-      "mobility": [
-        "Asgardian running speed"
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Thor: Ragnarok Prelude (Marvel Comics, 2017)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
       ],
-      "limitations": [],
+      "mobility": [
+        "Asgardian running speed",
+        "Bifrost teleportation"
+      ],
+      "limitations": [
+        "Cannot physically manifest the Bifrost without direct access to its control sword"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Heimdall_(character)",
-          "supports": "Details on Heimdall's role as Asgardian gatekeeper and wielder of Hofund."
+          "supports": "Role as guardian of the Bifrost and all-seeing Asgardian warrior."
         }
       ],
-      "feats": [],
-      "notableResults": [],
+      "feats": [
+        {
+          "claim": "Slaughtered multiple invading Frost Giants using Hofund and bare hands.",
+          "citation": "Thor (2011 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Corvus Glaive",
+          "result": "loss",
+          "citation": "Avengers: Infinity War (2018 film)",
+          "note": "Fatally stabbed after being weakened and captured.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
       "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels Asgardian enchanted energy and operates the Bifrost bridge.",
+          "source": 0
+        },
         {
           "tag": "magic-item",
           "claim": "Wields the enchanted sword Hofund.",
@@ -284,23 +508,27 @@
         }
       ],
       "unknowns": [
+        "Full extent of sensory range outside of the Nine Realms.",
         "Full combat scaling against top-tier universal rulers without his sword.",
-        "Removed by review (not supported by the cited source): technique: Cosmic sensory tracking; defense: Heavy golden armor; weakness: Sensory overload under specific mystical interference; limitation: Sight can be obscured by powerful dark magic or specific magical wards; mobility: Bifrost teleportation oversight; feat: Slashed through multiple Frost Giants effortlessly on Jotunheim.; result: Thanos"
+        "Removed by review (not supported by the cited source): technique: Cosmic sensory tracking; defense: Heavy golden armor; weakness: Sensory overload under specific mystical interference; limitation: Sight can be obscured by powerful dark magic or specific magical wards; mobility: Bifrost teleportation oversight; feat: Slashed through multiple Frost Giants effortlessly on Jotunheim.; result: Thanos",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Heimdall is the all-seeing Asgardian sentinel of the Bifrost, possessing superhuman Asgardian strength, enhanced senses capable of tracking souls across the cosmos, and proficiency with a massive enchanted sword."
     },
     {
       "id": "mcu:Hela",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Hela, the Asgardian Goddess of Death, is an immensely powerful conqueror who generates an infinite array of sharp necro-swords, possesses overwhelming Asgardian strength, and draws continuous vitality directly from Asgard.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Thor tie-in comics",
+      "summary": "Hela, the Asgardian Goddess of Death, is an immensely powerful conqueror who generates an infinite array of sharp necro-swords, possesses overwhelming divine strength, and draws continuous vitality directly from Asgard.",
       "offense": {
         "domains": [
           "physical",
           "magic"
         ],
         "techniques": [
+          "Necro-sword projectile barrage",
+          "Giant spike generation",
+          "Asgardian combat mastery",
           "Goddess of death who manifests endless blades and Necroswords",
           "Destroyed Mjolnir with one hand; slew the Warriors Three and Asgard's army",
           "Raises the ancient dead"
@@ -309,19 +537,46 @@
       },
       "defense": {
         "mechanisms": [
+          "Instantaneous self-regeneration",
+          "Asgardian divine durability",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Power level diminishes when separated from the realm of Asgard",
+        "Vulnerable to apocalyptic destruction of her source of power",
         "Her power is tied to Asgard: only Ragnarök could stop her",
         "Killed when Surtur destroyed Asgard"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Thor: Ragnarok Prelude (Marvel Comics, 2017)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Natural flight",
+        "Asgardian leaping",
         "Asgardian supernatural leaping and running",
         "Flight via magical manifestation"
       ],
-      "limitations": [],
+      "limitations": [
+        "Power is tied to the existence of Asgard as an empire and realm"
+      ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hela_(character)",
+          "supports": "Status as Goddess of Death and conqueror of Asgard."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Hela_(comics)#MCU",
           "supports": "Overview of Hela as Goddess of Death, Asgardian source of power, and weapon generation."
@@ -331,10 +586,6 @@
           "supports": "Goddess of death who manifests weapons; destroys Mjolnir; slays the Warriors Three; only Ragnarök stops her."
         },
         {
-          "url": "https://en.wikipedia.org/wiki/Hela_(character)",
-          "supports": "In Ragnarok she is Odin's daughter, uses Necroswords, destroys Mjolnir and is slain by Surtur."
-        },
-        {
           "url": "https://en.wikipedia.org/wiki/Characters_of_the_Marvel_Cinematic_Universe:_A%E2%80%93L",
           "supports": "Thor learns that releasing Surtur and prompting Ragnarok is key to stopping her."
         }
@@ -342,93 +593,149 @@
       "feats": [
         {
           "claim": "Caught and crushed Thor's enchanted hammer Mjolnir with one hand.",
-          "citation": "Wikipedia: Hela (comics)#MCU",
+          "citation": "Thor: Ragnarok (2017 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
           "source": 0
         }
       ],
       "notableResults": [
         {
+          "opponent": "Valkyrie army",
+          "result": "win",
+          "citation": "Thor: Ragnarok (2017 film)",
+          "note": "Slaughtered ancient elite Valkyries single-handedly.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
+        {
           "opponent": "Surtur",
           "result": "loss",
           "citation": "Wikipedia: Hela (comics)#MCU",
           "note": "Crushed when Surtur destroyed Asgard.",
+          "source": 1,
+          "depiction": "Marvel Cinematic Universe"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Infinite stamina and power scaling",
+          "dependsOn": "Proximity to Asgard",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
           "source": 0
         }
       ],
-      "conditional": [],
       "campaignTags": [
         {
+          "tag": "magic",
+          "claim": "Conjures weapons and armor out of pure necrotic energy.",
+          "source": 0
+        },
+        {
           "tag": "self-regeneration",
-          "claim": "Instantly heals wounds while drawing power from Asgard.",
+          "claim": "Instantly heals from severe physical wounds while on Asgard.",
+          "source": 0
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Demonstrates hovering and aerial levitation in combat.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Whether she survived the direct destruction of Asgard by Surtur.",
         "Exact upper limits of durability outside of Asgardian territory.",
         "Removed by review (not supported by the cited source): technique: Necro-sword projectile barrage; technique: Spike generation from the ground; defense: Near-instantaneous regeneration while connected to Asgard; defense: Hardened armor manifest from energy; weakness: Power diminishes if severed from the realm of Asgard; limitation: Power source is tied directly to the physical existence of Asgard; conditional: Infinite weapon generation and rapid regeneration; tag: Wields dark Asgardian magic to conjure weapons and armor.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Hela, the Asgardian Goddess of Death, is an immensely powerful conqueror who generates an infinite array of sharp necro-swords, possesses overwhelming Asgardian strength, and draws continuous vitality directly from Asgard."
     },
     {
       "id": "mcu:Hercules",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Hercules is an Olympian warrior introduced in post-credits appearances, boasting legendary physical strength, mythological endurance, and mastery over traditional Olympian weaponry.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series",
+      "summary": "Hercules is an Olympian warrior introduced in post-credits appearances, boasting legendary physical strength, mythological endurance, and mastery over traditional Olympian combat methods.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "magic"
         ],
         "techniques": [
+          "Olympian mace strikes",
+          "Superhuman wrestling",
           "Overwhelming physical strikes"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Olympian divine durability",
+          "Pain tolerance",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Arrogance and overconfidence in divine prowess"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Superhuman leaping and running"
       ],
       "limitations": [
+        "Limited feats demonstrated on screen outside of introductory appearance",
         "Limited displayed combat screen time in current MCU entries"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Hercules_(Marvel_Cinematic_Universe)",
-          "supports": "Introduction of Hercules as Zeus's son in Thor: Love and Thunder."
+          "supports": "Introduction as son of Zeus in cinematic post-credits."
         }
       ],
       "feats": [
         {
           "claim": "Tasked by Zeus to hunt down Thor and demonstrate Olympian might.",
-          "citation": "Wikipedia: Hercules (Marvel Cinematic Universe)",
+          "citation": "Thor: Love and Thunder (2022 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "magic",
+          "claim": "Channels divine Olympian power and resilience.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Full arsenal of divine weapons and abilities beyond the golden mace.",
         "Full spectrum of magical or divine abilities beyond baseline Olympian strength.",
-        "Removed by review (not supported by the cited source): technique: Olympian weapon mastery; defense: Olympian divine physiology and durability; weakness: Arrogance in combat encounters; weakness: Vulnerable to higher-tier cosmic manipulation"
+        "Removed by review (not supported by the cited source): technique: Olympian weapon mastery; defense: Olympian divine physiology and durability; weakness: Arrogance in combat encounters; weakness: Vulnerable to higher-tier cosmic manipulation",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Hercules is an Olympian warrior introduced in post-credits appearances, boasting legendary physical strength, mythological endurance, and mastery over traditional Olympian weaponry."
     },
     {
       "id": "mcu:Howard Stark",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Howard Stark is Tony Stark's father, an inventor and S.H.I.E.L.D. founder. The cited sources describe no combat ability.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Agent Carter and Iron Man tie-in comics",
+      "summary": "Howard Stark is a brilliant inventor, industrialist, and founder of S.H.I.E.L.D. He contributes to conflicts through advanced technological engineering, futuristic weaponry prototypes, and strategic intelligence rather than personal combat.",
       "offense": {
         "domains": [
           "tech"
         ],
         "techniques": [
+          "Prototype energy weapons",
+          "Strategic planning",
           "Genius inventor and engineer; co-founder of S.H.I.E.L.D.",
           "Co-inventor of the arc reactor"
         ],
@@ -436,144 +743,298 @@
       },
       "defense": {
         "mechanisms": [
+          "Bodyguards",
+          "S.H.I.E.L.D. security infrastructure",
           "Not established by the cited source"
         ]
       },
       "weaknesses": [
+        "Ordinary human vulnerability",
+        "Lacks combat training for physical engagements",
         "No combat ability",
         "Murdered by Hydra in a staged car accident"
       ],
-      "mobility": [],
-      "limitations": [],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Captain America: First Vengeance (Marvel Comics, 2011)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Standard human travel"
+      ],
+      "limitations": [
+        "No direct combat prowess"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Howard_Stark",
-          "supports": "Background as co-founder of S.H.I.E.L.D., scientist, and industrialist."
+          "supports": "Role as industrialist, inventor, and S.H.I.E.L.D. co-founder."
         },
         {
           "url": "https://en.wikipedia.org/wiki/Iron_Man_2",
           "supports": "Co-invented the arc reactor with Anton Vanko; a S.H.I.E.L.D. founder."
         }
       ],
+      "feats": [
+        {
+          "claim": "Assisted Captain America with equipment design and tactical intelligence briefings during WWII.",
+          "citation": "Captain America: The First Avenger (2011 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
       "campaignTags": [
         {
           "tag": "inventor",
-          "claim": "Designed advanced tech and foundational arc reactor components.",
+          "claim": "Invented early repulsor prototypes and vibranium-shield bonding techniques.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Designed foundational advanced tech for S.H.I.E.L.D.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Performance in active battlefield shootouts.",
         "Direct combat performance outside of controlled laboratory or industrial settings.",
         "Removed by review (not supported by the cited source): technique: Advanced tactical weapon design; technique: Technological deployment; defense: Standard human security measures; defense: Bodyguards; weakness: Standard human physiology with no innate superpowers; weakness: Vulnerable to physical assassination; limitation: Lacks combat training or physical prowess for direct frontline battles; mobility: Standard human movement; mobility: Vehicular transport; tag: Pioneered advanced weaponry and computing hardware.",
-        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed."
+        "Review pass 2026-11-15 (Claude): added independent sources; only claims named in the cited sources were restored. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Howard Stark is Tony Stark's father, an inventor and S.H.I.E.L.D. founder. The cited sources describe no combat ability."
     },
     {
       "id": "mcu:Hulk",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "Bruce Banner transforms into the Hulk, a massive green behemoth possessing boundless physical strength that scales with anger, extreme regenerative healing, and high durability against conventional weapons.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Avengers tie-in comics",
+      "summary": "Bruce Banner transforms into the Hulk, a massive green behemoth possessing immense physical strength that scales with anger, extreme regenerative healing, and high durability against conventional and cosmic weapons.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
           "Thunderclap shockwaves",
+          "Destructive ground smashes",
+          "Brute-force tackling",
           "Brutal ground smashes"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Extremely high kinetic and thermal durability",
+          "Rapid cellular regeneration",
           "Extremely dense muscular hide"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Emotional manipulation or mental calming techniques can revert him to Bruce Banner",
+        "Vulnerable to extreme psychological control"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Avengers MCU Prelude (Marvel Comics, 2012)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
+        "Massive superhuman leaps spanning miles",
         "Massive superhuman leaps",
         "Running"
       ],
-      "limitations": [],
+      "limitations": [
+        "Prone to losing control and attacking allies if unprovoked"
+      ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Hulk_(Marvel_Cinematic_Universe)",
-          "supports": "Overview of Hulk's strength, durability, and transformation mechanics in the MCU."
+          "supports": "Portrayal of Hulk's strength, durability, and transformations in MCU films."
         }
       ],
       "feats": [
         {
           "claim": "Stopped a speeding Chitauri Leviathan with a single punch.",
-          "citation": "Wikipedia: Hulk (Marvel Cinematic Universe)",
+          "citation": "The Avengers (2012 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
           "source": 0
         }
       ],
-      "notableResults": [],
+      "notableResults": [
+        {
+          "opponent": "Thanos",
+          "result": "loss",
+          "citation": "Avengers: Infinity War (2018 film)",
+          "note": "Overpowered in a direct physical brawl due to Thanos' superior combat skill and strength.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
       "conditional": [
+        {
+          "ability": "Rage-fueled exponential strength growth",
+          "dependsOn": "High adrenaline and anger levels",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        },
         {
           "ability": "Peak anger-fueled strength scaling",
           "dependsOn": "Heightened emotional stress or rage",
-          "source": 0
+          "source": 0,
+          "depiction": "Marvel Cinematic Universe"
         }
       ],
       "campaignTags": [
         {
-          "tag": "giant-sized",
-          "claim": "Stands well over 8 feet tall with massive physical mass.",
+          "tag": "healing",
+          "claim": "Possesses rapid regenerative healing capabilities.",
           "source": 0
         },
         {
           "tag": "self-regeneration",
-          "claim": "Heals from severe physical trauma rapidly.",
+          "claim": "Instantly heals from severe physical trauma and bullets.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Stands over 8 feet tall with massive physical mass.",
           "source": 0
         }
       ],
       "unknowns": [
+        "Exact upper limit of strength scaling during maximum rage.",
         "Upper limits of strength scaling when facing cosmic entities of abstract power.",
-        "Removed by review (not supported by the cited source): technique: Unrestrained brawling; defense: Rapid regenerative healing factor; weakness: Susceptible to psychological calming methods (the lullaby); weakness: Vulnerable to powerful mind control or cosmic energy constriction; limitation: Prone to losing control and turning on allies if provoked beyond a threshold; result: Thanos"
+        "Removed by review (not supported by the cited source): technique: Unrestrained brawling; defense: Rapid regenerative healing factor; weakness: Susceptible to psychological calming methods (the lullaby); weakness: Vulnerable to powerful mind control or cosmic energy constriction; limitation: Prone to losing control and turning on allies if provoked beyond a threshold; result: Thanos",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Bruce Banner transforms into the Hulk, a massive green behemoth possessing boundless physical strength that scales with anger, extreme regenerative healing, and high durability against conventional weapons."
     },
     {
       "id": "mcu:Hulk|Green Scar Hulk",
-      "continuity": "Marvel Cinematic Universe",
-      "summary": "The Green Scar Hulk form represents an exceptionally disciplined, merciless, and battle-hardened persona of the Hulk, exhibiting maximized combat efficiency and gladiatorial prowess.",
+      "continuity": "Marvel Cinematic Universe films and Disney+ series, plus Planet Hulk comic adaptations",
+      "summary": "The Green Scar Hulk form represents an exceptionally disciplined, merciless, and battle-hardened persona of the Hulk, exhibiting maximized combat efficiency, gladiatorial weapon proficiency, and superior tactical focus.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Gladiatorial weapon combat",
+          "Calculated shockwave stomps",
+          "Brutal wrestling throws",
           "Not established by the cited source"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Enhanced gladiatorial armor",
+          "Maximum durability and instantaneous healing",
           "Enhanced tactical battle reflexes"
         ]
       },
       "weaknesses": [
-        "Not established by the cited source"
+        "Vulnerable to extreme psychic overloading or sensory disruption weapons",
+        "Hostility towards perceived betrayals"
       ],
-      "formDifferences": "Replaces the mindless, roaring rage of the standard Hulk with focused gladiatorial discipline, weapon proficiency, and strategic combat tactics.",
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Marvel Cinematic Universe films and Disney+ series",
+          "kind": "source"
+        },
+        {
+          "title": "Thor: Ragnarok Prelude (Marvel Comics, 2017)",
+          "kind": "comic"
+        },
+        {
+          "title": "Marvel Cinematic Universe",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Colossal superhuman leaps"
+      ],
+      "limitations": [
+        "Retains Hulk transformation triggers"
+      ],
+      "formDifferences": "Replaces mindless rage with high tactical intellect, battle discipline, and proficiency with heavy gladiatorial weaponry.",
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Hulk_(Marvel_Cinematic_Universe)",
-          "supports": "Covers Hulk's gladiatorial incarnation and combat capabilities on Sakaar."
+          "supports": "Gladiatorial combat prowess displayed on Sakaar."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought Thor to a near standstill in the Grandmaster's gladiatorial arena while wielding a massive battle-axe and war hammer.",
+          "citation": "Thor: Ragnarok (2017 film)",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Thor",
+          "result": "inconclusive",
+          "citation": "Thor: Ragnarok (2017 film)",
+          "note": "Fight interrupted by the Grandmaster before a definitive winner was decided.",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Gladiatorial weapon mastery",
+          "dependsOn": "Access to heavy battle-axes, war hammers, and shields",
+          "depiction": "Marvel Cinematic Universe films and Disney+ series",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "healing",
+          "claim": "Maintains rapid cellular regeneration and vitality.",
+          "source": 0
+        },
+        {
+          "tag": "self-regeneration",
+          "claim": "Recovers instantly from heavy gladiatorial trauma.",
+          "source": 0
+        },
+        {
+          "tag": "giant-sized",
+          "claim": "Retains colossal giant-sized physical stature.",
+          "source": 0
         }
       ],
       "unknowns": [
+        "Full endurance ceiling when separated from Sakaar's atmosphere.",
         "Exact duration this persona can maintain absolute dominance over Banner's consciousness.",
-        "Removed by review (not supported by the cited source): technique: Gladiatorial weapon strikes; technique: Calculated bone-crushing throws; technique: Devastating shockwave punches; defense: Maximized muscular density; weakness: Extreme psychological provocation can disrupt strategic focus; weakness: Vulnerable to powerful electrical submission discs"
+        "Removed by review (not supported by the cited source): technique: Gladiatorial weapon strikes; technique: Calculated bone-crushing throws; technique: Devastating shockwave punches; defense: Maximized muscular density; weakness: Extreme psychological provocation can disrupt strategic focus; weakness: Vulnerable to powerful electrical submission discs",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "The Green Scar Hulk form represents an exceptionally disciplined, merciless, and battle-hardened persona of the Hulk, exhibiting maximized combat efficiency and gladiatorial prowess."
     }
   ]
 }
