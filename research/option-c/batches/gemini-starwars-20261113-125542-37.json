@@ -1152,39 +1152,73 @@
     },
     {
       "id": "starwars:Luke Skywalker|Dark Empire Luke",
-      "continuity": "Star Wars Legends (Dark Empire comic series)",
-      "summary": "Dark Empire Luke is a formidable iteration of Luke Skywalker who temporarily fell to the dark side under Emperor Palpatine, wielding devastating dark side force techniques including Force lightning.",
+      "continuity": "Star Wars films and series, Star Wars Legends continuity, and Dark Empire comic series",
+      "summary": "Dark Empire Luke represents a period where Luke Skywalker temporarily succumbed to the dark side of the Force under the influence of a resurrected Emperor Palpatine. In this form, he utilizes intense aggressive combat forms, lightsaber mastery, and devastating dark side abilities such as Force lightning to subdue opponents.",
       "offense": {
         "domains": [
           "physical",
-          "magic",
           "energy",
+          "force",
+          "magic",
           "electric"
         ],
         "techniques": [
           "Lightsaber combat",
           "Force lightning",
+          "Telekinesis",
           "Dark side telekinesis",
           "Mind domination"
         ],
-        "range": "melee / ranged"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
           "Lightsaber defense",
+          "Force barrier",
+          "Enhanced durability through the Dark Side",
           "Dark side Force shield"
         ]
       },
       "weaknesses": [
+        "Vulnerability to moral conflict and redemption paths",
+        "Psychological strain caused by dark side corruption",
         "Vulnerable to psychological appeals to his former light side nature by loved ones"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Star Wars (Original Trilogy films)",
+          "kind": "source"
+        },
+        {
+          "title": "Star Wars: Dark Empire (Dark Horse Comics, 1991-1992)",
+          "kind": "comic"
+        },
+        {
+          "title": "Star Wars Legends (Dark Empire comic series)",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Natural flight via Force levitation",
+        "Starship piloting",
         "Running",
         "Force-enhanced leaping",
         "Starfighter piloting"
       ],
-      "formDifferences": "Embarks on a dark side path, gaining access to offensive Force lightning and heightened aggressive combat prowess compared to his standard Jedi Knight incarnation.",
+      "limitations": [
+        "Susceptible to internal conflict regarding his allegiance to the Jedi code versus the dark side"
+      ],
+      "formDifferences": "This form reflects Luke Skywalker's temporary corruption by the resurrected Emperor Palpatine, granting him access to high-tier dark side abilities like Force lightning and an aggressive combat style not utilized in his standard Jedi Knight persona.",
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Luke_Skywalker",
+          "supports": "General background and canonical progression of Luke Skywalker through films and Legends material including Dark Empire."
+        },
+        {
+          "url": "https://starwars.fandom.com/wiki/Luke_Skywalker/Legends",
+          "supports": "Details regarding Luke's fall to the dark side, alliance with Emperor Palpatine, use of Force lightning, and ultimate redemption in Dark Empire."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Dark_Empire",
           "supports": "Details on Luke Skywalker's fall to the dark side and acquisition of dark side powers in Dark Empire."
@@ -1192,19 +1226,72 @@
       ],
       "notableResults": [
         {
+          "opponent": "Emperor Palpatine (Legends)",
+          "result": "loss",
+          "citation": "Star Wars: Dark Empire",
+          "note": "Initially infiltrated Palpatine's ranks to defeat him from within, but was overwhelmed by dark side corruption before turning back with Leia's help.",
+          "depiction": "Star Wars: Dark Empire (Dark Horse Comics, 1991-1992)",
+          "source": 1
+        },
+        {
+          "opponent": "Leia Organa (Legends)",
+          "result": "inconclusive",
+          "citation": "Star Wars: Dark Empire",
+          "note": "Confronted Leia while under the dark side's influence, leading to Leia pulling him back to the light.",
+          "depiction": "Star Wars: Dark Empire (Dark Horse Comics, 1991-1992)",
+          "source": 1
+        },
+        {
           "opponent": "Leia Organa",
           "result": "inconclusive",
           "citation": "Dark Empire comic series",
           "note": "Fought Leia until she appealed to his inner light, prompting his turnaround.",
-          "source": 0
+          "source": 2,
+          "depiction": "Star Wars Legends (Dark Empire comic series)"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Force lightning",
+          "dependsOn": "Embrace of the dark side of the Force",
+          "depiction": "Star Wars: Dark Empire (Dark Horse Comics, 1991-1992)",
+          "source": 1
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Can generate and project Force lightning.",
+          "source": 1
+        },
+        {
+          "tag": "electric-control",
+          "claim": "Directly controls and discharges electricity via the dark side of the Force.",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Can levitate and fly using the Force.",
+          "source": 1
+        },
+        {
+          "tag": "spellcaster",
+          "claim": "Wields mystical powers through the Force.",
+          "source": 1
+        },
+        {
+          "tag": "teleport",
+          "claim": "Utilizes advanced Force powers for movement and displacement.",
+          "source": 1
         }
       ],
       "unknowns": [
-        "Whether he could maintain complete stability while wielding Palpatine's teachings indefinitely."
+        "Exact limits of power scaling when combining standard Jedi training with prime dark side augmentation in various comic issues.",
+        "Whether he could maintain complete stability while wielding Palpatine's teachings indefinitely.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Dark Empire Luke is a formidable iteration of Luke Skywalker who temporarily fell to the dark side under Emperor Palpatine, wielding devastating dark side force techniques including Force lightning."
     }
   ]
 }
