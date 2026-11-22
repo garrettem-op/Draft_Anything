@@ -18,29 +18,36 @@ Before this, only 26 base characters and 88 reviewed forms used a real power in 
 - Characters with a V1 profile or a reviewed form profile: the V1 kit always wins.
 - NBA players.
 - Records marked needs-review.
-- Records whose powers are only physical, tech or toxin (582 records, for example MCU Hulk and the film-only MCU Thanos). Plain attacks already model those from the attributes.
+- Records whose powers are only physical, tech or toxin (541 records, for example MCU Hulk). Plain attacks already model those from the attributes.
 
 The fight engine change is one line in `data/brawl-combat.js`: ask the V1 profiles first, then the research moves. A page without the two research-move files fights exactly as Version 1.
 
 ## Who gets a move
-747 research moves (630 base characters and 117 forms), regenerated on 2026-11-22 after 1,324 of 1,413 non-NBA identities had their sequels-and-comics expansion (651 on 2026-11-21, 617 on 2026-11-20):
+750 research moves (633 base characters and 117 forms), regenerated on 2026-11-22 (evening) after 1,355 of 1,413 non-NBA identities had their sequels-and-comics expansion. Earlier counts: 747 that morning, 651 on 2026-11-21, 617 on 2026-11-20.
 
 | Pool | Moves | | Power type | Moves |
 |---|---|---|---|---|
-| Pokémon | 131 | | Energy | 313 |
-| Video Games | 125 | | Magic | 211 |
-| Harry Potter | 96 | | Control | 93 |
+| Pokémon | 131 | | Energy | 314 |
+| Video Games | 125 | | Magic | 210 |
+| Harry Potter | 96 | | Control | 96 |
 | MCU | 87 | | Elemental | 90 |
 | DC | 78 | | Psychic | 32 |
 | Star Wars | 61 | | Sonic | 4 |
-| Middle-earth | 58 | | Shadow | 3 |
-| Toons | 58 | | Time | 1 |
-| Muppets | 41 | | | |
+| Toons | 59 | | Shadow | 3 |
+| Middle-earth | 58 | | Time | 1 |
+| Muppets | 43 | | | |
 | Action Movies | 12 | | | |
 
 Most Action Movies characters fight physically (swords, guns, martial arts), so only 12 of its researched characters get a research move.
 
-**Re-measured 2026-11-22** (747 moves; 200 fights per pool): the winner changes in 5–16% of fights depending on the pool (mixed 9%). Research moves now reach 12% (Action Movies) to 88% (Harry Potter) of fighters. The evaluator's calibration was re-checked on two seeds and holds (fitted 3.71 / 3.64 points per logit below the cap, 10.30 / 10.99 above it, interaction weight 0.91 / 1.05), so there was no refit.
+**Re-measured 2026-11-22, evening** (750 moves; table below): the winner changes in 5–16% of fights depending on the pool (mixed 9%). Research moves reach 12% (Action Movies) to 88% (Harry Potter) of fighters. The evaluator's calibration was rechecked on two seeds and holds, so it was not refitted:
+
+| | Seed 1 | Seed 2 |
+|---|---|---|
+| Points per logit, below the cap | 3.72 | 3.63 |
+| Points per logit, above the cap | 10.33 | 10.95 |
+| Interaction weight | 0.91 | 1.05 |
+| Results inside the reported range | 88% | 90% |
 
 ## The switch
 - **On by default** on the V2 branch.
@@ -49,22 +56,22 @@ Most Action Movies characters fight physically (swords, guns, martial arts), so 
 - In code: `DA_RESEARCH_MOVES.enabled()`, `setEnabled(on)`, `withEnabled(on, fn)`.
 
 ## What it does to fights (measured)
-`node tools/research-powers-impact.cjs`: 200 seeded fights per pool between random crews, the same crews and seeds with the switch off and on.
+`node tools/research-powers-impact.cjs`: 200 seeded fights per pool between random crews, the same crews and seeds with the switch off and on. Measured 2026-11-22 (evening) with 750 moves:
 
 | Pool | Fighters with a research move | With a V1 profile | Winner changed | Damage from research moves |
 |---|---|---|---|---|
-| MCU | 41% | 4% | 10% | 23% |
-| DC | 56% | 13% | 17% | 29% |
-| Toons | 29% | 0% | 10% | 18% |
-| Muppets | 23% | 0% | 9% | 13% |
-| Video Games | 57% | 0% | 12% | 32% |
-| Pokémon | 61% | 0% | 6% | 35% |
-| Star Wars | 40% | 0% | 12% | 24% |
-| Middle-earth | 41% | 6% | 14% | 24% |
-| Harry Potter | 87% | 0% | 17% | 44% |
-| Action Movies | 0% | 0% | 0% | 0% |
+| MCU | 49% | 4% | 13% | 26% |
+| DC | 58% | 13% | 14% | 30% |
+| Toons | 43% | 0% | 10% | 24% |
+| Muppets | 42% | 0% | 11% | 22% |
+| Video Games | 71% | 0% | 12% | 39% |
+| Pokémon | 70% | 0% | 5% | 38% |
+| Star Wars | 57% | 0% | 11% | 30% |
+| Middle-earth | 49% | 6% | 12% | 28% |
+| Harry Potter | 88% | 0% | 16% | 44% |
+| Action Movies | 12% | 0% | 7% | 7% |
 | NBA | 0% | 0% | 0% | 0% |
-| Mixed (all but NBA) | 41% | 2% | 9% | 23% |
+| Mixed (all but NBA) | 52% | 2% | 9% | 28% |
 
 **Example from the matchup explainer.** Crossover (Hulk, Superman, Gandalf, Bugs Bunny, Darth Vader) against Heavy Hitters (Doomsday, Thanos, Scarlet Witch, Pikachu, Darkseid), 400 seeded fights:
 - Crossover wins **34%** with the switch off. With it on, it won **48%** on 2026-11-20 and **50%** after the 2026-11-21 research refresh.
