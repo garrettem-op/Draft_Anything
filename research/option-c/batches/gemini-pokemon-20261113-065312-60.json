@@ -7,8 +7,8 @@
   "characters": [
     {
       "id": "pokemon:Eevee|Gigantamax Eevee",
-      "continuity": "Pokémon Sword and Shield",
-      "summary": "Gigantamax Eevee fights by overwhelming opponents with its massive physical size, fluffy fur that makes foes fall for its charm, and normal-type energy attacks like G-Max Cuddle.",
+      "continuity": "Pokémon games and anime, Pokémon Sword and Shield, and Pokémon Adventures manga",
+      "summary": "Gigantamax Eevee towers over opponents, utilizing its massive fluffy mane to infatuate foes before unleashing heavy normal-type energy attacks such as G-Max Cuddle.",
       "offense": {
         "domains": [
           "physical",
@@ -16,73 +16,105 @@
         ],
         "techniques": [
           "G-Max Cuddle",
+          "Body Slam",
+          "Take Down",
           "Normal-type attacks"
         ],
-        "range": "ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "massive physical scale",
+          "thick fluffy fur coat absorbing impacts",
           "Massive size and increased health pool typical of Gigantamax forms",
           "Fluffy fur that can infatuate opponents of the opposite gender"
         ]
       },
       "weaknesses": [
+        "Fighting-type attacks",
         "Fighting-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sword and Shield (2019 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Sword and Shield",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "ground movement",
         "Walking",
         "Leaping"
       ],
       "limitations": [
+        "Gigantamax form reverts after three turns",
         "Gigantamax effect wears off after three turns."
       ],
-      "formDifferences": "Changes Eevee into a massive 59-foot-tall Pokémon with extra fluffy neck fur and gives it the ability to use G-Max Cuddle instead of standard Gigantamax moves.",
+      "formDifferences": "Changes Eevee into a massive giant-sized form with a gigantic fluffy collar, enabling exclusive Gigantamax moves.",
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Eevee_(Pok%C3%A9mon)",
-          "supports": "Gigantamax Eevee form characteristics, abilities, and G-Max Cuddle."
+          "supports": "Gigantamax Eevee details, G-Max Cuddle, and abilities"
         }
       ],
       "feats": [
         {
+          "claim": "Infatuates opponents with its oversized fluffy fur and executes G-Max Cuddle",
+          "citation": "Pokémon Sword and Shield battle mechanic",
+          "depiction": "Pokémon Sword and Shield (2019 game)",
+          "source": 0
+        },
+        {
           "claim": "Uses its fluffy fur to infatuate opponents and utilizes the exclusive G-Max Cuddle move in its Gigantamax state.",
           "citation": "Pokémon Sword and Shield",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Sword and Shield"
         }
       ],
       "conditional": [
         {
+          "ability": "G-Max Cuddle",
+          "dependsOn": "Gigantamax state activated",
+          "depiction": "Pokémon Sword and Shield (2019 game)",
+          "source": 0
+        },
+        {
           "ability": "Gigantamax transformations, including the use of G-Max Cuddle",
           "dependsOn": "Gigantamax factor and Dynamax energy in specific regions such as Galar",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Sword and Shield"
         }
       ],
       "campaignTags": [
         {
           "tag": "giant-sized",
-          "claim": "Gigantamax Eevee grows to a massive height of 59'00\".",
+          "claim": "Transforms into a massive size via Gigantamax phenomenon",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Gigantamax Eevee fights by overwhelming opponents with its massive physical size, fluffy fur that makes foes fall for its charm, and normal-type energy attacks like G-Max Cuddle.",
       "unknowns": [
-        "Exact endurance limits of Gigantamax fur outside of standard battle conditions."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact endurance limits of Gigantamax fur outside of standard battle conditions.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Ekans",
-      "continuity": "Pokémon standard video game and anime continuity",
-      "summary": "Ekans is a serpentine Pokémon that strikes from stealth using its stealthy slither and constricts foes with its body or poisons them with fangs.",
+      "continuity": "Pokémon games and anime, and Pokémon Adventures manga",
+      "summary": "Ekans coils in stealth to surprise foes, constricting them with its serpentine body or injecting venom through sharp fangs.",
       "offense": {
         "domains": [
           "physical",
           "poison"
         ],
         "techniques": [
-          "Poison Sting",
           "Wrap",
+          "Poison Sting",
           "Bite",
           "Glare"
         ],
@@ -90,33 +122,56 @@
       },
       "defense": {
         "mechanisms": [
+          "silent slithering in grass",
+          "shedding skin",
           "Shed Skin ability allowing recovery from status conditions",
           "Intimidate ability to lower opponent attack power"
         ]
       },
       "weaknesses": [
+        "Psychic-type attacks",
+        "Ground-type attacks",
         "Ground-type moves",
         "Psychic-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga, 1997-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon standard video game and anime continuity",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "slithering",
         "Slithering ground movement"
       ],
       "limitations": [
+        "Short physical reach outside of lunging distance",
         "Short physical reach compared to larger serpentine Pokémon."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Ekans_(Pok%C3%A9mon)",
-          "supports": "Ekans abilities, moveset, and combat style."
+          "supports": "Ekans biology, constricting prey, and poison attacks"
         }
       ],
       "feats": [
         {
-          "claim": "Constricts prey with its flexible body and poisons foes using sharp fangs.",
-          "citation": "Pokémon anime and game canon",
+          "claim": "Constricts prey with its flexible body and poisons foes using sharp fangs",
+          "citation": "Pokémon anime and game encounters",
+          "depiction": "Pokémon Red and Blue (1996 game)",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "campaignTags": [
         {
           "tag": "stealth",
@@ -124,127 +179,169 @@
           "source": 0
         }
       ],
+      "earlierSummary": "Ekans is a serpentine Pokémon that strikes from stealth using its stealthy slither and constricts foes with its body or poisons them with fangs.",
       "unknowns": [
-        "Exact maximum length of constriction pressure."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact maximum length of constriction pressure.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Electabuzz",
-      "continuity": "Pokémon standard video game and anime continuity",
-      "summary": "Electabuzz fights by channeling and discharging high-voltage electricity at opponents while utilizing close-combat punches.",
+      "continuity": "Pokémon games and anime, and Pokémon Adventures manga",
+      "summary": "Electabuzz closes in on opponents to deliver heavy electrified punches while absorbing ambient power-plant electricity to recharge.",
       "offense": {
         "domains": [
-          "electric",
-          "physical"
+          "physical",
+          "electric"
         ],
         "techniques": [
-          "Thunderbolt",
           "Thunder Punch",
+          "Thunderbolt",
+          "Low Kick",
           "Quick Attack",
           "Discharge"
         ],
-        "range": "ranged"
+        "range": "melee to short ranged"
       },
       "defense": {
         "mechanisms": [
+          "electric field barrier",
+          "high physical durability",
           "Static ability which can paralyze attackers on contact",
           "Agility to dodge incoming attacks"
         ]
       },
       "weaknesses": [
+        "Ground-type attacks",
         "Ground-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga, 1997-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon standard video game and anime continuity",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "bipedal running",
         "Running",
         "Jumping"
       ],
       "limitations": [
+        "Vulnerable to grounding effects",
         "Vulnerable to grounding effects that neutralize electricity."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Electabuzz_(Pok%C3%A9mon)",
-          "supports": "Electabuzz electric attacks, abilities, and combat characteristics."
+          "supports": "Electabuzz electricity absorption and physical combat"
         }
       ],
       "feats": [
         {
-          "claim": "Absorbs electricity from power plants to fuel its energy levels.",
-          "citation": "Pokémon anime",
+          "claim": "Absorbs electricity from power plants to fuel its energy levels",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "depiction": "Pokémon Red and Blue (1996 game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "electric",
-          "claim": "Naturally generates and fires powerful electrical discharges.",
+          "claim": "Absorbs and discharges high-voltage electricity",
           "source": 0
         },
         {
           "tag": "electric-control",
-          "claim": "Manipulates ambient electricity and absorbs electrical currents to heal.",
+          "claim": "Controls electricity to power attacks like Thunderbolt",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Electabuzz fights by channeling and discharging high-voltage electricity at opponents while utilizing close-combat punches.",
       "unknowns": [
-        "Exact upper limit of voltage output."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact upper limit of voltage output.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Electrode",
-      "continuity": "Pokémon standard video game and anime continuity",
-      "summary": "Electrode relies on explosive speed and volatile self-destruction tactics, utilizing electric shocks and high mobility to overwhelm targets.",
+      "continuity": "Pokémon games and anime, and Pokémon Adventures manga",
+      "summary": "Electrode rolls at extreme velocities to ram targets or detonates itself violently when agitated.",
       "offense": {
         "domains": [
-          "electric",
-          "physical"
+          "physical",
+          "electric"
         ],
         "techniques": [
           "Self-Destruct",
           "Explosion",
-          "Thunderball",
-          "Spark"
+          "Rollout",
+          "Spark",
+          "Thunderball"
         ],
-        "range": "ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "extreme speed making it hard to target",
           "Extreme movement speed making it difficult to target",
           "Soundproof ability preventing sound-based attacks"
         ]
       },
       "weaknesses": [
+        "Ground-type attacks",
         "Ground-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga, 1997-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon standard video game and anime continuity",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "rolling locomotion",
         "Rolling at high speed"
       ],
       "limitations": [
+        "Self-Destruct incapacitates the user",
         "Self-Destruct and Explosion moves incapacitate Electrode upon use."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Electrode_(Pok%C3%A9mon)",
-          "supports": "Electrode high speed, electric moves, and self-destruction mechanics."
+          "supports": "Electrode rolling speed and explosion mechanics"
         }
       ],
       "feats": [
         {
-          "claim": "Rolls at extreme speeds to ram opponents and detonates itself when agitated.",
-          "citation": "Pokémon games and anime",
+          "claim": "Rolls at extreme speeds to ram opponents and detonates itself when agitated",
+          "citation": "Pokémon Red and Blue encounters",
+          "depiction": "Pokémon Red and Blue (1996 game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "electric",
-          "claim": "Stores vast amounts of electrical energy inside its body, causing it to detonate easily.",
+          "claim": "Generates and stores electrical energy inside its body",
           "source": 0
         },
         {
@@ -253,17 +350,17 @@
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Electrode relies on explosive speed and volatile self-destruction tactics, utilizing electric shocks and high mobility to overwhelm targets.",
       "unknowns": [
-        "Exact mechanics of how it stores electricity without constant detonation."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact mechanics of how it stores electricity without constant detonation.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Exeggcute",
-      "continuity": "Pokémon standard video game and anime continuity",
-      "summary": "Exeggcute fights collectively as a cluster of six seed-like beings, utilizing psychic waves and status-inflicting spores to confound enemies.",
+      "continuity": "Pokémon games and anime, and Pokémon Adventures manga",
+      "summary": "Exeggcute coordinates as a group of six linked seed entities, communicating via telepathy and unleashing psychic waves.",
       "offense": {
         "domains": [
           "psychic",
@@ -271,81 +368,108 @@
         ],
         "techniques": [
           "Confusion",
-          "Bullet Seed",
           "Hypnosis",
+          "Bullet Seed",
           "Leech Seed"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "collective swarm positioning",
+          "telepathic cohesion",
           "Telepathic coordination between all six bodies to evade attacks",
           "Chlorophyll ability in sunlight"
         ]
       },
       "weaknesses": [
+        "Bug-type attacks",
+        "Fire-type attacks",
         "Fire-type moves",
         "Flying-type moves",
         "Bug-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga, 1997-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon standard video game and anime continuity",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Rolling",
+        "levitation via psychic energy",
+        "rolling",
         "Floating slightly via psychic power"
       ],
       "limitations": [
+        "Individual components are fragile",
         "Fragile individual components easily damaged if separated."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggcute_(Pok%C3%A9mon)",
-          "supports": "Exeggcute psychic and grass moves, group telepathy, and vulnerabilities."
+          "supports": "Exeggcute telepathic swarm mechanics"
         }
       ],
       "feats": [
         {
-          "claim": "Maintains constant telepathic connection so that if one is separated, the others quickly rejoin it.",
-          "citation": "Pokémon Pokédex entries",
+          "claim": "Maintains constant telepathic connection so that if one is separated, the others quickly rejoin it",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "depiction": "Pokémon Red and Blue (1996 game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "psychic",
-          "claim": "Communicates via telepathic waves linking all six members.",
+          "claim": "Communicates telepathically and uses psychic moves",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Exeggcute fights collectively as a cluster of six seed-like beings, utilizing psychic waves and status-inflicting spores to confound enemies.",
       "unknowns": [
-        "Whether each egg possesses a distinct individual consciousness or shares a single hive mind."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Whether each egg possesses a distinct individual consciousness or shares a single hive mind.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Exeggutor",
-      "continuity": "Pokémon standard video game and anime continuity",
-      "summary": "Exeggutor uses towering height, heavy psychic waves, and grass-type barrage attacks from its multiple coconut-like heads.",
+      "continuity": "Pokémon games and anime, and Pokémon Adventures manga",
+      "summary": "Exeggutor stands tall on tree-like legs, using its three independent coconut heads to unleash heavy psychic waves and grass barrages.",
       "offense": {
         "domains": [
           "psychic",
           "grass"
         ],
         "techniques": [
-          "Seed Bomb",
+          "Solar Beam",
           "Psychic",
-          "Hypnosis",
-          "Solar Beam"
+          "Egg Bomb",
+          "Seed Bomb",
+          "Hypnosis"
         ],
         "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "thick wooden trunk body",
           "Sturdy trunks and thick foliage shielding core body",
           "Harvest ability to reuse berries"
         ]
       },
       "weaknesses": [
+        "Bug-type attacks",
+        "Fire-type attacks",
+        "Ice-type attacks",
         "Bug-type moves",
         "Fire-type moves",
         "Flying-type moves",
@@ -354,53 +478,71 @@
         "Ghost-type moves",
         "Dark-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga, 1997-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon standard video game and anime continuity",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "walking",
         "Walking on stout legs"
       ],
       "limitations": [
+        "Slow movement speed",
         "Heads can occasionally argue with each other, creating tactical openings."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggutor_(Pok%C3%A9mon)",
-          "supports": "Exeggutor baseline stats, moves, typing, and abilities."
+          "supports": "Exeggutor three independent heads and psychic abilities"
         }
       ],
       "feats": [
         {
-          "claim": "Each of its three heads thinks independently, allowing it to overwhelm opponents with varied attacks.",
-          "citation": "Pokémon Pokédex entries",
+          "claim": "Each of its three heads thinks independently, allowing it to overwhelm opponents with varied attacks",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "depiction": "Pokémon Red and Blue (1996 game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "psychic",
-          "claim": "Fires concentrated psychic beams from its multiple heads.",
+          "claim": "Deploys powerful psychic energy waves",
           "source": 0
         },
         {
           "tag": "giant-sized",
-          "claim": "Stands at an impressive height of over 6 feet.",
+          "claim": "Stands at an imposing towering height",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Exeggutor uses towering height, heavy psychic waves, and grass-type barrage attacks from its multiple coconut-like heads.",
       "unknowns": [
-        "Exact distribution of cognitive control among the three heads."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact distribution of cognitive control among the three heads.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Exeggutor|Alolan Exeggutor",
-      "continuity": "Pokémon Sun and Moon",
-      "summary": "Alolan Exeggutor utilizes its extreme dragon-like neck and tail head to sweep opponents with physical momentum and heavy dragon energy.",
+      "continuity": "Pokémon Sun and Moon and Pokémon games and anime",
+      "summary": "Alolan Exeggutor towers over foes with an extreme dragon-like neck and a tail head, whipping opponents with massive physical momentum.",
       "offense": {
         "domains": [
-          "grass",
+          "physical",
           "dragon",
-          "physical"
+          "grass"
         ],
         "techniques": [
           "Dragon Hammer",
@@ -408,15 +550,19 @@
           "Draco Meteor",
           "Wood Hammer"
         ],
-        "range": "melee"
+        "range": "melee to ranged"
       },
       "defense": {
         "mechanisms": [
+          "sturdy trunk and heavy dragon scaling",
           "Frisk ability to inspect opponent items",
           "Height advantage keeping main body out of melee range"
         ]
       },
       "weaknesses": [
+        "Ice-type attacks",
+        "Dragon-type attacks",
+        "Fairy-type attacks",
         "Ice-type moves",
         "Dragon-type moves",
         "Fairy-type moves",
@@ -425,44 +571,58 @@
         "Fire-type moves",
         "Flying-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sun and Moon (2016 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Sun and Moon",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "slow walking",
         "Walking"
       ],
       "limitations": [
+        "Neck is vulnerable to targeted strikes",
         "Tail head operates independently to protect the rear, but the long neck is unwieldy in tight spaces."
       ],
-      "formDifferences": "Adds Dragon typing, removes Psychic typing, drastically increases height to over 35 feet, and adds a fourth head on its tail.",
+      "formDifferences": "Adds Dragon-typing, a drastically elongated neck and tail head, trading psychic capabilities for heavy physical dragon strikes.",
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggutor_(Pok%C3%A9mon)",
-          "supports": "Alolan Exeggutor regional form, Dragon typing, and unique height."
+          "supports": "Alolan Exeggutor long neck and Dragon Hammer technique"
         }
       ],
       "feats": [
         {
-          "claim": "Uses its long neck like a whip to strike opponents with massive physical force via Dragon Hammer.",
-          "citation": "Pokémon Sun and Moon",
+          "claim": "Uses its long neck like a whip to strike opponents with massive physical force via Dragon Hammer",
+          "citation": "Pokémon Sun and Moon battle animations",
+          "depiction": "Pokémon Sun and Moon (2016 game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "giant-sized",
-          "claim": "Grows to an immense height of 35'09\" due to strong Alolan sunlight.",
+          "claim": "Grows an extremely tall neck resembling a palm tree",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Alolan Exeggutor utilizes its extreme dragon-like neck and tail head to sweep opponents with physical momentum and heavy dragon energy.",
       "unknowns": [
-        "The precise evolutionary trigger in Alola that caused its neck to lengthen so drastically."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "The precise evolutionary trigger in Alola that caused its neck to lengthen so drastically.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Farfetch'd",
-      "continuity": "Pokémon standard video game and anime continuity",
-      "summary": "Farfetch'd engages in martial combat using a leek stalk as both a sword and a shield, relying on sharp reflexes and precise strikes.",
+      "continuity": "Pokémon games and anime, and Pokémon Adventures manga",
+      "summary": "Farfetch'd engages in avian martial arts using a leek stalk as a versatile sword and shield, relying on sharp reflexes.",
       "offense": {
         "domains": [
           "physical"
@@ -470,6 +630,7 @@
         "techniques": [
           "Slash",
           "Air Cutter",
+          "Night Slash",
           "Nite Slash",
           "Swords Dance"
         ],
@@ -477,35 +638,57 @@
       },
       "defense": {
         "mechanisms": [
+          "blocking attacks with the leek stalk",
           "Parrying attacks with its leek stalk",
           "Inner Focus ability to prevent flinching"
         ]
       },
       "weaknesses": [
+        "Electric-type attacks",
+        "Rock-type attacks",
         "Electric-type moves",
         "Ice-type moves",
         "Rock-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga, 1997-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon standard video game and anime continuity",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Flight",
+        "flight",
+        "walking",
         "Running"
       ],
       "limitations": [
+        "Dependent on maintaining its specific leek stalk",
         "Helpless if disarmed of its leek stalk, forced to search for a replacement."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Farfetch%27d_(Pok%C3%A9mon)",
-          "supports": "Farfetch'd leek weapon usage, moveset, and typing."
+          "supports": "Farfetch'd leek weaponry and combat style"
         }
       ],
       "feats": [
         {
-          "claim": "Uses its leek stalk with master precision to slice through objects and defend against blows.",
-          "citation": "Pokémon anime and game canon",
+          "claim": "Uses its leek stalk with master precision to slice through objects and defend against blows",
+          "citation": "Pokémon Red and Blue Pokédex entries",
+          "depiction": "Pokémon Red and Blue (1996 game)",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "campaignTags": [
         {
           "tag": "natural-flight",
@@ -513,18 +696,17 @@
           "source": 0
         }
       ],
+      "earlierSummary": "Farfetch'd engages in martial combat using a leek stalk as both a sword and a shield, relying on sharp reflexes and precise strikes.",
       "unknowns": [
         "How it determines which leek stalk is suitable for combat.",
-        "Unsupported by cited source (term check, 3/8 key terms found): Advanced weapon techniques utilizing the leek stalk depends on Possession of its vital leek stalk"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Unsupported by cited source (term check, 3/8 key terms found): Advanced weapon techniques utilizing the leek stalk depends on Possession of its vital leek stalk",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Farfetch'd|Galarian Farfetch'd",
-      "continuity": "Pokémon Sword and Shield",
-      "summary": "Galarian Farfetch'd fights with a heavy leek stalk and shield, charging opponents with brutal momentum and high critical-hit frequency.",
+      "continuity": "Pokémon Sword and Shield and Pokémon games and anime",
+      "summary": "Galarian Farfetch'd fights fiercely with a heavy leek stalk and shield, charging opponents with crushing momentum.",
       "offense": {
         "domains": [
           "physical"
@@ -539,41 +721,61 @@
       },
       "defense": {
         "mechanisms": [
+          "heavy leaf shield",
           "Shield formed from thick leek leaves",
           "Steadfast ability increasing speed when flinched"
         ]
       },
       "weaknesses": [
+        "Psychic-type attacks",
+        "Flying-type attacks",
+        "Fairy-type attacks",
         "Flying-type moves",
         "Psychic-type moves",
         "Fairy-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Sword and Shield (2019 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Sword and Shield",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "walking",
         "Flight",
         "Running"
       ],
       "limitations": [
+        "Meteor Assault requires a turn to rest afterward",
         "Must rest after executing heavy attacks like Meteor Assault due to weapon recoil."
       ],
-      "formDifferences": "Changes typing from Normal/Flying to pure Fighting, replaces the thin leek with a massive leek stalk and leaf shield, and alters its evolution path.",
+      "formDifferences": "Replaces normal typing with pure Fighting-type, wielding a massive heavy leek and leaf shield instead of a standard stalk.",
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Farfetch%27d_(Pok%C3%A9mon)",
-          "supports": "Galarian Farfetch'd Fighting type, heavy leek usage, and signature moves."
+          "supports": "Galarian Farfetch'd heavy leek and Meteor Assault"
         }
       ],
       "feats": [
         {
-          "claim": "Charges opponents with the force of its heavy leek, culminating in retiring from battle after executing Meteor Assault.",
-          "citation": "Pokémon Sword and Shield",
+          "claim": "Charges opponents with the force of its heavy leek, culminating in retiring from battle after executing Meteor Assault",
+          "citation": "Pokémon Sword and Shield battle mechanics",
+          "depiction": "Pokémon Sword and Shield (2019 game)",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "conditional": [
         {
           "ability": "Meteor Assault heavy charge",
           "dependsOn": "Wielding its massive leek stalk",
-          "source": 0
+          "source": 0,
+          "depiction": "Pokémon Sword and Shield"
         }
       ],
       "campaignTags": [
@@ -583,17 +785,16 @@
           "source": 0
         }
       ],
+      "earlierSummary": "Galarian Farfetch'd fights with a heavy leek stalk and shield, charging opponents with brutal momentum and high critical-hit frequency.",
       "unknowns": [
-        "Exact structural weight of the Galarian leek stalk."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Exact structural weight of the Galarian leek stalk.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "pokemon:Fearow",
-      "continuity": "Pokémon standard video game and anime continuity",
-      "summary": "Fearow dominates aerial combat by diving from high altitudes with razor-sharp beak strikes and sweeping wing attacks.",
+      "continuity": "Pokémon games and anime, and Pokémon Adventures manga",
+      "summary": "Fearow dominates the skies with rapid aerial dives, utilizing its long razor-sharp beak to drill through targets.",
       "offense": {
         "domains": [
           "physical",
@@ -601,55 +802,77 @@
         ],
         "techniques": [
           "Drill Peck",
-          "Agility",
           "Pluck",
+          "Agility",
           "Focus Energy"
         ],
-        "range": "ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "high-speed aerial evasion",
           "Keen Eye ability preventing accuracy reduction",
           "High aerial velocity to evade ground-based attacks"
         ]
       },
       "weaknesses": [
+        "Electric-type attacks",
+        "Ice-type attacks",
+        "Rock-type attacks",
         "Electric-type moves",
         "Ice-type moves",
         "Rock-type moves"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pokémon Red and Blue (1996 game)",
+          "kind": "source"
+        },
+        {
+          "title": "Pokémon Adventures (manga, 1997-present)",
+          "kind": "comic"
+        },
+        {
+          "title": "Pokémon standard video game and anime continuity",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "natural-flight",
         "Natural flight"
       ],
       "limitations": [
+        "Fragile frame vulnerable to heavy ranged hits",
         "Vulnerable to close-range counterattacks if its high-speed dive misses."
       ],
       "sources": [
         {
           "url": "https://bulbapedia.bulbagarden.net/wiki/Fearow_(Pok%C3%A9mon)",
-          "supports": "Fearow aerial combat capabilities, Drill Peck, and stats."
+          "supports": "Fearow flight capabilities and Drill Peck attack"
         }
       ],
       "feats": [
         {
-          "claim": "Spins its long, sharp beak like a drill to pierce targets during high-speed dives.",
-          "citation": "Pokémon anime and game canon",
+          "claim": "Spins its long, sharp beak like a drill to pierce targets during high-speed dives",
+          "citation": "Pokémon Red and Blue battle animations",
+          "depiction": "Pokémon Red and Blue (1996 game)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
-          "claim": "Possesses large wings capable of soaring in the sky for entire days without resting.",
+          "claim": "Possesses large wings capable of soaring in the sky for long periods",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Fearow dominates aerial combat by diving from high altitudes with razor-sharp beak strikes and sweeping wing attacks.",
       "unknowns": [
-        "Maximum diving speed achievable in a terminal velocity descent."
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Maximum diving speed achievable in a terminal velocity descent.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     }
   ]
 }
