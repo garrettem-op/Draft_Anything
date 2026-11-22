@@ -7,12 +7,16 @@
   "characters": [
     {
       "id": "toons:Aang",
-      "continuity": "Avatar: The Last Airbender Animated Series",
-      "summary": "Aang is an Air Nomad monk and the Avatar, capable of bending all four elements: air, water, earth, and fire. He prefers evasive, agile combat maneuvers based on redirection and non-lethal defense rather than direct aggression.",
+      "continuity": "Avatar: The Last Airbender (2005 animated series), its sequel series The Legend of Korra, and Avatar: The Last Airbender comic book series published by Dark Horse Comics",
+      "summary": "Aang is an Air Nomad monk and the reincarnation of the Avatar, capable of bending air, water, earth, and fire. He primarily uses evasive, agile maneuvers, redirecting opponents' attacks and prioritizing non-lethal defense over direct aggression.",
       "offense": {
         "domains": [
+          "physical",
           "elemental",
-          "physical"
+          "air",
+          "water",
+          "earth",
+          "fire"
         ],
         "techniques": [
           "Air Scooter",
@@ -25,27 +29,60 @@
       },
       "defense": {
         "mechanisms": [
+          "Air cushion redirection",
+          "Earth armor",
+          "Agile acrobatics and dodging",
           "Acrobatic evasion",
           "Air shields",
-          "Earth armor",
           "Water redirection"
         ]
       },
       "weaknesses": [
+        "Vulnerable when disconnected from his spiritual self or when blocked from physical movement",
         "Vulnerable to sudden physical attacks when caught off guard",
         "Initial reluctance to use lethal force or firebending"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Avatar: The Last Airbender (2005 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "The Legend of Korra (2012 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Avatar: The Last Airbender (Dark Horse Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "Avatar: The Last Airbender Animated Series",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Glider staff flight",
+        "Air Scooter",
+        "Running and jumping boosted by air currents",
         "Running",
         "Gliding with glider staff",
-        "Air Scooter",
         "Leaping"
       ],
       "limitations": [
+        "Must learn elements sequentially; initially struggled with earthbending due to opposing personality",
         "Requires access to the respective physical element (air, water, earth, fire) to bend effectively",
         "Moral aversion to killing opponents"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender",
+          "supports": "Basic premise, abilities across air, water, earth, and fire bending."
+        },
+        {
+          "url": "https://avatar.fandom.com/wiki/Aang",
+          "supports": "Specific combat techniques like Air Scooter and historical continuity."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Aang",
           "supports": "Summary of Aang's bending abilities, background as an Air Nomad, and general combat style."
@@ -54,69 +91,126 @@
       "feats": [
         {
           "claim": "Used airbending to create an air scooter for fast movement and evasion",
-          "citation": "Avatar: The Last Airbender season 1",
-          "source": 0
+          "citation": "Avatar: The Last Airbender Season 1 Episode 1",
+          "depiction": "Avatar: The Last Airbender (2005 animated series)",
+          "source": 1
         }
       ],
       "notableResults": [
+        {
+          "opponent": "Fire Lord Ozai",
+          "result": "win",
+          "citation": "Avatar: The Last Airbender Season 3 Episode 21",
+          "note": "Won by entering the Avatar State and utilizing energybending to strip Ozai of his firebending.",
+          "depiction": "Avatar: The Last Airbender (2005 animated series)",
+          "source": 0
+        },
         {
           "opponent": "Zuko",
           "result": "win",
           "citation": "Avatar: The Last Airbender season 1",
           "note": "Defeated Zuko using defensive evasion and environment.",
+          "source": 2,
+          "depiction": "Avatar: The Last Airbender Animated Series"
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Full elemental mastery",
+          "dependsOn": "Mastery of all four bending disciplines learned sequentially",
+          "depiction": "Avatar: The Last Airbender (2005 animated series)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
-          "tag": "natural-flight",
-          "claim": "Glider staff allows Aang to glide through the air",
-          "source": 0
+          "tag": "flight",
+          "claim": "Uses glider staff and air currents for sustained flight.",
+          "source": 1
         },
         {
           "tag": "water-control",
-          "claim": "Ability to bend water",
-          "source": 0
+          "claim": "Capable of bending and controlling water in various forms.",
+          "source": 1
         },
         {
           "tag": "fire-control",
-          "claim": "Ability to bend fire",
-          "source": 0
+          "claim": "Capable of generating and manipulating fire.",
+          "source": 1
+        },
+        {
+          "tag": "natural-flight",
+          "claim": "Glider staff allows Aang to glide through the air",
+          "source": 2
         }
       ],
       "unknowns": [
+        "Exact limits of energybending strain on Aang's physical body across differing continuities.",
         "Exact limits of elemental stamina without rest",
-        "Unsupported by cited source (term check, 1/3 key terms found): Flight using glider staff depends on Glider staff"
+        "Unsupported by cited source (term check, 1/3 key terms found): Flight using glider staff depends on Glider staff",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "researchStatus": "provisional",
+      "earlierSummary": "Aang is an Air Nomad monk and the Avatar, capable of bending all four elements: air, water, earth, and fire. He prefers evasive, agile combat maneuvers based on redirection and non-lethal defense rather than direct aggression."
     },
     {
       "id": "toons:Aang|Avatar State Aang",
-      "continuity": "Avatar: The Last Airbender Animated Series",
-      "summary": "In the Avatar State, Aang channels the combined knowledge, power, and skill of all past Avatars, granting him overwhelming elemental control and flight.",
+      "continuity": "Avatar: The Last Airbender (2005 animated series) and associated comics",
+      "summary": "In the Avatar State, Aang channels the collective knowledge, skill, and power of all past Avatars, granting him overwhelming multielemental mastery, autonomous defense, and levitation/flight.",
       "offense": {
         "domains": [
           "elemental",
-          "energy"
+          "energy",
+          "physical"
         ],
         "techniques": [
-          "Four-element sphere",
+          "Four-element simultaneous sphere attack",
           "Massive elemental devastation",
+          "Four-element sphere",
           "Energybending"
         ],
-        "range": "strategic"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Automatic elemental sphere shield",
+          "Subconscious past-life reflex responses",
           "Impenetrable elemental spheres",
           "Automatic defensive reactions"
         ]
       },
       "weaknesses": [
+        "Vulnerable to fatal injury while in the Avatar State, which would end the Avatar cycle permanently",
         "Vulnerable if struck and killed while in the Avatar State, which would end the cycle"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Avatar: The Last Airbender (2005 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Avatar: The Last Airbender Animated Series",
+          "kind": "earlier-record"
+        }
+      ],
+      "formDifferences": "Unlocks the combined power of past Avatars, automatic elemental manipulation, and direct flight without a glider.",
+      "sources": [
+        {
+          "url": "https://avatar.fandom.com/wiki/Avatar_State",
+          "supports": "Mechanics and power manifestations of the Avatar State."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Aang",
+          "supports": "Avatar State mechanics and power amplification."
+        }
+      ],
+      "unknowns": [
+        "Exact trigger thresholds under extreme emotional duress.",
+        "Full extent of past lives' knowledge accessible during combat",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "mobility": [
         "Flight via air currents"
       ],
@@ -124,63 +218,57 @@
         "Triggered involuntarily under extreme stress early in mastery",
         "Risk of cycle termination if killed in this state"
       ],
-      "formDifferences": "Unlocks vast cosmic power, automatic mastery of all elements simultaneously, levitation, and extreme destructive capacity compared to base Aang.",
-      "sources": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Aang",
-          "supports": "Avatar State mechanics and power amplification."
-        }
-      ],
       "notableResults": [
         {
           "opponent": "Ozai",
           "result": "win",
           "citation": "Avatar: The Last Airbender season 3 finale",
           "note": "Used the Avatar State to overpower Phoenix King Ozai and strip his bending.",
-          "source": 0
+          "source": 1,
+          "depiction": "Avatar: The Last Airbender Animated Series"
         }
       ],
       "conditional": [
         {
           "ability": "Avatar State power amplification",
           "dependsOn": "Extreme emotional stress or conscious unlocking of past lives",
-          "source": 0
+          "source": 1,
+          "depiction": "Avatar: The Last Airbender Animated Series"
         }
       ],
       "campaignTags": [
         {
           "tag": "natural-flight",
           "claim": "Levitation and flight powered by elemental air streams in the Avatar State",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "water-control",
           "claim": "Mastery over water bending in the Avatar State",
-          "source": 0
+          "source": 1
         },
         {
           "tag": "fire-control",
           "claim": "Mastery over fire bending in the Avatar State",
-          "source": 0
+          "source": 1
         }
       ],
-      "unknowns": [
-        "Full extent of past lives' knowledge accessible during combat"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "In the Avatar State, Aang channels the combined knowledge, power, and skill of all past Avatars, granting him overwhelming elemental control and flight."
     },
     {
       "id": "toons:Aladdin",
-      "continuity": "Disney's Aladdin Animated Film",
-      "summary": "Aladdin is a resourceful street rat who relies on agility, quick thinking, improvised tools, and occasionally the wish-granting powers of the Genie to overcome adversaries.",
+      "continuity": "Aladdin (1992 animated film), sequels, animated series, and comic adaptations",
+      "summary": "Aladdin is a resourceful street rat who relies on acrobatic agility, quick thinking, improvised tools, and clever deception to outwit adversaries.",
       "offense": {
         "domains": [
           "physical",
+          "tech",
           "magic"
         ],
         "techniques": [
+          "Scimitar slash",
+          "Improvised throwing items",
+          "Environmental trapping",
           "Swordplay",
           "Improvised weapon use",
           "Acrobatic strikes"
@@ -189,61 +277,103 @@
       },
       "defense": {
         "mechanisms": [
-          "Dodge",
           "Parkour evasion",
+          "Dodging through tight urban alleyways",
+          "Dodge",
           "Hiding"
         ]
       },
       "weaknesses": [
+        "Standard human physical durability",
         "Physically ordinary human without magical assistance or items"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Aladdin (1992 animated film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Return of Jafar (1994 animated film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Aladdin (Animated Series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney's Aladdin Animated Film",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Running",
+        "Acrobatic running",
         "Climbing",
+        "Running",
         "Riding Magic Carpet"
       ],
       "limitations": [
+        "Relies entirely on human physical attributes without magic items.",
         "Relies heavily on environment and external items (like the Magic Carpet or Genie) against superhuman threats"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Aladdin_(1992_Disney_film)",
+          "supports": "Character origin, setting, and basic abilities."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Aladdin_(Disney_character)",
           "supports": "Aladdin's skills, abilities, and reliance on wit and agility."
         }
       ],
-      "conditional": [
+      "feats": [
         {
-          "ability": "Flight",
-          "dependsOn": "Magic Carpet",
+          "claim": "Evaded Agrabah palace guards while carrying stolen food",
+          "citation": "Aladdin (1992 animated film)",
+          "depiction": "Aladdin (1992 animated film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
+          "tag": "infiltration",
+          "claim": "Expert at sneaking through heavily guarded palaces and streets.",
+          "source": 0
+        },
+        {
           "tag": "magic-item",
           "claim": "Magic carpet allowing flight",
-          "source": 0
+          "source": 1
         }
       ],
+      "researchStatus": "provisional",
+      "conditional": [
+        {
+          "ability": "Flight",
+          "dependsOn": "Magic Carpet",
+          "source": 1,
+          "depiction": "Disney's Aladdin Animated Film"
+        }
+      ],
+      "earlierSummary": "Aladdin is a resourceful street rat who relies on agility, quick thinking, improvised tools, and occasionally the wish-granting powers of the Genie to overcome adversaries.",
       "unknowns": [
         "Combat effectiveness without any tools or urban environment",
         "Unsupported by cited source (term check, 2/6 key terms found): Evaded Agrabah guards using parkour and urban acrobatics",
-        "Unsupported by cited source (term check, 3/9 key terms found): win vs Jafar"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Unsupported by cited source (term check, 3/9 key terms found): win vs Jafar",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "toons:Anna",
-      "continuity": "Disney's Frozen Animated Film",
-      "summary": "Anna is an optimistic and fiercely determined princess of Arendelle who relies on physical resilience, close-quarters improvised combat, and sheer perseverance.",
+      "continuity": "Frozen (2013 animated film), Frozen II, and related Disney media",
+      "summary": "Anna is a fiercely determined princess of Arendelle who relies on physical resilience, close-quarters improvised combat, and unyielding persistence.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
           "Punching",
+          "Improvised club swings",
           "Grappling",
           "Improvised weapon strikes"
         ],
@@ -251,22 +381,47 @@
       },
       "defense": {
         "mechanisms": [
+          "High pain tolerance",
+          "Heavy winter gear protection",
           "Dodging",
           "Endurance"
         ]
       },
       "weaknesses": [
+        "No superhuman powers or combat training",
         "Lacks supernatural powers or formal combat training"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Frozen (2013 animated film)",
+          "kind": "source"
+        },
+        {
+          "title": "Frozen II (2019 animated film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney's Frozen Animated Film",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Running",
+        "Horse riding",
+        "Sledding",
         "Horseback riding",
         "Ice skating"
       ],
       "limitations": [
+        "Human physical limits",
         "Standard human physical limits"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Frozen_(2013_film)",
+          "supports": "Character traits, feats of endurance, and narrative context."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Anna_(Frozen)",
           "supports": "Anna's personality, feats of endurance, and physical style."
@@ -275,36 +430,40 @@
       "feats": [
         {
           "claim": "Struck Kristoff and various obstacles with physical force and survived extreme cold",
-          "citation": "Frozen (2013 film)",
+          "citation": "Frozen (2013 animated film)",
+          "depiction": "Frozen (2013 animated film)",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
       "notableResults": [
         {
           "opponent": "Hans",
           "result": "win",
           "citation": "Frozen (2013 film)",
           "note": "Punched Prince Hans overboard after enduring a frozen curse.",
-          "source": 0
+          "source": 1,
+          "depiction": "Disney's Frozen Animated Film"
         }
       ],
+      "earlierSummary": "Anna is an optimistic and fiercely determined princess of Arendelle who relies on physical resilience, close-quarters improvised combat, and sheer perseverance.",
       "unknowns": [
-        "Combat capabilities in structured martial combat"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Combat capabilities in structured martial combat",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "toons:Ariel",
-      "continuity": "Disney's The Little Mermaid Animated Film",
-      "summary": "Ariel is a mermaid princess who possesses aquatic agility and a siren-like singing voice capable of captivating listeners.",
+      "continuity": "The Little Mermaid (1989 animated film), sequels, and television series",
+      "summary": "Ariel is a mermaid princess who possesses aquatic agility and a mesmerizing voice, utilizing speed in water and artifact-based utility.",
       "offense": {
         "domains": [
           "physical",
           "sonic"
         ],
         "techniques": [
+          "Sonic vocal distraction",
+          "Underwater ramming",
           "Swimming strikes",
           "Vocal distraction"
         ],
@@ -312,19 +471,42 @@
       },
       "defense": {
         "mechanisms": [
+          "High-speed swimming maneuverability",
           "Aquatic evasion"
         ]
       },
       "weaknesses": [
+        "Limited mobility out of water unless transformed",
         "Cannot breathe air naturally without transformation; immobile on land in mermaid form"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Little Mermaid (1989 animated film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Little Mermaid II: Return to the Sea (2000 animated film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney's The Little Mermaid Animated Film",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Tail-propelled swimming",
         "Swimming"
       ],
       "limitations": [
+        "Inability to breathe air without specific magical intervention",
         "Helpless on dry land without legs"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)",
+          "supports": "Mermaid abilities, swimming feats, and story overview."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Ariel_(The_Little_Mermaid)",
           "supports": "Ariel's aquatic abilities and mermaid physiology."
@@ -333,47 +515,49 @@
       "feats": [
         {
           "claim": "Swam rapidly through ocean currents and explored sunken shipwrecks",
-          "citation": "The Little Mermaid (1989 film)",
-          "source": 0
-        }
-      ],
-      "notableResults": [
-        {
-          "opponent": "Ursula",
-          "result": "win",
-          "citation": "The Little Mermaid (1989 film)",
-          "note": "Assisted in ramming Ursula with a shipwreck helm.",
+          "citation": "The Little Mermaid (1989 animated film)",
+          "depiction": "The Little Mermaid (1989 animated film)",
           "source": 0
         }
       ],
       "campaignTags": [
         {
           "tag": "aquatic",
-          "claim": "Mermaid physiology adapted for underwater life",
+          "claim": "Natural mermaid physiology adapted for deep water survival.",
           "source": 0
         },
         {
           "tag": "swimmer",
-          "claim": "Expert swimmer",
+          "claim": "Swam rapidly through ocean currents and explored sunken shipwrecks.",
           "source": 0
         },
         {
           "tag": "water-breathing",
-          "claim": "Can breathe underwater",
+          "claim": "Breathes underwater naturally.",
           "source": 0
         }
       ],
-      "unknowns": [
-        "Combat effectiveness against land-based opponents without water access"
+      "researchStatus": "provisional",
+      "notableResults": [
+        {
+          "opponent": "Ursula",
+          "result": "win",
+          "citation": "The Little Mermaid (1989 film)",
+          "note": "Assisted in ramming Ursula with a shipwreck helm.",
+          "source": 1,
+          "depiction": "Disney's The Little Mermaid Animated Film"
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "earlierSummary": "Ariel is a mermaid princess who possesses aquatic agility and a siren-like singing voice capable of captivating listeners.",
+      "unknowns": [
+        "Combat effectiveness against land-based opponents without water access",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "toons:Baloo",
-      "continuity": "Disney's The Jungle Book Animated Film",
-      "summary": "Baloo is a large, carefree sloth bear who uses his immense natural physical strength, weight, and heavy swipes in brawls.",
+      "continuity": "The Jungle Book (1967 animated film), Jungle Book 2, and television continuations",
+      "summary": "Baloo is a large sloth bear who relies on heavy natural physical strength, massive weight, and powerful swipes in brawls.",
       "offense": {
         "domains": [
           "physical"
@@ -387,21 +571,44 @@
       },
       "defense": {
         "mechanisms": [
+          "Thick fur hide",
+          "Dense body mass",
           "Thick fur and hide",
           "Body mass"
         ]
       },
       "weaknesses": [
+        "Relies entirely on instinct and physical force without technical proficiency",
         "Lazy, easily distracted, lacks tactical discipline"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Jungle Book (1967 animated film)",
+          "kind": "source"
+        },
+        {
+          "title": "The Jungle Book 2 (2003 animated film)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Disney's The Jungle Book Animated Film",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Running",
-        "Swimming"
+        "Quadrupedal running",
+        "Swimming",
+        "Running"
       ],
       "limitations": [
         "Low speed and agility compared to agile predators"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Jungle_Book_(1967_film)",
+          "supports": "Character physical characteristics and encounters."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Baloo",
           "supports": "Baloo's bear characteristics, strength, and personality."
@@ -410,35 +617,47 @@
       "feats": [
         {
           "claim": "Fought off a pack of wolves and wrestled Shere Khan",
-          "citation": "The Jungle Book (1967 film)",
+          "citation": "The Jungle Book (1967 animated film)",
+          "depiction": "The Jungle Book (1967 animated film)",
           "source": 0
         }
       ],
       "notableResults": [
         {
           "opponent": "Shere Khan",
+          "result": "inconclusive",
+          "citation": "The Jungle Book (1967 animated film)",
+          "note": "Interrupted by outside circumstances.",
+          "depiction": "The Jungle Book (1967 animated film)",
+          "source": 0
+        },
+        {
+          "opponent": "Shere Khan",
           "result": "draw",
           "citation": "The Jungle Book (1967 film)",
           "note": "Intervened to protect Mowgli, engaging the tiger in a physical struggle.",
-          "source": 0
+          "source": 1,
+          "depiction": "Disney's The Jungle Book Animated Film"
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Baloo is a large, carefree sloth bear who uses his immense natural physical strength, weight, and heavy swipes in brawls.",
       "unknowns": [
-        "Performance in structured combat arenas"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Performance in structured combat arenas",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "toons:Bandit",
-      "continuity": "Bluey Animated Series",
-      "summary": "Bandit Heeler is an adult Australian Red Heeler dog who mostly engages in imaginative play, rough-and-tumble parenting games, and domestic tasks.",
+      "continuity": "Bluey (2018 animated series)",
+      "summary": "Bandit Heeler is an adult Australian Red Heeler dog who engages in imaginative play, rough-and-tumble games, and domestic feats of endurance.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
+          "Playful charging",
+          "Improvised game maneuvers",
           "Playful tackling",
           "Running"
         ],
@@ -446,69 +665,106 @@
       },
       "defense": {
         "mechanisms": [
+          "High stamina for household roughhousing",
           "Dodging children's games"
         ]
       },
       "weaknesses": [
+        "No combat training or intent to cause harm",
         "Not a combatant; regular domestic dog in a cartoon setting"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Bluey (2018 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Bluey Animated Series",
+          "kind": "earlier-record"
+        }
       ],
       "mobility": [
         "Running",
+        "Quadrupedal movement",
         "Walking"
       ],
       "limitations": [
+        "Not a combatant",
         "No combat training or offensive weapons"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Bluey_(2018_TV_series)",
-          "supports": "Bandit's role as a father engaged in domestic play."
+          "supports": "Character profile and physical endurance feats during games."
         }
       ],
       "feats": [
         {
           "claim": "Endured extensive physical exhaustion from playing complex games with his children",
-          "citation": "Bluey",
+          "citation": "Bluey Season 1",
+          "depiction": "Bluey (2018 animated series)",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Bandit Heeler is an adult Australian Red Heeler dog who mostly engages in imaginative play, rough-and-tumble parenting games, and domestic tasks.",
       "unknowns": [
-        "Any actual combat feats outside of domestic play"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Any actual combat feats outside of domestic play",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "toons:Barney Rubble",
-      "continuity": "The Flintstones Animated Series",
-      "summary": "Barney Rubble is a stone-age caveman who relies on primitive brute strength, clubs, and cartoonish durability in comedic scuffles.",
+      "continuity": "The Flintstones (1960 animated series) and subsequent specials and movies",
+      "summary": "Barney Rubble is a stone-age caveman who relies on primitive brute strength, stone-age clubs, and cartoonish durability in comedic scuffles.",
       "offense": {
         "domains": [
           "physical"
         ],
         "techniques": [
           "Club swing",
+          "Boulder throw",
           "Punching"
         ],
         "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Exaggerated cartoon durability",
           "Stone-age durability"
         ]
       },
       "weaknesses": [
+        "Low intelligence and easily tricked",
         "Easily startled, relies on primitive technology"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Flintstones (1960 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "The Flintstones Animated Series",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Bipedal running",
+        "Foot-powered vehicle driving",
         "Running",
         "Foot-powered car driving"
       ],
       "limitations": [
+        "Relies on primitive tools",
         "Restricted to stone-age tools and physical brawling"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Flintstones",
+          "supports": "Overview of characters, setting, and prehistoric physics."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Barney_Rubble",
           "supports": "Barney Rubble's background and setting in The Flintstones."
@@ -517,27 +773,32 @@
       "feats": [
         {
           "claim": "Lifted heavy stone appliances and participated in prehistoric sports",
-          "citation": "The Flintstones",
+          "citation": "The Flintstones Season 1",
+          "depiction": "The Flintstones (1960 animated series)",
           "source": 0
         }
       ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Barney Rubble is a stone-age caveman who relies on primitive brute strength, clubs, and cartoonish durability in comedic scuffles.",
       "unknowns": [
-        "Performance against modern tactical opponents"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Performance against modern tactical opponents",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "toons:Bart Simpson",
-      "continuity": "The Simpsons Animated Series",
-      "summary": "Bart Simpson is a ten-year-old prankster who utilizes a slingshot, skateboards, stealthy traps, and mischief to outmaneuver opponents.",
+      "continuity": "The Simpsons (1989 animated series) and associated comic books",
+      "summary": "Bart Simpson is a ten-year-old prankster who utilizes a slingshot, skateboards, stealthy traps, and mischievous tactics to outmaneuver opponents.",
       "offense": {
         "domains": [
           "physical",
+          "tech",
           "gadgets"
         ],
         "techniques": [
+          "Slingshot sniper shot",
+          "Skateboard drop-in strike",
+          "Prank trap deployment",
           "Slingshot sniping",
           "Skateboard drop-in",
           "Prank traps"
@@ -546,45 +807,82 @@
       },
       "defense": {
         "mechanisms": [
+          "Quick hiding",
+          "Agile escape routes",
           "Urban stealth",
           "Skateboard evasion"
         ]
       },
       "weaknesses": [
+        "Standard child physical fragility",
         "Physically weak compared to adults; easily caught if cornered"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Simpsons (1989 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "Simpsons Comics (Bongo Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "The Simpsons Animated Series",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
-        "Skateboard",
+        "Skateboard riding",
         "Running",
+        "Skateboard",
         "Bicycle"
       ],
       "limitations": [
+        "Child strength limits",
         "Child physical strength"
       ],
       "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Simpsons",
+          "supports": "Character profile, signature items like skateboard and slingshot."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Bart_Simpson",
           "supports": "Bart's signature slingshot use, skateboard mobility, and prankster persona."
         }
       ],
-      "campaignTags": [
+      "feats": [
         {
-          "tag": "gadgets",
-          "claim": "Uses a slingshot and prank items",
+          "claim": "Hit targets accurately at a distance using a handheld slingshot",
+          "citation": "The Simpsons Season 1",
+          "depiction": "The Simpsons (1989 animated series)",
           "source": 0
         }
       ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Expert at setting traps and hiding in urban environments.",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Uses a slingshot and prank items",
+          "source": 1
+        }
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Bart Simpson is a ten-year-old prankster who utilizes a slingshot, skateboards, stealthy traps, and mischief to outmaneuver opponents.",
       "unknowns": [
         "Effectiveness in direct hand-to-hand combat against trained fighters",
-        "Unsupported by cited source (term check, 1/5 key terms found): Hit multiple targets accurately at a distance using a slingshot"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+        "Unsupported by cited source (term check, 1/5 key terms found): Hit multiple targets accurately at a distance using a slingshot",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ]
     },
     {
       "id": "toons:Beast",
-      "continuity": "X-Men Animated Series",
+      "continuity": "X-Men (1992 animated series), X-Men '97, and associated comic continuity",
       "summary": "Dr. Henry 'Hank' McCoy (Beast) combines superhuman agility, acrobatic combat, superhuman strength, and a brilliant scientific intellect.",
       "offense": {
         "domains": [
@@ -592,6 +890,9 @@
           "tech"
         ],
         "techniques": [
+          "Prehensile foot strike",
+          "Acrobatic leap attack",
+          "Advanced gadgetry",
           "Acrobatic martial arts",
           "Claw and bite strikes",
           "Advanced technological gadgetry"
@@ -600,32 +901,77 @@
       },
       "defense": {
         "mechanisms": [
+          "Dense blue fur and muscle mass providing resistance to blunt trauma",
+          "Acrobatic evasion",
           "Enhanced durability",
           "Agile acrobatics"
         ]
       },
       "weaknesses": [
+        "Prone to moral conflicts under extreme stress",
         "Susceptible to high-voltage energy dampening and specialized mutant-inhibiting tech"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "X-Men (1992 animated series)",
+          "kind": "source"
+        },
+        {
+          "title": "X-Men '97 (2024 animated series)",
+          "kind": "sequel"
+        },
+        {
+          "title": "X-Men (Marvel Comics)",
+          "kind": "comic"
+        },
+        {
+          "title": "X-Men Animated Series",
+          "kind": "earlier-record"
+        }
+      ],
       "mobility": [
+        "Acrobatic leaps",
+        "Wall-climbing using hands and feet",
         "Acrobatic leaping",
         "Climbing",
         "Running"
       ],
       "limitations": [
+        "Vulnerable to specialized mutant-suppressing tech",
         "Physical size makes complete stealth difficult"
       ],
       "sources": [
         {
           "url": "https://en.wikipedia.org/wiki/Beast_(Marvel_Comics)",
-          "supports": "Beast's superhuman physical traits, agility, intellect, and combat style."
+          "supports": "Character origin, superhuman strength, agility, and intellect."
         }
       ],
+      "campaignTags": [
+        {
+          "tag": "inventor",
+          "claim": "Brilliant geneticist and engineer who creates advanced scientific devices.",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Utilizes advanced technology and laboratory equipment in combat.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Unverified (cited source failed the automatic check): Lifted heavy machinery and fought trained combatants using prehensile feet and hands",
+        "Limits of his mutation under prolonged extreme environments",
+        "Unsupported by cited source (term check, 2/6 key terms found): tech: Utilizes advanced tech equipment and laboratory devices",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
       "feats": [
         {
           "claim": "Lifted heavy machinery and fought trained combatants using prehensile feet and hands",
           "citation": "X-Men: The Animated Series",
-          "source": 0
+          "source": 0,
+          "depiction": "X-Men Animated Series"
         }
       ],
       "notableResults": [
@@ -634,23 +980,10 @@
           "result": "loss",
           "citation": "X-Men: The Animated Series",
           "note": "Overwhelmed by superior numbers of mutant-hunting Sentinel robots.",
-          "source": 0
+          "source": 0,
+          "depiction": "X-Men Animated Series"
         }
-      ],
-      "campaignTags": [
-        {
-          "tag": "inventor",
-          "claim": "Genius scientist who creates advanced technology",
-          "source": 0
-        }
-      ],
-      "unknowns": [
-        "Limits of his mutation under prolonged extreme environments",
-        "Unsupported by cited source (term check, 2/6 key terms found): tech: Utilizes advanced tech equipment and laboratory devices"
-      ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      ]
     }
   ]
 }
