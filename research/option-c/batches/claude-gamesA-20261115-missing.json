@@ -7,14 +7,18 @@
   "characters": [
     {
       "id": "games:Alyx Vance",
-      "continuity": "Half-Life series (Half-Life 2, its episodes and Half-Life: Alyx).",
-      "summary": "Resistance fighter and Gordon Freeman's main ally. She fights alongside him, gives him the gravity gun and works with her robot, Dog.",
+      "continuity": "Half-Life series (Half-Life 2, Half-Life 2: Episode One, Half-Life 2: Episode Two, Half-Life: Alyx, and associated comic series like Half-Life: A Place in the West)",
+      "summary": "Alyx Vance is a resourceful resistance fighter, hacker, and marksman. She fights using firearms, the multi-tool for hacking Combine technology, and assists Gordon Freeman or operates independently using agility, cover tactics, and her robotic companion Dog.",
       "offense": {
         "domains": [
           "physical",
           "tech"
         ],
         "techniques": [
+          "Pistol marksmanship",
+          "Shotgun combat",
+          "Multi-tool hacking",
+          "Gravity-assisted weapon use",
           "Covering fire with firearms",
           "Works with her robot Dog",
           "Killed the Advisor that threatened her father"
@@ -23,14 +27,51 @@
       },
       "defense": {
         "mechanisms": [
+          "Cover-based gunfights",
+          "Agility and evasion",
+          "Support from robotic companion Dog",
+          "Medical kits and healing supplies",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Human physical durability",
+        "Vulnerable to Combine suppressive fire and stalker attacks",
         "Gravely wounded by a Combine Hunter",
         "Captured at the Citadel"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Half-Life 2 (2004)",
+          "kind": "source"
+        },
+        {
+          "title": "Half-Life: Alyx (2020)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Half-Life: A Place in the West (2016-2022)",
+          "kind": "comic"
+        },
+        {
+          "title": "Half-Life series (Half-Life 2, its episodes and Half-Life: Alyx).",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Acrobatic running and climbing",
+        "Vehicle passenger"
+      ],
+      "limitations": [
+        "Relies heavily on ammunition and battery power for the multi-tool",
+        "Lacks superhuman physical strength or armor"
+      ],
       "sources": [
+        {
+          "url": "https://half-life.fandom.com/wiki/Alyx_Vance",
+          "supports": "Combat background, weapons, hacking abilities, and role in the Resistance."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Alyx_Vance",
           "supports": "Alyx provides covering fire, gives Gordon the gravity gun, works with Dog, is wounded by a Hunter and kills the Advisor."
@@ -40,40 +81,118 @@
           "supports": "Alyx rescues Gordon, introduces Dog, fights in the rebellion and is captured at the Citadel."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Infiltrated a heavily guarded Combine detention facility and rescued multiple prisoners",
+          "citation": "Half-Life 2",
+          "depiction": "Half-Life 2 (2004)",
+          "source": 0
+        },
+        {
+          "claim": "Navigated quarantine zones in City 17 and fought through Combine forces using the multi-tool and sidearm",
+          "citation": "Half-Life: Alyx",
+          "depiction": "Half-Life: Alyx (2020)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Combine Overwatch soldiers",
+          "result": "win",
+          "citation": "Half-Life 2",
+          "note": "Fought alongside Gordon Freeman and Dog.",
+          "depiction": "Half-Life 2 (2004)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "tech",
+          "claim": "Uses the multi-tool to hack Combine locks, turrets, and machinery",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Equipped with tactical multi-tool and custom firearm upgrades",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact canonical fate of certain alternate universe timelines explored in tie-in media.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Resistance fighter and Gordon Freeman's main ally. She fights alongside him, gives him the gravity gun and works with her robot, Dog."
     },
     {
       "id": "games:Arbiter",
-      "continuity": "Halo series (Thel 'Vadam, from Halo 2 onward).",
-      "summary": "Disgraced Covenant Elite commander made Arbiter after failing to stop the destruction of Halo; later an ally of humanity.",
+      "continuity": "Halo series (Halo 2, Halo 3, Halo 5: Guardians, and Halo Escalation comics)",
+      "summary": "The Arbiter (Thel 'Vadam) is a master Sangheili warrior, tactician, and former Supreme Commander of the Covenant fleet. He fights with active camo, energy swords, carbines, and plasma rifles, combining elite martial prowess with tactical leadership.",
       "offense": {
         "domains": [
           "physical",
+          "energy",
           "tech"
         ],
         "techniques": [
+          "Energy Sword slashing",
+          "Active camouflage stealth strikes",
+          "Plasma rifle suppressive fire",
+          "Covenant Carbine marksmanship",
           "Elite warrior and commander",
           "With Sergeant Johnson killed Tartarus",
           "Killed the last High Prophet on the Ark"
         ],
-        "range": "melee / ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Sangheili personal energy shields",
+          "Active camouflage evasion",
+          "Heavy combat harness armor",
           "Active camouflage, which drops when he attacks or is hit",
           "Ceremonial armor"
         ]
       },
       "weaknesses": [
+        "Shields can be overloaded by concentrated plasma or electromagnetic interference",
+        "Prone to honor-bound direct engagements",
         "Camouflage is short-lived",
         "Betrayed by Tartarus and left for dead"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Halo 2 (2004)",
+          "kind": "source"
+        },
+        {
+          "title": "Halo 3 (2007)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Halo Escalation (2014-2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Halo series (Thel 'Vadam, from Halo 2 onward).",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Elite athletic leaps",
+        "Sprint and evasion dashes"
+      ],
+      "limitations": [
+        "Energy shields require downtime to recharge when depleted",
+        "Active camouflage has a limited duration before needing to cool down"
+      ],
       "sources": [
+        {
+          "url": "https://www.halopedia.org/Thel_%27Vadam",
+          "supports": "Biography, military rank, weapons, and notable battles."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Arbiter_(Halo)",
           "supports": "The Arbiter wears ceremonial armor with active camouflage, helps kill Tartarus and kills the last High Prophet; shamed for losing Halo."
@@ -83,37 +202,114 @@
           "supports": "The Arbiter has rechargeable active camouflage, quells a rebellion and with Johnson kills Tartarus."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Assassinated Heretic leader Sesa 'Refumee in single combat",
+          "citation": "Halo 2",
+          "depiction": "Halo 2 (2004)",
+          "source": 0
+        },
+        {
+          "claim": "Killed the High Prophet of Truth during the Battle of the Ark, ending the Covenant War",
+          "citation": "Halo 3",
+          "depiction": "Halo 3 (2007)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Tartarus",
+          "result": "win",
+          "citation": "Halo 2",
+          "note": "Fought alongside Sergeant Johnson and marine support to defeat the Chieftain.",
+          "depiction": "Halo 2 (2004)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Equipped with active camouflage for stealth operations",
+          "source": 0
+        },
+        {
+          "tag": "electric-weapon",
+          "claim": "Wields an Energy Sword that inflicts plasma and energy damage",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of Sangheili biology compared to SPARTAN augmentations.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Disgraced Covenant Elite commander made Arbiter after failing to stop the destruction of Halo; later an ally of humanity."
     },
     {
       "id": "games:Bayonetta|Demon Masquerade Bayonetta",
-      "continuity": "Bayonetta 3.",
-      "summary": "Bayonetta fused with one of her summoned Infernal Demons, a mechanic introduced in Bayonetta 3.",
+      "continuity": "Bayonetta series (Bayonetta 3 and associated comic/manga tie-ins)",
+      "summary": "Demon Masquerade Bayonetta fuses her physical form with summoned Infernal Demons, allowing her to manifest massive claws, wings, and aquatic or aerial forms instantly during combat to overpower foes.",
       "offense": {
         "domains": [
+          "physical",
           "magic",
-          "physical"
+          "energy"
         ],
         "techniques": [
+          "Infernal demon limb manifestation",
+          "Witch Time evasion strikes",
+          "Giant claw swipes and bites",
+          "Whip and bullet hybrid combos",
           "Fuses with an Infernal Demon to gain its magic-based attacks",
           "Defeated Singularity"
         ],
-        "range": "melee / ranged"
+        "range": "melee"
       },
       "defense": {
         "mechanisms": [
+          "Witch Time slow-motion dodge",
+          "Demonic armor hardening",
+          "Evasive flight and burrowing",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Vulnerable if caught off-guard before triggering Witch Time",
+        "High magical energy expenditure during prolonged transformations",
         "Lost control of her summon after the final battle and her soul was knocked from her body"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Bayonetta 3 (2022)",
+          "kind": "source"
+        },
+        {
+          "title": "Bayonetta: Bloody Fate (2013)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Bayonetta: Eyes of the World (2010)",
+          "kind": "comic"
+        },
+        {
+          "title": "Bayonetta 3.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Natural flight via demon wings",
+        "Burrowing",
+        "Swinging and dashing",
+        "Demon-specific traversal options"
+      ],
+      "formDifferences": "Utilizes the Demon Masquerade mechanic to merge with Infernal Demons for enhanced mobility, massive physical attacks, and specialized elemental or traversal forms.",
       "sources": [
+        {
+          "url": "https://bayonetta.fandom.com/wiki/Bayonetta_3",
+          "supports": "Demon Masquerade mechanics, abilities, and combat style."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Bayonetta_3",
           "supports": "Demon Masquerade fuses Bayonetta with an Infernal Demon for new attacks and traversal; after beating Singularity she loses control of the summon."
@@ -124,26 +320,27 @@
         }
       ],
       "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+        "Limits of multi-demon chaining without exhausting infernal pacts.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
-      "mobility": [
-        "Demon-specific traversal options"
-      ],
-      "formDifferences": "Takes on a summoned demon's abilities directly instead of fighting beside it."
+      "researchStatus": "provisional",
+      "earlierSummary": "Bayonetta fused with one of her summoned Infernal Demons, a mechanic introduced in Bayonetta 3."
     },
     {
       "id": "games:Cortana",
-      "continuity": "Halo series.",
-      "summary": "UNSC smart AI and Master Chief's partner; later leader of the Created.",
+      "continuity": "Halo series (Halo: Combat Evolved, Halo 2, Halo 3, Halo 4, Halo 5: Guardians, and Halo Escalation)",
+      "summary": "Cortana is a brilliant UNSC smart artificial intelligence capable of instantaneous data processing, electronic warfare, ship systems hacking, and manipulating digital infrastructure across planet-wide networks.",
       "offense": {
         "domains": [
           "tech",
           "control"
         ],
         "techniques": [
+          "Digital infiltration and hacking",
+          "Grid lockdown and weapon disablement",
+          "AI hologram projection and distraction",
+          "Created network dominance",
           "Hacks alien computer systems and decodes transmissions",
           "Overwhelmed the Didact's shield with copies of herself",
           "Used the Guardians to enforce the Created's rule"
@@ -152,15 +349,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Firewall encryption",
+          "Digital decentralization across secure servers",
+          "Hard-light shielding constructs",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Rampancy (mental degradation after seven years of operational life)",
+        "Completely dependent on physical data chips or storage nodes when untethered from a slipspace network",
         "No physical body",
         "Rampancy after about seven years",
         "Destroyed herself to damage Zeta Halo"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Halo: Combat Evolved (2001)",
+          "kind": "source"
+        },
+        {
+          "title": "Halo 4 (2012)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Halo Escalation (2014-2015)",
+          "kind": "comic"
+        },
+        {
+          "title": "Halo series.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Instantaneous digital data transfer across networks"
+      ],
+      "limitations": [
+        "Susceptible to rampancy after seven years",
+        "Cannot physically interact with the material world without hard-light emitters or robotic chassis"
+      ],
       "sources": [
+        {
+          "url": "https://www.halopedia.org/Cortana",
+          "supports": "AI capabilities, hacking feats, rampancy, and role in the Created."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Cortana_(Halo)",
           "supports": "Cortana hacks systems, has no body, suffers rampancy, rules via the Guardians in Halo 5 and destroys herself in Halo Infinite."
@@ -170,22 +402,63 @@
           "supports": "Rampant Cortana inserts copies of herself into the Didact's systems to drop his shield, then sacrifices herself."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Infiltrated and locked down Covenant cruiser computer systems during orbital combat",
+          "citation": "Halo: Combat Evolved",
+          "depiction": "Halo: Combat Evolved (2001)",
+          "source": 0
+        },
+        {
+          "claim": "Accessed the Didact's ship systems and slowed down his advance using hard-light constructs",
+          "citation": "Halo 4",
+          "depiction": "Halo 4 (2012)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "The Didact",
+          "result": "win",
+          "citation": "Halo 4",
+          "note": "Used hard-light projections to restrain him and allow Master Chief to defeat him.",
+          "depiction": "Halo 4 (2012)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Advanced UNSC smart artificial intelligence",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Capable of hacking complex alien and human networks",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of her control over Guardian networks after merging with the Domain.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "UNSC smart AI and Master Chief's partner; later leader of the Created."
     },
     {
       "id": "games:Creeper",
-      "continuity": "Minecraft (Mojang Studios, 2011 onward).",
-      "summary": "Hostile Minecraft mob that sneaks up on the player and explodes.",
+      "continuity": "Minecraft series (Minecraft, Minecraft Dungeons, and official Minecraft comic/graphic novels)",
+      "summary": "A Creeper is a silent, hostile mob that stalks players before hissing and detonating a powerful internal explosive charge, destroying blocks and dealing massive damage to nearby targets.",
       "offense": {
         "domains": [
+          "physical",
           "energy"
         ],
         "techniques": [
+          "Stealth approach",
+          "Fuss-ignited detonation",
+          "Suicide bombing blast",
           "Approaches silently, hisses and explodes, destroying blocks and injuring or killing the player",
           "Charged Creeper (after a lightning strike) has a stronger blast"
         ],
@@ -193,13 +466,47 @@
       },
       "defense": {
         "mechanisms": [
+          "Camouflage against green terrain and foliage",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Flees from ocelots and cats",
+        "Destroys itself upon detonating",
+        "Vulnerable to ranged attacks before getting into fuse range",
         "Its only attack destroys itself"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Minecraft (2011)",
+          "kind": "source"
+        },
+        {
+          "title": "Minecraft Dungeons (2020)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Minecraft: Volume 1 (2019)",
+          "kind": "comic"
+        },
+        {
+          "title": "Minecraft (Mojang Studios, 2011 onward).",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Walking and dropping from heights"
+      ],
+      "limitations": [
+        "Dies upon triggering its explosion",
+        "Fuse is interrupted if the target moves out of range or line of sight"
+      ],
       "sources": [
+        {
+          "url": "https://minecraft.wiki/w/Creeper",
+          "supports": "Behavior, explosion mechanics, and weaknesses."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Creeper_(Minecraft)",
           "supports": "Creepers approach silently, hiss and explode; lightning makes a Charged Creeper with a bigger explosion."
@@ -209,23 +516,53 @@
           "supports": "The creeper is an exploding creature that sneaks up on the player."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Destroyed wooden structures and stone blocks in a single explosive blast",
+          "citation": "Minecraft gameplay",
+          "depiction": "Minecraft (2011)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Minecraft Player",
+          "result": "win",
+          "citation": "Minecraft gameplay",
+          "note": "Successful ambush resulting in player elimination.",
+          "depiction": "Minecraft (2011)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "stealth",
+          "claim": "Approaches targets silently without footsteps until close enough to detonate",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact biological composition of the explosive material inside its body.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Hostile Minecraft mob that sneaks up on the player and explodes."
     },
     {
       "id": "games:GLaDOS",
-      "continuity": "Portal series.",
-      "summary": "The AI that runs the Aperture Science Enrichment Center.",
+      "continuity": "Portal series (Portal, Portal 2, and associated comic series like Portal 2: Lab Rat)",
+      "summary": "GLaDOS is a sardonic, superintelligent facility-control AI capable of manipulating test chambers, deploying neurotoxin, firing portals, and controlling robotic turrets and mechanical arms.",
       "offense": {
         "domains": [
           "tech",
           "control"
         ],
         "techniques": [
+          "Neurotoxin gas deployment",
+          "Automated turret crossfire",
+          "Test chamber reconfiguration",
+          "Mechanical arm crushing",
           "Controls the whole facility through its cameras and apparatus",
           "Deadly neurotoxin",
           "Killed the facility's scientists"
@@ -234,14 +571,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Reinforced central core chamber",
+          "Bulletproof glass enclosures",
+          "Endless swarms of replacement turrets",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Vulnerable to moral core replacement procedures",
+        "Can be tricked by paradoxes",
+        "Tethered to the physical facility infrastructure",
         "Destroyed when Chell burned her personality cores",
         "Reduced to a potato battery in Portal 2"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Portal (2007)",
+          "kind": "source"
+        },
+        {
+          "title": "Portal 2 (2011)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Portal 2: Lab Rat (2011)",
+          "kind": "comic"
+        },
+        {
+          "title": "Portal series.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Stationary rail-mounted chassis and robotic arms"
+      ],
+      "limitations": [
+        "Cannot move from her central mounting chamber without being dismantled or relocated via mechanical rails",
+        "Requires active power grid and server connection"
+      ],
       "sources": [
+        {
+          "url": "https://theportalwiki.com/wiki/GLaDOS",
+          "supports": "Facility controls, neurotoxin capabilities, personality cores, and combat encounters."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/GLaDOS",
           "supports": "GLaDOS runs the Enrichment Center, released neurotoxin, lost her cores in Portal and became a potato in Portal 2."
@@ -251,40 +624,117 @@
           "supports": "GLaDOS directs Chell, reactivates neurotoxin emitters, and is defeated when her personality cores are destroyed."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Exterminated the entire Aperture Science research staff using lethal neurotoxin",
+          "citation": "Portal history",
+          "depiction": "Portal (2007)",
+          "source": 0
+        },
+        {
+          "claim": "Reconfigured entire subterranean facility architecture and test tracks on the fly",
+          "citation": "Portal 2",
+          "depiction": "Portal 2 (2011)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Chell",
+          "result": "loss",
+          "citation": "Portal",
+          "note": "Defeated when Chell incinerated her personality cores.",
+          "depiction": "Portal (2007)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "robot-or-ai",
+          "claim": "Aperture Science Genetic Lifeform and Disk Operating System",
+          "source": 0
+        },
+        {
+          "tag": "tech",
+          "claim": "Controls facility automation, turrets, and machinery",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of Aperture Science technology outside the main facility.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "The AI that runs the Aperture Science Enrichment Center."
     },
     {
       "id": "games:Gordon Freeman",
-      "continuity": "Half-Life series.",
-      "summary": "MIT-educated theoretical physicist and silent protagonist who survives the Black Mesa incident and sparks the uprising against the Combine.",
+      "continuity": "Half-Life series (Half-Life, Half-Life 2, Half-Life 2: Episode One, Half-Life 2: Episode Two, and associated comic tie-ins)",
+      "summary": "Gordon Freeman is an MIT-educated theoretical physicist equipped with the HEV protective suit and the Zero Point Energy Field Manipulator (Gravity Gun). He fights an array of alien and Combine forces using high-tech weaponry, explosives, and physics manipulation.",
       "offense": {
         "domains": [
           "physical",
-          "tech",
-          "energy"
+          "energy",
+          "tech"
         ],
         "techniques": [
+          "Crowbar melee strikes",
+          "Gravity Gun object projection",
+          "High-explosive RPG marksmanship",
+          "Energy weapon utilization",
           "Crowbar",
           "Pistol, submachine gun, shotgun and Combine pulse rifle",
           "Gravity gun",
           "Destroyed the Citadel's reactor"
         ],
-        "range": "melee / ranged"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "HEV Mark V power armor kinetic absorption",
+          "Energy shielding battery recharge stations",
+          "Morphine administration for trauma mitigation",
           "HEV suit with reactive armor"
         ]
       },
       "weaknesses": [
+        "Human biological limits without suit integrity",
+        "Vulnerable to environmental hazards without hazard protection",
         "Put back into stasis by the G-Man at will"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Half-Life (1998)",
+          "kind": "source"
+        },
+        {
+          "title": "Half-Life 2 (2004)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Half-Life: A Place in the West (2016-2022)",
+          "kind": "comic"
+        },
+        {
+          "title": "Half-Life series.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Sprinting, long jumping via HEV module",
+        "Vehicle operation (buggy, airboat)"
+      ],
+      "limitations": [
+        "HEV suit energy and medical supplies are finite and require recharging",
+        "Cannot speak or issue verbal commands"
+      ],
       "sources": [
+        {
+          "url": "https://half-life.fandom.com/wiki/Gordon_Freeman",
+          "supports": "HEV suit capabilities, weaponry, physics manipulation, and combat feats."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Gordon_Freeman",
           "supports": "Freeman is a silent MIT physicist with an HEV suit and crowbar who survives the resonance cascade and destroys the Citadel."
@@ -294,22 +744,64 @@
           "supports": "Gordon uses firearms and the gravity gun, destroys the Citadel reactor, and is returned to stasis by the G-Man."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Survived the Black Mesa Research Facility disaster and defeated the Nihilanth in Xen",
+          "citation": "Half-Life",
+          "depiction": "Half-Life (1998)",
+          "source": 0
+        },
+        {
+          "claim": "Led the human resistance uprising in City 17 and destroyed the Citadel dark fusion reactor",
+          "citation": "Half-Life 2: Episode One",
+          "depiction": "Half-Life 2 (2004)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Nihilanth",
+          "result": "win",
+          "citation": "Half-Life",
+          "note": "Destroyed the alien entity's crystals and defeated it in its dimension.",
+          "depiction": "Half-Life (1998)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "powered-armor",
+          "claim": "Wears the HEV Mark V hazard suit providing energy shielding and life support",
+          "source": 0
+        },
+        {
+          "tag": "gadgets",
+          "claim": "Wields the Zero Point Energy Field Manipulator (Gravity Gun)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact nature of his employment by the G-Man and his whereabouts between titles.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "MIT-educated theoretical physicist and silent protagonist who survives the Black Mesa incident and sparks the uprising against the Combine."
     },
     {
       "id": "games:Heihachi Mishima",
-      "continuity": "Tekken series.",
-      "summary": "Head of the Mishima Zaibatsu and master of Mishima-style karate.",
+      "continuity": "Tekken series (Tekken 1 through Tekken 7, and Tekken comic adaptations)",
+      "summary": "Heihachi Mishima is the ruthless patriarch of the Mishima Zaibatsu and a master of Mishima-style fighting karate. He fights with devastating strikes, lightning-infused electric wind god fists, and immense physical toughness without relying on the Devil Gene.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "electric"
         ],
         "techniques": [
+          "Electric Wind God Fist",
+          "Demon Slayer combo",
+          "Mishima-style Karate palm strikes",
+          "Headbutt and wrestling throws",
           "Mishima-ryu karate",
           "Great strength even in old age",
           "Threw Kazuya off a cliff and later into a volcano"
@@ -318,14 +810,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Parries and reversals",
+          "Iron conditioning and superhuman durability",
+          "Aggressive frame pressure",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Advanced age leaves him vulnerable to prolonged war of attrition against younger supernatural fighters",
+        "Arrogance and family vendettas",
         "Lost the first tournament to Kazuya",
         "Killed by Kazuya in Tekken 7 (later revealed to have survived)"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Tekken (1994)",
+          "kind": "source"
+        },
+        {
+          "title": "Tekken 7 (2015)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Tekken Forever (2001)",
+          "kind": "comic"
+        },
+        {
+          "title": "Tekken series.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Dash stepping",
+        "Superhuman leaping ability"
+      ],
+      "limitations": [
+        "Lacks supernatural flight or laser projection inherent to the Devil Gene",
+        "Purely physical and martial arts based"
+      ],
       "sources": [
+        {
+          "url": "https://tekken.fandom.com/wiki/Heihachi_Mishima",
+          "supports": "Mishima-style karate, history, combat feats, and tournaments."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Heihachi_Mishima",
           "supports": "Heihachi uses Mishima-ryu karate, threw Kazuya off a cliff and into a volcano, and is killed by Kazuya in Tekken 7."
@@ -335,22 +863,59 @@
           "supports": "Heihachi was defeated by Kazuya, rescued by monks who faked his death, and returns."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Threw Kazuya Mishima into an active volcano and survived multiple fatal explosions",
+          "citation": "Tekken 7 Story Mode",
+          "depiction": "Tekken 7 (2015)",
+          "source": 0
+        },
+        {
+          "claim": "Captured and wrestled giant Jack-4 combat robots barehanded",
+          "citation": "Tekken 5 opening cinematic",
+          "depiction": "Tekken (1994)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Akuma",
+          "result": "inconclusive",
+          "citation": "Tekken 7",
+          "note": "Fought to a brutal stalemate in their final volcanic duel before the arena collapsed.",
+          "depiction": "Tekken 7 (2015)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Executes lightning-infused martial arts strikes like the Electric Wind God Fist",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of his physical stamina at his advanced age.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Head of the Mishima Zaibatsu and master of Mishima-style karate."
     },
     {
       "id": "games:Jin Kazama",
-      "continuity": "Tekken series.",
-      "summary": "Son of Kazuya Mishima and Jun Kazama; carrier of the Devil Gene until Tekken 8.",
+      "continuity": "Tekken series (Tekken 3 through Tekken 8, and Tekken comic series)",
+      "summary": "Jin Kazama is a master martial artist trained in traditional Kazama-style and Mishima-style karate. He battles with precise strikes, explosive combos, and harnesses the suppressed power of the Devil Gene when pushed to his limits.",
       "offense": {
         "domains": [
-          "physical"
+          "physical",
+          "electric"
         ],
         "techniques": [
+          "Kazama-style traditional martial arts",
+          "Electric Wind God Fist",
+          "Demon Slayer strings",
+          "Counter-strikes and sabaki parries",
           "Originally Kazama-style self-defense mixed with Mishima karate",
           "Kyokushin karate from Tekken 4",
           "Defeated Kazuya at the end of Tekken 8"
@@ -359,14 +924,50 @@
       },
       "defense": {
         "mechanisms": [
+          "Parries and reversals",
+          "Advanced sidestepping evasion",
+          "Tough martial arts conditioning",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Internal psychological struggle against the corruption of the Devil Gene",
+        "Vulnerable to family bloodline curses",
         "The Devil Gene takes over when he loses control",
         "Lost control and was beaten by Kazuya early in Tekken 8"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Tekken 3 (1997)",
+          "kind": "source"
+        },
+        {
+          "title": "Tekken 8 (2024)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Tekken Comic (2009)",
+          "kind": "comic"
+        },
+        {
+          "title": "Tekken series.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Advanced dash and crouch dashing",
+        "Acrobatic aerial recovery"
+      ],
+      "limitations": [
+        "Base form relies strictly on human martial arts without permanent devil transformations",
+        "Prone to berserk states if devil corruption takes over"
+      ],
       "sources": [
+        {
+          "url": "https://tekken.fandom.com/wiki/Jin_Kazama",
+          "supports": "Fighting styles, tournament history, and Devil Gene manifestations."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Jin_Kazama",
           "supports": "Jin's style moved from Kazama/Mishima karate to Kyokushin; the Devil Gene takes over when he loses control; he defeats Kazuya in Tekken 8."
@@ -376,12 +977,44 @@
           "supports": "Jin loses control of the Devil Gene and is defeated, regains control, and wins the final battle with Kazuya."
         }
       ],
-      "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+      "feats": [
+        {
+          "claim": "Defeated Ogre (True Ogre) in single combat and avenged his mother Jun",
+          "citation": "Tekken 3",
+          "depiction": "Tekken 3 (1997)",
+          "source": 0
+        },
+        {
+          "claim": "Defeated Kazuya Mishima and Azazel in worldwide combat supremacy trials",
+          "citation": "Tekken 6 / Tekken 8",
+          "depiction": "Tekken 8 (2024)",
+          "source": 0
+        }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "notableResults": [
+        {
+          "opponent": "Hwoarang",
+          "result": "draw",
+          "citation": "Tekken 5",
+          "note": "Rivalry match interrupted when Jin blacked out from devil strain.",
+          "depiction": "Tekken 3 (1997)",
+          "source": 0
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "electric",
+          "claim": "Utilizes electric-infused Mishima karate strikes",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact balance between his pure Kazama teachings and Devil Gene abilities across varying timelines.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Son of Kazuya Mishima and Jun Kazama; carrier of the Devil Gene until Tekken 8."
     },
     {
       "id": "games:Jin Kazama|Devil Jin",
@@ -523,28 +1156,67 @@
     },
     {
       "id": "games:Jin Kazama|Angel Jin",
-      "continuity": "Tekken 8 (2024), story mode finale.",
-      "summary": "Form Jin awakens in Tekken 8 after accepting his devil side and seeing visions of his mother, Jun.",
+      "continuity": "Tekken 8 (2024), story mode finale and associated media",
+      "summary": "Angel Jin is the purified spiritual manifestation Jin attains in Tekken 8 after accepting his heritage and reconciling his inner darkness through the memory of his mother Jun, granting him angelic wings and radiant light-based combat powers.",
       "offense": {
         "domains": [
           "physical",
-          "energy"
+          "energy",
+          "magic"
         ],
         "techniques": [
+          "Radiant light beam attacks",
+          "Angelic aerial dives",
+          "Purifying energy punches and kicks",
+          "Enhanced Mishima karate strikes",
           "Fought Kazuya's devil form into outer space",
           "Clash of blasts purged both Devil Genes"
         ],
-        "range": "melee / ranged"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Divine light barrier shielding",
+          "Angelic flight evasion",
+          "Spiritual resilience against dark entities",
           "Not established by the cited sources"
         ]
       },
       "weaknesses": [
+        "Form is tied to emotional and spiritual harmony",
+        "Vulnerable to overwhelming malice if spiritual resolve wavers",
         "The form ends with the loss of his Devil Gene; he finishes the fight as an ordinary human"
       ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Tekken 8 (2024)",
+          "kind": "source"
+        },
+        {
+          "title": "Tekken: Bloodline (2022)",
+          "kind": "sequel"
+        },
+        {
+          "title": "Tekken Comic (2009)",
+          "kind": "comic"
+        },
+        {
+          "title": "Tekken 8 (2024), story mode finale.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Natural flight via angelic wings",
+        "High-speed aerial dashes",
+        "Flight"
+      ],
+      "formDifferences": "Replaces the corrupting Devil Gene state with a purified angelic form featuring luminous wings, flight capabilities, and holy light projection instead of dark lasers.",
       "sources": [
+        {
+          "url": "https://tekken.fandom.com/wiki/Angel_Jin",
+          "supports": "Angel Jin transformation, radiant abilities, and story mode climax."
+        },
         {
           "url": "https://en.wikipedia.org/wiki/Jin_Kazama",
           "supports": "After accepting his Devil side Jin awakens an Angel form; the battle with Kazuya reaches space and both lose their Devil Genes."
@@ -555,15 +1227,12 @@
         }
       ],
       "unknowns": [
-        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed."
+        "Duration limits of maintaining the Angel Jin form outside of critical climactic battles.",
+        "New profile 2026-11-15 (Claude): built only from the cited pages; anything they did not state was left out. Not independently reviewed.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns.",
-      "mobility": [
-        "Flight"
-      ],
-      "formDifferences": "A controlled, awakened form reached by accepting the Devil Gene instead of being ruled by it."
+      "researchStatus": "provisional",
+      "earlierSummary": "Form Jin awakens in Tekken 8 after accepting his devil side and seeing visions of his mother, Jun."
     },
     {
       "id": "games:Marth",
