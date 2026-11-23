@@ -44,6 +44,10 @@ test('move names come from the record: matching technique first, plain label whe
   // A technique matching a secondary type wins over an unmatched first technique, and the type follows it.
   assert.deepEqual(builder.pickMove({ domains: ['energy', 'magic'], primaryDomain: 'energy' }, ['Counsel', 'Force push and pull']), { domain: 'magic', name: 'Force push and pull' });
   assert.deepEqual(builder.pickMove({ domains: ['magic'], primaryDomain: 'magic' }, []), { domain: 'magic', name: 'Magic power' });
+  // A gun skill never names a power move: "fire" does not match inside "firearms".
+  assert.deepEqual(builder.pickMove({ domains: ['energy'], primaryDomain: 'energy' }, ['Precision firearms marksmanship', 'Sonic blast projection via helmet']), { domain: 'energy', name: 'Sonic blast projection via helmet' });
+  assert.deepEqual(builder.pickMove({ domains: ['elemental'], primaryDomain: 'elemental' }, ['Firearm drills', 'Fire breath']), { domain: 'elemental', name: 'Fire breath' });
+  assert.ok(!DATA.rows.some((r) => /firearm/i.test(r[1])), 'no research move is named after a firearm');
   assert.equal(builder.shortName('Imperius Curse used on Viktor Krum and others during the tournament'), 'Imperius Curse used on Viktor Krum…');
   assert.equal(builder.shortName('hard water objects; such as missiles'), 'Hard water objects');
 });
