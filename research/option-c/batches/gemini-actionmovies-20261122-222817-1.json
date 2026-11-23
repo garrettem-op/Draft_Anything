@@ -1,0 +1,396 @@
+{
+  "batchId": "Gemini V2 research actionmovies 20261122-222817 #1",
+  "schemaVersion": 1,
+  "pool": "actionmovies",
+  "researchedBy": "Gemini (gemini-3.5-flash-lite), automated; not independently verified",
+  "method": "Structured JSON from the Gemini API, instructed by docs/PROJECT_VISION.md@main blob 8cc39ea9d27d. Every cited URL was fetched; dead links and pages that never mention the character were removed, and feats, results, conditions and campaign tags that lost their source were moved to unknowns. All records provisional.",
+  "characters": [
+    {
+      "id": "actionmovies:Hector Barbossa",
+      "continuity": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film), its sequels, and related comic depictions",
+      "summary": "Hector Barbossa is a cunning and ruthless pirate captain who relies on expert swordsmanship, tactical leadership, and a ruthless willingness to exploit any advantage. In certain appearances, he benefits from an immortal, cursed undead state.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Cutlass fencing",
+          "Musket and pistol marksmanship",
+          "Command of loyal pirate crew"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Skilled sword parrying",
+          "Immunity to mortal wounds while under the Aztec gold curse"
+        ]
+      },
+      "weaknesses": [
+        "Vulnerable to normal mortal injury once the Aztec gold curse is lifted",
+        "Arrogance and overconfidence in his immortality or control of situations"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Pirates of the Caribbean: At World's End (2007 film)",
+          "kind": "sequel"
+        }
+      ],
+      "mobility": [
+        "Sailing ships",
+        "Standard human running and climbing"
+      ],
+      "limitations": [
+        "Cannot taste food, feel physical pleasure, or die naturally while cursed",
+        "Relies heavily on standard 18th-century weaponry and naval equipment"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl",
+          "supports": "Barbossa's role, sword fighting, and the Aztec gold curse mechanics."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_At_World%27s_End",
+          "supports": "Barbossa's return, navigation, and leadership in sequels."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Fought a prolonged sword duel with Jack Sparrow while affected by the immortality curse.",
+          "citation": "Climactic duel in Pirates of the Caribbean: The Curse of the Black Pearl",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        },
+        {
+          "claim": "Successfully navigated to Shipwreck Cove and rallied the Brethren Court.",
+          "citation": "Pirates of the Caribbean: At World's End",
+          "depiction": "Pirates of the Caribbean: At World's End (2007 film)",
+          "source": 1
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jack Sparrow",
+          "result": "loss",
+          "citation": "Climactic duel in Pirates of the Caribbean: The Curse of the Black Pearl",
+          "note": "Lost when Jack shot him with a single pistol ball at the exact moment the curse was lifted.",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Undead immortality and resistance to mortal injury",
+          "dependsOn": "Being exposed to moonlight while carrying the cursed Aztec gold",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Extent of magical knowledge beyond operating navigation charts and interacting with supernatural curses."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Ilsa Faust",
+      "continuity": "Mission: Impossible – Fallout (2018 film) and its preceding/succeeding films in the franchise",
+      "summary": "Ilsa Faust is a highly trained MI6 operative and combatant who combines exceptional martial arts proficiency, firearm mastery, and deep undercover infiltration skills.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Hand-to-hand combat and grappling",
+          "Precision firearm engagement",
+          "Blade and improvised weapon combat"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Advanced evasive maneuvering",
+          "Tactical situational awareness",
+          "Defensive counter-grappling"
+        ]
+      },
+      "weaknesses": [
+        "Human physiological limits",
+        "Susceptible to physical exhaustion and standard trauma"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Mission: Impossible – Fallout (2018 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Standard human running",
+        "Driving motorcycles and automobiles"
+      ],
+      "limitations": [
+        "Lacks superhuman durability or powers",
+        "Dependent on standard espionage gear and firearms"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mission:_Impossible_%E2%80%93_Fallout",
+          "supports": "Ilsa Faust's combat feats and role in Mission: Impossible – Fallout."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged in close-quarters combat against armed adversaries in London and Paris.",
+          "citation": "Mission: Impossible – Fallout",
+          "depiction": "Mission: Impossible – Fallout (2018 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Solomon Lane",
+          "result": "win",
+          "citation": "Mission: Impossible – Fallout",
+          "note": "Subdued Lane during operation.",
+          "depiction": "Mission: Impossible – Fallout (2018 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full scope of her hidden MI6 agency assets across every international jurisdiction."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Jack Sparrow",
+      "continuity": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film), its sequels, and related comic depictions",
+      "summary": "Captain Jack Sparrow is an eccentric pirate whose combat style relies heavily on improvisational cunning, unorthodox dirty fighting, psychological distraction, and preternatural luck.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Unpredictable fencing style",
+          "Single-shot flintlock pistol marksmanship",
+          "Improvisational environmental hazards"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Constant evasion and strategic retreat",
+          "Deception and negotiation"
+        ]
+      },
+      "weaknesses": [
+        "Prone to hubris and prioritizing personal survival or rum",
+        "Lacks supernatural physical durability in normal form"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "kind": "source"
+        },
+        {
+          "title": "Pirates of the Caribbean: Dead Man's Chest (2006 film)",
+          "kind": "sequel"
+        }
+      ],
+      "mobility": [
+        "Sailing ships",
+        "Agile human running and swinging"
+      ],
+      "limitations": [
+        "Frail physical constitution compared to heavily armored or supernatural foes",
+        "Relies on standard 18th-century weapons with limited ammunition"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl",
+          "supports": "Jack Sparrow's introduction, fencing skills, and escape tactics."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_Dead_Man%27s_Chest",
+          "supports": "Jack's survival feats and encounters with supernatural threats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Escaped British custody in Port Royal using clever ropework and environment.",
+          "citation": "Opening sequences of Pirates of the Caribbean: The Curse of the Black Pearl",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        },
+        {
+          "claim": "Dueled Hector Barbossa and landed the decisive shot when the curse was broken.",
+          "citation": "Climactic battle in Pirates of the Caribbean: The Curse of the Black Pearl",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Hector Barbossa",
+          "result": "win",
+          "citation": "Climactic duel in Pirates of the Caribbean: The Curse of the Black Pearl",
+          "note": "Won by utilizing a cursed coin to survive a mortal stab before lifting the curse.",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "The true extent of his supernatural luck versus pure coincidence."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Jason Bourne",
+      "continuity": "The Bourne Identity (2002 film) and its sequels",
+      "summary": "Jason Bourne is an amnesiac former CIA black-ops assassin possessing extraordinary combat instincts, extreme situational awareness, and the ability to turn ordinary objects into lethal weapons.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Advanced military hand-to-hand combat (Kali/systema style)",
+          "Improvised weapon utilization (magazines, pens)",
+          "Firearm proficiency"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Rapid evasive maneuvers",
+          "Environmental cover utilization",
+          "Counter-ambush instincts"
+        ]
+      },
+      "weaknesses": [
+        "Human physiological limitations against overwhelming gunfire",
+        "Occasional psychological trauma and memory triggers"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "The Bourne Identity (2002 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Expert urban parkour and running",
+        "High-speed vehicle operation"
+      ],
+      "limitations": [
+        "Vulnerable to bullets and conventional injuries",
+        "Requires access to tactical gear or improvised surroundings"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/The_Bourne_Identity_(2002_film)",
+          "supports": "Bourne's combat training, amnesia, and martial feats."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Defeated a trained assassin sent to his apartment using a ballpoint pen and hand-to-hand maneuvers.",
+          "citation": "Apartment fight scene in The Bourne Identity",
+          "depiction": "The Bourne Identity (2002 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "The Professor",
+          "result": "win",
+          "citation": "The Bourne Identity",
+          "note": "Outmaneuvered and fatally wounded the rival assassin in a field.",
+          "depiction": "The Bourne Identity (2002 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full extent of Treadstone conditioning impacts under extreme torture."
+      ],
+      "researchStatus": "provisional"
+    },
+    {
+      "id": "actionmovies:Will Turner",
+      "continuity": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film), its sequels, and related comic depictions",
+      "summary": "Will Turner is a skilled blacksmith and exceptionally talented swordsman who combines traditional European fencing techniques with high physical endurance and moral resolve.",
+      "offense": {
+        "domains": [
+          "physical",
+          "tech"
+        ],
+        "techniques": [
+          "Precision swordplay (trained by master blacksmithing and self-taught fencing)",
+          "Pistol and musket usage"
+        ],
+        "range": "melee / ranged"
+      },
+      "defense": {
+        "mechanisms": [
+          "Parrying and riposting with swords",
+          "Agile dodging and acrobatics"
+        ]
+      },
+      "weaknesses": [
+        "Prone to emotional compromise when protecting loved ones",
+        "Normal mortal vulnerability"
+      ],
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "kind": "source"
+        }
+      ],
+      "mobility": [
+        "Sailing ships",
+        "Agile human running and climbing"
+      ],
+      "limitations": [
+        "Lacks supernatural powers in his standard human form",
+        "Relies entirely on physical conditioning and weaponry"
+      ],
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl",
+          "supports": "Will Turner's introduction, blacksmithing background, and sword duel with Jack Sparrow."
+        }
+      ],
+      "feats": [
+        {
+          "claim": "Engaged Jack Sparrow in an even sword duel inside a blacksmith shop using improvised and display blades.",
+          "citation": "Blacksmith shop scene in Pirates of the Caribbean: The Curse of the Black Pearl",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Jack Sparrow",
+          "result": "inconclusive",
+          "citation": "Blacksmith shop duel in Pirates of the Caribbean: The Curse of the Black Pearl",
+          "note": "Duel interrupted by outside interference after a competitive exchange.",
+          "depiction": "Pirates of the Caribbean: The Curse of the Black Pearl (2003 film)",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Full combat capabilities during later supernatural captaincy phases not covered in base source."
+      ],
+      "researchStatus": "provisional"
+    }
+  ]
+}
