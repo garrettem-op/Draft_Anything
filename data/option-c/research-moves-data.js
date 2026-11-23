@@ -62,6 +62,7 @@
     ["dc:Mera","Hard water constructs","elemental",[],[],"https://en.wikipedia.org/wiki/Mera_(comics)","DC Comics (Mainline DC continuity from Aquaman vol. 1 #11, 1963 onward, including New Earth and Prime Earth st"],
     ["dc:Mr. Freeze","Ice wall creation","elemental",[],[],"https://en.wikipedia.org/wiki/Mr._Freeze","DC Comics, Batman modern continuity"],
     ["dc:Ocean Master","Trident energy projection","energy",[],[],"https://en.wikipedia.org/wiki/Ocean_Master","DC Comics, Aquaman modern continuity"],
+    ["dc:Peacemaker","Sonic blast projection via helmet","energy",[],[],"https://dc.fandom.com/wiki/Christopher_Smith_(New_Earth)","DC Comics (Post-Crisis, 1988 miniseries onward; including subsequent appearances, tie-in comics, and series co"],
     ["dc:Penguin","Flamethrower Umbrella","elemental",[],[],"https://en.wikipedia.org/wiki/Penguin_(character)","DC Comics (Post-Crisis, New 52, Rebirth, and classic comic depictions)"],
     ["dc:Perpetua","Crisis Energy Manipulation","energy",[],[],"https://en.wikipedia.org/wiki/Perpetua_(DC_Comics)","DC Comics (Post-Crisis, Infinite Frontier, and Justice League Vol. 4 depictions)"],
     ["dc:Plastic Man","Elastic Constriction","control",[],[],"https://en.wikipedia.org/wiki/Plastic_Man","DC Comics (Post-Crisis, New 52, Rebirth, and classic comic depictions)"],

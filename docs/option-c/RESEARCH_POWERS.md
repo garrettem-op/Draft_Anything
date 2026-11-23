@@ -18,20 +18,20 @@ Before this, only 26 base characters and 88 reviewed forms used a real power in 
 - Characters with a V1 profile or a reviewed form profile: the V1 kit always wins.
 - NBA players.
 - Records marked needs-review.
-- Records whose powers are only physical, tech or toxin (541 records, for example MCU Hulk). Plain attacks already model those from the attributes.
+- Records whose powers are only physical, tech or toxin (545 records, for example MCU Hulk). Plain attacks already model those from the attributes.
 
 The fight engine change is one line in `data/brawl-combat.js`: ask the V1 profiles first, then the research moves. A page without the two research-move files fights exactly as Version 1.
 
 ## Who gets a move
-750 research moves (633 base characters and 117 forms), last regenerated on 2026-11-23, when 1,361 of 1,413 non-NBA identities had their sequels-and-comics expansion. Earlier counts: 750 on the evening of 2026-11-22, 747 that morning, 651 on 2026-11-21, 617 on 2026-11-20.
+751 research moves (634 base characters and 117 forms), last regenerated on 2026-11-23 (afternoon), when 1,373 of 1,413 non-NBA identities had their sequels-and-comics expansion. Earlier counts: 750 on 2026-11-22 and that morning, 747 on the morning of 2026-11-22, 651 on 2026-11-21, 617 on 2026-11-20.
 
 | Pool | Moves | | Power type | Moves |
 |---|---|---|---|---|
-| Pokémon | 131 | | Energy | 314 |
+| Pokémon | 131 | | Energy | 315 |
 | Video Games | 125 | | Magic | 210 |
 | Harry Potter | 96 | | Control | 96 |
 | MCU | 87 | | Elemental | 90 |
-| DC | 78 | | Psychic | 32 |
+| DC | 79 | | Psychic | 32 |
 | Star Wars | 61 | | Sonic | 4 |
 | Toons | 59 | | Shadow | 3 |
 | Middle-earth | 58 | | Time | 1 |
