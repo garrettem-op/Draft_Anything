@@ -23,7 +23,7 @@ Before this, only 26 base characters and 88 reviewed forms used a real power in 
 The fight engine change is one line in `data/brawl-combat.js`: ask the V1 profiles first, then the research moves. A page without the two research-move files fights exactly as Version 1.
 
 ## Who gets a move
-750 research moves (633 base characters and 117 forms), regenerated on 2026-11-22 (evening) after 1,355 of 1,413 non-NBA identities had their sequels-and-comics expansion. Earlier counts: 747 that morning, 651 on 2026-11-21, 617 on 2026-11-20.
+750 research moves (633 base characters and 117 forms), last regenerated on 2026-11-23, when 1,361 of 1,413 non-NBA identities had their sequels-and-comics expansion. Earlier counts: 750 on the evening of 2026-11-22, 747 that morning, 651 on 2026-11-21, 617 on 2026-11-20.
 
 | Pool | Moves | | Power type | Moves |
 |---|---|---|---|---|
