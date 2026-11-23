@@ -9,7 +9,7 @@ Before this, only 26 base characters and 88 reviewed forms used a real power in 
 |---|---|
 | Power type (energy, magic, elemental, psychic, control, sonic, time, shadow) | The record's own `offense.domains`, mapped by the closed table in `data/option-c/research-profile.js` |
 | Guards and weaknesses | The record's defense and weakness wording, matched only where it names the type explicitly |
-| Move name | The record's own technique that matches the power type. When a technique matches another of the record's types instead, that type is used so name and type agree. If nothing matches: the first technique. With no techniques: a plain label ("Magic power"). Names longer than 42 characters are cut and end in "…". |
+| Move name | The record's own technique that matches the power type. When a technique matches another of the record's types instead, that type is used so name and type agree. If nothing matches: the first technique. With no techniques: a plain label ("Magic power"). Names longer than 42 characters are cut and end in "…". A gun skill never names a move: "fire" does not match inside "firearm" (fixed 2026-11-23; Black Widow, Yelena Belova, Penguin and Dante were renamed). |
 | Strength | **One fixed standard for every research move**: tier 2, pierces 17% of defense, used every third round. |
 
 **Why a fixed strength.** The research records no power level on purpose. Tier 2 is the ordinary signature level. It never triggers the tier-4 and higher ward, damage floor or Apex/Empowered rules, so research alone never promotes a character into the cosmic class.

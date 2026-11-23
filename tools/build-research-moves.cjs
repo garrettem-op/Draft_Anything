@@ -30,10 +30,11 @@ const { VARIANT_ABILITY_PROFILES } = require('../data/variant-abilities.js');
 const EXCLUDED_POOLS = new Set(['nba']);
 const USABLE_STATUS = new Set(['reviewed', 'provisional']);
 // Technique words that mark a technique as belonging to a power type (for the move name only).
+// "fire" never matches inside "firearm": a gun skill is not an energy or elemental power.
 const NAME_HINTS = {
-  energy: /\b(energy|blast|beam|bolt|lightning|thunder|electric\w*|laser|plasma|light\w*|fire|flame|ray|shock)/i,
+  energy: /\b(energy|blast|beam|bolt|lightning|thunder|electric\w*|laser|plasma|light\w*|fire(?!arm)|flame|ray|shock)/i,
   magic: /\b(magic\w*|spell\w*|sorcer\w*|hex|curse|incant\w*|enchant\w*|the force|force (choke|push|pull|lightning|grip)|ritual|wand|charm|jinx)/i,
-  elemental: /\b(fire|flame|water|ice|frost|wind|earth|storm|lightning|lava|sand|weather)/i,
+  elemental: /\b(fire(?!arm)|flame|water|ice|frost|wind|earth|storm|lightning|lava|sand|weather)/i,
   psychic: /\b(telepath\w*|telekine\w*|psychic|psionic|mind)/i,
   control: /\b(control\w*|trap\w*|disguise|illusion\w*|decept\w*|hypno\w*|bind\w*|stun\w*)/i,
   cosmic: /\b(cosmic|star\w*|galax\w*|power cosmic)/i,
