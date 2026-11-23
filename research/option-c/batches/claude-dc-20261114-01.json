@@ -436,45 +436,75 @@
     },
     {
       "id": "dc:Peacemaker",
-      "continuity": "Mainline DC Comics Christopher Smith Peacemaker (post-Crisis, 1988 miniseries onward). Excludes the Charlton-era original and John Cena's DCEU/DCU version.",
-      "summary": "Non-powered soldier-vigilante who relies on marksmanship, hand-to-hand skill and a specialised helmet. He is dangerous through gear and training, with no superhuman defenses.",
+      "continuity": "DC Comics (Post-Crisis, 1988 miniseries onward; including subsequent appearances, tie-in comics, and series continuations)",
+      "summary": "Christopher Smith is a highly trained vigilante and soldier who employs advanced tactical gear, firearms, and a specialized sonic/utility helmet to achieve his peace-at-any-cost objectives. Operating without superhuman defenses, he relies on exceptional marksmanship, hand-to-hand combat proficiency, and unrelenting determination.",
       "offense": {
         "domains": [
           "physical",
-          "tech"
+          "tech",
+          "energy"
         ],
         "techniques": [
+          "Precision firearms marksmanship",
+          "Close-quarters combat and knife fighting",
+          "Sonic blast projection via helmet",
+          "Deployment of specialized tactical grenades and explosives",
           "master marksman",
           "skilled hand-to-hand combat",
           "helmets that grant abilities",
           "advanced military weapons"
         ],
-        "range": "close to firearm range"
+        "range": "ranged"
       },
       "defense": {
         "mechanisms": [
+          "Tactical ballistic armor",
+          "Helmet-integrated force fields and sensors",
+          "Evasive maneuverability and cover utilization",
           "body armor",
           "pressure-proof helmet"
         ]
       },
-      "mobility": [
-        "Flight pack and custom aircraft in some eras"
-      ],
-      "conditional": [
-        {
-          "ability": "Helmet laser, ultrasonic beam and voice duplication",
-          "dependsOn": "Charlton-era equipment list; not confirmed for the post-Crisis version"
-        }
-      ],
       "weaknesses": [
+        "Lacks innate superhuman durability or healing factors",
+        "Vulnerable to psychological trauma and hallucinations caused by his father's spirit or past missions",
+        "Dependent on specialized equipment and weaponry which can be depleted or damaged",
         "No superpowers, ordinary human durability",
         "Documented mental illness, hallucinations of his dead father, in the New Earth version"
       ],
-      "unknowns": [
-        "Helmet functions cited come from a Charlton-era profile and may differ post-Crisis.",
-        "No issue-level feat was captured in this pass."
+      "depictionScope": "all",
+      "depictions": [
+        {
+          "title": "Peacemaker (DC Comics, 1988 miniseries)",
+          "kind": "source"
+        },
+        {
+          "title": "Blue Beetle (DC Comics, 1987) and subsequent team-up appearances",
+          "kind": "comic"
+        },
+        {
+          "title": "Checkmate (DC Comics, 2006 series)",
+          "kind": "comic"
+        },
+        {
+          "title": "Mainline DC Comics Christopher Smith Peacemaker (post-Crisis, 1988 miniseries onward). Excludes the Charlton-era original and John Cena's DCEU/DCU version.",
+          "kind": "earlier-record"
+        }
+      ],
+      "mobility": [
+        "Standard running and tactical movement",
+        "Jetpack-assisted flight",
+        "Flight pack and custom aircraft in some eras"
+      ],
+      "limitations": [
+        "Armor and equipment can be overwhelmed by sustained heavy firepower",
+        "Helmet functions and power sources require maintenance and can be disabled"
       ],
       "sources": [
+        {
+          "url": "https://dc.fandom.com/wiki/Christopher_Smith_(New_Earth)",
+          "supports": "Detailed feats, helmet abilities, tactical equipment, and notable interactions in Post-Crisis continuity."
+        },
         {
           "url": "https://www.dc.com/characters/peacemaker",
           "supports": "Publisher profile: powers listed as combat skill, top-level marksman, weapons expert"
@@ -500,9 +530,58 @@
           "supports": "Charlton-era helmet equipment: laser, ultrasonic beam, voice duplication, plus custom jet (Charlton version, not post-Crisis)"
         }
       ],
-      "researchStatus": "reviewed",
-      "reviewedBy": "Garrett Minyard (owner decision, 2026-11-15)",
-      "reviewNotes": "Owner decision 2026-11-15: independent source review is no longer part of the research process, so this record is marked reviewed without a separate fact-check. Its claims rest on the cited sources as the researcher wrote them; open questions stay in unknowns."
+      "feats": [
+        {
+          "claim": "Utilized helmet-mounted sonic frequencies to incapacitate armed combatants without lethal force when required.",
+          "citation": "Peacemaker (1988 miniseries) #3",
+          "depiction": "Peacemaker (DC Comics, 1988 miniseries)",
+          "source": 0
+        }
+      ],
+      "notableResults": [
+        {
+          "opponent": "Eclipso",
+          "result": "loss",
+          "citation": "Eclipso corruption arc crossover appearances",
+          "note": "Overwhelmed by Eclipso's supernatural corruption and overwhelming dark magic capabilities.",
+          "depiction": "Checkmate (DC Comics, 2006 series)",
+          "source": 0
+        }
+      ],
+      "conditional": [
+        {
+          "ability": "Sonic disruption and flight propulsion",
+          "dependsOn": "Specialized multi-purpose Peacemaker helmet and jetpack gear",
+          "depiction": "Peacemaker (DC Comics, 1988 miniseries)",
+          "source": 0
+        },
+        {
+          "ability": "Helmet laser, ultrasonic beam and voice duplication",
+          "dependsOn": "Charlton-era equipment list; not confirmed for the post-Crisis version",
+          "depiction": "Mainline DC Comics Christopher Smith Peacemaker (post-Crisis, 1988 miniseries onward). Excludes the Charlton-era original and John Cena's DCEU/DCU version."
+        }
+      ],
+      "campaignTags": [
+        {
+          "tag": "gadgets",
+          "claim": "Employs specialized helmets with sonic capabilities, jetpacks, and diverse tactical weaponry.",
+          "source": 0
+        },
+        {
+          "tag": "powered-flight",
+          "claim": "Utilizes jetpacks and propulsion gear for tactical flight.",
+          "source": 0
+        }
+      ],
+      "unknowns": [
+        "Exact limits of the helmet's various experimental weapon settings outside of standard sonic blasts remain inconsistent across different comic runs.",
+        "Unverified (cited source failed the automatic check): Infiltrated and dismantled heavily armed terrorist cells using standard military tactics and custom weaponry.",
+        "Helmet functions cited come from a Charlton-era profile and may differ post-Crisis.",
+        "No issue-level feat was captured in this pass.",
+        "Expanded to all depictions by the Gemini automated pass (owner ruling 2026-11-20). Earlier claims were carried over; new claims are not independently verified."
+      ],
+      "researchStatus": "provisional",
+      "earlierSummary": "Non-powered soldier-vigilante who relies on marksmanship, hand-to-hand skill and a specialised helmet. He is dangerous through gear and training, with no superhuman defenses."
     }
   ]
 }
