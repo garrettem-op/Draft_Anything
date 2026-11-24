@@ -196,9 +196,11 @@ const BENCH_HEAT = Object.freeze({
   cold: 0.06, sidekickCold: 0.02, coldPts: 1.2,        // chance and size of a cold night
 });
 
+// Variant Surge changes the display name, not the character's canonical identity.
+function benchIdentity(c) { return c && (c.variantBase || c.n); }
 function sidekickOf(c) {
   if (!c || !c.pool || !c.n) return null;
-  const r = SIDEKICK_ROSTER[c.pool] && SIDEKICK_ROSTER[c.pool][c.n];
+  const r = SIDEKICK_ROSTER[c.pool] && SIDEKICK_ROSTER[c.pool][benchIdentity(c)];
   return r ? { leads: r[0].slice(), note: r[1] } : null;
 }
 function isSidekick(c) { return !!sidekickOf(c); }
@@ -215,9 +217,10 @@ function benchChemistry(roster, positions, baseRating) {
   const b = roster[slot.id];
   const mates = positions.filter(p => p !== slot && roster[p.id]).map(p => roster[p.id]).filter(c => c !== b);
   const sk = sidekickOf(b);
-  const leads = sk ? mates.filter(c => c.pool === b.pool && sk.leads.includes(c.n)).map(c => c.n) : [];
+  const leadMates = sk ? mates.filter(c => c.pool === b.pool && sk.leads.includes(benchIdentity(c))) : [];
+  const leads = leadMates.map(c => c.n);
   const groups = new Set(b.g || []);
-  const mesh = groups.size ? mates.filter(c => !leads.includes(c.n) && (c.g || []).some(g => groups.has(g))).map(c => c.n) : [];
+  const mesh = groups.size ? mates.filter(c => !leadMates.includes(c) && (c.g || []).some(g => groups.has(g))).map(c => c.n) : [];
   const lock = sk ? BENCH_CHEM.sidekickLock : 0;
   const raw = lock + BENCH_CHEM.leadEach * Math.min(BENCH_CHEM.leadMax, leads.length)
     + BENCH_CHEM.meshEach * Math.min(BENCH_CHEM.meshMax, mesh.length);
