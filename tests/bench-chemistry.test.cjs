@@ -96,3 +96,36 @@ test('the game wires bench chemistry into scoring, AI value and every game', () 
   assert.match(html, /benchChemistry\(roster,sp\.pos,baseRating\)\.points;\n\}/);
   assert.match(html, /benchHeatRoll\(bh\.clutch, bh\.fit, bh\.sidekick, playoff, rng\)/);
 });
+
+test('all canonical sidekick relationships survive variant display names', () => {
+  for (const [pool, list] of Object.entries(SIDEKICK_ROSTER)) {
+    for (const [name, [leads]] of Object.entries(list)) {
+      const bench = C(pool, name, ['shared']);
+      const surgedBench = {...bench, n: 'Surged bench', variantBase: name};
+      assert.ok(isSidekick(surgedBench));
+      assert.deepEqual(characterRoleTags(surgedBench), ['sidekick']);
+      for (const lead of leads) {
+        const starter = C(pool, lead, ['shared']);
+        const surgedLead = {...starter, n: 'Surged lead', variantBase: lead};
+        for (const b of [bench, surgedBench]) {
+          for (const a of [starter, surgedLead]) {
+            for (const slot of ['a', 'hc']) {
+              const r = benchChemistry({[slot]: a, bn: b}, POS, 80);
+              assert.equal(r.percent, 5, pool + ':' + name + ':' + lead);
+              assert.equal(r.points, 4);
+              assert.deepEqual(r.leads, [a.n]);
+              assert.deepEqual(r.mesh, []);
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+test('variant identity does not grant unrelated or cross-pool lead credit', () => {
+  const sam = C('lotr', 'Samwise Gamgee');
+  const unrelated = {...C('lotr', 'Frodo Baggins'), variantBase: 'Aragorn'};
+  const crossPool = {...C('mcu', 'Variant'), variantBase: 'Frodo Baggins'};
+  assert.equal(benchChemistry({a: unrelated, b: crossPool, bn: sam}, POS, 80).percent, 3);
+});
