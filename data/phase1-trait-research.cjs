@@ -52,6 +52,7 @@ group('dc',
  'kids','no','{name} is depicted as an adult (or adult-presenting immortal/synthetic being), not a child or teenager, in the main DC Comics continuity used for this roster entry.',
  'DC Comics character stories and official DC identity biographies');
 
+mark("dc:Supergirl (Kara Zor-El)",'kids','yes',"DC's 2016 main-continuity Supergirl writer identifies Kara Zor-El as sixteen years old in the DC Universe.","https://www.dc.com/blog/2016/08/11/karas-back-steve-orlando-takes-supergirl-to-new-heights");
 mark('dc:Shazam','kids','yes','Billy Batson is a teenage boy whose magic-word transformation creates an adult superhero body; his identity remains a child or teen.','https://www.dc.com/characters/shazam');
 for(const [id,reason,source] of [
  ['harrypotter:Hedwig','Hedwig is Harry Potter\'s female snowy owl; the books consistently use female pronouns.','Harry Potter and the Philosopher\'s Stone'],
