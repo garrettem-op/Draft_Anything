@@ -185,6 +185,32 @@ const server=http.createServer((req,res)=>{
   assert.equal(opening.locked,false,'Campaign inherited fixed draft layout from another mode');
   assert.ok(Math.abs(opening.after-opening.before)<2,'Opening the character picker jumped the page: '+JSON.stringify(opening));
   await page.locator('#camp-plist .cand').first().waitFor({timeout:10000});
+  // Search must not replace the input or rows as each letter arrives.
+  const search=page.locator('#camp-query');
+  await page.evaluate(()=>{
+    window.campTestInput=document.getElementById('camp-query');
+    window.campTestRow=document.querySelector('#camp-plist .talent-entry');
+  });
+  await search.pressSequentially('Aang');
+  assert.equal(await search.inputValue(),'Aang','Campaign search lost keystrokes');
+  assert.ok(await page.evaluate(()=>window.campTestInput===document.activeElement&&window.campTestRow===document.querySelector('#camp-plist .talent-entry')),'Search rebuilt the input or rows');
+  assert.ok(await page.locator('#camp-plist .talent-entry:not([hidden]) .who b').allTextContents().then(names=>names.includes('Aang')),'Search did not find Aang');
+  await search.fill('no-character-xyz-123');
+  assert.equal(await page.locator('#camp-plist .talent-entry:not([hidden])').count(),0);
+  assert.ok(await page.locator('.camp-no-matches').isVisible());
+  await search.fill('');
+  await page.locator('.camp-filter-toggle').click();
+  await page.locator('[data-input="camp-pool"][value="mcu"]').check();
+  const filtered=await page.locator('#camp-plist .talent-entry:not([hidden])').evaluateAll(rows=>({count:rows.length,allMCU:rows.every(r=>r.dataset.pools.split(' ').includes('mcu'))}));
+  assert.ok(filtered.count>0&&filtered.allMCU,'Talent pool filter returned non-MCU characters');
+  await search.fill('Aang');
+  assert.equal(await page.locator('#camp-plist .talent-entry:not([hidden])').count(),0,'Search and pool filter must intersect');
+  await search.fill('');
+  await page.locator('[data-act="camp-filter-clear"]').click();
+  await page.locator('[data-act="camp-filter-done"]').click();
+  assert.equal(await page.locator('.camp-filter').evaluate(el=>el.open),false);
+  assert.equal(await page.locator('#camp-plist .talent-entry:not([hidden])').count(),await page.evaluate(()=>getCands('mashup').length),'Clear filters did not restore every candidate');
+
   const scroll=await page.evaluate(()=>{
    const el=document.getElementById('camp-plist');el.scrollTop=470;return el.scrollTop;
   });
@@ -211,14 +237,20 @@ const server=http.createServer((req,res)=>{
   assert.ok(await page.evaluate(()=>document.getElementById('camp-plist').scrollTop)>scroll,'Alphabet jump did not advance the list');
   const nameFont=await page.locator('#camp-plist .cand .who b').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
   assert.ok(nameFont>=16,'Mobile character rows are too small: '+nameFont);
-  await page.evaluate(()=>{
+  const intended=await page.evaluate(()=>{
    const stage=campaignStage();
    const eligible=getCands('mashup').find(c=>campaignAllowed(c,stage.rule));
    if(!eligible)throw Error('No eligible character in '+stage.rule);
-   const btn=[...document.querySelectorAll('#camp-plist button[data-act="camp-pick"]')].find(b=>b.dataset.cid===eligible.id);
-   if(!btn)throw Error('Eligible character not rendered in picker');
-   btn.click();
+   return {id:eligible.id,name:eligible.n,slot:S.campaign.selected};
   });
+  await search.fill(intended.name);
+  const intendedButton=page.locator('#camp-plist .talent-entry:not([hidden]) button[data-act="camp-pick"]').filter({hasText:intended.name});
+  const candidates=await intendedButton.all();
+  let exact=null;
+  for(const btn of candidates)if(await btn.getAttribute('data-cid')===intended.id){exact=btn;break;}
+  assert.ok(exact,'Intended search result missing');
+  await exact.click();
+  assert.equal(await page.evaluate(slot=>S.campaign.roster[slot]?.id,intended.slot),intended.id,'Tap while search was focused drafted the wrong character');
   const positionAfterPick=await page.evaluate(()=>window.scrollY);
   assert.ok(Math.abs(positionAfterPick-opening.before)<2,'Selecting a character reset the page position');
   // Selecting a filled field position pins its current character above the scrolling list.

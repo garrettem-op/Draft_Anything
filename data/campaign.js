@@ -585,20 +585,54 @@ function renderCampaignSetup(){
     <div class="cta-row"><button class="btn primary big" data-act="camp-start">${existing?'Resume campaign':'Begin the campaign'}</button>${existing?'<button class="btn" data-act="camp-reset">Restart from challenge 1</button>':''}<span class="note">Win all ten matchups to become Campaign Champion.</span></div>
   </section>`;
 }
+// Search state is local to the picker; the campaign roster and eligibility are unchanged.
+function campaignPickerPools(v) {
+  return new Set(v.pickerPools || []);
+}
+function campaignPickerMembership(c) {
+  // Mashup deduplicates Pokemon also present in Games. Keep that same canonical
+  // character selectable under either source, without introducing a second ID.
+  const pools=[c.pool];
+  if(c.pool==='games' && getCands('pokemon').some(p=>p.n===c.n))pools.push('pokemon');
+  return pools.join(' ');
+}
+function campaignPickerMatches(row,q,pools) {
+  return (!q || row.dataset.search.includes(q)) &&
+    (!pools.size || row.dataset.pools.split(' ').some(p=>pools.has(p)));
+}
+function refreshCampaignPicker() {
+  const list=document.getElementById('camp-plist');
+  if(!list)return;
+  const v=S.campaign,q=v.query.trim().toLowerCase(),pools=campaignPickerPools(v);
+  let count=0;
+  for(const row of list.querySelectorAll('.talent-entry')){
+    const show=campaignPickerMatches(row,q,pools);
+    if(row.hidden===show)row.hidden=!show;
+    if(show)count++;
+  }
+  list.querySelector('.camp-no-matches').hidden=count!==0;
+  list.scrollTop=0;
+  const badge=document.getElementById('camp-filter-count');
+  if(badge){badge.textContent=pools.size||'';badge.hidden=!pools.size;}
+}
+function campaignPickerFilterHTML(v) {
+  const selected=campaignPickerPools(v);
+  return `<details class="camp-filter"><summary class="btn camp-filter-toggle" aria-label="Filter by talent pool" title="Filter by talent pool"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/></svg><span id="camp-filter-count" class="camp-filter-count" ${selected.size?'':'hidden'}>${selected.size||''}</span></summary><div class="camp-filter-menu"><div class="row" style="justify-content:space-between"><b>Talent pools</b><button type="button" class="btn small" data-act="camp-filter-clear">Clear all</button></div><p class="note">Select one or more pools. None selected shows all.</p>${MASHUP_SOURCES.map(id=>`<label><input type="checkbox" data-input="camp-pool" value="${esc(id)}" ${selected.has(id)?'checked':''}> <span>${esc(getPool(id).name)}</span></label>`).join('')}<button type="button" class="btn small" data-act="camp-filter-done">Done</button></div></details>`;
+}
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignLockedOpponent(v,st);
   const tactic=CAMPAIGN_TACTICS[opponent.tactic]||CAMPAIGN_TACTICS.assault;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
   const distinctPools=new Set(slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
-  const pool=getPool('mashup'),q=v.query.toLowerCase().trim();
-  const matches=all.filter(c=>!q||c.n.toLowerCase().includes(q)||c.t.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n));
+  const q=v.query.toLowerCase().trim(),pools=campaignPickerPools(v);
+  const matches=pos?[...all].sort((a,b)=>a.n.localeCompare(b.n)):[];
   const previouslyUsed=st.criteria?.neverPreviouslyWon?campaignUsed():new Set();
   const picker=pos?`<div class="panel picker open">
     <div class="picker-head"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">Campaign draft</div><h3 class="h">${esc(pos.nm)}</h3></div><div class="row"><button class="btn small" data-act="camp-remove" ${v.roster[pos.id]?"":"disabled"}>Remove</button><button class="btn small" data-act="camp-close">Done</button></div></div><div class="needs">${needsText(pos).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
-    <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search all ${all.length} characters" autocomplete="off"></div>
+    <div class="picker-tools"><input id="camp-query" data-input="camp-query" type="text" value="${esc(v.query)}" placeholder="Search all ${all.length} characters" autocomplete="off" aria-label="Search characters">${campaignPickerFilterHTML(v)}</div>
     ${v.roster[pos.id]?`<div class="picker-current">${avatar(v.roster[pos.id])}<span class="who"><small>Currently at ${esc(pos.nm)}</small><b>${esc(v.roster[pos.id].n)}</b></span><span class="note">Selected</span></div>`:''}
-    <div class="picker-list-shell"><div class="plist" id="camp-plist">${matches.length?matches.map(c=>`<div class="talent-entry"><button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${previouslyUsed.has(c.id)||campaignWinUses(c.id)>=2||taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small>${sigLine(c)}</span>${previouslyUsed.has(c.id)?'<span class="meta muted">Previously used</span>':campaignWinUses(c.id)>=2?'<span class="meta muted">2 / 2 uses spent</span>':taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn info-button" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`).join(''):'<div class="empty-state">No characters match your search.</div>'}</div>${pickerIndexHTML('camp-plist')}</div>
+    <div class="picker-list-shell"><div class="plist" id="camp-plist">${matches.map(c=>{const search=(c.n+" "+c.t).toLowerCase(),sources=campaignPickerMembership(c);const hidden=(q&&!search.includes(q))||(pools.size&&!sources.split(" ").some(p=>pools.has(p)));return `<div class="talent-entry" data-search="${esc(search)}" data-pools="${esc(sources)}" ${hidden?"hidden":""}><button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${previouslyUsed.has(c.id)||campaignWinUses(c.id)>=2||taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small>${sigLine(c)}</span>${previouslyUsed.has(c.id)?'<span class="meta muted">Previously used</span>':campaignWinUses(c.id)>=2?'<span class="meta muted">2 / 2 uses spent</span>':taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn info-button" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`}).join('')}<div class="empty-state camp-no-matches" ${matches.some(c=>(!q||(c.n+' '+c.t).toLowerCase().includes(q))&&(!pools.size||campaignPickerMembership(c).split(' ').some(p=>pools.has(p))))?'hidden':''}>No characters match your search.</div></div>${pickerIndexHTML('camp-plist')}</div>
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}

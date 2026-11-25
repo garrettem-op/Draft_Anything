@@ -186,6 +186,18 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .needs { display: flex; flex-wrap: wrap; gap: 5px; }
 .needs span { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; background: var(--panel2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 7px; }
 .picker-tools { padding: 10px 16px; display: flex; gap: 8px; border-bottom: 1px solid var(--line); }
+#camp-plist [hidden], .camp-filter [hidden] { display: none !important; }
+#camp-query { flex: 1 1 0; min-width: 0; }
+.camp-filter { position: relative; flex: 0 0 auto; }
+.camp-filter-toggle { display: flex; align-items: center; justify-content: center; min-width: 44px; height: 100%; cursor: pointer; list-style: none; }
+.camp-filter-toggle::-webkit-details-marker { display: none; }
+.camp-filter-count { font-size: 12px; color: var(--accent-strong); }
+.camp-filter-menu { position: absolute; z-index: 3; right: 0; top: calc(100% + 6px); width: min(280px, 76vw); max-height: 38vh; overflow: auto; overscroll-behavior: contain; padding: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); display: grid; gap: 8px; }
+.camp-filter-menu label { display: flex; align-items: center; gap: 8px; min-height: 32px; cursor: pointer; }
+.camp-filter-menu input[type="checkbox"] { width: 20px; height: 20px; flex: none; accent-color: var(--accent-strong); }
+@media (max-width:899px) {
+  .picker.open.camp-keyboard { bottom: var(--camp-keyboard-inset, 0px); min-height: 0; max-height: min(78vh, var(--camp-visible-height, 78vh)); }
+}
 .plist { overflow-y: auto; padding: 6px; display: grid; align-content: start; gap: 2px; }
 .cand { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; gap: 10px; align-items: center; border: 0; background: none; border-radius: 8px; padding: 6px 8px; text-align: left; width: 100%; }
 .cand:hover:not(:disabled) { background: var(--panel2); }
@@ -5454,7 +5466,7 @@ let lastFocus = null;
 function jumpTalentPoolLetter(listId, labelId, letter) {
   const list = document.getElementById(listId);
   if (!list) return;
-  const entries = Array.from(list.querySelectorAll('.cand'));
+  const entries = Array.from(list.querySelectorAll('.cand')).filter(el=>!el.closest('[hidden]'));
   if (!entries.length) return;
   const nameOf = el => (el.querySelector('.who b')?.textContent || '').trim().toUpperCase();
   const target = entries.find(el => nameOf(el).charAt(0) >= letter) || entries[entries.length - 1];
@@ -5604,6 +5616,7 @@ function render() {
   document.documentElement.classList.toggle('h2h-scrollable', h2hScrollable);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
+  syncCampaignKeyboard();
   restoreH2HAccordions(accordionKey);
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
@@ -5748,6 +5761,37 @@ async function campaignSubmitKnowledgeDispute(){
   }
 }
 
+// Keep the native search input mounted and focused while a result is tapped.
+// Cancel mismatched touch clicks rather than drafting a different character
+// when Safari changes the visual viewport during keyboard dismissal.
+let campaignTap=null;
+document.addEventListener('pointerdown',e=>{
+  campaignTap=null;
+  const btn=e.target?.closest?.('#camp-plist button[data-cid]');
+  if(!btn||!e.isPrimary||btn.disabled)return;
+  campaignTap={id:btn.dataset.cid,act:btn.dataset.act,pointer:e.pointerId};
+  if(document.activeElement?.id==='camp-query')e.preventDefault();
+},true);
+document.addEventListener('pointercancel',e=>{if(campaignTap?.pointer===e.pointerId)campaignTap=null;},true);
+document.addEventListener('click',e=>{
+  const tap=campaignTap;campaignTap=null;
+  if(!tap||e.detail===0)return;
+  const btn=e.target?.closest?.('#camp-plist button[data-cid]');
+  if(!btn||btn.dataset.cid!==tap.id||btn.dataset.act!==tap.act){
+    e.preventDefault();e.stopImmediatePropagation();
+  }
+},true);
+function syncCampaignKeyboard(){
+  const sheet=document.getElementById('camp-query')?.closest('.picker');
+  const viewport=window.visualViewport;
+  if(!sheet||!viewport)return;
+  const inset=Math.max(0,window.innerHeight-viewport.height-viewport.offsetTop);
+  sheet.classList.toggle('camp-keyboard',inset>80);
+  sheet.style.setProperty('--camp-keyboard-inset',inset+'px');
+  sheet.style.setProperty('--camp-visible-height',Math.max(0,viewport.height-8)+'px');
+}
+window.visualViewport?.addEventListener('resize',syncCampaignKeyboard);
+window.visualViewport?.addEventListener('scroll',syncCampaignKeyboard);
 document.addEventListener('click', e => {
   const t = e.target?.closest?.('[data-act]'); if (!t) return;
   // Backdrop actions must only fire for a click directly on the backdrop.
@@ -5866,6 +5910,12 @@ document.addEventListener('click', e => {
     }
 
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
+    case 'camp-filter-clear': {
+      S.campaign.pickerPools=[];
+      for(const el of document.querySelectorAll('[data-input="camp-pool"]'))el.checked=false;
+      refreshCampaignPicker();return;
+    }
+    case 'camp-filter-done': t.closest('details').open=false;return;
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
     case 'camp-info-close': S.campaign.infoId=null; break;
     case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validationOpen=false;if(campaignQualified())S.campaign.validation='';}break;
@@ -6033,7 +6083,12 @@ document.addEventListener('input', e => {
   else if (k === 'h-variant-target') { S.h2h.variantTarget=v; render(); }
   else if (k === 'camp-dispute-claim') { S.campaign.disputeClaim=v; }
   else if (k === 'camp-dispute-source') { S.campaign.disputeSource=v; }
-  else if (k === 'camp-query') { S.campaign.query=v; render(); }
+  else if (k === 'camp-query') { S.campaign.query=v; refreshCampaignPicker(); }
+  else if (k === 'camp-pool') {
+    const pools=campaignPickerPools(S.campaign);
+    if(e.target.checked)pools.add(v);else pools.delete(v);
+    S.campaign.pickerPools=[...pools];refreshCampaignPicker();
+  }
   else if (k === 'camp-letter-range' || k === 'pick-letter-range') {const letter=String.fromCharCode(65+Math.max(0,Math.min(25,+v||0)));jumpTalentPoolLetter(k==='camp-letter-range'?'camp-plist':'plist',k==='camp-letter-range'?'camp-letter-label':'pick-letter-label',letter);}
   else if (k === 'report-match') { S.champ.reportMatch=+v; render(); }
   else if (k === 'c-team') { S.champ.teamName = v; saveChamp(); }
