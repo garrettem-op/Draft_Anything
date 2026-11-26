@@ -19,7 +19,7 @@ Campaign challenge criteria support `poolIds` and `minDistinctPools` as declarat
 
 ## The Multiverse Siege (level 10)
 - Full regular roster (no repeat of 3-versus-5).
-- At least three different talent pools in the lineup.
+- At least three different talent pools across the full roster, including commander and reinforcement (or coach and bench).
 - No character from any previously won stage.
 - Defeat **two independently seeded opponents** using the same lineup and the one allowed Surge; both results appear in the score breakdown.
 - A stage remains fixed across retries. Character/score calculations do not call any paid API.

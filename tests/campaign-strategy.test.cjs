@@ -177,7 +177,7 @@ test('opponent cannot bypass unavailable eligibility or campaign history',()=>{
   assert.equal(api.campaignBuildOpponent(v,{rule:'fast'}),null);
  }finally{context.S.campaign.history=old;}
 });
-test('both final bosses have three starter pools and exclude previously winning characters',()=>{
+test('both final bosses have three roster pools and exclude previously winning characters',()=>{
  const v=stage('alliance',9,'final'),ch={rule:'final'};
  const old=context.S.campaign.history;
  try{
@@ -187,9 +187,27 @@ test('both final bosses have three starter pools and exclude previously winning 
   for(const boss of [first,second]){
    assert.ok(boss);
    assert.equal(Object.keys(boss.roster).length,7);
-   assert.ok(new Set(P.filter(p=>!p.side).map(p=>boss.roster[p.id].pool)).size>=3);
+   assert.ok(new Set(Object.values(boss.roster).map(c=>c.pool)).size>=3);
    assert.ok(Object.values(boss.roster).every(c=>!banned.includes(c.id)));
    assert.equal(boss.score.rating,rate('brawl',boss.roster).rating);
+  }
+ }finally{context.S.campaign.history=old;}
+});
+
+test('commander and reinforcement contribute to the three-pool alliance in both challenges',()=>{
+ const old=context.S.campaign.history;
+ const make=(pool,i)=>({id:pool+':alliance'+i,pool,n:'Alliance '+i,a:Array(12).fill(80)});
+ const roster=Object.fromEntries(P.slice(0,5).map((p,i)=>[p.id,make('mcu',i)]));
+ roster.bench=make('dc',5);
+ roster.coach=make('lotr',6);
+ try{
+  context.S.campaign.history=[];
+  for(const rule of ['final','triple-threat']){
+   assert.equal(context.campaignRosterReady('brawl',rule,roster),true);
+   assert.equal(context.campaignRosterLegal('brawl',rule,roster),true);
+   assert.equal(context.campaignRosterReady('brawl',rule,{...roster,coach:make('dc',7)}),false);
+   assert.equal(context.campaignRosterReady('brawl',rule,{...roster,bench:make('lotr',8)}),false);
+   assert.equal(context.campaignRosterReady('brawl',rule,{...roster,coach:roster.bench}),false);
   }
  }finally{context.S.campaign.history=old;}
 });
