@@ -11,6 +11,8 @@ Read first:
 4. [Battle Royale combat model](brawl-combat-model.md) and [ToonForce/MuppetForce scoring](toonforce-muppetforce-scoring.md).
 5. [Option C benchmark and rules fixtures](../data/option-c/benchmark-scenarios.json).
 
+**Owner-approved carry-forward acceptance requirements (2026-11-26):** [V1 combat and campaign parity ledger](V2_V1_COMBAT_PARITY_2026-11-26.md). These requirements supplement this build contract; reconcile all entries before V2 release.
+
 ## Mission and non-negotiable principles
 
 Build an **offline, evidence-aware, deterministic, context-sensitive qualitative evaluator** shared by Battle Royale and sports. Research and structured rules determine what a character/form can do, what is legal or relevant in the selected mode, how the capabilities interact, how teamwide support changes the outcome, and how numerical win estimates should be calibrated. **Existing 12-attribute scoring remains**; it is the athletic baseline, not the final arbiter of cross-universe power.
