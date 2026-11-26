@@ -2918,13 +2918,81 @@ function registerCustomLinks(pool, list) {
   }
 }
 
+// Commander system compatibility v2. Curated philosophical matches are
+// explicit; missing character evidence is neutral, never inferred from stats.
+// A form-specific entry wins over its base identity, including explicit zero.
+const COMMANDER_PHILOSOPHY = Object.freeze({
+  balance: Object.freeze({
+    'lotr:Námo (Mandos)': [1, 'judgment, restraint and adherence to duty'],
+    'lotr:Manwë': [1, 'wise stewardship and restraint'],
+    'lotr:Gandalf': [1, 'mentorship and responsible use of power'],
+    'lotr:Gandalf the White': [1, 'renewed stewardship and disciplined leadership'],
+    'lotr:Saruman': [-0.5, 'ambition and resistance to guidance'],
+    'lotr:Saruman of Many Colours': [-0.75, 'pride and pursuit of power over restraint'],
+    'actionmovies:Aslan': [1, 'wisdom, restraint and protective leadership'],
+    'dc:King Shazam': [-1, 'corruption and uncontrolled aggression'],
+    'mcu:Captain America': [1, 'discipline and self-restraint'],
+    'mcu:The Ancient One': [1, 'balance and disciplined mastery'],
+    'mcu:Doctor Strange': [0.5, 'mystic training tempered by independence'],
+    'toons:Uncle Iroh': [1, 'patience, balance and mentorship'],
+    'toons:Master Splinter': [1, 'discipline and mentorship'],
+    'toons:Master Shifu': [1, 'disciplined training and inner peace']
+  }),
+  teamwork: Object.freeze({
+    'lotr:Manwë': [0.5, 'protective stewardship'],
+    'lotr:Gandalf': [1, 'cooperative leadership and mentorship'],
+    'lotr:Saruman': [-0.75, 'self-serving ambition'],
+    'lotr:Saruman of Many Colours': [-1, 'self-serving ambition'],
+    'dc:King Shazam': [-1, 'corruption and aggression'],
+    'mcu:Captain America': [1, 'team-first leadership'],
+    'mcu:Black Panther': [1, 'duty and protective leadership'],
+    'mcu:Nick Fury': [0.5, 'coordinating disparate allies'],
+    'toons:Optimus Prime': [1, 'team-first protective leadership'],
+    'toons:Uncle Iroh': [0.5, 'supportive mentorship'],
+    'muppets:Kermit the Frog': [1, 'cooperative leadership']
+  })
+});
+const COMMANDER_PHILOSOPHY_SYSTEM = Object.freeze({
+  'mcu:The Ancient One':'balance', 'mcu:Stick':'balance',
+  'toons:Uncle Iroh':'balance', 'toons:Master Splinter':'balance',
+  'toons:Master Shifu':'balance',
+  'mcu:Captain America':'teamwork', 'mcu:Phil Coulson':'teamwork',
+  'toons:Optimus Prime':'teamwork', 'muppets:Kermit the Frog':'teamwork'
+});
+function commanderSystemFit(coach, st, slots, attrKeys) {
+  const clamp = v => Math.max(-1, Math.min(1, v));
+  const keys = Object.keys(st.w), tw = keys.reduce((sum,k)=>sum+st.w[k],0);
+  const profile = COMMANDER_PHILOSOPHY[COMMANDER_PHILOSOPHY_SYSTEM[coach.pool+':'+coach.n]] || {};
+  const members = [];
+  for (const { c, weight } of slots) {
+    if (!c || !Array.isArray(c.a) || !weight) continue;
+    const focus = keys.reduce((sum,k)=>sum+st.w[k]*c.a[attrKeys.indexOf(k)],0)/tw;
+    const baseline = c.a.reduce((sum,v)=>sum+v,0)/c.a.length;
+    const diff = focus-baseline;
+    const absolute = clamp((focus-70)/29);
+    const specialization = clamp(diff/12);
+    const evidence = profile[c.pool+':'+c.n] ?? profile[c.pool+':'+c.variantBase];
+    const philosophy = evidence ? evidence[0] : 0;
+    const contribution = .5*absolute+.3*philosophy+.2*specialization;
+    members.push({ name:c.n, weight, focus, baseline, diff, absolute, specialization, philosophy, known:!!evidence, reason:evidence?.[1]||'', contribution });
+  }
+  const weightSum = members.reduce((sum,m)=>sum+m.weight,0);
+  if (!weightSum) return null;
+  const mean = k => members.reduce((sum,m)=>sum+m.weight*m[k],0)/weightSum;
+  const pts = 1.4*mean('contribution');
+  return { version:2, name:coach.n, label:st.label, pts, focusAvg:mean('focus'), baseline:mean('baseline'),
+    diff:mean('diff'), absolute:mean('absolute'), specialization:mean('specialization'), philosophy:mean('philosophy'),
+    philosophyKnown:members.filter(m=>m.known).length, members,
+    match:pts>.15?'Good fit':pts<-.15?'Poor fit':'Neutral' };
+}
+
 // Returns { total, links:[{id,name,count,pts}], style:{name,label,pts}|null }
 function synergyOf(sportKey, roster) {
   const sp = SPORTS[sportKey], counts = {}, players = [];
   let coach = null;
   for (const p of sp.pos) {
     const c = roster[p.id]; if (!c) continue;
-    if (p.coach) coach = c; else players.push(c);
+    if (p.coach) coach = c; else players.push({ c, weight:p.bench ? .5 : 1 });
     for (const g of c.g || []) counts[g] = (counts[g] || 0) + 1;
   }
   const links = []; let sum = 0;
@@ -2936,18 +3004,7 @@ function synergyOf(sportKey, roster) {
   links.sort((a, b) => b.pts - a.pts);
   let style = null;
   const st = coach && STYLES[coach.pool + ':' + coach.n];
-  if (st && players.length) {
-    const ks = Object.keys(st.w), tw = ks.reduce((s, k) => s + st.w[k], 0);
-    let avg = 0;
-    for (const c of players) avg += ks.reduce((s, k) => s + st.w[k] * c.a[AK.indexOf(k)], 0) / tw;
-    avg /= players.length;
-    // A strong roster is not automatically a stylistic match. Compare the coach's
-    // prioritized attributes against the roster's own all-attribute baseline.
-    const baseline = players.reduce((sum,c)=>sum+c.a.reduce((x,y)=>x+y,0)/c.a.length,0)/players.length;
-    const diff = avg - baseline;
-    const pts = Math.max(-1.4,Math.min(1.4,diff*0.12));
-    style = { name:coach.n,label:st.label,pts,focusAvg:avg,baseline,diff,match:pts>0.15?'Good fit':pts< -0.15?'Poor fit':'Neutral' };
-  }
+  if (st && players.length) style = commanderSystemFit(coach, st, players, AK);
   return { total: Math.min(LINK_CAP, sum) + (style ? style.pts : 0), links, style };
 }
 
@@ -4624,7 +4681,7 @@ function linkChips(sc, mine = true) {
   const who = mine ? 'your roster' : 'the roster';
   const verdict = st ? (st.match || (st.pts > .15 ? 'Good fit' : st.pts < -.15 ? 'Poor fit' : 'Neutral')) : '';
   const signed = n => (n>=0?'+':'')+n.toFixed(2);
-  const S = st ? `<span class="link style ${st.pts>0.15?'on':st.pts< -0.15?'off':''}">${esc(st.name)}'s ${esc(st.label)}: <b>${esc(verdict)}</b> (${signed(st.pts)} rating) · focus ${st.focusAvg.toFixed(1)} vs roster ${st.baseline.toFixed(1)}</span>` : '';
+  const S = st ? `<span class="link style ${st.pts>0.15?'on':st.pts< -0.15?'off':''}">${esc(st.name)}'s ${esc(st.label)}: <b>${esc(verdict)}</b> (${signed(st.pts)} rating) · focus ${st.focusAvg.toFixed(1)}/99${st.version===2?' · absolute, tactical and philosophical fit':' vs roster '+st.baseline.toFixed(1)}</span>` : '';
   const SG = (sc.sig ? sc.sig.list : []).map(x => `<span class="link sig">${esc(x.c.n)} · ${esc(x.name)}: ${SIG_TEXT[x.kind]}</span>`).join('');
   const V = sc.variety && sc.variety.n >= 3 ? `<span class="link variety">Fighting variety <b>×${sc.variety.n}</b>: ${sc.variety.picks.map(x => `${esc(FIGHT_STYLES[x.s])} (${esc(x.c.n)})`).join(', ')}</span>` : '';
   return (L || S || SG || V) ? `<div class="links">${L}${S}${SG}${V}</div>` : `<div class="note" style="padding:12px 16px">No chemistry fired. Look for shared teams, schools, factions and coaches.</div>`;
