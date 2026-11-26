@@ -1,6 +1,6 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const {daAllocate,daFootballBreakdown,daVolleyballPoints,daBoxScore,daUserMatches,daComparison,daLineupMetric,daPointsFor}=require('../data/after-action.js');
+const {daSupportImpact,daAllocate,daFootballBreakdown,daVolleyballPoints,daBoxScore,daUserMatches,daComparison,daLineupMetric,daPointsFor}=require('../data/after-action.js');
 global.esc=v=>String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 function team(ids) {
  return {rating:83,rows:ids.map((id,i)=>({pos:{id,ab:id,imp:1},fit:70+i,cand:{id:'c'+i,n:'Player '+i,a:Array(12).fill(74+i)}}))};
@@ -111,4 +111,43 @@ test('score attribution keeps the opponent score in either winner ordering',()=>
  assert.equal(daPointsFor({a:3,b:0,w:3,line:[120,110]},0),110);
  assert.equal(daPointsFor({a:0,b:3,w:0,line:[120,110]},0),120);
  assert.equal(daPointsFor({a:0,b:3,w:-1,line:[2,2]},3),2);
+});
+
+test('support impact is actual counterfactual team rating, not randomized form',()=>{
+ const cmd={id:'cmd',ab:'CMD',coach:true},bn={id:'bn',ab:'RNF',bench:true};
+ const fighter={id:'fighter',n:'Fighter',a:Array(12).fill(75)};
+ const kermit={id:'kermit',n:'Kermit',a:Array(12).fill(83)};
+ const gonzo={id:'gonzo',n:'Gonzo',a:Array(12).fill(70)};
+ const score=(sport,r)=>{
+   const base=70,mult=1+(r.cmd?.id==='kermit'?.08:0)+(r.bn?.id==='gonzo'?.04:0);
+   const sig={lift:r.cmd?2:0,chaos:0},syn={total:r.cmd&&r.bn?1:0};
+   const muppetTeam={points:(r.cmd?4:0)+(r.bn?2:0)},benchChem={points:r.bn?3:0};
+   return {rating:base*mult+sig.lift+syn.total+muppetTeam.points+benchChem.points,playerScore:base,mult,sig,syn,muppetTeam,benchChem};
+ };
+ const roster={d1:fighter,cmd:kermit,bn:gonzo};
+ const original={...score('brawl',roster),rows:[{pos:{id:'d1',ab:'DPS',imp:1},cand:fighter,fit:75},{pos:cmd,cand:kermit,fit:83},{pos:bn,cand:gonzo,fit:70}]};
+ const a=daBoxScore('brawl',original,5,'seed-a',{supportScorer:score});
+ const b=daBoxScore('brawl',original,0,'seed-b',{supportScorer:score});
+ const leadership=a.find(r=>r.position==='cmd'),bench=a.find(r=>r.position==='bn');
+ assert.equal(leadership.support.points,12.6);
+ assert.equal(bench.support.points,8.8);
+ assert.equal(leadership.support.parts['MuppetForce teamwork'],4);
+ assert.equal(bench.support.parts['Bench chemistry'],3);
+ assert.deepEqual(leadership.stats,b.find(r=>r.position==='cmd').stats);
+ assert.deepEqual(bench.stats,b.find(r=>r.position==='bn').stats);
+ assert.equal(daLineupMetric(leadership,'brawl')[1],12.6);
+ assert.equal(original.rows.length,3,'Do not mutate match roster');
+ const specialty=daSupportImpact('brawl',{...original,commanderEffect:{percent:3}},'cmd',score);
+ assert.ok(specialty.points>leadership.support.points);
+ assert.ok(specialty.parts['Campaign commander specialty']>0);
+ const html=daComparison('brawl',original,original,5,0,'Us','Them','seed',{supportScorer:score});
+ assert.match(html,/Leadership impact \(rating pts\)/);
+ assert.match(html,/MuppetForce teamwork: \+4\.00/);
+ assert.match(html,/How support impact was calculated/);
+});
+test('legacy unsupported score data does not fabricate a support statistic',()=>{
+ const roster={rating:70,rows:[{pos:{id:'cmd',ab:'CMD',coach:true},cand:{id:'x',n:'Commander',a:Array(12).fill(90)},fit:90}]};
+ const row=daBoxScore('brawl',roster,0,'legacy')[0];
+ assert.equal(row.support,null);
+ assert.equal(row.stats[0][1],'—');
 });

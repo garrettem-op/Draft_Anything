@@ -35,6 +35,41 @@ function daVolleyballPoints(setsWon,note,side) {
   return Math.max(0,Math.round(Number(setsWon)||0))*25;
 }
 
+// Counterfactual support contribution: score the identical roster with only
+// this slot empty, using the actual production team-score pipeline. This keeps
+// signature caps, chemistry, MuppetForce, bench synergies and role multipliers
+// intact rather than estimating them from a random positional-fit roll.
+function daSupportImpact(sport,score,slot,scorer){
+  const calculate=scorer||(typeof teamScore==='function'?teamScore:null);
+  if(!calculate||!Array.isArray(score?.rows))return null;
+  const row=score.rows.find(r=>r.pos.id===slot&&r.cand);
+  if(!row||(!row.pos.coach&&!row.pos.bench))return null;
+  const roster=Object.fromEntries(score.rows.filter(r=>r.cand).map(r=>[r.pos.id,r.cand]));
+  const without={...roster};delete without[slot];
+  const full=calculate(sport,roster),empty=calculate(sport,without);
+  if(!Number.isFinite(full?.rating)||!Number.isFinite(empty?.rating))return null;
+  const n=x=>Number.isFinite(x)?x:0;
+  const specialtyPercent=n(score.commanderEffect?.percent);
+  const specialtyFull=full.rating*specialtyPercent/100;
+  const specialtyWithout=row.pos.coach?0:empty.rating*specialtyPercent/100;
+  const parts={
+    'Role multiplier':n(full.playerScore)*n(full.mult)-n(empty.playerScore)*n(empty.mult),
+    'Signature lift':n(full.sig?.lift)-n(empty.sig?.lift),
+    'Team chemistry':n(full.syn?.total)-n(empty.syn?.total),
+    'MuppetForce teamwork':n(full.muppetTeam?.points)-n(empty.muppetTeam?.points),
+    'Bench chemistry':n(full.benchChem?.points)-n(empty.benchChem?.points),
+    'Variant rating bonus':n(full.variantBonus)-n(empty.variantBonus),
+    'Team variety':n(full.variety?.pts)-n(empty.variety?.pts),
+    'Campaign commander specialty':specialtyFull-specialtyWithout
+  };
+  const total=full.rating-empty.rating+specialtyFull-specialtyWithout;
+  // Keep any future score components visible rather than silently dropping them.
+  const remainder=total-Object.values(parts).reduce((sum,x)=>sum+x,0);
+  if(Math.abs(remainder)>1e-7)parts['Other team-rating effects']=remainder;
+  const round=x=>Math.round(x*100)/100;
+  return {points:round(total),parts:Object.fromEntries(Object.entries(parts).filter(([,x])=>Math.abs(x)>=.005).map(([k,x])=>[k,round(x)])),
+    opponentPenalty:round(n(full.sig?.chaos)-n(empty.sig?.chaos))};
+}
 function daBoxScore(sport,score,points,seed='',options={}) {
   const entries=(score?.rows||[]).filter(r=>r.cand).map(r=>({
     id:r.cand.id,name:r.cand.n,role:r.pos.ab,position:r.pos.id,fit:Math.round(r.fit||0),
@@ -44,7 +79,7 @@ function daBoxScore(sport,score,points,seed='',options={}) {
   const attrs=['spd','agi','str','siz','lep','end','tch','acc','ref','iq','clu','ldr'];
   const val=(r,k)=>r.attrs[attrs.indexOf(k)]||50;
   const pulse=r=>.81+.38*daHash(seed+':'+r.id+':'+r.position);
-  for(const r of entries){r.impact=Math.max(0,Math.round(r.fit*pulse(r)));r.delta=r.impact-r.fit;}
+  for(const r of entries){r.impact=r.active?Math.max(0,Math.round(r.fit*pulse(r))):r.fit;r.delta=r.impact-r.fit;}
   const active=entries.filter(r=>r.active);
   function metric(label,total,eligible,weight,salt) {
     const candidates=active.filter(eligible||(()=>true));
@@ -180,13 +215,29 @@ function daBoxScore(sport,score,points,seed='',options={}) {
     default:metric('Scoring',total,null,r=>r.fit,'scoring');
   }
   entries.forEach(r=>{
-    if(!r.active)r.stats.push([r.position==='cmd'?'Leadership impact':r.position==='hc'||r.position==='mgr'?'Coaching impact':'Bench impact',Math.max(0,Math.round((r.impact-50)/7))]);
+    if(!r.active){
+      const support=daSupportImpact(sport,score,r.position,options.supportScorer);
+      r.support=support;
+      const label=r.position==='cmd'?'Leadership impact (rating pts)':r.position==='hc'||r.position==='mgr'?'Coaching impact (rating pts)':'Bench impact (rating pts)';
+      r.stats.push([label,support?support.points:'—']);
+      if(support?.opponentPenalty)r.stats.push(['Opponent rating penalty',support.opponentPenalty]);
+    }
     delete r.attrs;delete r.imp;delete r.active;
   });
   entries.summary=summary;
   return entries;
 }
 
+function daSupportExplanation(row){
+  if(!row||!Object.prototype.hasOwnProperty.call(row,'support'))return '';
+  const s=row.support;
+  const signed=x=>(x>0?'+':'')+x.toFixed(2);
+  return '<details class="da-fighter-why"><summary>How support impact was calculated</summary><div>'+
+    (s?('Team rating with this character minus team rating with this slot empty. '+Object.entries(s.parts).map(([k,v])=>esc(k)+': '+signed(v)).join(' · ')+
+      (s.opponentPenalty?' · Additional opponent rating penalty: '+signed(s.opponentPenalty):'')+
+      '. This is a pre-match rating contribution, not measured damage or a replay of the battle. Interactions can overlap between support roles. Match-specific random effects are separate.'):
+      'The original roster scoring data is unavailable. No impact value has been invented.')+'</div></details>';
+}
 function daReport(sport,score,points,title='',options={}) {
   if(!score?.rows)return '';
   const result=daBoxScore(sport,score,points,options.seed||title,options);
@@ -202,7 +253,7 @@ function daReport(sport,score,points,title='',options={}) {
   const footer=scoring?`<p class="note">Scoring allocation: ${scoring.td} TD × 7 + ${scoring.fg} FG × 3 + ${scoring.safeties} safeties × 2${scoring.unassigned?' + '+scoring.unassigned+' other':''} = ${scoring.total}. Field goals are team special-teams points; no kicker position exists on this roster.${result.summary.unassignedTD?' '+result.summary.unassignedTD+' touchdown(s) cannot be assigned because this lineup has no eligible scorer.':''}</p>`:
     sport==='volleyball'?`<p class="note">Estimated rally points: ${result.summary.teamRallyPoints}. Kills, blocks and aces are projected from rally totals, not official recorded events.</p>`:'';
   return `<div class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">${esc(title||'After-action report')}</h3><span class="note">Simulated box score · not tracked play-by-play</span></div>
-  <div class="tbl-wrap"><table class="t"><thead><tr><th>Character</th><th>Role</th><th>Fit</th><th>Form</th><th>Estimated contributions</th></tr></thead><tbody>${result.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.role)}</td><td class="num">${r.fit}</td><td class="num">${r.impact} (${r.delta>=0?'+':''}${r.delta})</td><td>${r.stats.map(([k,v])=>`${esc(k)}: <b class="num">${v}</b>`).join(' · ')}</td></tr>`).join('')}</tbody></table></div>
+  <div class="tbl-wrap"><table class="t"><thead><tr><th>Character</th><th>Role</th><th>Fit</th><th>Form</th><th>Estimated contributions</th></tr></thead><tbody>${result.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.role)}</td><td class="num">${r.fit}</td><td class="num">${Object.prototype.hasOwnProperty.call(r,'support')?'—':`${r.impact} (${r.delta>=0?'+':''}${r.delta})`}</td><td>${r.stats.map(([k,v])=>`${esc(k)}: <b class="num">${v}</b>`).join(' · ')}${daSupportExplanation(r)}</td></tr>`).join('')}</tbody></table></div>
   ${footer}${scouting}<p class="note" style="margin:10px 0 0">${top?'Strongest simulated form vs baseline: '+esc(top.name)+'. ':''}${low&&low!==top?'Below baseline: '+esc(low.name)+'. ':''}Form varies deterministically by matchup; use these as scouting estimates, not observed statistics.</p></div>`;
 }
 
@@ -276,6 +327,7 @@ function daMetricKey(sport) {
 function daLineupMetric(row,sport) {
   const primary=daMetricKey(sport);
   if(!row)return null;
+  if(Object.prototype.hasOwnProperty.call(row,'support'))return row.stats[0]||null;
   const base=row.stats.find(x=>x[0]===primary);
   if(sport==='brawl'&&base)return base;
   if(sport==='football'&&(!base||!base[1])) {
@@ -295,8 +347,8 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
   // Seed each team's projections by its stable match-side identity instead of
   // its current on-screen column so both clients see identical box scores.
   const stableSideKeys=options.stableSideKeys||['left','right'];
-  const left=daBoxScore(sport,leftScore,leftPoints,seed+':'+stableSideKeys[0],{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints,combatSide:options.combat?.sides?.[0]});
-  const right=daBoxScore(sport,rightScore,rightPoints,seed+':'+stableSideKeys[1],{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints,combatSide:options.combat?.sides?.[1]});
+  const left=daBoxScore(sport,leftScore,leftPoints,seed+':'+stableSideKeys[0],{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints,combatSide:options.combat?.sides?.[0],supportScorer:options.supportScorer});
+  const right=daBoxScore(sport,rightScore,rightPoints,seed+':'+stableSideKeys[1],{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints,combatSide:options.combat?.sides?.[1],supportScorer:options.supportScorer});
   const primary=sport==='brawl'&&!options.combat?'KOs':daMetricKey(sport);
   const total=(rows,key)=>rows.reduce((sum,row)=>sum+(row.stats.find(x=>x[0]===key)?.[1]||0),0);
   const leftTotal=total(left,primary),rightTotal=total(right,primary),denom=Math.max(1,leftTotal+rightTotal);
@@ -332,7 +384,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
       explanation=`<details class="da-fighter-why"><summary>Why this DMG?</summary><div>${why}${sourceHTML}</div></details>`;
     }
     return `<div class="da-player"><span class="da-name">${esc(r.name)}</span><span class="da-primary">${main?`<b class="num">${main[1]}</b> <small>${esc(main[0])}</small>`:'—'}</span>
-      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span>${explanation}</div>`;
+      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span>${explanation}${daSupportExplanation(r)}</div>`;
   };
   const pairs=Array.from({length:Math.max(left.length,right.length)},(_,i)=>{
     const a=left[i],b=right[i],role=a?.role||b?.role||'';
@@ -388,4 +440,4 @@ function daMatchBrowser(sport,sim,teams,selected,summaryHTML='') {
 }
 
 
-if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches,daMatchBreakdown,daComparison,daMetricKey,daLineupMetric,daPointsFor,daMatchBrowser};
+if(typeof module!=='undefined'&&module.exports)module.exports={daSupportImpact,daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches,daMatchBreakdown,daComparison,daMetricKey,daLineupMetric,daPointsFor,daMatchBrowser};
