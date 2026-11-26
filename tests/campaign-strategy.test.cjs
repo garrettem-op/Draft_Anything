@@ -5,12 +5,13 @@ const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
 const code=fs.readFileSync(path.join(root,'data/campaign-strategy.js'),'utf8');
+const campaignCode=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');
 const expansion=require('../data/campaign-variant-expansion.js');
 const P=[...Array.from({length:5},(_,i)=>({id:'p'+i,imp:1})),{id:'bench',bench:true,side:true,imp:0},{id:'coach',coach:true,side:true,imp:0}];
 const SPORTS={brawl:{pos:P}};
 const chars=Array.from({length:110},(_,i)=>{
  const speed=Math.min(99,25+i);
- return {id:'games:extra'+i,n:'Extra '+i,pool:'games',a:[speed,speed,65,speed,65,65,65,65,65,speed,65,65]};
+ return {id:'games:extra'+i,n:'Extra '+i,pool:['games','mcu','toons'][i%3],a:[speed,speed,65,speed,65,65,65,65,65,speed,65,65]};
 });
 chars.push({id:'mcu:Thor',n:'Thor',pool:'mcu',a:Array(12).fill(75)});
 chars.push({id:'mcu:Jean Grey',n:'Jean Grey',pool:'mcu',a:Array(12).fill(85)});
@@ -35,8 +36,9 @@ const context={
  SPORTS,getCands:()=>chars,candById:(pool,id)=>chars.find(c=>c.id===id),
  aiStackDraft:ai,candVal:(sport,c)=>c.a[0],fitIn:(sport,c,p)=>c.a[0],
  teamScore:rate,rngFrom:seeded,saveCampaign:()=>saved.push(true),
- CAMPAIGN_KIDS:new Set(),campaignAllowed:(c,rule)=>rule==='fast'?c.a[0]>=90:true
+ S:{campaign:{history:[]}}
 };
+vm.runInNewContext(campaignCode,context);
 vm.runInNewContext(code+'\nthis.strategyApi={campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS};',context);
 const api=context.strategyApi;
 function stage(seed='campaign-A',step=0,rule='fast'){
@@ -61,7 +63,9 @@ test('short-handed ceiling is appropriately below full-strength ceiling',()=>{
  assert.ok(full>short*1.25,{full,short});
  const early=api.campaignBuildOpponent(stage('a',0,'short'),{rule:'short'});
  const rival=Object.fromEntries(Object.entries(early.roster).map(([slot,id])=>[slot,chars.find(c=>c.id===id)]));
- assert.ok(rate('brawl',rival).rating<full*0.9,'Full-strength boss cannot be unreasonably high for 3-on-5');
+ assert.equal(Object.keys(rival).length,3,'Both sides field exactly three starters');
+ assert.ok(!rival.bench&&!rival.coach);
+ assert.ok(rate('brawl',rival).rating<full*0.9);
 });
 test('opponent tactical profile is measurable and counterplay changes actual rating',()=>{
  const offense={p0:chars[90],p1:chars[85],p2:chars[87],p3:chars[80],p4:chars[88]};
@@ -144,4 +148,55 @@ test('campaign runtime no longer scales opponents to player rating or changes ma
  const h=fs.readFileSync(path.join(root,'index.html'),'utf8');
  assert.match(h,/case 'camp-variant'/);
  assert.match(h,/data\/campaign-strategy\.js/);
+});
+
+test('Underdogs uses the exact player rating criterion, and migrates an illegal cached team',()=>{
+ const v=stage('underdog',7,'underdog'),ch={rule:'underdog'};
+ v.opponents[7]={roster:Object.fromEntries(P.map((p,i)=>[p.id,chars[100+i].id])),tactic:'assault',difficultyBonus:10};
+ const result=api.campaignLockedOpponent(v,ch);
+ assert.ok(result);
+ assert.equal(Object.keys(result.roster).length,7);
+ for(const c of Object.values(result.roster))assert.ok(c.a.reduce((a,b)=>a+b,0)/c.a.length<=73,c.n);
+ assert.equal(result.score.rating,rate('brawl',result.roster).rating,'No hidden CPU rating bonus');
+ assert.equal(v.opponents[7].ruleVersion,2);
+});
+test('opponent cannot bypass unavailable eligibility or campaign history',()=>{
+ const v=stage('no-fallback',4,'women');
+ assert.equal(api.campaignBuildOpponent(v,{rule:'women'}),null);
+ const old=context.S.campaign.history;
+ try{
+  context.S.campaign.history=[{ids:chars.map(c=>c.id)},{ids:chars.map(c=>c.id)}];
+  assert.equal(api.campaignBuildOpponent(v,{rule:'fast'}),null);
+ }finally{context.S.campaign.history=old;}
+});
+test('both final bosses have three starter pools and exclude previously winning characters',()=>{
+ const v=stage('alliance',9,'final'),ch={rule:'final'};
+ const old=context.S.campaign.history;
+ try{
+  const banned=chars.slice(80,110).map(c=>c.id);
+  context.S.campaign.history=[{ids:banned}];
+  const first=api.campaignLockedOpponent(v,ch),second=api.campaignFinalBossOpponent(v,ch,first);
+  for(const boss of [first,second]){
+   assert.ok(boss);
+   assert.equal(Object.keys(boss.roster).length,7);
+   assert.ok(new Set(P.filter(p=>!p.side).map(p=>boss.roster[p.id].pool)).size>=3);
+   assert.ok(Object.values(boss.roster).every(c=>!banned.includes(c.id)));
+   assert.equal(boss.score.rating,rate('brawl',boss.roster).rating);
+  }
+ }finally{context.S.campaign.history=old;}
+});
+
+test('kids and mortal rivals use the same trait rule instead of reversing it',()=>{
+ const start=chars.length;
+ const add=(pool,n)=>chars.push({id:pool+':'+n,pool,n,a:Array(12).fill(80)});
+ for(const n of ['Spider-Man','Ms. Marvel','Ironheart','America Chavez','Sprite','Franklin Richards','Ned Leeds'])add('mcu',n);
+ for(const n of ['Black Widow','Hawkeye','Kate Bishop','Falcon','Happy Hogan','Howard Stark','Nick Fury'])add('mcu',n);
+ try{
+  for(const [rule,names] of [['kids',['Spider-Man','Ms. Marvel','Ironheart','America Chavez','Sprite','Franklin Richards','Ned Leeds']],['mortal',['Black Widow','Hawkeye','Kate Bishop','Falcon','Happy Hogan','Howard Stark','Nick Fury','Ned Leeds']]]){
+   const v=stage('trait-'+rule,3,rule),r=api.campaignLockedOpponent(v,{rule});
+   assert.ok(r,rule);
+   assert.equal(Object.keys(r.roster).length,7);
+   assert.ok(Object.values(r.roster).every(c=>names.includes(c.n)),rule);
+  }
+ }finally{chars.splice(start);}
 });
