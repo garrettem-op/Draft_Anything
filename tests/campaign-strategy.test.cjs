@@ -106,6 +106,32 @@ test('Variant Surge picks a documented form once and does not alter base charact
  assert.ok(Math.abs(odds.reduce((n,x)=>n+x.percent,0)-100)<1e-8);
  assert.ok(odds[0].percent>=odds[odds.length-1].percent);
 });
+test('finale surge button is available before the lineup satisfies the alliance',()=>{
+ const previous=context.S.campaign;
+ const stubNames=['esc','renderField','renderVariantSurgePanel'];
+ const savedStubs=Object.fromEntries(stubNames.map(k=>[k,context[k]]));
+ try{
+  const v=stage('final-surge',9,'final');
+  const thor=chars.find(c=>c.id==='mcu:Thor');
+  const jean=chars.find(c=>c.id==='mcu:Jean Grey');
+  v.query='';v.history=[];v.roster={p0:thor,p1:jean};
+  context.S.campaign=v;
+  context.esc=String;
+  context.renderField=()=>''; 
+  context.renderVariantSurgePanel=(state,action,input,ready)=>{assert.equal(ready,true,'Surge must not depend on alliance or full lineup');return 'SURGE_READY';};
+  assert.equal(context.campaignReady(),false);
+  const html=context.renderCampaignDraft();
+  assert.ok(html.includes('SURGE_READY'));
+  assert.match(html,/data-act="camp-play" disabled/);
+  assert.ok(api.campaignUseVariantSurge(v,thor.id));
+  assert.ok(api.campaignUseVariantSurge(v,jean.id));
+  assert.equal(api.campaignUseVariantSurge(v,thor.id),null);
+  assert.equal(api.variantSurgeRecords(v).length,2);
+ }finally{
+  context.S.campaign=previous;
+  for(const k of stubNames)if(savedStubs[k]===undefined)delete context[k];else context[k]=savedStubs[k];
+ }
+});
 test('variant catalog refers to actual roster characters and well-labeled alternate forms',()=>{
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
  const roster=new Set();
