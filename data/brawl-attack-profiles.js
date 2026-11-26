@@ -22,6 +22,7 @@
  ['mcu:Abomination','Gamma-powered onslaught','melee',3,.18,['melee'],3,'https://www.marvel.com/comics/guides/2318/the_abomination','Base Emil Blonsky, not a temporary Chaos King or enhanced variant.'],
  ['mcu:Scarlet Witch','Chaos hex','magic',4,.32,['magic'],3,'https://www.marvel.com/articles/comics/marvel-unlimited-reading-club-comics-to-read-before-house-of-m-event-starring-scarlet-witch','Baseline chaos magic; House of M feat is not every ordinary strike.'],
  ['mcu:The Watcher','Cosmic intervention','cosmic',4,.30,['cosmic'],4,'https://www.marvel.com/comics/guides/2196/when-the-watcher-does-more-than-watch','Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene.'],
+ ['mcu:Odin','Odinforce discharge','magic',4,.32,['magic','cosmic'],3,'https://latency.marvel.com/comics/discover/1048/odin','Odinforce requires replenishment during Odinsleep; no automatic victory.'],
  // Publisher-grounded exceptional beings, with continuity limits from the existing exceptional-power register.
  ['dc:Anti-Monitor','Antimatter wave','cosmic',5,.38,['cosmic'],4,'https://www.dc.com/characters/anti-monitor','Multiversal feats are scenario-dependent, not instant arena obliteration.'],
  ['dc:Mister Mxyzptlk','Fifth-dimensional revision','reality',5,.40,['reality'],4,'https://www.dc.com/blog/2024/05/02/invasion-of-the-imps-five-magical-pranksters-from-the-fifth-dimension','Trickable and bound by narrative banishment conventions.'],

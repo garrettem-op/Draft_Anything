@@ -297,7 +297,8 @@
         "spd": 9
       },
       "origin": "Marvel Legacy (2017) #1 / Avengers (2018) · Avengers of 1,000,000 BC",
-      "continuity": "Marvel Comics, prehistoric Odin"
+      "continuity": "Marvel Comics, prehistoric Odin",
+      "source": "https://www.marvel.com/teams-and-groups/avengers/in-comics"
     },
     {
       "name": "Odin in Destroyer Armor",
@@ -306,8 +307,9 @@
         "str": 13,
         "tch": 9
       },
-      "origin": "Thor comics · Odin's enchanted Destroyer construct",
-      "continuity": "Marvel Comics; artifact-dependent"
+      "origin": "Thor (1966) #300 · Odin in the empowered Destroyer against the Celestials",
+      "continuity": "Marvel Comics; artifact and collective Asgardian life-force dependent",
+      "source": "https://www.comics.org/issue/34789/"
     }
   ],
   "mcu:Thanos": [
