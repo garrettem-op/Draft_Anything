@@ -281,6 +281,12 @@ function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent
     const st=sc.syn?.style,quality=sc.coachFit==null?'':` Coach quality: ${num(sc.coachFit)}/99 (multiplier ×${num(.9+.2*sc.coachFit/99)}).`;
     if(!st)return `<p class="note"><b>${esc(name)}:</b> No specialized coaching system was assigned.${quality}</p>`;
     const fit=st.match||(st.pts>.15?'Good fit':st.pts<-.15?'Poor fit':'Neutral');
+    if(st.version===2){
+      const members=Array.isArray(st.members)?st.members:[];
+      const components=[['Absolute proficiency',.5*1.4*st.absolute],['Philosophical compatibility',.3*1.4*st.philosophy],['Tactical specialization',.2*1.4*st.specialization]];
+      const rows=members.map(m=>`<li><b>${esc(m.name)}</b>${m.weight<1?' (reinforcement, half weight)':''}: priority attributes ${num(m.focus)}/99; tactical differential ${signed(m.diff)}; philosophy ${m.known?esc(m.reason)+' ('+signed(m.philosophy)+')':'not rated (neutral)'}. Weighted rating contribution ${signed(1.4*m.weight*m.contribution/members.reduce((sum,x)=>sum+x.weight,0))}.</li>`).join('');
+      return `<p class="note"><b>${esc(name)}:</b> ${esc(st.name)} — ${esc(st.label)}: <b>${esc(fit)} (${signed(st.pts)} rating)</b>. Priority attributes ${num(st.focusAvg)}/99. ${components.map(([label,value])=>label+' '+signed(value)).join(' · ')}. Philosophy rated for ${st.philosophyKnown}/${members.length} members.${quality}</p><details class="note"><summary>Why this coaching fit?</summary><ul>${rows}</ul></details>`;
+    }
     return `<p class="note"><b>${esc(name)}:</b> ${esc(st.name)} — ${esc(st.label)}: <b>${esc(fit)} (${signed(st.pts)} rating)</b>. System-priority attributes average ${num(st.focusAvg)} versus overall roster attributes ${num(st.baseline)}.${quality}</p>`;
   };
   const diff=fix(detail.final?.[0])-fix(detail.final?.[1]),baseGap=fix(detail.base?.[0])-fix(detail.base?.[1]);
