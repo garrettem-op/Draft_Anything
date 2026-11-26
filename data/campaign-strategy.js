@@ -228,7 +228,12 @@ function variantPowerEstimate(base,form){
     return Number.isFinite(a)?sum+Math.max(1,Math.min(99,a+d))-a:sum;
   },0);
   const ability=VARIANT_ABILITIES_API?.variantAbilityProfile(base,form);
-  return delta/12+(Number(form.ratingBonus)||0)+(ability?Math.max(0,ability.tier-2)*2.5:0);
+  // Reuse the reviewed combat engine's Apex classification (including flagship
+  // tier-4 forms such as Hellbat), rather than ranking solely by stat deltas.
+  const combatApi=(typeof window!=='undefined'&&window.DA_BRAWL_COMBAT)||
+    (typeof require==='function'?require('./brawl-combat.js'):null);
+  const apex=ability?combatApi?.apexRankOf?.({...base,n:form.name,variantAbilities:ability},ability)||0:0;
+  return delta/12+(Number(form.ratingBonus)||0)+(ability?Math.max(0,ability.tier-2)*2.5:0)+apex*8;
 }
 function variantOdds(base){
   const ranked=variantOptions(base).map(form=>({form,power:variantPowerEstimate(base,form)}))

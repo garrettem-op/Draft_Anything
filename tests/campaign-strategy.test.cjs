@@ -208,3 +208,19 @@ test('kids and mortal rivals use the same trait rule instead of reversing it',()
   }
  }finally{chars.splice(start);}
 });
+
+test('single documented form is guaranteed and legacy single surge remains spent',()=>{
+ const entry=Object.entries(api.CAMPAIGN_VARIANTS).find(([,forms])=>forms.length===1);
+ assert.ok(entry);
+ const [key,forms]=entry,split=key.indexOf(':');
+ const candidate={id:key,pool:key.slice(0,split),n:key.slice(split+1),a:Array(12).fill(75)};
+ const odds=api.variantOdds(candidate);
+ assert.equal(odds.length,1);
+ assert.equal(odds[0].percent,100);
+ const v=stage('single-variant');
+ v.roster={p0:candidate};
+ assert.equal(api.campaignUseVariantSurge(v,candidate.id).name,forms[0].name);
+ v.surge={id:candidate.id,name:forms[0].name};
+ assert.equal(api.campaignUseVariantSurge(v,candidate.id),null);
+ assert.equal(api.campaignVariantRoster(v).p0.n,forms[0].name);
+});

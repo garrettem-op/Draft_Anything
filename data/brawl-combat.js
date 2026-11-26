@@ -257,7 +257,7 @@
     if(events)result.events=events;
     return result;
   }
-  const api={resolveBrawlCombat};
+  const api={resolveBrawlCombat,apexRankOf};
   if(root)root.DA_BRAWL_COMBAT=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
