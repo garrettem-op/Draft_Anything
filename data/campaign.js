@@ -7,7 +7,7 @@ const CAMPAIGN_STAGES = [
   {name:'No Powers Allowed',rule:'mortal',criteria:{trait:'mortal'},blurb:'No supernatural powers or superhuman bodies. Human athleticism and skill still count.',rival:'The Mortals'},
   {name:'Big Brain Energy',rule:'brain',criteria:{stats:[{attribute:'iq',op:'gte',value:87}],commanderSpecialty:true},blurb:'Every pick must have Game IQ 87 or higher.',rival:'The Masterminds'},
   {name:'Heavy Hitters',rule:'strong',criteria:{stats:[{attribute:'str',op:'gte',value:87}],commanderSpecialty:true},blurb:'Only characters with Strength 87 or higher.',rival:'The Juggernauts'},
-  {name:'The Underdogs',rule:'underdog',criteria:{stats:[{attribute:'average',op:'lte',value:73}]},blurb:'Everyone must have an average attribute rating of 73 or lower.',rival:'The Dark Horses'},
+  {name:'The Underdogs',rule:'underdog',criteria:{stats:[{attribute:'average',op:'lte',value:73}]},blurb:'Everyone must average 73 or lower. Battle Royale starters must also have an effective role fit of 100 or lower before surging.',rival:'The Dark Horses'},
   {name:'Short-Handed',rule:'short',criteria:{lineup:{starterFraction:0.6,startersOnly:true}},blurb:'Both teams play with only 60% of their starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Short-Handed Rivals'},
   {name:'The Multiverse Siege',rule:'final',criteria:{neverPreviouslyWon:true,minDistinctPools:3,encounters:2},blurb:'FINAL BATTLE: Build a full-strength alliance from at least THREE talent pools. No character from a previously WON challenge is allowed. Your same lineup must defeat TWO independently seeded bosses in a row.',rival:'The Final Boss'}
 ];
@@ -534,7 +534,14 @@ function campaignEligibilityResult(c,rule,pos=null){
   if(!c||!criteria)return {allowed:false,reason:'Unknown character or Campaign rule.',source:'campaign-rule'};
   if(criteria.commanderSpecialty&&campaignCommanderSpecialty(c,rule,pos))
     return {allowed:true,reason:'Documented Commander/Coach tactical specialty.',source:'commander-specialty'};
-  return campaignCriteriaResult(c,criteria,rule);
+  const result=campaignCriteriaResult(c,criteria,rule);
+  // This is a draft restriction, not a suppression of a legitimately rolled
+  // variant. Use the same production slot fit for human and CPU starters.
+  if(result.allowed&&rule==='underdog'&&pos&&(pos.tank||pos.styles)&&typeof fitIn==='function'){
+    const fit=fitIn('brawl',c,pos);
+    if(Number.isFinite(fit)&&fit>100)return {allowed:false,reason:'Underdogs starter effective role fit must be 100 or lower (recorded: '+fit.toFixed(1)+').',source:'effective-role-fit'};
+  }
+  return result;
 }
 function campaignAllowed(c,rule,pos=null){
   return campaignEligibilityResult(c,rule,pos).allowed;

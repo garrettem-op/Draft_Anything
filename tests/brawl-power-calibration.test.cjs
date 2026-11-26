@@ -27,7 +27,7 @@ test('all registered exceptional-power identities have separately reviewed comba
     assert.ok(CORE[key],key+' lacks ability profile');
   }
   for(const [key,p] of Object.entries(CORE)){
-    assert.match(key,/^(dc|mcu|lotr):./);
+    assert.match(key,/^(dc|mcu|lotr|toons|games):./);
     assert.ok(p.move.length>=5&&p.limit.length>=25,key);
     assert.ok(['toxin','melee','tech','cosmic','magic','reality','elemental'].includes(p.domain),key);
     assert.ok(p.pierce>=0&&p.pierce<=.45,key);

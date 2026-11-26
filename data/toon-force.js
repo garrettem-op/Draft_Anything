@@ -607,6 +607,12 @@ function toonForceMultiplier(candidate,sportKey,pos){
   if(!tf||!pos||pos.coach||pos.bench)return 1;
   const d=tf.dimensions;
   if(sportKey==='brawl'){
+    // Tanks retain the defensive composite. DPS gains only the documented
+    // offensive-facing dimensions, not resilience or evasion.
+    if(pos.styles||/^d[1-3]$/.test(pos.id||'')){
+      const offense=(0.52*d.body+0.40*d.environment+0.08*d.fourthWall)/99;
+      return +(1+0.24*offense).toFixed(5);
+    }
     const combat=(0.25*d.resilience+0.24*d.environment+0.20*d.comedy+
       0.19*d.body+0.12*d.fourthWall)/99;
     return +(1+0.32*(tf.score/99)+0.14*combat).toFixed(5);
