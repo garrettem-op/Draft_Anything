@@ -78,11 +78,11 @@ const BASE_CAMPAIGN_VARIANTS=Object.freeze({
   ],
   'games:Charizard':[
     {name:'Mega Charizard X',changes:{str:13,tch:8,end:8},origin:'Pokémon · Mega Evolution'},
-    {name:'Mega Charizard Y',changes:{acc:13,tch:11,spd:6},origin:'Pokémon · Mega Evolution'}
+    {name:'Mega Charizard Y',changes:{acc:13,tch:11,spd:6,agi:8},origin:'Pokémon · Mega Evolution'}
   ],
   'games:Mewtwo':[
-    {name:'Mega Mewtwo X',changes:{str:13,tch:11,end:7},origin:'Pokémon · Mega Evolution'},
-    {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9},origin:'Pokémon · Mega Evolution'}
+    {name:'Mega Mewtwo X',changes:{str:13,tch:11,end:7,siz:8},origin:'Pokémon · Mega Evolution'},
+    {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9,end:-10},origin:'Pokémon · Mega Evolution'}
   ]
 });
 // The large form catalog lives in its own evidence-labelled data module. Keep

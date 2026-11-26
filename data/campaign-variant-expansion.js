@@ -1531,7 +1531,8 @@
       "changes": {
         "str": 12,
         "end": 12,
-        "tch": 13
+        "tch": 13,
+        "siz": 8
       },
       "origin": "Warcraft III / World of Warcraft · demon form",
       "continuity": "Blizzard"
@@ -1645,7 +1646,8 @@
       "changes": {
         "acc": 13,
         "spd": 10,
-        "tch": 11
+        "tch": 11,
+        "agi": 8
       },
       "origin": "Pokémon X/Y · Mega Evolution Y",
       "continuity": "Pokémon games"
@@ -1667,7 +1669,8 @@
       "changes": {
         "str": 14,
         "end": 9,
-        "tch": 10
+        "tch": 10,
+        "siz": 8
       },
       "origin": "Pokémon X/Y · Mega Evolution X",
       "continuity": "Pokémon games"
@@ -1677,7 +1680,8 @@
       "changes": {
         "tch": 14,
         "spd": 13,
-        "iq": 11
+        "iq": 11,
+        "end": -10
       },
       "origin": "Pokémon X/Y · Mega Evolution Y",
       "continuity": "Pokémon games"
@@ -1745,7 +1749,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1757,7 +1762,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "siz": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1769,7 +1775,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1781,7 +1788,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1817,7 +1825,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1963,7 +1972,8 @@
       "name": "Alolan Sandslash",
       "changes": {
         "end": 12,
-        "acc": 10
+        "acc": 10,
+        "agi": -6
       },
       "origin": "Pokémon Sun/Moon (2016) · Alolan Ice/Steel form",
       "continuity": "Pokémon games"
@@ -2094,7 +2104,8 @@
       "changes": {
         "tch": 13,
         "iq": 9,
-        "clu": 9
+        "clu": 9,
+        "end": 8
       },
       "origin": "The Rise of Skywalker (2019) · dyad / Jedi spirits",
       "continuity": "Star Wars canon; temporary"
@@ -2367,7 +2378,9 @@
       "changes": {
         "siz": 15,
         "str": 12,
-        "clu": 6
+        "clu": 6,
+        "spd": -10,
+        "agi": -10
       },
       "origin": "Wabbit Twouble (1941) · exaggerated rotund Bugs",
       "continuity": "Looney Tunes; gag form"
