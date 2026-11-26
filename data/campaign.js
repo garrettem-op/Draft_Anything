@@ -657,7 +657,7 @@ function renderCampaignDraft(){
       <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
       <p class="note" style="margin:6px 0 0">Both rosters must obey the same challenge rules. Opponent roster and match randomness remain fixed across retries.</p>
     </div>
-    ${renderVariantSurgePanel(v,'camp-variant','camp-variant-target',valid,'challenge')}
+    ${renderVariantSurgePanel(v,'camp-variant','camp-variant-target',v.status==='draft','challenge')}
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
   </section>`;
