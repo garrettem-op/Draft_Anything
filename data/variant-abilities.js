@@ -7,6 +7,8 @@
 (function(root){
   const CATALOG=[
     // base pool/id, form, signature, domains, resists, vulnerability domains, tier, signature kind, limitation
+    ['mcu:Odin','Young Odin (Prehistoric Avengers)','Primordial Odinforce','magic,melee','magic','',4,'lift','Prehistoric Avengers continuity; no Destroyer armor or later borrowed powers.'],
+    ['mcu:Odin','Odin in Destroyer Armor','Destroyer energy discharge','cosmic,magic,melee','cosmic,magic,melee','',5,'unbreakable','Thor #300 Celestial confrontation: artifact and collective Asgardian life-force dependent; Celestials defeated the armor, so no invulnerability.'],
     ['mcu:Thor','Rune King Thor','Unweave the Ragnarok Cycle','reality,magic','magic,reality','',5,'chaos','Runic ascension is a story-specific state, not baseline Thor.'],
     ['mcu:Thor','King Thor','All-Father Thunder','cosmic,elemental','elemental','',4,'lift','King Thor belongs to a future comics continuity.'],
     ['mcu:Thor','Herald of Thunder Thor','Power Cosmic Storm','cosmic,elemental','elemental,cosmic','',4,'chaos','Galactus\'s herald empowerment is temporary.'],
