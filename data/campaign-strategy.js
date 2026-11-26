@@ -115,7 +115,8 @@ function campaignDraftLegalRoster(sport,rule,all,rng,jitter=0){
   const ranked=slots.map(p=>({p,choices:campaignOpponentPool(rule,all,p)
     .map(c=>({c,value:fitIn(sport,c,p)+(rng()-0.5)*jitter}))
     .sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id))}));
-  ranked.sort((a,b)=>Number(active(b.p))-Number(active(a.p))||
+  const priority=p=>active(p)?2:p.coach?0:1;
+  ranked.sort((a,b)=>priority(b.p)-priority(a.p)||
     (b.choices[0]?.value??-Infinity)-(a.choices[0]?.value??-Infinity));
   const roster={},used=new Set(),pools=new Set();
   for(const {p,choices} of ranked){
