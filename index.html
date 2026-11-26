@@ -5877,7 +5877,7 @@ document.addEventListener('click', e => {
         S.campaign = { ...campaignDefault(), sport: t.dataset.sport, teamName: name,singleUse };
       }
       break;
-    case 'camp-single-use': if(S.campaign.step===0&&!S.campaign.stageOrder)S.campaign.singleUse=t.dataset.v==='1';break;
+    case 'camp-single-use': if(S.campaign.step===0&&S.campaign.status==='setup'&&!S.campaign.history.length&&!S.campaign.snake)S.campaign.singleUse=t.dataset.v==='1';break;
     case 'camp-redraft': {const v=S.campaign;if(window.confirm('Restart this round’s shared draft? Current picks and surges will be cleared. Previous campaign wins stay saved.')){v.roster={};v.snake=null;v.surge=null;v.selected=null;v.validation='';v.validationOpen=false;}break;}
     case 'camp-start': if(!S.campaign.stageOrder)S.campaign.stageOrder=campaignNewOrder(S.campaign.sport); S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
     case 'camp-reset': campaignReset(); break;

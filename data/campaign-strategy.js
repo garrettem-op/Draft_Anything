@@ -232,6 +232,17 @@ function campaignSnakeOpponent(v,stage){
   if(Object.keys(roster).length!==limit||!campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v)||Object.values(roster).some(c=>playerIds.has(c.id)))return null;
   return {roster,score:teamScore(v.sport,roster),tactic:draft.tactic};
 }
+function campaignSnakeSecond(v,stage,first){
+  const unavailable=new Set([...Object.values(v.roster).map(c=>c.id),...Object.values(first.roster).map(c=>c.id)]);
+  let second=v.snake?.second,roster=campaignHydrateOpponent(second);
+  if(!second||!campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v)||Object.values(roster).some(c=>unavailable.has(c.id))){
+    const generated=campaignFinalBossOpponent(v,stage,first,new Set(Object.values(v.roster).map(c=>c.id)));
+    if(!generated)return null;
+    second={roster:Object.fromEntries(Object.entries(generated.roster).map(([slot,c])=>[slot,c.id])),tactic:generated.tactic};
+    v.snake.second=second;saveCampaign();return generated;
+  }
+  return {roster,score:teamScore(v.sport,roster),tactic:second.tactic};
+}
 function campaignActiveAverage(sport,roster,attr){
   const ix=CAMPAIGN_ATTR_INDEX[attr];
   const players=(SPORTS[sport]?.pos||[]).filter(p=>!p.coach&&!p.bench&&roster[p.id]);

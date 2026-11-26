@@ -39,7 +39,7 @@ const context={
  S:{campaign:{history:[]}}
 };
 vm.runInNewContext(campaignCode,context);
-vm.runInNewContext(code+'\nthis.strategyApi={campaignSnakeOrder,campaignSnakeCpuDue,campaignSnakeOpponent,campaignCombatSeed,campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
+vm.runInNewContext(code+'\nthis.strategyApi={campaignSnakeSecond,campaignSnakeOrder,campaignSnakeCpuDue,campaignSnakeOpponent,campaignCombatSeed,campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
 const api=context.strategyApi;
 function stage(seed='campaign-A',step=0,rule='fast'){
  return {seed,step,sport:'brawl',stageOrder:[0,1,2,3,4,5,6,7,8,9],roster:{},opponents:{},surge:null,status:'draft',rule};
@@ -328,4 +328,20 @@ test('history rules distinguish CPU appearances, player wins and optional shared
  assert.equal(context.campaignHistoryReason(chars[0],'fast','player',v),'');
  assert.equal(context.campaignHistoryReason(chars[1],'fast','player',v),'');
  v.singleUse=true;assert.ok(context.campaignHistoryReason(chars[1],'fast','player',v));assert.ok(context.campaignHistoryReason(chars[0],'fast','cpu',v));
+});
+
+test('recover prior winners and CPU from legacy report, and keep all attempted character identities',()=>{
+ const v=stage('legacy',3,'final');
+ const old=context.esc;context.esc=s=>String(s);
+ try{
+  v.history=[{report:'<tr><td class="da-side"><span class="da-name">Extra 0</span></td><th>Role</th><td class="da-side"><span class="da-name">Extra 1</span></td></tr>'}];
+  context.campaignRecoverHistory(v);
+  assert.equal(v.history[0].ids[0],chars[0].id);assert.equal(v.history[0].cpuIds[0],chars[1].id);
+  context.campaignRecordUsage(v,{ids:[chars[2].id],cpuIds:[chars[3].id]});
+  context.campaignRecordUsage(v,{ids:[chars[4].id],cpuIds:[chars[5].id]});
+  assert.equal(v.stageUsage.player.length,2);assert.equal(v.stageUsage.cpu.length,2);
+  v.history.push({ids:[chars[4].id],playerUsedIds:v.stageUsage.player,cpuIds:v.stageUsage.cpu});
+  v.singleUse=true;assert.ok(context.campaignHistoryReason(chars[2],'fast','cpu',v));
+  v.singleUse=false;assert.ok(context.campaignHistoryReason(chars[3],'fast','cpu',v));
+ }finally{context.esc=old;}
 });

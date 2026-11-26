@@ -390,7 +390,7 @@ for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secur
 for (const n of ['Darth Maul','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},attempts:{},singleUse:false,snake:null,surge:null,variantTarget:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},attempts:{},singleUse:false,snake:null,stageUsage:null,surge:null,variantTarget:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
@@ -405,6 +405,7 @@ function loadCampaign(){
   if(!v.attempts||typeof v.attempts!=='object')v.attempts={};
   v.singleUse=v.singleUse===true;
   campaignRecoverHistory(v);
+  if(v.result?.ids?.length)campaignRecordUsage(v,v.result);
   v.surge=variantSurgeRecords(v);
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
   v.selected=null;v.query='';v.infoId=null;v.variantTarget=null;
@@ -413,7 +414,7 @@ function loadCampaign(){
 }
 function saveCampaign(){
   const v=S.campaign;
-  lsSet('da.campaign.v1',{status:v.status,step:v.step,sport:v.sport,teamName:v.teamName,roster:Object.fromEntries(Object.entries(v.roster||{}).map(([p,c])=>[p,c.id])),history:v.history,result:v.result,stageOrder:v.stageOrder,seed:v.seed,opponents:v.opponents||{},attempts:v.attempts||{},singleUse:!!v.singleUse,snake:v.snake||null,surge:v.surge||null});
+  lsSet('da.campaign.v1',{status:v.status,step:v.step,sport:v.sport,teamName:v.teamName,roster:Object.fromEntries(Object.entries(v.roster||{}).map(([p,c])=>[p,c.id])),history:v.history,result:v.result,stageOrder:v.stageOrder,seed:v.seed,opponents:v.opponents||{},attempts:v.attempts||{},singleUse:!!v.singleUse,snake:v.snake||null,stageUsage:v.stageUsage||null,surge:v.surge||null});
 }
 function campaignStage(){return campaignStages()[Math.min(9,S.campaign.step)];}
 function campaignSlots(sport,rule){
@@ -430,6 +431,7 @@ function campaignLimit(sport,rule){
 // Older saves omitted IDs from victory history. Recover base identities from
 // archived comparison rows and cached opponent drafts; never infer from damage.
 function campaignRecoverHistory(v){
+  if(!(v.history||[]).some(h=>!h.ids?.length||!h.cpuIds?.length))return;
   const all=getCands('mashup'),byName=new Map();
   const add=(name,id)=>{if(!name)return;const list=byName.get(name)||[];if(!list.includes(id))list.push(id);byName.set(name,list);};
   for(const candidate of all){
@@ -448,16 +450,22 @@ function campaignRecoverHistory(v){
       }
     }
     if(!entry.ids?.length)entry.ids=[...new Set(recovered[0])];
-    entry.cpuIds=[...new Set([...(entry.cpuIds||[]),...cached,...recovered[1]])];
+    if(!entry.cpuIds?.length)entry.cpuIds=[...new Set([...cached,...recovered[1]])];
   }
 }
-function campaignUsed(v=S.campaign,side='player'){
-  return new Set((v.history||[]).flatMap(h=>side==='cpu'?h.cpuIds||[]:h.ids||[]));
+function campaignUsed(v=S.campaign,side='player',allAttempts=false){
+  return new Set((v.history||[]).flatMap(h=>side==='cpu'?h.cpuIds||[]:allAttempts?h.playerUsedIds||h.ids||[]:h.ids||[]));
+}
+function campaignRecordUsage(v,result){
+  if(v.stageUsage?.step!==v.step)v.stageUsage={step:v.step,player:[],cpu:[]};
+  const u=v.stageUsage;
+  u.player=[...new Set([...u.player,...(result.ids||[])])];
+  u.cpu=[...new Set([...u.cpu,...(result.cpuIds||Object.values(v.snake?.cpu||{}))])];
 }
 function campaignWinUses(id,v=S.campaign){return (v.history||[]).filter(h=>(h.ids||[]).includes(id)).length;}
 function campaignHistoryReason(c,rule,side='player',v=S.campaign){
   if(!c)return 'Unknown character.';
-  const own=campaignUsed(v,side),other=campaignUsed(v,side==='cpu'?'player':'cpu');
+  const own=campaignUsed(v,side,!!v.singleUse),other=campaignUsed(v,side==='cpu'?'player':'cpu',!!v.singleUse);
   if(v.singleUse&&(own.has(c.id)||other.has(c.id)))return 'Already used by either side in this campaign.';
   if(side==='cpu'&&own.has(c.id))return 'Already used by the CPU in a previous round.';
   if(side==='player'&&rule==='final'&&own.has(c.id))return 'Already appeared in a winning Campaign lineup. Finale requires unused characters.';
@@ -465,7 +473,10 @@ function campaignHistoryReason(c,rule,side='player',v=S.campaign){
   return '';
 }
 function campaignPickAllowed(c,rule,pos,side='player',v=S.campaign){return !campaignHistoryReason(c,rule,side,v)&&campaignAllowed(c,rule,pos,side,v);}
-function campaignReservedIds(v=S.campaign){return new Set(Object.values(v.snake?.step===v.step?v.snake.cpu||{}:{}));}
+function campaignReservedIds(v=S.campaign){
+  if(v.snake?.step!==v.step)return new Set();
+  return new Set([...Object.values(v.snake.cpu||{}),...Object.values(v.snake.second?.roster||{})]);
+}
 function campaignPlayerPickBlocked(c,v=S.campaign,rule=campaignStage().rule){
   return campaignHistoryReason(c,rule,'player',v)|| (campaignReservedIds(v).has(c.id)?'Drafted by CPU':'');
 }
@@ -691,7 +702,8 @@ function renderCampaignSurgeDialog(v){
 }
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignSnakeOpponent(v,st);
-  const tactic=CAMPAIGN_TACTICS[opponent?.tactic]||CAMPAIGN_TACTICS.assault;
+  const second=opponent&&campaignReady()&&st.criteria?.encounters===2?campaignSnakeSecond(v,st,opponent):null;
+  const tactic=CAMPAIGN_TACTICS[opponent?.tactic||v.snake?.tactic]||CAMPAIGN_TACTICS.assault;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
   const distinctPools=new Set(slots.filter(p=>v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
@@ -706,17 +718,19 @@ function renderCampaignDraft(){
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}
+    ${v.history.some(h=>!h.ids?.length||!h.cpuIds?.length)?'<p class="note">Some older saved rounds have missing lineup records. Recoverable characters are blocked, but a new campaign is required for fully reliable history enforcement.</p>':''}
     <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p>${minPools?`<p class="note" style="margin:8px 0 0"><b>Universe alliance: ${distinctPools}/${minPools} pools represented.</b> All roster positions, including commander and reinforcement, count.</p>`:''}<p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Your picks: ${v.singleUse?"single use across both sides":"maximum two winning lineups; none repeated in finale"}. CPU picks cannot repeat across rounds.</p></div>
     <div class="panel" style="padding:14px 16px;margin-bottom:14px">
       <div class="eyebrow">Shared snake draft · Opponent picks</div>
       <p class="note">CPU picks: ${Object.keys(v.snake?.cpu||{}).length}/${limit} · ${v.step%2?'CPU':'You'} picked first. Drafted CPU characters are unavailable.</p>
       <div style="display:flex;flex-wrap:wrap;gap:6px">${Object.values(v.snake?.cpu||{}).map(id=>candById('mashup',id)).filter(Boolean).map(c=>'<span class="chip">'+esc(c.n)+'</span>').join('')}</div>
-      ${!opponent&&filled===limit?'<p class="note">No legal CPU lineup is available. Edit picks or restart this round’s draft; challenge rules will not be bypassed.</p>':''}<h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
+      ${second?'<p class="note">Second boss: '+Object.values(second.roster).map(c=>esc(c.n)).join(' · ')+'</p>':''}
+      ${(!opponent||st.criteria?.encounters===2&&!second)&&filled===limit?'<p class="note">No legal CPU lineup is available. Edit picks or restart this round’s draft; challenge rules will not be bypassed.</p>':''}<h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
       <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
       <p class="note" style="margin:6px 0 0">Both rosters obey the challenge rules. Once drafted, CPU picks are locked for retries. You can replace your own picks with unclaimed characters.</p>
     </div>
     ${campaignSurgeSlots(v).size?'<p class="note campaign-surge-hint">Tap a glowing character to activate their secret Variant Surge.</p>':''}
-    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-redraft">Restart round draft</button><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent?'':'disabled'}>Submit lineup & play</button></div>
+    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-redraft">Restart round draft</button><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent&&(st.criteria?.encounters!==2||second)?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set(),variantSlots:campaignSurgeSlots(v),variantAction:'slot',variantShakeSlot:v.surgeReveal?.slot})}</div><div class="board-side">${picker}</div></div>${renderCampaignSurgeDialog(v)}
   </section>`;
 }
@@ -734,7 +748,7 @@ function campaignPlay(){
   if(!first)return toast('No legal opponent is available for this challenge.');
   const encounters=[{name:st.rival,opponent:first}];
   if(st.criteria?.encounters===2){
-    const second=campaignFinalBossOpponent(v,st,first,new Set(Object.values(v.roster).map(c=>c.id)));
+    const second=campaignSnakeSecond(v,st,first);
     if(!second)return toast('No legal second opponent is available for this challenge.');
     encounters.push({name:'The Nexus Champion',opponent:second});
   }
@@ -790,6 +804,7 @@ function campaignPlay(){
     cpuIds:[...new Set(rounds.flatMap(round=>round.cpuIds))],
     names:Object.values(v.roster).map(c=>c.n),
     ids:Object.values(v.roster).map(c=>c.id)};
+  campaignRecordUsage(v,v.result);
   v.status='results';saveCampaign();
 }
 function campaignOrigin(c){
@@ -943,9 +958,10 @@ function campaignReset(){const {sport,teamName,singleUse}=S.campaign;S.campaign=
 function campaignAdvance(){
   const v=S.campaign;
   if(v.status!=='results'||!v.result?.win)return;
-  v.history.push({name:campaignStage().name,ids:v.result.ids||[],cpuIds:v.result.cpuIds||Object.values(v.snake?.cpu||{}),report:v.result.report,finalRounds:v.result.finalRounds,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
+  campaignRecordUsage(v,v.result);
+  v.history.push({name:campaignStage().name,ids:v.result.ids||Object.values(v.roster).map(c=>c.id),playerUsedIds:v.stageUsage.player,cpuIds:v.stageUsage.cpu,report:v.result.report,finalRounds:v.result.finalRounds,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
   v.step++;
-  v.roster={};v.snake=null;v.selected=null;v.query='';v.result=null;v.surge=null;v.variantTarget=null;
+  v.roster={};v.snake=null;v.stageUsage=null;v.selected=null;v.query='';v.result=null;v.surge=null;v.variantTarget=null;
   v.status=v.step>=campaignStages().length?'complete':'draft';
   saveCampaign();
 }
