@@ -468,6 +468,7 @@ const server=http.createServer((req,res)=>{
     }
     saveCampaign();render();
   });
+  await page.locator('.field-wrap .variant-ready').filter({hasText:'Thor'}).first().click();
   const variantButton=page.locator('button[data-act="camp-variant"]');
   assert.equal(await variantButton.isEnabled(),true,'Variant button not enabled with Thor on legal roster');
   await variantButton.click();
@@ -477,6 +478,7 @@ const server=http.createServer((req,res)=>{
   });
   assert.ok(variant.surge&&variant.active&&variant.changed,'Variant generator did not transform an eligible character');
   assert.equal(await page.evaluate(()=>variantSurgeCandidates(S.campaign).some(c=>c.id===variantSurgeRecords(S.campaign)[0].id)),false,'Same character cannot roll twice');
+  await page.locator('button[data-act="camp-surge-close"]').click();
   await page.reload({waitUntil:'domcontentloaded'});
   const persisted=await page.evaluate(()=>({surge:S.campaign.surge,stage:S.campaign.step}));
   assert.equal(JSON.stringify(persisted.surge),JSON.stringify(variant.surge),'Variant result did not persist on reload');
@@ -497,15 +499,14 @@ const server=http.createServer((req,res)=>{
     if(!campaignReady())throw Error('Three-universe final lineup is not ready');
     saveCampaign();render();
   });
-  const variantTarget=page.locator('#camp-variant-target');
-  await variantTarget.waitFor();
+  await page.locator('.field-wrap .variant-ready').filter({hasText:'Doctor Doom'}).first().click();
   assert.equal(await page.locator('button[data-act="camp-variant"]').isEnabled(),true,
     'Variant Surge should activate with Batman, Doom and other documented forms');
   const doomId=await page.evaluate(()=>getCands('mashup').find(c=>c.pool==='mcu'&&c.n==='Doctor Doom').id);
-  await variantTarget.selectOption(doomId);
   await page.locator('button[data-act="camp-variant"]').click();
   const targeted=await page.evaluate(()=>variantSurgeRecords(S.campaign)[0]);
   assert.equal(targeted.id,doomId,'User-targeted Doom should receive the variant');
+  await page.locator('button[data-act="camp-surge-close"]').click();
   await page.locator('button[data-act="camp-play"]').click();
   const finalInfo=await page.evaluate(()=>({
     win:S.campaign.result?.win,rounds:S.campaign.result?.finalRounds,
