@@ -1,8 +1,8 @@
 /* Draft Anything: Campaign encounter strategy and one-shot alternate forms.
    Every encounter is locked to a campaign seed + stage, never to the player's
    chosen lineup. The same retry uses the same opponents and simulation RNG.
-   Variant Surge locks one random eligible character AND one documented form
-   per stage; replacing that character does not return the charge. */
+   Variant Surge locks one weighted documented form per eligible character
+   per stage; replacing that character does not refund the roll. */
 // The form-specific power catalog is independent from Claude's base-character audit.
 const VARIANT_ABILITIES_API=(typeof window!=='undefined'&&window.DA_VARIANT_ABILITY_API)||
   (typeof require==='function'?require('./variant-abilities.js'):null);
@@ -204,54 +204,108 @@ function campaignTacticalMatch(sport,yourRoster,rivalRoster,tacticKey){
 function variantOptions(candidate){
   return candidate?CAMPAIGN_VARIANTS[candidate.pool+':'+(candidate.variantBase||candidate.n)]||[]:[];
 }
+// Legacy single records remain readable; new saves retain every spent identity.
+function variantSurgeRecords(v){
+  const raw=Array.isArray(v?.surge)?v.surge:v?.surge?[v.surge]:[];
+  const seen=new Set();
+  return raw.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&!seen.has(x.id)&&seen.add(x.id));
+}
 function variantSurgeCandidates(v){
-  const sp=SPORTS[v.sport];
-  return sp.pos.filter(p=>!p.coach&&v.roster[p.id]&&variantOptions(v.roster[p.id]).length)
+  const spent=new Set(variantSurgeRecords(v).map(x=>x.id));
+  return SPORTS[v.sport].pos.filter(p=>!p.coach&&v.roster[p.id]&&!spent.has(v.roster[p.id].id)&&variantOptions(v.roster[p.id]).length)
     .map(p=>v.roster[p.id]);
 }
+const VARIANT_ODDS_TABLE=[
+  [],[100],[75,25],[55,35,10],[45,30,20,5],[35,30,20,12,3],
+  [30,25,20,15,8,2],[28,24,19,14,9,5,1],[25,22,18,14,10,6,4,1]
+];
+// A gameplay estimate, not a new canonical power audit. Explicit reviewed
+// surgePower overrides can refine the ranking without editing the odds engine.
+function variantPowerEstimate(base,form){
+  if(Number.isFinite(form.surgePower))return form.surgePower;
+  const delta=Object.entries(form.changes||{}).reduce((sum,[k,d])=>{
+    const a=base.a[CAMPAIGN_ATTR_INDEX[k]];
+    return Number.isFinite(a)?sum+Math.max(1,Math.min(99,a+d))-a:sum;
+  },0);
+  const ability=VARIANT_ABILITIES_API?.variantAbilityProfile(base,form);
+  // Reuse the reviewed combat engine's Apex classification (including flagship
+  // tier-4 forms such as Hellbat), rather than ranking solely by stat deltas.
+  const combatApi=(typeof window!=='undefined'&&window.DA_BRAWL_COMBAT)||
+    (typeof require==='function'?require('./brawl-combat.js'):null);
+  const apex=ability?combatApi?.apexRankOf?.({...base,n:form.name,variantAbilities:ability},ability)||0:0;
+  return delta/12+(Number(form.ratingBonus)||0)+(ability?Math.max(0,ability.tier-2)*2.5:0)+apex*8;
+}
+function variantOdds(base){
+  const ranked=variantOptions(base).map(form=>({form,power:variantPowerEstimate(base,form)}))
+    .sort((a,b)=>a.power-b.power||a.form.name.localeCompare(b.form.name));
+  const n=ranked.length;
+  if(!n)return [];
+  const fallback=ranked.map((_,i)=>Math.exp(-3.2*i/Math.max(1,n-1)));
+  const total=fallback.reduce((a,b)=>a+b,0);
+  const weights=VARIANT_ODDS_TABLE[n]?.slice()||fallback.map(x=>100*x/total);
+  // Near-equal forms share probability; do not invent large differences for ties.
+  for(let i=0;i<n;){
+    let j=i+1;
+    while(j<n&&ranked[j].power-ranked[i].power<=0.5)j++;
+    const mean=weights.slice(i,j).reduce((a,b)=>a+b,0)/(j-i);
+    for(let k=i;k<j;k++)weights[k]=mean;
+    i=j;
+  }
+  return ranked.map((entry,i)=>({...entry,percent:weights[i],
+    classification:entry.power<-.5?'Depowered':entry.power<=.5?'Lateral':entry.power<4?'Enhanced':entry.power<9?'Ascended':'God-tier'}));
+}
 function useVariantSurge(v,targetId=null,seed='shared-variant'){
-  if(v.surge||(v.status&&v.status!=='draft'))return null;
+  if(v.status&&v.status!=='draft')return null;
   const options=variantSurgeCandidates(v);
   if(!options.length)return null;
-  const rng=rngFrom(seed+':variant-surge');
+  const rng=rngFrom(seed+':variant-target');
   const target=targetId?options.find(c=>c.id===targetId):options[Math.floor(rng()*options.length)];
   if(!target)return null;
-  const forms=variantOptions(target);
-  const formRng=targetId?rngFrom(seed+':variant-form:'+target.id):rng;
-  const form=forms[Math.floor(formRng()*forms.length)];
-  if(!form)return null;
-  v.surge={id:target.id,name:form.name};
-  return v.surge;
+  const odds=variantOdds(target);
+  const roll=rngFrom(seed+':variant-form:'+target.id)()*100;
+  let sum=0;
+  const chosen=odds.find(entry=>(sum+=entry.percent)>roll)||odds[odds.length-1];
+  if(!chosen)return null;
+  const record={id:target.id,name:chosen.form.name};
+  v.surge=[...variantSurgeRecords(v),record];
+  return record;
 }
-function variantForm(v){
-  if(!v.surge)return null;
-  const base=Object.values(v.roster).find(c=>c?.id===v.surge.id);
-  if(!base)return null;
-  const form=variantOptions(base).find(f=>f.name===v.surge.name);
-  return form?{base,form}:null;
+function variantForms(v){
+  const byId=new Map(Object.values(v.roster).filter(Boolean).map(c=>[c.id,c]));
+  return variantSurgeRecords(v).flatMap(record=>{
+    const base=byId.get(record.id),form=base&&variantOptions(base).find(f=>f.name===record.name);
+    return form?[{base,form}]:[];
+  });
 }
+function variantForm(v){return variantForms(v)[0]||null;}
 function variantRoster(v){
-  const transform=variantForm(v);
-  if(!transform)return v.roster;
+  const transforms=new Map(variantForms(v).map(x=>[x.base.id,x]));
+  if(!transforms.size)return v.roster;
   const roster={...v.roster};
   for(const [slot,c] of Object.entries(roster)){
-    if(c?.id!==transform.base.id)continue;
+    const transform=transforms.get(c?.id);
+    if(!transform)continue;
     const attrs=c.a.slice();
     for(const [k,delta] of Object.entries(transform.form.changes)){
       const i=CAMPAIGN_ATTR_INDEX[k];
       if(i!==undefined)attrs[i]=Math.max(1,Math.min(99,attrs[i]+delta));
     }
-    // Preserve base identity, signatures, boom flags, synergy and ability tags.
-    // The transformed stats and any documented cosmic bonus are one-use effects.
     const abilities=VARIANT_ABILITIES_API?.variantAbilityProfile(c,transform.form)||null;
     roster[slot]={...c,n:transform.form.name,a:attrs,variantBase:c.n,
-      // A documented alternate form replaces the base move; it does not stack
-      // a second, hidden signature. Profiles are never inferred for unreviewed forms.
       sig:abilities?{name:abilities.move,kind:abilities.kind}:c.sig,
       variantAbilities:abilities,
       variantRatingBonus:Math.max(0,Math.min(5,Number(transform.form.ratingBonus)||0))};
   }
   return roster;
+}
+// CPU can make the same risk/reward choice, with independent reproducible odds.
+function cpuVariantRoster(sport,roster,seed){
+  const v={sport,roster,surge:null,status:'draft'};
+  for(const c of variantSurgeCandidates(v)){
+    const odds=variantOdds(c);
+    if(odds.reduce((n,x)=>n+x.power*x.percent/100,0)>0)useVariantSurge(v,c.id,seed);
+  }
+  return variantRoster(v);
 }
 // Historical Campaign entrypoints are adapters over the same power engine.
 function campaignVariantOptions(c){return variantOptions(c);}
@@ -262,5 +316,5 @@ function campaignVariantRoster(v){return variantRoster(v);}
 if(typeof module!=='undefined'&&module.exports){
   module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignOpponentPool,campaignBuildOpponent,
     campaignChallengeCeiling,campaignFinalBossOpponent,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
-    campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster,variantOptions,variantSurgeCandidates,useVariantSurge,variantForm,variantRoster};
+    campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster,variantOptions,variantOdds,variantSurgeRecords,variantSurgeCandidates,useVariantSurge,variantForm,variantForms,variantRoster,cpuVariantRoster};
 }

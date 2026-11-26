@@ -39,7 +39,7 @@ const context={
  S:{campaign:{history:[]}}
 };
 vm.runInNewContext(campaignCode,context);
-vm.runInNewContext(code+'\nthis.strategyApi={campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS};',context);
+vm.runInNewContext(code+'\nthis.strategyApi={campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
 const api=context.strategyApi;
 function stage(seed='campaign-A',step=0,rule='fast'){
  return {seed,step,sport:'brawl',stageOrder:[0,1,2,3,4,5,6,7,8,9],roster:{},opponents:{},surge:null,status:'draft',rule};
@@ -84,7 +84,7 @@ test('Variant Surge picks a documented form once and does not alter base charact
  v.roster={p0:thor,p1:jean,p2:chars[72],p3:chars[73],p4:chars[74]};
  const surge=api.campaignUseVariantSurge(v);
  assert.ok(surge?.id&&surge.name);
- assert.equal(api.campaignUseVariantSurge(v),null,'Surge cannot be spent twice in one stage');
+ assert.equal(api.campaignUseVariantSurge(v,surge.id),null,'The same identity cannot surge twice');
  const changed=api.campaignVariantRoster(v);
  const updated=Object.values(changed).find(c=>c.id===surge.id);
  assert.equal(updated.n,surge.name);
@@ -92,11 +92,19 @@ test('Variant Surge picks a documented form once and does not alter base charact
  assert.equal(chars.find(c=>c.id===surge.id).n,surge.id===thor.id?'Thor':'Jean Grey','Do not mutate original catalog');
  const originalKeys=Object.keys(v.roster),selected=originalKeys.find(k=>v.roster[k].id===surge.id);
  delete v.roster[selected];
- assert.equal(api.campaignUseVariantSurge(v),null,'Removing character cannot restore surge');
+ assert.equal(api.campaignUseVariantSurge(v,surge.id),null,'Removing character cannot restore surge');
  assert.equal(api.campaignVariantRoster(v),v.roster,'Variant form is inactive after removal');
  const replay=stage('variant-test',2,'psychic');
  replay.roster={p0:thor,p1:jean,p2:chars[72],p3:chars[73],p4:chars[74]};
  assert.equal(JSON.stringify(api.campaignUseVariantSurge(replay)),JSON.stringify(surge),'Stage-seeded variant must be reproducible');
+ const other=surge.id===thor.id?jean:thor;
+ assert.ok(api.campaignUseVariantSurge(replay,other.id));
+ assert.equal(api.variantForms(replay).length,2);
+ assert.equal(api.variantSurgeRecords(replay).length,2);
+ assert.equal(api.campaignUseVariantSurge(replay,other.id),null);
+ const odds=api.variantOdds(thor);
+ assert.ok(Math.abs(odds.reduce((n,x)=>n+x.percent,0)-100)<1e-8);
+ assert.ok(odds[0].percent>=odds[odds.length-1].percent);
 });
 test('variant catalog refers to actual roster characters and well-labeled alternate forms',()=>{
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
@@ -199,4 +207,20 @@ test('kids and mortal rivals use the same trait rule instead of reversing it',()
    assert.ok(Object.values(r.roster).every(c=>names.includes(c.n)),rule);
   }
  }finally{chars.splice(start);}
+});
+
+test('single documented form is guaranteed and legacy single surge remains spent',()=>{
+ const entry=Object.entries(api.CAMPAIGN_VARIANTS).find(([,forms])=>forms.length===1);
+ assert.ok(entry);
+ const [key,forms]=entry,split=key.indexOf(':');
+ const candidate={id:key,pool:key.slice(0,split),n:key.slice(split+1),a:Array(12).fill(75)};
+ const odds=api.variantOdds(candidate);
+ assert.equal(odds.length,1);
+ assert.equal(odds[0].percent,100);
+ const v=stage('single-variant');
+ v.roster={p0:candidate};
+ assert.equal(api.campaignUseVariantSurge(v,candidate.id).name,forms[0].name);
+ v.surge={id:candidate.id,name:forms[0].name};
+ assert.equal(api.campaignUseVariantSurge(v,candidate.id),null);
+ assert.equal(api.campaignVariantRoster(v).p0.n,forms[0].name);
 });
