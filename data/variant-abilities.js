@@ -67,6 +67,7 @@
     ['games:Sonic the Hedgehog','Super Sonic','Chaos Emerald Ascension','speed,cosmic','speed','',4,'unbreakable','Super form requires Chaos Emeralds and a finite power source.'],
     ['games:Sonic the Hedgehog','Hyper Sonic','Hyper Sonic Flash','speed,cosmic','speed,cosmic','',5,'chaos','Hyper form depends on Super Emeralds.'],
     ['games:Shadow the Hedgehog','Super Shadow','Chaos Control Superform','speed,time,cosmic','speed','',4,'clutch','Super state requires the Chaos Emeralds.'],
+    ['games:Bowser','Fury Bowser','Fury Blast','elemental,melee','elemental','',4,'chaos','Giant fury state uses sweeping fire breath and destructive physical attacks; vulnerable to Giga Cat Mario and Cat Shine interruptions.'],
     ['games:Bowser','Dreamy Bowser','Dream Power Reality Strike','reality,magic','magic','',4,'chaos','Dream Stone is the enabling power source.'],
     ['games:Ganondorf','Demon King Ganondorf','Secret Stone Gloom','magic,shadow','magic','elemental',4,'chaos','Secret Stone empowers this particular Ganondorf.'],
     ['games:Link','Fierce Deity Link','Fierce Deity Blade','magic,melee','melee','',4,'unbreakable','Fierce Deity Mask transformation depends on the mask.'],

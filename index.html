@@ -3864,9 +3864,14 @@ function expertAdj(sportKey, c, pos, base) {
 function characterForceMultiplier(sportKey,c,pos){
   return muppetForceMultiplier(c,sportKey,pos)*toonForceMultiplier(c,sportKey,pos);
 }
-function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
+function brawlRoleFit(sportKey,c,pos,useSignature=true){
+  if(sportKey!=='brawl'||!pos.styles)return useSignature?fitFor(c,pos):fitScore(c.a,pos);
+  const raw=style=>useSignature&&c.sig?.kind==='unbreakable'?fitFree(c.a,style):fitScore(c.a,style);
+  return Math.max(...pos.styles.map(style=>style.name==='Speed'?window.DA_BRAWL_COMBAT.speedDpsFit(c,raw(style)):raw(style)));
+}
+function fitIn(sportKey, c, pos) { const b = brawlRoleFit(sportKey,c,pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos)+(pos.bench&&isSidekick(c)?6:0);
+  const b = brawlRoleFit(sportKey,c,pos,false), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos)+(pos.bench&&isSidekick(c)?6:0);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);

@@ -27,7 +27,7 @@
     'dc:Red Death Batman','games:Super Sonic',
     'games:Super Shadow','games:Dreamy Bowser',
     'games:Fierce Deity Link','games:Safer Sephiroth',
-    'games:The Lich King','toons:Spinach-Powered Popeye'
+    'games:The Lich King','toons:Spinach-Powered Popeye','games:Fury Bowser'
   ]);
   function apexRankOf(c,ability){
     if(!c?.variantAbilities||!ability)return 0;
@@ -35,6 +35,16 @@
     return ability.tier>=4?1:0;
   }
 
+  // Strength and demonstrable offensive technique matter; speed alone is
+  // not striking power. Reviewed powers provide an alternative to muscle.
+  function offensiveCredibility(c){
+    const a=k=>Number(c?.a?.[KEYS.indexOf(k)])||50;
+    const p=abilityFor(c);
+    return clamp(Math.max(a('str'),.60*a('tch')+.40*a('acc'),p?45+11*p.tier:0)/85,.45,1);
+  }
+  function speedDpsFit(c,fit){
+    return fit*(.68+.32*offensiveCredibility(c));
+  }
   function fighter(row,side) {
     const tank=!!row.pos.tank;
     const a=k=>attr(row,k);
@@ -64,10 +74,16 @@
     let toon=null,muppet=null;
     if(typeof toonForceOf==='function')toon=toonForceOf(c);
     if(typeof muppetForceOf==='function')muppet=muppetForceOf(c);
+    // Do not translate tank resilience / defensive ToonForce fit into strike
+    // damage. Speed remains useful in initiative, accuracy and evasion.
+    const credibility=offensiveCredibility(c);
+    const attackFit=toon?Math.min(fit,99*credibility):fit;
+    const strike=toon?9+.31*power+.32*attackFit+.10*a('spd')*credibility:attack;
+    const offenseScale=toon?.dimensions?(.65+.35*credibility):1;
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
       ability,physicalTier,wardHp,apexRank,apexHp,
-      attack:attack*(apexRank===2?2.7:apexRank?2.3:1),armor,fit,maxHp,hp:maxHp,
+      attack:strike*offenseScale*(apexRank===2?2.7:apexRank?2.3:1),armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
@@ -185,9 +201,12 @@
         // Signature reality/cosmic/magic attacks bypass the *physical* gap;
         // their own specific domain guards still apply above.
         const physicalAttack=!signature||['melee','toxin','tech','physical'].includes(domain);
-        if(physicalAttack&&!f.toon){
+        if(physicalAttack){
           const gap=Math.max(0,target.physicalTier-f.physicalTier);
-          block+=raw*Math.min(.32,.11*gap);
+          // Cartoon body manipulation mitigates a strength mismatch, but
+          // merely surviving slapstick does not erase it.
+          const bypass=f.toon?.dimensions?clamp((Number(f.toon.dimensions.body)||0)/99,0,1):0;
+          block+=raw*Math.min(.32,.11*gap)*(1-bypass);
         }
         if(target.apexRank&&!f.apexRank){
           // Standard weapons and punches struggle against empowered forms,
@@ -237,7 +256,7 @@
           roundsAlive:f.roundsAlive,receivedHits:f.receivedHits,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,wardHp:f.wardHp,
-          apexRank:f.apexRank,apexHp:f.apexHp,
+          apexRank:f.apexRank,apexHp:f.apexHp,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
           wear:f.wear,koRound:f.koRound,targets:f.targets
@@ -257,7 +276,7 @@
     if(events)result.events=events;
     return result;
   }
-  const api={resolveBrawlCombat,apexRankOf};
+  const api={resolveBrawlCombat,apexRankOf,offensiveCredibility,speedDpsFit};
   if(root)root.DA_BRAWL_COMBAT=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);

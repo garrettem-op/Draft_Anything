@@ -6,6 +6,9 @@
  'use strict';
  const entries=[
  // Full-roster baseline powers. No variant gear or future form is silently stacked.
+ ['toons:Marvin the Martian','Martian energy weapon','tech',4,.32,['tech'],3,'https://www.imdb.com/title/tt0051701/','Advanced alien arsenal includes the Q-36 device; arena attacks are bounded and do not destroy planets.'],
+ ['games:Rayman','Extendable fist strike','melee',3,.18,[],3,'https://www.ubisoft.com/en-us/games/rayman-legends','Limbless melee and platforming attacks require range and timing; not an automatic knockout.'],
+ ['games:Bowser','Fire breath','elemental',3,.20,['elemental'],3,'https://www.mariowiki.com/Fire_Breath','Base Bowser uses fire breath; giant Fury form is not assumed.'],
  ['dc:Joker','Joker toxin','toxin',1,.05,[],3,'https://www.dc.com/characters/the-joker','Weapons and toxin rely on delivery; no superhuman physiology.'],
  ['dc:Darkseid','Omega Beams','cosmic',4,.34,['cosmic','energy'],3,'https://www.dc.com/characters/darkseid','Avatar-scale arena encounter; not the full transcendent form or guaranteed disintegration.'],
  ['dc:Ares (DC)','God of War strike','melee',3,.20,['melee'],3,'https://www.dc.com/characters/ares','War conflict empowers him; conceptual warfare is not infinite arena damage.'],
