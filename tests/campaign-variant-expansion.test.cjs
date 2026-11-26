@@ -84,9 +84,14 @@ test('targeted Variant Surge picks the requested roster character and one determ
  assert.equal(roster.b.n,first.name);
  assert.notEqual(roster.b.a,doom.a,'Only temporary transformed copy may change');
  assert.equal(doom.a[0],80,'Canonical roster stats never mutate');
- assert.equal(ctx.api.campaignUseVariantSurge(a,captain.id),null,'One use per challenge');
+ const next=ctx.api.campaignUseVariantSurge(a,captain.id);
+ assert.ok(next,'A second identity can surge');
+ assert.equal(ctx.api.campaignVariantRoster(a).a.n,next.name);
  delete a.roster.b;
- assert.equal(ctx.api.campaignVariantRoster(a),a.roster,'Spent surge stays spent after removal');
+ assert.equal(ctx.api.campaignUseVariantSurge(a,doom.id),null);
+ a.roster.b=doom;
+ assert.equal(ctx.api.campaignUseVariantSurge(a,doom.id),null,'Redrafting cannot reroll');
+ assert.equal(ctx.api.campaignVariantRoster(a).b.n,first.name);
 });
 
 test('UI loads the expanded catalog before strategy and exposes character-specific form selection',()=>{

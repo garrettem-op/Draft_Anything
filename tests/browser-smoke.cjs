@@ -473,10 +473,10 @@ const server=http.createServer((req,res)=>{
   await variantButton.click();
   const variant=await page.evaluate(()=>{
     const v=S.campaign,active=campaignVariantForm(v),preview=campaignVariantRoster(v);
-    return {surge:v.surge,active:!!active,changed:Object.values(preview).some(c=>c.n===v.surge?.name)};
+    return {surge:v.surge,active:!!active,changed:Object.values(preview).some(c=>c.n===variantSurgeRecords(v)[0]?.name)};
   });
   assert.ok(variant.surge&&variant.active&&variant.changed,'Variant generator did not transform an eligible character');
-  assert.equal(await variantButton.isDisabled(),true,'A second variant roll should not be available');
+  assert.equal(await page.evaluate(()=>variantSurgeCandidates(S.campaign).some(c=>c.id===variantSurgeRecords(S.campaign)[0].id)),false,'Same character cannot roll twice');
   await page.reload({waitUntil:'domcontentloaded'});
   const persisted=await page.evaluate(()=>({surge:S.campaign.surge,stage:S.campaign.step}));
   assert.equal(JSON.stringify(persisted.surge),JSON.stringify(variant.surge),'Variant result did not persist on reload');
@@ -504,7 +504,7 @@ const server=http.createServer((req,res)=>{
   const doomId=await page.evaluate(()=>getCands('mashup').find(c=>c.pool==='mcu'&&c.n==='Doctor Doom').id);
   await variantTarget.selectOption(doomId);
   await page.locator('button[data-act="camp-variant"]').click();
-  const targeted=await page.evaluate(()=>S.campaign.surge);
+  const targeted=await page.evaluate(()=>variantSurgeRecords(S.campaign)[0]);
   assert.equal(targeted.id,doomId,'User-targeted Doom should receive the variant');
   await page.locator('button[data-act="camp-play"]').click();
   const finalInfo=await page.evaluate(()=>({

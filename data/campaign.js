@@ -402,7 +402,7 @@ function loadCampaign(){
     v.stageOrder?.every((id,i)=>id===i))v.stageOrder=null;
   if(!v.seed)v.seed=Date.now().toString(36)+':'+Math.random().toString(36).slice(2);
   if(!v.opponents||typeof v.opponents!=='object')v.opponents={};
-  if(v.surge&&(!v.surge.id||!v.surge.name))v.surge=null;
+  v.surge=variantSurgeRecords(v);
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
   v.selected=null;v.query='';v.infoId=null;v.variantTarget=null;
   if(v.status==='results'&&!v.result)v.status='draft';
@@ -675,22 +675,24 @@ function campaignPlay(){
     if(!second)return toast('No legal second opponent is available for this challenge.');
     encounters.push({name:'The Nexus Champion',opponent:second});
   }
-  const variant=campaignVariantForm(v);
+  const variants=variantForms(v);
+  const variant=variants[0]||null;
   // A few documented reality-warping forms would otherwise barely improve
   // already-capped 99-point character attributes. Keep their extra impact
   // explicitly bounded, transparent, and applied once per encounter.
   const variantBonus=variant?Math.max(0,Math.min(5,Number(variant.form.ratingBonus)||0)):0;
   const rounds=encounters.map(({name,opponent:opp},index)=>{
     // Each fight has independently seeded results and tactical scores. The
-    // same roster and one-use Variant Surge play BOTH fights in the finale.
+    // same roster and locked Variant Surges play BOTH fights in the finale.
     const gameSeed=campaignStageSeed(v)+':match'+(index?':boss-'+index:'');
     const score=teamScore(v.sport,activeRoster);
-    const oppScore={...opp.score};
+    const rivalRoster=cpuVariantRoster(v.sport,opp.roster,campaignStageSeed(v)+':cpu:'+index);
+    const oppScore=teamScore(v.sport,rivalRoster);
     const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
     if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
-    const rivalCommander=campaignCommanderEffect(v.sport,opp.roster,st.rule,oppScore.rating);
+    const rivalCommander=campaignCommanderEffect(v.sport,rivalRoster,st.rule,oppScore.rating);
     if(rivalCommander){oppScore.rating+=rivalCommander.points;oppScore.commanderEffect=rivalCommander;}
-    const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
+    const tactics=campaignTacticalMatch(v.sport,activeRoster,rivalRoster,opp.tactic);
     // Shared teamScore applies the transformed attributes and cosmic bonus once.
     score.rating+=tactics.yourPoints;
     oppScore.rating+=tactics.rivalPoints;
@@ -700,12 +702,12 @@ function campaignPlay(){
     const breakdownHTML=daMatchBreakdown(game.breakdown,score,oppScore,v.teamName,name,null,game.combat);
     const summary=`<p>${esc(tactics?.label||'')}${tactics?.weakness?` · ${esc(tactics.weakness)}`:''}
       ${commander?` · Commander ${esc(commander.name)} contributed a ${commander.percent}% rating lift.`:''}
-      ${variant?` · Variant Surge: ${esc(variant.base.n)} → ${esc(variant.form.name)}${activeRoster&&Object.values(activeRoster).find(c=>c.id===variant.base.id)?.variantAbilities?.move?' · '+esc(Object.values(activeRoster).find(c=>c.id===variant.base.id).variantAbilities.move):''}.`:''}</p>`;
+      ${variants.map(({base,form})=>' · Variant Surge: '+esc(base.n)+' → '+esc(form.name)).join('')}${Object.values(rivalRoster).filter(x=>x.variantBase).map(x=>' · Rival Surge: '+esc(x.variantBase)+' → '+esc(x.n)).join('')}</p>`;
     const report=daComparison(v.sport,score,oppScore,ourPoints,theirPoints,v.teamName||'Your team',name,gameSeed,{
       note:game.line[2],leftSide:win?0:1,rightSide:win?1:0,combat:game.combat,breakdown:breakdownHTML,summaryHTML:summary
     });
     return {win,name,ourPoints,theirPoints,commander,tactics,muppetTeam:score.muppetTeam,
-      opponentNames:Object.values(opp.roster).map(c=>c.n),
+      opponentNames:Object.values(rivalRoster).map(c=>c.n),
       breakdownHTML,report,reportVersion:2,opponentReport:'',
       note:game.line[2]||'',ourRating:+score.rating.toFixed(1),theirRating:+oppScore.rating.toFixed(1)};
   });
@@ -718,6 +720,7 @@ function campaignPlay(){
       theirRating:round.theirRating,report:round.report,reportVersion:round.reportVersion
     })):null,
     variant:variant?{base:variant.base.n,form:variant.form.name,ratingBonus:variantBonus}:null,
+    variants:variants.map(({base,form})=>({base:base.n,form:form.name,ratingBonus:Math.max(0,Math.min(5,Number(form.ratingBonus)||0))})),
     names:Object.values(v.roster).map(c=>c.n),
     ids:Object.values(v.roster).map(c=>c.id)};
   v.status='results';saveCampaign();
