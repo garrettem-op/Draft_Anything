@@ -39,7 +39,7 @@ const context={
  S:{campaign:{history:[]}}
 };
 vm.runInNewContext(campaignCode,context);
-vm.runInNewContext(code+'\nthis.strategyApi={campaignCombatSeed,campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
+vm.runInNewContext(code+'\nthis.strategyApi={campaignSnakeOrder,campaignSnakeCpuDue,campaignSnakeOpponent,campaignCombatSeed,campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
 const api=context.strategyApi;
 function stage(seed='campaign-A',step=0,rule='fast'){
  return {seed,step,sport:'brawl',stageOrder:[0,1,2,3,4,5,6,7,8,9],roster:{},opponents:{},surge:null,status:'draft',rule};
@@ -190,9 +190,9 @@ test('campaign runtime keeps opponents fixed but uses a fresh combat seed per at
  assert.notEqual(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,0,2));
  assert.notEqual(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,1,1));
  assert.equal(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,0,1));
- assert.match(c,/campaignLockedOpponent\(v,st\)/);
+ assert.match(c,/campaignSnakeOpponent\(v,st\)/);
  assert.match(c,/campaignVariantRoster\(v\)/);
- assert.match(c,/campaignWinUses\(c\.id\)>=2/);
+ assert.match(c,/campaignWinUses\(c\.id,v\)>=2/);
  const h=fs.readFileSync(path.join(root,'index.html'),'utf8');
  assert.match(h,/case 'camp-variant'/);
  assert.match(h,/data\/campaign-strategy\.js/);
@@ -302,4 +302,30 @@ test('100 finale seeds keep every starter and support identity disjoint under ca
    assert.equal(JSON.stringify(second.roster),JSON.stringify(api.campaignFinalBossOpponent(v,ch,first).roster));
   }
  }finally{context.S.campaign.history=old;}
+});
+
+test('shared snake alternates first pick and reserves each CPU selection before the next human turn',()=>{
+ assert.deepEqual(Array.from(api.campaignSnakeOrder(4)),['player','cpu','cpu','player','player','cpu','cpu','player']);
+ assert.deepEqual(Array.from(api.campaignSnakeOrder(4,true)),['cpu','player','player','cpu','cpu','player','player','cpu']);
+ assert.equal(api.campaignSnakeCpuDue(7,0),0);assert.equal(api.campaignSnakeCpuDue(7,1),2);assert.equal(api.campaignSnakeCpuDue(7,2),2);assert.equal(api.campaignSnakeCpuDue(7,7),7);
+ const v=stage('snake',0,'final');v.history=[];context.S.campaign=v;
+ try{
+  for(let i=0;i<7;i++){
+   const reserved=new Set(Object.values(v.snake?.cpu||{}));
+   v.roster[P[i].id]=chars.find(c=>c.pool===['games','mcu','toons'][i%3]&&!reserved.has(c.id)&&!Object.values(v.roster).some(x=>x.id===c.id));
+   api.campaignSnakeOpponent(v,{rule:'final'});
+  }
+  const cpu=api.campaignSnakeOpponent(v,{rule:'final'});assert.ok(cpu);
+  const human=new Set(Object.values(v.roster).map(c=>c.id));assert.ok(Object.values(cpu.roster).every(c=>!human.has(c.id)));
+  const second=api.campaignFinalBossOpponent(v,{rule:'final'},cpu,human);assert.ok(second);
+  const unavailable=new Set([...human,...Object.values(cpu.roster).map(c=>c.id)]);assert.ok(Object.values(second.roster).every(c=>!unavailable.has(c.id)));
+ }finally{context.S.campaign={history:[]};}
+});
+test('history rules distinguish CPU appearances, player wins and optional shared single use',()=>{
+ const v=stage();v.history=[{ids:[chars[0].id],cpuIds:[chars[1].id]}];
+ assert.ok(context.campaignHistoryReason(chars[0],'final','player',v));
+ assert.ok(context.campaignHistoryReason(chars[1],'fast','cpu',v));
+ assert.equal(context.campaignHistoryReason(chars[0],'fast','player',v),'');
+ assert.equal(context.campaignHistoryReason(chars[1],'fast','player',v),'');
+ v.singleUse=true;assert.ok(context.campaignHistoryReason(chars[1],'fast','player',v));assert.ok(context.campaignHistoryReason(chars[0],'fast','cpu',v));
 });
