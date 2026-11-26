@@ -1089,6 +1089,12 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .h2h-variant-dialog{background:var(--panel);color:var(--ink);border-radius:16px;padding:24px;width:min(100%,360px);box-shadow:var(--shadow)}
 .h2h-variant-dialog h3{font:800 28px var(--f-display);margin:0 0 12px}
 .h2h-variant-dialog p{margin:0 0 20px}
+.campaign-surge-shake .disc{animation:campaign-surge-shake .6s ease-in-out both}
+@keyframes campaign-surge-shake{0%,100%{transform:translateX(0);filter:drop-shadow(0 0 0 var(--accent))}15%,45%,75%{transform:translateX(-5px) rotate(-7deg);filter:drop-shadow(0 0 14px var(--accent))}30%,60%,90%{transform:translateX(5px) rotate(7deg);filter:drop-shadow(0 0 14px var(--accent))}}
+.campaign-surge-reveal{animation:campaign-surge-reveal .2s .6s both}
+@keyframes campaign-surge-reveal{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.campaign-surge-shake .disc,.campaign-surge-reveal{animation:none}}
+.campaign-surge-hint{margin:8px 0 12px}
 @media(max-width:700px){.h2h-court-layout{grid-template-columns:minmax(0,1fr) 122px;gap:8px}.h2h-rail-pick{font-size:11px;gap:4px}.h2h-rail-picks{padding:4px 6px}.h2h-rail-toggle{padding:8px;font-size:12px}.h2h-rail-position{min-width:20px;font-size:10px}}
 
 /* H2H's court + opponent rail replaced .board.h2h; explicitly size it for the fixed
@@ -4111,7 +4117,7 @@ function renderVariantSurgePanel(v,action,input,ready,label='draft') {
       <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">One weighted roll per character per ${esc(label)}. Surge as many different characters as you want; stronger forms are rarer. Rolls are permanent even if you remove a character.</p></div>
       <button type="button" class="btn ${choices.length?'primary':''}" data-act="${action}" ${!choices.length||!ready?'disabled':''}>${choices.length?'Activate surge':'No surges available'}</button>
     </div>
-    ${choices.length?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="${input}" id="${input}">${choices.map(c=>`<option value="${esc(c.id)}" ${selected?.id===c.id?'selected':''}>${esc(c.n)} · ${variantOptions(c).length} possible forms</option>`).join('')}</select></label>${renderVariantOdds(selected)}`:''}
+    ${choices.length?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="${input}" id="${input}">${choices.map(c=>`<option value="${esc(c.id)}" ${selected?.id===c.id?'selected':''}>${esc(c.n)} · Surge available</option>`).join('')}</select></label>`:''}
     <p class="note" style="margin:8px 0 0">${spent.length} locked surge(s) · ${choices.length} remaining eligible character(s).${ready?'':' Complete the lineup to activate.'}</p>
     ${active.map(({base,form})=>{const ability=window.DA_VARIANT_ABILITY_API?.variantAbilityProfile(base,form);return `<div class="note" style="margin-top:10px"><b>${esc(base.n)} → ${esc(form.name)}</b> · ${esc(form.origin)}${ability?`<div>Unique move: ${esc(ability.move)} · ${esc(ability.domains.join(', '))}</div><div>Defenses: ${esc(ability.guards.join(', ')||'none documented')}${ability.weakTo.length?' · Vulnerable to: '+esc(ability.weakTo.join(', ')):''}.</div><div>Limit: ${esc(ability.limit)}</div>`:'<div>Attribute changes only; special ability profile awaits review.</div>'}</div>`;}).join('')}
   </div>`;
@@ -4126,20 +4132,20 @@ function renderField(sportKey, roster, o = {}) {
   const team = o.team === 'opp' ? 'var(--opp)' : 'var(--you)';
   const node = p => {
     const c = roster[p.id];
-    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : '', o.variantShakeSlot===p.id?'campaign-surge-shake':''].join(' ');
     const variantPick = !!(c && o.variantSlots?.has(p.id));
     const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
-    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : '', o.variantShakeSlot===p.id?'campaign-surge-shake':''].join(' ');
     const variantPick = !!(c && o.variantSlots?.has(p.id));
     const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
+    return `<button class="${cls}" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
   const sides=sp.pos.filter(p=>p.side);
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
@@ -5276,7 +5282,7 @@ function renderH2HPowers(d){
   return `<section class="h2h-ability-phase">
     ${mySide(d)?`<div class="h2h-ready-actions"><span class="note">${ready?'Ready · waiting for opponent':variantSurgeRecords({surge:d.surges?.[me]}).length?'Variants locked · continue or confirm':'Optional Variant Surge'}</span>${!ready?`<button class="btn primary" data-act="h-ready">${variantSurgeRecords({surge:d.surges?.[me]}).length?'Finalize & view results':'Skip Surge · Finalize'}</button>`:''}</div>`:''}
     ${renderH2HCourt(d,me,true)}
-    ${canChoose&&selected?`<div class="h2h-variant-shade" data-act="h-variant-cancel"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p>Use Variant Surge on <b>${esc(selected.n)}</b>?</p>${renderVariantOdds(selected)}<div class="row"><button class="btn" data-act="h-variant-cancel">Cancel</button><button class="btn primary" data-act="h-variant-confirm">Use Variant Surge</button></div></div></div>`:''}
+    ${canChoose&&selected?`<div class="h2h-variant-shade" data-act="h-variant-cancel"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p>Use Variant Surge on <b>${esc(selected.n)}</b>?</p><div class="row"><button class="btn" data-act="h-variant-cancel">Cancel</button><button class="btn primary" data-act="h-variant-confirm">Use Variant Surge</button></div></div></div>`:''}
   </section>`;
 }
 function renderH2HResult(d) {
@@ -5945,10 +5951,17 @@ document.addEventListener('click', e => {
       v.selected=null;
       break;
     }
+    case 'camp-surge-close': S.campaign.surgeDialog=null;S.campaign.surgeReveal=null;break;
+    case 'camp-surge-edit': {
+      const v=S.campaign;v.selected=v.surgeDialog;v.surgeDialog=null;v.surgeReveal=null;v.validationOpen=false;break;
+    }
     case 'camp-variant': {
-      const surge=campaignUseVariantSurge(S.campaign,S.campaign.variantTarget);
-      if(surge)toast('Variant Surge: '+surge.name+'! This character’s transformation is locked for this challenge.');
-      else toast('Variant Surge unavailable: fill the lineup with at least one eligible alternate-form character.');
+      const v=S.campaign,slot=v.surgeDialog,base=v.roster[slot];
+      if(v.status!=='draft'||!base||!campaignSurgeSlots(v).has(slot)) {v.surgeDialog=null;break;}
+      const surge=campaignUseVariantSurge(v,base.id);
+      v.surgeDialog=null;
+      if(surge){v.surgeReveal={slot,base:base.n,name:surge.name};saveCampaign();}
+      else toast('Variant Surge unavailable for this character.');
       break;
     }
     case 'camp-play': campaignPlay(); if(S.campaign.status==='results')window.scrollTo(0,0); break;
@@ -6003,7 +6016,7 @@ document.addEventListener('click', e => {
     case 'c-setup': c.stage = 'setup'; c.sel = null; c.result = null; break;
     case 'slot':
       if (S.mode === 'champ' && c.campaignMode) {
-        if (campaignSlots(S.campaign.sport,campaignStage().rule).some(p=>p.id===t.dataset.slot)) {S.campaign.selected=t.dataset.slot;S.campaign.validationOpen=false;}
+        if (campaignSlots(S.campaign.sport,campaignStage().rule).some(p=>p.id===t.dataset.slot)) {const v=S.campaign;if(campaignSurgeSlots(v).has(t.dataset.slot)){v.surgeDialog=t.dataset.slot;v.selected=null;}else{v.selected=t.dataset.slot;v.validationOpen=false;}}
         break;
       }
       if (handMode()) {
@@ -6110,6 +6123,7 @@ document.addEventListener('keydown', e => {
   if(e.key === 'Escape' && S.mode==='grid' && S.daily.target!==null) {S.daily.target=null;S.daily.query='';render();return;}
   if(e.key === 'Escape' && S.handInfoId){S.handInfoId=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.disputeSlot&&!S.campaign.disputeBusy) {S.campaign.disputeSlot=null;S.campaign.disputeResult=null;render();return;}
+  if (e.key === 'Escape' && (S.campaign?.surgeDialog||S.campaign?.surgeReveal)) {S.campaign.surgeDialog=null;S.campaign.surgeReveal=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.infoId) { S.campaign.infoId=null; render(); return; }
   if (e.key === 'Escape') { if (S.modal) { S.modal = null; render(); } else if (S.champ.sel || S.h2h.sel || S.champ.handSel) { S.champ.sel = null; S.h2h.sel = null; S.champ.handSel = null; render(); } }
   if (e.key === 'Enter' && e.target.id === 'h-code') joinByCode();
