@@ -192,8 +192,9 @@
           ['cosmic','magic','reality','time','elemental'].includes(domain))
           // Apex attackers already receive up to 2.7x attack power; do not
           // stack the old 4x counter on top. Baseline cosmic beings retain
-          // a stronger counter to transformed conventional fighters.
-          raw=Math.round(raw*(f.apexRank?1.25+.25*(p.tier-4):2+.5*(p.tier-4)));
+          // a stronger counter to transformed conventional fighters; tier-5
+          // targets have comparable cosmic power and get the reduced counter.
+          raw=Math.round(raw*(f.apexRank?1.25+.25*(p.tier-4):target.ability?.tier>=5?2+.5*(p.tier-4):3+(p.tier-4)));
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
         // High-order baseline entities may have formidable passive defenses
         // even without being randomly granted an alternate form themselves.
