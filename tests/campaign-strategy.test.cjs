@@ -185,3 +185,18 @@ test('both final bosses have three starter pools and exclude previously winning 
   }
  }finally{context.S.campaign.history=old;}
 });
+
+test('kids and mortal rivals use the same trait rule instead of reversing it',()=>{
+ const start=chars.length;
+ const add=(pool,n)=>chars.push({id:pool+':'+n,pool,n,a:Array(12).fill(80)});
+ for(const n of ['Spider-Man','Ms. Marvel','Ironheart','America Chavez','Sprite','Franklin Richards','Ned Leeds'])add('mcu',n);
+ for(const n of ['Black Widow','Hawkeye','Kate Bishop','Falcon','Happy Hogan','Howard Stark','Nick Fury'])add('mcu',n);
+ try{
+  for(const [rule,names] of [['kids',['Spider-Man','Ms. Marvel','Ironheart','America Chavez','Sprite','Franklin Richards','Ned Leeds']],['mortal',['Black Widow','Hawkeye','Kate Bishop','Falcon','Happy Hogan','Howard Stark','Nick Fury','Ned Leeds']]]){
+   const v=stage('trait-'+rule,3,rule),r=api.campaignLockedOpponent(v,{rule});
+   assert.ok(r,rule);
+   assert.equal(Object.keys(r.roster).length,7);
+   assert.ok(Object.values(r.roster).every(c=>names.includes(c.n)),rule);
+  }
+ }finally{chars.splice(start);}
+});
