@@ -3,12 +3,12 @@ const CAMPAIGN_STAGES = [
   {name:'The Fast Lane',rule:'fast',criteria:{stats:[{attribute:'spd',op:'gte',value:90}],commanderSpecialty:true},blurb:'Only speedsters. Every pick must have Speed 90 or higher.',rival:'The Blitz'},
   {name:'Queens of the Court',rule:'women',criteria:{trait:'women'},blurb:'Women and female characters only. Use your knowledge of character identities to select your team.',rival:'The Queensguard'},
   {name:'Seeing Red',rule:'red',criteria:{trait:'red'},blurb:'Red-themed characters only: red costumes, red bodies, or a distinctly red design.',rival:'The Crimson Crew'},
-  {name:'The Young Guns',rule:'kids',criteria:{trait:'kids'},blurb:'Only children and teenage characters. No adult versions.',rival:'The Veterans'},
-  {name:'No Powers Allowed',rule:'mortal',criteria:{trait:'mortal'},blurb:'No supernatural powers or superhuman bodies. Human athleticism and skill still count.',rival:'The Supernaturals'},
+  {name:'The Young Guns',rule:'kids',criteria:{trait:'kids'},blurb:'Only children and teenage characters. No adult versions.',rival:'The Young Contenders'},
+  {name:'No Powers Allowed',rule:'mortal',criteria:{trait:'mortal'},blurb:'No supernatural powers or superhuman bodies. Human athleticism and skill still count.',rival:'The Mortals'},
   {name:'Big Brain Energy',rule:'brain',criteria:{stats:[{attribute:'iq',op:'gte',value:87}],commanderSpecialty:true},blurb:'Every pick must have Game IQ 87 or higher.',rival:'The Masterminds'},
   {name:'Heavy Hitters',rule:'strong',criteria:{stats:[{attribute:'str',op:'gte',value:87}],commanderSpecialty:true},blurb:'Only characters with Strength 87 or higher.',rival:'The Juggernauts'},
-  {name:'The Underdogs',rule:'underdog',criteria:{stats:[{attribute:'average',op:'lte',value:73}]},blurb:'Everyone must have an average attribute rating of 73 or lower.',rival:'The Favorites'},
-  {name:'Short-Handed',rule:'short',criteria:{lineup:{starterFraction:0.6,startersOnly:true}},blurb:'Play with only 60% of your starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Full Strength'},
+  {name:'The Underdogs',rule:'underdog',criteria:{stats:[{attribute:'average',op:'lte',value:73}]},blurb:'Everyone must have an average attribute rating of 73 or lower.',rival:'The Dark Horses'},
+  {name:'Short-Handed',rule:'short',criteria:{lineup:{starterFraction:0.6,startersOnly:true}},blurb:'Both teams play with only 60% of their starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Short-Handed Rivals'},
   {name:'The Multiverse Siege',rule:'final',criteria:{neverPreviouslyWon:true,minDistinctPools:3,encounters:2},blurb:'FINAL BATTLE: Build a full-strength alliance from at least THREE talent pools. No character from a previously WON challenge is allowed. Your same lineup must defeat TWO independently seeded bosses in a row.',rival:'The Final Boss'}
 ];
 const CAMPAIGN_EXTRA = [
@@ -547,14 +547,23 @@ function campaignInvalidSlots(){
   return new Set(Object.entries(v.roster).filter(([slot,c])=>c&&!campaignPickAllowed(c,rule,positions.get(slot))).map(([slot])=>slot));
 }
 function campaignQualified(){return campaignInvalidSlots().size===0;}
-function campaignReady(){
-  const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),pick=slots.map(p=>v.roster[p.id]).filter(Boolean);
-  const minimum=st.criteria?.minDistinctPools||0;
+function campaignRosterReady(sport,rule,roster){
+  const slots=campaignSlots(sport,rule),pick=slots.map(p=>roster[p.id]).filter(Boolean);
+  const minimum=campaignCriteria(rule)?.minDistinctPools||0;
   // Benches and coaches must not satisfy the alliance on behalf of the
   // characters actually fighting in the final encounter.
-  const starters=slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id]);
-  return pick.length===campaignLimit(v.sport,st.rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(v.roster).every(id=>slots.some(p=>p.id===id))&&
+  const starters=slots.filter(p=>!p.coach&&!p.bench&&!p.side&&roster[p.id]).map(p=>roster[p.id]);
+  return pick.length===campaignLimit(sport,rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(roster).every(id=>slots.some(p=>p.id===id))&&
     new Set(starters.map(c=>c.pool)).size>=minimum;
+}
+function campaignRosterLegal(sport,rule,roster){
+  if(!roster||!campaignRosterReady(sport,rule,roster))return false;
+  const positions=new Map(campaignSlots(sport,rule).map(p=>[p.id,p]));
+  return Object.entries(roster).every(([slot,c])=>c&&campaignPickAllowed(c,rule,positions.get(slot)));
+}
+function campaignReady(){
+  const v=S.campaign;
+  return campaignRosterReady(v.sport,campaignStage().rule,v.roster);
 }
 function campaignProgress(){
   const v=S.campaign,done=v.status==='complete'?10:v.step;
@@ -574,7 +583,7 @@ function campaignProgress(){
 function renderCampaignSetup(){
   const v=S.campaign,existing=v.step>0||v.status!=='setup';
   return `<section class="setup">
-    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Every new campaign draws nine themed challenges from the eligible pool, prioritizing ones you have not seen recently, then finishes with the two-boss Multiverse Siege. Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. Opponents are fixed independently of your lineup, and retrying an unchanged team has the same outcome. Each character may appear in two winning rosters total; the finale bans previously winning picks and requires a new alliance across multiple worlds. Completed wins remain saved on this device.</span></div>
+    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Every new campaign draws nine themed challenges from the eligible pool, prioritizing ones you have not seen recently, then finishes with the two-boss Multiverse Siege. Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. Both teams follow the same challenge and campaign-history restrictions. Opponents are fixed independently of your current lineup, and retrying an unchanged team has the same outcome. Each character may appear in two winning rosters total; the finale bans previously winning picks and requires a new alliance across multiple worlds. Completed wins remain saved on this device.</span></div>
     <div class="panel rules" style="margin-bottom:16px"><div class="field-label"><span>Championship mode</span><div class="seg"><button data-act="c-kind" data-v="classic">Perfect Season</button><button data-act="c-kind" data-v="campaign" aria-pressed="true">Campaign · 10 challenges</button></div></div></div>
     ${campaignProgress()}
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>
@@ -621,7 +630,7 @@ function campaignPickerFilterHTML(v) {
 }
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignLockedOpponent(v,st);
-  const tactic=CAMPAIGN_TACTICS[opponent.tactic]||CAMPAIGN_TACTICS.assault;
+  const tactic=CAMPAIGN_TACTICS[opponent?.tactic]||CAMPAIGN_TACTICS.assault;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
   const distinctPools=new Set(slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
@@ -638,12 +647,13 @@ function renderCampaignDraft(){
   return `<section>${campaignProgress()}
     <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p>${minPools?`<p class="note" style="margin:8px 0 0"><b>Universe alliance: ${distinctPools}/${minPools} pools represented.</b> Mix characters from different talent pools.</p>`:''}<p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Characters can appear on only two winning rosters per campaign.</p></div>
     <div class="panel" style="padding:14px 16px;margin-bottom:14px">
-      <div class="eyebrow">Opponent scouting · Fixed encounter</div><h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
+      <div class="eyebrow">Opponent scouting · Fixed encounter</div>
+      ${!opponent?'<p class="note">No legal opponent can be drafted from the remaining eligible characters. The match is unavailable; no challenge rules will be bypassed.</p>':''}<h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
       <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
-      <p class="note" style="margin:6px 0 0">Opponent roster, strength, and match randomness remain fixed regardless of your picks or retries.</p>
+      <p class="note" style="margin:6px 0 0">Both rosters must obey the same challenge rules. Opponent roster and match randomness remain fixed across retries.</p>
     </div>
     ${renderVariantSurgePanel(v,'camp-variant','camp-variant-target',valid,'challenge')}
-    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid?'':'disabled'}>Submit lineup & play</button></div>
+    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
   </section>`;
 }
@@ -658,10 +668,13 @@ function campaignPlay(){
   v.validation='';v.validationOpen=false;
   const activeRoster=campaignVariantRoster(v);
   const first=campaignLockedOpponent(v,st);
+  if(!first)return toast('No legal opponent is available for this challenge.');
   const encounters=[{name:st.rival,opponent:first}];
-  if(st.criteria?.encounters===2)encounters.push({
-    name:'The Nexus Champion',opponent:campaignFinalBossOpponent(v,st,first)
-  });
+  if(st.criteria?.encounters===2){
+    const second=campaignFinalBossOpponent(v,st,first);
+    if(!second)return toast('No legal second opponent is available for this challenge.');
+    encounters.push({name:'The Nexus Champion',opponent:second});
+  }
   const variant=campaignVariantForm(v);
   // A few documented reality-warping forms would otherwise barely improve
   // already-capped 99-point character attributes. Keep their extra impact
@@ -675,6 +688,8 @@ function campaignPlay(){
     const oppScore={...opp.score};
     const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
     if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
+    const rivalCommander=campaignCommanderEffect(v.sport,opp.roster,st.rule,oppScore.rating);
+    if(rivalCommander){oppScore.rating+=rivalCommander.points;oppScore.commanderEffect=rivalCommander;}
     const tactics=campaignTacticalMatch(v.sport,activeRoster,opp.roster,opp.tactic);
     // Shared teamScore applies the transformed attributes and cosmic bonus once.
     score.rating+=tactics.yourPoints;
