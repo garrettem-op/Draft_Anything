@@ -81,3 +81,26 @@ test('browser wires combat into every brawl match path and report',()=>{
  assert.match(reports,/combat:orderedCombat/);
  assert.doesNotMatch(reports,/total\s*\*\s*210\s*\+\s*350/);
 });
+test('1000 paired seeds: exchanging equivalent tank and DPS slots cannot change fighter outcomes',()=>{
+ const A=buildTeam('A',{str:88,acc:79,spd:75,end:84,fit:88},88);
+ const B=buildTeam('B',{str:86,acc:85,spd:87,end:80,fit:86},86);
+ const swapped={...A,rows:A.rows.map((r,i)=>({...r,cand:A.rows[[1,0,3,2,4][i]].cand}))};
+ const normalized=r=>r.sides.map(side=>side.fighters.map(({position,...f})=>f).sort((a,b)=>a.id.localeCompare(b.id)));
+ for(let seed=1;seed<=1000;seed++){
+  const original=resolveBrawlCombat(A,B,[89,84],rngFrom(seed));
+  const moved=resolveBrawlCombat(swapped,B,[89,84],rngFrom(seed));
+  assert.equal(original.winner,moved.winner);
+  assert.deepEqual(normalized(original),normalized(moved));
+ }
+});
+test('Apex cosmic attackers do not multiply their own boosted strike by four against another Apex',()=>{
+ const stats={str:99,spd:90,end:99,siz:99,acc:99,ref:90,fit:99};
+ const A=buildTeam('A',stats,90),B=buildTeam('B',stats,90);
+ const power={move:'Cosmic strike',domains:['cosmic'],guards:[],tier:5};
+ for(const team of [A,B])for(const r of team.rows)r.cand.variantAbilities=power;
+ const r=resolveBrawlCombat(A,B,[90,90],()=>.5,{trace:true});
+ const hits=r.events.filter(e=>e.type==='hit'&&e.round===1&&e.domain==='cosmic');
+ assert.ok(hits.length>0);
+ assert.ok(hits.every(e=>e.raw<800),'opening cosmic strikes must not retain the old 4x stacking');
+ assert.ok(r.sides.flatMap(s=>s.fighters).every(f=>f.hp>=0));
+});

@@ -98,6 +98,9 @@
     const muppetBlock=m?Math.min(8,3+5*(Number(m.resilience)||0)/99):0;
     return 6+.18*f.armor+.052*f.fit+toonBlock+muppetBlock;
   }
+  // Identity ordering decouples seeded initiative and target draws from
+  // equivalent roster slots. Position still determines tank status.
+  const byIdentity=(a,b)=>String(a.id).localeCompare(String(b.id));
   function pickTarget(targets,rng) {
     // Tanks reliably draw more attacks, but don't monopolize targets.
     const weights=targets.map(f=>f.tank?2.2:1);
@@ -124,7 +127,7 @@
     const log=event=>{if(events&&events.length<1500)events.push(event);};
     let round=0,attacks=0;
     for(round=1;round<=90;round++) {
-      const alive=fighters.flat().filter(f=>f.hp>0);
+      const alive=fighters.flatMap(team=>team.filter(f=>f.hp>0).sort(byIdentity));
       for(const f of alive){
         f.roundsAlive++;
         // Metabolic drain is distinct from opponent damage and cannot finish
@@ -147,7 +150,7 @@
         .map(x=>({...x,action:1})));
       for(const {f,action=0} of actions) {
         if(f.hp<=0)continue;
-        const enemies=fighters[1-f.side].filter(x=>x.hp>0);
+        const enemies=fighters[1-f.side].filter(x=>x.hp>0).sort(byIdentity);
         if(!enemies.length)break;
         const target=pickTarget(enemies,rng);
         f.attacks++;attacks++;
@@ -187,7 +190,10 @@
         // threaten it, rather than being treated as another generic punch.
         if(signature&&target.apexRank&&p?.tier>=4&&
           ['cosmic','magic','reality','time','elemental'].includes(domain))
-          raw=Math.round(raw*4);
+          // Apex attackers already receive up to 2.7x attack power; do not
+          // stack the old 4x counter on top. Baseline cosmic beings retain
+          // a stronger counter to transformed conventional fighters.
+          raw=Math.round(raw*(f.apexRank?1.25+.25*(p.tier-4):2+.5*(p.tier-4)));
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
         // High-order baseline entities may have formidable passive defenses
         // even without being randomly granted an alternate form themselves.
