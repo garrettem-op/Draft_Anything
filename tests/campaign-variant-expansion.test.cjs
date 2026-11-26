@@ -105,5 +105,5 @@ test('UI loads the expanded catalog before strategy and exposes character-specif
   assert.match(html,/variantSurgeCandidates\(v\)/);
   assert.match(campaign,/renderCampaignSurgeDialog\(v\)/);
  assert.match(campaign,/minDistinctPools:3,encounters:2/);
- assert.match(campaign,/campaignFinalBossOpponent\(v,st,first\)/);
+ assert.match(campaign,/campaignSnakeSecond\(v,st,first\)/);
 });

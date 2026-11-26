@@ -106,17 +106,17 @@ function campaignCombatSeed(v,index=0,attempt=v.attempts?.[v.step]||0){
 }
 // Exactly the same slot-aware eligibility and campaign history as the player.
 const CAMPAIGN_OPPONENT_RULE_VERSION=2;
-function campaignOpponentPool(rule,all,pos=null){
-  return all.filter(c=>campaignPickAllowed(c,rule,pos));
+function campaignOpponentPool(rule,all,pos=null,side='player',v=S.campaign){
+  return all.filter(c=>campaignPickAllowed(c,rule,pos,side,v));
 }
 // Role-aware, seeded drafting. Normal slots share the same eligibility;
 // the commander may also qualify through a documented specialty. Fill
 // starters first so a specialist/support pick cannot consume a required starter.
-function campaignDraftLegalRoster(sport,rule,all,rng,jitter=0){
+function campaignDraftLegalRoster(sport,rule,all,rng,jitter=0,side='player',v=S.campaign){
   const slots=campaignSlots(sport,rule),limit=campaignLimit(sport,rule);
   const minimum=campaignCriteria(rule)?.minDistinctPools||0;
   const active=p=>!p.coach&&!p.bench&&!p.side;
-  const ranked=slots.map(p=>({p,choices:campaignOpponentPool(rule,all,p)
+  const ranked=slots.map(p=>({p,choices:campaignOpponentPool(rule,all,p,side,v)
     .map(c=>({c,value:fitIn(sport,c,p)+(rng()-0.5)*jitter}))
     .sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id))}));
   const priority=p=>active(p)?2:p.coach?0:1;
@@ -132,17 +132,17 @@ function campaignDraftLegalRoster(sport,rule,all,rng,jitter=0){
     used.add(pick.c.id);
     pools.add(pick.c.pool);
   }
-  return campaignRosterLegal(sport,rule,roster)?roster:null;
+  return campaignRosterLegal(sport,rule,roster,side,v)?roster:null;
 }
 function campaignChallengeCeiling(sport,rule){
   const roster=campaignDraftLegalRoster(sport,rule,getCands('mashup'),()=>0.5);
   return roster?teamScore(sport,roster).rating:0;
 }
-function campaignBuildOpponent(v,stage,excludedIds=new Set()){
+function campaignBuildOpponent(v,stage,excludedIds=new Set(),side='player'){
   const rng=rngFrom(campaignStageSeed(v)+':opponent');
   // Later stages reduce drafting noise instead of granting raw rating bonuses.
   const jitter=18-15*Math.max(0,Math.min(9,v.step))/9;
-  const roster=campaignDraftLegalRoster(v.sport,stage.rule,getCands('mashup').filter(c=>!excludedIds.has(c.id)),rng,jitter);
+  const roster=campaignDraftLegalRoster(v.sport,stage.rule,getCands('mashup').filter(c=>!excludedIds.has(c.id)),rng,jitter,side,side==='cpu'?v:S.campaign);
   if(!roster)return null;
   const strategies=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
   const tactic=strategies[Math.floor(rng()*strategies.length)]||strategies[0];
@@ -167,19 +167,81 @@ function campaignLockedOpponent(v,stage){
   return {roster,score:teamScore(v.sport,roster),tactic:o.tactic};
 }
 // Both independent finale opponents must meet the same alliance and history rules.
-function campaignFinalBossOpponent(v,stage,firstBoss){
+function campaignFinalBossOpponent(v,stage,firstBoss,playerIds=null){
   const alt={...v,seed:String(v.seed||'legacy-campaign')+'|second-siege-boss'};
   if(!firstBoss?.roster)return null;
   // Surge variants retain their original candidate ID. Exclude all roles.
-  const excludedIds=new Set(Object.values(firstBoss.roster).map(c=>c.id));
-  const generated=campaignBuildOpponent(alt,stage,excludedIds);
+  const excludedIds=new Set([...Object.values(firstBoss.roster).map(c=>c.id),...(playerIds||[])]);
+  const side=playerIds?'cpu':'player';
+  const generated=campaignBuildOpponent(alt,stage,excludedIds,side);
   if(!generated)return null;
   const roster=campaignHydrateOpponent(generated);
-  if(!campaignRosterLegal(v.sport,stage.rule,roster)||Object.values(roster).some(c=>excludedIds.has(c.id)))return null;
+  if(!campaignRosterLegal(v.sport,stage.rule,roster,side,side==='cpu'?v:S.campaign)||Object.values(roster).some(c=>excludedIds.has(c.id)))return null;
   const possible=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
   const tactic=generated.tactic===firstBoss?.tactic
     ?(possible.find(s=>s!==firstBoss.tactic)||'precision'):generated.tactic;
   return {roster,score:teamScore(v.sport,roster),tactic};
+}
+// Snake sequence is ABBAABBA…; alternate first pick by challenge.
+function campaignSnakeOrder(limit,cpuFirst=false){
+  return Array.from({length:2*limit},(_,i)=>((Math.floor((i+1)/2)%2===0)!==cpuFirst?'player':'cpu'));
+}
+function campaignSnakeCpuDue(limit,playerPicks,cpuFirst=false){
+  let humans=0,cpus=0;
+  for(const side of campaignSnakeOrder(limit,cpuFirst)){
+    if(side==='player'){if(humans===playerPicks)break;humans++;}
+    else cpus++;
+  }
+  return cpus;
+}
+function campaignSnakeOpponent(v,stage){
+  const slots=campaignSlots(v.sport,stage.rule),limit=campaignLimit(v.sport,stage.rule);
+  if(v.snake?.step!==v.step)v.snake={step:v.step,cpu:{},tactic:null};
+  const draft=v.snake,playerIds=new Set(Object.values(v.roster||{}).map(c=>c.id));
+  const all=getCands('mashup'),candidates=new Map(all.map(c=>[c.id,c]));
+  const positions=new Map(slots.map(p=>[p.id,p]));
+  // Migrate an unfinished/legacy draft without deleting the user's picks.
+  for(const [slot,id] of Object.entries(draft.cpu)){
+    if(playerIds.has(id)||!positions.has(slot)||!campaignPickAllowed(candidates.get(id),stage.rule,positions.get(slot),'cpu',v))delete draft.cpu[slot];
+  }
+  const due=campaignSnakeCpuDue(limit,Math.min(limit,playerIds.size),v.step%2===1);
+  let dirty=false;
+  const minimum=campaignCriteria(stage.rule)?.minDistinctPools||0;
+  const jitter=18-15*Math.max(0,Math.min(9,v.step))/9;
+  while(Object.keys(draft.cpu).length<due){
+    const used=new Set([...playerIds,...Object.values(draft.cpu)]);
+    const pools=new Set(Object.values(draft.cpu).map(id=>candidates.get(id)?.pool));
+    const rng=rngFrom(campaignStageSeed(v)+':snake:'+Object.keys(draft.cpu).length);
+    const remaining=slots.filter(p=>!draft.cpu[p.id]);
+    const priority=p=>!p.coach&&!p.bench&&!p.side?2:p.coach?0:1;
+    const options=remaining.map(p=>{
+      const legal=all.filter(c=>!used.has(c.id)&&campaignPickAllowed(c,stage.rule,p,'cpu',v)&&
+        (pools.size>=minimum||!pools.has(c.pool)));
+      const ranked=legal.map(c=>({c,value:fitIn(v.sport,c,p)+(rng()-.5)*jitter})).sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id));
+      return {p,ranked};
+    }).filter(x=>x.ranked.length).sort((a,b)=>priority(b.p)-priority(a.p)||a.ranked.length-b.ranked.length||b.ranked[0].value-a.ranked[0].value);
+    if(!options.length)break;
+    const best=options[0];draft.cpu[best.p.id]=best.ranked[0].c.id;dirty=true;
+  }
+  if(!draft.tactic){
+    const choices=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
+    draft.tactic=choices[Math.floor(rngFrom(campaignStageSeed(v)+':tactic')()*choices.length)]||choices[0];dirty=true;
+  }
+  if(dirty)saveCampaign();
+  const roster=campaignHydrateOpponent({roster:draft.cpu});
+  if(Object.keys(roster).length!==limit||!campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v)||Object.values(roster).some(c=>playerIds.has(c.id)))return null;
+  return {roster,score:teamScore(v.sport,roster),tactic:draft.tactic};
+}
+function campaignSnakeSecond(v,stage,first){
+  const unavailable=new Set([...Object.values(v.roster).map(c=>c.id),...Object.values(first.roster).map(c=>c.id)]);
+  let second=v.snake?.second,roster=campaignHydrateOpponent(second);
+  if(!second||!campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v)||Object.values(roster).some(c=>unavailable.has(c.id))){
+    const generated=campaignFinalBossOpponent(v,stage,first,new Set(Object.values(v.roster).map(c=>c.id)));
+    if(!generated)return null;
+    second={roster:Object.fromEntries(Object.entries(generated.roster).map(([slot,c])=>[slot,c.id])),tactic:generated.tactic};
+    v.snake.second=second;saveCampaign();return generated;
+  }
+  return {roster,score:teamScore(v.sport,roster),tactic:second.tactic};
 }
 function campaignActiveAverage(sport,roster,attr){
   const ix=CAMPAIGN_ATTR_INDEX[attr];
