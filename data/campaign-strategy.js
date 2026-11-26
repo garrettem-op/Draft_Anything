@@ -121,12 +121,12 @@ function campaignDraftLegalRoster(sport,rule,all,rng,jitter=0){
   const roster={},used=new Set(),pools=new Set();
   for(const {p,choices} of ranked){
     if(used.size===limit)break;
-    const needPool=active(p)&&pools.size<minimum;
+    const needPool=pools.size<minimum;
     const pick=choices.find(({c})=>!used.has(c.id)&&(!needPool||!pools.has(c.pool)));
     if(!pick)continue;
     roster[p.id]=pick.c;
     used.add(pick.c.id);
-    if(active(p))pools.add(pick.c.pool);
+    pools.add(pick.c.pool);
   }
   return campaignRosterLegal(sport,rule,roster)?roster:null;
 }
