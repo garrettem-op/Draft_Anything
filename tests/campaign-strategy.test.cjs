@@ -35,7 +35,7 @@ const context={
  window:{DA_CAMPAIGN_VARIANT_EXPANSION:expansion},
  SPORTS,getCands:()=>chars,candById:(pool,id)=>chars.find(c=>c.id===id),
  aiStackDraft:ai,candVal:(sport,c)=>c.a[0],fitIn:(sport,c,p)=>c.a[0],
- teamScore:rate,rngFrom:seeded,saveCampaign:()=>saved.push(true),
+ teamScore:rate,rngFrom:seeded,lsSet:()=>saved.push(true),
  S:{campaign:{history:[]}}
 };
 vm.runInNewContext(campaignCode,context);
