@@ -1,6 +1,6 @@
 /* Draft Anything: Campaign encounter strategy and one-shot alternate forms.
    Every encounter is locked to a campaign seed + stage, never to the player's
-   chosen lineup. The same retry uses the same opponents and simulation RNG.
+   chosen lineup. Opponents stay fixed; each submitted attempt has fresh combat RNG.
    Variant Surge locks one weighted documented form per eligible character
    per stage; replacing that character does not refund the roll. */
 // The form-specific power catalog is independent from Claude's base-character audit.
@@ -100,6 +100,10 @@ const CAMPAIGN_VARIANTS=Object.freeze(Object.fromEntries(
 function campaignStageSeed(v,step=v.step){
   return String(v.seed||'legacy-campaign')+'|'+v.sport+'|'+step+'|'+(v.stageOrder?.[step]??step);
 }
+// Stable encounter seeds, with independent combat rolls per submission.
+function campaignCombatSeed(v,index=0,attempt=v.attempts?.[v.step]||0){
+  return campaignStageSeed(v)+':match:'+attempt+':boss-'+index;
+}
 // Exactly the same slot-aware eligibility and campaign history as the player.
 const CAMPAIGN_OPPONENT_RULE_VERSION=2;
 function campaignOpponentPool(rule,all,pos=null){
@@ -134,11 +138,11 @@ function campaignChallengeCeiling(sport,rule){
   const roster=campaignDraftLegalRoster(sport,rule,getCands('mashup'),()=>0.5);
   return roster?teamScore(sport,roster).rating:0;
 }
-function campaignBuildOpponent(v,stage){
+function campaignBuildOpponent(v,stage,excludedIds=new Set()){
   const rng=rngFrom(campaignStageSeed(v)+':opponent');
   // Later stages reduce drafting noise instead of granting raw rating bonuses.
   const jitter=18-15*Math.max(0,Math.min(9,v.step))/9;
-  const roster=campaignDraftLegalRoster(v.sport,stage.rule,getCands('mashup'),rng,jitter);
+  const roster=campaignDraftLegalRoster(v.sport,stage.rule,getCands('mashup').filter(c=>!excludedIds.has(c.id)),rng,jitter);
   if(!roster)return null;
   const strategies=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
   const tactic=strategies[Math.floor(rng()*strategies.length)]||strategies[0];
@@ -165,10 +169,13 @@ function campaignLockedOpponent(v,stage){
 // Both independent finale opponents must meet the same alliance and history rules.
 function campaignFinalBossOpponent(v,stage,firstBoss){
   const alt={...v,seed:String(v.seed||'legacy-campaign')+'|second-siege-boss'};
-  const generated=campaignBuildOpponent(alt,stage);
+  if(!firstBoss?.roster)return null;
+  // Surge variants retain their original candidate ID. Exclude all roles.
+  const excludedIds=new Set(Object.values(firstBoss.roster).map(c=>c.id));
+  const generated=campaignBuildOpponent(alt,stage,excludedIds);
   if(!generated)return null;
   const roster=campaignHydrateOpponent(generated);
-  if(!campaignRosterLegal(v.sport,stage.rule,roster))return null;
+  if(!campaignRosterLegal(v.sport,stage.rule,roster)||Object.values(roster).some(c=>excludedIds.has(c.id)))return null;
   const possible=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
   const tactic=generated.tactic===firstBoss?.tactic
     ?(possible.find(s=>s!==firstBoss.tactic)||'precision'):generated.tactic;
@@ -314,7 +321,7 @@ function campaignUseVariantSurge(v,targetId=null){return useVariantSurge(v,targe
 function campaignVariantForm(v){return variantForm(v);}
 function campaignVariantRoster(v){return variantRoster(v);}
 if(typeof module!=='undefined'&&module.exports){
-  module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignOpponentPool,campaignBuildOpponent,
+  module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignCombatSeed,campaignOpponentPool,campaignBuildOpponent,
     campaignChallengeCeiling,campaignFinalBossOpponent,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
     campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster,variantOptions,variantOdds,variantSurgeRecords,variantSurgeCandidates,useVariantSurge,variantForm,variantForms,variantRoster,cpuVariantRoster};
 }

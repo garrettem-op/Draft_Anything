@@ -2,7 +2,7 @@ const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
-const {resolveBrawlCombat}=require('../data/brawl-combat.js');
+const {resolveBrawlCombat,formationTarget,rangeBlocked,formationOverrides}=require('../data/brawl-combat.js');
 
 const KEYS=['spd','agi','str','siz','lep','end','tch','acc','ref','iq','clu','ldr'];
 function rngFrom(seed){
@@ -80,4 +80,69 @@ test('browser wires combat into every brawl match path and report',()=>{
  assert.match(reports,/combat:match\.combat/);
  assert.match(reports,/combat:orderedCombat/);
  assert.doesNotMatch(reports,/total\s*\*\s*210\s*\+\s*350/);
+});
+test('1000 paired seeds: reordering input rows without changing positions cannot change fighter outcomes',()=>{
+ const A=buildTeam('A',{str:88,acc:79,spd:75,end:84,fit:88},88);
+ const B=buildTeam('B',{str:86,acc:85,spd:87,end:80,fit:86},86);
+ const swapped={...A,rows:A.rows.slice().reverse()};
+ const normalized=r=>r.sides.map(side=>side.fighters.map(({position,...f})=>f).sort((a,b)=>a.id.localeCompare(b.id)));
+ for(let seed=1;seed<=1000;seed++){
+  const original=resolveBrawlCombat(A,B,[89,84],rngFrom(seed));
+  const moved=resolveBrawlCombat(swapped,B,[89,84],rngFrom(seed));
+  assert.equal(original.winner,moved.winner);
+  assert.deepEqual(normalized(original),normalized(moved));
+ }
+});
+test('Apex cosmic attackers do not multiply their own boosted strike by four against another Apex',()=>{
+ const stats={str:99,spd:90,end:99,siz:99,acc:99,ref:90,fit:99};
+ const A=buildTeam('A',stats,90),B=buildTeam('B',stats,90);
+ const power={move:'Cosmic strike',domains:['cosmic'],guards:[],tier:5};
+ for(const team of [A,B])for(const r of team.rows)r.cand.variantAbilities=power;
+ const r=resolveBrawlCombat(A,B,[90,90],()=>.5,{trace:true});
+ const hits=r.events.filter(e=>e.type==='hit'&&e.round===1&&e.domain==='cosmic');
+ assert.ok(hits.length>0);
+ assert.ok(hits.every(e=>e.raw<800),'opening cosmic strikes must not retain the old 4x stacking');
+ assert.ok(r.sides.flatMap(s=>s.fighters).every(f=>f.hp>=0));
+});
+
+const board=()=>['tk1','tk2','d1','d2','d3'].map((position,i)=>({id:'b'+i,position,tank:i<2,hp:100,maxHp:100,tactics:{},attack:100-i}));
+test('default lanes assign 3 left and 2 right and keep both tanks ahead of rear targets',()=>{
+ const a=board(),b=board();
+ assert.deepEqual(a.map(f=>formationTarget(f,b,()=>.5).position),['tk1','tk2','tk1','tk1','tk2']);
+ b[0].hp=0;assert.ok(a.every(f=>formationTarget(f,b,()=>.5).position==='tk2'));
+ b[1].hp=0;assert.deepEqual(a.map(f=>formationTarget(f,b,()=>.5).position),['d1','d3','d1','d1','d3']);
+ b[2].hp=0;assert.equal(formationTarget(a[0],b,()=>.5).position,'d2');
+});
+test('target exceptions can bypass front line; forced targets win only while alive',()=>{
+ const a=board(),b=board();b[3].hp=10;
+ assert.equal(formationTarget(a[0],b,()=>.99,'random').position,'d3');
+ assert.equal(formationTarget(a[0],b,()=>.5,'lowestHp').position,'d2');
+ assert.equal(formationTarget(a[0],b,()=>.5,'backline').position,'d1');
+ assert.equal(formationTarget(a[0],b,()=>.5,'backline',b[1]).position,'tk2');
+ b[1].hp=0;assert.equal(formationTarget(a[0],b,()=>.5,'lane',b[1]).position,'tk1');
+});
+test('range, mirror mark, and front tank taunt are bounded by formation and cadence',()=>{
+ const a=board(),b=board();a[2].tactics.shortRange=true;
+ assert.ok(rangeBlocked(a[2],a));assert.equal(rangeBlocked(a[0],a),false);
+ a[0].hp=a[1].hp=0;assert.equal(rangeBlocked(a[2],a),false);
+ a[0].hp=100;a[3].tactics.mark=true;b[1].tactics.taunt=true;
+ const x=formationOverrides([a,b],1);assert.equal(x.marks.get(a[0]),b[3]);assert.equal(x.taunts.get(1),b[1]);
+ assert.equal(formationOverrides([a,b],2).marks.size,0);
+});
+test('live five-position trace protects rear from standard attacks until front falls',()=>{
+ const a=buildTeam('A',{fit:80}),b=buildTeam('B',{fit:80});
+ const res=resolveBrawlCombat(a,b,[80,80],rngFrom(42),{trace:true});
+ const living=[new Set(['A:tk1','A:tk2']),new Set(['B:tk1','B:tk2'])];
+ for(const e of res.events){if(!['hit','miss'].includes(e.type))continue;
+  if(living[1-e.side].size)assert.ok(living[1-e.side].has(e.target));
+  if(e.ko)living[1-e.side].delete(e.target);
+ }
+});
+test('live trace records a rear-targeted cosmic signature and defensive interception',()=>{
+ const a=buildTeam('A',{fit:80,spd:99,ref:99}),b=buildTeam('B',{fit:80,spd:40,ref:40});
+ a.rows[0].cand={...a.rows[0].cand,pool:'dc',n:'Darkseid'};
+ b.rows[0].cand={...b.rows[0].cand,pool:'dc',n:'Wonder Woman'};
+ const res=resolveBrawlCombat(a,b,[80,80],()=>.5,{trace:true});
+ assert.ok(res.events.some(e=>e.targeting==='intercept'&&e.target==='B:tk1'));
+ assert.ok(res.sides[1].fighters[0].intercepts>0);
 });

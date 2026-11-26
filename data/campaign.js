@@ -9,7 +9,7 @@ const CAMPAIGN_STAGES = [
   {name:'Heavy Hitters',rule:'strong',criteria:{stats:[{attribute:'str',op:'gte',value:87}],commanderSpecialty:true},blurb:'Only characters with Strength 87 or higher.',rival:'The Juggernauts'},
   {name:'The Underdogs',rule:'underdog',criteria:{stats:[{attribute:'average',op:'lte',value:73}]},blurb:'Everyone must average 73 or lower. Battle Royale starters must also have an effective role fit of 100 or lower before surging.',rival:'The Dark Horses'},
   {name:'Short-Handed',rule:'short',criteria:{lineup:{starterFraction:0.6,startersOnly:true}},blurb:'Both teams play with only 60% of their starting lineup. On a five-starter team, that means just three players; no bench or coach.',rival:'The Short-Handed Rivals'},
-  {name:'The Multiverse Siege',rule:'final',criteria:{neverPreviouslyWon:true,minDistinctPools:3,encounters:2},blurb:'FINAL BATTLE: Build a full-strength alliance from at least THREE talent pools. No character from a previously WON challenge is allowed. Your same lineup must defeat TWO independently seeded bosses in a row.',rival:'The Final Boss'}
+  {name:'The Multiverse Siege',rule:'final',criteria:{neverPreviouslyWon:true,minDistinctPools:3,encounters:2},blurb:'FINAL BATTLE: Build a full-strength alliance from at least THREE talent pools. No character from a previously WON challenge is allowed. Your same lineup must defeat TWO independently seeded bosses with completely different rosters in a row.',rival:'The Final Boss'}
 ];
 const CAMPAIGN_EXTRA = [
   {name:'Skyborne',rule:'flight',criteria:{acceptedTags:['flight','natural-flight','powered-flight','glide','pilot','mount'],commanderSpecialty:true},blurb:'Every pick must be a known flyer or aerial combatant.',rival:'The Air Armada'},
@@ -390,7 +390,7 @@ for (const n of ['Leia Organa','Padmé Amidala','Rey','Ahsoka Tano','Aayla Secur
 for (const n of ['Darth Maul','Charmeleon','Krabby','Kingler','Magmar','Voltorb','Electrode','Paras','Parasect','Vileplume','Jynx','Flareon']) CAMPAIGN_RED.add(n);
 for (const n of ['Grogu','Omega','Ezra Bridger']) CAMPAIGN_KIDS.add(n);
 for (const n of ['Han Solo','Lando Calrissian','Wedge Antilles','Nien Nunb','Admiral Ackbar','Mon Mothma','Bail Organa','Padmé Amidala','Jyn Erso','Cassian Andor','Saw Gerrera','Baze Malbus','Hera Syndulla','Sabine Wren','Poe Dameron','Finn','Rose Tico','Admiral Holdo','Grand Moff Tarkin','Grand Admiral Thrawn','Director Krennic','Moff Gideon','Stormtrooper','Death Trooper','Captain Phasma','General Hux','Boba Fett','Jango Fett','The Mandalorian','Bo-Katan Kryze','Cad Bane','Fennec Shand','Aurra Sing','Greedo','Cara Dune','Cobb Vanth','Greef Karga','Kuiil','Migs Mayfeld','Captain Rex','Commander Cody',"Qi'ra",'Tobias Beckett','Enfys Nest']) CAMPAIGN_MORTAL.add(n);
-function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},surge:null,variantTarget:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
+function campaignDefault(){return {status:'setup',step:0,sport:'basketball',teamName:'The Challengers',roster:{},selected:null,query:'',infoId:null,history:[],result:null,stageOrder:null,seed:Date.now().toString(36)+':'+Math.random().toString(36).slice(2),opponents:{},attempts:{},surge:null,variantTarget:null,validation:'',validationOpen:false,disputeSlot:null,disputeClaim:'',disputeSource:'',disputeBusy:false,disputeResult:null,disputeError:''};}
 function loadCampaign(){
   const saved=lsGet('da.campaign.v1',{}),v={...campaignDefault(),...saved};
   if(!SPORTS[v.sport]||!Number.isInteger(v.step)||v.step<0||v.step>10||!Array.isArray(v.history)){return campaignDefault();}
@@ -402,6 +402,7 @@ function loadCampaign(){
     v.stageOrder?.every((id,i)=>id===i))v.stageOrder=null;
   if(!v.seed)v.seed=Date.now().toString(36)+':'+Math.random().toString(36).slice(2);
   if(!v.opponents||typeof v.opponents!=='object')v.opponents={};
+  if(!v.attempts||typeof v.attempts!=='object')v.attempts={};
   v.surge=variantSurgeRecords(v);
   v.roster=Object.fromEntries(Object.entries(v.roster||{}).map(([id,cid])=>[id,candById('mashup',typeof cid==='string'?cid:cid?.id)]).filter(([,c])=>!!c));
   v.selected=null;v.query='';v.infoId=null;v.variantTarget=null;
@@ -410,7 +411,7 @@ function loadCampaign(){
 }
 function saveCampaign(){
   const v=S.campaign;
-  lsSet('da.campaign.v1',{status:v.status,step:v.step,sport:v.sport,teamName:v.teamName,roster:Object.fromEntries(Object.entries(v.roster||{}).map(([p,c])=>[p,c.id])),history:v.history,result:v.result,stageOrder:v.stageOrder,seed:v.seed,opponents:v.opponents||{},surge:v.surge||null});
+  lsSet('da.campaign.v1',{status:v.status,step:v.step,sport:v.sport,teamName:v.teamName,roster:Object.fromEntries(Object.entries(v.roster||{}).map(([p,c])=>[p,c.id])),history:v.history,result:v.result,stageOrder:v.stageOrder,seed:v.seed,opponents:v.opponents||{},attempts:v.attempts||{},surge:v.surge||null});
 }
 function campaignStage(){return campaignStages()[Math.min(9,S.campaign.step)];}
 function campaignSlots(sport,rule){
@@ -588,7 +589,7 @@ function campaignProgress(){
 function renderCampaignSetup(){
   const v=S.campaign,existing=v.step>0||v.status!=='setup';
   return `<section class="setup">
-    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Every new campaign draws nine themed challenges from the eligible pool, prioritizing ones you have not seen recently, then finishes with the two-boss Multiverse Siege. Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. Both teams follow the same challenge and campaign-history restrictions. Opponents are fixed independently of your current lineup, and retrying an unchanged team has the same outcome. Each character may appear in two winning rosters total; the finale bans previously winning picks and requires a new alliance across multiple worlds. Completed wins remain saved on this device.</span></div>
+    <div class="mode-intro panel"><b>Championship · Campaign</b><span>Every new campaign draws nine themed challenges from the eligible pool, prioritizing ones you have not seen recently, then finishes with the two-boss Multiverse Siege. Win ten different challenges in order to claim the campaign crown. Every stage changes who qualifies or how many players you get. The list never reveals eligibility; you must know your picks. Both teams follow the same challenge and campaign-history restrictions. Opponents are fixed independently of your current lineup, and each retry uses a fresh combat roll against the same opponents. Each character may appear in two winning rosters total; the finale bans previously winning picks and requires a new alliance across multiple worlds. Completed wins remain saved on this device.</span></div>
     <div class="panel rules" style="margin-bottom:16px"><div class="field-label"><span>Championship mode</span><div class="seg"><button data-act="c-kind" data-v="classic">Perfect Season</button><button data-act="c-kind" data-v="campaign" aria-pressed="true">Campaign · 10 challenges</button></div></div></div>
     ${campaignProgress()}
     <div class="step"><div class="step-head"><span class="n">1</span><h2 class="h">Pick a sport</h2></div>
@@ -667,7 +668,7 @@ function renderCampaignDraft(){
       <div class="eyebrow">Opponent scouting · Fixed encounter</div>
       ${!opponent?'<p class="note">No legal opponent can be drafted from the remaining eligible characters. The match is unavailable; no challenge rules will be bypassed.</p>':''}<h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
       <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
-      <p class="note" style="margin:6px 0 0">Both rosters must obey the same challenge rules. Opponent roster and match randomness remain fixed across retries.</p>
+      <p class="note" style="margin:6px 0 0">Both rosters must obey the same challenge rules. Opponent rosters and variants remain fixed across retries, but combat rolls change.</p>
     </div>
     ${campaignSurgeSlots(v).size?'<p class="note campaign-surge-hint">Tap a glowing character to activate their secret Variant Surge.</p>':''}
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent?'':'disabled'}>Submit lineup & play</button></div>
@@ -698,10 +699,13 @@ function campaignPlay(){
   // already-capped 99-point character attributes. Keep their extra impact
   // explicitly bounded, transparent, and applied once per encounter.
   const variantBonus=variant?Math.max(0,Math.min(5,Number(variant.form.ratingBonus)||0)):0;
+  v.attempts=v.attempts||{};
+  const attempt=(Number(v.attempts[v.step])||0)+1;
+  v.attempts[v.step]=attempt;
   const rounds=encounters.map(({name,opponent:opp},index)=>{
     // Each fight has independently seeded results and tactical scores. The
     // same roster and locked Variant Surges play BOTH fights in the finale.
-    const gameSeed=campaignStageSeed(v)+':match'+(index?':boss-'+index:'');
+    const gameSeed=campaignCombatSeed(v,index,attempt);
     const score=teamScore(v.sport,activeRoster);
     const rivalRoster=cpuVariantRoster(v.sport,opp.roster,campaignStageSeed(v)+':cpu:'+index);
     const oppScore=teamScore(v.sport,rivalRoster);
@@ -893,7 +897,7 @@ function campaignReset(){const {sport,teamName}=S.campaign;S.campaign={...campai
 function campaignAdvance(){
   const v=S.campaign;
   if(v.status!=='results'||!v.result?.win)return;
-  v.history.push({name:campaignStage().name,report:v.result.report,finalRounds:v.result.finalRounds,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
+  v.history.push({name:campaignStage().name,ids:v.result.ids||[],report:v.result.report,finalRounds:v.result.finalRounds,breakdownHTML:v.result.breakdownHTML,score:v.result.ourPoints+'–'+v.result.theirPoints});
   v.step++;
   v.roster={};v.selected=null;v.query='';v.result=null;v.surge=null;v.variantTarget=null;
   v.status=v.step>=campaignStages().length?'complete':'draft';

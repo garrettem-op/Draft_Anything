@@ -39,7 +39,7 @@ const context={
  S:{campaign:{history:[]}}
 };
 vm.runInNewContext(campaignCode,context);
-vm.runInNewContext(code+'\nthis.strategyApi={campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
+vm.runInNewContext(code+'\nthis.strategyApi={campaignCombatSeed,campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
 const api=context.strategyApi;
 function stage(seed='campaign-A',step=0,rule='fast'){
  return {seed,step,sport:'brawl',stageOrder:[0,1,2,3,4,5,6,7,8,9],roster:{},opponents:{},surge:null,status:'draft',rule};
@@ -176,14 +176,20 @@ test('finale draws a second stable boss with different roster and strategy',()=>
  const second=api.campaignFinalBossOpponent(v,ch,first);
  const repeated=api.campaignFinalBossOpponent(v,ch,first);
  assert.equal(JSON.stringify(second.roster),JSON.stringify(repeated.roster));
- assert.notEqual(JSON.stringify(second.roster),JSON.stringify(first.roster),'Second boss must be a different team');
+ const firstIds=new Set(Object.values(first.roster).map(c=>c.id));
+ assert.equal(Object.values(second.roster).filter(c=>firstIds.has(c.id)).length,0,'No overlap in any roster position');
  assert.notEqual(second.tactic,first.tactic,'Second boss should require different tactical counterplay');
  assert.equal(second.score.rating,repeated.score.rating);
 });
-test('campaign runtime no longer scales opponents to player rating or changes match seed per retry',()=>{
+test('campaign runtime keeps opponents fixed but uses a fresh combat seed per attempt',()=>{
  const c=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');
  assert.doesNotMatch(c,/target=baseRating\s*\+/);
- assert.match(c,/gameSeed=campaignStageSeed\(v\)\+':match'/);
+ assert.match(c,/gameSeed=campaignCombatSeed\(v,index,attempt\)/);
+ assert.match(c,/attempts:v.attempts/);
+ const v=stage('retry',9,'final');
+ assert.notEqual(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,0,2));
+ assert.notEqual(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,1,1));
+ assert.equal(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,0,1));
  assert.match(c,/campaignLockedOpponent\(v,st\)/);
  assert.match(c,/campaignVariantRoster\(v\)/);
  assert.match(c,/campaignWinUses\(c\.id\)>=2/);
@@ -218,6 +224,9 @@ test('both final bosses have three roster pools and exclude previously winning c
   const banned=chars.slice(80,110).map(c=>c.id);
   context.S.campaign.history=[{ids:banned}];
   const first=api.campaignLockedOpponent(v,ch),second=api.campaignFinalBossOpponent(v,ch,first);
+  assert.ok(first&&second);
+  const firstIds=new Set(Object.values(first.roster).map(c=>c.id));
+  assert.ok(Object.values(second.roster).every(c=>!firstIds.has(c.id)));
   for(const boss of [first,second]){
    assert.ok(boss);
    assert.equal(Object.keys(boss.roster).length,7);
@@ -275,4 +284,22 @@ test('single documented form is guaranteed and legacy single surge remains spent
  v.surge={id:candidate.id,name:forms[0].name};
  assert.equal(api.campaignUseVariantSurge(v,candidate.id),null);
  assert.equal(api.campaignVariantRoster(v).p0.n,forms[0].name);
+});
+
+test('100 finale seeds keep every starter and support identity disjoint under campaign history restrictions',()=>{
+ const old=context.S.campaign.history;
+ try{
+  for(let i=0;i<100;i++){
+   const v=stage('boss'+i,9,'final'),ch={rule:'final'};
+   context.S.campaign.history=[{ids:chars.slice(i%20,i%20+25).map(c=>c.id)}];
+   const first=api.campaignLockedOpponent(v,ch),second=api.campaignFinalBossOpponent(v,ch,first);
+   assert.ok(first&&second);
+   const ids=new Set(Object.values(first.roster).map(c=>c.id));
+   assert.equal(ids.size,7);
+   assert.equal(Object.keys(second.roster).length,7);
+   assert.ok(Object.values(second.roster).every(c=>!ids.has(c.id)));
+   assert.ok(context.campaignRosterLegal('brawl','final',second.roster));
+   assert.equal(JSON.stringify(second.roster),JSON.stringify(api.campaignFinalBossOpponent(v,ch,first).roster));
+  }
+ }finally{context.S.campaign.history=old;}
 });
