@@ -106,9 +106,9 @@ test('Variant Surge picks a documented form once and does not alter base charact
  assert.ok(Math.abs(odds.reduce((n,x)=>n+x.percent,0)-100)<1e-8);
  assert.ok(odds[0].percent>=odds[odds.length-1].percent);
 });
-test('finale surge button is available before the lineup satisfies the alliance',()=>{
+test('finale board highlights eligible characters before lineup validation and hides possible outcomes',()=>{
  const previous=context.S.campaign;
- const stubNames=['esc','renderField','renderVariantSurgePanel'];
+ const stubNames=['esc','renderField'];
  const savedStubs=Object.fromEntries(stubNames.map(k=>[k,context[k]]));
  try{
   const v=stage('final-surge',9,'final');
@@ -117,13 +117,21 @@ test('finale surge button is available before the lineup satisfies the alliance'
   v.query='';v.history=[];v.roster={p0:thor,p1:jean};
   context.S.campaign=v;
   context.esc=String;
-  context.renderField=()=>''; 
-  context.renderVariantSurgePanel=(state,action,input,ready)=>{assert.equal(ready,true,'Surge must not depend on alliance or full lineup');return 'SURGE_READY';};
+  context.renderField=(sport,roster,options)=>{assert.equal(options.variantSlots.has('p0'),true);assert.equal(options.variantSlots.has('p1'),true);assert.equal(options.variantAction,'slot');return 'BOARD';};
   assert.equal(context.campaignReady(),false);
+  v.surgeDialog='p0';
   const html=context.renderCampaignDraft();
-  assert.ok(html.includes('SURGE_READY'));
+  assert.ok(html.includes('BOARD'));
   assert.match(html,/data-act="camp-play" disabled/);
-  assert.ok(api.campaignUseVariantSurge(v,thor.id));
+  assert.match(html,/data-act="camp-variant"/);
+  assert.match(html,/Thor<\/b> is eligible/);
+  for(const form of api.campaignVariantOptions(thor))assert.ok(!html.includes(form.name));
+  const surge=api.campaignUseVariantSurge(v,thor.id);
+  assert.ok(surge);
+  assert.equal(context.campaignSurgeSlots(v).has('p0'),false);
+  assert.equal(context.campaignSurgeSlots(v).has('p1'),true);
+  v.surgeDialog=null;v.surgeReveal={slot:'p0',base:thor.n,name:surge.name};
+  assert.ok(context.renderCampaignSurgeDialog(v).includes(surge.name));
   assert.ok(api.campaignUseVariantSurge(v,jean.id));
   assert.equal(api.campaignUseVariantSurge(v,thor.id),null);
   assert.equal(api.variantSurgeRecords(v).length,2);

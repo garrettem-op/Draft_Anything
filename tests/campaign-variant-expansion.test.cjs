@@ -98,12 +98,12 @@ test('UI loads the expanded catalog before strategy and exposes character-specif
  const html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
  const campaign=fs.readFileSync(path.join(ROOT,'data/campaign.js'),'utf8');
  assert.ok(html.indexOf('data/campaign-variant-expansion.js')<html.indexOf('data/campaign-strategy.js'));
- assert.match(html,/campaignUseVariantSurge\(S\.campaign,S\.campaign\.variantTarget\)/);
- assert.match(html,/camp-variant-target/);
+ assert.match(html,/campaignUseVariantSurge\(v,base\.id\)/);
+ assert.match(campaign,/campaignSurgeSlots\(v\)/);
   // Shared form controls now live in the universal game UI, not Campaign alone.
-  assert.match(html,/possible forms/);
-  assert.match(html,/variantOptions\(c\)\.length/);
-  assert.match(campaign,/renderVariantSurgePanel\(v,'camp-variant'/);
+  assert.doesNotMatch(html,/renderVariantOdds\(/);
+  assert.match(html,/variantSurgeCandidates\(v\)/);
+  assert.match(campaign,/renderCampaignSurgeDialog\(v\)/);
  assert.match(campaign,/minDistinctPools:3,encounters:2/);
  assert.match(campaign,/campaignFinalBossOpponent\(v,st,first\)/);
 });

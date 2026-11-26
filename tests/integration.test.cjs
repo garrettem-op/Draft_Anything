@@ -31,7 +31,8 @@ test('report picker and alphabet scrubber are wired in app handlers',()=>{
 });
 test('campaign on-field slots use the campaign picker, not the normal draft',()=>{
  assert.match(html,/if \(S\.mode === 'champ' && c\.campaignMode\)/);
- assert.match(html,/S\.campaign\.selected=t\.dataset\.slot/);
+ assert.match(html,/v\.selected=t\.dataset\.slot/);
+ assert.match(html,/v\.surgeDialog=t\.dataset\.slot/);
 });
 
 test('dealt hand shows one origin information control per deal card',()=>{

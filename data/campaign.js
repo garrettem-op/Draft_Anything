@@ -633,6 +633,18 @@ function campaignPickerFilterHTML(v) {
   const selected=campaignPickerPools(v);
   return `<details class="camp-filter"><summary class="btn camp-filter-toggle" aria-label="Filter by talent pool" title="Filter by talent pool"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/></svg><span id="camp-filter-count" class="camp-filter-count" ${selected.size?'':'hidden'}>${selected.size||''}</span></summary><div class="camp-filter-menu"><div class="row" style="justify-content:space-between"><b>Talent pools</b><button type="button" class="btn small" data-act="camp-filter-clear">Clear all</button></div><p class="note">Select one or more pools. None selected shows all.</p>${MASHUP_SOURCES.map(id=>`<label><input type="checkbox" data-input="camp-pool" value="${esc(id)}" ${selected.has(id)?'checked':''}> <span>${esc(getPool(id).name)}</span></label>`).join('')}<button type="button" class="btn small" data-act="camp-filter-done">Done</button></div></details>`;
 }
+function campaignSurgeSlots(v){
+  if(v.status!=='draft')return new Set();
+  const candidates=new Set(variantSurgeCandidates(v).map(c=>c.id));
+  return new Set(campaignSlots(v.sport,campaignStage().rule).filter(p=>candidates.has(v.roster[p.id]?.id)).map(p=>p.id));
+}
+function renderCampaignSurgeDialog(v){
+  const reveal=v.surgeReveal;
+  if(reveal)return `<div class="h2h-variant-shade campaign-surge-reveal"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge revealed"><h3>Variant Surge!</h3><p>${esc(reveal.base)} has transformed into</p><h3>${esc(reveal.name)}</h3><p class="note">Transformation locked for this challenge.</p><button class="btn primary" data-act="camp-surge-close">Continue</button></div></div>`;
+  const slot=v.surgeDialog,c=v.roster[slot];
+  if(!c||!campaignSurgeSlots(v).has(slot))return '';
+  return `<div class="h2h-variant-shade"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p><b>${esc(c.n)}</b> is eligible for a Variant Surge. The new form is a surprise and the roll is permanent for this challenge.</p><div class="row"><button class="btn" data-act="camp-surge-close">Cancel</button><button class="btn" data-act="camp-surge-edit">Change character</button><button class="btn primary" data-act="camp-variant">Activate Surge</button></div></div></div>`;
+}
 function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignLockedOpponent(v,st);
   const tactic=CAMPAIGN_TACTICS[opponent?.tactic]||CAMPAIGN_TACTICS.assault;
@@ -657,9 +669,9 @@ function renderCampaignDraft(){
       <p class="note" style="margin:6px 0">${esc(tactic.description)}. Counterplay: <b>${esc(tactic.counterLabel)}</b>.</p>
       <p class="note" style="margin:6px 0 0">Both rosters must obey the same challenge rules. Opponent roster and match randomness remain fixed across retries.</p>
     </div>
-    ${renderVariantSurgePanel(v,'camp-variant','camp-variant-target',v.status==='draft','challenge')}
+    ${campaignSurgeSlots(v).size?'<p class="note campaign-surge-hint">Tap a glowing character to activate their secret Variant Surge.</p>':''}
     <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent?'':'disabled'}>Submit lineup & play</button></div>
-    <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set()})}</div><div class="board-side">${picker}</div></div>
+    <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set(),variantSlots:campaignSurgeSlots(v),variantAction:'slot',variantShakeSlot:v.surgeReveal?.slot})}</div><div class="board-side">${picker}</div></div>${renderCampaignSurgeDialog(v)}
   </section>`;
 }
 function campaignPlay(){
