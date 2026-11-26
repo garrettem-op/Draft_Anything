@@ -371,6 +371,9 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
         Number.isFinite(log.offenseCredibility)?`Offensive capability: ${Math.round(log.offenseCredibility*100)}% · attack fit ${Number(log.attackFit).toFixed(1)} · team damage multiplier ×${Number(log.teamSupport).toFixed(2)}.`:'',
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
         targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
+        log.rangeSkips?`Out of range: ${log.rangeSkips} action opportunities skipped until front-line access opened.`:'',
+        log.intercepts?`Intercepted ${log.intercepts} attacks for rear allies.`:'',
+        log.redirected?`${log.redirected} incoming attacks intercepted by allies.`:'',
         log.wardHp?`Bounded power ward: +${log.wardHp} protective HP at start.`:'',
         log.wear?`Ability strain: ${log.wear} HP lost (not credited as opponent DMG).`:'',
         log.koRound?`Knocked out in round ${log.koRound}.`:
