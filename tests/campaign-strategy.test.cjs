@@ -285,3 +285,21 @@ test('single documented form is guaranteed and legacy single surge remains spent
  assert.equal(api.campaignUseVariantSurge(v,candidate.id),null);
  assert.equal(api.campaignVariantRoster(v).p0.n,forms[0].name);
 });
+
+test('100 finale seeds keep every starter and support identity disjoint under campaign history restrictions',()=>{
+ const old=context.S.campaign.history;
+ try{
+  for(let i=0;i<100;i++){
+   const v=stage('boss'+i,9,'final'),ch={rule:'final'};
+   context.S.campaign.history=[{ids:chars.slice(i%20,i%20+25).map(c=>c.id)}];
+   const first=api.campaignLockedOpponent(v,ch),second=api.campaignFinalBossOpponent(v,ch,first);
+   assert.ok(first&&second);
+   const ids=new Set(Object.values(first.roster).map(c=>c.id));
+   assert.equal(ids.size,7);
+   assert.equal(Object.keys(second.roster).length,7);
+   assert.ok(Object.values(second.roster).every(c=>!ids.has(c.id)));
+   assert.ok(context.campaignRosterLegal('brawl','final',second.roster));
+   assert.equal(JSON.stringify(second.roster),JSON.stringify(api.campaignFinalBossOpponent(v,ch,first).roster));
+  }
+ }finally{context.S.campaign.history=old;}
+});
