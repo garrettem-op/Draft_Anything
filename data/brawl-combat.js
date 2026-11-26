@@ -55,7 +55,7 @@
       counterMultiplier=attacker.apexRank?1.25+.25*(attacker.ability.tier-4):3+(attacker.ability.tier-4);
     }
     const baselineGuard=attacker.apexRank&&!a&&!target.apexRank&&b&&
-      ['cosmic','magic','reality'].includes(target.ability.domain)?.50:0;
+      ['cosmic','magic','reality'].includes(target.ability.domain) ? .50 : 0;
     return {counterMultiplier,baselineGuard,peerSignature};
   }
 
