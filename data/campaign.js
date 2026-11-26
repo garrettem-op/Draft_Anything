@@ -557,11 +557,9 @@ function campaignQualified(){return campaignInvalidSlots().size===0;}
 function campaignRosterReady(sport,rule,roster){
   const slots=campaignSlots(sport,rule),pick=slots.map(p=>roster[p.id]).filter(Boolean);
   const minimum=campaignCriteria(rule)?.minDistinctPools||0;
-  // Benches and coaches must not satisfy the alliance on behalf of the
-  // characters actually fighting in the final encounter.
-  const starters=slots.filter(p=>!p.coach&&!p.bench&&!p.side&&roster[p.id]).map(p=>roster[p.id]);
+  // Every drafted roster role contributes to the universe alliance.
   return pick.length===campaignLimit(sport,rule)&&new Set(pick.map(c=>c.id)).size===pick.length&&Object.keys(roster).every(id=>slots.some(p=>p.id===id))&&
-    new Set(starters.map(c=>c.pool)).size>=minimum;
+    new Set(pick.map(c=>c.pool)).size>=minimum;
 }
 function campaignRosterLegal(sport,rule,roster){
   if(!roster||!campaignRosterReady(sport,rule,roster))return false;
@@ -639,7 +637,7 @@ function renderCampaignDraft(){
   const v=S.campaign,st=campaignStage(),slots=campaignSlots(v.sport,st.rule),allowedSet=new Set(slots.map(p=>p.id)),opponent=campaignLockedOpponent(v,st);
   const tactic=CAMPAIGN_TACTICS[opponent?.tactic]||CAMPAIGN_TACTICS.assault;
   const filled=slots.filter(p=>v.roster[p.id]).length,limit=campaignLimit(v.sport,st.rule),valid=campaignReady(),all=getCands('mashup'),taken=new Set(Object.values(v.roster).map(c=>c.id));
-  const distinctPools=new Set(slots.filter(p=>!p.coach&&!p.bench&&!p.side&&v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
+  const distinctPools=new Set(slots.filter(p=>v.roster[p.id]).map(p=>v.roster[p.id].pool)).size,minPools=st.criteria?.minDistinctPools||0;
   const pos=SPORTS[v.sport].pos.find(p=>p.id===v.selected);
   const q=v.query.toLowerCase().trim(),pools=campaignPickerPools(v);
   const matches=pos?[...all].sort((a,b)=>a.n.localeCompare(b.n)):[];
@@ -652,7 +650,7 @@ function renderCampaignDraft(){
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
   `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
   return `<section>${campaignProgress()}
-    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p>${minPools?`<p class="note" style="margin:8px 0 0"><b>Universe alliance: ${distinctPools}/${minPools} pools represented.</b> Mix characters from different talent pools.</p>`:''}<p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Characters can appear on only two winning rosters per campaign.</p></div>
+    <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p>${minPools?`<p class="note" style="margin:8px 0 0"><b>Universe alliance: ${distinctPools}/${minPools} pools represented.</b> All roster positions, including commander and reinforcement, count.</p>`:''}<p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Characters can appear on only two winning rosters per campaign.</p></div>
     <div class="panel" style="padding:14px 16px;margin-bottom:14px">
       <div class="eyebrow">Opponent scouting · Fixed encounter</div>
       ${!opponent?'<p class="note">No legal opponent can be drafted from the remaining eligible characters. The match is unavailable; no challenge rules will be bypassed.</p>':''}<h3 style="margin:6px 0 4px">${esc(st.rival)} · ${esc(tactic.name)}</h3>
