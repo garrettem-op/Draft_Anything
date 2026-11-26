@@ -45,6 +45,62 @@
   function speedDpsFit(c,fit){
     return fit*(.68+.32*offensiveCredibility(c));
   }
+  // Explicit arena tactics are editorial gameplay interpretations, not
+  // canonical numeric feats. Forms must be listed independently of base kits.
+  const TACTICS=Object.freeze({
+    'dc:Darkseid':{signature:'backline'},
+    'dc:Infinite Frontier Darkseid':{signature:'backline'},
+    'toons:Marvin the Martian':{signature:'random'},
+    'dc:Joker':{signature:'lowestHp'},
+    'dc:Murder Machine Batman':{mark:true},
+    'dc:Doomsday':{shortRange:true,taunt:true},
+    'lotr:Tulkas':{shortRange:true},
+    'dc:Wonder Woman':{intercept:true},
+    'dc:Hellbat Armor Batman':{intercept:true},
+    'mcu:Abomination':{shortRange:true}
+  });
+  const tacticsFor=c=>TACTICS[String(c.pool)+':'+String(c.n)]||{};
+  const LEFT_ORDER=['tk1','tk2','d1','d2','d3'];
+  const RIGHT_ORDER=['tk2','tk1','d3','d2','d1'];
+  const LANE_SLOTS=new Set(LEFT_ORDER);
+  function laneTarget(attacker,targets){
+    const priority=attacker.position==='tk2'||attacker.position==='d3'?RIGHT_ORDER:LEFT_ORDER;
+    return priority.map(pos=>targets.find(t=>t.position===pos)).find(Boolean)||targets[0];
+  }
+  function formationTarget(attacker,targets,rng,mode='lane',forced=null){
+    const living=targets.filter(t=>t.hp>0);
+    if(!living.length)return null;
+    if(forced&&living.includes(forced))return forced;
+    if(mode==='random')return living[Math.floor(rng()*living.length)]||living[0];
+    if(mode==='lowestHp')return living.slice().sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp||String(a.id).localeCompare(String(b.id)))[0];
+    if(mode==='backline'){
+      const rear=living.filter(t=>!t.tank);
+      if(rear.length)return laneTarget(attacker,rear);
+    }
+    return laneTarget(attacker,living);
+  }
+  function rangeBlocked(attacker,allies){
+    return !!attacker.tactics.shortRange&&!attacker.tank&&allies.some(t=>t.tank&&t.hp>0);
+  }
+  function formationOverrides(fighters,round){
+    const marks=new Map(),taunts=new Map(),intercepted=new Set();
+    for(let side=0;side<2;side++){
+      const own=fighters[side].filter(f=>f.hp>0).sort(byIdentity);
+      const enemy=fighters[1-side].filter(f=>f.hp>0);
+      // One-round windows every three rounds; no permanent hard lock.
+      if((round-1)%3===0){
+        const taunter=own.find(f=>f.tactics.taunt&&f.tank);
+        if(taunter)taunts.set(side,taunter);
+        const marker=own.find(f=>f.tactics.mark);
+        if(marker){
+          const ally=own.filter(f=>f!==marker).sort((a,b)=>b.attack-a.attack||byIdentity(a,b))[0];
+          const target=enemy.find(f=>f.position===marker.position);
+          if(ally&&target)marks.set(ally,target);
+        }
+      }
+    }
+    return {marks,taunts,intercepted};
+  }
   function fighter(row,side) {
     const tank=!!row.pos.tank;
     const a=k=>attr(row,k);
@@ -82,12 +138,13 @@
     const offenseScale=toon?.dimensions?(.65+.35*credibility):1;
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
-      ability,physicalTier,wardHp,apexRank,apexHp,
+      ability,tactics:tacticsFor(c),physicalTier,wardHp,apexRank,apexHp,
       attack:strike*offenseScale*(apexRank===2?2.7:apexRank?2.3:1),armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
       powerUses:0,powerDmg:0,wear:0,roundsAlive:0,receivedHits:0,koRound:0,
+      rangeSkips:0,intercepts:0,redirected:0,
       targets:Object.create(null)
     };
   }
@@ -112,6 +169,9 @@
   function resolveBrawlCombat(A,B,effectiveRatings,rng,options={}) {
     const teams=[A,B];
     const fighters=teams.map((t,i)=>active(t).map(row=>fighter(row,i)));
+    // Only the actual five-position board (including short-handed subsets)
+    // has lane geometry. Custom/legacy fixtures retain weighted targeting.
+    const formation=fighters.every(team=>team.every(f=>LANE_SLOTS.has(f.position)));
     if(!fighters[0].length||!fighters[1].length)
       throw new Error('Battle Royale requires fighters on both teams');
     if(typeof rng!=='function')throw new Error('Battle Royale requires a seeded RNG');
@@ -144,6 +204,7 @@
         f,initiative:.57*f.speed+.43*f.reflex+18*rng()
       })).sort((a,b)=>b.initiative-a.initiative);
       const fatigue=round>17?1+Math.min(3,(round-17)*.13):1;
+      const overrides=formation?formationOverrides(fighters,round):null;
       // The second Apex/Empowered action follows the normal initiative pass,
       // preserving an opportunity for enemies to respond or counterattack.
       const actions=ordered.concat(ordered.filter(x=>x.f.apexRank)
@@ -152,8 +213,11 @@
         if(f.hp<=0)continue;
         const enemies=fighters[1-f.side].filter(x=>x.hp>0).sort(byIdentity);
         if(!enemies.length)break;
-        const target=pickTarget(enemies,rng);
-        f.attacks++;attacks++;
+        if(formation&&rangeBlocked(f,fighters[f.side])){
+          f.rangeSkips++;
+          log({round,type:'range',attacker:f.id,side:f.side});
+          continue;
+        }
         const p=f.ability;
         // Extremely high-tier, non-physical entities primarily act through
         // powers rather than ordinary punches. Their limited spell cadence
@@ -162,6 +226,20 @@
           ['reality','cosmic','magic','elemental'].includes(p.domain);
         const cooldown=highOrder&&f.physicalTier===1?Math.min(2,p.cooldown):p?.cooldown;
         const signature=!!p&&action===0&&((round-1)%cooldown===0);
+        let target,targeting='weighted';
+        if(formation){
+          const taunt=overrides.taunts.get(1-f.side),mark=!signature&&overrides.marks.get(f);
+          const forced=taunt?.hp>0?taunt:mark?.hp>0?mark:null;
+          targeting=forced?(forced===taunt?'taunt':'mark'):(signature&&f.tactics.signature||'lane');
+          target=formationTarget(f,enemies,rng,targeting,forced);
+          // A reviewed front-line defender can intercept one attack aimed at
+          // a rear ally per round. Never intercept an already forced target.
+          if(!forced&&!target.tank){
+            const guard=enemies.find(g=>g.tank&&g.tactics.intercept&&!overrides.intercepted.has(g));
+            if(guard){overrides.intercepted.add(guard);guard.intercepts++;target.redirected++;target=guard;targeting='intercept';}
+          }
+        }else target=pickTarget(enemies,rng);
+        f.attacks++;attacks++;
         if(signature)f.powerUses++;
         let hitChance=clamp(.79+.0014*(f.accuracy-target.reflex)+
           .0011*(f.speed-target.agility),.53,.97);
@@ -171,7 +249,7 @@
             .0005*(f.focus-target.reflex),.66,.94));
         if(rng()>hitChance){
           log({round,type:'miss',attacker:f.id,side:f.side,target:target.id,
-            move:signature?p.move:'Standard attack'});
+            move:signature?p.move:'Standard attack',targeting});
           continue;
         }
         f.hits++;
@@ -243,7 +321,7 @@
           target.koRound=round;
         }
         log({round,type:'hit',attacker:f.id,side:f.side,target:target.id,
-          move:signature?p.move:'Standard attack',domain,raw,prevented,
+          move:signature?p.move:'Standard attack',targeting,domain,raw,prevented,
           incoming,absorbed:dealt,overkill:incoming-dealt,hp:target.hp,ko:target.hp===0});
       }
       if(!fighters[0].some(f=>f.hp>0)||!fighters[1].some(f=>f.hp>0))break;
@@ -261,6 +339,7 @@
           dmg:f.dmg,abs:f.abs,mit:f.mit,overkill:f.overkill,kos:f.kos,
           attacks:f.attacks,hits:f.hits,hp:f.hp,maxHp:f.maxHp,
           roundsAlive:f.roundsAlive,receivedHits:f.receivedHits,
+          rangeSkips:f.rangeSkips,intercepts:f.intercepts,redirected:f.redirected,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,wardHp:f.wardHp,
           apexRank:f.apexRank,apexHp:f.apexHp,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],
@@ -283,7 +362,7 @@
     if(events)result.events=events;
     return result;
   }
-  const api={resolveBrawlCombat,apexRankOf,offensiveCredibility,speedDpsFit};
+  const api={resolveBrawlCombat,apexRankOf,offensiveCredibility,speedDpsFit,formationTarget,rangeBlocked,formationOverrides};
   if(root)root.DA_BRAWL_COMBAT=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
