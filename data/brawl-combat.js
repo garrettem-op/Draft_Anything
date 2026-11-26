@@ -12,6 +12,8 @@
   const abilityApi=(root&&root.DA_BRAWL_ABILITY_API)||
     (typeof module!=='undefined'&&module.exports?require('./brawl-attack-profiles.js'):null);
   const abilityFor=c=>abilityApi?.brawlAbilityOf?.(c)||null;
+  const tierApi=(root&&root.DA_POWER_TIER_PRIOR)||
+    (typeof module!=='undefined'&&module.exports?require('./power-tier-prior.js'):null);
   // Rare, reviewed transformations must feel qualitatively different from a
   // mild stat boost. Tier-5 forms and feat-reviewed flagship forms are Apex;
   // other reviewed tier-4 forms are Empowered. Baseline characters and
@@ -47,6 +49,10 @@
     const c=row.cand;
     const ability=abilityFor(c);
     const apexRank=apexRankOf(c,ability);
+    // Hidden owner-tuned tier: a bounded backstop only for fighters without a
+    // typed ability profile. Researched abilities are never overridden.
+    const tierPrior=ability?null:(tierApi?.powerTierOf?.(c)||null);
+    const tierFactor=tierPrior?tierApi.powerTierFactor(tierPrior):1;
     const apexHp=apexRank===2?730:apexRank?570:0;
     // High-order magic/reality/cosmic entities bring limited protective power
     // even when their human/child physical stats are unexceptional. This is a
@@ -54,8 +60,8 @@
     const wardHp=ability&&ability.tier>=4&&
       ['reality','cosmic','magic','elemental'].includes(ability.domain)
       ?Math.round(26*ability.tier):0;
-    const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
-      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+apexHp);
+    const maxHp=Math.round((130+1.30*a('end')+.62*a('str')+
+      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+apexHp)*tierFactor);
     // A physical combat tier is distinct from magic/reality technique tiers.
     // This reduces conventional blows against opponents with established
     // extreme bodies without accidentally ranking all cosmic spells as fists.
@@ -67,7 +73,8 @@
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
       ability,physicalTier,wardHp,apexRank,apexHp,
-      attack:attack*(apexRank===2?2.7:apexRank?2.3:1),armor,fit,maxHp,hp:maxHp,
+      tierPrior,tierFactor,
+      attack:attack*(apexRank===2?2.7:apexRank?2.3:1)*tierFactor,armor,fit,maxHp,hp:maxHp,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
