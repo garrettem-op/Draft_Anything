@@ -1077,9 +1077,9 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .h2h-rail-pick{display:flex;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:13px;overflow-wrap:anywhere}
 .h2h-rail-pick:last-child{border:0}
 .h2h-rail-position{color:var(--muted);min-width:28px;font:600 11px var(--f-mono)}
-.variant-ready{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important;cursor:pointer!important}
+.variant-ready{cursor:pointer!important}.variant-ready .disc{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important}
 @keyframes h2h-variant-pulse{0%,100%{filter:drop-shadow(0 0 2px var(--accent))}50%{filter:drop-shadow(0 0 13px var(--accent));transform:translateY(-3px)}}
-@media(prefers-reduced-motion:reduce){.variant-ready{animation:none!important;outline:3px solid var(--accent)}}
+@media(prefers-reduced-motion:reduce){.variant-ready .disc{animation:none!important;outline:3px solid var(--accent)}}
 .h2h-ready-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap}
 .h2h-ability-phase{min-width:0}
 .h2h-ability-phase .h2h-ready-actions .btn{flex:0 0 auto}
@@ -4105,9 +4105,6 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkDaily
 function avatar(c, cls = 'av') { return `<span class="${cls}">${tokenSVG(c)}</span>`; }
 function sigLine(c) { return c.sig ? `<small class="sig">Signature move · ${esc(c.sig.name)}</small>` : ''; }
 // One shared controls component for Perfect Season, Campaign, Dealt Hand and H2H.
-function renderVariantOdds(c){
-  return c?'<div class="note" style="margin-top:8px">'+variantOdds(c).map(x=>'<div>'+esc(x.form.name)+' · '+esc(x.classification)+' · <b>'+Number(x.percent.toFixed(2))+'%</b></div>').join('')+'</div>':'';
-}
 function renderVariantSurgePanel(v,action,input,ready,label='draft') {
   const choices=variantSurgeCandidates(v),selected=choices.find(c=>c.id===v.variantTarget)||choices[0];
   if(selected)v.variantTarget=selected.id;
@@ -4137,7 +4134,7 @@ function renderField(sportKey, roster, o = {}) {
     const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}${variantPick?' — Variant Surge available':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
@@ -4145,7 +4142,7 @@ function renderField(sportKey, roster, o = {}) {
     const variantPick = !!(c && o.variantSlots?.has(p.id));
     const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
+    return `<button class="${cls}" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}${variantPick?' — Variant Surge available':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
   const sides=sp.pos.filter(p=>p.side);
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
