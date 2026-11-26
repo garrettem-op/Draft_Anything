@@ -35,6 +35,30 @@
     return ability.tier>=4?1:0;
   }
 
+  // Power classification is independent of selected-form action/HP bonuses.
+  // The V1 typed atlas exposes one active signature domain; do not infer
+  // additional cosmic capabilities from a name, stat score, or Apex label.
+  const HIGH_ORDER_DOMAINS=new Set(['cosmic','magic','reality','time','elemental']);
+  function highOrderPower(p){
+    return !!p&&p.tier>=4&&HIGH_ORDER_DOMAINS.has(p.domain);
+  }
+  function powerInteraction(attacker,target,signature){
+    const a=highOrderPower(attacker.ability),b=highOrderPower(target.ability);
+    // Comparable supernatural kits resolve through ordinary typed guards,
+    // weaknesses, pierce and existing power-tier scaling, not form status.
+    const peerSignature=!!signature&&a&&b;
+    let counterMultiplier=1;
+    if(signature&&a&&target.apexRank&&!b){
+      // Preserve the established cosmic counter against conventional forms.
+      // Already-enhanced attacks need a smaller multiplier to avoid stacking
+      // the entire baseline counter on top of the existing 2.3/2.7x attack.
+      counterMultiplier=attacker.apexRank?1.25+.25*(attacker.ability.tier-4):3+(attacker.ability.tier-4);
+    }
+    const baselineGuard=attacker.apexRank&&!a&&!target.apexRank&&b&&
+      ['cosmic','magic','reality'].includes(target.ability.domain)?.50:0;
+    return {counterMultiplier,baselineGuard,peerSignature};
+  }
+
   // Strength and demonstrable offensive technique matter; speed alone is
   // not striking power. Reviewed powers provide an alternative to muscle.
   function offensiveCredibility(c){
@@ -263,22 +287,12 @@
         const floor=elevated?(30+14*p.tier)*support[f.side]*fatigue:0;
         let raw=Math.max(1,Math.round(Math.max(rolled,floor)));
         const domain=signature?p.domain:'physical';
-        // A rare form is not invincible to an established cosmic opponent:
-        // documented tier-4+ magic/reality/cosmic moves have enough force to
-        // threaten it, rather than being treated as another generic punch.
-        if(signature&&target.apexRank&&p?.tier>=4&&
-          ['cosmic','magic','reality','time','elemental'].includes(domain))
-          // Apex attackers already receive up to 2.7x attack power; do not
-          // stack the old 4x counter on top. Baseline cosmic beings retain
-          // a stronger counter to transformed conventional fighters; tier-5
-          // targets have comparable cosmic power and get the reduced counter.
-          raw=Math.round(raw*(f.apexRank?1.25+.25*(p.tier-4):target.ability?.tier>=5?2+.5*(p.tier-4):3+(p.tier-4)));
+        const interaction=powerInteraction(f,target,signature);
+        raw=Math.round(raw*interaction.counterMultiplier);
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
-        // High-order baseline entities may have formidable passive defenses
-        // even without being randomly granted an alternate form themselves.
-        if(f.apexRank&&!target.apexRank&&target.ability?.tier>=4&&
-          ['cosmic','magic','reality'].includes(target.ability.domain))
-          block+=raw*.50;
+        // Keep the established defense against conventional empowered strikes,
+        // but never halve a cosmic peer's offense merely because it is a form.
+        block+=raw*interaction.baselineGuard;
         if(signature&&target.ability?.guard?.includes(domain))block+=raw*.13;
         if(signature&&target.ability?.weakTo?.includes(domain))block-=raw*.12;
         // A non-superhuman punch or gadget does not routinely punch through
@@ -293,7 +307,7 @@
           const bypass=f.toon?.dimensions?clamp((Number(f.toon.dimensions.body)||0)/99,0,1):0;
           block+=raw*Math.min(.32,.11*gap)*(1-bypass);
         }
-        if(target.apexRank&&!f.apexRank){
+        if(target.apexRank&&!f.apexRank&&!interaction.peerSignature){
           // Standard weapons and punches struggle against empowered forms,
           // but high-order documented abilities remain meaningful counters.
           const threat=Math.max(p?.tier||0,f.physicalTier===3?3:0);
@@ -322,6 +336,8 @@
         }
         log({round,type:'hit',attacker:f.id,side:f.side,target:target.id,
           move:signature?p.move:'Standard attack',targeting,domain,raw,prevented,
+          counterMultiplier:interaction.counterMultiplier,baselineGuard:interaction.baselineGuard,
+          peerSignature:interaction.peerSignature,
           incoming,absorbed:dealt,overkill:incoming-dealt,hp:target.hp,ko:target.hp===0});
       }
       if(!fighters[0].some(f=>f.hp>0)||!fighters[1].some(f=>f.hp>0))break;
@@ -354,7 +370,7 @@
       throw new Error('Battle Royale combat failed to resolve in 90 rounds');
     const winner=sides[0].survivors?0:1,loser=1-winner;
     const result={
-      version:2,model:'typed-signature-v1',winner,rounds:round,attacks,
+      version:2,model:'typed-signature-v2',winner,rounds:round,attacks,
       line:[sides[winner].kos,sides[loser].kos,
         sides[loser].kos===0?'flawless':sides[winner].survivors===1?'last one standing':''],
       sides
@@ -362,7 +378,7 @@
     if(events)result.events=events;
     return result;
   }
-  const api={resolveBrawlCombat,apexRankOf,offensiveCredibility,speedDpsFit,formationTarget,rangeBlocked,formationOverrides};
+  const api={resolveBrawlCombat,apexRankOf,offensiveCredibility,speedDpsFit,formationTarget,rangeBlocked,formationOverrides,highOrderPower,powerInteraction};
   if(root)root.DA_BRAWL_COMBAT=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
