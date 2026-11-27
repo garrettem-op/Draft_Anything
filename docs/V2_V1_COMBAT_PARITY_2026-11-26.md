@@ -22,6 +22,7 @@ All below are confirmed merged into main except stacked #660, incorporated throu
 | [#663](https://github.com/garrettem-op/Draft_Anything/pull/663) | 21:33 | Base Odin's own Odinforce, prehistoric form and Destroyer form distinct. Destroyer tier-5 Apex, artifact/collective-life-force limits (Thor #300), no auto win. Full V2 research remains authoritative. |
 
 | [#666](https://github.com/garrettem-op/Draft_Anything/pull/666) | subsequent correction | Separate supernatural power classification from transformation status; supersedes the indiscriminate anti-Apex multipliers in #659 for high-order peer matchups. See acceptance rule below. |
+| [#679](https://github.com/garrettem-op/Draft_Anything/pull/679) | 2026-11-27 | Campaign eligibility judged in the actually rolled Variant Surge form. See the active-form section below. |
 
 ## Actual V2 snapshot audit
 Inspected develop/v2-option-c legacy modules at this audit:
@@ -46,5 +47,18 @@ Inspected develop/v2-option-c legacy modules at this audit:
 - Conventional enhanced forms remain vulnerable to credible supernatural counters. Normalize any counter coefficient for attack boosts already applied rather than stacking multiple versions of the same effect. V1 keeps 3–4x against conventional Apex for baseline high-order signatures, 1.25–1.5x for already-enhanced attackers, and a baseline high-order guard against conventional enhanced attackers. V2 may recalibrate magnitude on evidence and regression results, not reinstate the transformation-status shortcut for supernatural peers.
 - Acceptance tests: tier/form-status matrix across baseline and transformed high-order peers; Odin Destroyer vs Spectre, Mxyzptlk, Lucifer, Melkor; Hellbat vs Darkseid conventional counter; domain guards/weaknesses and ordinary strikes; mirrored seeded formation traces, actual HP vs overkill accounting, and first-round KO distribution. Preserve formation lanes, initiative, legitimate early elimination and existing historical results. No forced attacks or character-specific outcome overrides.
 - Carry forward [V1 PR #666](https://github.com/garrettem-op/Draft_Anything/pull/666) as a required integration and test item, not an instruction to copy legacy coefficients verbatim. No V2 runtime activation or deployment in this PR.
+
+## Campaign active-form eligibility (V1 PR #679, 2026-11-27)
+V1 now judges a surged character in the form it actually rolled. V2 must carry these rules forward and test them against its own reviewed character and form profiles.
+- **Reviewed form evidence only.** A form gains or loses a challenge only through a reviewed, source-linked decision for that exact form, keyed by canonical pool ID, base name and exact catalog form name (V1: `data/variant-form-research.js`, the same records the Phase 1 research audit reads). Unreviewed forms keep the base classification and are listed for follow-up (V1: `docs/variant-eligibility-coverage.md`, 160 of 243 forms had no reviewed decision at merge). V2's form-specific research should replace that list, not copy base tags onto forms.
+- **Gain and loss both apply.** For example, Dawnbreaker Batman qualifies for Skyborne, Red Death Batman no longer qualifies for No Powers Allowed, Alolan Ninetales loses Inferno.
+- **Numerical challenges** read transformed attributes.
+- **Tied to the base identity:** talent pool, Queens of the Court (identity), campaign history, single use, CPU reservations and The Underdogs (pre-surge limits apply in both directions).
+- **One roll per character per challenge;** several characters may surge in a round; a spent roll cannot qualify through another form.
+- **CPU parity without previews.** The CPU decides from eligibility and the shared published odds, never from a roll's outcome. It may gamble on a character who qualifies only through a surge: it rolls when it commits, the roll is recorded, and a failed roll burns that character for the round, as for the player. It does not risk a legal pick on a surge that could disqualify it, and every finale opponent follows that policy.
+- **Exhaustion** counts untried qualifying surges for both sides, so a round never ends while a transformation could still produce a legal lineup.
+- **No early reveal** of form names, odds or eligibility answers before selection.
+- Held for review in #679 (not granted): Devastator Batman giants (sources give 6'8"), Dreamy Bowser magic, Hellverine magic, Phoenix Wolverine flight.
+- Acceptance tests: V1 `tests/campaign-active-form-production.test.cjs` (live roster, real catalog and odds) is the reference: gain/loss matrix, stat thresholds in both directions, Underdogs both directions, identity/pool/history, multi-surge, CPU makes no roll while choosing, one roll per committed attempt, choices before a roll independent of its outcome, finale surge policy, exhaustion with untried and spent surges, and no pre-selection leaks.
 
 This audit identifies gaps and defines requirements; it does not claim the V2 implementation is already complete.
