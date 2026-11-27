@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {SIDEKICK_ROSTER, BENCH_CHEM, sidekickOf, isSidekick, characterRoleTags, benchChemistry, benchHeatRoll} = require('../data/bench-chemistry.js');
 const {CHARACTER_ABILITY_TAGS} = require('../data/character-abilities.js');
+const {scriptIndex} = require('./lib/html-scripts.cjs');
 
 const C = (pool, n, g = []) => ({pool, n, g});
 const POS = [{id: 'a'}, {id: 'b'}, {id: 'c'}, {id: 'd'}, {id: 'hc', coach: true}, {id: 'bn', bench: true}];
@@ -89,8 +90,8 @@ test('Off the Bench heat: clutch raises the heater, sidekicks rarely go cold, on
 
 test('the game wires bench chemistry into scoring, AI value and every game', () => {
   const html = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
-  const tag = html.indexOf('<script src="data/bench-chemistry.js"></script>');
-  assert.ok(tag > 0 && tag < html.indexOf('<script src="data/campaign.js"></script>'));
+  const tag = scriptIndex(html, 'data/bench-chemistry.js');
+  assert.ok(tag > 0 && tag < scriptIndex(html, 'data/campaign.js'));
   assert.match(html, /const benchChem=benchChemistry\(roster,sp\.pos,baseRating\)/);
   assert.match(html, /rating:baseRating\+muppetTeam\.points\+benchChem\.points/);
   assert.match(html, /benchChemistry\(roster,sp\.pos,baseRating\)\.points;\n\}/);

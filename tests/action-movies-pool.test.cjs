@@ -65,7 +65,8 @@ test('Action Movies roster: 100 unique characters, 25 films, four per film, all 
 
 test('Action Movies is wired into every game mode, Mashup, labels and kits', ()=>{
   const {html}=harness();
-  assert.match(html,/<script src="data\/pools-action-movies\.js"><\/script>\s*<script src="data\/new-pool-traits\.js">/);
+  { const {scriptTagPattern}=require('./lib/html-scripts.cjs');
+    assert.match(html,new RegExp(scriptTagPattern('data/pools-action-movies.js').source+'\\s*<script src="data/new-pool-traits\\.js'));}
   assert.match(html,/const BUILTIN = \[[^\]]*'harrypotter', 'actionmovies', 'mashup'\]/);
   assert.match(html,/actionmovies: 'Action Movies'/);
   assert.match(html,/actionmovies: \['#772B23', '#F5B96B'\]/);
