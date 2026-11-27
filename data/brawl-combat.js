@@ -333,8 +333,8 @@
         if(signature)f.powerUses++;
         let hitChance=clamp(.79+.0014*(f.accuracy-target.reflex)+
           .0011*(f.speed-target.agility),.53,.97);
-        // Reality alteration / spellcasting is not hand-eye marksmanship.
-        if(signature&&['reality','cosmic','magic'].includes(p.domain))
+        // Reality alteration, spellcasting and psionic force are not hand-eye marksmanship.
+        if(signature&&['reality','cosmic','magic','psychic'].includes(p.domain))
           hitChance=Math.max(hitChance,clamp(.78+.025*(p.tier-3)+
             .0005*(f.focus-target.reflex),.66,.94));
         f.hitChanceSum+=hitChance;

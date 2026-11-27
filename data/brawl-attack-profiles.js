@@ -25,6 +25,7 @@
  ['mcu:Adam Warlock','Cosmic energy projection','cosmic',3,.27,['cosmic'],3,'https://www.marvel.com/comics/discover/731/adam-warlock','The Soul Gem is not assumed active unless the selected form equips it.'],
  ['mcu:Abomination','Gamma-powered onslaught','melee',3,.18,['melee'],3,'https://www.marvel.com/comics/guides/2318/the_abomination','Base Emil Blonsky, not a temporary Chaos King or enhanced variant.'],
  ['mcu:Scarlet Witch','Chaos hex','magic',4,.32,['magic'],3,'https://www.marvel.com/articles/comics/marvel-unlimited-reading-club-comics-to-read-before-house-of-m-event-starring-scarlet-witch','Baseline chaos magic; House of M feat is not every ordinary strike.'],
+ ['mcu:Jean Grey','Psionic force','psychic',4,.30,['psychic'],3,'https://www.marvel.com/characters/phoenix-jean-grey','Base Jean Grey (telekinesis, telepathy; Omega-level mutant). The Phoenix Force forms are separate entries and are not assumed here; telepathy is not an automatic win against a minded opponent, and her feats vary by era.'],
  ['mcu:The Watcher','Cosmic intervention','cosmic',4,.30,['cosmic'],4,'https://www.marvel.com/comics/guides/2196/when-the-watcher-does-more-than-watch','Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene.'],
  ['mcu:Odin','Odinforce discharge','magic',4,.32,['magic','cosmic'],3,'https://latency.marvel.com/comics/discover/1048/odin','Odinforce requires replenishment during Odinsleep; no automatic victory.'],
  // Publisher-grounded exceptional beings, with continuity limits from the existing exceptional-power register.
@@ -75,9 +76,45 @@
    }
    if(candidate.variantBase)return null;
    const rec=CORE[String(candidate.pool||'')+':'+String(candidate.n||'')];
-   return rec?{...rec,guard:rec.guard.slice(),weakTo:[],wearStart:0,wearRate:0}:null;
+   return rec?{...rec,guard:rec.guard.slice(),weakTo:[],wearStart:0,wearRate:0}:derivedAbilityOf(candidate);
  }
- const api={brawlAbilityOf,CORE};
+ // A character with a reviewed attacking power but no individual atlas entry still has that power.
+ // Until a sourced profile is written, they get one modest generic attack derived from their reviewed
+ // ability record: tier 2 (an ordinary attack with a repeatable edge, never an Apex or ward), low pierce,
+ // a slow cadence. Only powers that are themselves a way of hurting someone count: spellcasting,
+ // elemental control and telekinesis. Flight, healing, stealth, teleportation, gadgets and size do not.
+ // An individual entry in CORE, a reviewed form, or a registered exceptional power always wins.
+ const DERIVED=Object.freeze([
+  // [broad tag, specific tag, domain, move]
+  ['fire','fire-control','elemental','Fire control'],
+  ['ice','ice-control','elemental','Ice control'],
+  ['electric','electric-control','elemental','Electric control'],
+  ['aquatic','water-control','elemental','Water control'],
+  ['psychic','telekinesis','psychic','Telekinetic strike'],
+  ['magic','spellcaster','magic','Spellcasting']
+ ]);
+ const DERIVED_TIER=2,DERIVED_PIERCE=.12,DERIVED_COOLDOWN=4;
+ function derivedAbilityOf(candidate){
+   if(!candidate||!candidate.pool||!candidate.n)return null;
+   // The reviewed ability index lists every roster character's tags (broad id, then specific tags).
+   // Script-level const declarations are global bindings but not window properties, so read by name.
+   const index=typeof CHARACTER_ABILITY_TAGS!=='undefined'?CHARACTER_ABILITY_TAGS:root&&root.CHARACTER_ABILITY_TAGS;
+   const tags=index&&index[candidate.pool]&&index[candidate.pool][candidate.n];
+   if(!Array.isArray(tags)||!tags.length)return null;
+   const exceptional=root&&root.brawlExceptionalPower;
+   if(typeof exceptional==='function'&&exceptional(candidate,'brawl',{id:'d1'})>0)return null;
+   const evidence=root&&root.characterAbilityEvidence;
+   for(const [broad,specific,domain,move] of DERIVED){
+     if(!tags.includes(specific))continue;
+     let rec=null;
+     try{rec=typeof evidence==='function'?evidence(candidate,broad):null;}catch(e){rec=null;}
+     return {move,domain,tier:DERIVED_TIER,pierce:DERIVED_PIERCE,guard:[],weakTo:[],cooldown:DERIVED_COOLDOWN,
+       wearStart:0,wearRate:0,source:String(rec&&rec.source||''),origin:'derived',derived:true,
+       limit:'Generic modest attack derived from the reviewed '+specific+' ability record; not a published power level. An individual profile replaces it.'};
+   }
+   return null;
+ }
+ const api={brawlAbilityOf,CORE,derivedAbilityOf};
  if(root)root.DA_BRAWL_ABILITY_API=api;
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);

@@ -37,7 +37,7 @@ test('all registered exceptional-power identities have separately reviewed comba
   for(const [key,p] of Object.entries(CORE)){
     assert.match(key,/^(dc|mcu|lotr|toons|games):./);
     assert.ok(p.move.length>=5&&p.limit.length>=25,key);
-    assert.ok(['toxin','melee','tech','cosmic','magic','reality','elemental'].includes(p.domain),key);
+    assert.ok(['toxin','melee','tech','cosmic','magic','reality','elemental','psychic'].includes(p.domain),key);
     assert.ok(p.pierce>=0&&p.pierce<=.45,key);
     assert.ok(p.tier>=1&&p.tier<=5,key);
     assert.ok(p.cooldown>=2&&p.cooldown<=5,key);
