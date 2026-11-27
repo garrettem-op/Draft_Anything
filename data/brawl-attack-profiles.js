@@ -75,9 +75,45 @@
    }
    if(candidate.variantBase)return null;
    const rec=CORE[String(candidate.pool||'')+':'+String(candidate.n||'')];
-   return rec?{...rec,guard:rec.guard.slice(),weakTo:[],wearStart:0,wearRate:0}:null;
+   return rec?{...rec,guard:rec.guard.slice(),weakTo:[],wearStart:0,wearRate:0}:derivedAbilityOf(candidate);
  }
- const api={brawlAbilityOf,CORE};
+ // A character with a reviewed attacking power but no individual atlas entry still has that power.
+ // Until a sourced profile is written, they get one modest generic attack derived from their reviewed
+ // ability record: tier 2 (an ordinary attack with a repeatable edge, never an Apex or ward), low pierce,
+ // a slow cadence. Only powers that are themselves a way of hurting someone count: spellcasting,
+ // elemental control and telekinesis. Flight, healing, stealth, teleportation, gadgets and size do not.
+ // An individual entry in CORE, a reviewed form, or a registered exceptional power always wins.
+ const DERIVED=Object.freeze([
+  // [broad tag, specific tag, domain, move]
+  ['fire','fire-control','elemental','Fire control'],
+  ['ice','ice-control','elemental','Ice control'],
+  ['electric','electric-control','elemental','Electric control'],
+  ['aquatic','water-control','elemental','Water control'],
+  ['psychic','telekinesis','psychic','Telekinetic strike'],
+  ['magic','spellcaster','magic','Spellcasting']
+ ]);
+ const DERIVED_TIER=2,DERIVED_PIERCE=.12,DERIVED_COOLDOWN=4;
+ function derivedAbilityOf(candidate){
+   if(!candidate||!candidate.pool||!candidate.n)return null;
+   // The reviewed ability index lists every roster character's tags (broad id, then specific tags).
+   // Script-level const declarations are global bindings but not window properties, so read by name.
+   const index=typeof CHARACTER_ABILITY_TAGS!=='undefined'?CHARACTER_ABILITY_TAGS:root&&root.CHARACTER_ABILITY_TAGS;
+   const tags=index&&index[candidate.pool]&&index[candidate.pool][candidate.n];
+   if(!Array.isArray(tags)||!tags.length)return null;
+   const exceptional=root&&root.brawlExceptionalPower;
+   if(typeof exceptional==='function'&&exceptional(candidate,'brawl',{id:'d1'})>0)return null;
+   const evidence=root&&root.characterAbilityEvidence;
+   for(const [broad,specific,domain,move] of DERIVED){
+     if(!tags.includes(specific))continue;
+     let rec=null;
+     try{rec=typeof evidence==='function'?evidence(candidate,broad):null;}catch(e){rec=null;}
+     return {move,domain,tier:DERIVED_TIER,pierce:DERIVED_PIERCE,guard:[],weakTo:[],cooldown:DERIVED_COOLDOWN,
+       wearStart:0,wearRate:0,source:String(rec&&rec.source||''),origin:'derived',derived:true,
+       limit:'Generic modest attack derived from the reviewed '+specific+' ability record; not a published power level. An individual profile replaces it.'};
+   }
+   return null;
+ }
+ const api={brawlAbilityOf,CORE,derivedAbilityOf};
  if(root)root.DA_BRAWL_ABILITY_API=api;
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
