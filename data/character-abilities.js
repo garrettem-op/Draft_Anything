@@ -1503,6 +1503,7 @@ const CHARACTER_ABILITY_RECORDS_NEW_POOLS = {
     {"tag": "magic", "tags": ["spellcaster"], "kind": "spellcaster", "feat": "Interdimensional demon lord wielding demonic sorcery; overran Earth in The Terror of Trigon (1984–85).", "source": "https://en.wikipedia.org/wiki/Trigon", "continuity": "DC mainline comics", "audit": "2026-11-r2"},
   ],
   "dc:Anti-Monitor": [
+    {"tag":"teleport","tags":["teleports-others","dimensional-transport"],"kind":"spatial-manipulation","feat":"In Crisis on Infinite Earths #11–12, Anti-Monitor pulls the surviving Earth into the antimatter universe.","source":"https://www.comics.org/issue/2017071/?display=grid","continuity":"Crisis on Infinite Earths (1985–1986)","limitation":"Campaign eligibility for external dimensional transportation only; independent instantaneous self-teleportation is not established. Do not infer combat blink or evasion.","verification":"owner-ruling","ruling":"owner-ruled 2026-11-26: approved scoped Blink and Miss eligibility; limitations remain in force","audit":"2026-11-26"},
     {"tag": "flight", "tags": ["natural-flight"], "kind": "natural-flight", "feat": "Floats and flies through space in Crisis on Infinite Earths (1985–86).", "source": "https://en.wikipedia.org/wiki/Anti-Monitor", "continuity": "Crisis on Infinite Earths (1985–86)", "audit": "2026-11-r2"},
   ],
   "dc:The Spectre": [
@@ -1817,6 +1818,7 @@ const CHARACTER_ABILITY_RECORDS_NEW_POOLS = {
     {"tag": "magic", "tags": ["spellcaster"], "kind": "spellcaster", "feat": "Witch who binds Snape in an Unbreakable Vow (HBP ch. 2).", "source": "https://en.wikipedia.org/wiki/List_of_Harry_Potter_characters", "continuity": "Harry Potter novels", "audit": "2026-11-r2"},
   ],
   "harrypotter:Bellatrix Lestrange": [
+    {"tag":"teleport","tags":["self-teleport","magical-teleport"],"kind":"apparition","feat":"In Harry Potter and the Half-Blood Prince, chapter 2 (Spinner's End), Bellatrix independently Apparates beside the river after Narcissa.","source":"https://www.harrypotterstats.com/books/harry-potter-and-the-half-blood-prince/chapters/spinners-end/","continuity":"Harry Potter and the Half-Blood Prince (2005)","limitation":"Anti-Apparition enchantments can block travel.","verification":"owner-ruling","ruling":"owner-ruled 2026-11-26: approved scoped Blink and Miss eligibility; limitations remain in force","audit":"2026-11-26"},
     {"tag": "magic", "tags": ["spellcaster"], "kind": "spellcaster", "feat": "Kills Sirius Black in a duel (OotP ch. 35).", "source": "https://harrypotter.fandom.com/wiki/Bellatrix_Lestrange", "continuity": "Harry Potter novels", "audit": "2026-11-r2"},
   ],
   "harrypotter:Rodolphus Lestrange": [
@@ -2529,7 +2531,6 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"harrypotter:Minerva McGonagall", tag:"teleport", note:"Apparition is standard for adult wizards, but no on-page McGonagall Apparition was confirmed.", source:"https://harrypotter.fandom.com/wiki/Minerva_McGonagall", audit:"2026-11-r2"},
   {id:"harrypotter:Sirius Black", tag:"teleport", note:"No on-page Apparition by Sirius was confirmed.", source:"https://harrypotter.fandom.com/wiki/Sirius_Black", audit:"2026-11-r2"},
   {id:"harrypotter:Remus Lupin", tag:"teleport", note:"No on-page Apparition by Lupin was confirmed.", source:"https://en.wikipedia.org/wiki/Remus_Lupin", audit:"2026-11-r2"},
-  {id:"harrypotter:Bellatrix Lestrange", tag:"teleport", note:"At the Ministry she is taken by Voldemort's Apparition (OotP ch. 36); her own on-page Apparition was not confirmed.", source:"https://harrypotter.fandom.com/wiki/Bellatrix_Lestrange", audit:"2026-11-r2"},
   {id:"harrypotter:Kingsley Shacklebolt", tag:"teleport", note:"No on-page Apparition by Kingsley was confirmed.", source:"https://harrypotter.fandom.com/wiki/Kingsley_Shacklebolt", audit:"2026-11-r2"},
   {id:"harrypotter:Alastor Moody", tag:"teleport", note:"No on-page Apparition by Moody was confirmed.", source:"https://harrypotter.fandom.com/wiki/Alastor_Moody", audit:"2026-11-r2"},
   {id:"harrypotter:Nymphadora Tonks", tag:"teleport", note:"No on-page Apparition by Tonks was confirmed.", source:"https://harrypotter.fandom.com/wiki/Nymphadora_Tonks", audit:"2026-11-r2"},
@@ -2551,7 +2552,7 @@ const CHARACTER_ABILITY_TAG_FAMILIES = Object.freeze({
   electric: Object.freeze(['electric-control', 'electric-weapon']),
   tech: Object.freeze(['powered-armor', 'robot-or-ai', 'cyborg', 'gadgets', 'inventor']),
   stealth: Object.freeze(['invisibility', 'infiltration']),
-  teleport: Object.freeze(['self-teleport', 'portals', 'teleports-others']),
+  teleport: Object.freeze(['self-teleport', 'portals', 'teleports-others', 'magical-teleport', 'digital-manifestation', 'dimensional-transport']),
   healing: Object.freeze(['self-regeneration', 'heals-others']),
   giants: Object.freeze(['giant-sized', 'size-change']),
 });
@@ -3547,7 +3548,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Lobo": ["healing", "self-regeneration"],
     "Etrigan": ["magic", "spellcaster", "fire", "fire-control"],
     "Trigon": ["magic", "spellcaster"],
-    "Anti-Monitor": ["flight", "natural-flight"],
+    "Anti-Monitor": ["flight", "natural-flight", "teleport", "teleports-others", "dimensional-transport"],
     "The Spectre": ["flight", "natural-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Mister Mxyzptlk": ["magic", "spellcaster", "teleport", "self-teleport"],
     "Doctor Manhattan": ["flight", "natural-flight", "teleport", "self-teleport", "teleports-others", "healing", "self-regeneration", "giants", "size-change"],
@@ -3705,7 +3706,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Draco Malfoy": ["flight", "powered-flight", "magic", "spellcaster"],
     "Lucius Malfoy": ["magic", "spellcaster", "teleport", "self-teleport"],
     "Narcissa Malfoy": ["magic", "spellcaster"],
-    "Bellatrix Lestrange": ["magic", "spellcaster"],
+    "Bellatrix Lestrange": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
     "Rodolphus Lestrange": ["magic", "spellcaster"],
     "Barty Crouch Jr.": ["magic", "spellcaster", "stealth", "infiltration"],
     "Peter Pettigrew": ["magic", "spellcaster", "stealth", "infiltration"],
@@ -3789,10 +3790,15 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
   }),
 });
 /* END GENERATED ABILITY INDEX */
+// Source-linked records for Action Movies, which is not yet in the legacy generated audit index.
+// This narrow supplemental grant must not imply that the entire pool has been audited.
+const CHARACTER_ABILITY_SUPPLEMENTAL = Object.freeze({
+  'actionmovies:Agent Smith': Object.freeze([Object.freeze({"tag":"teleport","tags":["digital-manifestation"],"kind":"host-transfer","feat":"In The Matrix (1999), Smith abandons a damaged host and manifests in another connected human body; Morpheus explains that Agents can move into and out of connected software.","source":"https://matrix.fandom.com/wiki/Agent","continuity":"The Matrix (1999), base Agent Smith","limitation":"Requires a compatible human host wired into the Matrix. Does not grant physical-world teleportation or automatically transfer to rogue/viral forms.","verification":"owner-ruling","ruling":"owner-ruled 2026-11-26: approved scoped Blink and Miss eligibility; limitations remain in force","audit":"2026-11-26"})]),
+});
 function characterAbilityEvidence(candidate, tag) {
   if (!candidate || !candidate.pool || !candidate.n) return null;
   const broad = CHARACTER_ABILITY_BROAD_TAG[tag] || tag;
-  return (CHARACTER_ABILITIES[candidate.pool + ':' + candidate.n] || []).find(x => x.tag === broad) || null;
+  return (CHARACTER_ABILITIES[candidate.pool + ':' + candidate.n] || CHARACTER_ABILITY_SUPPLEMENTAL[candidate.pool + ':' + candidate.n] || []).find(x => x.tag === broad) || null;
 }
 /* Evidence standard (owner, 2026-11-10): the question is whether a grant is accurate, not who published the
    source. A specific, well-documented community entry (Wikipedia, Fandom, TV Tropes, Comic Vine) is credible
@@ -3820,6 +3826,7 @@ const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
   'starwars.archivum.wiki':'community', 'thewitcher3.wiki.fextralife.com':'community', 'game8.co':'community',
   'gamerguides.com':'community', 'comicbasics.com':'community', 'fortressofsolitude.co.za':'community',
   'autoassembly.org.uk':'community', 'dcuguide.com':'community',
+  'harrypotterstats.com':'community', 'comics.org':'community',
 });
 const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
 /* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
@@ -3930,7 +3937,9 @@ function characterAbilityProvenance(candidate, tag) {
 function characterAbilityTags(candidate) {
   if (!candidate || !candidate.pool || !candidate.n) return null;
   const tags = CHARACTER_ABILITY_TAGS[candidate.pool]?.[candidate.n];
-  return Array.isArray(tags) ? tags.slice() : null;
+  if (Array.isArray(tags)) return tags.slice();
+  const supplemental = CHARACTER_ABILITY_SUPPLEMENTAL[candidate.pool + ':' + candidate.n];
+  return supplemental ? [...new Set(supplemental.flatMap(f => [f.tag, ...f.tags]))] : null;
 }
 if (typeof module !== 'undefined' && module.exports) module.exports = {
   CHARACTER_ABILITIES, CHARACTER_ABILITY_DISPUTES, CHARACTER_ABILITY_RESEARCH_QUEUE,

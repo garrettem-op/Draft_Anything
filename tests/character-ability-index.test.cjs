@@ -276,7 +276,7 @@ const PR44_ACCEPTED = {
   electric: ['electric', 'electric-control', 'electric-weapon'],
   tech: ['tech', 'powered-armor', 'robot-or-ai', 'cyborg', 'gadgets', 'inventor'],
   stealth: ['stealth', 'invisibility', 'infiltration'],
-  teleport: ['teleport', 'self-teleport', 'portals', 'teleports-others'],
+  teleport: ['teleport', 'self-teleport', 'portals', 'teleports-others', 'magical-teleport', 'digital-manifestation', 'dimensional-transport'],
   healing: ['healing', 'self-regeneration', 'heals-others'],
   giants: ['giants', 'giant-sized', 'size-change'],
 };
