@@ -57,3 +57,10 @@ test('the generic attack is modest: no Apex rank, no ward, no intrinsic rank, an
   assert.ok(withPower<without*1.6,'modest, not a multiplier of a different order: '+withPower+' vs '+without);
   assert.ok(!first.apexRank&&!first.intrinsicRank);
 });
+test('Jean Grey has an individual sourced profile that replaces the generic attack',()=>{
+  const {brawlAbilityOf}=load({CHARACTER_ABILITY_TAGS:{mcu:{'Jean Grey':['psychic','telepathy','telekinesis']}},characterAbilityEvidence:evidence});
+  const p=brawlAbilityOf(hero('mcu','Jean Grey'));
+  assert.equal(p.domain,'psychic');assert.equal(p.tier,4);assert.ok(!p.derived);
+  assert.match(p.source,/^https:\/\/www\.marvel\.com\//);
+  assert.equal(brawlAbilityOf(hero('mcu','Jean Grey',undefined,{variantBase:'Jean Grey'})),null,'forms are separate entries');
+});
