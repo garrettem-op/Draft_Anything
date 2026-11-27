@@ -33,8 +33,9 @@ const VAGUE_LONG = 'He has the power to fly through the sky at will.';
 // deliberately changes grants, and say so in that PR. Moved 2026-11-11 when main was merged in: PR #76 granted
 // Captain Atom tech (powered-armor). Moved again 2026-11-11 when main was merged in after #56: Round 3 granted
 // stealth to 7 DC characters (Nightwing, Red Hood, Batgirl, Batwoman, Cassandra Cain, Huntress, Talia al Ghul),
-// giants to Durin's Bane and Gothmog, and flight to Hermione Granger (10 grants). No grant changed in this PR.
-const PINNED_INDEX_DIGEST = '289d558eec5d7e8d76db6c57bf6cbe1a0b68e6a8becb6635d8105a284d081ff6';
+// giants to Durin's Bane and Gothmog, and flight to Hermione Granger (10 grants). Moved 2026-11-27 for PR #678:
+// the owner granted giants/giant-sized to Shelob and Carcharoth (the only two index changes since the last pin).
+const PINNED_INDEX_DIGEST = 'e10dba9bc10e1c2805d7b89bfb08476c2ecd002134742da134a1fd7ddd960133';
 
 test('every host cited by an evidence record has a source type', () => {
   const types = new Set(CHARACTER_ABILITY_SOURCE_TYPES);
