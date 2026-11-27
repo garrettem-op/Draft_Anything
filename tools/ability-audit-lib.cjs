@@ -18,7 +18,7 @@ const DATA_FILES = ['data/mcu-profiles.js', 'data/toons-profiles.js', 'data/game
   'data/new-pool-core.js', 'data/pools-dc.js', 'data/pools-middle-earth.js', 'data/pools-harry-potter.js',
   'data/new-pool-traits.js', 'data/new-pool-powers.js',
   'data/pool-lore-dc.js', 'data/pool-lore-middle-earth.js', 'data/pool-lore-harry-potter.js',
-  'data/character-abilities.js', 'data/campaign-eligibility.js', 'data/campaign.js'];
+  'data/character-abilities.js', 'data/campaign-eligibility.js', 'data/variant-form-research.js', 'data/campaign.js'];
 
 function read(p) { return fs.readFileSync(path.join(ROOT, p), 'utf8'); }
 

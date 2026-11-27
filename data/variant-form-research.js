@@ -3,6 +3,7 @@
  * These are not inherited blindly from baseline combatant tags.
  * All other tags remain pending until specifically assessed.
  */
+(function(root){
 'use strict';
 const records=Object.create(null);
 function yes(id,name,tag,reason,source){
@@ -106,4 +107,34 @@ yes('toons:Aang','Avatar State Aang','aquatic','Avatar State grants amplified wa
 yes('toons:Aang','Avatar State Aang','ice','Avatar State can freeze water into large ice structures.','Avatar: The Last Airbender · The Storm');
 yes('toons:Elsa','Fifth Spirit Elsa','ice','The Fifth Spirit form preserves Elsa’s powerful ice and snow generation.','Frozen II (2019)');
 no('toons:Simba','Adult King Simba','kids','This explicitly is adult Simba, not a child or teenage version.','The Lion King (1994) · adult Simba');
-module.exports=Object.freeze(records);
+// --- Campaign active-form review, 2026-11-27 (PR #679) ---------------------------------
+// Decisions the active-form eligibility work needs where the form differs from its base
+// character. Each one cites the story or source that shows the form's ability or appearance.
+// Not granted pending review (listed in docs/variant-eligibility-coverage.md): Devastator
+// Batman giants (sources give 6'8", below the eight-foot bar), Dreamy Bowser magic and
+// Hellverine magic (artifact empowerment / demonic possession, not spellcasting), Phoenix
+// Wolverine flight (no specific scene found yet).
+const metal='Dark Nights: Metal (2017)';
+no('dc:Batman','Red Death Batman','mortal','Bruce Wayne fused with the Speed Force through the Flash; no longer an ordinary human body.',metal+' · Batman: The Red Death #1');
+yes('dc:Batman','Dawnbreaker Batman','flight','This Bruce Wayne wields a Green Lantern power ring, which grants flight.',metal+' · Batman: The Dawnbreaker #1');
+no('dc:Batman','Dawnbreaker Batman','mortal','Green Lantern ring powers; not an ordinary human.',metal+' · Batman: The Dawnbreaker #1');
+no('dc:Batman','Dawnbreaker Batman','red','Black and green Lantern design; no red-dominant costume.',metal+' · Batman: The Dawnbreaker #1');
+no('dc:Batman','Devastator Batman','mortal','Bruce injected himself with the Doomsday virus and became a Doomsday-like hybrid.','https://bleedingcool.com/collectibles/mcfarlane-toys-flashback-dc-multiverse-batman-devastator');
+no('dc:Batman','Murder Machine Batman','mortal','Bruce merged with Cyborg technology and the Alfred AI; a cybernetic body.',metal+' · Batman: The Murder Machine #1');
+yes('dc:Batman','The Darkest Knight','flight','The Batman Who Laughs takes Doctor Manhattan\u2019s powers, including flight.','Dark Nights: Death Metal (2020)');
+yes('dc:Batman','The Darkest Knight','teleport','Doctor Manhattan\u2019s powers include instantaneous teleportation.','Dark Nights: Death Metal (2020)');
+no('dc:Batman','The Darkest Knight','mortal','Manhattan-class cosmic powers; not an ordinary human.','Dark Nights: Death Metal (2020)');
+yes('dc:Superman','Superman Blue','electric','Superman\u2019s electric energy-being transformation projects and manipulates electricity.','Superman (1987) #123\u2013125 (1997)');
+no('dc:Superman','Superman Blue','red','The energy form wears a blue-and-white containment suit with no red.','Superman (1987) #123 (1997)');
+yes('mcu:Odin','Odin in Destroyer Armor','giants','Odin enters the Destroyer and absorbs the life forces of Asgard, growing to a colossal size to fight the Celestials.','https://en.wikipedia.org/wiki/Destroyer_(Thor)');
+yes('mcu:Spider-Man','Cosmic Spider-Man (Captain Universe)','flight','As Captain Universe, the Enigma Force lets Spider-Man fly.','The Amazing Spider-Man (1963) #327\u2013329 (1989)');
+yes('mcu:Wolverine','Hellverine (Logan)','fire','Possessed by Bagra-ghul, Logan carries Ghost Rider-style hellfire, with flaming claws and skull.','https://www.thepopverse.com/wolverine-hellverine-marvel-ghost-rider');
+no('games:Mario','Ice Mario','red','The Ice Flower outfit is white and light blue rather than red.','New Super Mario Bros. Wii (2009)');
+no('games:Mario','Cat Mario','red','The Super Bell cat suit is yellow rather than red.','Super Mario 3D World (2013)');
+yes('games:Mewtwo','Armored Mewtwo','tech','Giovanni\u2019s engineered armor; owner ruling 2026-11-10: armor alone counts for Tech Titans.','Pok\u00e9mon: The First Movie (1998)');
+yes('games:Charizard','Gigantamax Charizard','giants','Same form as the Pok\u00e9mon pool record: Gigantamax produces a towering, stadium-scale enlargement.','Pok\u00e9mon Sword and Shield (2019)');
+
+const frozen=Object.freeze(records);
+if(typeof module!=='undefined'&&module.exports)module.exports=frozen;
+if(root)root.DA_VARIANT_FORM_RESEARCH=frozen;
+})(typeof window!=='undefined'?window:null);

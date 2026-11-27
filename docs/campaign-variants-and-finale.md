@@ -14,6 +14,16 @@ New characters are **not** duplicated in the roster. The game only transforms th
 
 The catalog spans MCU/Marvel, DC, video games, original Kanto Pokémon, Star Wars, Middle-earth, the Wizarding World, and cartoons. NBA and Muppets are deliberately omitted from this first expansion rather than inventing noncanonical super-powered forms for every character.
 
+## Eligibility in the active form (PR #679, 2026-11-27)
+A surged character is judged in the form it actually rolled, when the lineup is submitted.
+- **Gain or lose eligibility.** A form changes a challenge result only where `data/variant-form-research.js` holds a reviewed, source-linked decision for that exact catalog form (for example, Dawnbreaker Batman qualifies for Skyborne, Red Death Batman no longer qualifies for No Powers Allowed, Alolan Ninetales loses Inferno). Every other challenge keeps the base character's classification. Forms still awaiting review are listed in [`variant-eligibility-coverage.md`](variant-eligibility-coverage.md) (`node tools/variant-eligibility-coverage.cjs --write`).
+- **Numerical challenges** (The Fast Lane, Big Brain Energy, Heavy Hitters, Brains Before Brawn) read the transformed attributes.
+- **Tied to the base character:** talent pool, identity (Queens of the Court), win/use history, single-use rules, CPU reservations, and The Underdogs, which keeps its pre-surge limits in both directions.
+- **Only the rolled form counts.** Each character gets one roll per challenge; several different characters may surge in the same round. A spent roll cannot qualify through a different form.
+- **Same rules for the CPU.** The CPU decides from eligibility and the same surge odds, never from a roll's outcome. It may gamble on a character who qualifies only through a surge; the roll happens when it commits, is recorded, and a failed roll burns that character for the round, as it does for the player. It never risks a legal pick on a surge that could disqualify it, and both finale opponents follow that policy.
+- **Roster exhaustion** counts untried qualifying surges on both sides, so a round does not end while a transformation could still produce a legal lineup.
+- **No early reveal.** The picker and the pre-roll dialog show no form names, odds or eligibility answers.
+
 ## New challenges
 Campaign challenge criteria support `poolIds` and `minDistinctPools` as declarative fields, independent of the existing evidence-based ability tags and statistics. New themes include **Saturday Morning Showdown** (cartoons + Muppets), **Caped Crossover** (DC + Marvel), **Wizards & Wanderers** (Tolkien + Harry Potter), and other constrained-universe categories. The player-facing picker remains deliberately unfiltered; eligibility is enforced on submission. Commander specialties do not override these pool restrictions.
 

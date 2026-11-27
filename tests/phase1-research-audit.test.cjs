@@ -104,7 +104,9 @@ test('Star Wars source-linked #82 batch documents individual visual, age and syn
  // Do not collapse continuity ambiguities into unresearched blanket negatives.
  assert.equal(base('starwars','Ahsoka Tano','kids').decision,'needs-review');
  assert.equal(base('starwars','Luke Skywalker','kids').decision,'needs-review');
- assert.equal(load().summary.needsReview,17840);
+ // 17840 -> 17838 on 2026-11-27: owner ruling PR #678 resolved Shelob and Carcharoth giants to yes.
+ // 17838 -> 17820 the same day: PR #679 reviewed 18 form-specific Variant Surge decisions.
+ assert.equal(load().summary.needsReview,17820);
 });
 
 test('issue #646: Supergirl teenage classification is source-linked',()=>{

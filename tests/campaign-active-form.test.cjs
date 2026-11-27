@@ -8,7 +8,11 @@ const v={history:[],step:0,sport:'brawl',status:'draft',roster:{},surge:[]};
 const S={campaign:v};
 const SPORT={brawl:{pos:[{id:'p'}]}};
 const base={id:'dc:Batman',pool:'dc',n:'Batman',a:Array(12).fill(80)};
+// Isolated engine checks with mocked characters. tests/campaign-active-form-production.test.cjs covers
+// the same rules with the live roster, catalog, odds and reviewed research.
 const ctx={S,SPORTS:SPORT,characterAbilityTags:c=>c.n==='Batman'?['tech','stealth']:[],
+ window:{DA_VARIANT_FORM_RESEARCH:require('../data/variant-form-research.js')},
+ variantOdds:c=>ctx.variantOptions(c).map(form=>({form,percent:50,power:1})),
  variantOptions:c=>c.id===base.id?[{name:'Dawnbreaker Batman'},{name:'Red Death Batman'}]:[],
  variantSurgeRecords:v=>v.surge||[],
  variantRoster:v=>Object.fromEntries(Object.entries(v.roster).map(([k,c])=>{

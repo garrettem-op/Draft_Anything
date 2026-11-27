@@ -603,35 +603,16 @@ function campaignAllowed(c,rule,pos=null,side='player',v=S.campaign){
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
 function campaignSportValid(sport){return campaignEligibleStageIds(sport).length>=9;}
-// Explicit form-specific evidence, scoped by base identity and exact catalog name.
- // Abilities not changed by a reviewed form record retain their base classification.
-const CAMPAIGN_FORM_RULES=Object.freeze({
-  'dc:Batman|Red Death Batman':{red:true,mortal:false},
-  'dc:Batman|Dawnbreaker Batman':{flight:true,mortal:false,red:false},
-  'dc:Batman|Devastator Batman':{giants:true,mortal:false},
-  'dc:Batman|The Darkest Knight':{flight:true,mortal:false,teleport:true},
-  'dc:Batman|Murder Machine Batman':{mortal:false},
-  'dc:Superman|Superman Blue':{electric:true,red:false},
-  'dc:Supergirl (Kara Zor-El)|Red Lantern Supergirl':{red:true},
-  'mcu:Captain America|Worthy Captain America':{electric:true,magic:true},
-  'mcu:Odin|Odin in Destroyer Armor':{giants:true},
-  'mcu:Wolverine|Phoenix Wolverine':{flight:true},
-  'mcu:Wolverine|Hellverine (Logan)':{fire:true,magic:true},
-  'mcu:Spider-Man|Cosmic Spider-Man (Captain Universe)':{flight:true},
-  'games:Bowser|Fury Bowser':{giants:true,fire:true},
-  'games:Bowser|Dreamy Bowser':{magic:true},
-  'games:Mario|Mega Mario':{giants:true},
-  'games:Mario|Fire Mario':{fire:true,red:true},
-  'games:Mario|Ice Mario':{ice:true,red:false},
-  'games:Mario|Cat Mario':{red:false},
-  'games:Sonic the Hedgehog|Super Sonic':{flight:true},
-  'games:Sonic the Hedgehog|Hyper Sonic':{flight:true},
-  'games:Shadow the Hedgehog|Super Shadow':{flight:true},
-  'pokemon:Pinsir|Mega Pinsir':{flight:true},
-  'games:Mewtwo|Armored Mewtwo':{tech:true},
-  'games:Charizard|Gigantamax Charizard':{giants:true},
-  ...Object.fromEntries(['Venusaur','Blastoise','Charizard','Pikachu','Eevee','Gengar','Machamp','Snorlax','Lapras','Kingler','Butterfree','Meowth'].map(n=>['pokemon:'+n+'|Gigantamax '+n,{giants:true}]))
-});
+// Active-form (Variant Surge) eligibility.
+// Form-specific evidence comes from one reviewed, source-linked dataset (data/variant-form-research.js),
+// keyed by base identity and exact catalog form name. A form keeps its base classification for every
+// challenge its record does not decide; docs/variant-eligibility-coverage.md lists the forms still
+// awaiting review. Identity, talent pool, history, Underdogs and Queens of the Court stay with the base.
+const CAMPAIGN_FORM_RESEARCH=(typeof window!=='undefined'&&window.DA_VARIANT_FORM_RESEARCH)||
+  (typeof require==='function'?require('./variant-form-research.js'):{});
+const CAMPAIGN_FORM_RULES=Object.freeze(Object.fromEntries(Object.entries(CAMPAIGN_FORM_RESEARCH).map(([key,tags])=>
+  [key,Object.freeze(Object.fromEntries(Object.entries(tags)
+    .filter(([,d])=>d?.decision==='yes'||d?.decision==='no').map(([tag,d])=>[tag,d.decision==='yes'])))])));
 function campaignFormEligibility(base,active,rule,pos=null,side='player',v=S.campaign){
   const initial=campaignEligibilityResult(base,rule,pos,side,v);
   if(!base||!active||!active.variantBase||active.id!==base.id||active.pool!==base.pool)return initial;
@@ -639,6 +620,7 @@ function campaignFormEligibility(base,active,rule,pos=null,side='player',v=S.cam
   if(history)return {allowed:false,reason:history,source:'campaign-history'};
   if(initial.source==='commander-specialty'||rule==='underdog'||rule==='women')return initial;
   const criteria=campaignCriteria(rule);
+  // Numerical challenges read the transformed attributes.
   if(criteria?.stats)return campaignEligibilityResult(active,rule,pos,side,v);
   const evidence=CAMPAIGN_FORM_RULES[base.pool+':'+base.n+'|'+active.n];
   if((criteria?.trait||criteria?.acceptedTags)&&typeof evidence?.[rule]==='boolean'){
@@ -657,40 +639,83 @@ function campaignActivePickResult(c,rule,pos,side,v,active){
   }
   return campaignFormEligibility(c,active,rule,pos,side,v);
 }
-// CPU uses the same weighted, identity-locked roll as the player. A base-invalid
-// candidate must actually roll a legal form; a failed attempt never rerolls.
-function campaignCpuForm(c,rule,pos,v){
-  if(!c||pos?.coach||typeof variantOptions!=='function'||typeof useVariantSurge!=='function')return c;
-  const forms=variantOptions(c);
-  if(!forms.length)return c;
-  const baseLegal=campaignPickAllowed(c,rule,pos,'cpu',v);
-  const eligible=active=>campaignFormEligibility(c,active,rule,pos,'cpu',v).allowed;
-  if(baseLegal){
-    // Do not risk a locked legal CPU pick when a form can disqualify it.
-    if(!forms.every(f=>eligible(campaignProjectForm(c,f))))return c;
-    if(variantOdds(c).reduce((n,x)=>n+x.power*x.percent/100,0)<=0)return c;
-  }else if(!forms.some(f=>eligible(campaignProjectForm(c,f))))return c;
+// Chance (0..1) that a Variant Surge leaves c qualified, from the same weighted odds the player's
+// roll uses. It looks only at the published odds, never at the outcome of a particular roll.
+function campaignFormQualifyChance(c,rule,pos,side,v){
+  if(!c||pos?.coach||typeof variantOdds!=='function')return 0;
+  return variantOdds(c).reduce((n,x)=>n+(campaignFormEligibility(c,campaignProjectForm(c,x.form),rule,pos,side,v).allowed?x.percent:0),0)/100;
+}
+// The CPU rolls exactly like the player: one weighted, seeded roll per character per lineup.
+function campaignCpuSurgeSeed(v,index=0){return campaignStageSeed(v)+':cpu:'+index;}
+function campaignCpuRoll(c,pos,v,index=0){
   const roll={sport:v.sport,roster:{[pos.id]:c},surge:null,status:'draft'};
-  useVariantSurge(roll,c.id,campaignStageSeed(v)+':cpu:0');
+  useVariantSurge(roll,c.id,campaignCpuSurgeSeed(v,index));
   return variantRoster(roll)[pos.id]||c;
 }
+// CPU surge policy, decided before any roll from eligibility and odds alone:
+//  'qualify' - the base character does not qualify; it is drafted only by attempting a surge,
+//  'boost'   - a legal pick surges only when no possible form can disqualify it and the expected
+//              power gain is positive (the CPU does not gamble a locked legal pick),
+//  'none'    - no surge.
+function campaignCpuSurgePlan(c,rule,pos,v){
+  if(!c||pos?.coach||typeof variantOptions!=='function'||typeof useVariantSurge!=='function'||!variantOptions(c).length)return 'none';
+  if(!campaignPickAllowed(c,rule,pos,'cpu',v))return campaignFormQualifyChance(c,rule,pos,'cpu',v)>0?'qualify':'none';
+  if(campaignFormQualifyChance(c,rule,pos,'cpu',v)<1)return 'none';
+  return variantOdds(c).reduce((n,x)=>n+x.power*x.percent/100,0)>0?'boost':'none';
+}
+// Rolls the CPU has already made this round: {id: form name}. Successful gambles are in snake.forms,
+// failed ones in snake.failed. Like the player's v.surge records, a recorded roll is final.
+function campaignCpuRecordedForm(c,v){
+  if(!c||v?.snake?.step!==v?.step)return null;
+  return v.snake.forms?.[c.id]||v.snake.failed?.[c.id]||null;
+}
+function campaignCpuForm(c,rule,pos,v,index=0){
+  const recorded=index===0?campaignCpuRecordedForm(c,v):null;
+  if(typeof recorded==='string')return campaignProjectForm(c,{name:recorded});
+  return campaignCpuSurgePlan(c,rule,pos,v)==='none'?c:campaignCpuRoll(c,pos,v,index);
+}
+// Commit to a gamble: roll once, record the result, and report whether the rolled form qualifies.
+function campaignCpuCommitSurge(c,rule,pos,v){
+  const active=campaignCpuRoll(c,pos,v,0);
+  const allowed=campaignFormEligibility(c,active,rule,pos,'cpu',v).allowed;
+  const key=allowed?'forms':'failed';
+  v.snake[key]={...(v.snake[key]||{}),[c.id]:active.variantBase?active.n:'(no form)'};
+  return allowed;
+}
+function campaignCpuFailedIds(v){
+  return new Set(v?.snake?.step===v?.step?Object.keys(v.snake.failed||{}):[]);
+}
+// May the CPU draft c here? A base-invalid character is a gamble: it may be attempted while a surge
+// can qualify it and it has not already failed this round. The roll itself happens when the CPU commits.
+function campaignCpuCanAttempt(c,rule,pos,v){
+  if(!c||campaignHistoryReason(c,rule,'cpu',v))return false;
+  if(campaignPickAllowed(c,rule,pos,'cpu',v))return true;
+  return !campaignCpuFailedIds(v).has(c.id)&&campaignCpuSurgePlan(c,rule,pos,v)==='qualify';
+}
+// Referee check for a pick the CPU already made: valid as itself or in its recorded rolled form.
 function campaignCpuPickAllowed(c,rule,pos,v){
   if(!c||campaignHistoryReason(c,rule,'cpu',v))return false;
   if(campaignPickAllowed(c,rule,pos,'cpu',v))return true;
-  return campaignFormEligibility(c,campaignCpuForm(c,rule,pos,v),rule,pos,'cpu',v).allowed;
+  const recorded=v?.snake?.step===v?.step?v.snake.forms?.[c.id]:null;
+  return !!recorded&&campaignFormEligibility(c,campaignProjectForm(c,{name:recorded}),rule,pos,'cpu',v).allowed;
 }
-function campaignCpuActiveRoster(v,stage,roster){
+function campaignCpuActiveRoster(v,stage,roster,index=0){
   const positions=new Map(campaignSlots(v.sport,stage.rule).map(p=>[p.id,p]));
-  return Object.fromEntries(Object.entries(roster).map(([slot,c])=>[slot,campaignCpuForm(c,stage.rule,positions.get(slot),v)]));
+  return Object.fromEntries(Object.entries(roster).map(([slot,c])=>[slot,campaignCpuForm(c,stage.rule,positions.get(slot),v,index)]));
 }
+// Feasibility for roster exhaustion. Both sides count an untried qualifying surge as a possibility,
+// so a campaign never ends while a transformation could still produce a legal lineup.
 function campaignCanPotentiallyPick(c,rule,pos,side,v){
   if(!c||campaignHistoryReason(c,rule,side,v))return false;
-  if(side==='cpu')return campaignCpuPickAllowed(c,rule,pos,v);
+  if(side==='cpu'){
+    if(Object.values(v?.snake?.step===v?.step&&v.snake.cpu||{}).includes(c.id))return campaignCpuPickAllowed(c,rule,pos,v);
+    return campaignCpuCanAttempt(c,rule,pos,v);
+  }
   const actual=campaignActivePickResult(c,rule,pos,side,v);
   if(actual.allowed)return true;
   if(pos?.coach||typeof variantOptions!=='function'||typeof variantSurgeRecords!=='function')return false;
   if(variantSurgeRecords(v).some(x=>x.id===c.id))return false;
-  return variantOptions(c).some(f=>campaignFormEligibility(c,campaignProjectForm(c,f),rule,pos,side,v).allowed);
+  return campaignFormQualifyChance(c,rule,pos,side,v)>0;
 }
 
 function campaignInvalidSlots(){
@@ -954,7 +979,7 @@ function campaignPlay(){
     // same roster and locked Variant Surges play BOTH fights in the finale.
     const gameSeed=campaignCombatSeed(v,index,attempt);
     const score=teamScore(v.sport,activeRoster);
-    const rivalRoster=index===0?campaignCpuActiveRoster(v,st,opp.roster):cpuVariantRoster(v.sport,opp.roster,campaignStageSeed(v)+':cpu:'+index);
+    const rivalRoster=campaignCpuActiveRoster(v,st,opp.roster,index);
     const oppScore=teamScore(v.sport,rivalRoster);
     const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
     if(commander){score.rating+=commander.points;score.commanderEffect=commander;}

@@ -200,29 +200,47 @@ function campaignSnakeOpponent(v,stage){
   const draft=v.snake,playerIds=new Set(Object.values(v.roster||{}).map(c=>c.id));
   const all=getCands('mashup'),candidates=new Map(all.map(c=>[c.id,c]));
   const positions=new Map(slots.map(p=>[p.id,p]));
-  const allowed=(c,p)=>typeof campaignCpuPickAllowed==='function'?campaignCpuPickAllowed(c,stage.rule,p,v):campaignPickAllowed(c,stage.rule,p,'cpu',v);
+  // Active-form rules (data/campaign.js). The CPU decides from eligibility and the published surge
+  // odds only; a surge is rolled when it commits to a pick, and a failed roll burns that character
+  // for this round, exactly as a failed roll does for the player. It never previews roll outcomes.
+  const forms=typeof campaignCpuCanAttempt==='function';
+  const canAttempt=(c,p)=>forms?campaignCpuCanAttempt(c,stage.rule,p,v):campaignPickAllowed(c,stage.rule,p,'cpu',v);
+  const valid=(c,p)=>forms?campaignCpuPickAllowed(c,stage.rule,p,v):campaignPickAllowed(c,stage.rule,p,'cpu',v);
+  const chance=new Map();
+  const odds=(c,p)=>{
+    if(!forms||campaignPickAllowed(c,stage.rule,p,'cpu',v))return 1;
+    const key=c.id+'|'+p.id;
+    if(!chance.has(key))chance.set(key,campaignFormQualifyChance(c,stage.rule,p,'cpu',v));
+    return chance.get(key);
+  };
+  if(forms){draft.failed||={};draft.forms||={};}
   // Migrate an unfinished/legacy draft without deleting the user's picks.
   for(const [slot,id] of Object.entries(draft.cpu)){
-    if(playerIds.has(id)||!positions.has(slot)||!allowed(candidates.get(id),positions.get(slot)))delete draft.cpu[slot];
+    if(playerIds.has(id)||!positions.has(slot)||!valid(candidates.get(id),positions.get(slot)))delete draft.cpu[slot];
   }
   const due=campaignSnakeCpuDue(limit,Math.min(limit,playerIds.size),v.step%2===1);
   let dirty=false;
   const minimum=campaignCriteria(stage.rule)?.minDistinctPools||0;
   const jitter=18-15*Math.max(0,Math.min(9,v.step))/9;
   while(Object.keys(draft.cpu).length<due){
-    const used=new Set([...playerIds,...Object.values(draft.cpu)]);
+    const used=new Set([...playerIds,...Object.values(draft.cpu),...Object.keys(draft.failed||{})]);
     const pools=new Set(Object.values(draft.cpu).map(id=>candidates.get(id)?.pool));
-    const rng=rngFrom(campaignStageSeed(v)+':snake:'+Object.keys(draft.cpu).length);
+    const rng=rngFrom(campaignStageSeed(v)+':snake:'+Object.keys(draft.cpu).length+(Object.keys(draft.failed||{}).length?':'+Object.keys(draft.failed).length:''));
     const remaining=slots.filter(p=>!draft.cpu[p.id]);
     const priority=p=>!p.coach&&!p.bench&&!p.side?2:p.coach?0:1;
     const options=remaining.map(p=>{
-      const legal=all.filter(c=>!used.has(c.id)&&allowed(c,p)&&
+      const legal=all.filter(c=>!used.has(c.id)&&canAttempt(c,p)&&
         (pools.size>=minimum||!pools.has(c.pool)));
-      const ranked=legal.map(c=>({c,value:fitIn(v.sport,c,p)+(rng()-.5)*jitter})).sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id));
+      // A gamble on a base-ineligible character is valued by its chance of rolling a qualifying form.
+      const ranked=legal.map(c=>({c,value:(fitIn(v.sport,c,p)+(rng()-.5)*jitter)*odds(c,p)})).sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id));
       return {p,ranked};
     }).filter(x=>x.ranked.length).sort((a,b)=>priority(b.p)-priority(a.p)||a.ranked.length-b.ranked.length||b.ranked[0].value-a.ranked[0].value);
     if(!options.length)break;
-    const best=options[0];draft.cpu[best.p.id]=best.ranked[0].c.id;dirty=true;
+    const best=options[0],pick=best.ranked[0].c;
+    dirty=true;
+    // Commit, then roll. A failed attempt stands: the character is spent and the CPU picks again.
+    if(forms&&!campaignPickAllowed(pick,stage.rule,best.p,'cpu',v)&&!campaignCpuCommitSurge(pick,stage.rule,best.p,v))continue;
+    draft.cpu[best.p.id]=pick.id;
   }
   if(!draft.tactic){
     const choices=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
@@ -230,7 +248,7 @@ function campaignSnakeOpponent(v,stage){
   }
   if(dirty)saveCampaign();
   const roster=campaignHydrateOpponent({roster:draft.cpu});
-  if(Object.keys(roster).length!==limit||!(typeof campaignCpuPickAllowed==='function'?campaignRosterReady(v.sport,stage.rule,roster)&&Object.entries(roster).every(([slot,c])=>allowed(c,positions.get(slot))):campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v))||Object.values(roster).some(c=>playerIds.has(c.id)))return null;
+  if(Object.keys(roster).length!==limit||!(forms?campaignRosterReady(v.sport,stage.rule,roster)&&Object.entries(roster).every(([slot,c])=>valid(c,positions.get(slot))):campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v))||Object.values(roster).some(c=>playerIds.has(c.id)))return null;
   return {roster,score:teamScore(v.sport,roster),tactic:draft.tactic};
 }
 function campaignSnakeSecond(v,stage,first){
