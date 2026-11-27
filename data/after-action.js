@@ -374,6 +374,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
         log.apexRank===2?`Apex form: exceptional damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:
           log.apexRank===1?`Empowered form: enhanced damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:'',
          `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive.`,
+        log.intrinsicRank?`Intrinsic cosmic power: +${Number(log.intrinsicHp)||0} combat HP, ×${Number(log.combatMultiplier).toFixed(2)} attack power, up to two actions per round.`:'',
         Number.isFinite(log.offenseCredibility)?`Offensive capability: ${Math.round(log.offenseCredibility*100)}% · attack fit ${Number(log.attackFit).toFixed(1)} · team damage multiplier ×${Number(log.teamSupport).toFixed(2)}.`:'',
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
         targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',

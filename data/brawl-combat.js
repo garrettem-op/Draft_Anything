@@ -42,6 +42,29 @@
   function highOrderPower(p){
     return !!p&&p.tier>=4&&HIGH_ORDER_DOMAINS.has(p.domain);
   }
+  // Reviewed exact identities: intrinsic power is not a transformation.
+  // Numeric values are bounded editorial arena calibration, not canonical feats.
+  // Require a reviewed high-order kit and never inherit from a base identity.
+  const INTRINSIC_POWER=Object.freeze({
+    'dc:Perpetua': [2,900,2.9],
+    'dc:Anti-Monitor': [2,800,2.75],
+    'dc:Mister Mxyzptlk': [2,730,2.7],
+    'dc:Lucifer Morningstar': [2,730,2.7],
+    'dc:Doctor Manhattan': [2,730,2.7],
+    'dc:The Spectre': [2,730,2.7],
+    'dc:Trigon': [2,730,2.7],
+    'mcu:Franklin Richards': [2,730,2.7],
+    'mcu:Galactus': [2,730,2.7],
+    'mcu:Odin': [1,570,2.3],
+    'mcu:The Watcher': [1,570,2.3],
+    'lotr:Morgoth (Melkor)': [1,570,2.3]
+  });
+  function intrinsicPowerOf(c,ability){
+    if(!c||c.variantBase||c.variantAbilities||!highOrderPower(ability))return null;
+    const rec=INTRINSIC_POWER[String(c.pool)+':'+String(c.n)];
+    return rec&&ability.tier>=rec[0]+3?{rank:rec[0],hp:rec[1],multiplier:rec[2]}:null;
+  }
+  const combatRank=f=>Math.max(f.apexRank||0,f.intrinsicRank||0);
   function powerInteraction(attacker,target,signature){
     const a=highOrderPower(attacker.ability),b=highOrderPower(target.ability);
     // Comparable supernatural kits resolve through ordinary typed guards,
@@ -52,7 +75,7 @@
       // Preserve the established cosmic counter against conventional forms.
       // Already-enhanced attacks need a smaller multiplier to avoid stacking
       // the entire baseline counter on top of the existing 2.3/2.7x attack.
-      counterMultiplier=attacker.apexRank?1.25+.25*(attacker.ability.tier-4):3+(attacker.ability.tier-4);
+      counterMultiplier=combatRank(attacker)?1.25+.25*(attacker.ability.tier-4):3+(attacker.ability.tier-4);
     }
     const baselineGuard=attacker.apexRank&&!a&&!target.apexRank&&b&&
       ['cosmic','magic','reality'].includes(target.ability.domain) ? .50 : 0;
@@ -138,6 +161,10 @@
     const ability=abilityFor(c);
     const apexRank=apexRankOf(c,ability);
     const apexHp=apexRank===2?730:apexRank?570:0;
+    const intrinsic=intrinsicPowerOf(c,ability);
+    const intrinsicRank=intrinsic?.rank||0;
+    const intrinsicHp=intrinsic?.hp||0;
+    const combatMultiplier=Math.max(intrinsic?.multiplier||1,apexRank===2?2.7:apexRank?2.3:1);
     // High-order magic/reality/cosmic entities bring limited protective power
     // even when their human/child physical stats are unexceptional. This is a
     // depleted gameplay ward, not an assertion of literal invulnerability.
@@ -145,7 +172,7 @@
       ['reality','cosmic','magic','elemental'].includes(ability.domain)
       ?Math.round(26*ability.tier):0;
     const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
-      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+apexHp);
+      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+Math.max(apexHp,intrinsicHp));
     // A physical combat tier is distinct from magic/reality technique tiers.
     // This reduces conventional blows against opponents with established
     // extreme bodies without accidentally ranking all cosmic spells as fists.
@@ -162,8 +189,8 @@
     const offenseScale=toon?.dimensions?(.65+.35*credibility):1;
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
-      ability,tactics:tacticsFor(c),physicalTier,wardHp,apexRank,apexHp,
-      attack:strike*offenseScale*(apexRank===2?2.7:apexRank?2.3:1),armor,fit,maxHp,hp:maxHp,credibility,attackFit,
+      ability,tactics:tacticsFor(c),physicalTier,wardHp,apexRank,apexHp,intrinsicRank,intrinsicHp,combatMultiplier,
+      attack:strike*offenseScale*combatMultiplier,armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
@@ -229,9 +256,9 @@
       })).sort((a,b)=>b.initiative-a.initiative);
       const fatigue=round>17?1+Math.min(3,(round-17)*.13):1;
       const overrides=formation?formationOverrides(fighters,round):null;
-      // The second Apex/Empowered action follows the normal initiative pass,
+      // The second enhanced/intrinsic-power action follows the normal initiative pass,
       // preserving an opportunity for enemies to respond or counterattack.
-      const actions=ordered.concat(ordered.filter(x=>x.f.apexRank)
+      const actions=ordered.concat(ordered.filter(x=>combatRank(x.f))
         .map(x=>({...x,action:1})));
       for(const {f,action=0} of actions) {
         if(f.hp<=0)continue;
@@ -248,7 +275,7 @@
         // is quicker; this does not create a free automatic knockout.
         const highOrder=!!p&&p.tier>=5&&
           ['reality','cosmic','magic','elemental'].includes(p.domain);
-        const cooldown=highOrder&&f.physicalTier===1?Math.min(2,p.cooldown):p?.cooldown;
+        const cooldown=highOrder&&(f.physicalTier===1||f.intrinsicRank===2)?Math.min(2,p.cooldown):p?.cooldown;
         const signature=!!p&&action===0&&((round-1)%cooldown===0);
         let target,targeting='weighted';
         if(formation){
@@ -307,11 +334,11 @@
           const bypass=f.toon?.dimensions?clamp((Number(f.toon.dimensions.body)||0)/99,0,1):0;
           block+=raw*Math.min(.32,.11*gap)*(1-bypass);
         }
-        if(target.apexRank&&!f.apexRank&&!interaction.peerSignature){
+        if(combatRank(target)&&!combatRank(f)&&!interaction.peerSignature){
           // Standard weapons and punches struggle against empowered forms,
           // but high-order documented abilities remain meaningful counters.
           const threat=Math.max(p?.tier||0,f.physicalTier===3?3:0);
-          const shell=target.apexRank===2?.61:.51;
+          const shell=combatRank(target)===2?.61:.51;
           const resistance=Math.max(0,shell-.11*Math.min(5,threat));
           const physicalOrDevice=!signature||['physical','melee','tech','toxin'].includes(domain);
           block+=raw*Math.max(0,resistance-(physicalOrDevice?0:.08));
@@ -358,7 +385,7 @@
           rangeSkips:f.rangeSkips,intercepts:f.intercepts,redirected:f.redirected,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,wardHp:f.wardHp,
-          apexRank:f.apexRank,apexHp:f.apexHp,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],
+          apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
           wear:f.wear,koRound:f.koRound,targets:f.targets
@@ -370,7 +397,7 @@
       throw new Error('Battle Royale combat failed to resolve in 90 rounds');
     const winner=sides[0].survivors?0:1,loser=1-winner;
     const result={
-      version:2,model:'typed-signature-v2',winner,rounds:round,attacks,
+      version:2,model:'typed-signature-v3-intrinsic',winner,rounds:round,attacks,
       line:[sides[winner].kos,sides[loser].kos,
         sides[loser].kos===0?'flawless':sides[winner].survivors===1?'last one standing':''],
       sides
@@ -378,7 +405,7 @@
     if(events)result.events=events;
     return result;
   }
-  const api={resolveBrawlCombat,apexRankOf,offensiveCredibility,speedDpsFit,formationTarget,rangeBlocked,formationOverrides,highOrderPower,powerInteraction};
+  const api={resolveBrawlCombat,apexRankOf,offensiveCredibility,speedDpsFit,formationTarget,rangeBlocked,formationOverrides,highOrderPower,powerInteraction,intrinsicPowerOf};
   if(root)root.DA_BRAWL_COMBAT=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
