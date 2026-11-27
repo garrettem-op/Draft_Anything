@@ -386,6 +386,21 @@
             "kind": "ability",
             "key": "teleports-others",
             "scope": "character"
+          },
+          {
+            "kind": "ability",
+            "key": "magical-teleport",
+            "scope": "character"
+          },
+          {
+            "kind": "ability",
+            "key": "digital-manifestation",
+            "scope": "character"
+          },
+          {
+            "kind": "ability",
+            "key": "dimensional-transport",
+            "scope": "character"
           }
         ]
       },
@@ -661,6 +676,9 @@
       "self-teleport",
       "portals",
       "teleports-others",
+      "magical-teleport",
+      "digital-manifestation",
+      "dimensional-transport",
       "healing",
       "self-regeneration",
       "heals-others",
@@ -759,8 +777,8 @@
   "totals": {
     "characters": 1204,
     "forms": 243,
-    "abilityGranted": 1219,
-    "abilityMissing": 13229,
+    "abilityGranted": 1221,
+    "abilityMissing": 13227,
     "traitGranted": 668,
     "traitRejected": 4,
     "traitUnreviewed": 4144,
@@ -35349,7 +35367,8 @@
       "Anti-Monitor": {
         "abilities": {
           "granted": [
-            "flight"
+            "flight",
+            "teleport"
           ],
           "notGranted": [
             "magic",
@@ -35360,7 +35379,6 @@
             "electric",
             "tech",
             "stealth",
-            "teleport",
             "healing",
             "giants"
           ],
@@ -40815,7 +40833,8 @@
       "Bellatrix Lestrange": {
         "abilities": {
           "granted": [
-            "magic"
+            "magic",
+            "teleport"
           ],
           "notGranted": [
             "flight",
@@ -40826,7 +40845,6 @@
             "electric",
             "tech",
             "stealth",
-            "teleport",
             "healing",
             "giants"
           ],

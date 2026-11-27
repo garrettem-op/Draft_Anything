@@ -104,5 +104,5 @@ test('Star Wars source-linked #82 batch documents individual visual, age and syn
  // Do not collapse continuity ambiguities into unresearched blanket negatives.
  assert.equal(base('starwars','Ahsoka Tano','kids').decision,'needs-review');
  assert.equal(base('starwars','Luke Skywalker','kids').decision,'needs-review');
- assert.equal(load().summary.needsReview,17884);
+ assert.equal(load().summary.needsReview,17881);
 });
