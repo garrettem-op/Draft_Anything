@@ -15,10 +15,10 @@ test('high-order classification is independent of transformation and requires a 
 test('cosmic peer signatures have no form-status counter or blanket defense penalty',()=>{
  for(const a of [0,1,2])for(const b of [0,1,2])for(const t of [4,5])for(const u of [4,5]){
   assert.deepEqual(powerInteraction(kit('cosmic',t,a),kit('magic',u,b),true),
-   {counterMultiplier:1,baselineGuard:0,peerSignature:true});
+   {counterMultiplier:1,baselineGuard:0,peerSignature:true,peerScale:1});
  }
  assert.deepEqual(powerInteraction(kit('cosmic',5,2),kit('reality',5),false),
-  {counterMultiplier:1,baselineGuard:0,peerSignature:false});
+  {counterMultiplier:1,baselineGuard:0,peerSignature:false,peerScale:1});
 });
 test('conventional transformed fighters remain susceptible to high-order counters',()=>{
  const hellbat=kit('tech',3,2),darkseid=kit('cosmic',4),cosmicApex=kit('cosmic',5,2);
