@@ -345,3 +345,40 @@ test('recover prior winners and CPU from legacy report, and keep all attempted c
   v.singleUse=false;assert.ok(context.campaignHistoryReason(chars[3],'fast','cpu',v));
  }finally{context.esc=old;}
 });
+
+test('exact exhaustion respects identity uniqueness, short roster limits and reserved CPU picks',()=>{
+ const v=stage('exhaustion',0,'short'),slots=P.slice(0,3);
+ const all=chars.slice(0,6);
+ v.snake={step:0,cpu:Object.fromEntries(slots.map((p,i)=>[p.id,all[i].id]))};
+ assert.equal(context.campaignCanFill('brawl','short',all,'player',v,new Set(all.slice(0,3).map(c=>c.id))),true);
+ assert.equal(context.campaignExhaustion(v,{rule:'short'},all),null);
+ assert.equal(context.campaignExhaustion(v,{rule:'short'},all.slice(0,5)),'roster-exhausted');
+ // A broken CPU lineup is not evidence the player lost.
+ v.snake.cpu[slots[2].id]='unknown';
+ assert.equal(context.campaignExhaustion(v,{rule:'short'},all.slice(0,5)),null);
+});
+test('finale feasibility requires three actual represented pools, including support',()=>{
+ const v=stage('diversity',9,'final');
+ const pool=chars.slice(0,7).map((c,i)=>({...c,pool:i===0?'mcu':'games'}));
+ assert.equal(context.campaignCanFill('brawl','final',pool,'player',v),false);
+ pool[1].pool='toons';
+ assert.equal(context.campaignCanFill('brawl','final',pool,'player',v),true);
+ assert.equal(context.campaignCanFill('brawl','final',pool,'player',v,new Set([pool[0].id])),false);
+});
+test('a confirmed loss is terminal and archived once, without erasing prior wins',()=>{
+ const old=context.S.campaign,oldGet=context.lsGet,oldSet=context.lsSet;
+ const store={};
+ try{
+   const v=stage('terminal-test',1,'short');v.history=[{name:'Previous challenge',score:'5–0',ids:['one'],cpuIds:['two']}];
+   context.S.campaign=v;
+   context.lsGet=(key,fallback)=>store[key]??fallback;
+   context.lsSet=(key,value)=>{store[key]=JSON.parse(JSON.stringify(value));};
+   assert.equal(context.campaignEnd(v,'roster-exhausted'),true);
+   assert.equal(v.status,'defeated');
+   assert.equal(v.history.length,1);
+   assert.equal(store['da.campaign.v1'].defeat.reason,'roster-exhausted');
+   assert.equal(store['da.campaign.defeats.v1'].length,1);
+   assert.equal(context.campaignEnd(v,'roster-exhausted'),false);
+   assert.equal(store['da.campaign.defeats.v1'].length,1);
+ }finally{context.S.campaign=old;context.lsGet=oldGet;context.lsSet=oldSet;}
+});
