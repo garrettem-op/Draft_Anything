@@ -200,9 +200,10 @@ function campaignSnakeOpponent(v,stage){
   const draft=v.snake,playerIds=new Set(Object.values(v.roster||{}).map(c=>c.id));
   const all=getCands('mashup'),candidates=new Map(all.map(c=>[c.id,c]));
   const positions=new Map(slots.map(p=>[p.id,p]));
+  const allowed=(c,p)=>typeof campaignCpuPickAllowed==='function'?campaignCpuPickAllowed(c,stage.rule,p,v):campaignPickAllowed(c,stage.rule,p,'cpu',v);
   // Migrate an unfinished/legacy draft without deleting the user's picks.
   for(const [slot,id] of Object.entries(draft.cpu)){
-    if(playerIds.has(id)||!positions.has(slot)||!campaignPickAllowed(candidates.get(id),stage.rule,positions.get(slot),'cpu',v))delete draft.cpu[slot];
+    if(playerIds.has(id)||!positions.has(slot)||!allowed(candidates.get(id),positions.get(slot)))delete draft.cpu[slot];
   }
   const due=campaignSnakeCpuDue(limit,Math.min(limit,playerIds.size),v.step%2===1);
   let dirty=false;
@@ -215,7 +216,7 @@ function campaignSnakeOpponent(v,stage){
     const remaining=slots.filter(p=>!draft.cpu[p.id]);
     const priority=p=>!p.coach&&!p.bench&&!p.side?2:p.coach?0:1;
     const options=remaining.map(p=>{
-      const legal=all.filter(c=>!used.has(c.id)&&campaignPickAllowed(c,stage.rule,p,'cpu',v)&&
+      const legal=all.filter(c=>!used.has(c.id)&&allowed(c,p)&&
         (pools.size>=minimum||!pools.has(c.pool)));
       const ranked=legal.map(c=>({c,value:fitIn(v.sport,c,p)+(rng()-.5)*jitter})).sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id));
       return {p,ranked};
@@ -229,7 +230,7 @@ function campaignSnakeOpponent(v,stage){
   }
   if(dirty)saveCampaign();
   const roster=campaignHydrateOpponent({roster:draft.cpu});
-  if(Object.keys(roster).length!==limit||!campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v)||Object.values(roster).some(c=>playerIds.has(c.id)))return null;
+  if(Object.keys(roster).length!==limit||!(typeof campaignCpuPickAllowed==='function'?campaignRosterReady(v.sport,stage.rule,roster)&&Object.entries(roster).every(([slot,c])=>allowed(c,positions.get(slot))):campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v))||Object.values(roster).some(c=>playerIds.has(c.id)))return null;
   return {roster,score:teamScore(v.sport,roster),tactic:draft.tactic};
 }
 function campaignSnakeSecond(v,stage,first){
