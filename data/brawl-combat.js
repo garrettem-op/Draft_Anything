@@ -66,6 +66,11 @@
   }
   const combatRank=f=>Math.max(f.apexRank||0,f.intrinsicRank||0);
   // An intrinsic-rank fighter (not an Apex form) facing a high-order supernatural fighter without a rank.
+  // Against an unranked high-order peer, only a quarter of a rank's bonus HP counts (owner choice,
+  // 2026-11-27: reduce rank HP against near-peers). Editorial calibration: a tier-5 entity should be
+  // generally favored over a tier-4 cosmic being, not certain to win. Applied as extra incoming damage
+  // from those attackers, so conventional fighters and ranked or Apex opponents still face the full HP.
+  const PEER_RANK_HP_DISCOUNT=0.75;
   const unrankedHighOrderPeer=(f,o)=>!!f?.intrinsicRank&&!f.apexRank&&highOrderPower(f.ability)&&
     highOrderPower(o?.ability)&&!combatRank(o);
   function powerInteraction(attacker,target,signature){
@@ -86,7 +91,10 @@
     // supernatural peer that has no rank, the typed kits (tier, pierce, guards) decide: the rank's
     // attack multiplier does not stack on top of a tier advantage the kit already encodes.
     const peerScale=unrankedHighOrderPeer(attacker,target)?1/(attacker.combatMultiplier||1):1;
-    return {counterMultiplier,baselineGuard,peerSignature,peerScale};
+    const rankHp=Number(target?.intrinsicHp)||0,maxHp=Number(target?.maxHp)||0;
+    const hpScale=unrankedHighOrderPeer(target,attacker)&&rankHp>0&&maxHp>PEER_RANK_HP_DISCOUNT*rankHp
+      ?maxHp/(maxHp-PEER_RANK_HP_DISCOUNT*rankHp):1;
+    return {counterMultiplier,baselineGuard,peerSignature,peerScale,hpScale};
   }
 
   // Strength and demonstrable offensive technique matter; speed alone is
@@ -325,7 +333,7 @@
         let raw=Math.max(1,Math.round(Math.max(rolled,floor)));
         const domain=signature?p.domain:'physical';
         const interaction=powerInteraction(f,target,signature);
-        raw=Math.round(raw*interaction.counterMultiplier*interaction.peerScale);
+        raw=Math.round(raw*interaction.counterMultiplier*interaction.peerScale*interaction.hpScale);
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
         // Keep the established defense against conventional empowered strikes,
         // but never halve a cosmic peer's offense merely because it is a form.

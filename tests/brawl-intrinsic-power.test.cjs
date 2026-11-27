@@ -78,3 +78,21 @@ test('intrinsic rank does not stack over unranked high-order peers; Apex parity 
  }
  assert.equal(extra,0,'no second action while only unranked high-order peers remain');
 });
+
+test('rank HP counts only partly against unranked high-order peers (owner choice 2026-11-27)',()=>{
+ const target={ability:{domain:'reality',tier:5},intrinsicRank:2,apexRank:0,intrinsicHp:730,maxHp:1000};
+ const unrankedPeer={ability:{domain:'cosmic',tier:4},apexRank:0,intrinsicRank:0};
+ // A quarter of the 730 rank HP counts: effective HP 1000-0.75*730=452.5.
+ assert.equal(powerInteraction(unrankedPeer,target,true).hpScale,1000/(1000-.75*730));
+ const conventional={ability:{domain:'melee',tier:3},apexRank:0,intrinsicRank:0};
+ const ranked={ability:{domain:'reality',tier:5},apexRank:0,intrinsicRank:2};
+ const apex={ability:{domain:'cosmic',tier:5},apexRank:2,intrinsicRank:0};
+ for(const o of [conventional,ranked,apex])assert.equal(powerInteraction(o,target,true).hpScale,1);
+ assert.equal(powerInteraction(unrankedPeer,{...target,intrinsicHp:0},true).hpScale,1);
+ assert.equal(powerInteraction(unrankedPeer,{...target,apexRank:2},true).hpScale,1,'Apex forms keep full HP');
+ // Generally favored, not certain: Lucifer still beats Darkseid most of the time but not always.
+ const lucifer=hero('dc','Lucifer Morningstar'),darkseid=hero('dc','Darkseid');
+ let wins=0;
+ for(let i=1;i<=150;i++)wins+=duel(lucifer,darkseid,1201+i*29).winner===0;
+ assert.ok(wins>75&&wins<150,'Lucifer vs Darkseid '+wins+'/150');
+});
