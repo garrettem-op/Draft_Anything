@@ -682,7 +682,10 @@ function campaignCanFill(sport,rule,all,side,v,reserved=new Set(),fixed={}){
 // a legal or demonstrably fillable second boss before ruling out the player.
 function campaignExhaustion(v,stage,all=getCands('mashup')){
   if(v.status!=='draft'||v.snake?.step!==v.step)return null;
-  const rule=stage.rule,byId=new Map(all.map(c=>[c.id,c]));
+  const rule=stage.rule,reserved=campaignReservedIds(v);
+  if(campaignRosterLegal(v.sport,rule,v.roster,'player',v)&&Object.values(v.roster).every(c=>!reserved.has(c.id)))return null;
+  if(campaignCanFill(v.sport,rule,all,'player',v,reserved))return null;
+  const byId=new Map(all.map(c=>[c.id,c]));
   const hydrate=ids=>Object.fromEntries(Object.entries(ids||{}).map(([p,id])=>[p,byId.get(id)]));
   const first=hydrate(v.snake.cpu),firstIds=new Set(Object.values(first).map(c=>c?.id));
   if(!campaignCanFill(v.sport,rule,all,'cpu',v,new Set(),first))return null;
@@ -691,8 +694,7 @@ function campaignExhaustion(v,stage,all=getCands('mashup')){
     const second=hydrate(v.snake.second?.roster);
     if(!campaignCanFill(v.sport,rule,all,'cpu',v,firstIds,second))return null;
   }
-  const reserved=campaignReservedIds(v);
-  return campaignCanFill(v.sport,rule,all,'player',v,reserved)?null:'roster-exhausted';
+  return 'roster-exhausted';
 }
 function campaignEnd(v,reason){
   if(v.status!=='draft'&&v.status!=='results')return false;
@@ -702,7 +704,7 @@ function campaignEnd(v,reason){
   const archive=lsGet('da.campaign.defeats.v1',[]);
   const rows=Array.isArray(archive)?archive:[];
   if(!rows.some(row=>row.seed===v.seed)){
-    rows.unshift({seed:v.seed,sport:v.sport,teamName:v.teamName,singleUse:v.singleUse,wins:v.step,stageOrder:v.stageOrder,history:v.history,...v.defeat});
+    rows.unshift({seed:v.seed,sport:v.sport,teamName:v.teamName,singleUse:v.singleUse,wins:v.step,stageOrder:v.stageOrder,history:v.history.map(h=>({name:h.name,score:h.score,ids:h.ids,cpuIds:h.cpuIds})),...v.defeat});
     lsSet('da.campaign.defeats.v1',rows.slice(0,20));
   }
   saveCampaign();return true;
@@ -823,7 +825,7 @@ function renderCampaignDraft(){
       <p class="note" style="margin:6px 0 0">Both rosters obey the challenge rules. Once drafted, CPU picks are locked for retries. You can replace your own picks with unclaimed characters.</p>
     </div>
     ${campaignSurgeSlots(v).size?'<p class="note campaign-surge-hint">Tap a glowing character to activate their secret Variant Surge.</p>':''}
-    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span><button class="btn" data-act="camp-concede">Concede campaign</button><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent&&(st.criteria?.encounters!==2||second)?'':'disabled'}>Submit lineup & play</button></div>
+    <div class="board-head"><div class="title"><span class="eyebrow">Campaign · All-Star Mashup</span><h2 class="h">${esc(v.teamName||'Your team')}</h2></div><span class="chip num">${filled}/${limit}</span>${filled===limit&&(!opponent||st.criteria?.encounters===2&&!second)?'<button class="btn" data-act="camp-redraft">Repair CPU draft</button>':''}<button class="btn" data-act="camp-concede">Concede campaign</button><button class="btn" data-act="camp-setup">Campaign overview</button><button class="btn primary" data-act="camp-play" ${valid&&opponent&&(st.criteria?.encounters!==2||second)?'':'disabled'}>Submit lineup & play</button></div>
     <div class="board"><div>${renderField(v.sport,campaignVariantRoster(v),{sel:v.selected,interactive:true,eligibleSlots:allowedSet,invalidSlots:v.validation?campaignInvalidSlots():new Set(),variantSlots:campaignSurgeSlots(v),variantAction:'slot',variantShakeSlot:v.surgeReveal?.slot})}</div><div class="board-side">${picker}</div></div>${renderCampaignSurgeDialog(v)}
   </section>`;
 }
