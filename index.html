@@ -1203,7 +1203,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/bench-chemistry.js"></script>
 <script src="data/brawl-exceptional-power.js"></script>
 <script src="data/brawl-attack-profiles.js?v=20261127-derived-attack"></script>
-<script src="data/brawl-combat-transfer.js?v=20261127-combat-audit"></script>
+<script src="data/brawl-combat-transfer.js?v=20261127-command-transfer"></script>
 <script src="data/brawl-combat.js?v=20261127-derived-attack"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/variant-form-research.js?v=20261127-active-forms"></script>
@@ -1216,7 +1216,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/campaign-variant-expansion.js"></script>
 <script src="data/variant-abilities.js"></script>
 <script src="data/campaign-strategy.js?v=20261127-active-forms"></script>
-<script src="data/after-action.js?v=20261127-combat-audit"></script>
+<script src="data/after-action.js?v=20261127-command-transfer"></script>
 <script>
 const POOLS = {};
 Object.assign(POOLS, window.DA_ADDED_POOLS || {});
@@ -3933,6 +3933,11 @@ function characterForceMultiplier(sportKey,c,pos){
 // The attribute vector a fight uses (see data/brawl-combat-transfer.js). Stored attributes are untouched.
 function brawlAttrs(c){ return window.DA_COMBAT_TRANSFER?window.DA_COMBAT_TRANSFER.combatAttributes(c):c.a; }
 function brawlRoleFit(sportKey,c,pos,useSignature=true){
+  // A commander is rated on leadership earned commanding fighters (see commandAttributes).
+  if(sportKey==='brawl'&&pos.coach&&window.DA_COMBAT_TRANSFER){
+    const ca=window.DA_COMBAT_TRANSFER.commandAttributes(c);
+    return useSignature&&c.sig?.kind==='unbreakable'?fitFree(ca,pos):fitScore(ca,pos);
+  }
   if(sportKey!=='brawl'||!pos.styles)return useSignature?fitFor(c,pos):fitScore(c.a,pos);
   // Damage styles lean on Touch, Accuracy and IQ, so they read the combat-transfer vector:
   // a jump shot is not marksmanship. Tanks use physical traits only and are unaffected.

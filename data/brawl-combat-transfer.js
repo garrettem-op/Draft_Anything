@@ -27,13 +27,16 @@
   const UNTRAINED=50;
   // skill: share of Touch/Accuracy above the untrained baseline that carries into a fight.
   // tactics: share of Game IQ above the baseline that carries into reading a fight.
+  // command: share of Leadership above the baseline that carries into commanding a fighting
+  //   force (applies to the Commander slot only; leading a team of athletes is real leadership,
+  //   but it is not battlefield command).
   const DOMAINS=Object.freeze({
-    combat:Object.freeze({skill:1,tactics:1,label:'combat-proven skills'}),
+    combat:Object.freeze({skill:1,tactics:1,command:1,label:'combat-proven skills'}),
     // Hand-eye coordination, body control and spatial reads are real, but a shooting
     // stroke is not marksmanship with a weapon and ball-handling is not fight technique.
-    sport:Object.freeze({skill:.30,tactics:.50,label:'sporting skills, no documented combat training'}),
+    sport:Object.freeze({skill:.30,tactics:.50,command:.50,label:'sporting skills, no documented combat training'}),
     // An athlete with documented fight training applies more of that coordination.
-    'sport-trained':Object.freeze({skill:.60,tactics:.65,label:'sporting skills plus documented fight training'})
+    'sport-trained':Object.freeze({skill:.60,tactics:.65,command:.65,label:'sporting skills plus documented fight training'})
   });
   // Pool-level statement of what the ratings MEASURE (not a verdict on the people in it).
   // The NBA pool rates real players on what they did on a basketball court (index.html blends
@@ -69,7 +72,18 @@
       return key==='tch'||key==='acc'?scale(n,t.skill):key==='iq'?scale(n,t.tactics):n;
     });
   }
-  const api={combatTransfer,combatAttributes,COMBAT_TRANSFER_DOMAINS:DOMAINS,COMBAT_UNTRAINED_BASELINE:UNTRAINED};
+  // The vector the Commander slot is rated on: combat-transferred skill and IQ, plus Leadership
+  // scaled by how much of it was earned commanding fighters. Never raises a rating.
+  function commandAttributes(c){
+    const a=combatAttributes(c);
+    const t=combatTransfer(c);
+    if(t.command===1)return a;
+    return a.map((v,i)=>{
+      const n=Number(v)||0;
+      return KEYS[i]==='ldr'&&n>UNTRAINED?UNTRAINED+t.command*(n-UNTRAINED):n;
+    });
+  }
+  const api={combatTransfer,combatAttributes,commandAttributes,COMBAT_TRANSFER_DOMAINS:DOMAINS,COMBAT_UNTRAINED_BASELINE:UNTRAINED};
   if(root)root.DA_COMBAT_TRANSFER=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
