@@ -1199,11 +1199,12 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/character-abilities.js"></script>
 <script src="data/campaign-eligibility.js"></script>
 <script src="data/muppet-force.js"></script>
-<script src="data/toon-force.js"></script>
+<script src="data/toon-force.js?v=20261127-combat-audit"></script>
 <script src="data/bench-chemistry.js"></script>
 <script src="data/brawl-exceptional-power.js"></script>
 <script src="data/brawl-attack-profiles.js"></script>
-<script src="data/brawl-combat.js"></script>
+<script src="data/brawl-combat-transfer.js?v=20261127-combat-audit"></script>
+<script src="data/brawl-combat.js?v=20261127-combat-audit"></script>
 <script src="data/knowledge-engine.js"></script>
 <script src="data/variant-form-research.js?v=20261127-active-forms"></script>
 <script src="data/campaign.js?v=20261127-active-forms"></script>
@@ -2646,7 +2647,8 @@ const FIGHT_TAGS = {
 function fightStyles(c) {
   const t = FIGHT_TAGS[c.pool] && FIGHT_TAGS[c.pool][c.n];
   if (t) return t.split('');
-  const a = c.a, out = [];
+  // Untagged characters are read from what a fight can use: a shooter's touch is not a ranged weapon.
+  const a = brawlAttrs(c), out = [];
   if (a[4] >= 92) out.push('F');
   if (a[7] >= 90) out.push('R');
   if (a[9] >= 92) out.push('T');
@@ -3695,12 +3697,12 @@ function rcEdges(c, ref, p, n, r) {
       ? rcPick(r, ['physical resilience', 'raw staying power'])
       : rcPick(r, TRAIT_STR[x.key])));
   }
-  if (p.styles) p = bestStyle(c.a, p).st; // a damage dealer is described by the style they fight in
+  if (p.styles) p = bestStyle(brawlAttrs(c), p).st; // a damage dealer is described by the style they fight in
   let ks = p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, n).map(x => AK[x.k]);
   if (!ks.length) ks = [...p.keys].sort((a, b) => c.a[b] - c.a[a]).slice(0, n).map(k => AK[k]);
   return rcAnd(ks.map(k => rcPick(r, TRAIT_STR[k])));
 }
-function rcLackKey(c, ref, p) { if (p.tank) return [...tankFactors(c, ref)].sort((a,b) => a.diff * a.weight - b.diff * b.weight)[0].key; if (p.styles) p = bestStyle(c.a, p).st; return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
+function rcLackKey(c, ref, p) { if (p.tank) return [...tankFactors(c, ref)].sort((a,b) => a.diff * a.weight - b.diff * b.weight)[0].key; if (p.styles) p = bestStyle(brawlAttrs(c), p).st; return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
 
 // Shared building blocks
 function rcStars(sportKey, sc, base, N, r) {
@@ -3928,10 +3930,16 @@ function expertAdj(sportKey, c, pos, base) {
 function characterForceMultiplier(sportKey,c,pos){
   return muppetForceMultiplier(c,sportKey,pos)*toonForceMultiplier(c,sportKey,pos);
 }
+// The attribute vector a fight uses (see data/brawl-combat-transfer.js). Stored attributes are untouched.
+function brawlAttrs(c){ return window.DA_COMBAT_TRANSFER?window.DA_COMBAT_TRANSFER.combatAttributes(c):c.a; }
 function brawlRoleFit(sportKey,c,pos,useSignature=true){
   if(sportKey!=='brawl'||!pos.styles)return useSignature?fitFor(c,pos):fitScore(c.a,pos);
-  const raw=style=>useSignature&&c.sig?.kind==='unbreakable'?fitFree(c.a,style):fitScore(c.a,style);
-  return Math.max(...pos.styles.map(style=>style.name==='Speed'?window.DA_BRAWL_COMBAT.speedDpsFit(c,raw(style)):raw(style)));
+  // Damage styles lean on Touch, Accuracy and IQ, so they read the combat-transfer vector:
+  // a jump shot is not marksmanship. Tanks use physical traits only and are unaffected.
+  const ca=brawlAttrs(c);
+  const raw=style=>useSignature&&c.sig?.kind==='unbreakable'?fitFree(ca,style):fitScore(ca,style);
+  // Precision is skill by definition. Speed and Power count as far as the fighter can deliver them.
+  return Math.max(...pos.styles.map(style=>style.name==='Precision'?raw(style):window.DA_BRAWL_COMBAT.speedDpsFit(c,raw(style))));
 }
 function fitIn(sportKey, c, pos) { const b = brawlRoleFit(sportKey,c,pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
 function fitAI(sportKey, c, pos) {
