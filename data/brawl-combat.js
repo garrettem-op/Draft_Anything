@@ -7,7 +7,12 @@
   'use strict';
   const KEYS=['spd','agi','str','siz','lep','end','tch','acc','ref','iq','clu','ldr'];
   const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
-  const attr=(row,key)=>Number(row.cand?.a?.[KEYS.indexOf(key)])||50;
+  // Fights read skill ratings through the combat-transfer record: physical gifts count in
+  // full, sporting skill only as far as it carries into a fight (data/brawl-combat-transfer.js).
+  const transferApi=(root&&root.DA_COMBAT_TRANSFER)||
+    (typeof module!=='undefined'&&module.exports?require('./brawl-combat-transfer.js'):null);
+  const combatAttrs=c=>transferApi?.combatAttributes?.(c)||c?.a||[];
+  const attr=(row,key)=>Number(combatAttrs(row.cand)[KEYS.indexOf(key)])||50;
   const active=score=>(score?.rows||[]).filter(r=>r.cand&&!r.pos.coach&&!r.pos.bench);
   const abilityApi=(root&&root.DA_BRAWL_ABILITY_API)||
     (typeof module!=='undefined'&&module.exports?require('./brawl-attack-profiles.js'):null);
@@ -101,11 +106,19 @@
 
   // Strength and demonstrable offensive technique matter; speed alone is
   // not striking power. Reviewed powers provide an alternative to muscle.
+  // An ordinary human body ('No Powers Allowed' trait) has to land its strength on a resisting
+  // opponent, so strength counts only alongside fighting skill. A beyond-human body, or a
+  // reviewed power, is itself the weapon and needs no formal training.
+  const hasOrdinaryBody=c=>typeof campaignTraitAllowed==='function'&&!!campaignTraitAllowed(c,'mortal');
   function offensiveCredibility(c){
-    const a=k=>Number(c?.a?.[KEYS.indexOf(k)])||50;
+    const ca=combatAttrs(c);
+    const a=k=>Number(ca[KEYS.indexOf(k)])||50;
     const p=abilityFor(c);
-    return clamp(Math.max(a('str'),.60*a('tch')+.40*a('acc'),p?45+11*p.tier:0)/85,.45,1);
+    const skill=.60*a('tch')+.40*a('acc');
+    const force=hasOrdinaryBody(c)?.45*a('str')+.55*skill:a('str');
+    return clamp(Math.max(force,skill,p?45+11*p.tier:0)/85,.45,1);
   }
+  // Speed and raw power are both ways of fighting only to the extent they can be delivered.
   function speedDpsFit(c,fit){
     return fit*(.68+.32*offensiveCredibility(c));
   }
@@ -193,7 +206,11 @@
     // A physical combat tier is distinct from magic/reality technique tiers.
     // This reduces conventional blows against opponents with established
     // extreme bodies without accidentally ranking all cosmic spells as fists.
-    const physicalTier=a('str')>=90&&a('end')>=85?3:
+    // Tier 3 is an extreme, beyond-human body. A character the game classifies as having an
+    // ordinary human body ('No Powers Allowed' trait) tops out at tier 2 however strong they
+    // are for a human: an athlete's or warrior's 95 Strength is not invulnerable physiology.
+    const ordinaryBody=hasOrdinaryBody(row.cand);
+    const physicalTier=a('str')>=90&&a('end')>=85&&!ordinaryBody?3:
       a('str')>=75&&a('end')>=70?2:1;
     let toon=null,muppet=null;
     if(typeof toonForceOf==='function')toon=toonForceOf(c);
@@ -206,20 +223,22 @@
     const offenseScale=toon?.dimensions?(.65+.35*credibility):1;
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
-      ability,tactics:tacticsFor(c),physicalTier,wardHp,apexRank,apexHp,intrinsicRank,intrinsicHp,combatMultiplier,
+      ability,tactics:tacticsFor(c),physicalTier,ordinaryBody,wardHp,apexRank,apexHp,intrinsicRank,intrinsicHp,combatMultiplier,
       attack:strike*offenseScale*combatMultiplier,armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
-      toon,muppet,
+      toon,muppet,skillDomain:transferApi?.combatTransfer?.(c)?.domain||'combat',
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
       powerUses:0,powerDmg:0,wear:0,roundsAlive:0,receivedHits:0,koRound:0,
-      rangeSkips:0,intercepts:0,redirected:0,
+      rangeSkips:0,intercepts:0,redirected:0,hitChanceSum:0,koBy:'',
       targets:Object.create(null)
     };
   }
   function defense(f) {
     const t=f.toon?.dimensions;
     const m=f.muppet?.dimensions;
-    const toonBlock=t?Math.min(20,5+13*(Number(t.resilience)||0)/99+2*(Number(t.body)||0)/99):0;
+    // Scaled by how much of the profile's cartoon physics is combat-relevant (toonForceCombatGate).
+    const gate=Number.isFinite(f.toon?.combatGate)?f.toon.combatGate:1;
+    const toonBlock=t?gate*Math.min(20,5+13*(Number(t.resilience)||0)/99+2*(Number(t.body)||0)/99):0;
     const muppetBlock=m?Math.min(8,3+5*(Number(m.resilience)||0)/99):0;
     return 6+.18*f.armor+.052*f.fit+toonBlock+muppetBlock;
   }
@@ -318,6 +337,7 @@
         if(signature&&['reality','cosmic','magic'].includes(p.domain))
           hitChance=Math.max(hitChance,clamp(.78+.025*(p.tier-3)+
             .0005*(f.focus-target.reflex),.66,.94));
+        f.hitChanceSum+=hitChance;
         if(rng()>hitChance){
           log({round,type:'miss',attacker:f.id,side:f.side,target:target.id,
             move:signature?p.move:'Standard attack',targeting});
@@ -380,6 +400,7 @@
         if(target.hp===0){
           f.kos++;
           target.koRound=round;
+          target.koBy=f.name;
         }
         log({round,type:'hit',attacker:f.id,side:f.side,target:target.id,
           move:signature?p.move:'Standard attack',targeting,domain,raw,prevented,
@@ -402,10 +423,11 @@
           dmg:f.dmg,abs:f.abs,mit:f.mit,overkill:f.overkill,kos:f.kos,
           attacks:f.attacks,hits:f.hits,hp:f.hp,maxHp:f.maxHp,
           roundsAlive:f.roundsAlive,receivedHits:f.receivedHits,
+          avgHitChance:f.attacks?f.hitChanceSum/f.attacks:0,koBy:f.koBy,
           rangeSkips:f.rangeSkips,intercepts:f.intercepts,redirected:f.redirected,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
-          physicalTier:f.physicalTier,wardHp:f.wardHp,
-          apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],
+          physicalTier:f.physicalTier,ordinaryBody:f.ordinaryBody,wardHp:f.wardHp,
+          apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],skillDomain:f.skillDomain,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
           wear:f.wear,koRound:f.koRound,targets:f.targets
