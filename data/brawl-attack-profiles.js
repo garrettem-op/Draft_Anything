@@ -14,7 +14,10 @@
  ['dc:Darkseid','Omega Beams','cosmic',4,.34,['cosmic','energy'],3,'https://www.dc.com/characters/darkseid','Avatar-scale arena encounter; not the full transcendent form or guaranteed disintegration.'],
  ['dc:Ares (DC)','God of War strike','melee',3,.20,['melee'],3,'https://www.dc.com/characters/ares','War conflict empowers him; conceptual warfare is not infinite arena damage.'],
  ['dc:Lucifer Morningstar','Creation-shaping will','reality',5,.43,['reality','magic'],4,'https://www.dc.com/characters/lucifer','Cosmic agency is constrained by story and intent; no automatic win.'],
- ['dc:Death of the Endless','The Endless presence','reality',4,.25,['reality'],4,'https://www.dc.com/blog/2022/08/26/the-sandman-deaths-among-us','Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout.'],
+ // Tier 5 by owner ruling 2026-11-27: the ultimate personification of death, the only Endless to outlive
+ // this universe, and the one who takes Dream himself (The Sandman #69). Pierce and cooldown are
+ // unchanged: she has no offensive combat feats, so her arena attack stays modest.
+ ['dc:Death of the Endless','The Endless presence','reality',5,.25,['reality'],4,'https://www.dc.com/blog/2022/08/26/the-sandman-deaths-among-us','Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout.'],
  ['dc:Superman','Kryptonian power','melee',3,.22,['melee'],3,'https://www.dc.com/characters/superman','Baseline Superman; weakness and continuity-dependent feats remain relevant.'],
  ['dc:Wonder Woman','Amazon divine combat','melee',3,.20,['melee'],3,'https://www.dc.com/characters/wonder-woman','Divine strength and weapon skill do not bypass all magical defenses.'],
  ['dc:Doomsday','Adaptive brutal force','melee',3,.24,['melee'],3,'https://www.dc.com/characters/doomsday','Evolution across encounters is not instantaneous immunity within one exchange.'],
