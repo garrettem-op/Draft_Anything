@@ -67,7 +67,11 @@ function daSupportImpact(sport,score,slot,scorer){
   const remainder=total-Object.values(parts).reduce((sum,x)=>sum+x,0);
   if(Math.abs(remainder)>1e-7)parts['Other team-rating effects']=remainder;
   const round=x=>Math.round(x*100)/100;
-  return {points:round(total),parts:Object.fromEntries(Object.entries(parts).filter(([,x])=>Math.abs(x)>=.005).map(([k,x])=>[k,round(x)])),
+  // What produced the role multiplier, so the report can show its working.
+  const detail={fit:round(n(row.fit)),playerScore:round(n(full.playerScore)),
+    multiplierWith:Math.round(n(full.mult)*1000)/1000,multiplierWithout:Math.round(n(empty.mult)*1000)/1000,
+    system:row.pos.coach&&full.syn?.style?{label:String(full.syn.style.label||''),match:String(full.syn.style.match||''),points:round(n(full.syn.style.pts))}:null};
+  return {detail,points:round(total),parts:Object.fromEntries(Object.entries(parts).filter(([,x])=>Math.abs(x)>=.005).map(([k,x])=>[k,round(x)])),
     opponentPenalty:round(n(full.sig?.chaos)-n(empty.sig?.chaos))};
 }
 function daBoxScore(sport,score,points,seed='',options={}) {
@@ -233,9 +237,13 @@ function daSupportExplanation(row){
   const s=row.support;
   const signed=x=>(x>0?'+':'')+x.toFixed(2);
   return '<details class="da-fighter-why"><summary>How support impact was calculated</summary><div>'+
-    (s?('Team rating with this character minus team rating with this slot empty. '+Object.entries(s.parts).map(([k,v])=>esc(k)+': '+signed(v)).join(' · ')+
+    (s?((s.detail?`Role rating ${s.detail.fit.toFixed(1)} from this character's own attributes (${row.position==='bn'?'Endurance, Leadership, Clutch and Agility':'Game IQ, Leadership and Clutch'}). `+
+        `With this character the fighters' combined score (${s.detail.playerScore.toFixed(1)}) is multiplied by ×${s.detail.multiplierWith.toFixed(3)}; with the slot empty, by ×${s.detail.multiplierWithout.toFixed(3)}. `+
+        (s.detail.system?`Command style "${esc(s.detail.system.label)}": ${esc(s.detail.system.match)} with this roster (${signed(s.detail.system.points)}). `:
+          row.position==='bn'?'':'No command style is on record for this character, so roster compatibility is neutral. '):'')+
+      'Total = team rating with this character minus team rating with this slot empty. '+Object.entries(s.parts).map(([k,v])=>esc(k)+': '+signed(v)).join(' · ')+
       (s.opponentPenalty?' · Additional opponent rating penalty: '+signed(s.opponentPenalty):'')+
-      '. This is a pre-match rating contribution, not measured damage or a replay of the battle. Interactions can overlap between support roles. Match-specific random effects are separate.'):
+      '. This is a pre-match rating contribution, not measured damage or a replay of the battle. In a Battle Royale the team rating has one combat effect: it sets the team damage multiplier shown in each fighter\'s breakdown. Commander and reinforcement contributions overlap and should not be added together. Match-specific random effects are separate.'):
       'The original roster scoring data is unavailable. No impact value has been invented.')+'</div></details>';
 }
 function daReport(sport,score,points,title='',options={}) {
@@ -369,21 +377,30 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
     let explanation='';
     if(log&&typeof log.attacks==='number'){
       const hits=Number(log.hits)||0,attempts=Number(log.attacks)||0;
-      const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg).slice(0,3);
+      // Every target is listed so the breakdown always adds up to the DMG total.
+      const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg);
+      const targetSum=targets.reduce((sum,t)=>sum+(Number(t.dmg)||0),0);
+      const overkill=Number(log.overkill)||0;
+      const domainNote=log.skillDomain==='sport'?'Skill ratings come from sport, not combat: Touch, Accuracy and Game IQ count only partly in a fight; physical traits count in full.':
+        log.skillDomain==='sport-trained'?'Skill ratings come from sport, with documented fight training: Touch, Accuracy and Game IQ count partly in a fight.':'';
       const why=[
         log.apexRank===2?`Apex form: exceptional damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:
           log.apexRank===1?`Empowered form: enhanced damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:'',
-         `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive.`,
+         `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive`+
+           (Number(log.avgHitChance)>0?` (average chance to hit ${Math.round(log.avgHitChance*100)}%; each attack is rolled separately).`:'.'),
         log.intrinsicRank?`Intrinsic cosmic power: +${Number(log.intrinsicHp)||0} combat HP, ×${Number(log.combatMultiplier).toFixed(2)} attack power, up to two actions per round.`:'',
-        Number.isFinite(log.offenseCredibility)?`Offensive capability: ${Math.round(log.offenseCredibility*100)}% · attack fit ${Number(log.attackFit).toFixed(1)} · team damage multiplier ×${Number(log.teamSupport).toFixed(2)}.`:'',
+        Number.isFinite(log.offenseCredibility)?`Offensive capability: ${Math.round(log.offenseCredibility*100)}% · attack fit ${Number(log.attackFit).toFixed(1)} · team damage multiplier ×${Number(log.teamSupport).toFixed(2)} (from the whole team's rating, including commander and reinforcement).`:'',
+        domainNote,
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
-        targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
+        targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG, ${Number(t.hits)||0} hits)`).join(', ')+
+          `. Total ${targetSum} DMG`+(overkill?`, of which ${overkill} was excess on a finishing blow.`:'.'):'No successful hits recorded.',
+        typeof log.receivedHits==='number'?`Took ${Number(log.abs)||0} damage from ${log.receivedHits} hits; blocked ${Number(log.mit)||0}.`:'',
         log.rangeSkips?`Out of range: ${log.rangeSkips} action opportunities skipped until front-line access opened.`:'',
         log.intercepts?`Intercepted ${log.intercepts} attacks for rear allies.`:'',
         log.redirected?`${log.redirected} incoming attacks intercepted by allies.`:'',
         log.wardHp?`Bounded power ward: +${log.wardHp} protective HP at start.`:'',
         log.wear?`Ability strain: ${log.wear} HP lost (not credited as opponent DMG).`:'',
-        log.koRound?`Knocked out in round ${log.koRound}.`:
+        log.koRound?`Knocked out in round ${log.koRound}${log.koBy?' by '+esc(log.koBy):''}.`:
           `Remaining HP: ${Number(log.hp)||0}/${Number(log.maxHp)||0}.`,
         log.powerLimit?`Limit: ${esc(log.powerLimit)}`:''
       ].filter(Boolean).join(' ');
