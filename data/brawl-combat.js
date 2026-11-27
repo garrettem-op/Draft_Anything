@@ -57,6 +57,8 @@
     'mcu:Galactus': [2,730,2.7],
     'mcu:Odin': [1,570,2.3],
     'mcu:The Watcher': [1,570,2.3],
+    // Owner ruling 2026-11-27: rank 1, not 2. Cosmic standing above Dream, but no fighting feats.
+    'dc:Death of the Endless': [1,570,2.3],
     'lotr:Morgoth (Melkor)': [1,570,2.3]
   });
   function intrinsicPowerOf(c,ability){

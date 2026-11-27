@@ -96,3 +96,14 @@ test('rank HP counts only partly against unranked high-order peers (owner choice
  for(let i=1;i<=150;i++)wins+=duel(lucifer,darkseid,1201+i*29).winner===0;
  assert.ok(wins>75&&wins<150,'Lucifer vs Darkseid '+wins+'/150');
 });
+
+test('Death of the Endless is tier 5 with rank 1 by owner ruling (2026-11-27); Dream stays tier 4 and unranked',()=>{
+ const death=hero('dc','Death of the Endless'),dream=hero('dc','Dream of the Endless');
+ const kit=brawlAbilityOf(death);
+ assert.equal(kit.tier,5);
+ assert.equal(kit.pierce,.25,'no offensive combat feats: arena attack stays modest');
+ assert.deepEqual(intrinsicPowerOf(death,kit),{rank:1,hp:570,multiplier:2.3});
+ assert.equal(intrinsicPowerOf({...death,variantBase:'x'},kit),null);
+ assert.equal(brawlAbilityOf(dream).tier,4);
+ assert.equal(intrinsicPowerOf(dream,brawlAbilityOf(dream)),null);
+});
