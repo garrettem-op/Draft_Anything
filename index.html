@@ -1205,7 +1205,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/brawl-attack-profiles.js"></script>
 <script src="data/brawl-combat.js"></script>
 <script src="data/knowledge-engine.js"></script>
-<script src="data/campaign.js?v=20261126-snake"></script>
+<script src="data/campaign.js?v=20261126-terminal-loss"></script>
 <script src="data/team-names.js"></script>
 <script src="data/daily-grid.js"></script>
 <script src="data/tap-one.js"></script>
@@ -5935,10 +5935,12 @@ document.addEventListener('click', e => {
       }
       break;
     case 'camp-single-use': if(S.campaign.step===0&&S.campaign.status==='setup'&&!S.campaign.history.length&&!S.campaign.snake)S.campaign.singleUse=t.dataset.v==='1';break;
-    case 'camp-redraft': {const v=S.campaign;if(window.confirm('Restart this round’s shared draft? Current picks and surges will be cleared. Previous campaign wins stay saved.')){v.roster={};v.snake=null;v.surge=null;v.selected=null;v.validation='';v.validationOpen=false;}break;}
-    case 'camp-start': if(!S.campaign.stageOrder)S.campaign.stageOrder=campaignNewOrder(S.campaign.sport); S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
+    case 'camp-redraft': {const v=S.campaign;if(v.status!=='draft'||v.defeat||campaignCheckExhaustion(v,campaignStage()))break;if(window.confirm('Restart this round’s shared draft? Current picks and surges will be cleared. Previous campaign wins stay saved.')){v.roster={};v.snake=null;v.surge=null;v.selected=null;v.validation='';v.validationOpen=false;}break;}
+    case 'camp-start': if(S.campaign.defeat){S.campaign.status='defeated';break;} if(!S.campaign.stageOrder)S.campaign.stageOrder=campaignNewOrder(S.campaign.sport); S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
     case 'camp-reset': campaignReset(); break;
-    case 'camp-setup': S.campaign.status = 'setup'; S.campaign.selected = null; break;
+    case 'camp-new': if(S.campaign.defeat){campaignReset();S.campaign.status='draft';saveCampaign();window.scrollTo(0,0);}break;
+    case 'camp-concede': if(!S.campaign.defeat&&!S.campaign.result?.win&&window.confirm('End this campaign? All progress will be lost. You must start again at challenge 1.')){campaignEnd(S.campaign,'conceded');window.scrollTo(0,0);}break;
+    case 'camp-setup': if(S.campaign.defeat)break; S.campaign.status = 'setup'; S.campaign.selected = null; break;
     case 'camp-slot': {
       const slots = campaignSlots(S.campaign.sport,campaignStage().rule);
       if (slots.some(p=>p.id===t.dataset.slot)) {
@@ -6025,8 +6027,8 @@ document.addEventListener('click', e => {
       else toast('Variant Surge unavailable for this character.');
       break;
     }
-    case 'camp-play': campaignPlay(); if(S.campaign.status==='results')window.scrollTo(0,0); break;
-    case 'camp-retry': case 'camp-edit': S.campaign.status='draft'; S.campaign.result=null; S.campaign.validation='';S.campaign.validationOpen=false;break;
+    case 'camp-play': campaignPlay(); if(S.campaign.status==='results'||S.campaign.status==='defeated')window.scrollTo(0,0); break;
+    case 'camp-retry': case 'camp-edit': if(S.campaign.defeat)break; S.campaign.status='draft'; S.campaign.result=null; S.campaign.validation='';S.campaign.validationOpen=false;break;
     case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
