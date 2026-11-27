@@ -2420,9 +2420,443 @@ const CHARACTER_ABILITY_RECORDS_ROUND3 = {
     {"tag": "giants", "tags": ["giant-sized"], "kind": "giant-sized", "feat": "The Balrog that confronts the Fellowship in Moria is at least twenty feet tall in The Fellowship of the Ring (2001).", "scene": "The Fellowship of the Ring (2001 film): the Bridge of Khazad-dûm", "source": "https://lotr.fandom.com/wiki/Durin%27s_Bane", "continuity": "The Lord of the Rings (films and books)", "citationNote": "The Jackson film shows a 20 ft Balrog; Tolkien's text gives no measurement. The owner ruled the giant reading applies in every continuity.", "ruling": "owner-ruled 2026-11-11 (Garrett): a massive giant in every continuity; no film-only limit", "verification": "owner-ruling", "audit": "2026-11-r3"}
   ]
 };
+const CHARACTER_ABILITY_RECORDS_TELEPORT_SCAN = Object.freeze({
+  "harrypotter:Narcissa Malfoy": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "apparition",
+      "feat": "Apparates into Spinner's End before Bellatrix in Half-Blood Prince, chapter 2.",
+      "source": "https://harrypotter.fandom.com/wiki/Narcissa_Malfoy",
+      "continuity": "Half-Blood Prince (novel)",
+      "limitation": "Anti-Apparition wards can block travel.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Remus Lupin": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "apparition",
+      "feat": "Explains his precise Apparition onto the doorstep of Grimmauld Place in Deathly Hallows, chapter 11.",
+      "source": "https://www.hp-lexicon.org/magic/apparition/",
+      "continuity": "Deathly Hallows (novel)",
+      "limitation": "Anti-Apparition wards can block travel.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Kingsley Shacklebolt": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "apparition",
+      "feat": "Apparates to the Hog's Head before joining the Battle of Hogwarts in Deathly Hallows.",
+      "source": "https://harrypotter.fandom.com/wiki/Kingsley_Shacklebolt",
+      "continuity": "Deathly Hallows (novel)",
+      "limitation": "Anti-Apparition wards can block travel.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Sirius Black": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "interpreted-apparition",
+      "feat": "In Order of the Phoenix (2007), Sirius arrives with the Order in the Department of Mysteries and strikes Lucius; apparent magical arrival.",
+      "source": "https://harrypotter.fandom.com/wiki/Sirius_Black",
+      "continuity": "Order of the Phoenix (2007 film)",
+      "limitation": "Film-based interpretation accepted for Campaign; the exact transport mechanism is not explicitly named.",
+      "verification": "owner-ruling",
+      "ruling": "Owner authorized the scoped Campaign additions on 2026-11-26; interpretation and continuity limitations preserved.",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "mcu:Electro": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "electrical-manifestation",
+      "feat": "The Amazing Spider-Man 2 power plant fight shows Electro relocating between pylons through electrical manifestation; VFX breakdown explicitly describes teleportation.",
+      "source": "https://www.fxguide.com/fxfeatured/super-charged-vfx-the-amazing-spider-man-2/",
+      "continuity": "The Amazing Spider-Man 2 (2014); Marvel film multiverse",
+      "limitation": "Electrical energy-based relocation, not unrestricted cosmic teleportation.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "games:Sora": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "combat-sleight",
+      "feat": "Teleport sleight rematerializes Sora behind his target in Kingdom Hearts: Chain of Memories.",
+      "source": "https://www.khwiki.com/Teleport",
+      "continuity": "Kingdom Hearts: Chain of Memories",
+      "limitation": "Requires the applicable sleight/cards and target.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "games:Sonic the Hedgehog": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "chaos-control",
+      "feat": "Escapes Eggman's explosive capsule by using Chaos Control with the fake Chaos Emerald in Sonic Adventure 2.",
+      "source": "https://sonic.fandom.com/wiki/Fake_Emerald",
+      "continuity": "Sonic Adventure 2 (2001)",
+      "limitation": "Requires a Chaos Emerald or compatible imitation; running speed alone does not qualify.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "pokemon:Gengar": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "dimensional-transport"
+      ],
+      "kind": "mega-evolution",
+      "feat": "Mega Gengar's Pokédex describes entering another dimension and appearing wherever it wishes.",
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)",
+      "continuity": "Pokémon Sun and Moon / Ultra Moon Mega Gengar Pokédex",
+      "limitation": "Requires Mega Evolution; base Gen I Gengar cannot learn Teleport.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "toons:Bugs Bunny": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "portals",
+        "teleports-others"
+      ],
+      "kind": "crossover-burrow",
+      "feat": "In MultiVersus, Bunny Burrow creates paired tunnel entrances that Bugs and teammates can use to teleport.",
+      "source": "https://multiversus.wiki.gg/wiki/Bugs_Bunny",
+      "continuity": "MultiVersus (2024 crossover game)",
+      "limitation": "Crossover-only feat accepted for Campaign; classic-cartoon teleportation not independently established.",
+      "verification": "owner-ruling",
+      "ruling": "Owner authorized the scoped Campaign additions on 2026-11-26; interpretation and continuity limitations preserved.",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "dc:Perpetua": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "teleports-others",
+        "dimensional-transport"
+      ],
+      "kind": "cosmic-teleport",
+      "feat": "Moves between Earth-19 and the Promethean Galaxy of Earth-0 and can transport others in Justice League (2018 series).",
+      "source": "https://dc.fandom.com/wiki/Perpetua_(Sixth_Dimension)",
+      "continuity": "Justice League (2018 series)",
+      "limitation": "Multiversal travel; no combat evasion frequency inferred.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "dc:Circe": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "portals",
+        "teleports-others"
+      ],
+      "kind": "magical-portals",
+      "feat": "Prime Earth Circe teleports herself long distances and opens magical doorways for others; New Earth Circe crosses Earth and Olympus.",
+      "source": "https://dc.fandom.com/wiki/Circe_(Prime_Earth)",
+      "continuity": "DC Prime Earth Justice League Dark comics",
+      "limitation": "Magic-dependent; travel and combat use are separate.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "dc:Swamp Thing": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "chloroportation",
+      "feat": "Transfers consciousness through the Green and regrows his body in distant vegetation rather than traversing the intervening distance.",
+      "source": "https://dc.fandom.com/wiki/Alec_Holland_(Prime_Earth)",
+      "continuity": "DC Prime Earth Swamp Thing comics",
+      "limitation": "Requires accessible plant life and connection to the Green; not conventional physical blink.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "dc:Trigon": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "portals",
+        "teleports-others",
+        "dimensional-transport"
+      ],
+      "kind": "dimensional-portals",
+      "feat": "Creates interdimensional portals and summons beings from other worlds, as documented in his Prime Earth power profile.",
+      "source": "https://dc.fandom.com/wiki/Trigon_(Prime_Earth)",
+      "continuity": "DC Prime Earth comics",
+      "limitation": "Portal and external transport grant; no unrestricted self-blink inferred.",
+      "verification": "needs-review",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "dc:Dream of the Endless": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "dream-realm-teleport",
+      "feat": "New Earth Dream's power profile lists teleportation, consistent with his travel between the Dreaming and other realms.",
+      "source": "https://dc.fandom.com/wiki/Dream_(New_Earth)",
+      "continuity": "The Sandman (DC New Earth)",
+      "limitation": "Dream-realm and supernatural travel; combat timing not established.",
+      "verification": "needs-review",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "dc:Ares (DC)": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "divine-teleport",
+      "feat": "Appears before Diana in Belgium after travelling from Britain in Wonder Woman (2017); New Earth Ares also has a documented teleportation power.",
+      "source": "https://dcextendeduniverse.fandom.com/wiki/Ares",
+      "continuity": "Wonder Woman (2017); DC film continuity",
+      "limitation": "Divine teleportation; no unlimited combat use inferred.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "games:Bowser": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "magic-teleport",
+      "feat": "Teleports across the battlefield in his second Super Mario 64 battle and away from Star Reactor in Super Mario Galaxy.",
+      "source": "https://www.mariowiki.com/King_Koopa",
+      "continuity": "Super Mario 64; Super Mario Galaxy",
+      "limitation": "Specific magical movement, not merely a high-speed dash.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "games:Dante": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "air-trick",
+      "feat": "Trickster Air Trick in Devil May Cry 5 relocates Dante directly above a targeted enemy.",
+      "source": "https://bkbrent.com/dmc5/dante/",
+      "continuity": "Devil May Cry 5 (2019)",
+      "limitation": "Targeted Trickster move; does not imply long-distance travel.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "games:Ryu": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "ashura-senku",
+      "feat": "Evil Ryu uses Ashura Senku teleport in Super Street Fighter IV: Arcade Edition.",
+      "source": "https://streetfighter.fandom.com/wiki/Ashura_Senku",
+      "continuity": "Super Street Fighter IV: Arcade Edition",
+      "limitation": "Requires Evil Ryu form; no baseline Ryu teleportation claimed.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "mcu:Thor": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "portals",
+        "teleports-others"
+      ],
+      "kind": "bifrost",
+      "feat": "Uses Stormbreaker to summon the Bifrost and arrive in Wakanda with Rocket and Groot in Avengers: Infinity War.",
+      "source": "https://en.wikipedia.org/wiki/Thor_(Marvel_Cinematic_Universe)",
+      "continuity": "Avengers: Infinity War (2018)",
+      "limitation": "Requires Stormbreaker for this feat.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "mcu:Odin": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "portals",
+        "teleports-others"
+      ],
+      "kind": "dark-magic-bifrost",
+      "feat": "Sends Thor to Earth through dark magic when the Bifrost bridge is destroyed, as referenced in The Avengers.",
+      "source": "https://marvelcinematicuniverse.fandom.com/wiki/Odin",
+      "continuity": "The Avengers (2012)",
+      "limitation": "External transport through dark magic; no independent self-blink inferred.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "mcu:Cassandra Nova": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "portals",
+        "teleports-others",
+        "dimensional-transport"
+      ],
+      "kind": "sling-ring-portal",
+      "feat": "Opens a portal from the Void to Earth-10005 for Deadpool and Wolverine in Deadpool & Wolverine.",
+      "source": "https://marvelcinematicuniverse.fandom.com/wiki/Inter-Dimensional_Portal",
+      "continuity": "Deadpool & Wolverine (2024)",
+      "limitation": "Requires acquired sling ring; no innate teleportation claimed.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "mcu:Doctor Doom": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport"
+      ],
+      "kind": "mental-teleporter",
+      "feat": "Doom's mental teleporter device allows him to instantly relocate himself and what he carries.",
+      "source": "https://marvel.fandom.com/wiki/Mental_Teleporter_(Doctor_Doom)",
+      "continuity": "Marvel Comics Earth-616",
+      "limitation": "Device-dependent; no MCU film feat claimed.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Winky": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "house-elf-apparition",
+      "feat": "Winky's documented house-elf powers include Apparition and Disapparition despite ordinary wizard anti-Apparition restrictions.",
+      "source": "https://harrypotter.fandom.com/wiki/Winky",
+      "continuity": "Harry Potter novels, house-elf magic",
+      "limitation": "Species-based documented power; no individual on-page teleport scene located.",
+      "verification": "needs-review",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Yusuf Kama": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport",
+        "teleports-others"
+      ],
+      "kind": "apparition",
+      "feat": "Apparates away from Grindelwald's black fire while rescuing Nagini in Fantastic Beasts: The Crimes of Grindelwald.",
+      "source": "https://harrypotter.fandom.com/wiki/Yusuf_Kama",
+      "continuity": "Fantastic Beasts: The Crimes of Grindelwald (2018)",
+      "limitation": "Magical transport, including side-along rescue.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Bill Weasley": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "apparition",
+      "feat": "Bill Weasley Apparates to the Quidditch World Cup campsite in Goblet of Fire, chapter 7.",
+      "source": "https://www.sparknotes.com/lit/potter4/section4/",
+      "continuity": "Goblet of Fire (novel)",
+      "limitation": "Anti-Apparition wards can block travel.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Percy Weasley": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "apparition",
+      "feat": "Percy Weasley Apparates to the Quidditch World Cup campsite in Goblet of Fire, chapter 7.",
+      "source": "https://www.sparknotes.com/lit/potter4/section4/",
+      "continuity": "Goblet of Fire (novel)",
+      "limitation": "Anti-Apparition wards can block travel.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ],
+  "harrypotter:Charlie Weasley": [
+    {
+      "tag": "teleport",
+      "tags": [
+        "self-teleport",
+        "magical-teleport"
+      ],
+      "kind": "apparition",
+      "feat": "Charlie Weasley Apparates to the Quidditch World Cup campsite in Goblet of Fire, chapter 7.",
+      "source": "https://www.sparknotes.com/lit/potter4/section4/",
+      "continuity": "Goblet of Fire (novel)",
+      "limitation": "Anti-Apparition wards can block travel.",
+      "verification": "credible",
+      "audit": "2026-11-26-teleport-scan"
+    }
+  ]
+});
 const CHARACTER_ABILITIES = (() => {
   const merged = {};
-  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS, CHARACTER_ABILITY_RECORDS_DISNEY, CHARACTER_ABILITY_RECORDS_ROUND3]) {
+  for (const block of [CHARACTER_ABILITY_RECORDS_CURATED, CHARACTER_ABILITY_RECORDS_AUDIT, CHARACTER_ABILITY_RECORDS_NEW_POOLS, CHARACTER_ABILITY_RECORDS_DISNEY, CHARACTER_ABILITY_RECORDS_ROUND3, CHARACTER_ABILITY_RECORDS_TELEPORT_SCAN]) {
     for (const [id, facts] of Object.entries(block)) {
       const list = merged[id] || (merged[id] = []);
       // The first record for a tag is authoritative; audit records only add missing tags.
@@ -2475,7 +2909,6 @@ const CHARACTER_ABILITY_DISPUTES = Object.freeze([
 const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
     {id:"mcu:Smart Hulk", tag:"healing", note:"Counter-evidence: Smart Hulk's arm, injured by the Snap in Endgame, never healed by itself. In She-Hulk ep 1 he needed an inhibitor and then Jen's synthesized blood to 'completely heal his arm'. No positive regeneration scene found for the Smart Hulk form.", source:"https://www.marvel.com/articles/tv-shows/she-hulk-episode-1-recap"},
   {id:"mcu:Gorr the God Butcher", tag:"healing", note:"Wiki says the Necrosword grants a regenerative healing factor, but I found no specific on-screen healing scene.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Gorr"},
-  {id:"mcu:Electro", tag:"teleport", note:"Wiki lists teleportation by dissolving into electricity; no specific scene confirmed.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Electro"},
   {id:"toons:Edna Mode", tag:"tech", note:"She makes the tech for others; no source shows her personally relying on gadgets or armor. Designer is a job title, so this is the owner's call. Leaning no.", source:"https://en.wikipedia.org/wiki/Edna_Mode"},
   {id:"muppets:Bernice", tag:"flight", note:"The source never shows her flying (its only flying reference is a different bird). Not confirmed.", source:"https://muppet.fandom.com/wiki/Bernice"},
   {id:"muppets:Hoots the Owl", tag:"flight", note:"Backstory wording only (possibly figurative); no on-screen flight found.", source:"https://muppet.fandom.com/wiki/Hoots_the_Owl"},
@@ -2517,7 +2950,6 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"dc:Darkseid", tag:"flight", note:"Round 3: only the Wikipedia infobox lists Flight; no article text, DC Database (Prime Earth) or dc.com page describes him flying or levitating. His documented movement is teleportation and Boom Tubes.", source:"https://en.wikipedia.org/wiki/Darkseid"},
   {id:"dc:Trigon", tag:"flight", note:"Round 3, re-queued after PR #56 review: Wikipedia lists flight only in a power summary ('can fly, generate energy blasts, teleport') and names no issue, story or episode. Needs a scene where Trigon himself flies or levitates.", source:"https://en.wikipedia.org/wiki/Trigon_(comics)"},
   {id:"dc:Trigon", tag:"psychic", note:"Seed-list grant removed pending a documented telepathy scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
-  {id:"dc:Trigon", tag:"teleport", note:"Seed-list grant removed pending a documented teleport or portal scene.", source:"https://en.wikipedia.org/wiki/Trigon", audit:"2026-11-r2"},
   {id:"dc:The Spectre", tag:"healing", note:"Seed-list grant removed pending a documented healing scene.", source:"https://en.wikipedia.org/wiki/Spectre_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Death of the Endless", tag:"magic", note:"Needs an owner ruling: Death is a personification, not a spellcaster.", source:"https://en.wikipedia.org/wiki/Death_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Doctor Fate", tag:"psychic", note:"Telepathy appears in some eras; a specific scene is needed.", source:"https://en.wikipedia.org/wiki/Doctor_Fate", audit:"2026-11-r2"},
@@ -2529,12 +2961,8 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"harrypotter:Albus Dumbledore", tag:"healing", note:"Seed-list grant removed pending a scene of Dumbledore healing someone.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
   {id:"harrypotter:Lord Voldemort", tag:"fire", note:"The fire-serpent duel is a film scene; book support for Voldemort commanding fire was not confirmed.", source:"https://harrypotter.fandom.com/wiki/Tom_Riddle", audit:"2026-11-r2"},
   {id:"harrypotter:Minerva McGonagall", tag:"teleport", note:"Apparition is standard for adult wizards, but no on-page McGonagall Apparition was confirmed.", source:"https://harrypotter.fandom.com/wiki/Minerva_McGonagall", audit:"2026-11-r2"},
-  {id:"harrypotter:Sirius Black", tag:"teleport", note:"No on-page Apparition by Sirius was confirmed.", source:"https://harrypotter.fandom.com/wiki/Sirius_Black", audit:"2026-11-r2"},
-  {id:"harrypotter:Remus Lupin", tag:"teleport", note:"No on-page Apparition by Lupin was confirmed.", source:"https://en.wikipedia.org/wiki/Remus_Lupin", audit:"2026-11-r2"},
-  {id:"harrypotter:Kingsley Shacklebolt", tag:"teleport", note:"No on-page Apparition by Kingsley was confirmed.", source:"https://harrypotter.fandom.com/wiki/Kingsley_Shacklebolt", audit:"2026-11-r2"},
   {id:"harrypotter:Alastor Moody", tag:"teleport", note:"No on-page Apparition by Moody was confirmed.", source:"https://harrypotter.fandom.com/wiki/Alastor_Moody", audit:"2026-11-r2"},
   {id:"harrypotter:Nymphadora Tonks", tag:"teleport", note:"No on-page Apparition by Tonks was confirmed.", source:"https://harrypotter.fandom.com/wiki/Nymphadora_Tonks", audit:"2026-11-r2"},
-  {id:"harrypotter:Winky", tag:"teleport", note:"No on-page Apparition by Winky was confirmed.", source:"https://en.wikipedia.org/wiki/List_of_Harry_Potter_characters", audit:"2026-11-r2"},
   {id:"harrypotter:Winky", tag:"magic", note:"House-elves use magic, but no specific spell by Winky was confirmed.", source:"https://en.wikipedia.org/wiki/List_of_Harry_Potter_characters", audit:"2026-11-r2"},
   {id:"harrypotter:Obscurus", tag:"magic", note:"An Obscurus is raw dark magic, not a spellcaster or item. Needs an owner ruling.", source:"https://harrypotter.fandom.com/wiki/Obscurus", audit:"2026-11-r2"},
   {id:"harrypotter:Fawkes", tag:"fire", note:"A phoenix bursts into flame and travels in fire, but no scene of Fawkes directing fire at anything was confirmed.", source:"https://harrypotter.fandom.com/wiki/Fawkes", audit:"2026-11-r2"},
@@ -2703,7 +3131,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
   mcu: Object.freeze({
     "Iron Man": ["flight", "powered-flight", "tech", "powered-armor", "inventor"],
     "Captain America": [],
-    "Thor": ["flight", "powered-flight", "electric", "electric-control"],
+    "Thor": ["flight", "powered-flight", "electric", "electric-control", "teleport", "self-teleport", "portals", "teleports-others"],
     "Hulk": ["healing", "self-regeneration", "giants", "giant-sized"],
     "Bruce Banner": [],
     "Smart Hulk": ["giants", "giant-sized"],
@@ -2748,7 +3176,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Ironheart": ["flight", "powered-flight", "tech", "powered-armor", "inventor"],
     "Valkyrie": ["flight", "pilot", "mount"],
     "Loki": ["magic", "spellcaster", "stealth", "infiltration", "teleport", "self-teleport"],
-    "Odin": ["magic", "spellcaster"],
+    "Odin": ["magic", "spellcaster", "teleport", "portals", "teleports-others"],
     "Hela": ["healing", "self-regeneration"],
     "Heimdall": ["psychic", "telepathy", "teleport", "portals", "teleports-others"],
     "Sif": [],
@@ -2763,7 +3191,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Mysterio": ["tech", "gadgets"],
     "Green Goblin": ["flight", "powered-flight", "tech", "gadgets"],
     "Doc Ock": ["tech", "cyborg"],
-    "Electro": ["flight", "natural-flight", "electric", "electric-control"],
+    "Electro": ["flight", "natural-flight", "electric", "electric-control", "teleport", "self-teleport"],
     "Sandman": ["flight", "natural-flight", "healing", "self-regeneration", "giants", "size-change"],
     "Kang the Conqueror": ["tech", "powered-armor"],
     "Ego": ["flight", "natural-flight", "psychic", "telekinesis", "mind-control", "giants", "giant-sized", "size-change"],
@@ -2822,14 +3250,14 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Deadpool": ["teleport", "self-teleport", "healing", "self-regeneration"],
     "Wolverine": ["healing", "self-regeneration"],
     "Professor X": ["psychic", "telepathy"],
-    "Cassandra Nova": ["psychic", "telepathy", "telekinesis"],
+    "Cassandra Nova": ["psychic", "telepathy", "telekinesis", "teleport", "portals", "teleports-others", "dimensional-transport"],
     "Elektra": ["stealth", "infiltration"],
     "Miek": [],
     "Sentry": ["flight", "natural-flight"],
     "Valentina Allegra de Fontaine": [],
     "Bill Foster": ["giants", "size-change"],
     "Jean Grey": ["psychic", "telepathy", "telekinesis"],
-    "Doctor Doom": ["magic", "spellcaster", "tech", "powered-armor", "inventor"],
+    "Doctor Doom": ["magic", "spellcaster", "tech", "powered-armor", "inventor", "teleport", "self-teleport"],
     "Mister Fantastic": ["tech", "inventor"],
     "Invisible Woman": ["flight", "powered-flight", "psychic", "telekinesis", "stealth", "invisibility"],
     "Human Torch": ["flight", "natural-flight", "fire", "fire-control"],
@@ -2846,7 +3274,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Bullseye": [],
   }),
   toons: Object.freeze({
-    "Bugs Bunny": [],
+    "Bugs Bunny": ["teleport", "self-teleport", "portals", "teleports-others"],
     "Daffy Duck": ["flight", "pilot"],
     "Road Runner": [],
     "Wile E. Coyote": ["tech", "gadgets"],
@@ -3088,7 +3516,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Mario": ["flight", "natural-flight", "fire", "fire-control", "ice", "ice-control", "giants", "size-change"],
     "Luigi": ["fire", "fire-control", "tech", "gadgets"],
     "Princess Peach": ["flight", "natural-flight", "healing", "heals-others"],
-    "Bowser": ["flight", "natural-flight", "fire", "fire-control", "giants", "giant-sized"],
+    "Bowser": ["flight", "natural-flight", "fire", "fire-control", "teleport", "self-teleport", "giants", "giant-sized"],
     "Yoshi": ["flight", "natural-flight", "fire", "fire-control"],
     "Toad": ["fire", "fire-control"],
     "Donkey Kong": [],
@@ -3111,7 +3539,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Captain Falcon": [],
     "Ness": ["psychic", "telepathy", "telekinesis", "fire", "fire-control", "electric", "electric-control", "teleport", "self-teleport", "healing", "self-regeneration", "heals-others"],
     "Marth": [],
-    "Sonic the Hedgehog": ["flight", "natural-flight"],
+    "Sonic the Hedgehog": ["flight", "natural-flight", "teleport", "self-teleport"],
     "Tails": ["flight", "natural-flight", "tech", "gadgets", "inventor"],
     "Knuckles": ["flight", "glide"],
     "Dr. Eggman": ["flight", "pilot", "tech", "gadgets", "inventor"],
@@ -3163,7 +3591,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Mega Man": ["fire", "fire-weapon", "ice", "ice-weapon", "electric", "electric-weapon", "tech", "robot-or-ai"],
     "Dr. Wily": ["tech", "inventor", "teleport", "self-teleport"],
     "Dr. Light": ["tech", "inventor"],
-    "Ryu": ["fire", "fire-control"],
+    "Ryu": ["fire", "fire-control", "teleport", "self-teleport"],
     "Chun-Li": [],
     "M. Bison": ["flight", "natural-flight", "psychic", "mind-control", "teleport", "self-teleport"],
     "Guile": ["flight", "pilot"],
@@ -3177,9 +3605,9 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Sephiroth": ["flight", "natural-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Tifa Lockhart": [],
     "Aerith Gainsborough": ["magic", "spellcaster", "healing", "heals-others"],
-    "Sora": ["flight", "glide", "magic", "spellcaster", "fire", "fire-control", "ice", "ice-control", "electric", "electric-control", "healing", "self-regeneration", "heals-others"],
+    "Sora": ["flight", "glide", "magic", "spellcaster", "fire", "fire-control", "ice", "ice-control", "electric", "electric-control", "teleport", "self-teleport", "magical-teleport", "healing", "self-regeneration", "heals-others"],
     "Chrono": ["magic", "spellcaster", "electric", "electric-control"],
-    "Dante": ["flight", "natural-flight", "fire", "fire-weapon", "electric", "electric-control", "healing", "self-regeneration"],
+    "Dante": ["flight", "natural-flight", "fire", "fire-weapon", "electric", "electric-control", "teleport", "self-teleport", "healing", "self-regeneration"],
     "Leon S. Kennedy": [],
     "Jill Valentine": [],
     "Albert Wesker": ["healing", "self-regeneration"],
@@ -3298,7 +3726,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Cloyster": ["aquatic", "swimmer", "ice", "ice-control", "teleport", "self-teleport"],
     "Gastly": ["flight", "natural-flight", "psychic", "telekinesis", "mind-control", "electric", "electric-control", "stealth", "invisibility", "infiltration"],
     "Haunter": ["flight", "natural-flight", "psychic", "telekinesis", "mind-control", "electric", "electric-control", "stealth", "infiltration"],
-    "Gengar": ["flight", "natural-flight", "psychic", "telekinesis", "mind-control", "electric", "electric-control", "stealth", "infiltration"],
+    "Gengar": ["flight", "natural-flight", "psychic", "telekinesis", "mind-control", "electric", "electric-control", "stealth", "infiltration", "teleport", "self-teleport", "dimensional-transport"],
     "Onix": ["giants", "giant-sized"],
     "Drowzee": ["psychic", "telekinesis", "electric", "electric-control", "teleport", "self-teleport"],
     "Hypno": ["psychic", "telekinesis", "electric", "electric-control", "teleport", "self-teleport"],
@@ -3478,7 +3906,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Zatanna": ["magic", "spellcaster", "teleport", "self-teleport"],
     "Doctor Fate": ["flight", "powered-flight", "magic", "spellcaster", "magic-item", "teleport", "self-teleport"],
     "John Constantine": ["magic", "spellcaster"],
-    "Swamp Thing": ["healing", "self-regeneration"],
+    "Swamp Thing": ["teleport", "self-teleport", "healing", "self-regeneration"],
     "The Atom (Ray Palmer)": ["tech", "gadgets", "inventor"],
     "Firestorm": ["flight", "natural-flight", "fire", "fire-control"],
     "Plastic Man": [],
@@ -3524,8 +3952,8 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Black Manta": ["aquatic", "swimmer", "tech", "powered-armor"],
     "Ocean Master": ["aquatic", "water-breathing"],
     "Cheetah": [],
-    "Ares (DC)": [],
-    "Circe": ["magic", "spellcaster"],
+    "Ares (DC)": ["teleport", "self-teleport"],
+    "Circe": ["magic", "spellcaster", "teleport", "self-teleport", "portals", "teleports-others"],
     "Giganta": ["giants", "size-change"],
     "Solomon Grundy": ["healing", "self-regeneration"],
     "Poison Ivy": [],
@@ -3547,15 +3975,15 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Krypto": ["flight", "natural-flight"],
     "Lobo": ["healing", "self-regeneration"],
     "Etrigan": ["magic", "spellcaster", "fire", "fire-control"],
-    "Trigon": ["magic", "spellcaster"],
+    "Trigon": ["magic", "spellcaster", "teleport", "portals", "teleports-others", "dimensional-transport"],
     "Anti-Monitor": ["flight", "natural-flight", "teleport", "teleports-others", "dimensional-transport"],
     "The Spectre": ["flight", "natural-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Mister Mxyzptlk": ["magic", "spellcaster", "teleport", "self-teleport"],
     "Doctor Manhattan": ["flight", "natural-flight", "teleport", "self-teleport", "teleports-others", "healing", "self-regeneration", "giants", "size-change"],
     "Lucifer Morningstar": ["magic", "spellcaster", "teleport", "self-teleport"],
-    "Dream of the Endless": ["magic", "magic-item"],
+    "Dream of the Endless": ["magic", "magic-item", "teleport", "self-teleport"],
     "Death of the Endless": [],
-    "Perpetua": [],
+    "Perpetua": ["teleport", "self-teleport", "teleports-others", "dimensional-transport"],
     "Static": ["flight", "powered-flight", "electric", "electric-control"],
     "Black Lightning": ["electric", "electric-control"],
     "King Shark": ["aquatic", "water-breathing", "healing", "self-regeneration"],
@@ -3689,8 +4117,8 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Severus Snape": ["flight", "natural-flight", "magic", "spellcaster", "psychic", "telepathy", "stealth", "infiltration", "teleport", "self-teleport", "healing", "heals-others"],
     "Minerva McGonagall": ["magic", "spellcaster"],
     "Rubeus Hagrid": ["flight", "pilot", "magic", "spellcaster", "giants", "giant-sized"],
-    "Sirius Black": ["magic", "spellcaster"],
-    "Remus Lupin": ["magic", "spellcaster"],
+    "Sirius Black": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
+    "Remus Lupin": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
     "James Potter": ["flight", "powered-flight", "magic", "spellcaster"],
     "Lily Potter": ["magic", "spellcaster"],
     "Neville Longbottom": ["magic", "spellcaster"],
@@ -3700,19 +4128,19 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "George Weasley": ["flight", "powered-flight", "magic", "spellcaster", "teleport", "self-teleport"],
     "Molly Weasley": ["magic", "spellcaster"],
     "Arthur Weasley": ["magic", "spellcaster"],
-    "Percy Weasley": ["magic", "spellcaster"],
-    "Bill Weasley": ["magic", "spellcaster"],
-    "Charlie Weasley": ["flight", "powered-flight", "magic", "spellcaster"],
+    "Percy Weasley": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
+    "Bill Weasley": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
+    "Charlie Weasley": ["flight", "powered-flight", "magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
     "Draco Malfoy": ["flight", "powered-flight", "magic", "spellcaster"],
     "Lucius Malfoy": ["magic", "spellcaster", "teleport", "self-teleport"],
-    "Narcissa Malfoy": ["magic", "spellcaster"],
+    "Narcissa Malfoy": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
     "Bellatrix Lestrange": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
     "Rodolphus Lestrange": ["magic", "spellcaster"],
     "Barty Crouch Jr.": ["magic", "spellcaster", "stealth", "infiltration"],
     "Peter Pettigrew": ["magic", "spellcaster", "stealth", "infiltration"],
     "Regulus Black": ["magic", "spellcaster"],
     "Dolores Umbridge": ["magic", "spellcaster"],
-    "Kingsley Shacklebolt": ["magic", "spellcaster"],
+    "Kingsley Shacklebolt": ["magic", "spellcaster", "teleport", "self-teleport", "magical-teleport"],
     "Alastor Moody": ["flight", "powered-flight", "magic", "spellcaster"],
     "Nymphadora Tonks": ["flight", "powered-flight", "magic", "spellcaster"],
     "Aberforth Dumbledore": ["magic", "spellcaster"],
@@ -3724,12 +4152,12 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Credence Barebone": ["magic", "spellcaster"],
     "Leta Lestrange": ["magic", "spellcaster"],
     "Theseus Scamander": ["magic", "spellcaster"],
-    "Yusuf Kama": ["magic", "spellcaster"],
+    "Yusuf Kama": ["magic", "spellcaster", "teleport", "self-teleport", "teleports-others", "magical-teleport"],
     "Seraphina Picquery": [],
     "Nagini": [],
     "Dobby": ["magic", "spellcaster", "stealth", "infiltration", "teleport", "self-teleport", "teleports-others"],
     "Kreacher": ["magic", "spellcaster", "stealth", "infiltration", "teleport", "self-teleport"],
-    "Winky": [],
+    "Winky": ["teleport", "self-teleport", "magical-teleport"],
     "Griphook": [],
     "Filius Flitwick": ["magic", "spellcaster"],
     "Pomona Sprout": ["magic", "spellcaster"],
@@ -3827,6 +4255,7 @@ const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
   'gamerguides.com':'community', 'comicbasics.com':'community', 'fortressofsolitude.co.za':'community',
   'autoassembly.org.uk':'community', 'dcuguide.com':'community',
   'harrypotterstats.com':'community', 'comics.org':'community',
+  'hp-lexicon.org':'community', 'fxguide.com':'editorial', 'khwiki.com':'community', 'bulbapedia.bulbagarden.net':'game-data', 'multiversus.wiki.gg':'community', 'bkbrent.com':'community', 'sparknotes.com':'editorial',
 });
 const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
 /* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
