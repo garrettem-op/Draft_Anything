@@ -6,10 +6,10 @@
    is intended to test the player's knowledge. */
 const CHARACTER_ABILITY_RECORDS_CURATED = {
   "lotr:Shelob": [
-    {tag:"giants", tags:["giant-sized"], kind:"giant-sized", feat:"In The Two Towers, Book IV, chapter 9, Shelob is described as larger than great hunting beasts, with a vast body and long legs. Giant non-humanoid creatures qualify by overall physical scale rather than upright height.", source:"https://www.silmarillionwritersguild.org/node/4448", continuity:"Tolkien: The Two Towers, IV.9–10", limitation:"No exact canonical height; overall creature scale is the basis.", verification:"owner-ruling", audit:"2026-11"},
+    {tag:"giants", tags:["giant-sized"], kind:"giant-sized", feat:"In The Two Towers, Book IV, chapter 9, Shelob is described as larger than great hunting beasts, with a vast body and long legs. Giant non-humanoid creatures qualify by overall physical scale rather than upright height.", source:"https://www.silmarillionwritersguild.org/node/4448", continuity:"Tolkien: The Two Towers, IV.9–10", limitation:"No exact canonical height; overall creature scale is the basis.", ruling:"owner-ruled 2026-11-27 (Garrett, PR #678): giant non-humanoid creatures qualify for Giant Problems by documented overall physical scale; no height is assigned.", verification:"owner-ruling", audit:"2026-11"},
   ],
   "lotr:Carcharoth": [
-    {tag:"giants", tags:["giant-sized"], kind:"giant-sized", feat:"In The Silmarillion, chapter 19, Morgoth rears and empowers the wolf until he grows too large to enter a den; he is bred to confront the enormous Huan. Giant non-humanoid creatures qualify by overall physical scale.", source:"https://www.silmarillionwritersguild.org/node/4358", continuity:"Tolkien: The Silmarillion, ch. 19", limitation:"No exact canonical height; supernatural growth and overall creature scale are the basis.", verification:"owner-ruling", audit:"2026-11"},
+    {tag:"giants", tags:["giant-sized"], kind:"giant-sized", feat:"In The Silmarillion, chapter 19, Morgoth rears and empowers the wolf until he grows too large to enter a den; he is bred to confront the enormous Huan. Giant non-humanoid creatures qualify by overall physical scale.", source:"https://www.silmarillionwritersguild.org/node/4358", continuity:"Tolkien: The Silmarillion, ch. 19", limitation:"No exact canonical height; supernatural growth and overall creature scale are the basis.", ruling:"owner-ruled 2026-11-27 (Garrett, PR #678): giant non-humanoid creatures qualify for Giant Problems by documented overall physical scale; no height is assigned.", verification:"owner-ruling", audit:"2026-11"},
   ],
   // Skyborne is "known flyer OR aerial combatant", not "natural flight only".
   // This evidence is bundled and works without any network call or OpenAI credits.
@@ -4262,6 +4262,7 @@ const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
   'autoassembly.org.uk':'community', 'dcuguide.com':'community',
   'harrypotterstats.com':'community', 'comics.org':'community',
   'hp-lexicon.org':'community', 'fxguide.com':'editorial', 'khwiki.com':'community', 'bulbapedia.bulbagarden.net':'game-data', 'multiversus.wiki.gg':'community', 'bkbrent.com':'community', 'sparknotes.com':'editorial',
+  'silmarillionwritersguild.org':'community',
 });
 const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
 /* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */

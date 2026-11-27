@@ -405,18 +405,34 @@ test('new pools: owner rulings and corrected seeds', () => {
 });
 
 /* PR #56 review (2026-11-10). */
-test('round 3: the seven still-queued cases stay queued and ungranted', () => {
+test('round 3: the six still-queued cases stay queued and ungranted', () => {
   // Explicit list, so a regenerated index or a trimmed queue cannot quietly regrant one of them.
-  // Batgirl stealth, Hermione flight and Gothmog giants left the queue by owner ruling on 2026-11-11.
+  // Batgirl stealth, Hermione flight and Gothmog giants left the queue by owner ruling on 2026-11-11;
+  // Carcharoth giants left it by owner ruling on 2026-11-27 (PR #678, tested below).
   const QUEUED = [['dc:Robin (Damian Wayne)', 'stealth'], ['dc:Red Robin (Tim Drake)', 'stealth'],
     ['dc:Deathstroke', 'stealth'], ['dc:Darkseid', 'flight'],
-    ['dc:Trigon', 'flight'], ['lotr:Quickbeam', 'giants'], ['lotr:Carcharoth', 'giants']];
+    ['dc:Trigon', 'flight'], ['lotr:Quickbeam', 'giants']];
   for (const [id, rule] of QUEUED) {
     assert.ok(abilityApi.CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === id && q.tag === rule), id + ' ' + rule + ' must stay in the research queue');
     assert.equal(qualifiesUnderPR44(id, rule), false, id + ' ' + rule + ' is queued, not granted');
     for (const t of PR44_ACCEPTED[rule]) assert.ok(!tagsOf(id).includes(t), id + ' must not carry ' + t);
     assert.ok(!(abilityApi.CHARACTER_ABILITIES[id] || []).some(r => r.tag === rule), id + ' ' + rule + ' has no evidence record');
   }
+});
+
+test('Shelob and Carcharoth are giants by owner ruling (2026-11-27, PR #678), left the queue, and cite their ruling', () => {
+  for (const n of ['Shelob', 'Carcharoth']) {
+    const id = 'lotr:' + n;
+    assert.ok(!abilityApi.CHARACTER_ABILITY_RESEARCH_QUEUE.some(q => q.id === id && q.tag === 'giants'), id + ' is no longer queued');
+    assert.equal(qualifiesUnderPR44(id, 'giants'), true, id + ' qualifies for Giant Problems');
+    const p = abilityApi.characterAbilityProvenance({ pool: 'lotr', n }, 'giants');
+    assert.equal(p?.basis, 'evidence', id);
+    assert.equal(p.record.verification, 'owner-ruling', id);
+    assert.match(p.record.ruling, /2026-11-27.*overall physical scale/, id);
+    assert.match(p.record.limitation, /No exact canonical height/, id + ': no invented height');
+  }
+  // Quickbeam is not swept in by the creature-scale ruling: he stays queued.
+  assert.equal(qualifiesUnderPR44('lotr:Quickbeam', 'giants'), false);
 });
 
 test('round 3: Durin\'s Bane is a giant in every continuity by owner ruling (2026-11-11)', () => {

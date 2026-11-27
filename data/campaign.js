@@ -603,10 +603,126 @@ function campaignAllowed(c,rule,pos=null,side='player',v=S.campaign){
 }
 function campaignCandidates(rule){return getCands('mashup').filter(c=>campaignAllowed(c,rule));}
 function campaignSportValid(sport){return campaignEligibleStageIds(sport).length>=9;}
+// Active-form (Variant Surge) eligibility.
+// Form-specific evidence comes from one reviewed, source-linked dataset (data/variant-form-research.js),
+// keyed by base identity and exact catalog form name. A form keeps its base classification for every
+// challenge its record does not decide; docs/variant-eligibility-coverage.md lists the forms still
+// awaiting review. Identity, talent pool, history, Underdogs and Queens of the Court stay with the base.
+const CAMPAIGN_FORM_RESEARCH=(typeof window!=='undefined'&&window.DA_VARIANT_FORM_RESEARCH)||
+  (typeof require==='function'?require('./variant-form-research.js'):{});
+const CAMPAIGN_FORM_RULES=Object.freeze(Object.fromEntries(Object.entries(CAMPAIGN_FORM_RESEARCH).map(([key,tags])=>
+  [key,Object.freeze(Object.fromEntries(Object.entries(tags)
+    .filter(([,d])=>d?.decision==='yes'||d?.decision==='no').map(([tag,d])=>[tag,d.decision==='yes'])))])));
+function campaignFormEligibility(base,active,rule,pos=null,side='player',v=S.campaign){
+  const initial=campaignEligibilityResult(base,rule,pos,side,v);
+  if(!base||!active||!active.variantBase||active.id!==base.id||active.pool!==base.pool)return initial;
+  const history=campaignHistoryReason(base,rule,side,v);
+  if(history)return {allowed:false,reason:history,source:'campaign-history'};
+  if(initial.source==='commander-specialty'||rule==='underdog'||rule==='women')return initial;
+  const criteria=campaignCriteria(rule);
+  // Numerical challenges read the transformed attributes.
+  if(criteria?.stats)return campaignEligibilityResult(active,rule,pos,side,v);
+  const evidence=CAMPAIGN_FORM_RULES[base.pool+':'+base.n+'|'+active.n];
+  if((criteria?.trait||criteria?.acceptedTags)&&typeof evidence?.[rule]==='boolean'){
+    const allowed=evidence[rule];
+    return {allowed,reason:active.n+(allowed?' qualifies in this form.':' does not qualify in this form.'),source:'campaign-variant-evidence'};
+  }
+  return initial;
+}
+function campaignProjectForm(c,form){
+  if(!c||!form||typeof variantRoster!=='function')return c;
+  return variantRoster({roster:{pick:c},surge:[{id:c.id,name:form.name}]}).pick;
+}
+function campaignActivePickResult(c,rule,pos,side,v,active){
+  if(!active&&typeof campaignVariantRoster==='function'){
+    active=campaignVariantRoster({...v,roster:{pick:c}}).pick;
+  }
+  return campaignFormEligibility(c,active,rule,pos,side,v);
+}
+// Chance (0..1) that a Variant Surge leaves c qualified, from the same weighted odds the player's
+// roll uses. It looks only at the published odds, never at the outcome of a particular roll.
+function campaignFormQualifyChance(c,rule,pos,side,v){
+  if(!c||pos?.coach||typeof variantOdds!=='function')return 0;
+  return variantOdds(c).reduce((n,x)=>n+(campaignFormEligibility(c,campaignProjectForm(c,x.form),rule,pos,side,v).allowed?x.percent:0),0)/100;
+}
+// The CPU rolls exactly like the player: one weighted, seeded roll per character per lineup.
+function campaignCpuSurgeSeed(v,index=0){return campaignStageSeed(v)+':cpu:'+index;}
+function campaignCpuRoll(c,pos,v,index=0){
+  const roll={sport:v.sport,roster:{[pos.id]:c},surge:null,status:'draft'};
+  useVariantSurge(roll,c.id,campaignCpuSurgeSeed(v,index));
+  return variantRoster(roll)[pos.id]||c;
+}
+// CPU surge policy, decided before any roll from eligibility and odds alone:
+//  'qualify' - the base character does not qualify; it is drafted only by attempting a surge,
+//  'boost'   - a legal pick surges only when no possible form can disqualify it and the expected
+//              power gain is positive (the CPU does not gamble a locked legal pick),
+//  'none'    - no surge.
+function campaignCpuSurgePlan(c,rule,pos,v){
+  if(!c||pos?.coach||typeof variantOptions!=='function'||typeof useVariantSurge!=='function'||!variantOptions(c).length)return 'none';
+  if(!campaignPickAllowed(c,rule,pos,'cpu',v))return campaignFormQualifyChance(c,rule,pos,'cpu',v)>0?'qualify':'none';
+  if(campaignFormQualifyChance(c,rule,pos,'cpu',v)<1)return 'none';
+  return variantOdds(c).reduce((n,x)=>n+x.power*x.percent/100,0)>0?'boost':'none';
+}
+// Rolls the CPU has already made this round: {id: form name}. Successful gambles are in snake.forms,
+// failed ones in snake.failed. Like the player's v.surge records, a recorded roll is final.
+function campaignCpuRecordedForm(c,v){
+  if(!c||v?.snake?.step!==v?.step)return null;
+  return v.snake.forms?.[c.id]||v.snake.failed?.[c.id]||null;
+}
+function campaignCpuForm(c,rule,pos,v,index=0){
+  const recorded=index===0?campaignCpuRecordedForm(c,v):null;
+  if(typeof recorded==='string')return campaignProjectForm(c,{name:recorded});
+  return campaignCpuSurgePlan(c,rule,pos,v)==='none'?c:campaignCpuRoll(c,pos,v,index);
+}
+// Commit to a gamble: roll once, record the result, and report whether the rolled form qualifies.
+function campaignCpuCommitSurge(c,rule,pos,v){
+  const active=campaignCpuRoll(c,pos,v,0);
+  const allowed=campaignFormEligibility(c,active,rule,pos,'cpu',v).allowed;
+  const key=allowed?'forms':'failed';
+  v.snake[key]={...(v.snake[key]||{}),[c.id]:active.variantBase?active.n:'(no form)'};
+  return allowed;
+}
+function campaignCpuFailedIds(v){
+  return new Set(v?.snake?.step===v?.step?Object.keys(v.snake.failed||{}):[]);
+}
+// May the CPU draft c here? A base-invalid character is a gamble: it may be attempted while a surge
+// can qualify it and it has not already failed this round. The roll itself happens when the CPU commits.
+function campaignCpuCanAttempt(c,rule,pos,v){
+  if(!c||campaignHistoryReason(c,rule,'cpu',v))return false;
+  if(campaignPickAllowed(c,rule,pos,'cpu',v))return true;
+  return !campaignCpuFailedIds(v).has(c.id)&&campaignCpuSurgePlan(c,rule,pos,v)==='qualify';
+}
+// Referee check for a pick the CPU already made: valid as itself or in its recorded rolled form.
+function campaignCpuPickAllowed(c,rule,pos,v){
+  if(!c||campaignHistoryReason(c,rule,'cpu',v))return false;
+  if(campaignPickAllowed(c,rule,pos,'cpu',v))return true;
+  const recorded=v?.snake?.step===v?.step?v.snake.forms?.[c.id]:null;
+  return !!recorded&&campaignFormEligibility(c,campaignProjectForm(c,{name:recorded}),rule,pos,'cpu',v).allowed;
+}
+function campaignCpuActiveRoster(v,stage,roster,index=0){
+  const positions=new Map(campaignSlots(v.sport,stage.rule).map(p=>[p.id,p]));
+  return Object.fromEntries(Object.entries(roster).map(([slot,c])=>[slot,campaignCpuForm(c,stage.rule,positions.get(slot),v,index)]));
+}
+// Feasibility for roster exhaustion. Both sides count an untried qualifying surge as a possibility,
+// so a campaign never ends while a transformation could still produce a legal lineup.
+function campaignCanPotentiallyPick(c,rule,pos,side,v){
+  if(!c||campaignHistoryReason(c,rule,side,v))return false;
+  if(side==='cpu'){
+    if(Object.values(v?.snake?.step===v?.step&&v.snake.cpu||{}).includes(c.id))return campaignCpuPickAllowed(c,rule,pos,v);
+    return campaignCpuCanAttempt(c,rule,pos,v);
+  }
+  const actual=campaignActivePickResult(c,rule,pos,side,v);
+  if(actual.allowed)return true;
+  if(pos?.coach||typeof variantOptions!=='function'||typeof variantSurgeRecords!=='function')return false;
+  if(variantSurgeRecords(v).some(x=>x.id===c.id))return false;
+  return campaignFormQualifyChance(c,rule,pos,side,v)>0;
+}
+
 function campaignInvalidSlots(){
   const v=S.campaign,rule=campaignStage().rule;
   const positions=new Map(campaignSlots(v.sport,rule).map(p=>[p.id,p]));
-  return new Set(Object.entries(v.roster).filter(([slot,c])=>c&&(!campaignPickAllowed(c,rule,positions.get(slot))||campaignReservedIds(v).has(c.id))).map(([slot])=>slot));
+  const active=typeof campaignVariantRoster==='function'?campaignVariantRoster(v):v.roster;
+  return new Set(Object.entries(v.roster).filter(([slot,c])=>c&&(!campaignActivePickResult(c,rule,positions.get(slot),'player',v,active[slot]).allowed||campaignHistoryReason(c,rule,'player',v)||campaignReservedIds(v).has(c.id))).map(([slot])=>slot));
 }
 function campaignQualified(){return campaignInvalidSlots().size===0;}
 function campaignRosterReady(sport,rule,roster){
@@ -628,7 +744,7 @@ function campaignCanFill(sport,rule,all,side,v,reserved=new Set(),fixed={}){
   const slots=campaignSlots(sport,rule),limit=campaignLimit(sport,rule);
   const entries=Object.entries(fixed),bySlot=new Map(slots.map(p=>[p.id,p]));
   const used=new Set(entries.map(([,c])=>c?.id));
-  if(entries.length>limit||used.size!==entries.length||entries.some(([id,c])=>!c||!bySlot.has(id)||reserved.has(c.id)||!campaignPickAllowed(c,rule,bySlot.get(id),side,v)))return false;
+  if(entries.length>limit||used.size!==entries.length||entries.some(([id,c])=>!c||!bySlot.has(id)||reserved.has(c.id)||!campaignCanPotentiallyPick(c,rule,bySlot.get(id),side,v)))return false;
   const poolsUsed=new Set(entries.map(([,c])=>c.pool));
   const need=limit-entries.length,minimum=campaignCriteria(rule)?.minDistinctPools||0;
   if(!need)return poolsUsed.size>=minimum;
@@ -644,7 +760,7 @@ function campaignCanFill(sport,rule,all,side,v,reserved=new Set(),fixed={}){
   const slotNodes=remaining.map(p=>({p,n:node()})),poolNodes=new Map();
   for(const {n} of slotNodes)edge(source,n,1);
   for(const c of candidates){
-    const legal=slotNodes.filter(({p})=>campaignPickAllowed(c,rule,p,side,v));
+    const legal=slotNodes.filter(({p})=>campaignCanPotentiallyPick(c,rule,p,side,v));
     if(!legal.length)continue;
     const n=node();
     for(const slot of legal)edge(slot.n,n,1);
@@ -811,7 +927,7 @@ function renderCampaignDraft(){
     ${v.roster[pos.id]?`<div class="picker-current">${avatar(v.roster[pos.id])}<span class="who"><small>Currently at ${esc(pos.nm)}</small><b>${esc(v.roster[pos.id].n)}</b></span><span class="note">Selected</span></div>`:''}
     <div class="picker-list-shell"><div class="plist" id="camp-plist">${matches.map(c=>{const search=(c.n+" "+c.t).toLowerCase(),sources=campaignPickerMembership(c);const hidden=(q&&!search.includes(q))||(pools.size&&!sources.split(" ").some(p=>pools.has(p)));return `<div class="talent-entry" data-search="${esc(search)}" data-pools="${esc(sources)}" ${hidden?"hidden":""}><button class="cand" data-act="camp-pick" data-cid="${esc(c.id)}" ${blocked(c)||taken.has(c.id)&&v.roster[pos.id]?.id!==c.id?'disabled':''}>${avatar(c)}<span class="who"><b>${esc(c.n)}</b><small>${esc(c.t)}</small>${sigLine(c)}</span>${blocked(c)?'<span class="meta muted">'+esc(blocked(c))+'</span>':taken.has(c.id)?'<span class="meta muted">On roster</span>':''}</button><button type="button" class="btn info-button" data-act="camp-info" data-cid="${esc(c.id)}" aria-label="Where is ${esc(c.n)} from?" title="Character origin">ⓘ</button></div>`}).join('')}<div class="empty-state camp-no-matches" ${matches.some(c=>(!q||(c.n+' '+c.t).toLowerCase().includes(q))&&(!pools.size||campaignPickerMembership(c).split(' ').some(p=>pools.has(p))))?'hidden':''}>No characters match your search.</div></div>${pickerIndexHTML('camp-plist')}</div>
   </div><div class="sheet-backdrop open" data-act="camp-close"></div>`:
-  `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked when you submit.</p></div>`;
+  `<div class="panel" style="padding:14px"><b>${filled===limit?'Roster ready':'Select a position on the field'}</b><p class="note" style="margin:6px 0 0">${filled}/${limit} selected. Tap a position to draft or replace; hold a filled position to drag and swap. Eligibility is checked in the active form when you submit. A Surge can qualify or disqualify a pick.</p></div>`;
   return `<section>${campaignProgress()}
     ${v.history.some(h=>!h.ids?.length||!h.cpuIds?.length)?'<p class="note">Some older saved rounds have missing lineup records. Recoverable characters are blocked, but a new campaign is required for fully reliable history enforcement.</p>':''}
     <div class="panel" style="padding:16px;margin-bottom:14px"><div class="eyebrow">Challenge ${v.step+1} / 10 · ${esc(SPORTS[v.sport].name)}</div><h2 class="h" style="margin:4px 0 8px">${esc(st.name)}</h2><p style="margin:0">${esc(st.blurb)}</p><p class="note" style="margin:8px 0 0">${all.length} characters to choose from · ${limit} roster spots · Opponent: ${esc(st.rival)}.</p>${minPools?`<p class="note" style="margin:8px 0 0"><b>Universe alliance: ${distinctPools}/${minPools} pools represented.</b> All roster positions, including commander and reinforcement, count.</p>`:''}<p class="note" style="margin:8px 0 0">Coaches and commanders may qualify through challenge-specific tactics and improve their team. Other roster positions must meet the normal requirements. Tactical specialties are revealed after submission. Your picks: ${v.singleUse?"single use across both sides":"maximum two winning lineups; none repeated in finale"}. CPU picks cannot repeat across rounds.</p></div>
@@ -863,7 +979,7 @@ function campaignPlay(){
     // same roster and locked Variant Surges play BOTH fights in the finale.
     const gameSeed=campaignCombatSeed(v,index,attempt);
     const score=teamScore(v.sport,activeRoster);
-    const rivalRoster=cpuVariantRoster(v.sport,opp.roster,campaignStageSeed(v)+':cpu:'+index);
+    const rivalRoster=campaignCpuActiveRoster(v,st,opp.roster,index);
     const oppScore=teamScore(v.sport,rivalRoster);
     const commander=campaignCommanderEffect(v.sport,activeRoster,st.rule,score.rating);
     if(commander){score.rating+=commander.points;score.commanderEffect=commander;}
@@ -929,7 +1045,7 @@ function renderCampaignRejected(){
       <h2 class="h" id="campaign-reject-title" style="margin:8px 0 12px">Lineup rejected</h2>
       <p id="campaign-reject-description">Your lineup includes ${bad.size} ${bad.size===1?'character who does not':'characters who do not'} qualify for <b>${esc(campaignStage().name)}</b>.</p>
       <p class="note" style="margin:8px 0">Highlighted in red on the field:</p>
-      <ul class="campaign-reject-names">${offenders.map(({slot,c,position})=>{const detail=campaignEligibilityResult(c,campaignStage().rule,position);const trait=campaignCriteria(campaignStage().rule)?.trait;const issueUrl="https://github.com/garrettem-op/Draft_Anything/issues/new?"+new URLSearchParams({title:"Campaign eligibility: "+c.n+" / "+campaignStage().name,body:"Character: "+c.pool+":"+c.n+"\\nChallenge: "+campaignStage().name+"\\nCurrent finding: "+detail.reason+"\\nSupporting source / evidence: "}).toString();return `<li><span>${esc(c.n)}</span><small style="display:block;max-width:36ch;margin:4px 0 8px;color:var(--muted)">${esc(detail.reason)}</small>${campaignHasTheme(campaignStage().rule)?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:trait?`<a class="btn small" target="_blank" rel="noopener noreferrer" href="${esc(issueUrl)}">Report missing evidence</a>`:""}</li>`}).join('')}</ul>
+      <ul class="campaign-reject-names">${offenders.map(({slot,c,position})=>{const detail=campaignActivePickResult(c,campaignStage().rule,position,'player',v);const trait=campaignCriteria(campaignStage().rule)?.trait;const issueUrl="https://github.com/garrettem-op/Draft_Anything/issues/new?"+new URLSearchParams({title:"Campaign eligibility: "+c.n+" / "+campaignStage().name,body:"Character: "+c.pool+":"+c.n+"\\nChallenge: "+campaignStage().name+"\\nCurrent finding: "+detail.reason+"\\nSupporting source / evidence: "}).toString();return `<li><span>${esc(c.n)}</span><small style="display:block;max-width:36ch;margin:4px 0 8px;color:var(--muted)">${esc(detail.reason)}</small>${campaignHasTheme(campaignStage().rule)?`<button class="btn small" data-act="camp-dispute-open" data-slot="${esc(slot)}" aria-label="Challenge rejection of ${esc(c.n)}">Challenge ruling</button>`:trait?`<a class="btn small" target="_blank" rel="noopener noreferrer" href="${esc(issueUrl)}">Report missing evidence</a>`:""}</li>`}).join('')}</ul>
       <p class="note">Unverified evidence is not an automatic denial. Report an incorrect classification without spending AI credits, or challenge an ability ruling through the review service.</p>
       <button class="btn primary" data-act="camp-reject-close" style="width:100%;margin-top:10px">Review highlighted characters</button>
     </div>

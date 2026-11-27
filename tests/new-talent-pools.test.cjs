@@ -184,7 +184,7 @@ test('new pool identity and power metadata never references absent roster charac
 test('distinct pool emblems, color palettes, and script imports are configured',()=>{
   const html=read('index.html');
   for(const script of modules){
-    assert.ok(html.includes('<script src="'+script+'"></script>'),script);
+    assert.equal(require('./lib/html-scripts.cjs').scriptTags(html,script).length,1,script);
   }
   for(const pool of newly){
     assert.ok(html.includes('tc-pool-'+pool),pool+' trading card emblem');

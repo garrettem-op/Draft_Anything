@@ -73,7 +73,7 @@ test('combat resolver is deterministic for the same seed and roster',()=>{
 test('browser wires combat into every brawl match path and report',()=>{
  const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
  const reports=fs.readFileSync(path.join(__dirname,'../data/after-action.js'),'utf8');
- assert.match(html,/<script src="data\/brawl-combat\.js"><\/script>/);
+ assert.equal(require('./lib/html-scripts.cjs').scriptTags(html,'data/brawl-combat.js').length,1);
  assert.match(html,/resolveBrawlCombat\(A,B,/);
  assert.match(html,/if \(sportKey==='brawl'\) \{\s*const g=playGame/);
  assert.match(html,/combat:g\.combat/g);
