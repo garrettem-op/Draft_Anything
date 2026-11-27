@@ -62,3 +62,15 @@ V1 now judges a surged character in the form it actually rolled. V2 must carry t
 - Acceptance tests: V1 `tests/campaign-active-form-production.test.cjs` (live roster, real catalog and odds) is the reference: gain/loss matrix, stat thresholds in both directions, Underdogs both directions, identity/pool/history, multi-surge, CPU makes no roll while choosing, one roll per committed attempt, choices before a roll independent of its outcome, finale surge policy, exhaustion with untried and spent surges, and no pre-selection leaks.
 
 This audit identifies gaps and defines requirements; it does not claim the V2 implementation is already complete.
+
+## Combat audit carry-forward, 2026-11-27 (#685, #686, #687)
+V1 `main` now carries corrections from the Battle Royale audit ([full write-up](COMBAT_AUDIT_2026-11-27.md)). V2's legacy `data/brawl-combat.js` predates even the lane/credibility mechanics above, so the engine changes are carried as requirements for the Option C evaluator, not transplanted code (a mechanical port conflicts in `brawl-combat.js`, `toon-force.js`, `after-action.js` and `index.html`). Only the Action Movies attribute data is applied here, because it is data, not engine.
+
+Acceptance rules to add to the release checklist:
+1. **Skill domain:** each technique and rated skill carries a domain (combat, sport, craft, command). Physical traits transfer to a fight in full; skill transfers only as far as it was earned in combat. No pool, profession or athlete-wide penalty; exceptions are individual and sourced (V1: Kareem Abdul-Jabbar, Shaquille O'Neal).
+2. **Combat proficiency** (none, trained, expert, master) is a researched field separate from physical attributes. Strength without delivery is not full offense.
+3. **Durability separate from strength:** ordinary human bodies never receive beyond-human durability or damage-reduction tiers.
+4. **ToonForce:** defensive/durability effect in a fight is gated by how well-evidenced the cartoon physics is; household slapstick is not tank durability. Sport rulings are unchanged.
+5. **Leadership and support** are researched blocks (quality, domain, style, named flaws), never archetype templates. Sporting leadership in a battle is an open owner ruling.
+6. **Reports** list every target and reconcile credited damage with HP removed; commander and reinforcement impact shows the counterfactual rating with and without the character.
+7. Regression fixtures: every before/after row in section 4 of the audit, plus the Action Movies evidence table.
