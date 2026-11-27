@@ -6,6 +6,7 @@
  'use strict';
  const entries=[
  // Full-roster baseline powers. No variant gear or future form is silently stacked.
+ ['dc:Perpetua','Multiversal creation surge','reality',5,.40,['reality','cosmic'],4,'https://www.dcuniverseinfinite.com/comics/book/justice-league-2018-38/caabff58-ead0-460e-9572-46c7482745f4','Restored creator portrayal; power is bounded by the arena and can be depleted or opposed.'],
  ['toons:Marvin the Martian','Martian energy weapon','tech',4,.32,['tech'],3,'https://www.imdb.com/title/tt0051701/','Advanced alien arsenal includes the Q-36 device; arena attacks are bounded and do not destroy planets.'],
  ['games:Rayman','Extendable fist strike','melee',3,.18,[],3,'https://www.ubisoft.com/en-us/games/rayman-legends','Limbless melee and platforming attacks require range and timing; not an automatic knockout.'],
  ['games:Bowser','Fire breath','elemental',3,.20,['elemental'],3,'https://www.mariowiki.com/Fire_Breath','Base Bowser uses fire breath; giant Fury form is not assumed.'],
