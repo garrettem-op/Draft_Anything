@@ -34,7 +34,7 @@ const VAGUE_LONG = 'He has the power to fly through the sky at will.';
 // Captain Atom tech (powered-armor). Moved again 2026-11-11 when main was merged in after #56: Round 3 granted
 // stealth to 7 DC characters (Nightwing, Red Hood, Batgirl, Batwoman, Cassandra Cain, Huntress, Talia al Ghul),
 // giants to Durin's Bane and Gothmog, and flight to Hermione Granger (10 grants). No grant changed in this PR.
-const PINNED_INDEX_DIGEST = 'fcd54e0227a1a76311f1283ee0004c21d010322f759fde72e7fe84b10e180e7f';
+const PINNED_INDEX_DIGEST = '6bfe7cdd100e2020524e34825f26015e59600f0c321f64238be841c69ee8e2af';
 
 test('every host cited by an evidence record has a source type', () => {
   const types = new Set(CHARACTER_ABILITY_SOURCE_TYPES);
