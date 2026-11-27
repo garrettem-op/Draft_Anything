@@ -65,6 +65,9 @@
     return rec&&ability.tier>=rec[0]+3?{rank:rec[0],hp:rec[1],multiplier:rec[2]}:null;
   }
   const combatRank=f=>Math.max(f.apexRank||0,f.intrinsicRank||0);
+  // An intrinsic-rank fighter (not an Apex form) facing a high-order supernatural fighter without a rank.
+  const unrankedHighOrderPeer=(f,o)=>!!f?.intrinsicRank&&!f.apexRank&&highOrderPower(f.ability)&&
+    highOrderPower(o?.ability)&&!combatRank(o);
   function powerInteraction(attacker,target,signature){
     const a=highOrderPower(attacker.ability),b=highOrderPower(target.ability);
     // Comparable supernatural kits resolve through ordinary typed guards,
@@ -79,7 +82,11 @@
     }
     const baselineGuard=attacker.apexRank&&!a&&!target.apexRank&&b&&
       ['cosmic','magic','reality'].includes(target.ability.domain) ? .50 : 0;
-    return {counterMultiplier,baselineGuard,peerSignature};
+    // Intrinsic rank (#676) gives cosmic entities parity with Apex forms. Against a high-order
+    // supernatural peer that has no rank, the typed kits (tier, pierce, guards) decide: the rank's
+    // attack multiplier does not stack on top of a tier advantage the kit already encodes.
+    const peerScale=unrankedHighOrderPeer(attacker,target)?1/(attacker.combatMultiplier||1):1;
+    return {counterMultiplier,baselineGuard,peerSignature,peerScale};
   }
 
   // Strength and demonstrable offensive technique matter; speed alone is
@@ -262,6 +269,9 @@
         .map(x=>({...x,action:1})));
       for(const {f,action=0} of actions) {
         if(f.hp<=0)continue;
+        // The intrinsic second action is Apex parity; it is not taken when every opponent left
+        // is an unranked high-order peer.
+        if(action&&!f.apexRank&&fighters[1-f.side].every(o=>o.hp<=0||unrankedHighOrderPeer(f,o)))continue;
         const enemies=fighters[1-f.side].filter(x=>x.hp>0).sort(byIdentity);
         if(!enemies.length)break;
         if(formation&&rangeBlocked(f,fighters[f.side])){
@@ -315,7 +325,7 @@
         let raw=Math.max(1,Math.round(Math.max(rolled,floor)));
         const domain=signature?p.domain:'physical';
         const interaction=powerInteraction(f,target,signature);
-        raw=Math.round(raw*interaction.counterMultiplier);
+        raw=Math.round(raw*interaction.counterMultiplier*interaction.peerScale);
         let block=defense(target)*(.88+.24*rng())*(signature?1-p.pierce:1);
         // Keep the established defense against conventional empowered strikes,
         // but never halve a cosmic peer's offense merely because it is a form.
@@ -334,7 +344,7 @@
           const bypass=f.toon?.dimensions?clamp((Number(f.toon.dimensions.body)||0)/99,0,1):0;
           block+=raw*Math.min(.32,.11*gap)*(1-bypass);
         }
-        if(combatRank(target)&&!combatRank(f)&&!interaction.peerSignature){
+        if(combatRank(target)&&!combatRank(f)&&!interaction.peerSignature&&!unrankedHighOrderPeer(target,f)){
           // Standard weapons and punches struggle against empowered forms,
           // but high-order documented abilities remain meaningful counters.
           const threat=Math.max(p?.tier||0,f.physicalTier===3?3:0);
@@ -397,7 +407,7 @@
       throw new Error('Battle Royale combat failed to resolve in 90 rounds');
     const winner=sides[0].survivors?0:1,loser=1-winner;
     const result={
-      version:2,model:'typed-signature-v3-intrinsic',winner,rounds:round,attacks,
+      version:2,model:'typed-signature-v3-intrinsic-peer',winner,rounds:round,attacks,
       line:[sides[winner].kos,sides[loser].kos,
         sides[loser].kos===0?'flawless':sides[winner].survivors===1?'last one standing':''],
       sides

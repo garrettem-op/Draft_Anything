@@ -51,3 +51,30 @@ test('unrelated fighters retain baseline HP, action economy and form limits',()=
  const r=duel(regular,unreviewed,31);
  for(const s of r.sides){const f=s.fighters[0];assert.equal(f.intrinsicHp,0);assert.equal(f.combatMultiplier,1);assert.ok(f.attacks<=f.roundsAlive);}
 });
+
+// Calibration follow-up to #676: intrinsic rank is parity with Apex forms, not a bonus over unranked
+// high-order peers, whose typed kits (tier, pierce, guards) already decide those fights.
+test('intrinsic rank does not stack over unranked high-order peers; Apex parity is unchanged',()=>{
+ const luc={ability:{domain:'reality',tier:5},intrinsicRank:2,apexRank:0,combatMultiplier:2.7};
+ const unrankedPeer={ability:{domain:'cosmic',tier:4},apexRank:0,intrinsicRank:0};
+ const rankedPeer={ability:{domain:'reality',tier:5},apexRank:0,intrinsicRank:2};
+ const apexPeer={ability:{domain:'cosmic',tier:5},apexRank:2,intrinsicRank:0};
+ const conventional={ability:{domain:'melee',tier:3},apexRank:0,intrinsicRank:0};
+ assert.equal(powerInteraction(luc,unrankedPeer,true).peerScale,1/2.7);
+ assert.equal(powerInteraction(luc,unrankedPeer,false).peerScale,1/2.7);
+ for(const o of [rankedPeer,apexPeer,conventional])assert.equal(powerInteraction(luc,o,true).peerScale,1);
+ const apexAttacker={ability:{domain:'cosmic',tier:5},apexRank:2,intrinsicRank:0,combatMultiplier:2.7};
+ assert.equal(powerInteraction(apexAttacker,unrankedPeer,true).peerScale,1,'Apex forms are unaffected');
+ // Ranked against unranked peer: no second action, no rank shell; HP is unchanged.
+ const lucifer=hero('dc','Lucifer Morningstar'),darkseid=hero('dc','Darkseid');
+ let extra=0;
+ for(let i=1;i<=40;i++){
+  const r=duel(lucifer,darkseid,707+i*13),f=r.sides[0].fighters[0];
+  assert.equal(f.intrinsicRank,2);assert.equal(f.intrinsicHp,730);
+  extra+=f.attacks>f.roundsAlive;
+  const hits=r.events.filter(e=>e.type==='hit'&&e.attacker===f.id);
+  assert.ok(hits.length>0);
+  for(const e of hits)assert.equal(e.counterMultiplier,1);
+ }
+ assert.equal(extra,0,'no second action while only unranked high-order peers remain');
+});
