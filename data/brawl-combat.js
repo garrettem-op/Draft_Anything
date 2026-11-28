@@ -31,6 +31,30 @@
   // (data/option-c/research-moves.js researchCombatOf). Null on a page without it, so V1 is unchanged.
   const researchCombatFor=c=>{const api=root&&root.DA_RESEARCH_MOVES;return api&&typeof api.researchCombatOf==='function'?api.researchCombatOf(c):null;};
   const unionOf=(a,b)=>[...new Set([...(a||[]),...(b||[])])];
+  // Version 2 fight rules (2026-11-27, docs/option-c/FIGHT_RULES.md) follow the research switch:
+  // with ?researchPowers=0 every one of them is off and the engine is Version 1's.
+  const fightRulesOn=()=>{const api=root&&root.DA_RESEARCH_MOVES;return !!(api&&typeof api.enabled==='function'&&api.enabled());};
+  const researchIdFor=c=>{const api=root&&root.DA_RESEARCH_MOVES;return api&&typeof api.researchIdOf==='function'?api.researchIdOf(c):'';};
+  const isMachine=c=>{
+    const index=typeof CHARACTER_ABILITY_TAGS!=='undefined'?CHARACTER_ABILITY_TAGS:root&&root.CHARACTER_ABILITY_TAGS;
+    const tags=c&&index&&index[c.pool]&&index[c.pool][c.variantBase||c.n];
+    return Array.isArray(tags)&&tags.includes('robot-or-ai');
+  };
+  // A power that takes the opponent out of the fight instead of wounding (mind control, enchanted
+  // sleep, petrification, a killing gaze). The chance per landed use follows the reviewed tier and the
+  // two wills; a matching guard, a high-order ward, a combat rank or an equal power of the same type
+  // each cut it, and a machine has no mind to take.
+  function overcomeChance(f,target,p){
+    if(target.machine&&p.domain!=='magic')return 0;
+    let chance=clamp(.30+.20*(p.tier-3)+.006*(f.will-target.will),.05,.85);
+    if(target.guard.includes(p.domain))chance*=.35;
+    if(target.weakTo.includes(p.domain))chance=Math.min(.9,chance*1.3);
+    if(target.wardHp>0)chance*=.5;
+    if(combatRank(target))chance*=.15;
+    const tp=target.ability;
+    if(tp&&tp.domain===p.domain&&tp.tier>=p.tier)chance*=.5;
+    return chance;
+  }
   // Rare, reviewed transformations must feel qualitatively different from a
   // mild stat boost. Tier-5 forms and feat-reviewed flagship forms are Apex;
   // other reviewed tier-4 forms are Empowered. Baseline characters and
@@ -195,7 +219,7 @@
   function fighter(row,side) {
     const tank=!!row.pos.tank;
     const a=k=>attr(row,k);
-    const fit=clamp(Number(row.fit)||50,1,165);
+    const storedFit=clamp(Number(row.fit)||50,1,165);
     // A documented weapon or fighting technique carries the blow: it sets a floor under raw strength.
     const research=researchCombatFor(row.cand);
     const proficiency=research?.proficiency||null;
@@ -204,8 +228,24 @@
     // (65/75/85/95/99). Physical-delivery signatures (melee, tech, toxin) still strike with the body.
     const strikePower=abilityFor(row.cand);
     const powerStrike=strikePower&&!['melee','toxin','tech','physical'].includes(strikePower.domain)?Math.min(99,55+10*strikePower.tier):0;
-    const strikeStr=Math.max(a('str'),proficiency?proficiency.strike:0,powerStrike);
-    const power=.44*strikeStr+.18*a('acc')+.16*a('spd')+.12*a('ref')+.10*a('iq');
+    // Version 2 fight rules: a reviewed melee signature is tied to a feat, so like a power it carries the
+    // blow between signature uses (the same floor by tier), and for a beyond-human body it stands for
+    // strength above the 1-99 scale (8 points per tier above the standard). Landing a blow is fighting
+    // skill, not ball skill: documented proficiency or a reviewed melee signature sets a floor under Accuracy.
+    const rulesOn=fightRulesOn();
+    // Reviewed means an individual profile or a research move with a reviewed tier, never the generic attack.
+    const meleeSig=rulesOn&&strikePower&&strikePower.domain==='melee'&&!strikePower.derived&&(strikePower.origin!=='research'||strikePower.tierReviewed)?strikePower:null;
+    const meleeStrike=meleeSig?Math.min(99,55+10*meleeSig.tier):0;
+    const beyondHuman=a('str')>=90&&a('end')>=85&&!hasOrdinaryBody(row.cand);
+    const overflow=meleeSig&&beyondHuman?8*Math.max(0,meleeSig.tier-2):0;
+    const strikeStr=Math.max(a('str'),proficiency?proficiency.strike:0,powerStrike,meleeStrike)+overflow;
+    const aim=rulesOn?Math.max(proficiency?proficiency.aim||0:0,meleeSig?Math.min(97,72+6*meleeSig.tier):0):0;
+    const acc=Math.max(a('acc'),aim);
+    // The role fit was scored with the stored Accuracy; give it the same floor through this slot's own weight.
+    const weights=row.pos&&(row.pos.w||row.pos.weights)||null;
+    const weightSum=weights?Object.values(weights).reduce((s,v)=>s+(Number(v)||0),0):0;
+    const fit=clamp(storedFit+(weightSum&&weights.acc?(acc-a('acc'))*weights.acc/weightSum:0),1,165);
+    const power=.44*strikeStr+.18*acc+.16*a('spd')+.12*a('ref')+.10*a('iq');
     const armor=.34*a('end')+.21*a('siz')+.23*a('str')+.13*a('ref')+.09*a('agi');
     // Rating/fit already account for signature team support, selected variants,
     // ToonForce/MuppetForce and registered exceptional-power bonuses.
@@ -227,12 +267,14 @@
       ['reality','cosmic','magic','elemental','psychic'].includes(ability.domain)
       ?Math.round(26*ability.tier):0;
     const armorHp=ability?.armorHp||0;
+    // Worn armour named in the research record turns a share of physical blows where no individual kit does.
     const armorPhysicalGuard=ability?.armorPhysicalGuard||0;
+    const wornArmor=rulesOn&&research?.armor?research.armor.guard:0;
     // A documented power shield: a separate, depleting barrier (see brawlShieldOf).
     // An individual V1 shield entry wins; otherwise the barrier named in the research record.
     const shield=shieldFor(c)||research?.shield||null;
     const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
-      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+Math.max(apexHp,intrinsicHp)+armorHp);
+      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+Math.max(apexHp,intrinsicHp)+armorHp+.62*overflow);
     // A physical combat tier is distinct from magic/reality technique tiers.
     // This reduces conventional blows against opponents with established
     // extreme bodies without accidentally ranking all cosmic spells as fists.
@@ -257,7 +299,10 @@
       guard:unionOf(ability?.guard,research?.guard),weakTo:unionOf(ability?.weakTo,research?.weakTo),proficiency,powerStrike,
       ability,tactics:tacticsFor(c),physicalTier,ordinaryBody,wardHp,apexRank,apexHp,armorHp,armorPhysicalGuard,intrinsicRank,intrinsicHp,combatMultiplier,
       attack:strike*offenseScale*combatMultiplier,armor,fit,maxHp,hp:maxHp,credibility,attackFit,
-      accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
+      accuracy:acc,focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
+      will:.5*a('iq')+.5*a('clu'),machine:rulesOn&&isMachine(c),researchId:rulesOn?researchIdFor(c):'',
+      counters:rulesOn&&research?.counters?research.counters:[],parry:rulesOn&&proficiency?proficiency.parry||0:0,
+      gapSkill:rulesOn&&proficiency?proficiency.gap||0:0,wornArmor,meleeSigTier:meleeSig?meleeSig.tier:0,aim,overflow,finishers:0,rulesOn,
       toon,muppet,skillDomain:transferApi?.combatTransfer?.(c)?.domain||'combat',
       dmg:0,abs:0,mit:0,overkill:0,kos:0,attacks:0,hits:0,
       powerUses:0,powerDmg:0,wear:0,roundsAlive:0,receivedHits:0,koRound:0,
@@ -369,6 +414,14 @@
         if(signature&&['reality','cosmic','magic','psychic'].includes(p.domain))
           hitChance=Math.max(hitChance,clamp(.78+.025*(p.tier-3)+
             .0005*(f.focus-target.reflex),.66,.94));
+        // A bodily blow: a plain attack by someone who strikes with the body, or a physical signature.
+        // A trained fighter parries and slips such blows, and worn armour turns a share of them, but
+        // neither does much against a beyond-human body that outclasses the defender's.
+        const bodily=signature?['melee','toxin','tech','physical'].includes(p.domain):!f.powerStrike;
+        const strikerTier=signature&&f.meleeSigTier?Math.max(f.physicalTier,Math.min(3,f.meleeSigTier-1)):f.physicalTier;
+        const outclass=strikerTier>=3?Math.max(0,strikerTier-target.physicalTier):0; // only an extreme body outclasses gear
+        const gearScale=!bodily||outclass>=2?0:outclass===1?.5:1;
+        if(target.parry&&gearScale)hitChance=Math.max(.53,hitChance-target.parry*gearScale);
         f.hitChanceSum+=hitChance;
         if(rng()>hitChance){
           log({round,type:'miss',attacker:f.id,side:f.side,target:target.id,
@@ -376,6 +429,17 @@
           continue;
         }
         f.hits++;
+        // Version 2: a landed overcome power, or a named counter on its cadence, can end this opponent's
+        // fight outright. Each is rolled only where the reviewed data provides it.
+        let finisher='',finisherMove='';
+        if(signature&&p.overcome){
+          const chance=overcomeChance(f,target,p);
+          if(chance>0&&rng()<chance)finisher=p.overcome;
+        }
+        if(!finisher&&action===0&&f.counters.length&&(round-1)%3===0){
+          const counter=f.counters.find(x=>x.targets.includes(target.researchId));
+          if(counter&&rng()<counter.chance){finisher='driven off by the '+counter.name;finisherMove=counter.name;}
+        }
         // Exceptional reality/cosmic abilities should not be reduced to
         // their owner's conventional punch strength (e.g. Franklin Richards).
         // Only reviewed, cooldown-limited signature events receive this floor.
@@ -400,8 +464,10 @@
         // their own specific domain guards still apply above.
         const physicalAttack=!signature||['melee','toxin','tech','physical'].includes(domain);
         if(physicalAttack){
-          block+=raw*target.armorPhysicalGuard;
-          const gap=Math.max(0,target.physicalTier-f.physicalTier);
+          block+=raw*Math.max(target.armorPhysicalGuard,target.wornArmor*gearScale);
+          // A reviewed melee signature strikes above its owner's stored body. Skill works around a
+          // tougher human-range body, not an extreme one.
+          const gap=Math.max(0,target.physicalTier-strikerTier)*(target.physicalTier<3?1-f.gapSkill:1);
           // Cartoon body manipulation mitigates a strength mismatch, but
           // merely surviving slapstick does not erase it.
           const bypass=f.toon?.dimensions?clamp((Number(f.toon.dimensions.body)||0)/99,0,1):0;
@@ -420,11 +486,13 @@
           block+=raw*.10; // delivery to extreme physiologies is less reliable
         let prevented=Math.min(raw-1,Math.max(0,Math.round(block)));
         // A power shield takes a share of what gets through until its pool is spent.
-        if(target.shieldHp>0&&(target.shield.blocks!=='powers'||signature)){
+        if(finisher)prevented=0;
+        if(!finisher&&target.shieldHp>0&&(target.shield.blocks!=='powers'||signature)){
           const caught=Math.min(target.shieldHp,raw-1-prevented,Math.round((raw-prevented)*target.shield.share));
           if(caught>0){target.shieldHp-=caught;target.shieldAbsorbed+=caught;prevented+=caught;}
         }
-        const incoming=Math.max(1,raw-prevented);
+        const incoming=finisher?Math.max(target.hp,1):Math.max(1,raw-prevented);
+        if(finisher)f.finishers++;
         const dealt=Math.min(target.hp,incoming);
         target.hp-=dealt;
         f.dmg+=incoming;
@@ -441,9 +509,9 @@
           target.koBy=f.name;
         }
         log({round,type:'hit',attacker:f.id,side:f.side,target:target.id,
-          move:signature?p.move:'Standard attack',targeting,domain,raw,prevented,
+          move:finisherMove||(signature?p.move:'Standard attack'),targeting,domain,raw,prevented,
           counterMultiplier:interaction.counterMultiplier,baselineGuard:interaction.baselineGuard,
-          peerSignature:interaction.peerSignature,
+          peerSignature:interaction.peerSignature,...(finisher?{finisher}:{}),
           incoming,absorbed:dealt,overkill:incoming-dealt,hp:target.hp,ko:target.hp===0});
       }
       if(!fighters[0].some(f=>f.hp>0)||!fighters[1].some(f=>f.hp>0))break;
@@ -466,6 +534,9 @@
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,ordinaryBody:f.ordinaryBody,wardHp:f.wardHp,armorHp:f.armorHp,armorPhysicalGuard:f.armorPhysicalGuard,
           shieldKind:f.shield?.kind||'',shieldMax:f.shield?.pool||0,shieldAbsorbed:f.shieldAbsorbed,shieldSource:f.shield?.source||'',
+          // Version 2 fight-rule fields are reported only while the rules are on, so a switched-off
+          // report is byte-identical to Version 1's.
+          ...(f.rulesOn?{finishers:f.finishers,aim:f.aim,strengthOverflow:f.overflow,parry:f.parry,wornArmor:f.wornArmor}:{}),
           proficiency:f.proficiency?.level||'',proficiencyTechnique:f.proficiency?.technique||'',powerStrike:f.powerStrike||0,weakTo:f.weakTo.slice(),guard:f.guard.slice(),
           apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],skillDomain:f.skillDomain,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',

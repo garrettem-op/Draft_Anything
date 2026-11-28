@@ -88,6 +88,19 @@
     }
     return best;
   }
+  /* Worn armour named in the defense wording (2026-11-27). Natural hides and power barriers are not
+   * worn armour: only explicit mail, plate, kevlar, body armour and the like. Grade follows the wording. */
+  const ARMOR_PATTERNS = Object.freeze([
+    { grade: 'heavy', re: /\b(mithril|heavy (?:mail|plate|armou?r)|plate armou?r|full plate)\b/i },
+    { grade: 'light', re: /\blight\b[^,;]*\b(?:mail|armou?r)\b|\bleather armou?r\b/i },
+    { grade: 'standard', re: /\b(?:mail\b|kevlar|body armou?r|armou?red suit|breastplate|cuirass)/i },
+  ]);
+  function armorOf(mechanisms) {
+    for (const p of ARMOR_PATTERNS) for (const m of mechanisms) if (p.re.test(m)) return { grade: p.grade, mechanism: m };
+    // A carried shield counts as standard armour unless the wording is a power barrier (see SHIELD_PATTERNS).
+    for (const m of mechanisms) if (/\bshield\b/i.test(m) && !SHIELD_PATTERNS.some((p) => p.re.test(m)) && !/charm|spell|magic|energy|force|psychic|telepath|mental|ward|aura|barrier|field/i.test(m)) return { grade: 'standard', mechanism: m };
+    return null;
+  }
   function shieldOf(mechanisms) {
     for (const m of mechanisms) for (const p of SHIELD_PATTERNS) if (p.re.test(m)) return { kind: p.kind, mechanism: m };
     return null;
@@ -115,7 +128,7 @@
     const techniques = clean(off.techniques);
     const src = Array.isArray(record.sources) && record.sources[0] ? record.sources[0] : null;
     return {
-      shield: shieldOf(clean(def.mechanisms)), proficiency: proficiencyOf(techniques),
+      shield: shieldOf(clean(def.mechanisms)), proficiency: proficiencyOf(techniques), armor: armorOf(clean(def.mechanisms)),
       version: DERIVATION_VERSION, id: record.id, declaredStatus: String(record.researchStatus || 'unknown'),
       domains: lines, primaryDomain: lines.length ? lines[0] : null,
       techniques: techniques.slice(0, 3), range: typeof off.range === 'string' ? off.range : null,
@@ -126,7 +139,7 @@
     };
   }
 
-  const api = { DERIVATION_VERSION, DOMAIN_MAP, CONVENTIONAL, GUARD_PATTERNS, WEAK_PATTERNS, SHIELD_PATTERNS, PROFICIENCY_LEVELS, proficiencyOf, shieldOf, deriveFromRecord };
+  const api = { DERIVATION_VERSION, DOMAIN_MAP, CONVENTIONAL, GUARD_PATTERNS, WEAK_PATTERNS, SHIELD_PATTERNS, PROFICIENCY_LEVELS, ARMOR_PATTERNS, proficiencyOf, shieldOf, armorOf, deriveFromRecord };
   NS.researchProfile = api;
   if (isNode) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
