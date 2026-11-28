@@ -98,7 +98,7 @@
   function armorOf(mechanisms) {
     for (const p of ARMOR_PATTERNS) for (const m of mechanisms) if (p.re.test(m)) return { grade: p.grade, mechanism: m };
     // A carried shield counts as standard armour unless the wording is a power barrier (see SHIELD_PATTERNS).
-    for (const m of mechanisms) if (/\bshield\b/i.test(m) && !SHIELD_PATTERNS.some((p) => p.re.test(m)) && !/charm|spell|magic|energy|force|psychic|telepath|mental|ward|aura|barrier|field/i.test(m)) return { grade: 'standard', mechanism: m };
+    for (const m of mechanisms) if (/\bshield\b/i.test(m) && !SHIELD_PATTERNS.some((p) => p.re.test(m)) && !/charm|spell|magic|energy|force|psychic|telepath|mental|ward|aura|barrier|field|generator|deflector|kinetic/i.test(m)) return { grade: 'standard', mechanism: m };
     return null;
   }
   function shieldOf(mechanisms) {

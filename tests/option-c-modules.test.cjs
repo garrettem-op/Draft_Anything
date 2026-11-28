@@ -103,7 +103,9 @@ test('reality and cosmic powers are not judged as punches', () => {
   const t = IE.assessThreat(franklin, abomination), back = IE.assessThreat(abomination, franklin);
   assert.equal(t.domain, 'reality');
   assert.ok(t.rules.includes('high-order-burst'));
-  assert.equal(t.leverage, 'strong');
+  // Franklin also holds an intrinsic cosmic rank in the live engine, which the evaluator now reads.
+  assert.ok(t.rules.includes('intrinsic-pressure'));
+  assert.equal(t.leverage, 'decisive');
   assert.ok(back.rules.includes('finite-ward'));
   assert.ok(back.score < t.score, 'a stronger body does not out-leverage a documented reality power');
   assert.equal(franklin.physicalTier, 1);
@@ -150,10 +152,10 @@ test('ToonForce attackers skip the durability gap but gain no automatic win', ()
   assert.equal(t.leverage, 'even');
 });
 
-test('Battle Royale odds: rating points above the support cap (99.2) count for less (fitted 2026-11-21)', () => {
+test('Battle Royale odds: rating points above the support cap (99.2) count for less (refitted 2026-11-28)', () => {
   const est = (a, b) => PR.estimate({ sportKey: 'brawl', effectiveRating: [a, b], interactionIndex: [0, 0], coverage: 0, flags: {} }).perSide[0].numericLogit;
-  assert.ok(Math.abs(est(99, 89) - 10 / PR.MODEL.brawlScaleBelowCap) < 1e-3, 'below the cap: 3.6 points per logit');
-  assert.ok(Math.abs(est(130, 120) - 10 / PR.MODEL.brawlScaleAboveCap) < 1e-3, 'above the cap: 10.6 points per logit');
+  assert.ok(Math.abs(est(99, 89) - 10 / PR.MODEL.brawlScaleBelowCap) < 1e-3, 'below the cap: 4.7 points per logit');
+  assert.ok(Math.abs(est(130, 120) - 10 / PR.MODEL.brawlScaleAboveCap) < 1e-3, 'above the cap: 20 points per logit');
   assert.ok(est(99, 89) > est(130, 120), 'the same 10-point gap matters more below the cap');
   const lop = PR.estimate({ sportKey: 'brawl', effectiveRating: [140, 60], interactionIndex: [0, 0], coverage: 1, flags: {} });
   assert.equal(lop.range[0][1], 1, 'the range of results may reach 100%');
@@ -269,9 +271,9 @@ test('the probability model is symmetric, bounded, coarse and explains itself', 
   assert.equal(none.perSide[0].qualitativeLogit, 0);
   const sport = PR.estimate({ sportKey: 'basketball', effectiveRating: [90, 80], interactionIndex: null, coverage: 0, flags: {} });
   assert.equal(sport.basis, 'numeric-baseline-only');
-  // Battle Royale constants were fitted to simulated V2 fights on 2026-11-21 (docs/option-c/CALIBRATION.md);
+  // Battle Royale constants were refitted to simulated V2 fights on 2026-11-28 (docs/option-c/CALIBRATION.md);
   // the estimate stays provisional and is never labelled final.
-  assert.equal(PR.MODEL.calibration, 'fitted-to-v2-fights-2026-11-21');
+  assert.equal(PR.MODEL.calibration, 'fitted-to-v2-fights-2026-11-28');
   assert.notEqual(PR.MODEL.calibration, 'final');
   assert.ok(sport.howToRead.length >= 3);
   const wide = PR.estimate({ sportKey: 'brawl', effectiveRating: [90, 80], interactionIndex: [1, 0], coverage: 0.2, flags: { continuity: true, seededEvents: true } });

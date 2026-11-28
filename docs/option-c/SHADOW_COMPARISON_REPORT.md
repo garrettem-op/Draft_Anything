@@ -44,13 +44,13 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 
 | Matchup | Sport | V1 ratings | V1 win rate | Option C | Range | Same favorite | V1 inside range | Status / basis | Typed coverage |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | brawl | 122.5 / 153.9 | 5% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
-| Batman crew vs Hellbat crew | brawl | 94.1 / 94.1 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
+| The Chungus vs The Crossover | brawl | 122.5 / 153.9 | 5% | 15% | 0%–45% | yes | yes | provisional / numeric + typed | 100% |
+| Batman crew vs Hellbat crew | brawl | 94.1 / 94.1 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 10% |
 | Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 20% |
-| Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 30% | 0%–70% | **no** | **no** | provisional / numeric + typed | 20% |
-| Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
-| Black Adam crew vs Silver Surfer crew | brawl | 93.3 / 93.5 | 36% | 40% | 0%–80% | yes | yes | provisional / numeric + typed | 20% |
-| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 24% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 40% |
+| Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 70% | 30%–100% | yes | yes | provisional / numeric + typed | 20% |
+| Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 25% | 0%–65% | yes | yes | provisional / numeric + typed | 20% |
+| Black Adam crew vs Silver Surfer crew | brawl | 93.3 / 93.5 | 36% | 35% | 0%–75% | yes | yes | provisional / numeric + typed | 20% |
+| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 24% | 75% | 40%–100% | **no** | **no** | provisional / numeric + typed | 40% |
 | Muppets vs DC roster | brawl | 104.8 / 111.9 | 0% | 20% | 0%–55% | yes | yes | provisional / numeric + typed | 50% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 113.3 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
@@ -60,16 +60,13 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | Wizarding World vs Pokemon | hockey | 89.2 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 | DC vs Marvel | baseball | 105.0 / 96.5 | 98% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 
-**Same favorite in 13 of 15; Version 1 frequency inside the Option C range in 7 of 15.**
+**Same favorite in 14 of 15; Version 1 frequency inside the Option C range in 9 of 15.**
 
 Different favorite:
-- Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30%.
-- Looney crew vs Avengers: Version 1 24%, Option C 90%.
+- Looney crew vs Avengers: Version 1 24%, Option C 75%.
 
 Version 1 frequency outside the Option C range:
-- Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30% (0%–70%).
-- Darkseid crew vs Spectre crew: Version 1 0%, Option C 45% (5%–85%).
-- Looney crew vs Avengers: Version 1 24%, Option C 90% (55%–100%).
+- Looney crew vs Avengers: Version 1 24%, Option C 75% (40%–100%).
 - Superman + Kermit + NBA vs NBA legends: Version 1 100%, Option C 95% (75%–95%).
 - Spider-Man libero + NBA vs Star Wars: Version 1 100%, Option C 95% (75%–95%).
 - Cartoons vs Video Games: Version 1 100%, Option C 95% (70%–95%).
@@ -146,24 +143,24 @@ Battle Royale scenarios, Option C estimate for the first team without and with r
 
 | Matchup | V1 win rate | Option C default | Option C with research | Fighters with a research line | V1 inside range (default / research) |
 | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | 4% | 5% | 5% | 0 | yes / yes |
-| Batman crew vs Hellbat crew | 0% | 10% | 10% | 0 | yes / yes |
+| The Chungus vs The Crossover | 4% | 15% | 15% | 0 | yes / yes |
+| Batman crew vs Hellbat crew | 0% | 5% | 5% | 0 | yes / yes |
 | Thanos crew vs King Thanos crew | 0% | 5% | 5% | 0 | yes / yes |
-| Franklin Richards crew vs Abomination crew | 100% | 30% | 30% | 0 | no / no |
-| Darkseid crew vs Spectre crew | 0% | 45% | 45% | 0 | no / no |
+| Franklin Richards crew vs Abomination crew | 100% | 70% | 70% | 0 | yes / yes |
+| Darkseid crew vs Spectre crew | 0% | 25% | 25% | 0 | yes / yes |
 | Black Adam crew vs Silver Surfer crew | 55% | 50% | 50% | 2 | yes / yes |
-| Looney crew vs Avengers | 55% | 90% | 90% | 3 | yes / yes |
+| Looney crew vs Avengers | 55% | 75% | 75% | 3 | yes / yes |
 | Muppets vs DC roster | 0% | 25% | 30% | 4 | yes / yes |
 
-Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnostic, not a calibration: the half weight is an editorial choice and nothing was fitted to these results.
+Same favorite as Version 1 (default / research): 8 / 8 of 8. This is a diagnostic, not a calibration: the half weight is an editorial choice and nothing was fitted to these results.
 
 ## 5. Example assessments
 
 ### The Chungus vs The Crossover (brawl)
 
-**The Crossover is favored over The Chungus, roughly 95/5 (editorial estimate, provisional; numeric baseline plus typed interactions).**
+**The Crossover is favored over The Chungus, roughly 85/15 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 5%.
+Estimate range for The Chungus: 0%–45%. Version 1 engine over 300 private seeds: The Chungus won 5%.
 
 **The Chungus** (Version 1 rating 122.52)
 
@@ -176,7 +173,7 @@ What each starter can do:
 
 Paths to victory:
 - Hellbat Armor Batman can win exchanges with Hellbat Counteroffensive against Ares (DC) (pinnacle form on offense). The Watcher, Death of the Endless, Scarlet Witch and Darkseid can hurt Hellbat Armor Batman in return. Limit: Hellbat armor drains the wearer.
-- Lucifer Morningstar can win exchanges with Creation-shaping will against Ares (DC), The Watcher, Scarlet Witch and Darkseid (high-order power does not scale with punching strength). The Watcher and Darkseid can hurt Lucifer Morningstar in return. Limit: Cosmic agency is constrained by story and intent; no automatic win.
+- Lucifer Morningstar can win exchanges with Creation-shaping will against Ares (DC), The Watcher, Scarlet Witch and Darkseid (high-order power does not scale with punching strength and intrinsic cosmic rank on the attack). The Watcher and Darkseid can hurt Lucifer Morningstar in return. Limit: Cosmic agency is constrained by story and intent; no automatic win.
 - Team-wide support already inside the rating: chemistry: Super-Soldiers and Gotham (1.01 pts); signature lift +1.6; coaching style +0.29.
 
 What could stop them:
@@ -195,8 +192,8 @@ What each starter can do:
 
 Paths to victory:
 - Ares (DC) can win exchanges with God of War strike against Joker (physical overmatch). Blunted against Hellbat Armor Batman and Lucifer Morningstar. Hellbat Armor Batman and Lucifer Morningstar can hurt Ares (DC) in return. Limit: War conflict empowers him; conceptual warfare is not infinite arena damage.
-- The Watcher can win exchanges with Cosmic intervention against Abomination, Hellbat Armor Batman, Joker and Lucifer Morningstar (high-order power does not scale with punching strength). Lucifer Morningstar can hurt The Watcher in return. Limit: Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene.
-- Death of the Endless can win exchanges with The Endless presence against Abomination, Adam Warlock, Hellbat Armor Batman and Joker (high-order power does not scale with punching strength). Limit: Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout.
+- The Watcher can win exchanges with Cosmic intervention against Abomination, Adam Warlock, Hellbat Armor Batman, Joker and Lucifer Morningstar (high-order power does not scale with punching strength and intrinsic cosmic rank on the attack). Lucifer Morningstar can hurt The Watcher in return. Limit: Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene.
+- Death of the Endless can win exchanges with The Endless presence against Abomination, Adam Warlock, Hellbat Armor Batman and Joker (high-order power does not scale with punching strength and intrinsic cosmic rank on the attack). Limit: Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout.
 - Scarlet Witch can win exchanges with Chaos hex against Abomination, Adam Warlock, Hellbat Armor Batman and Joker (high-order power does not scale with punching strength and specific vulnerability). Lucifer Morningstar can hurt Scarlet Witch in return. Limit: Baseline chaos magic; House of M feat is not every ordinary strike.
 - Darkseid can win exchanges with Omega Beams against Abomination, Hellbat Armor Batman, Joker and Lucifer Morningstar (high-order power does not scale with punching strength). Lucifer Morningstar can hurt Darkseid in return. Limit: Avatar-scale arena encounter; not the full transcendent form or guaranteed disintegration.
 - Team-wide support already inside the rating: chaos signatures cost the opponent 0.7.
@@ -208,9 +205,9 @@ Uncertainties that could change this:
 
 ### Batman crew vs Hellbat crew (brawl)
 
-**Hellbat crew is favored over Batman crew, roughly 90/10 (editorial estimate, provisional; numeric baseline plus typed interactions).**
+**Hellbat crew is favored over Batman crew, roughly 95/5 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for Batman crew: 0%–50%. Version 1 engine over 300 private seeds: Batman crew won 0%.
+Estimate range for Batman crew: 0%–45%. Version 1 engine over 300 private seeds: Batman crew won 0%.
 
 **Batman crew** (Version 1 rating 94.07)
 
@@ -255,9 +252,9 @@ Uncertainties that could change this:
 
 ### Black Adam crew vs Silver Surfer crew (brawl)
 
-**Silver Surfer crew is favored over Black Adam crew, roughly 60/40 (editorial estimate, provisional; numeric baseline plus typed interactions).**
+**Silver Surfer crew is favored over Black Adam crew, roughly 65/35 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for Black Adam crew: 0%–80%. Version 1 engine over 300 private seeds: Black Adam crew won 36%.
+Estimate range for Black Adam crew: 0%–75%. Version 1 engine over 300 private seeds: Black Adam crew won 36%.
 
 **Black Adam crew** (Version 1 rating 93.32)
 

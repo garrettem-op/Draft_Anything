@@ -17,8 +17,9 @@
  * ToonForce spotlight, upset variance) are never rolled here; they widen the
  * reported range instead.
  *
- * Battle Royale's scale, qualitative weight and range width were fitted on 2026-11-21 to the game's own
- * seeded Version 2 fights (research powers on): tools/option-c-calibrate.cjs, 880 random matchups x 100
+ * Battle Royale's scale and qualitative weight were refitted on 2026-11-28, after the Version 2 fight rules
+ * and form on the day (docs/option-c/FIGHT_RULES.md), to the game's own seeded Version 2 fights (research
+ * powers on): tools/option-c-calibrate.cjs, 720 random matchups x 100
  * fights, fitted on half and scored on the other half (docs/option-c/CALIBRATION.md). The sports scale
  * already matched simulated games and is unchanged. The fit describes the game engine, not canon:
  * an estimate is never a canonical statistic, and status stays provisional.
@@ -31,15 +32,15 @@
 
   const MODEL = Object.freeze({
     id: 'logistic-baseline-plus-typed-interactions-v2',
-    calibration: 'fitted-to-v2-fights-2026-11-21',
-    brawlScale: 4.6,         // single-scale fit, kept for reference (4.65 and 4.51 on two seeds; was 20)
+    calibration: 'fitted-to-v2-fights-2026-11-28',
+    brawlScale: 5.7,         // single-scale fit, kept for reference (5.59 and 5.74 on two seeds; was 4.6 before form on the day)
     brawlSupportCap: 99.2,   // team score where Battle Royale support stops rising (80 x 1.24, data/brawl-combat.js)
-    brawlScaleBelowCap: 3.6, // rating points per logit up to the cap (fitted: 3.68 and 3.58)
-    brawlScaleAboveCap: 10.6, // rating points per logit above it: only fits still matter there (fitted: 10.66 and 10.60)
+    brawlScaleBelowCap: 4.7, // rating points per logit up to the cap (fitted: 4.82 and 4.65; was 3.6)
+    brawlScaleAboveCap: 20,  // rating points per logit above it: only fits still matter there (fitted: 15.8 and 25.4, a weak signal; was 10.6)
     sportScale: 4,           // rating points per logit in sports when the match variance is not supplied
     sigmaToScale: 0.6,       // logistic scale ~ 0.6 x the Gaussian upset sigma, when supplied
     minSportScale: 1.5,
-    qWeight: 1.0,            // logits per unit of interaction-index difference (fitted with the cap: 0.97 and 1.09; was 0.8)
+    qWeight: 1.5,            // logits per unit of interaction-index difference (fitted with the cap: 1.50 and 1.48; was 1.0)
     coverageFloor: 0.5,      // qualitative weight = qWeight x (coverageFloor + (1 - coverageFloor) x typed coverage)
     grid: 0.05, floor: 0.05, // reported precision and the least/most certain estimate (5% / 95%)
     // Range half-width in grid steps. Battle Royale: 4 + up to 2 for missing typed evidence, so the range is
@@ -108,7 +109,7 @@
       })),
       scale, qualitativeWeight: RT.round(q, 4),
       label: brawl
-        ? 'Game estimate fitted to simulated Version 2 fights (2026-11-21); provisional, not a canonical win rate.'
+        ? 'Game estimate fitted to simulated Version 2 fights (2026-11-28); provisional, not a canonical win rate.'
         : 'Game estimate from the rating model, which matches simulated games; provisional, not a canonical win rate.',
       howToRead: [
         brawl

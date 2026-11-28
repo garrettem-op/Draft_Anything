@@ -19,7 +19,7 @@
 const { loadApp } = require('../tests/helpers/option-c-app-harness.cjs');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const PER_POOL = Number(arg('--per-pool', 60)), FIGHTS = Number(arg('--fights', 100)), SEED = String(arg('--seed', '20261121'));
-const POOLS = ['mcu', 'dc', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'lotr', 'harrypotter', 'nba', 'mixed'];
+const POOLS = ['mcu', 'dc', 'toons', 'muppets', 'games', 'pokemon', 'starwars', 'lotr', 'harrypotter', 'actionmovies', 'nba', 'mixed'];
 const SPORTS = ['basketball', 'football', 'soccer', 'baseball', 'hockey', 'volleyball'];
 const SIGMAS = { low: 2.5, high: 6 };
 
