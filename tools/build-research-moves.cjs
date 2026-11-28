@@ -77,13 +77,26 @@ const clip = (t) => { const x = String(t).replace(/\s+/g, ' ').trim(); return x.
 function buildCombat() {
   const ids = new Set(pipe.rosterIds());
   const byId = new Map();
+  /* Reviewed proficiency (2026-11-27): the level word is otherwise read from the technique wording, which
+     leaves Gimli "trained" beside Legolas "master". A review may set the level, citing one of the record's
+     own techniques, exactly as a reviewed tier cites a feat. */
+  const reviewed = (loadTiers().proficiency) || {};
   for (const { batch } of pipe.loadBatches()) for (const r of batch.characters || []) {
     if (!ids.has(r.id) || EXCLUDED_POOLS.has(r.id.split(':')[0]) || !USABLE_STATUS.has(r.researchStatus)) continue;
     const d = deriveFromRecord(r);
-    if (!d || !(d.guards.length || d.weakTo.length || d.shield || d.proficiency)) continue;
+    if (!d) continue;
+    let prof = d.proficiency ? [d.proficiency.level, clip(d.proficiency.technique)] : null;
+    const rp = reviewed[r.id];
+    if (rp) {
+      if (!['trained', 'expert', 'master'].includes(rp.level)) throw new Error(r.id + ': reviewed proficiency level must be trained, expert or master');
+      if (!((r.offense && r.offense.techniques) || []).includes(rp.technique)) throw new Error(r.id + ': reviewed proficiency must cite a technique in the record: ' + rp.technique);
+      prof = [rp.level, clip(rp.technique), 1];
+    }
+    if (!(d.guards.length || d.weakTo.length || d.shield || prof || d.armor)) continue;
     byId.set(r.id, [r.id, d.guards, d.weakTo, d.shield ? [d.shield.kind, clip(d.shield.mechanism)] : null,
-      d.proficiency ? [d.proficiency.level, clip(d.proficiency.technique)] : null, d.source || '']);
+      prof, d.source || '', d.armor ? [d.armor.grade, clip(d.armor.mechanism)] : null]);
   }
+  for (const id of Object.keys(reviewed)) if (!byId.has(id)) throw new Error(id + ': reviewed proficiency for an identity with no usable record');
   return [...byId.values()].sort((a, b) => a[0].localeCompare(b[0]));
 }
 
@@ -146,16 +159,57 @@ function build() {
     const continuity = String(r.continuity || '').replace(/\s+/g, ' ').trim().slice(0, 110);
     const row = [r.id, move.name, move.domain, d.guards, d.weakTo, d.source || '', continuity];
     if (t) { row.push(t.tier, tierBasis(r, t)); used.add(r.id); }
+    /* A power that takes the opponent out of the fight rather than wounding (mind control, enchanted sleep,
+       petrification, a killing gaze). Reviewed only: tier 3+, a mind or magic power type, and a label. */
+    if (t && t.overcome) {
+      if (!(t.tier >= 3) || !['psychic', 'control', 'magic'].includes(move.domain) || String(t.overcome).length < 8) throw new Error(r.id + ': overcome needs tier 3+, a psychic, control or magic move and a label');
+      row.push(String(t.overcome));
+    }
     rows.push(row);
   }
   for (const id of [...Object.keys(overlay.tiers || {}), ...Object.keys(overlay.noMove || {})]) {
     if (!used.has(id)) throw new Error('power-tiers.json lists ' + id + ', which has no research move to tier (unknown identity, V1-profiled or physical-only)');
   }
   rows.sort((a, b) => a[0].localeCompare(b[0]));
-  return { rows, skipped, combat: buildCombat(), reviewedPools: (overlay.reviewedPools || []).slice() };
+  return { rows, skipped, combat: buildCombat(), counters: buildCounters(), reviewedPools: (overlay.reviewedPools || []).slice() };
 }
 
-function render({ rows, combat = [], reviewedPools = [] }) {
+/* Named counters (research/option-c/counters.json, 2026-11-27). A counter is a specific thing that drives off
+   a specific creature. Nothing is hand-assigned: the target's own record must name the counter among its
+   weaknesses, and a holder is any identity in the listed pools whose own record names it too.
+   Row: [name, chance per use, [target identities], [[holder identity, wording from its record], ...]]. */
+const COUNTERS_FILE = path.join(ROOT, 'research/option-c/counters.json');
+function buildCounters() {
+  if (!fs.existsSync(COUNTERS_FILE)) return [];
+  const spec = JSON.parse(fs.readFileSync(COUNTERS_FILE, 'utf8')), ids = new Set(pipe.rosterIds()), recs = new Map();
+  for (const { batch } of pipe.loadBatches()) for (const r of batch.characters || []) if (ids.has(r.id) && USABLE_STATUS.has(r.researchStatus)) recs.set(r.id, r);
+  const out = [];
+  for (const c of spec.counters || []) {
+    const re = new RegExp(String(c.term).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+    if (!(c.chance > 0 && c.chance <= 0.75)) throw new Error(c.name + ': chance must be in (0, 0.75]');
+    for (const t of c.targets) {
+      const r = recs.get(t);
+      if (!r || !(r.weaknesses || []).some((w) => re.test(String(w)))) throw new Error(c.name + ': ' + t + ' does not name it among its weaknesses');
+    }
+    const holders = [];
+    for (const [id, r] of recs) {
+      if (!c.pools.includes(id.split(':')[0]) || c.targets.includes(id)) continue;
+      const texts = [...((r.offense && r.offense.techniques) || []), ...((r.defense && r.defense.mechanisms) || []), ...((r.feats || []).map((f) => f.claim))].map(String);
+      const hit = texts.find((x) => re.test(x));
+      if (hit) {
+        // Keep the wording around the counter's name, so the basis shown always names it.
+        const flat = hit.replace(/\s+/g, ' ').trim(), at = flat.search(re);
+        const start = Math.max(0, at - 30), piece = start > 0 ? flat.slice(start, start + 68).replace(/^\S*\s/, '') : flat.slice(0, 68);
+        holders.push([id, flat.length <= 70 ? flat : (start > 0 ? '…' : '') + piece.trim() + (start + 68 < flat.length ? '…' : '')]);
+      }
+    }
+    if (!holders.length) throw new Error(c.name + ': no holder names it in its own record');
+    out.push([c.name, c.chance, c.targets.slice(), holders.sort((a, b) => a[0].localeCompare(b[0]))]);
+  }
+  return out;
+}
+
+function render({ rows, combat = [], counters = [], reviewedPools = [] }) {
   return [
     '/* GENERATED by tools/build-research-moves.cjs from research/option-c/batches. Do not edit by hand:',
     '   re-run the tool after research merges. One row per character:',
@@ -167,12 +221,16 @@ function render({ rows, combat = [], reviewedPools = [] }) {
     ...rows.map((r) => '    ' + JSON.stringify(r) + ','),
     '  ];',
     '  /* Combat extras, one row per identity: [identity, guards, weaknesses, [shield kind, wording] | null,',
-    '     [proficiency level, technique] | null, source]. */',
+    '     [proficiency level, technique, 1 if reviewed] | null, source, [armour grade, wording] | null]. */',
     '  const COMBAT = [',
     ...combat.map((r) => '    ' + JSON.stringify(r) + ','),
     '  ];',
+    '  /* Named counters: [name, chance per use, [targets], [[holder, wording from its record], ...]]. */',
+    '  const COUNTERS = [',
+    ...counters.map((r) => '    ' + JSON.stringify(r) + ','),
+    '  ];',
     '  const REVIEWED_POOLS = ' + JSON.stringify(reviewedPools) + ';',
-    "  const api = { version: 'research-moves-v3', rows: ROWS, combat: COMBAT, reviewedPools: REVIEWED_POOLS };",
+    "  const api = { version: 'research-moves-v3', rows: ROWS, combat: COMBAT, counters: COUNTERS, reviewedPools: REVIEWED_POOLS };",
     '  if (root) root.DA_RESEARCH_MOVES_DATA = api;',
     "  if (typeof module !== 'undefined' && module.exports) module.exports = api;",
     "})(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : null);",

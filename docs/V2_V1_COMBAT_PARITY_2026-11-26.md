@@ -140,3 +140,6 @@ Eight of ten pools reviewed. Comedy, performance and management moves dropped (M
 
 ## Tier review complete: games and Pokémon, 2026-11-27
 All ten pools reviewed (`research/option-c/power-tiers.json`: every research move is tiered from a record feat or technique, kept at the standard, or dropped with a reason). Games: 2 tier 4, 45 tier 3, 10 tier 1, 14 dropped, 5 melee signatures. Pokémon: tiers follow evolution and legend (39 tier 1, 19 tier 3). No stored attribute changed: golden baseline untouched (17/17). Finding: attributes outweigh tiers in a duel, so the remaining calibration is the top-end attribute scale.
+
+## Version 2 fight rules, 2026-11-27
+Four engine rules for the results data could not fix (`docs/option-c/FIGHT_RULES.md`): overcome powers, named counters, reviewed melee signatures (strike floor, strength above 99, a brawler's aim), and proficiency and worn armour as defence. All follow the research switch. With the switch off the engine is byte-identical to Version 1: the golden baseline passes unchanged (17/17, no re-pin), because the new report fields are written only while the rules are on. `tests/fight-rules.test.cjs` pins the data rules, the in-fight results and the switch.

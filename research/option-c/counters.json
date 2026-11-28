@@ -1,0 +1,28 @@
+{
+ "schema": 1,
+ "note": "Named counters for Version 2 fights (docs/option-c/FIGHT_RULES.md). A counter drives off specific creatures. The generator refuses a counter unless each target's own research record names it among its weaknesses, and it finds the holders itself: every identity in the listed pools whose own record names the counter.",
+ "counters": [
+  {
+   "name": "Patronus Charm",
+   "term": "Patronus",
+   "chance": 0.65,
+   "pools": [
+    "harrypotter"
+   ],
+   "targets": [
+    "harrypotter:Dementor"
+   ]
+  },
+  {
+   "name": "Phial of Galadriel",
+   "term": "Phial of Galadriel",
+   "chance": 0.4,
+   "pools": [
+    "lotr"
+   ],
+   "targets": [
+    "lotr:Shelob"
+   ]
+  }
+ ]
+}

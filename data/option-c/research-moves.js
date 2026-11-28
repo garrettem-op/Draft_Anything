@@ -36,9 +36,9 @@
     if (index) return index;
     index = Object.create(null);
     const d = data();
-    for (const [id, move, domain, guard, weakTo, source, continuity, tier, basis] of (d && d.rows) || []) {
+    for (const [id, move, domain, guard, weakTo, source, continuity, tier, basis, overcome] of (d && d.rows) || []) {
       index[id] = Object.freeze({ move, domain, guard: Object.freeze(guard.slice()), weakTo: Object.freeze(weakTo.slice()), source, continuity,
-        tier: Number.isInteger(tier) ? tier : null, basis: basis || '' });
+        tier: Number.isInteger(tier) ? tier : null, basis: basis || '', overcome: overcome || '' });
     }
     return index;
   }
@@ -60,7 +60,7 @@
       move: m.move, domain: m.domain, tier, pierce: pierceFor(tier),
       guard: m.guard.slice(), weakTo: m.weakTo.slice(), cooldown: STRENGTH.cooldown,
       wearStart: 0, wearRate: 0, source: m.source, origin: 'research', continuity: m.continuity,
-      tierReviewed: !!m.tier, basis: m.basis,
+      tierReviewed: !!m.tier, basis: m.basis, overcome: m.overcome,
       limit: m.tier ? 'Research move (Version 2), reviewed power tier ' + m.tier + '. Basis in its research record: ' + m.basis : LIMIT,
     };
   }
@@ -72,26 +72,51 @@
    * A form uses its own record, never its base's. Same switch as research moves. Never mutates `c`. */
   const SHIELD = Object.freeze({ level: 1, pool: 30, share: 0.6, blocks: 'all' });
   const STRIKE = Object.freeze({ trained: 70, expert: 80, master: 88 });
+  /* Fight rules of 2026-11-27 (docs/option-c/FIGHT_RULES.md). Landing a blow is fighting skill, not ball
+   * skill: documented proficiency sets a floor under Accuracy (AIM), makes the fighter harder to hit with
+   * physical blows (PARRY) and lets an expert or master work around a tougher body (GAP). Worn armour named
+   * in the record turns a share of physical blows (ARMOR). */
+  /* The level word comes from the record's wording and has not been reviewed fighter by fighter, so the
+   * steps between levels are kept small: having documented fighting skill matters more than its label. */
+  const AIM = Object.freeze({ trained: 84, expert: 88, master: 92 });
+  const PARRY = Object.freeze({ trained: 0.05, expert: 0.06, master: 0.07 });
+  const GAP = Object.freeze({ trained: 0.15, expert: 0.2, master: 0.3 });
+  const ARMOR = Object.freeze({ light: 0.04, standard: 0.07, heavy: 0.10 });
   let combatIndex = null;
   function combatLookup() {
     if (combatIndex) return combatIndex;
     combatIndex = Object.create(null);
     const d = data();
-    for (const [id, guard, weakTo, shield, prof, source] of (d && d.combat) || []) {
+    for (const [id, guard, weakTo, shield, prof, source, armor] of (d && d.combat) || []) {
       combatIndex[id] = Object.freeze({ guard: Object.freeze(guard.slice()), weakTo: Object.freeze(weakTo.slice()),
         shield: shield ? Object.freeze({ kind: shield[0], feat: shield[1] }) : null,
-        proficiency: prof ? Object.freeze({ level: prof[0], technique: prof[1] }) : null, source });
+        proficiency: prof ? Object.freeze({ level: prof[0], technique: prof[1], reviewed: !!prof[2] }) : null,
+        armor: armor ? Object.freeze({ grade: armor[0], feat: armor[1] }) : null, source });
     }
     return combatIndex;
   }
+  /* Named counters held by each identity (see tools/build-research-moves.cjs, buildCounters). */
+  let heldIndex = null;
+  function countersHeld() {
+    if (heldIndex) return heldIndex;
+    heldIndex = Object.create(null);
+    const d = data();
+    for (const [name, chance, targets, holders] of (d && d.counters) || [])
+      for (const [id, basis] of holders) (heldIndex[id] || (heldIndex[id] = [])).push(Object.freeze({ name, chance, targets: Object.freeze(targets.slice()), basis }));
+    return heldIndex;
+  }
   function researchCombatOf(c) {
     if (!enabled || !c) return null;
-    const m = combatLookup()[researchIdOf(c)];
+    const id = researchIdOf(c), held = countersHeld()[id] || null;
+    const m = combatLookup()[id] || (held ? { guard: [], weakTo: [], shield: null, proficiency: null, armor: null, source: '' } : null);
     if (!m) return null;
     return {
+      counters: held ? held.map((x) => ({ name: x.name, chance: x.chance, targets: x.targets.slice(), basis: x.basis })) : [],
+      armor: m.armor ? { grade: m.armor.grade, feat: m.armor.feat, guard: ARMOR[m.armor.grade], source: m.source } : null,
       guard: m.guard.slice(), weakTo: m.weakTo.slice(),
       shield: m.shield ? { kind: m.shield.kind, feat: m.shield.feat, source: m.source, origin: 'research', ...SHIELD } : null,
-      proficiency: m.proficiency ? { level: m.proficiency.level, technique: m.proficiency.technique, strike: STRIKE[m.proficiency.level], source: m.source } : null,
+      proficiency: m.proficiency ? { level: m.proficiency.level, technique: m.proficiency.technique, reviewed: m.proficiency.reviewed, strike: STRIKE[m.proficiency.level],
+        aim: AIM[m.proficiency.level], parry: PARRY[m.proficiency.level], gap: GAP[m.proficiency.level], source: m.source } : null,
       source: m.source,
     };
   }
@@ -106,7 +131,7 @@
     version: 'research-moves-v3', STRENGTH, LIMIT, pierceFor,
     enabled: () => enabled, setEnabled: (on) => { enabled = !!on; }, withEnabled,
     researchIdOf, researchMoveOf, count: () => Object.keys(lookup()).length,
-    SHIELD, STRIKE, researchCombatOf, combatCount: () => Object.keys(combatLookup()).length,
+    SHIELD, STRIKE, AIM, PARRY, GAP, ARMOR, researchCombatOf, combatCount: () => Object.keys(combatLookup()).length,
   };
   if (root) root.DA_RESEARCH_MOVES = api;
   if (isNode) module.exports = api;

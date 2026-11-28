@@ -40,14 +40,15 @@ test('barriers and weaknesses: explicit wording only', () => {
 test('generated combat extras: real identities, no NBA, closed vocabularies, in step with the research', () => {
   assert.ok(DATA.combat.length > 500, 'expected several hundred rows, got ' + DATA.combat.length);
   const seen = new Set(), kinds = new Set(RP.SHIELD_PATTERNS.map((p) => p.kind));
-  for (const [id, guard, weakTo, shield, prof, source] of DATA.combat) {
+  for (const [id, guard, weakTo, shield, prof, source, armor] of DATA.combat) {
     assert.ok(ROSTER.has(id), 'not a roster identity: ' + id);
     assert.ok(!seen.has(id), 'duplicate ' + id); seen.add(id);
     assert.ok(!id.startsWith('nba:'), 'NBA players are exempt from research: ' + id);
     for (const g of [...guard, ...weakTo]) assert.ok(POWER_TYPES.has(g), id + ': unknown guard/weakness ' + g);
     if (shield) { assert.ok(kinds.has(shield[0]), id + ': shield kind ' + shield[0]); assert.ok(shield[1].length >= 5 && shield[1].length <= 71, id); }
     if (prof) { assert.ok(RP.PROFICIENCY_LEVELS.includes(prof[0]), id + ': level ' + prof[0]); assert.ok(prof[1].length >= 3 && prof[1].length <= 71, id); }
-    assert.ok(guard.length || weakTo.length || shield || prof, id + ': empty row');
+    if (armor) { assert.ok(['light', 'standard', 'heavy'].includes(armor[0]), id + ': armour grade ' + armor[0]); assert.ok(armor[1].length >= 4 && armor[1].length <= 71, id); }
+    assert.ok(guard.length || weakTo.length || shield || prof || armor, id + ': empty row');
     assert.equal(typeof source, 'string');
   }
   const built = builder.build().combat, key = (r) => JSON.stringify(r), have = new Set(DATA.combat.map(key));
