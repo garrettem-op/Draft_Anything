@@ -44,23 +44,23 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 
 | Matchup | Sport | V1 ratings | V1 win rate | Option C | Range | Same favorite | V1 inside range | Status / basis | Typed coverage |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | brawl | 121.7 / 153.9 | 0% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
-| Batman crew vs Hellbat crew | brawl | 92.6 / 93.2 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
+| The Chungus vs The Crossover | brawl | 122.5 / 153.9 | 3% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
+| Batman crew vs Hellbat crew | brawl | 94.1 / 94.1 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
 | Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 20% |
 | Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 30% | 0%–70% | **no** | **no** | provisional / numeric + typed | 20% |
 | Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
-| Black Adam crew vs Silver Surfer crew | brawl | 94.2 / 93.5 | 27% | 45% | 5%–85% | yes | yes | provisional / numeric + typed | 20% |
+| Black Adam crew vs Silver Surfer crew | brawl | 93.3 / 93.5 | 28% | 40% | 0%–80% | yes | yes | provisional / numeric + typed | 20% |
 | Looney crew vs Avengers | brawl | 125.0 / 102.3 | 27% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 40% |
-| Muppets vs DC roster | brawl | 104.8 / 108.8 | 0% | 35% | 0%–70% | yes | yes | provisional / numeric + typed | 60% |
-| Superman + Kermit + NBA vs NBA legends | basketball | 115.5 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
+| Muppets vs DC roster | brawl | 104.8 / 111.9 | 0% | 25% | 0%–60% | yes | yes | provisional / numeric + typed | 60% |
+| Superman + Kermit + NBA vs NBA legends | basketball | 113.3 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Doctor Strange QB + NBA vs Middle-earth | football | 95.2 / 94.8 | 61% | 70% | 45%–95% | yes | yes | provisional / numeric only | n/a |
 | Muppets vs NBA legends | basketball | 97.6 / 102.5 | 12% | 10% | 5%–25% | yes | yes | provisional / numeric only | n/a |
 | Cartoons vs Video Games | soccer | 95.9 / 73.4 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 | Wizarding World vs Pokemon | hockey | 87.7 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
-| DC vs Marvel | baseball | 103.0 / 96.5 | 95% | 95% | 70%–95% | yes | yes | provisional / numeric only | n/a |
+| DC vs Marvel | baseball | 105.0 / 96.5 | 98% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 
-**Same favorite in 13 of 15; Version 1 frequency inside the Option C range in 8 of 15.**
+**Same favorite in 13 of 15; Version 1 frequency inside the Option C range in 7 of 15.**
 
 Different favorite:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30%.
@@ -74,6 +74,7 @@ Version 1 frequency outside the Option C range:
 - Spider-Man libero + NBA vs Star Wars: Version 1 100%, Option C 95% (75%–95%).
 - Cartoons vs Video Games: Version 1 100%, Option C 95% (70%–95%).
 - Wizarding World vs Pokemon: Version 1 100%, Option C 95% (70%–95%).
+- DC vs Marvel: Version 1 98%, Option C 95% (70%–95%).
 
 ## 3. Baseline parity (shadow cannot change a result)
 
@@ -145,14 +146,14 @@ Battle Royale scenarios, Option C estimate for the first team without and with r
 
 | Matchup | V1 win rate | Option C default | Option C with research | Fighters with a research line | V1 inside range (default / research) |
 | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | 1% | 5% | 5% | 0 | yes / yes |
+| The Chungus vs The Crossover | 4% | 5% | 5% | 0 | yes / yes |
 | Batman crew vs Hellbat crew | 0% | 10% | 10% | 0 | yes / yes |
 | Thanos crew vs King Thanos crew | 0% | 5% | 5% | 0 | yes / yes |
 | Franklin Richards crew vs Abomination crew | 100% | 30% | 30% | 0 | no / no |
 | Darkseid crew vs Spectre crew | 0% | 45% | 45% | 0 | no / no |
-| Black Adam crew vs Silver Surfer crew | 55% | 55% | 55% | 2 | yes / yes |
+| Black Adam crew vs Silver Surfer crew | 55% | 50% | 50% | 2 | yes / yes |
 | Looney crew vs Avengers | 55% | 90% | 90% | 3 | yes / yes |
-| Muppets vs DC roster | 0% | 30% | 35% | 4 | yes / yes |
+| Muppets vs DC roster | 0% | 25% | 30% | 4 | yes / yes |
 
 Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnostic, not a calibration: the half weight is an editorial choice and nothing was fitted to these results.
 
@@ -162,9 +163,9 @@ Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnosti
 
 **The Crossover is favored over The Chungus, roughly 95/5 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 0%.
+Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 3%.
 
-**The Chungus** (Version 1 rating 121.73)
+**The Chungus** (Version 1 rating 122.52)
 
 What each starter can do:
 - Abomination [tk1, evidence: reviewed]: Documented technique: Gamma-powered onslaught (melee, tier 3). Limit: Base Emil Blonsky, not a temporary Chaos King or enhanced variant. Guards against melee. Ability index: healing [needs-review], giants [provisional].
@@ -174,9 +175,9 @@ What each starter can do:
 - Lucifer Morningstar [d3, evidence: reviewed]: Documented technique: Creation-shaping will (reality, tier 5). Limit: Cosmic agency is constrained by story and intent; no automatic win. Guards against reality and magic. Registered exceptional power: Lucifer and The Sandman: archangel who attempts to create a new universe. Limit: Free will, destiny and narrative context constrain applications. Ability index: magic [needs-review], teleport [needs-review].
 
 Paths to victory:
-- Hellbat Armor Batman can win exchanges with Hellbat Counteroffensive against Ares (DC) (pinnacle form on offense). Blunted against The Watcher and Darkseid. The Watcher, Death of the Endless, Scarlet Witch and Darkseid can hurt Hellbat Armor Batman in return. Limit: Hellbat armor drains the wearer.
+- Hellbat Armor Batman can win exchanges with Hellbat Counteroffensive against Ares (DC) (pinnacle form on offense). The Watcher, Death of the Endless, Scarlet Witch and Darkseid can hurt Hellbat Armor Batman in return. Limit: Hellbat armor drains the wearer.
 - Lucifer Morningstar can win exchanges with Creation-shaping will against Ares (DC), The Watcher, Scarlet Witch and Darkseid (high-order power does not scale with punching strength). The Watcher and Darkseid can hurt Lucifer Morningstar in return. Limit: Cosmic agency is constrained by story and intent; no automatic win.
-- Team-wide support already inside the rating: chemistry: Super-Soldiers and Gotham (1.01 pts); signature lift +1.6; coaching style +0.31.
+- Team-wide support already inside the rating: chemistry: Super-Soldiers and Gotham (1.01 pts); signature lift +1.6; coaching style +0.29.
 
 What could stop them:
 - Hellbat Armor Batman: Hellbat Counteroffensive taxes the user from round 5; a long fight favors the opponent.
@@ -211,7 +212,7 @@ Uncertainties that could change this:
 
 Estimate range for Batman crew: 0%–50%. Version 1 engine over 300 private seeds: Batman crew won 0%.
 
-**Batman crew** (Version 1 rating 92.64)
+**Batman crew** (Version 1 rating 94.07)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
@@ -229,7 +230,7 @@ What could stop them:
 - No documented way to seriously hurt Hellbat Armor Batman.
 - Trails on the numeric position-fit baseline.
 
-**Hellbat crew** (Version 1 rating 93.21)
+**Hellbat crew** (Version 1 rating 94.12)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
@@ -239,8 +240,8 @@ What each starter can do:
 - Agamemnon [d3, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 
 Paths to victory:
-- Achilles can win exchanges with Conventional attacks against Batman, Paris and Agamemnon (physical overmatch).
-- Hellbat Armor Batman can win exchanges with Hellbat Counteroffensive against Achilles, Hector, Batman, Paris and Agamemnon (pinnacle form on offense). Limit: Hellbat armor drains the wearer.
+- Achilles can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch).
+- Hellbat Armor Batman can win exchanges with Hellbat Counteroffensive against Achilles, Hector, Batman, Paris and Agamemnon (pinnacle form on offense and physical overmatch). Limit: Hellbat armor drains the wearer.
 - Team-wide support already inside the rating: chemistry: Troy and 300 (1.4 pts).
 
 What could stop them:
@@ -254,11 +255,11 @@ Uncertainties that could change this:
 
 ### Black Adam crew vs Silver Surfer crew (brawl)
 
-**Silver Surfer crew is favored over Black Adam crew, roughly 55/45 (editorial estimate, provisional; numeric baseline plus typed interactions).**
+**Silver Surfer crew is favored over Black Adam crew, roughly 60/40 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for Black Adam crew: 5%–85%. Version 1 engine over 300 private seeds: Black Adam crew won 27%.
+Estimate range for Black Adam crew: 0%–80%. Version 1 engine over 300 private seeds: Black Adam crew won 28%.
 
-**Black Adam crew** (Version 1 rating 94.18)
+**Black Adam crew** (Version 1 rating 93.32)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
@@ -272,6 +273,9 @@ Paths to victory:
 - Black Adam can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch). Silver Surfer can hurt Black Adam in return. Limit: Research move (Version 2), reviewed power tier 3. Basis in its research record: Defeated the Marvel Family, Doom Patrol, and Teen Titans during a week-long rampage. (World War III #1-4)
 - Team-wide support already inside the rating: chemistry: Troy and 300 (1.4 pts).
 - No reviewed typed win condition on record: this side must win through conventional attrition, focus fire, initiative and seeded variance. Some fighters are unresearched, so real abilities may exist.
+
+What could stop them:
+- Trails on the numeric position-fit baseline.
 
 **Silver Surfer crew** (Version 1 rating 93.50)
 
@@ -287,9 +291,6 @@ Paths to victory:
 - Silver Surfer can win exchanges with Cosmic energy blasts against Achilles, Hector, Black Adam, Paris and Agamemnon (high-order power does not scale with punching strength). Limit: Research move (Version 2), reviewed power tier 4. Basis in its research record: Traveled across galaxies instantaneously utilizing cosmic power. (Silver Surfer (Marvel Comics, 1968-1970))
 - Team-wide support already inside the rating: chemistry: Troy and 300 (1.4 pts).
 
-What could stop them:
-- Trails on the numeric position-fit baseline.
-
 Uncertainties that could change this:
 - (high) No typed combat profile for Achilles, Agamemnon, Hector, Paris. Their real abilities could change this estimate (research issues #82/#83).
 - (medium) Continuity is not adjudicated for actionmovies:Achilles, actionmovies:Agamemnon, actionmovies:Hector, actionmovies:Paris, dc:Black Adam, mcu:Silver Surfer; feats from another adaptation are not assumed.
@@ -302,7 +303,7 @@ Uncertainties that could change this:
 
 Estimate range for Superman + Kermit + NBA: 75%–95%. Version 1 engine over 300 private seeds: Superman + Kermit + NBA won 100%.
 
-**Superman + Kermit + NBA** (Version 1 rating 115.54)
+**Superman + Kermit + NBA** (Version 1 rating 113.30)
 
 What each starter can do:
 - Kermit the Frog [pg, evidence: provisional]: Documented technique: Stage direction chaos control (control, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. MuppetForce 68 (situational). Limit: Usually the straight man; stage control does not grant superhuman force. Signature move "Rainbow Connection" (lift).
@@ -312,9 +313,8 @@ What each starter can do:
 - Superman [c, evidence: reviewed]: Documented technique: Kryptonian power (melee, tier 3). Limit: Baseline Superman; weakness and continuity-dependent feats remain relevant. Guards against melee. Ability index: flight [needs-review], ice [needs-review], healing [needs-review].
 
 Paths to victory:
-- Superman holds a 10.1-point fit edge at C over Bill Russell (existing 12-attribute position formula).
 - Kareem Abdul-Jabbar holds a 8.5-point fit edge at PF over Magic Johnson (existing 12-attribute position formula).
-- Team-wide support already inside the rating: MuppetForce ensemble lifts the whole team 4.8% (5.05 rating points, cap 22%); bench chemistry 5% (sidekick lock + reunion with Batman), cap 8%; chemistry: Justice League, Bat Family and Gotham (0.95 pts); signature lift +1.6.
+- Team-wide support already inside the rating: MuppetForce ensemble lifts the whole team 4.8% (4.95 rating points, cap 22%); bench chemistry 5% (sidekick lock + reunion with Batman), cap 8%; chemistry: Justice League, Bat Family and Gotham (0.95 pts); signature lift +1.6.
 
 What could stop them:
 - Gives up 9.2 fit points at PG to Michael Jordan.
@@ -339,7 +339,6 @@ Paths to victory:
 
 What could stop them:
 - Gives up 8.5 fit points at PF to Kareem Abdul-Jabbar.
-- Gives up 10.1 fit points at C to Superman.
 
 Uncertainties that could change this:
 - (medium) dc:Superman: "Dribble while airborne for an extended time" has no approved ruling (flight-basketball-air-dribble). Needs an approved game-specific officiating interpretation before it is treated as legal or illegal.
