@@ -122,3 +122,6 @@ The whole Version 1 line since the baseline (50 commits: lane targeting and form
 
 ## Reviewed power tiers, 2026-11-27
 `docs/option-c/POWER_TIERS.md` is the ledger for the per-character combat profile review. Marvel and DC research moves are reviewed (2 of 10 pools). Fixtures now met: Jean Grey vs Achilles 69% (Jean favored), Silver Surfer vs Black Adam 90%. Still open: Yoda vs Achilles 17% and Vader vs Luke 80% (Star Wars pool not yet reviewed), Professor X vs John Wick 0% (no mental win condition), Batman vs John Wick 4% (template attributes in the DC pool).
+
+## Reviewed power tiers, second round, 2026-11-27
+Star Wars reviewed (3 of 10 pools). Reviewed melee signatures for physical powerhouses; Yoda and Palpatine tier 4 in V2; power users strike with their power between signature uses. Fixtures now met: Jean Grey vs Achilles 80%, Yoda vs Achilles 61%, Hulk vs Abomination 50%, Windu vs Palpatine 50%. Still open: Vader vs Luke 76%, Palpatine vs Vader 38%, Thor vs Hulk 85% (compressed attributes), Professor X vs John Wick 3% (no mental win condition), Batman vs John Wick 4% and Bane vs Batman 100% (template attributes in the DC pool).

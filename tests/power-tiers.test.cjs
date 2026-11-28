@@ -39,6 +39,7 @@ test('every reviewed tier is tied to the record: the generated row carries the t
     assert.equal(r[7], t.tier, id);
     assert.ok(typeof r[8] === 'string' && r[8].length >= 20, id + ' needs a basis from its record');
     if (t.domain) assert.equal(r[2], t.domain, id);
+    if (t.domain === 'melee') assert.ok(t.move, id + ': a melee signature names its technique');
     if (t.move) assert.ok(r[1].startsWith(t.move.slice(0, 20)), id + ': move named after the reviewed technique');
   }
   for (const r of DATA.rows) if (!(r[0] in OVERLAY.tiers)) assert.equal(r.length, 7, r[0] + ' is not reviewed and must stay at the standard strength');
@@ -81,4 +82,22 @@ test('in the fight: tier 4 brings the ward, never a rank; tier-4 psychic power i
   // The project vision's own example, and the matchup that started the caster work.
   assert.ok(r.surferVsAdam > 0.6, 'Silver Surfer is generally favored over Black Adam: ' + r.surferVsAdam);
   assert.ok(r.jeanVsAchilles > 0.5, 'Jean Grey is favored over Achilles: ' + r.jeanVsAchilles);
+});
+
+test('physical powerhouses get a reviewed melee signature; power users strike with their power between signature uses', () => {
+  const hulk = RM.researchMoveOf({ pool: 'mcu', n: 'Hulk' });
+  assert.equal(hulk.domain, 'melee'); assert.equal(hulk.tier, 3); assert.match(hulk.limit, /Stopped a speeding Chitauri Leviathan/);
+  assert.throws(() => builder.tierBasis({ id: 'x:y', feats: [], offense: { techniques: ['Punch'] } }, { tier: 3, domain: 'melee', move: 'Punch' }), /no feat in the record/);
+  const r = JSON.parse(loadApp().run(`JSON.stringify((() => {
+    const pos = SPORTS.brawl.pos.find(p => p.id === 'd1'), find = (pool, n) => getCands(pool).find(c => c.n === n);
+    const T = c => ({ rating: 80, rows: [{ pos, cand: c, fit: fitIn('brawl', c, pos) }] });
+    const duel = (pa, a, pb, b) => { let w = 0; const ta = T(find(pa, a)), tb = T(find(pb, b)); for (let s = 0; s < 300; s++) if (DA_BRAWL_COMBAT.resolveBrawlCombat(ta, tb, [80, 80], rngFrom('mel|' + s)).winner === 0) w++; return w / 300; };
+    const f = (pa, a) => DA_BRAWL_COMBAT.resolveBrawlCombat(T(find(pa, a)), T(find('mcu', 'Hawkeye')), [80, 80], rngFrom('ps')).sides[0].fighters[0];
+    return { hulkVsAbom: duel('mcu', 'Hulk', 'mcu', 'Abomination'), yodaVsAchilles: duel('starwars', 'Yoda', 'actionmovies', 'Achilles'),
+      strike: { hulk: f('mcu', 'Hulk').powerStrike, xavier: f('mcu', 'Professor X').powerStrike, yoda: f('starwars', 'Yoda').powerStrike, hawkeye: f('mcu', 'Black Widow').powerStrike } };
+  })())`));
+  assert.ok(r.hulkVsAbom > 0.4, 'the Hulk is no longer a clear underdog to the Abomination: ' + r.hulkVsAbom);
+  assert.ok(r.yodaVsAchilles > 0.5, 'Yoda is favored over Achilles: ' + r.yodaVsAchilles);
+  assert.equal(r.strike.hulk, 0, 'a melee signature still strikes with the body');
+  assert.equal(r.strike.xavier, 95); assert.equal(r.strike.yoda, 95, 'tier 4: a lesser use of the power, not bare hands');
 });

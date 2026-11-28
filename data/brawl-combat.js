@@ -199,7 +199,12 @@
     // A documented weapon or fighting technique carries the blow: it sets a floor under raw strength.
     const research=researchCombatFor(row.cand);
     const proficiency=research?.proficiency||null;
-    const strikeStr=Math.max(a('str'),proficiency?proficiency.strike:0);
+    // Version 2 (2026-11-27): between signature uses a power user strikes with a lesser use of the power,
+    // not with bare hands, so a non-physical signature sets a floor under Strength by its tier
+    // (65/75/85/95/99). Physical-delivery signatures (melee, tech, toxin) still strike with the body.
+    const strikePower=abilityFor(row.cand);
+    const powerStrike=strikePower&&!['melee','toxin','tech','physical'].includes(strikePower.domain)?Math.min(99,55+10*strikePower.tier):0;
+    const strikeStr=Math.max(a('str'),proficiency?proficiency.strike:0,powerStrike);
     const power=.44*strikeStr+.18*a('acc')+.16*a('spd')+.12*a('ref')+.10*a('iq');
     const armor=.34*a('end')+.21*a('siz')+.23*a('str')+.13*a('ref')+.09*a('agi');
     // Rating/fit already account for signature team support, selected variants,
@@ -249,7 +254,7 @@
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
       shield,shieldHp:shield?shield.pool:0,shieldAbsorbed:0,
-      guard:unionOf(ability?.guard,research?.guard),weakTo:unionOf(ability?.weakTo,research?.weakTo),proficiency,
+      guard:unionOf(ability?.guard,research?.guard),weakTo:unionOf(ability?.weakTo,research?.weakTo),proficiency,powerStrike,
       ability,tactics:tacticsFor(c),physicalTier,ordinaryBody,wardHp,apexRank,apexHp,armorHp,armorPhysicalGuard,intrinsicRank,intrinsicHp,combatMultiplier,
       attack:strike*offenseScale*combatMultiplier,armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
@@ -461,7 +466,7 @@
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,ordinaryBody:f.ordinaryBody,wardHp:f.wardHp,armorHp:f.armorHp,armorPhysicalGuard:f.armorPhysicalGuard,
           shieldKind:f.shield?.kind||'',shieldMax:f.shield?.pool||0,shieldAbsorbed:f.shieldAbsorbed,shieldSource:f.shield?.source||'',
-          proficiency:f.proficiency?.level||'',proficiencyTechnique:f.proficiency?.technique||'',weakTo:f.weakTo.slice(),guard:f.guard.slice(),
+          proficiency:f.proficiency?.level||'',proficiencyTechnique:f.proficiency?.technique||'',powerStrike:f.powerStrike||0,weakTo:f.weakTo.slice(),guard:f.guard.slice(),
           apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],skillDomain:f.skillDomain,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',
