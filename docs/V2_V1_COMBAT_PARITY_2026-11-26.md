@@ -131,3 +131,6 @@ Star Wars reviewed (3 of 10 pools). Reviewed melee signatures for physical power
 
 ## Middle-earth review, 2026-11-27
 Attributes: 22 characters corrected (`docs/middle-earth-attribute-review.md`); the Valar and Morgoth untouched. Tiers: Middle-earth is the fourth reviewed pool (5 tier 4, 22 tier 3, 1 tier 1, 25 dropped, 16 melee signatures; `docs/option-c/POWER_TIERS.md`). Two research records corrected (Fëanor's sword; Ancalagon's fire). Golden baseline re-pinned with a recorded revision after proving that putting the previous `data/pools-middle-earth.js` back reproduces the previous digests 17/17. New open item: no engine credit for armour or pure skill in a small body (Gimli vs Legolas 5%).
+
+## Harry Potter review, 2026-11-27
+Attributes: 25 characters corrected (`docs/harry-potter-attribute-review.md`): pets and small creatures, ghosts, and adults the template rated as duellists. Tiers: fifth reviewed pool (6 tier 3, 12 tier 1, 12 dropped, 4 melee signatures). One research record corrected (the Basilisk's gaze). The Harry Potter pool is not in the golden fixtures, so no digest changed (17/17 unchanged). New open items: no named counters (Patronus against Dementors); Speed reads as fighting ability.
