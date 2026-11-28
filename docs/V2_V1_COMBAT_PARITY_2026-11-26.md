@@ -74,3 +74,31 @@ Acceptance rules to add to the release checklist:
 5. **Leadership and support** are researched blocks (quality, domain, style, named flaws), never archetype templates. Sporting leadership in a battle is an open owner ruling.
 6. **Reports** list every target and reconcile credited damage with HP removed; commander and reinforcement impact shows the counterfactual rating with and without the character.
 7. Regression fixtures: every before/after row in section 4 of the audit, plus the Action Movies evidence table.
+
+## V1 freeze and remaining carry-forward, 2026-11-27 (#648, #674, #690, #691, #692)
+Owner direction (2026-11-27): V1 stays as it is; V2 must cover the remaining ground. These V1 merges are the last V1 combat changes and must reach V2 parity:
+
+| PR | Requirement to preserve |
+| --- | --- |
+| [#648](https://github.com/garrettem-op/Draft_Anything/pull/648) | Battle Royale Reinforcement is rated on clutch, reflexes, agility, endurance, accuracy and a little leadership (command belongs to the Commander); it reads combat-transfer Accuracy. Pokémon Pikachu counts Games Ash Ketchum as his lead. |
+| [#674](https://github.com/garrettem-op/Draft_Anything/pull/674) | Mewtwo Psystrike kits (both pools); Armored Mewtwo armour HP and physical guard; games-pool Mewtwo forms match the Pokémon pool. |
+| [#690](https://github.com/garrettem-op/Draft_Anything/pull/690) | Commander slot counts sporting leadership partly (`command` share by skill domain). |
+| [#691](https://github.com/garrettem-op/Draft_Anything/pull/691) | A reviewed attacking power (spellcaster, elemental control, telekinesis) is never modelled as an ordinary fist fighter: at minimum a modest generic attack until an individual profile exists. Jean Grey individual profile. |
+| [#692](https://github.com/garrettem-op/Draft_Anything/pull/692) | Sourced profiles for 14 iconic casters; documented power shields as a separate depleting defense, scoped to what each source shows (`powers` vs `all`). |
+
+### Additional acceptance rules (gaps V1 deliberately leaves open)
+1. **Weapon and fighting mastery** comes from researched techniques, not Touch/Accuracy alone. V2 research already lists them (e.g. Yoda "Form IV (Ataru)", Vader "Form V (Djem So)"); the evaluator must turn each into a proficiency level (none, trained, expert, master) with its source.
+2. **Durability is not body size.** A small or frail body protected by a documented power (Yoda's Force barrier and energy absorption, Jean Grey's force fields) is judged by that power. Research `defense.mechanisms` and `weaknesses` (e.g. Vader's vulnerability to electrical discharge) must feed the resolver.
+3. **Stored attributes are reviewed per character against the depiction**, as Action Movies were (#686). Star Wars first: Yoda (Size 10), Luke Skywalker and Darth Vader.
+4. **Era-specific portrayals:** a matchup must know which depiction it is judging (Empire Strikes Back Luke loses to Vader; Return of the Jedi Luke overpowers him).
+
+### Benchmark fixtures to add (V1 values on 2026-11-27, 1,000 seeded duels)
+| Matchup | V1 | Expected direction for V2 |
+| --- | --- | --- |
+| Jean Grey vs Achilles | 35% | Jean favored (Omega-level telekinetic, force fields, range) |
+| Yoda vs Achilles | 9% | Yoda favored (Force mastery, lightsaber, barrier) |
+| Yoda vs Emperor Palpatine | 82% | Close (Revenge of the Sith duel was a standoff) |
+| Darth Vader vs Luke (Return of the Jedi) | 86% | Close or Luke favored |
+| Dumbledore vs Voldemort | 53% | Dumbledore slightly favored (won the Ministry duel) |
+| Doctor Strange vs Scarlet Witch | 38% | Scarlet Witch favored, not overwhelming |
+| Stephen Curry vs Hawkeye (DPS) | see audit | Hawkeye favored (sporting skill is not combat skill) |
