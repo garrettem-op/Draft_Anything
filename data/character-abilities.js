@@ -5,6 +5,15 @@
    Evidence is deliberately NOT shown in the pre-submission picker, because Campaign
    is intended to test the player's knowledge. */
 const CHARACTER_ABILITY_RECORDS_CURATED = {
+  "mcu:Jean Grey": [
+    {"tag":"flight","tags":["natural-flight"],"kind":"telekinetic-self-flight","feat":"Jean Grey can lift and propel herself with her own telekinesis in established Marvel/X-Men canon.","source":"https://www.marvel.com/characters/phoenix-jean-grey","continuity":"Marvel Comics / established X-Men incarnation","limitation":"V1 roster eligibility ruling; not a claim that the newest MCU film demonstrates flight.","verification":"owner-ruling","ruling":"Owner requested Skyborne correction on 2026-11-28."},
+  ],
+  "muppets:Sam Eagle": [
+    {"tag":"flight","tags":["natural-flight"],"kind":"natural-winged-flight","feat":"Sam is a bald eagle; the animated young Sam in Muppet Babies is explicitly able to fly.","source":"https://muppet.fandom.com/wiki/Sam_the_Eagle_(Muppet_Babies)","continuity":"Muppet Babies (animated young Sam)","limitation":"Adult puppet flight is not verified; the owner grants the generic V1 Sam Eagle Skyborne eligibility across depictions.","verification":"owner-ruling","ruling":"Owner requested Skyborne correction on 2026-11-28."},
+  ],
+  "muppets:Hoots the Owl": [
+    {"tag":"flight","tags":["natural-flight"],"kind":"natural-winged-flight","feat":"In the Sesame Street segment with Wynton Marsalis, Hoots flies away while playing his saxophone.","source":"https://vimeo.com/134410239","continuity":"Sesame Street (1986)","verification":"owner-ruling","ruling":"Owner requested Skyborne correction on 2026-11-28."},
+  ],
   "lotr:Shelob": [
     {tag:"giants", tags:["giant-sized"], kind:"giant-sized", feat:"In The Two Towers, Book IV, chapter 9, Shelob is described as larger than great hunting beasts, with a vast body and long legs. Giant non-humanoid creatures qualify by overall physical scale rather than upright height.", source:"https://www.silmarillionwritersguild.org/node/4448", continuity:"Tolkien: The Two Towers, IV.9–10", limitation:"No exact canonical height; overall creature scale is the basis.", ruling:"owner-ruled 2026-11-27 (Garrett, PR #678): giant non-humanoid creatures qualify for Giant Problems by documented overall physical scale; no height is assigned.", verification:"owner-ruling", audit:"2026-11"},
   ],
@@ -2917,8 +2926,6 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"mcu:Gorr the God Butcher", tag:"healing", note:"Wiki says the Necrosword grants a regenerative healing factor, but I found no specific on-screen healing scene.", source:"https://marvelcinematicuniverse.fandom.com/wiki/Gorr"},
   {id:"toons:Edna Mode", tag:"tech", note:"She makes the tech for others; no source shows her personally relying on gadgets or armor. Designer is a job title, so this is the owner's call. Leaning no.", source:"https://en.wikipedia.org/wiki/Edna_Mode"},
   {id:"muppets:Bernice", tag:"flight", note:"The source never shows her flying (its only flying reference is a different bird). Not confirmed.", source:"https://muppet.fandom.com/wiki/Bernice"},
-  {id:"muppets:Hoots the Owl", tag:"flight", note:"Backstory wording only (possibly figurative); no on-screen flight found.", source:"https://muppet.fandom.com/wiki/Hoots_the_Owl"},
-  {id:"muppets:Sam Eagle", tag:"flight", note:"No source found showing him fly; Wikipedia mentions no flight, and Muppet Wiki's page would not load. Being a bird is not evidence.", source:"https://en.wikipedia.org/wiki/Sam_Eagle"},
   {id:"muppets:Slimey the Worm", tag:"flight", note:"He is a crew member and astronaut, but no source shows him piloting. Under the brief, riding a spacecraft is not flight unless he pilots it.", source:"https://www.deseret.com/1997/12/24/19353239/sesame-street-worm-to-embark-on-space-odyssey"},
   {id:"muppets:Uncle Deadly", tag:"stealth", note:"He lurks as a phantom, but no source shows invisibility or notable stealth. Lean no.", source:"https://toughpigs.com/the-resurrection-of-uncle-deadly/"},
   {id:"muppets:Uncle Deadly", tag:"magic", note:"The source describes no supernatural powers (no vanishing, no spells). Lean no.", source:"https://toughpigs.com/the-resurrection-of-uncle-deadly/"},
@@ -3262,7 +3269,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Sentry": ["flight", "natural-flight"],
     "Valentina Allegra de Fontaine": [],
     "Bill Foster": ["giants", "size-change"],
-    "Jean Grey": ["psychic", "telepathy", "telekinesis"],
+    "Jean Grey": ["flight", "natural-flight", "psychic", "telepathy", "telekinesis"],
     "Doctor Doom": ["magic", "spellcaster", "tech", "powered-armor", "inventor", "teleport", "self-teleport"],
     "Mister Fantastic": ["tech", "inventor"],
     "Invisible Woman": ["flight", "powered-flight", "psychic", "telekinesis", "stealth", "invisibility"],
@@ -3427,7 +3434,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Dr. Bunsen Honeydew": ["tech", "gadgets", "inventor"],
     "Statler": [],
     "Waldorf": [],
-    "Sam Eagle": [],
+    "Sam Eagle": ["flight", "natural-flight"],
     "Pepe the King Prawn": [],
     "Scooter": [],
     "Rizzo the Rat": [],
@@ -3491,7 +3498,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Sherlock Hemlock": [],
     "Roosevelt Franklin": [],
     "Barkley": [],
-    "Hoots the Owl": [],
+    "Hoots the Owl": ["flight", "natural-flight"],
     "Little Bird": ["flight", "natural-flight"],
     "Bernice": [],
     "Forgetful Jones": [],
