@@ -201,8 +201,10 @@
     const wardHp=ability&&ability.tier>=4&&
       ['reality','cosmic','magic','elemental'].includes(ability.domain)
       ?Math.round(26*ability.tier):0;
+    const armorHp=ability?.armorHp||0;
+    const armorPhysicalGuard=ability?.armorPhysicalGuard||0;
     const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
-      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+Math.max(apexHp,intrinsicHp));
+      .58*a('siz')+.24*fit+(tank?64:0)+wardHp+Math.max(apexHp,intrinsicHp)+armorHp);
     // A physical combat tier is distinct from magic/reality technique tiers.
     // This reduces conventional blows against opponents with established
     // extreme bodies without accidentally ranking all cosmic spells as fists.
@@ -223,7 +225,7 @@
     const offenseScale=toon?.dimensions?(.65+.35*credibility):1;
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
-      ability,tactics:tacticsFor(c),physicalTier,ordinaryBody,wardHp,apexRank,apexHp,intrinsicRank,intrinsicHp,combatMultiplier,
+      ability,tactics:tacticsFor(c),physicalTier,ordinaryBody,wardHp,apexRank,apexHp,armorHp,armorPhysicalGuard,intrinsicRank,intrinsicHp,combatMultiplier,
       attack:strike*offenseScale*combatMultiplier,armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
       toon,muppet,skillDomain:transferApi?.combatTransfer?.(c)?.domain||'combat',
@@ -368,6 +370,7 @@
         // their own specific domain guards still apply above.
         const physicalAttack=!signature||['melee','toxin','tech','physical'].includes(domain);
         if(physicalAttack){
+          block+=raw*target.armorPhysicalGuard;
           const gap=Math.max(0,target.physicalTier-f.physicalTier);
           // Cartoon body manipulation mitigates a strength mismatch, but
           // merely surviving slapstick does not erase it.
@@ -426,7 +429,7 @@
           avgHitChance:f.attacks?f.hitChanceSum/f.attacks:0,koBy:f.koBy,
           rangeSkips:f.rangeSkips,intercepts:f.intercepts,redirected:f.redirected,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
-          physicalTier:f.physicalTier,ordinaryBody:f.ordinaryBody,wardHp:f.wardHp,
+          physicalTier:f.physicalTier,ordinaryBody:f.ordinaryBody,wardHp:f.wardHp,armorHp:f.armorHp,armorPhysicalGuard:f.armorPhysicalGuard,
           apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],skillDomain:f.skillDomain,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',

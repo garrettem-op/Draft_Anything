@@ -1567,11 +1567,13 @@
       "name": "Armored Mewtwo",
       "changes": {
         "end": 11,
+        "siz": 14,
         "tch": 10,
         "spd": -5
       },
       "origin": "Pokémon: The First Movie (1998) · Giovanni's restraint armor",
-      "continuity": "Pokémon anime"
+      "continuity": "Pokémon anime; defensive gameplay corroborated by Pokémon GO",
+      "source": "https://www.pokemon.com/uk/strategy/catch-mewtwo-in-pokemon-go"
     }
   ],
   "games:Charizard": [
