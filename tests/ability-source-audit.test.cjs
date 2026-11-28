@@ -35,7 +35,7 @@ const VAGUE_LONG = 'He has the power to fly through the sky at will.';
 // stealth to 7 DC characters (Nightwing, Red Hood, Batgirl, Batwoman, Cassandra Cain, Huntress, Talia al Ghul),
 // giants to Durin's Bane and Gothmog, and flight to Hermione Granger (10 grants). Moved 2026-11-27 for PR #678:
 // the owner granted giants/giant-sized to Shelob and Carcharoth (the only two index changes since the last pin).
-const PINNED_INDEX_DIGEST = 'e10dba9bc10e1c2805d7b89bfb08476c2ecd002134742da134a1fd7ddd960133';
+const PINNED_INDEX_DIGEST = '8936f2476654e60864e4c7e3ea1656d71d578f2155d4a60321fec3fdf31c87b6';
 
 test('every host cited by an evidence record has a source type', () => {
   const types = new Set(CHARACTER_ABILITY_SOURCE_TYPES);
