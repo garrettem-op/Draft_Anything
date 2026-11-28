@@ -130,3 +130,25 @@ test('variant identity does not grant unrelated or cross-pool lead credit', () =
   const crossPool = {...C('mcu', 'Variant'), variantBase: 'Frodo Baggins'};
   assert.equal(benchChemistry({a: unrelated, b: crossPool, bn: sam}, POS, 80).percent, 3);
 });
+
+
+test('Pikachu receives the Ash reunion bonus from either pool including surged variants', () => {
+  for (const pool of ['games','pokemon']) {
+    for (const bench of [C(pool,'Pikachu'), {...C(pool,'Surged Pikachu'),variantBase:'Pikachu'}]) {
+      for (const lead of [C('games','Ash Ketchum'), {...C('games','Surged Ash'),variantBase:'Ash Ketchum'}]) {
+        for (const slot of ['a','hc']) {
+          const result=benchChemistry({[slot]:lead,bn:bench},POS,80);
+          assert.equal(result.percent,5);
+          assert.equal(result.points,4);
+          assert.deepEqual(result.leads,[lead.n]);
+        }
+      }
+      assert.equal(benchChemistry({hc:C('mcu','Ash Ketchum'),bn:bench},POS,80).percent,3);
+    }
+  }
+});
+test('Battle Royale uses a combat-specific reinforcement fit, without altering sports bench weights',()=>{
+  const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+  assert.match(html,/nm: 'Reinforcement', ab: 'RNF', w: \{ clu: 4, ref: 3, agi: 2, end: 2, acc: 2, ldr: 1 \}/);
+  assert.match(html,/const BENCH_W = \{ end: 4, ldr: 3, clu: 2, agi: 1 \}/);
+});

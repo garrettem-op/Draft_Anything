@@ -1216,7 +1216,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/campaign-variant-expansion.js"></script>
 <script src="data/variant-abilities.js"></script>
 <script src="data/campaign-strategy.js?v=20261127-active-forms"></script>
-<script src="data/after-action.js?v=20261127-command-transfer"></script>
+<script src="data/after-action.js?v=20261127-reinforcement"></script>
 <script>
 const POOLS = {};
 Object.assign(POOLS, window.DA_ADDED_POOLS || {});
@@ -1391,7 +1391,8 @@ const SPORTS = {
       { id: 'd1', ab: 'DPS', nm: 'Damage', x: 20, y: 58, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
       { id: 'd2', ab: 'DPS', nm: 'Damage', x: 50, y: 70, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
       { id: 'd3', ab: 'DPS', nm: 'Damage', x: 80, y: 58, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
-      { ...BENCH(), nm: 'Reinforcement', ab: 'RNF' },
+      // Combat backup values timely intervention, precision and staying power; command belongs to CMD.
+      { ...BENCH(), nm: 'Reinforcement', ab: 'RNF', w: { clu: 4, ref: 3, agi: 2, end: 2, acc: 2, ldr: 1 } },
       { id: 'cmd', ab: 'CMD', nm: 'Commander', side: true, coach: true, imp: 0, w: COACH_W },
     ],
   },
@@ -3936,6 +3937,11 @@ function brawlRoleFit(sportKey,c,pos,useSignature=true){
   // A commander is rated on leadership earned commanding fighters (see commandAttributes).
   if(sportKey==='brawl'&&pos.coach&&window.DA_COMBAT_TRANSFER){
     const ca=window.DA_COMBAT_TRANSFER.commandAttributes(c);
+    return useSignature&&c.sig?.kind==='unbreakable'?fitFree(ca,pos):fitScore(ca,pos);
+  }
+  // The Reinforcement weighs Accuracy, so it reads the combat-transfer vector too.
+  if(sportKey==='brawl'&&pos.bench){
+    const ca=brawlAttrs(c);
     return useSignature&&c.sig?.kind==='unbreakable'?fitFree(ca,pos):fitScore(ca,pos);
   }
   if(sportKey!=='brawl'||!pos.styles)return useSignature?fitFor(c,pos):fitScore(c.a,pos);
