@@ -17,6 +17,7 @@
   const abilityApi=(root&&root.DA_BRAWL_ABILITY_API)||
     (typeof module!=='undefined'&&module.exports?require('./brawl-attack-profiles.js'):null);
   const abilityFor=c=>abilityApi?.brawlAbilityOf?.(c)||null;
+  const shieldFor=c=>abilityApi?.brawlShieldOf?.(c)||null;
   // Rare, reviewed transformations must feel qualitatively different from a
   // mild stat boost. Tier-5 forms and feat-reviewed flagship forms are Apex;
   // other reviewed tier-4 forms are Empowered. Baseline characters and
@@ -203,6 +204,8 @@
       ?Math.round(26*ability.tier):0;
     const armorHp=ability?.armorHp||0;
     const armorPhysicalGuard=ability?.armorPhysicalGuard||0;
+    // A documented power shield: a separate, depleting barrier (see brawlShieldOf).
+    const shield=shieldFor(c);
     const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
       .58*a('siz')+.24*fit+(tank?64:0)+wardHp+Math.max(apexHp,intrinsicHp)+armorHp);
     // A physical combat tier is distinct from magic/reality technique tiers.
@@ -225,6 +228,7 @@
     const offenseScale=toon?.dimensions?(.65+.35*credibility):1;
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
+      shield,shieldHp:shield?shield.pool:0,shieldAbsorbed:0,
       ability,tactics:tacticsFor(c),physicalTier,ordinaryBody,wardHp,apexRank,apexHp,armorHp,armorPhysicalGuard,intrinsicRank,intrinsicHp,combatMultiplier,
       attack:strike*offenseScale*combatMultiplier,armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
@@ -388,7 +392,12 @@
         }
         if(signature&&domain==='toxin'&&target.physicalTier===3)
           block+=raw*.10; // delivery to extreme physiologies is less reliable
-        const prevented=Math.min(raw-1,Math.max(0,Math.round(block)));
+        let prevented=Math.min(raw-1,Math.max(0,Math.round(block)));
+        // A power shield takes a share of what gets through until its pool is spent.
+        if(target.shieldHp>0&&(target.shield.blocks!=='powers'||signature)){
+          const caught=Math.min(target.shieldHp,raw-1-prevented,Math.round((raw-prevented)*target.shield.share));
+          if(caught>0){target.shieldHp-=caught;target.shieldAbsorbed+=caught;prevented+=caught;}
+        }
         const incoming=Math.max(1,raw-prevented);
         const dealt=Math.min(target.hp,incoming);
         target.hp-=dealt;
@@ -430,6 +439,7 @@
           rangeSkips:f.rangeSkips,intercepts:f.intercepts,redirected:f.redirected,
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,ordinaryBody:f.ordinaryBody,wardHp:f.wardHp,armorHp:f.armorHp,armorPhysicalGuard:f.armorPhysicalGuard,
+          shieldKind:f.shield?.kind||'',shieldMax:f.shield?.pool||0,shieldAbsorbed:f.shieldAbsorbed,shieldSource:f.shield?.source||'',
           apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],skillDomain:f.skillDomain,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',

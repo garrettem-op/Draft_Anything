@@ -397,7 +397,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
         targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG, ${Number(t.hits)||0} hits)`).join(', ')+
           `. Total ${targetSum} DMG`+(overkill?`, of which ${overkill} was excess on a finishing blow.`:'.'):'No successful hits recorded.',
-        typeof log.receivedHits==='number'?`Took ${Number(log.abs)||0} damage from ${log.receivedHits} hits; blocked ${Number(log.mit)||0}.`:'',
+        typeof log.receivedHits==='number'?`Took ${Number(log.abs)||0} damage from ${log.receivedHits} hits; blocked ${Number(log.mit)||0}${log.shieldAbsorbed?` (${Number(log.shieldAbsorbed)} by a ${esc(log.shieldKind)} shield)`:''}.`:'',
         log.rangeSkips?`Out of range: ${log.rangeSkips} action opportunities skipped until front-line access opened.`:'',
         log.intercepts?`Intercepted ${log.intercepts} attacks for rear allies.`:'',
         log.redirected?`${log.redirected} incoming attacks intercepted by allies.`:'',

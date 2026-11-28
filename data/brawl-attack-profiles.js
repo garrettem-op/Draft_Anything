@@ -28,6 +28,21 @@
  ['mcu:Abomination','Gamma-powered onslaught','melee',3,.18,['melee'],3,'https://www.marvel.com/comics/guides/2318/the_abomination','Base Emil Blonsky, not a temporary Chaos King or enhanced variant.'],
  ['mcu:Scarlet Witch','Chaos hex','magic',4,.32,['magic'],3,'https://www.marvel.com/articles/comics/marvel-unlimited-reading-club-comics-to-read-before-house-of-m-event-starring-scarlet-witch','Baseline chaos magic; House of M feat is not every ordinary strike.'],
  ['mcu:Jean Grey','Psionic force','psychic',4,.30,['psychic'],3,'https://www.marvel.com/characters/phoenix-jean-grey','Base Jean Grey (telekinesis, telepathy; Omega-level mutant). The Phoenix Force forms are separate entries and are not assumed here; telepathy is not an automatic win against a minded opponent, and her feats vary by era.'],
+ // Iconic casters (owner ruling 2026-11-27): individual sourced entries replace the generic derived attack.
+ ['harrypotter:Albus Dumbledore','Master duellist spellwork','magic',3,.30,['magic'],3,'https://www.hp-lexicon.org/?p=4195','Defeated Voldemort in the Ministry Atrium duel, after which Voldemort fled (Order of the Phoenix ch. 36), and defeated Grindelwald in 1945; no instant-kill spell is modelled.'],
+ ['harrypotter:Lord Voldemort','Killing Curse duelling','magic',3,.26,['magic'],3,'https://www.harrypotter.com/features/ranked-most-significant-wizarding-world-duels','Order of the Phoenix ch. 36 duel with Dumbledore; Avada Kedavra is not an automatic arena knockout and Horcrux survival is not modelled.'],
+ ['lotr:Gandalf','Wizard\'s fire and staff','magic',3,.24,['magic'],3,'https://tolkiengateway.net/wiki/The_Bridge_of_Khazad-d%C3%BBm','A Maia sent as an Istar in limited form; held the Bridge against Durin\'s Bane. Gandalf the White is a separate form and is not assumed.'],
+ ['lotr:Saruman','Voice and wizardry','magic',3,.22,['magic'],3,'https://tolkiengateway.net/wiki/Saruman','Chief of the Istari and a Maia of Aulë; his power works largely through persuasion and craft rather than open battle.'],
+ ['lotr:Sauron','Dark Lord\'s might','magic',4,.30,['magic'],3,'https://en.wikipedia.org/wiki/Sauron','Mightiest of the Maiar; fought Elendil and Gil-galad in person. Much of his power is bound to the One Ring, which is not assumed present.'],
+ ['starwars:Yoda','Force mastery','psychic',3,.26,['psychic'],3,'https://www.sideshow.com/blog/a-small-and-powerful-jedi-yodas-greatest-feats/','Absorbed Dooku\'s and Sidious\'s Force lightning and fought Sidious to a standstill (Revenge of the Sith); not an automatic win.'],
+ ['starwars:Luke Skywalker','Force and lightsaber','psychic',3,.22,['psychic'],3,'https://www.starwars.com/films/star-wars-episode-6-return-of-the-jedi-story-gallery','Lost to Vader on Cloud City (The Empire Strikes Back) and overpowered him on the second Death Star (Return of the Jedi); the Jedi Knight of Return of the Jedi is modelled.'],
+ ['starwars:Emperor Palpatine','Force lightning','elemental',3,.28,['elemental'],3,'https://www.starwars.com/films/star-wars-episode-3-revenge-of-the-sith-story-gallery','Killed three Jedi Masters and fought Windu and Yoda (Revenge of the Sith); lightning can be deflected or turned back by a skilled opponent.'],
+ ['starwars:Count Dooku','Force lightning','elemental',3,.22,['elemental'],3,'https://www.sideshow.com/blog/a-small-and-powerful-jedi-yodas-greatest-feats/','Used Force lightning against Yoda, who absorbed it (Attack of the Clones).'],
+ ['starwars:Darth Vader','Force choke and telekinesis','psychic',3,.22,['psychic'],3,'https://screenrant.com/star-wars-15-most-impressive-uses-of-the-force-in-the-movies/','Repeated Force chokes (A New Hope, The Empire Strikes Back, Rogue One); the lightsaber is his main weapon and choking needs a target he can perceive.'],
+ ['mcu:Doctor Strange','Mystic arts','magic',4,.32,['magic'],3,'https://www.marvel.com/characters/doctor-strange-stephen-strange/in-comics','Sorcerer Supreme drawing on the Vishanti and the Eye of Agamotto; the title and patrons have been lost and regained, so this is not an automatic win.'],
+ ['dc:Doctor Fate','Magic of Order','magic',4,.30,['magic'],3,'https://en.wikipedia.org/wiki/Nabu_(DC_Comics)','Power comes from Nabu, a Lord of Order, through the Helmet of Fate; without the helmet Fate is far weaker.'],
+ ['dc:Zatanna','Backwards spellcasting','magic',3,.24,['magic'],3,'https://www.dc.com/characters/zatanna','Spells cast by speaking backwards; silencing or disrupting her speech blocks them.'],
+ ['toons:Genie','Phenomenal cosmic power','magic',4,.26,['magic'],3,'https://en.wikipedia.org/wiki/Genie_(Disney)','Bound by his rules (no killing, no romance, no revival); a freed Genie has "semi-phenomenal" power. Arena use is bounded and not wish-granting.'],
  ['mcu:The Watcher','Cosmic intervention','cosmic',4,.30,['cosmic'],4,'https://www.marvel.com/comics/guides/2196/when-the-watcher-does-more-than-watch','Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene.'],
  ['mcu:Odin','Odinforce discharge','magic',4,.32,['magic','cosmic'],3,'https://latency.marvel.com/comics/discover/1048/odin','Odinforce requires replenishment during Odinsleep; no automatic victory.'],
  // Publisher-grounded exceptional beings, with continuity limits from the existing exceptional-power register.
@@ -118,7 +133,30 @@
    }
    return null;
  }
- const api={brawlAbilityOf,CORE,derivedAbilityOf};
+ // Documented power shields (owner ruling 2026-11-27). A shield is a separate defense from the body:
+ // it absorbs part of each incoming hit until its pool is spent, so a psychic or caster with an
+ // ordinary body is protected by what they can actually do. Only characters with a specific,
+ // sourced shielding feat are listed; level 1-3 is editorial gameplay calibration, not a
+ // published value. Forms are listed separately and never inherit a base shield.
+ const SHIELD_ENTRIES=[
+  // [id, kind, level, blocks ('all' = any attack, 'powers' = signature powers only), feat, source]
+  ['mcu:Jean Grey','telekinetic',2,'all','Uses telekinesis to create protective force fields.','https://www.marvel.com/characters/phoenix-jean-grey'],
+  ['mcu:Doctor Strange','magical',3,'all','Shield of the Seraphim and other protective shield spells; absorbed a blast of Dormammu\'s magic.','https://www.cbr.com/doctor-stranges-greatest-powers-and-abilities/'],
+  ['harrypotter:Albus Dumbledore','magical',2,'powers','Animated the Fountain statues, which deflected Voldemort\'s Killing Curse, and was shielded by Fawkes swallowing another (Order of the Phoenix ch. 36).','https://en.wikibooks.org/wiki/Muggles%27_Guide_to_Harry_Potter/Books/Order_of_the_Phoenix/Chapter_36'],
+  ['harrypotter:Lord Voldemort','magical',2,'powers','Conjured a silver shield to block Dumbledore\'s spell in the Ministry Atrium (Order of the Phoenix ch. 36).','https://www.harrypotter.com/features/ranked-most-significant-wizarding-world-duels'],
+  ['starwars:Yoda','force',2,'powers','Absorbed Force lightning from Dooku and from Sidious.','https://screenrant.com/yoda-every-force-power-star-wars-canon/'],
+  ['starwars:Darth Vader','force',1,'all','Deflected Han Solo\'s blaster bolts barehanded on Cloud City (The Empire Strikes Back).','https://www.gamesradar.com/50-greatest-darth-vader-moments/']
+ ];
+ const SHIELDS=Object.create(null);
+ for(const [id,kind,level,blocks,feat,source] of SHIELD_ENTRIES)SHIELDS[id]=Object.freeze({kind,level,blocks,feat,source});
+ Object.freeze(SHIELDS);
+ const SHIELD_POOL_PER_LEVEL=30,SHIELD_SHARE=.6;
+ function brawlShieldOf(candidate){
+   if(!candidate||candidate.variantBase||candidate.variantAbilities)return null;
+   const rec=SHIELDS[String(candidate.pool||'')+':'+String(candidate.n||'')];
+   return rec?{...rec,pool:SHIELD_POOL_PER_LEVEL*rec.level,share:SHIELD_SHARE}:null;
+ }
+ const api={brawlAbilityOf,CORE,derivedAbilityOf,brawlShieldOf,SHIELDS};
  if(root)root.DA_BRAWL_ABILITY_API=api;
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);
