@@ -1,4 +1,4 @@
-# Version 2 fight rules (2026-11-27)
+# Version 2 fight rules (2026-11-27, form on the day added 2026-11-28)
 
 The character review (`POWER_TIERS.md`) left four results that data could not fix. These rules fix them in the fight engine (`data/brawl-combat.js`). All of them follow the research switch: with `?researchPowers=0` none acts and the engine is Version 1's, which the golden fixtures prove byte for byte. Version 1 itself is not changed.
 
@@ -33,6 +33,32 @@ A reviewed melee signature (an individual profile, or a research move with a rev
 - **Worn armour** named in the record's defence wording (mail, plate, kevlar, body armour, a carried shield; not hides or power barriers) turns a share of bodily blows: 4% light, 7% standard, 10% heavy. 149 identities have it.
 - **Limits.** Parrying and armour count half against a beyond-human body one tier above the defender's and not at all two tiers above, and skill does not work around an extreme body. A power user's strikes are not bodily blows.
 
+## 5. Form on the day
+Fights are long, so luck evens out: a fighter 40% better per round won 95% of the time. Now each fighter's damage for the whole fight is scaled once by a draw centred on 1, so near-equals split more of their fights and upsets happen.
+- **The swing follows how close the fight is.** Before the fight, two private probe fights with no form, on their own fixed random stream (never the game's dice), measure the margin: the difference in the share of health each side has left. An even fight gets the full swing; it fades to none once one side would finish with 60% more of its health left. Hedwig against Harry Potter, or Batman against Superman, get none or almost none.
+- **Size:** about ±28% damage for a typical fighter in an even fight (a log spread of 0.6 on a three-dice draw).
+- **Form scales the damage that gets through the defences**, not the raw blow, so a flat defence (a cartoon's resilience) keeps its weight.
+- **A good day does not make a bodily blow hurt a tougher body more.** Against a body tier above the striker's, form can only cost damage, never add it. Captain America's best day does not make his punches hurt the Hulk more.
+- The same seed always gives the same fight, and the teams passed in are not changed.
+
+| Duel (1,000 seeded) | No form | With form |
+| --- | --- | --- |
+| Gimli vs Legolas | 13.5% | 19.6% |
+| Sonic vs Shadow | 30.7% | 35.6% |
+| Hulk vs Thor | 38.9% | 45.0% |
+| Cloud vs Sephiroth | 28.2% | 33.9% |
+| Legolas vs Aragorn | 70.2% | 59.1% |
+| Batman vs John Wick | 72.6% | 63.8% |
+| Jean Grey vs Achilles | 79.5% | 63.1% |
+| Bane vs Batman | 80.1% | 74.4% |
+| Bugs Bunny vs Batman | 91.6% | 73.5% |
+| Captain America vs Hulk | 11.9% | 19.2% |
+| Batman vs Superman | 1.9% | 1.9% |
+| Hedwig vs Harry Potter | 0% | 0.1% |
+| Tar-Míriel vs Aragorn | 0% | 0% |
+
+**Limit found while calibrating.** A wider swing does not get Gimli much past 25%: it pulls every favourite toward a coin flip first (at double the size, Batman vs John Wick falls to 58% and Bugs Bunny vs Batman to 66%). Gimli's remaining gap is his stored attributes: Legolas is rated faster, more agile and more accurate on every score. Cassandra Cain vs Deathstroke stays near 15%, because Deathstroke's enhanced body is a tier above hers, so her good days do not help her blows.
+
 ## Measured (1,000 seeded duels, before to after)
 | Duel | Before | After |
 | --- | --- | --- |
@@ -52,7 +78,8 @@ A reviewed melee signature (an individual profile, or a research move with a rev
 Earlier fixtures after the change: Batman vs John Wick 72.6% (60.7%; his armoured suit now counts), Bane vs Batman 80.1% (81.5%), Jean Grey vs Achilles 79.5% (unchanged), Thor vs Thanos 39.7% (49.9%; Thanos's strength above the scale), Legolas vs Aragorn 70.2% (67.6%).
 
 ## What is still not right
-- **Gimli vs Legolas (13.5%) and Cassandra Cain vs Deathstroke (14.5%)** are better, not fixed. What remains is the stored attributes: Legolas is faster, more agile and more accurate on every score, and a 40% edge in damage per round becomes a 95% win rate because fights are long and luck averages out.
+- **Gimli vs Legolas (19.6% with form)** is a contest now, but Legolas is still rated faster, more agile and more accurate on every score. **Cassandra Cain vs Deathstroke (15%)**: his enhanced body outclasses hers.
+- **Captain America vs Hulk (19% with form)**: the engine already scores it as a close fight the Hulk wins with little health left; the Hulk's damage against a shielded super-soldier is the thing to look at.
 - **Proficiency levels are unreviewed** for all but four fighters. A full pass (as was done for power tiers) would let the steps between levels be larger.
 - **Prophecy** (the Witch-king and Éowyn) is not modelled.
 - **Only two named counters** exist. Kryptonite, sunlight and the like work through the ordinary weakness rule, which is mild.

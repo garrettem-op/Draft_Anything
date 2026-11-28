@@ -330,6 +330,13 @@
     for(let i=0;i<targets.length;i++){roll-=weights[i];if(roll<0)return targets[i];}
     return targets[targets.length-1];
   }
+  // A fixed private stream for the form probes (mulberry32), so the game's own dice are untouched.
+  const FORM_PROBE_SEEDS=[0x2545f491,0x6c8e9cf5];
+  const probeRng=seed=>{let t=seed>>>0;return()=>{t=(t+0x6d2b79f5)>>>0;let x=Math.imul(t^(t>>>15),1|t);x^=x+Math.imul(x^(x>>>7),61|x);return((x^(x>>>14))>>>0)/4294967296;};};
+  // Log spread of an even fight's form draw, and the probe margin at which it fades to none.
+  // Calibrated in docs/option-c/FIGHT_RULES.md.
+  const FORM_SPREAD=.6,FORM_FADE=.6;
+  const formSpread=()=>FORM_SPREAD,formFade=()=>FORM_FADE;
   function resolveBrawlCombat(A,B,effectiveRatings,rng,options={}) {
     const teams=[A,B];
     const fighters=teams.map((t,i)=>active(t).map(row=>fighter(row,i)));
@@ -339,6 +346,26 @@
     if(!fighters[0].length||!fighters[1].length)
       throw new Error('Battle Royale requires fighters on both teams');
     if(typeof rng!=='function')throw new Error('Battle Royale requires a seeded RNG');
+    // Version 2: form on the day (docs/option-c/FIGHT_RULES.md, rule 5). Each fighter's damage for this
+    // fight is scaled once by a draw centred on 1, so near-equals split their fights and upsets happen.
+    // The size of the swing follows how close the fight is: two private probe fights with no form, on
+    // their own fixed random stream (never the game's), measure the margin; a mismatch gets almost none.
+    // Drawn only while the research switch is on.
+    if(!options.probe&&fighters.some(team=>team.some(f=>f.rulesOn))){
+      let margin=0;
+      for(const seed of FORM_PROBE_SEEDS){
+        const r=resolveBrawlCombat(A,B,effectiveRatings,probeRng(seed),{probe:true});
+        margin+=r.probeMargin/FORM_PROBE_SEEDS.length;
+      }
+      // Full swing for an even fight, none once one side would finish with 60% more of its health left.
+      const closeness=clamp(1-Math.abs(margin)/formFade(),0,1);
+      const spread=formSpread()*closeness;
+      for(const team of fighters)for(const f of team){
+        const z=(rng()+rng()+rng()-1.5)*2;
+        f.form=Math.exp(spread*z);
+        f.formSpread=spread;
+      }
+    }
     const support=teams.map((t,i)=>{
       const base=Number(t.rating)||70;
       const effective=Number(effectiveRatings?.[i]);
@@ -443,6 +470,9 @@
         // Exceptional reality/cosmic abilities should not be reduced to
         // their owner's conventional punch strength (e.g. Franklin Richards).
         // Only reviewed, cooldown-limited signature events receive this floor.
+        // Form scales what gets through the defences, not the raw blow, so a flat defence (a cartoon's
+        // resilience) keeps its weight. A good day does not make a bodily blow hurt a tougher body more.
+        const form=bodily&&target.physicalTier>strikerTier?Math.min(1,f.form||1):(f.form||1);
         const rolled=f.attack*(f.tank?1.02:1.14)*support[f.side]*
           (.83+.34*rng())*fatigue*(action?.82:1)*(signature?(1+.19+.06*p.tier):1);
         const elevated=signature&&p.tier>=4&&
@@ -491,7 +521,7 @@
           const caught=Math.min(target.shieldHp,raw-1-prevented,Math.round((raw-prevented)*target.shield.share));
           if(caught>0){target.shieldHp-=caught;target.shieldAbsorbed+=caught;prevented+=caught;}
         }
-        const incoming=finisher?Math.max(target.hp,1):Math.max(1,raw-prevented);
+        const incoming=finisher?Math.max(target.hp,1):Math.max(1,Math.round((raw-prevented)*form));
         if(finisher)f.finishers++;
         const dealt=Math.min(target.hp,incoming);
         target.hp-=dealt;
@@ -536,7 +566,7 @@
           shieldKind:f.shield?.kind||'',shieldMax:f.shield?.pool||0,shieldAbsorbed:f.shieldAbsorbed,shieldSource:f.shield?.source||'',
           // Version 2 fight-rule fields are reported only while the rules are on, so a switched-off
           // report is byte-identical to Version 1's.
-          ...(f.rulesOn?{finishers:f.finishers,aim:f.aim,strengthOverflow:f.overflow,parry:f.parry,wornArmor:f.wornArmor}:{}),
+          ...(f.rulesOn?{finishers:f.finishers,aim:f.aim,strengthOverflow:f.overflow,parry:f.parry,wornArmor:f.wornArmor,form:Math.round((f.form||1)*1000)/1000,formSpread:Math.round((f.formSpread||0)*1000)/1000}:{}),
           proficiency:f.proficiency?.level||'',proficiencyTechnique:f.proficiency?.technique||'',powerStrike:f.powerStrike||0,weakTo:f.weakTo.slice(),guard:f.guard.slice(),
           apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],skillDomain:f.skillDomain,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
@@ -555,6 +585,11 @@
         sides[loser].kos===0?'flawless':sides[winner].survivors===1?'last one standing':''],
       sides
     };
+    if(options.probe){
+      // Share of health left on each side; positive when side 0 comes out ahead.
+      const left=side=>fighters[side].reduce((t,f)=>t+f.hp,0)/Math.max(1,fighters[side].reduce((t,f)=>t+f.maxHp,0));
+      return {winner,probeMargin:left(0)-left(1)};
+    }
     if(events)result.events=events;
     return result;
   }

@@ -55,6 +55,6 @@ test('in the fight: pets, ghosts and frauds no longer beat trained wizards', () 
   assert.ok(r.ghost < 0.1, 'a ghost cannot hurt the living: ' + r.ghost);
   assert.ok(r.fraud < 0.1, 'Lockhart does not out-duel Harry: ' + r.fraud);
   assert.ok(r.wandmaker < 0.1, 'Ollivander does not out-duel Bellatrix: ' + r.wandmaker);
-  assert.ok(r.draco > 0.6, 'Harry beats Draco more often than not: ' + r.draco);
+  assert.ok(r.draco > 0.52, 'Harry beats Draco more often than not (form on the day narrows it): ' + r.draco);
   assert.ok(r.top > 0.4 && r.top < 0.75, 'Dumbledore and Grindelwald are near peers: ' + r.top);
 });

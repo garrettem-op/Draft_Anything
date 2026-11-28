@@ -143,3 +143,6 @@ All ten pools reviewed (`research/option-c/power-tiers.json`: every research mov
 
 ## Version 2 fight rules, 2026-11-27
 Four engine rules for the results data could not fix (`docs/option-c/FIGHT_RULES.md`): overcome powers, named counters, reviewed melee signatures (strike floor, strength above 99, a brawler's aim), and proficiency and worn armour as defence. All follow the research switch. With the switch off the engine is byte-identical to Version 1: the golden baseline passes unchanged (17/17, no re-pin), because the new report fields are written only while the rules are on. `tests/fight-rules.test.cjs` pins the data rules, the in-fight results and the switch.
+
+## Form on the day, 2026-11-28
+Rule 5 in `docs/option-c/FIGHT_RULES.md`: one damage-form draw per fighter per fight, sized by how close two private probe fights come out (their own fixed random stream; the game's dice are untouched). Follows the research switch; switched off, the engine is byte-identical to Version 1 (golden baseline unchanged, 17/17, no re-pin). Three test thresholds moved because favourites now win a little less often: Bugs Bunny over Batman (75% to 70%, browser smoke), Harry over Draco and Ancalagon over Smaug (60% to 52%).

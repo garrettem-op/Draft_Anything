@@ -44,13 +44,13 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 
 | Matchup | Sport | V1 ratings | V1 win rate | Option C | Range | Same favorite | V1 inside range | Status / basis | Typed coverage |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | brawl | 122.5 / 153.9 | 3% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
+| The Chungus vs The Crossover | brawl | 122.5 / 153.9 | 5% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
 | Batman crew vs Hellbat crew | brawl | 94.1 / 94.1 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
 | Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 20% |
 | Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 30% | 0%–70% | **no** | **no** | provisional / numeric + typed | 20% |
 | Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
-| Black Adam crew vs Silver Surfer crew | brawl | 93.3 / 93.5 | 25% | 40% | 0%–80% | yes | yes | provisional / numeric + typed | 20% |
-| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 12% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 40% |
+| Black Adam crew vs Silver Surfer crew | brawl | 93.3 / 93.5 | 36% | 40% | 0%–80% | yes | yes | provisional / numeric + typed | 20% |
+| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 24% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 40% |
 | Muppets vs DC roster | brawl | 104.8 / 111.9 | 0% | 20% | 0%–55% | yes | yes | provisional / numeric + typed | 50% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 113.3 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
@@ -64,12 +64,12 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 
 Different favorite:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30%.
-- Looney crew vs Avengers: Version 1 12%, Option C 90%.
+- Looney crew vs Avengers: Version 1 24%, Option C 90%.
 
 Version 1 frequency outside the Option C range:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30% (0%–70%).
 - Darkseid crew vs Spectre crew: Version 1 0%, Option C 45% (5%–85%).
-- Looney crew vs Avengers: Version 1 12%, Option C 90% (55%–100%).
+- Looney crew vs Avengers: Version 1 24%, Option C 90% (55%–100%).
 - Superman + Kermit + NBA vs NBA legends: Version 1 100%, Option C 95% (75%–95%).
 - Spider-Man libero + NBA vs Star Wars: Version 1 100%, Option C 95% (75%–95%).
 - Cartoons vs Video Games: Version 1 100%, Option C 95% (70%–95%).
@@ -163,7 +163,7 @@ Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnosti
 
 **The Crossover is favored over The Chungus, roughly 95/5 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 3%.
+Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 5%.
 
 **The Chungus** (Version 1 rating 122.52)
 
@@ -257,7 +257,7 @@ Uncertainties that could change this:
 
 **Silver Surfer crew is favored over Black Adam crew, roughly 60/40 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for Black Adam crew: 0%–80%. Version 1 engine over 300 private seeds: Black Adam crew won 25%.
+Estimate range for Black Adam crew: 0%–80%. Version 1 engine over 300 private seeds: Black Adam crew won 36%.
 
 **Black Adam crew** (Version 1 rating 93.32)
 
