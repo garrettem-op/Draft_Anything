@@ -95,7 +95,8 @@ test('in the page: research moves fight beside V1 profiles; V1 kits win; switch 
   assert.equal(a.Gandalf.move, CORE['lotr:Gandalf'].move, 'individual V1 profile kept');
   assert.equal(a.Darkseid.move, 'Omega Beams', 'V1 profile kept'); assert.equal(a.Superman.move, 'Kryptonian power');
   assert.equal(a.Hulk.move, '', 'physical-only research: plain attacks, as in V1');
-  for (const x of on.f) if (/Research move/.test(x.limit)) { assert.equal(x.ward, 0, x.name + ' gets no ward'); assert.equal(x.apex, 0, x.name + ' gets no Apex rank'); }
+  // A research move at the standard strength never brings a ward; no research move ever brings an Apex rank.
+  for (const x of on.f) if (/Research move/.test(x.limit)) { if (!/reviewed power tier 4/.test(x.limit)) assert.equal(x.ward, 0, x.name + ' gets no ward'); assert.equal(x.apex, 0, x.name + ' gets no Apex rank'); }
   // Switch off = Version 1: Pikachu falls back to V1's generic attack from his reviewed electric tag (main #691),
   // which the research move outranks when the switch is on.
   assert.equal(b.Pikachu.move, 'Electric control'); assert.match(b.Pikachu.limit, /Generic modest attack/);

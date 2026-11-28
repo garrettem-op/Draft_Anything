@@ -49,8 +49,8 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 10% |
 | Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 30% | 0%–70% | **no** | **no** | provisional / numeric + typed | 20% |
 | Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
-| Black Adam crew vs Silver Surfer crew | brawl | 94.2 / 93.5 | 41% | 55% | 15%–95% | **no** | yes | provisional / numeric + typed | 20% |
-| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 47% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 30% |
+| Black Adam crew vs Silver Surfer crew | brawl | 94.2 / 93.5 | 29% | 45% | 5%–85% | yes | yes | provisional / numeric + typed | 20% |
+| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 43% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 30% |
 | Muppets vs DC roster | brawl | 104.8 / 108.8 | 0% | 35% | 0%–70% | yes | yes | provisional / numeric + typed | 60% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 115.5 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
@@ -60,17 +60,16 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | Wizarding World vs Pokemon | hockey | 87.7 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 | DC vs Marvel | baseball | 103.0 / 96.5 | 95% | 95% | 70%–95% | yes | yes | provisional / numeric only | n/a |
 
-**Same favorite in 12 of 15; Version 1 frequency inside the Option C range in 8 of 15.**
+**Same favorite in 13 of 15; Version 1 frequency inside the Option C range in 8 of 15.**
 
 Different favorite:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30%.
-- Black Adam crew vs Silver Surfer crew: Version 1 41%, Option C 55%.
-- Looney crew vs Avengers: Version 1 47%, Option C 90%.
+- Looney crew vs Avengers: Version 1 43%, Option C 90%.
 
 Version 1 frequency outside the Option C range:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30% (0%–70%).
 - Darkseid crew vs Spectre crew: Version 1 0%, Option C 45% (5%–85%).
-- Looney crew vs Avengers: Version 1 47%, Option C 90% (55%–100%).
+- Looney crew vs Avengers: Version 1 43%, Option C 90% (55%–100%).
 - Superman + Kermit + NBA vs NBA legends: Version 1 100%, Option C 95% (75%–95%).
 - Spider-Man libero + NBA vs Star Wars: Version 1 100%, Option C 95% (75%–95%).
 - Cartoons vs Video Games: Version 1 100%, Option C 95% (70%–95%).
@@ -108,18 +107,18 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 
 | Pool | Characters | Reviewed | Provisional | Unknown | Continuity open | Forms | Forms reviewed |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| dc | 104 | 17 | 76 | 11 | 37 | 40 | 18 |
+| dc | 104 | 17 | 72 | 15 | 37 | 40 | 18 |
 | lotr | 115 | 9 | 60 | 46 | 72 | 8 | 4 |
 | harrypotter | 106 | 2 | 97 | 7 | 26 | 12 | 3 |
 | actionmovies | 100 | 0 | 13 | 87 | 99 | 0 | 0 |
 | nba | 134 | 0 | 0 | 134 | 0 | 0 | 0 |
-| mcu | 143 | 9 | 101 | 33 | 109 | 64 | 41 |
+| mcu | 143 | 9 | 97 | 37 | 109 | 64 | 41 |
 | toons | 134 | 2 | 95 | 37 | 63 | 12 | 5 |
 | muppets | 101 | 0 | 101 | 0 | 0 | 0 | 0 |
 | games | 118 | 3 | 98 | 17 | 75 | 59 | 15 |
 | pokemon | 151 | 1 | 136 | 14 | 85 | 40 | 5 |
 | starwars | 98 | 5 | 70 | 23 | 63 | 8 | 3 |
-| **Total** | **1304** | **48** | **847** | **409** | **629** | **243** | **94** |
+| **Total** | **1304** | **48** | **839** | **417** | **629** | **243** | **94** |
 
 Typed combat coverage is 4% of base characters and 39% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 
@@ -255,22 +254,22 @@ Uncertainties that could change this:
 
 ### Black Adam crew vs Silver Surfer crew (brawl)
 
-**Black Adam crew is favored over Silver Surfer crew, roughly 55/45 (editorial estimate, provisional; numeric baseline plus typed interactions).**
+**Silver Surfer crew is favored over Black Adam crew, roughly 55/45 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for Black Adam crew: 15%–95%. Version 1 engine over 300 private seeds: Black Adam crew won 41%.
+Estimate range for Black Adam crew: 5%–85%. Version 1 engine over 300 private seeds: Black Adam crew won 29%.
 
 **Black Adam crew** (Version 1 rating 94.18)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Hector [tk2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
-- Black Adam [d1, evidence: provisional]: Documented technique: Living lightning bolts (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Vulnerable to magic. Ability index: flight [needs-review], magic [needs-review], electric [provisional].
+- Black Adam [d1, evidence: provisional]: Documented technique: Living lightning bolts (magic, tier 3). Limit: Research move (Version 2), reviewed power tier 3. Basis in its research record: Defeated the Marvel Family, Doom Patrol, and Teen Titans during a week-long rampage. (World War III #1-4) Vulnerable to magic. Ability index: flight [needs-review], magic [needs-review], electric [provisional].
 - Paris [d2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Agamemnon [d3, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 
 Paths to victory:
-- Achilles can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch).
-- Black Adam can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level.
+- Achilles can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch). Blunted against Silver Surfer. Silver Surfer can hurt Achilles in return.
+- Black Adam can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch). Silver Surfer can hurt Black Adam in return. Limit: Research move (Version 2), reviewed power tier 3. Basis in its research record: Defeated the Marvel Family, Doom Patrol, and Teen Titans during a week-long rampage. (World War III #1-4)
 - Team-wide support already inside the rating: chemistry: Troy and 300 (1.4 pts).
 - No reviewed typed win condition on record: this side must win through conventional attrition, focus fire, initiative and seeded variance. Some fighters are unresearched, so real abilities may exist.
 
@@ -279,15 +278,14 @@ Paths to victory:
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Hector [tk2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
-- Silver Surfer [d1, evidence: provisional]: Documented technique: Cosmic energy blasts (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional].
+- Silver Surfer [d1, evidence: provisional]: Documented technique: Cosmic energy blasts (cosmic, tier 4). Limit: Research move (Version 2), reviewed power tier 4. Basis in its research record: Traveled across galaxies instantaneously utilizing cosmic power. (Silver Surfer (Marvel Comics, 1968-1970)) Guards against energy. Ability index: flight [provisional].
 - Paris [d2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Agamemnon [d3, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 
 Paths to victory:
 - Achilles can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch).
-- Silver Surfer can win exchanges with Conventional attacks against Paris and Agamemnon (physical overmatch). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level.
+- Silver Surfer can win exchanges with Cosmic energy blasts against Achilles, Hector, Black Adam, Paris and Agamemnon (high-order power does not scale with punching strength). Limit: Research move (Version 2), reviewed power tier 4. Basis in its research record: Traveled across galaxies instantaneously utilizing cosmic power. (Silver Surfer (Marvel Comics, 1968-1970))
 - Team-wide support already inside the rating: chemistry: Troy and 300 (1.4 pts).
-- No reviewed typed win condition on record: this side must win through conventional attrition, focus fire, initiative and seeded variance. Some fighters are unresearched, so real abilities may exist.
 
 What could stop them:
 - Trails on the numeric position-fit baseline.

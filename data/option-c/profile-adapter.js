@@ -263,8 +263,10 @@
         origin: 'generic-attack', evidenceStatus: EVIDENCE.PROVISIONAL,
       };
     }
-    const ward = ability && ability.tier >= 4 && ['reality', 'cosmic', 'magic', 'elemental'].includes(ability.domain)
-      ? { tier: ability.tier, note: 'Finite protective ward of a documented tier-4+ power; it depletes and is not invulnerability.' }
+    // The ward follows whatever the live fight plays: an individual profile or a reviewed-tier research move.
+    const wardFrom = ability || (researchMove && researchMove.tier >= 4 ? researchMove : null);
+    const ward = wardFrom && wardFrom.tier >= 4 && ['reality', 'cosmic', 'magic', 'elemental', 'psychic'].includes(wardFrom.domain)
+      ? { tier: wardFrom.tier, note: 'Finite protective ward of a documented tier-4+ power; it depletes and is not invulnerability.' }
       : null;
     const apexRank = L.combat && typeof L.combat.apexRankOf === 'function' ? L.combat.apexRankOf(candidate, ability) : 0;
 
@@ -288,7 +290,9 @@
     let combat;
     if (researchMove) {
       combat = EVIDENCE.PROVISIONAL;
-      gaps.push('Fights with a Version 2 research move (' + researchMove.move + ', ' + researchMove.domain + '): power type from its research record at the standard research strength; no tier, ward or Apex rank is inferred.');
+      gaps.push(researchMove.tierReviewed
+        ? 'Fights with a Version 2 research move (' + researchMove.move + ', ' + researchMove.domain + ') at reviewed power tier ' + researchMove.tier + '. Basis in its research record: ' + researchMove.basis + ' No Apex or intrinsic rank is inferred.'
+        : 'Fights with a Version 2 research move (' + researchMove.move + ', ' + researchMove.domain + '): power type from its research record at the standard research strength; no tier, ward or Apex rank is inferred.');
     } else if (genericMove) {
       combat = EVIDENCE.PROVISIONAL;
       gaps.push('Fights with the generic attack derived from a reviewed power tag (' + genericMove.move + ', ' + genericMove.domain + '): a modest floor, not a researched profile; no tier above 2, ward, Apex rank or combat proficiency is inferred.');
