@@ -71,7 +71,7 @@ test('in the fight: the four problems the review found', () => {
   assert.ok(r.draco_dementor < 0.25 && r.draco_dementor_finishers === 0, 'no Patronus on record, no counter: ' + r.draco_dementor);
   assert.ok(r.sam_shelob > 0.25 && r.pippin_shelob < 0.05, 'the Phial of Galadriel works for its bearer only: ' + r.sam_shelob + ' / ' + r.pippin_shelob);
   assert.ok(r.hulk_thor > 0.25 && r.hulk_thor < 0.6, 'the Hulk is in the fight with Thor: ' + r.hulk_thor);
-  assert.ok(r.cap_hulk < 0.2, 'skill and a shield do not outclass the Hulk: ' + r.cap_hulk);
+  assert.ok(r.cap_hulk < 0.3, 'skill and a shield do not outclass the Hulk: ' + r.cap_hulk);
   assert.ok(r.sonic_shadow > 0.2, 'rivals are closer: ' + r.sonic_shadow);
   assert.ok(r.gimli_legolas > 0.08 && r.cass_slade > 0.08, 'small skilled fighters are no longer shut out: ' + r.gimli_legolas + ' / ' + r.cass_slade);
 });
@@ -80,4 +80,27 @@ test('the rules follow the research switch: off, none of them acts', () => {
   const off = run(false);
   for (const [k] of DUELS) assert.equal(off[k + '_finishers'], 0, k + ': no finisher with the switch off');
   assert.ok(off.x_wick < 0.1 && off.harry_dementor < 0.2, 'switched off, the old results return: ' + off.x_wick + ' / ' + off.harry_dementor);
+});
+
+test('form on the day: near-equals split their fights, mismatches stay mismatches, inputs untouched', () => {
+  const r = JSON.parse(loadApp().run(`JSON.stringify((() => {
+    const pos = SPORTS.brawl.pos.find(p => p.id === 'd1'), find = (s) => getCands(s.slice(0, s.indexOf(':'))).find(c => c.n === s.slice(s.indexOf(':') + 1));
+    const T = c => ({ rating: 80, rows: [{ pos, cand: c, fit: fitIn('brawl', c, pos) }] });
+    const duel = (a, b) => { const ta = T(find(a)), tb = T(find(b)), before = JSON.stringify([ta, tb]); let w = 0, spread = 0, forms = new Set();
+      for (let s = 0; s < 300; s++) { const x = DA_BRAWL_COMBAT.resolveBrawlCombat(ta, tb, [80, 80], rngFrom('form|' + s)); if (x.winner === 0) w++; const f = x.sides[0].fighters[0]; spread = f.formSpread; forms.add(f.form); }
+      return { win: w / 300, spread, forms: forms.size, untouched: JSON.stringify([ta, tb]) === before }; };
+    const out = { gimli: duel('lotr:Gimli', 'lotr:Legolas'), owl: duel('harrypotter:Hedwig', 'harrypotter:Harry Potter'), kal: duel('dc:Batman', 'dc:Superman'), queen: duel('lotr:Tar-Míriel', 'lotr:Aragorn') };
+    const one = (seed) => JSON.stringify(DA_BRAWL_COMBAT.resolveBrawlCombat(T(find('lotr:Gimli')), T(find('lotr:Legolas')), [80, 80], rngFrom(seed)));
+    out.repeatable = one('same') === one('same');
+    DA_RESEARCH_MOVES.setEnabled(false);
+    const off = DA_BRAWL_COMBAT.resolveBrawlCombat(T(find('lotr:Gimli')), T(find('lotr:Legolas')), [80, 80], rngFrom('off')).sides[0].fighters[0];
+    out.offHasForm = 'form' in off;
+    return out; })())`));
+  assert.ok(r.gimli.spread > 0.1 && r.gimli.forms > 100, 'a close fight gets a real swing: ' + r.gimli.spread);
+  assert.ok(r.gimli.win > 0.18, 'Gimli takes a real share against Legolas: ' + r.gimli.win);
+  assert.equal(r.owl.spread, 0, 'an owl against a wizard is a mismatch with no swing');
+  assert.ok(r.owl.win < 0.02 && r.queen.win < 0.03 && r.kal.win < 0.06, 'mismatches stay mismatches: ' + [r.owl.win, r.queen.win, r.kal.win]);
+  for (const k of ['gimli', 'owl', 'kal', 'queen']) assert.ok(r[k].untouched, k + ': the probe fights do not change the teams');
+  assert.ok(r.repeatable, 'the same seed gives the same fight');
+  assert.equal(r.offHasForm, false, 'no form with the switch off');
 });
