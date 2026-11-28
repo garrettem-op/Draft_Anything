@@ -217,7 +217,13 @@ function benchChemistry(roster, positions, baseRating) {
   const b = roster[slot.id];
   const mates = positions.filter(p => p !== slot && roster[p.id]).map(p => roster[p.id]).filter(c => c !== b);
   const sk = sidekickOf(b);
-  const leadMates = sk ? mates.filter(c => c.pool === b.pool && sk.leads.includes(benchIdentity(c))) : [];
+  // Explicit franchise crossover: Pokémon-pool Pikachu is also Ash's partner.
+  // Do not match unrelated same-name characters across pools.
+  const leadMates = sk ? mates.filter(c =>
+    (c.pool === b.pool && sk.leads.includes(benchIdentity(c))) ||
+    (b.pool === 'pokemon' && benchIdentity(b) === 'Pikachu' &&
+      c.pool === 'games' && benchIdentity(c) === 'Ash Ketchum')
+  ) : [];
   const leads = leadMates.map(c => c.n);
   const groups = new Set(b.g || []);
   const mesh = groups.size ? mates.filter(c => !leadMates.includes(c) && (c.g || []).some(g => groups.has(g))).map(c => c.n) : [];

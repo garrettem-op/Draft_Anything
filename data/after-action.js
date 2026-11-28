@@ -68,7 +68,7 @@ function daSupportImpact(sport,score,slot,scorer){
   if(Math.abs(remainder)>1e-7)parts['Other team-rating effects']=remainder;
   const round=x=>Math.round(x*100)/100;
   // What produced the role multiplier, so the report can show its working.
-  const detail={fit:round(n(row.fit)),playerScore:round(n(full.playerScore)),
+  const detail={sport,fit:round(n(row.fit)),playerScore:round(n(full.playerScore)),
     multiplierWith:Math.round(n(full.mult)*1000)/1000,multiplierWithout:Math.round(n(empty.mult)*1000)/1000,
     leadershipNote:sport==='brawl'&&row.pos.coach&&row.cand&&typeof window!=='undefined'&&window.DA_COMBAT_TRANSFER&&window.DA_COMBAT_TRANSFER.combatTransfer(row.cand).command<1?
       'Leadership was earned in sport, not commanding fighters, so it counts '+Math.round(window.DA_COMBAT_TRANSFER.combatTransfer(row.cand).command*100)+'% above an untrained baseline in a fight.':'',
@@ -239,7 +239,7 @@ function daSupportExplanation(row){
   const s=row.support;
   const signed=x=>(x>0?'+':'')+x.toFixed(2);
   return '<details class="da-fighter-why"><summary>How support impact was calculated</summary><div>'+
-    (s?((s.detail?`Role rating ${s.detail.fit.toFixed(1)} from this character's own attributes (${row.position==='bn'?'Endurance, Leadership, Clutch and Agility':'Game IQ, Leadership and Clutch'}). `+
+    (s?((s.detail?`Role rating ${s.detail.fit.toFixed(1)} from this character's own attributes (${row.position==='bn'?(s.detail.sport==='brawl'?'Clutch, Reflexes, Agility, Endurance, Accuracy and Leadership':'Endurance, Leadership, Clutch and Agility'):'Game IQ, Leadership and Clutch'}). `+
         `With this character the fighters' combined score (${s.detail.playerScore.toFixed(1)}) is multiplied by ×${s.detail.multiplierWith.toFixed(3)}; with the slot empty, by ×${s.detail.multiplierWithout.toFixed(3)}. `+
         (s.detail.leadershipNote?esc(s.detail.leadershipNote)+' ':'')+
         (s.detail.system?`Command style "${esc(s.detail.system.label)}": ${esc(s.detail.system.match)} with this roster (${signed(s.detail.system.points)}). `:
