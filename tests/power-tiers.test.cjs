@@ -102,3 +102,16 @@ test('physical powerhouses get a reviewed melee signature; power users strike wi
   assert.equal(r.strike.hulk, 0, 'a melee signature still strikes with the body');
   assert.equal(r.strike.xavier, 95); assert.equal(r.strike.yoda, 95, 'tier 4: a lesser use of the power, not bare hands');
 });
+
+test('comedy and performance are not power attacks; gods and reality-benders are tiered', () => {
+  const m = (pool, n) => RM.researchMoveOf({ pool, n });
+  for (const n of ['Waldorf', 'Kermit the Frog', 'Scooter', 'Sam Eagle', 'Link Hogthrob']) assert.equal(m('muppets', n), null, n + ' has no research move');
+  assert.deepEqual([m('muppets', 'Miss Piggy').move, m('muppets', 'Miss Piggy').domain], ['Karate chop', 'melee']);
+  assert.equal(m('muppets', 'Crazy Harry').tier, 1);
+  const bugs = m('toons', 'Bugs Bunny');
+  assert.deepEqual([bugs.move, bugs.tier], ['Cartoon physics manipulation', 2], 'Bugs Bunny keeps the standard, named after his real power');
+  for (const n of ['Goofy', 'Snow White', 'Velma', 'Buzz Lightyear']) assert.equal(m('toons', n), null, n + ' has no research move');
+  assert.deepEqual([m('toons', 'Hades').tier, m('toons', 'Rick Sanchez').tier, m('actionmovies', 'Aslan').tier], [4, 4, 4]);
+  assert.deepEqual([m('toons', 'Elsa').tier, m('toons', 'Blossom').tier, m('actionmovies', 'Neo').tier], [3, 3, 3]);
+  assert.equal(m('actionmovies', 'Xerxes'), null, 'commanding an army is not an arena attack');
+});

@@ -51,7 +51,7 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
 | Black Adam crew vs Silver Surfer crew | brawl | 93.3 / 93.5 | 28% | 40% | 0%–80% | yes | yes | provisional / numeric + typed | 20% |
 | Looney crew vs Avengers | brawl | 125.0 / 102.3 | 27% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 40% |
-| Muppets vs DC roster | brawl | 104.8 / 111.9 | 0% | 25% | 0%–60% | yes | yes | provisional / numeric + typed | 60% |
+| Muppets vs DC roster | brawl | 104.8 / 111.9 | 0% | 20% | 0%–55% | yes | yes | provisional / numeric + typed | 50% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 113.3 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Doctor Strange QB + NBA vs Middle-earth | football | 95.2 / 93.7 | 73% | 80% | 55%–95% | yes | yes | provisional / numeric only | n/a |
@@ -111,15 +111,15 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 | dc | 104 | 17 | 74 | 13 | 37 | 40 | 18 |
 | lotr | 115 | 9 | 53 | 53 | 72 | 8 | 4 |
 | harrypotter | 106 | 2 | 92 | 12 | 26 | 12 | 3 |
-| actionmovies | 100 | 0 | 13 | 87 | 99 | 0 | 0 |
+| actionmovies | 100 | 0 | 11 | 89 | 99 | 0 | 0 |
 | nba | 134 | 0 | 0 | 134 | 0 | 0 | 0 |
 | mcu | 143 | 9 | 98 | 36 | 109 | 64 | 41 |
-| toons | 134 | 2 | 95 | 37 | 63 | 12 | 5 |
+| toons | 134 | 2 | 85 | 47 | 63 | 12 | 5 |
 | muppets | 101 | 0 | 101 | 0 | 0 | 0 | 0 |
 | games | 118 | 3 | 98 | 17 | 75 | 59 | 15 |
 | pokemon | 151 | 1 | 136 | 14 | 85 | 40 | 5 |
 | starwars | 98 | 5 | 56 | 37 | 63 | 8 | 3 |
-| **Total** | **1304** | **48** | **816** | **440** | **629** | **243** | **94** |
+| **Total** | **1304** | **48** | **804** | **452** | **629** | **243** | **94** |
 
 Typed combat coverage is 4% of base characters and 39% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 
@@ -306,7 +306,7 @@ Estimate range for Superman + Kermit + NBA: 75%–95%. Version 1 engine over 300
 **Superman + Kermit + NBA** (Version 1 rating 113.30)
 
 What each starter can do:
-- Kermit the Frog [pg, evidence: provisional]: Documented technique: Stage direction chaos control (control, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. MuppetForce 68 (situational). Limit: Usually the straight man; stage control does not grant superhuman force. Signature move "Rainbow Connection" (lift).
+- Kermit the Frog [pg, evidence: provisional]: MuppetForce 68 (situational). Limit: Usually the straight man; stage control does not grant superhuman force. Signature move "Rainbow Connection" (lift).
 - Michael Jordan [sg, evidence: unknown]: Signature move "The Flu Game" (clutch).
 - LeBron James [sf, evidence: unknown]: Signature move "Makes Everyone Better" (lift).
 - Kareem Abdul-Jabbar [pf, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
