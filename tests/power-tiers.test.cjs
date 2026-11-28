@@ -115,3 +115,16 @@ test('comedy and performance are not power attacks; gods and reality-benders are
   assert.deepEqual([m('toons', 'Elsa').tier, m('toons', 'Blossom').tier, m('actionmovies', 'Neo').tier], [3, 3, 3]);
   assert.equal(m('actionmovies', 'Xerxes'), null, 'commanding an army is not an arena attack');
 });
+
+test('games and Pokémon: a trainer or pilot has no attack of his own; tiers follow evolution, legend and feats', () => {
+  const m = (pool, n) => RM.researchMoveOf({ pool, n });
+  for (const n of ['Ash Ketchum', 'Professor Oak', 'Fox McCloud', 'Cortana', 'Q*bert']) assert.equal(m('games', n), null, n + ' has no research move');
+  assert.deepEqual([m('games', 'Kratos').tier, m('games', 'Bayonetta').tier], [4, 4]);
+  assert.deepEqual([m('games', 'Sonic the Hedgehog').domain, m('games', 'Sonic the Hedgehog').tier, m('games', 'Shadow the Hedgehog').tier], ['melee', 3, 3], 'rivals are tiered together');
+  assert.deepEqual([m('games', 'Mario|Fire Mario') && 1, m('games', 'Creeper').tier], [1, 1]);
+  for (const n of ['Pidgey', 'Charmander', 'Squirtle', 'Abra']) assert.equal(m('pokemon', n).tier, 1, n + ' is an unevolved Pokémon');
+  for (const n of ['Charizard', 'Raichu', 'Gengar', 'Pikachu']) assert.equal(m('pokemon', n).tier, 2, n + ' stays at the standard');
+  for (const n of ['Zapdos', 'Articuno', 'Moltres', 'Dragonite', 'Gyarados']) assert.equal(m('pokemon', n).tier, 3, n);
+  assert.equal(m('pokemon', 'Ditto'), null, 'Transform is not an attack of its own');
+  assert.deepEqual(OVERLAY.reviewedPools.slice().sort(), ['actionmovies', 'dc', 'games', 'harrypotter', 'lotr', 'mcu', 'muppets', 'pokemon', 'starwars', 'toons'], 'all ten pools are reviewed');
+});
