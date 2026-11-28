@@ -79,3 +79,10 @@ Follow-up to a campaign battle in which Stephen Curry out-damaged Maximus and Ma
 - **Physical tier.** Tier 3 (extreme physiology that shrugs off conventional blows) now requires a body that is not classified as ordinary human.
 - **ToonForce.** The Battle Royale multiplier and the per-hit cartoon block are scaled by `toonForceCombatGate(score)`: nothing at 65, full effect from 90 (the existing "extraordinary" tier). Previously every profiled cartoon received at least +31% Tank fit. Sports are unchanged.
 - **Reports.** Every target is listed and the list adds up to total DMG (finishing-blow excess is stated). Each fighter shows average chance to hit, damage taken and blocked, and who knocked them out. Commander and reinforcement impact shows the role rating and the multiplier with and without the character.
+
+## Caster profiles and power shields (owner ruling 2026-11-27, option C)
+
+- **Individual caster profiles** (`data/brawl-attack-profiles.js` CORE): Dumbledore, Voldemort, Gandalf, Saruman, Sauron, Yoda, Luke Skywalker, Palpatine, Dooku, Vader, Doctor Strange, Doctor Fate, Zatanna and Genie, one cited source and a stated limit each. They replace the generic tier-2 attack. Tier 4 only for cosmic-scale casters (Strange, Fate, Sauron, Genie), matching existing tier-4 entries (Scarlet Witch, Odin, Jean Grey).
+- **Power shields** (`SHIELD_ENTRIES`, `brawlShieldOf`): a separate, depleting barrier for characters with a specific, sourced shielding feat (Jean Grey, Doctor Strange, Dumbledore, Voldemort, Yoda, Vader). Pool 30 × level (1–3); it catches 60% of what gets through each hit until spent. `blocks: 'powers'` shields (Yoda's lightning absorption, the Ministry-duel spell defenses) only stop signature powers; `'all'` shields (Jean's force fields, the Shield of the Seraphim, Vader stopping blaster bolts) stop any attack. Shield absorption is counted as mitigation, so reports still reconcile. Forms never inherit a base shield.
+- Psychic signature attacks use the same hit-chance floor as magic, reality and cosmic powers.
+- Known gaps: lightsaber and weapon mastery are only the Touch/Accuracy attributes; small bodies (Yoda) still get low HP.
