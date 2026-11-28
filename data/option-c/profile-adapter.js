@@ -197,6 +197,7 @@
           tier: m.tier, pierce: m.pierce, cooldown: m.cooldown, selfLimiting: null,
           source: m.source || null, limitation: m.limit, continuity: m.continuity || null,
           origin: 'research-move', evidenceStatus: EVIDENCE.PROVISIONAL,
+          tierReviewed: !!m.tierReviewed, overcome: m.overcome || '',
         };
         guards = m.guard.slice();
         weakTo = m.weakTo.slice();
@@ -269,6 +270,21 @@
       ? { tier: wardFrom.tier, note: 'Finite protective ward of a documented tier-4+ power; it depletes and is not invulnerability.' }
       : null;
     const apexRank = L.combat && typeof L.combat.apexRankOf === 'function' ? L.combat.apexRankOf(candidate, ability) : 0;
+    /* Fight facts the live Version 2 engine applies (docs/option-c/FIGHT_RULES.md), read from the same
+     * sources so the evaluator does not keep a second list. All are off with the research switch. */
+    const intrinsic = L.combat && typeof L.combat.intrinsicPowerOf === 'function' ? L.combat.intrinsicPowerOf(candidate, ability) : null;
+    const intrinsicRank = intrinsic ? intrinsic.rank : 0;
+    const rulesOn = !!(RMX && typeof RMX.enabled === 'function' && RMX.enabled());
+    const liveSig = ability || researchMove;
+    const meleeTier = rulesOn && liveSig && liveSig.domain === 'melee' && !liveSig.derived && (ability || researchMove.tierReviewed) ? liveSig.tier : 0;
+    const armor = rulesOn && researchCombat && researchCombat.armor ? {
+      grade: researchCombat.armor.grade, guard: researchCombat.armor.guard, feat: researchCombat.armor.feat,
+      origin: 'research-record', evidenceStatus: EVIDENCE.PROVISIONAL,
+    } : null;
+    const counters = rulesOn && researchCombat && researchCombat.counters ? researchCombat.counters.map((x) => ({ name: x.name, chance: x.chance, targets: x.targets.slice(), basis: x.basis })) : [];
+    const tagList = RT.legacy().abilities.characterAbilityTags({ pool, n: baseName });
+    const machine = rulesOn && Array.isArray(tagList) && tagList.includes('robot-or-ai');
+    const will = attributes ? 0.5 * attributes.iq + 0.5 * attributes.clu : null;
 
     const exceptionalRec = !isVariant ? L.exceptional.BRAWL_EXCEPTIONAL_POWER[id]
       : L.exceptional.BRAWL_EXCEPTIONAL_POWER[pool + ':' + formName];
@@ -330,6 +346,7 @@
       displayName: String(candidate.n), isVariant, variantReviewed,
       continuity, attributes, physicalTier,
       signature, guards, weakTo, ward, apexRank, shield, proficiency,
+      intrinsicRank, meleeTier, armor, counters, machine, will, researchId: RMX && typeof RMX.researchIdOf === 'function' ? RMX.researchIdOf(candidate) : id,
       apexLabel: apexRank === 2 ? 'Apex' : apexRank === 1 ? 'Empowered' : null,
       exceptional,
       forces: {

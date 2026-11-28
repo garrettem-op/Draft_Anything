@@ -304,7 +304,9 @@ test('incomplete research is reported, not papered over', () => {
   assert.equal(b.status, 'provisional');
   assert.equal(b.favored, 'B');
   assert.ok(b.evidence.typedCoverage < 0.2 && b.evidence.unknown + b.evidence.provisional >= 8);
-  assert.ok(b.sides[1].probability < 0.95, 'thin coverage tempers the estimate even for an Apex form');
+  // Since the 2026-11-28 refit the matchup-edge weight is 1.5, so an Apex form can reach the 95% ceiling;
+  // thin coverage still shrinks that weight, which is the thing this checks.
+  assert.ok(b.probabilityModel.qualitativeWeight < 0.7 * 1.5 && b.sides[1].probability <= 0.95, 'thin coverage tempers the matchup-edge weight even for an Apex form');
   assert.ok(b.sides[0].risks.some(r => r.type === 'unanswered-opponent' && /Hellbat/.test(r.text)));
 });
 

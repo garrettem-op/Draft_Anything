@@ -104,3 +104,26 @@ test('form on the day: near-equals split their fights, mismatches stay mismatche
   assert.ok(r.repeatable, 'the same seed gives the same fight');
   assert.equal(r.offHasForm, false, 'no form with the switch off');
 });
+
+test('the evaluator reads the same fight rules the engine applies', () => {
+  const r = JSON.parse(loadApp().run(`JSON.stringify((() => {
+    const find = (s) => getCands(s.slice(0, s.indexOf(':'))).find(c => c.n === s.slice(s.indexOf(':') + 1));
+    const ev = (a, b) => { const e = DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: teamScore('brawl', { d1: find(a) }), teamB: teamScore('brawl', { d1: find(b) }), mode: 'shadow' });
+      const ab = e.interactions.find(x => x.attackerTeam === 'A'), ba = e.interactions.find(x => x.attackerTeam === 'B');
+      return { p: e.sides[0].probability, rules: ab.rules, back: ba.rules, via: ab.via }; };
+    const out = { wick: ev('mcu:Professor X', 'actionmovies:John Wick'), ultron: ev('mcu:Professor X', 'mcu:Ultron'), harry: ev('harrypotter:Harry Potter', 'harrypotter:Dementor'),
+      draco: ev('harrypotter:Draco Malfoy', 'harrypotter:Dementor'), galactus: ev('mcu:Galactus', 'mcu:Thor'), gimli: ev('lotr:Legolas', 'lotr:Gimli') };
+    DA_RESEARCH_MOVES.setEnabled(false);
+    out.off = ev('harrypotter:Harry Potter', 'harrypotter:Dementor');
+    return out; })())`));
+  assert.ok(r.wick.rules.includes('overcome-power') && r.wick.p >= 0.75, 'a telepath overcomes an undefended mind: ' + r.wick.p);
+  assert.ok(r.ultron.rules.includes('overcome-no-mind') && r.ultron.p < r.wick.p - 0.3, 'a machine has no mind to take: ' + r.ultron.p);
+  assert.ok(r.harry.rules.includes('named-counter') && r.harry.via === 'Patronus Charm' && r.harry.p >= 0.75, 'the Patronus is read as a counter: ' + r.harry.p);
+  assert.ok(!r.draco.rules.includes('named-counter') && r.draco.p < 0.5, 'no Patronus on record, no counter: ' + r.draco.p);
+  assert.ok(r.galactus.rules.includes('intrinsic-pressure') && r.galactus.back.includes('intrinsic-shell'), 'an intrinsic rank is read like the engine reads it');
+  assert.ok(r.gimli.rules.includes('worn-armour') && r.gimli.rules.includes('skilled-defender'), 'armour and skill are reported');
+  assert.ok(!r.off.rules.includes('named-counter'), 'with the switch off the evaluator reports none of it');
+  const IE = require('../data/option-c/interaction-engine.js');
+  for (const id of ['overcome-power', 'overcome-resisted', 'overcome-resisted-by-rank', 'overcome-no-mind', 'named-counter', 'intrinsic-shell', 'intrinsic-pressure', 'worn-armour', 'skilled-defender'])
+    assert.ok(IE.RULES[id] && IE.RULES[id].text.length > 30, id + ' is explained');
+});

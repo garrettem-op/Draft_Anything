@@ -1,8 +1,46 @@
-# Evaluator calibration (2026-11-21)
+# Evaluator calibration (2026-11-21, refitted 2026-11-28)
 
 The evaluator now gives Battle Royale odds that match the game's own fights. Before this, its constants were first-pass guesses: lopsided matchups it called 84/16 actually went 99/1, and only about a third of results fell inside its reported range. Nothing here changes a game result: the evaluator still runs in shadow mode.
 
-## What changed
+## Refit of 2026-11-28 (after the fight rules and form on the day)
+The fight engine changed a great deal after the first fit: power tiers, the five fight rules in `FIGHT_RULES.md`, and form on the day, which makes close fights less decisive. The evaluator was brought level and refitted.
+
+**What the evaluator now reads, from the same sources the engine uses:**
+- A reviewed power that overcomes instead of wounding (`overcome-power`), and what stops it: a guard, ward or equal power, a cosmic rank, or a machine with no mind to take.
+- Named counters held in a fighter's own record (`named-counter`: the Patronus Charm against a Dementor).
+- A reviewed melee signature striking above its owner's stored body.
+- Intrinsic cosmic ranks (Galactus, Morgoth, Franklin Richards), which it treated as ordinary fighters before.
+- Worn armour and fighting proficiency, reported for context only: their small effect is inside the numeric fit.
+
+**Constants, refitted** (`node tools/option-c-calibrate.cjs`, 720 matchups × 100 fights across the ten pools, NBA and a mixed sample; seeds 20261121 and 20261128):
+
+| Constant | 2026-11-21 | Now | Fitted values (two seeds) |
+|---|---|---|---|
+| Rating points per logit, team scores up to 99.2 | 3.6 | **4.7** | 4.82, 4.65 |
+| Rating points per logit, the part of a team score above 99.2 | 10.6 | **20** | 15.8, 25.4 (a weak signal) |
+| Weight of the matchup-edge term | 1.0 | **1.5** | 1.50, 1.48 |
+
+Fights are less decisive per rating point than before (form on the day), and the matchup-edge term carries more weight now that it knows the new rules.
+
+| Held-out matchups (seed 20261121) | Old constants, old rules | Now |
+|---|---|---|
+| Log loss per fight | 0.440 | **0.420** |
+| Brier score | 0.140 | **0.137** |
+| Results inside the reported range | 91% | **93%** |
+
+| Estimate band | Old constants: estimated → actual | Now: estimated → actual |
+|---|---|---|
+| 0–20% | 7% → 11% | 8% → 9% |
+| 20–40% | 29% → 37% | 28% → 26% |
+| 40–60% | 50% → 45% | 51% → 54% |
+| 60–80% | 71% → 65% | 71% → 67% |
+| 80–100% | 93% → 92% | 94% → 95% |
+
+**One-on-one checks** (evaluator estimate against 400 real fights): Professor X vs John Wick 90% / 85%; Harry Potter vs a Dementor 95% / 82%; Sam vs Shelob 55% / 55%; Hulk vs Thor 50% / 47%; Gimli vs Legolas 35% / 27%; Galactus vs Thor 95% / 100%.
+
+**Known weakness: lopsided one-on-one fights.** The numeric term was fitted on full seven-fighter crews, where one character moves the team score a little. In a duel it is too cautious: Hedwig vs Harry Potter is estimated 35% and is really 0%; Batman vs Superman 25% against 5%; Professor X vs Ultron 30% against 3%. The direction is right and the reason given is right, but the size is not. The engine's own probe fights (form on the day) would give the evaluator a direct read of the margin; that is not done here.
+
+## What changed (first fit, 2026-11-21)
 1. **The evaluator sees research moves.** Since #423, V2 fights give 617 characters and forms a move from their research record. The evaluator now reads the same moves (origin `research-move`, evidence provisional), counts them as typed coverage, and no longer lists those fighters under "no typed combat profile".
 2. **Battle Royale constants are fitted** to the game's own fights:
 

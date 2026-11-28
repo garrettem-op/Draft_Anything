@@ -146,3 +146,6 @@ Four engine rules for the results data could not fix (`docs/option-c/FIGHT_RULES
 
 ## Form on the day, 2026-11-28
 Rule 5 in `docs/option-c/FIGHT_RULES.md`: one damage-form draw per fighter per fight, sized by how close two private probe fights come out (their own fixed random stream; the game's dice are untouched). Follows the research switch; switched off, the engine is byte-identical to Version 1 (golden baseline unchanged, 17/17, no re-pin). Three test thresholds moved because favourites now win a little less often: Bugs Bunny over Batman (75% to 70%, browser smoke), Harry over Draco and Ancalagon over Smaug (60% to 52%).
+
+## Evaluator brought level, 2026-11-28
+The shadow evaluator reads the fight rules from the same sources as the engine (overcome powers, named counters, melee signatures, intrinsic ranks; armour and proficiency as context) and its Battle Royale constants were refitted to 72,000 seeded fights (`docs/option-c/CALIBRATION.md`). Held-out log loss 0.440 to 0.420. It is still shadow-only: no game result changes, golden baseline unchanged (17/17). Known weakness: lopsided one-on-one fights are estimated too cautiously.

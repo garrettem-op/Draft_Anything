@@ -20,6 +20,42 @@
 
   /* The rulebook. `id` is stable and appears in every explanation. */
   const RULES = Object.freeze({
+    'overcome-power': {
+      title: 'A power that overcomes instead of wounding',
+      text: 'A reviewed tier-3+ mind or magic power (mind control, enchanted sleep, petrification, a killing gaze) can end an opponent\'s fight when the opponent has no defence against it.',
+    },
+    'overcome-resisted': {
+      title: 'Overcome power met by a defence',
+      text: 'A guard of the same power type, a high-order ward or an equal power of the same type cuts the chance sharply.',
+    },
+    'overcome-resisted-by-rank': {
+      title: 'Overcome power against a ranked being',
+      text: 'An Apex form or an intrinsic cosmic rank cuts the chance of being overcome to a small fraction.',
+    },
+    'overcome-no-mind': {
+      title: 'Mind power against a machine',
+      text: 'A machine has no mind to take: a psychic or control power cannot overcome it.',
+    },
+    'named-counter': {
+      title: 'Named counter',
+      text: 'The opponent\'s own research record names this as a weakness and this fighter\'s record shows they hold it (the Patronus Charm against a Dementor).',
+    },
+    'intrinsic-shell': {
+      title: 'Intrinsic cosmic rank',
+      text: 'Standard weapons and punches struggle against a being with an intrinsic rank, as against an Apex form.',
+    },
+    'intrinsic-pressure': {
+      title: 'Intrinsic cosmic rank on the attack',
+      text: 'A being with an intrinsic rank brings far more health and force than an unranked opponent.',
+    },
+    'worn-armour': {
+      title: 'Worn armour',
+      text: 'Armour named in the research record turns a share of bodily blows. Reported for context; its small effect is inside the numeric estimate.',
+    },
+    'skilled-defender': {
+      title: 'Skilled defender',
+      text: 'Documented fighting proficiency makes a fighter harder to hit with bodily blows. Reported for context; its small effect is inside the numeric estimate.',
+    },
     'durability-gap': {
       title: 'Conventional attack into a tougher body',
       text: 'Punches, gadgets and toxins lose effect against a body one or more physical tiers above the attacker.',
@@ -86,12 +122,15 @@
   const leverageLabel = score => LEVERAGE[Math.max(-2, Math.min(2, score)) + 2];
   const HIGH = ['reality', 'cosmic', 'magic', 'elemental', 'time'];
 
-  function optionsOf(p) {
+  function optionsOf(p, def) {
     const list = [{
       id: 'conventional', label: 'Conventional attacks', domain: 'physical', domainClass: 'physical',
       tier: p.physicalTier, signature: false,
     }];
     if (p.signature) list.push({ ...p.signature, signature: true });
+    // Fight rule 2: a named counter this fighter's own record holds against this exact opponent.
+    const counter = def && (p.counters || []).find((c) => c.targets.includes(def.researchId));
+    if (counter) list.push({ id: 'counter', label: counter.name, domain: 'counter', domainClass: 'counter', tier: null, signature: false, counter });
     return list;
   }
 
@@ -100,12 +139,18 @@
     let score = 0;
     const add = (rule, delta, detail) => { steps.push({ rule, delta, detail }); score += delta; };
     const highOrder = o.signature && HIGH.includes(o.domain) && o.tier >= 4;
+    if (o.counter) {
+      add('named-counter', 2, 'The ' + o.label + ' drives off ' + def.displayName + ' (' + o.counter.basis + ').');
+      return { option: o.id, label: o.label, domain: o.domain, tier: null, score, steps };
+    }
 
     if (o.domainClass === 'physical') {
       if (att.forces.toon) {
         add('toon-physics-ignores-gap', 0, att.displayName + ' fights with cartoon physics.');
       } else if (att.physicalTier != null && def.physicalTier != null) {
-        const gap = def.physicalTier - att.physicalTier;
+        // A reviewed melee signature strikes above its owner's stored body (fight rule 3).
+        const striker = o.signature && att.meleeTier ? Math.max(att.physicalTier, Math.min(3, att.meleeTier - 1)) : att.physicalTier;
+        const gap = def.physicalTier - striker;
         if (gap > 0) add('durability-gap', -Math.min(2, gap), def.displayName + ' is ' + gap + ' physical tier(s) above ' + att.displayName + '.');
         // Cartoon resilience and high-order wards are their own defenses, so no overmatch there.
         if (gap <= -2 && !def.ward && !def.forces.toon) add('physical-overmatch', 1, att.displayName + ' is ' + (-gap) + ' physical tiers above ' + def.displayName + '.');
@@ -115,6 +160,16 @@
       add('high-order-burst', 1, o.label + ' (' + o.domain + ', tier ' + o.tier + ').');
     } else if (o.signature) {
       add('typed-bypass', 0, o.label + ' (' + o.domain + (o.tier == null ? ', no tier on record' : ', tier ' + o.tier) + ').');
+    }
+    /* Fight rule 1: a reviewed power that overcomes instead of wounding. Mirrors overcomeChance in
+       data/brawl-combat.js: a machine has no mind to take, and a rank shrugs it off. */
+    const rank = (p) => Math.max(p.apexRank || 0, p.intrinsicRank || 0);
+    if (o.signature && o.overcome) {
+      if (def.machine && o.domain !== 'magic') add('overcome-no-mind', -1, def.displayName + ' is a machine: there is no mind to take.');
+      else if (rank(def)) add('overcome-resisted-by-rank', 0, def.displayName + '\'s rank resists being overcome.');
+      else if (def.ward || def.guards.includes(o.domain) || (def.signature && def.signature.domain === o.domain && def.signature.tier >= o.tier))
+        add('overcome-resisted', 0, def.displayName + ' has a defence against it; it can still land.');
+      else add('overcome-power', o.tier >= 4 ? 2 : 1, o.label + ' ' + o.overcome + '; ' + def.displayName + ' has no defence against it.');
     }
     if (o.signature && def.guards.includes(o.domain)) add('domain-guard', -1, def.displayName + ' guards against ' + o.domain + '.');
     if (o.signature && def.weakTo.includes(o.domain)) add('domain-weakness', 1, def.displayName + ' is vulnerable to ' + o.domain + '.');
@@ -133,13 +188,19 @@
         add('high-order-passive-defense', -1, def.displayName + ' holds a tier-' + def.signature.tier + ' ' + def.signature.domain + ' defense.');
       }
     }
+    // The live engine gives an intrinsic rank (Galactus, Morgoth) the same shell an Apex form has.
+    if (!def.apexRank && def.intrinsicRank && !rank(att) && !highOrder) add('intrinsic-shell', def.intrinsicRank === 2 ? -2 : -1, def.displayName + ' holds an intrinsic cosmic rank.');
+    if (!att.apexRank && att.intrinsicRank && !rank(def)) add('intrinsic-pressure', att.intrinsicRank === 2 ? 2 : 1, att.displayName + ' holds an intrinsic cosmic rank.');
+    // Informational: small live effects already inside the numeric fit of the estimate.
+    if (o.domainClass === 'physical' && def.armor) add('worn-armour', 0, def.displayName + ' wears ' + def.armor.grade + ' armour (' + def.armor.feat + ').');
+    if (o.domainClass === 'physical' && def.proficiency) add('skilled-defender', 0, def.displayName + ' is a ' + def.proficiency.level + ' fighter and parries bodily blows.');
     if (o.signature && o.selfLimiting) add('self-limiting', 0, 'Cost begins in round ' + o.selfLimiting.fromRound + '.');
     return { option: o.id, label: o.label, domain: o.domain, tier: o.tier, score, steps };
   }
 
   /* Attacker -> defender: best documented line of attack and what resists it. */
   function assessThreat(att, def) {
-    const assessed = optionsOf(att).map(o => assessOption(o, att, def));
+    const assessed = optionsOf(att, def).map(o => assessOption(o, att, def));
     // Prefer the higher leverage; on a tie prefer the documented signature.
     assessed.sort((a, b) => b.score - a.score || (a.option === 'signature' ? -1 : b.option === 'signature' ? 1 : 0));
     const best = assessed[0];
