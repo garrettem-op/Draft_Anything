@@ -6,9 +6,46 @@
   "dc",
   "starwars",
   "lotr",
-  "harrypotter"
+  "harrypotter",
+  "actionmovies",
+  "muppets",
+  "toons"
  ],
  "tiers": {
+  "actionmovies:Aslan": {
+   "tier": 4,
+   "move": "Divine roars"
+  },
+  "actionmovies:Evelyn Carnahan": {
+   "tier": 1
+  },
+  "actionmovies:Imhotep": {
+   "tier": 3,
+   "domain": "magic",
+   "move": "Sandstorm manipulation"
+  },
+  "actionmovies:Li Mu Bai": {
+   "tier": 2,
+   "move": "Wudang internal breath control (qi)",
+   "technique": "Wudang internal breath control (qi)"
+  },
+  "actionmovies:Neo": {
+   "tier": 3
+  },
+  "actionmovies:The Bride (Beatrix Kiddo)": {
+   "tier": 2,
+   "move": "Five Point Palm Exploding Heart Technique",
+   "technique": "Five Point Palm Exploding Heart Technique"
+  },
+  "actionmovies:White Witch (Jadis)": {
+   "tier": 3
+  },
+  "actionmovies:Xenomorph Queen": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Tail impalement",
+   "feat": 1
+  },
   "dc:Aquaman": {
    "tier": 2,
    "domain": "control",
@@ -566,6 +603,29 @@
   "mcu:Zeus": {
    "tier": 4
   },
+  "muppets:Abby Cadabby": {
+   "tier": 1,
+   "technique": "Spellcasting via fairy wand"
+  },
+  "muppets:Crazy Harry": {
+   "tier": 1
+  },
+  "muppets:Dr. Bunsen Honeydew": {
+   "tier": 1
+  },
+  "muppets:Dr. Julius Strangepork": {
+   "tier": 1,
+   "move": "Dissolvatron ray",
+   "technique": "Dissolvatron ray"
+  },
+  "muppets:Miss Piggy": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Karate chop"
+  },
+  "muppets:The Amazing Mumford": {
+   "tier": 1
+  },
   "starwars:Anakin Skywalker": {
    "tier": 3
   },
@@ -616,9 +676,129 @@
   },
   "starwars:The Mandalorian": {
    "tier": 1
+  },
+  "toons:Blossom": {
+   "tier": 3
+  },
+  "toons:Bubbles": {
+   "tier": 3
+  },
+  "toons:Bugs Bunny": {
+   "tier": 2,
+   "move": "Cartoon physics manipulation"
+  },
+  "toons:Bugs Bunny|Big Chungus (Bugs Bunny)": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Body-slam crushing",
+   "technique": "Massive physical weight dominance"
+  },
+  "toons:Buttercup": {
+   "tier": 3
+  },
+  "toons:Courage the Cowardly Dog": {
+   "tier": 2,
+   "move": "Cartoon physics retaliation"
+  },
+  "toons:Dexter": {
+   "tier": 2,
+   "move": "Giant robotic mecha deployment"
+  },
+  "toons:Elsa": {
+   "tier": 3,
+   "move": "Blizzard generation",
+   "feat": 1
+  },
+  "toons:Hades": {
+   "tier": 4
+  },
+  "toons:Jafar": {
+   "tier": 3
+  },
+  "toons:Katara": {
+   "tier": 3
+  },
+  "toons:King Triton": {
+   "tier": 3,
+   "move": "Trident energy beam"
+  },
+  "toons:Lumière": {
+   "tier": 1
+  },
+  "toons:Maleficent": {
+   "tier": 3,
+   "feat": 1
+  },
+  "toons:Maui": {
+   "tier": 3
+  },
+  "toons:Megatron": {
+   "tier": 3,
+   "feat": 1
+  },
+  "toons:Megatron|Galvatron (Megatron Reborn)": {
+   "tier": 3,
+   "technique": "Supercharged plasma beams"
+  },
+  "toons:Mojo Jojo": {
+   "tier": 2,
+   "move": "Giant mech piloting"
+  },
+  "toons:Mushu": {
+   "tier": 1
+  },
+  "toons:Optimus Prime": {
+   "tier": 3,
+   "feat": 1
+  },
+  "toons:Optimus Prime|Jetfire-Powered Optimus Prime": {
+   "tier": 3
+  },
+  "toons:Pepé Le Pew": {
+   "tier": 1
+  },
+  "toons:Po": {
+   "tier": 3,
+   "move": "chi manipulation"
+  },
+  "toons:Rick Sanchez": {
+   "tier": 4,
+   "move": "Portal gun bisection/teleportation"
+  },
+  "toons:Stitch": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Super-strength multi-arm strikes"
+  },
+  "toons:Stitch|Experiment 626 Unrestrained": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Quad-arm flurry strikes"
+  },
+  "toons:Toph Beifong": {
+   "tier": 3,
+   "feat": 1
+  },
+  "toons:Uncle Iroh": {
+   "tier": 3,
+   "move": "Explosive concussive fire blasts",
+   "feat": 1
+  },
+  "toons:Ursula": {
+   "tier": 3,
+   "move": "Trident energy beam projection",
+   "feat": 1
+  },
+  "toons:WALL-E": {
+   "tier": 1
+  },
+  "toons:Wile E. Coyote": {
+   "tier": 1
   }
  },
  "noMove": {
+  "actionmovies:Lucy Pevensie": "A dagger is an ordinary weapon and the healing cordial is not an attack.",
+  "actionmovies:Xerxes": "Commanding an army is leadership, not an arena attack.",
   "dc:Amanda Waller": "Deploying a task force is not an arena attack.",
   "dc:Batman|The Batman Who Laughs": "Batarangs are ordinary thrown weapons; plain attacks model them.",
   "dc:Clayface": "Mimicry is a disguise, not an attack.",
@@ -676,6 +856,42 @@
   "mcu:Obadiah Stane": "A machine gun is an ordinary weapon; plain attacks model it.",
   "mcu:Valentina Allegra de Fontaine": "Recruiting and directing operatives is not an arena attack.",
   "mcu:Zemo": "Psychological manipulation and framing is a scheme, not an arena attack.",
+  "muppets:Annie Sue": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Cantus": "Pipe music that makes flowers bloom is not an attack.",
+  "muppets:Curly Bear": "A toddler's growl is not an attack.",
+  "muppets:Dr. Teeth": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Ernie": "Talking and practical jokes are comedy, not an arena attack.",
+  "muppets:Guy Smiley": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Hilda": "Running a show or a doorway is management, not an attack.",
+  "muppets:Honkers": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Hoots the Owl": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Janice": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Ji-Young": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Johnny Fiama": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Kermit the Frog": "Running a show or a doorway is management, not an attack.",
+  "muppets:Lefty the Salesman": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Link Hogthrob": "A blaster is an ordinary sidearm; plain attacks model it.",
+  "muppets:Lips": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Mahna Mahna": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Marjory the Trash Heap": "Prophecy and oracle guidance are not attacks.",
+  "muppets:Marvin Suggs": "Mallet strikes are ordinary blows; plain attacks model them.",
+  "muppets:Mokey Fraggle": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Mr. Johnson": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Murray Monster": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
+  "muppets:Oscar the Grouch": "Thrown trash and insults are ordinary blows and talk; plain attacks model them.",
+  "muppets:Pepe the King Prawn": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Philo and Gunge": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Pops": "Running a show or a doorway is management, not an attack.",
+  "muppets:Prairie Dawn": "Running a show or a doorway is management, not an attack.",
+  "muppets:Roosevelt Franklin": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Sam Eagle": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Scooter": "Running a show or a doorway is management, not an attack.",
+  "muppets:Sherlock Hemlock": "Observation and deduction are not attacks.",
+  "muppets:Spa'am": "Commanding a tribe and its boars is leadership, not an arena attack.",
+  "muppets:The Newsman": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Uncle Deadly": "A theatrical scare is intimidation, not an attack.",
+  "muppets:Waldorf": "Talk, complaint or persuasion is social influence, not an arena attack.",
+  "muppets:Zoot": "A stage performance is not an attack; the Muppets' comedy is modelled by MuppetForce.",
   "starwars:Admiral Ackbar": "Coordinating a fleet bombardment is command, not an arena attack.",
   "starwars:Admiral Holdo": "A lightspeed ram is a starship maneuver, not an arena attack.",
   "starwars:Bail Organa": "Political maneuvering is not a way of hurting an opponent.",
@@ -698,6 +914,24 @@
   "starwars:Watto": "Verbal threats are not an attack.",
   "starwars:Wedge Antilles": "A starfighter torpedo is a vehicle weapon, not an arena attack.",
   "starwars:Wrecker": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
-  "starwars:Zeb Orrelios": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it."
+  "starwars:Zeb Orrelios": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "toons:Aladdin": "A scimitar slash is an ordinary weapon blow; plain attacks model it.",
+  "toons:Ariel": "Singing and swimming are not attacks; the record names no power that harms.",
+  "toons:Belle": "Improvised or ordinary weapon blows; plain attacks model them.",
+  "toons:Bluey": "Imaginative play and persuasion are not attacks.",
+  "toons:Buzz Lightyear": "The toy's wrist laser is a light, and his karate-chop action is an ordinary blow.",
+  "toons:Frollo": "A sword, torches and a militia are ordinary weapons and command; plain attacks model them.",
+  "toons:Garfield": "Scratches, insults and pranks are ordinary blows and comedy.",
+  "toons:Goofy": "Disguises, pranks and slapstick are cartoon comedy that ToonForce models; the record names no power that harms.",
+  "toons:Jasmine": "Improvised or ordinary weapon blows; plain attacks model them.",
+  "toons:Lucy van Pelt": "Pulling the football away is a prank, not an arena attack.",
+  "toons:Master Splinter": "Ninjutsu with sword and staff is weapon skill; plain attacks and proficiency model it.",
+  "toons:Moana": "The ocean's help with navigation is not an attack of hers.",
+  "toons:Snow White": "Calling forest animals by singing is not an attack.",
+  "toons:Speedy Gonzales": "Running fast is his Speed score, not a separate power attack.",
+  "toons:Timon": "Disguises, pranks and slapstick are cartoon comedy that ToonForce models; the record names no power that harms.",
+  "toons:Velma": "Building a trap is a scheme, not an arena attack.",
+  "toons:Woody": "Disguises, pranks and slapstick are cartoon comedy that ToonForce models; the record names no power that harms.",
+  "toons:Yogi Bear": "Disguises, pranks and slapstick are cartoon comedy that ToonForce models; the record names no power that harms."
  }
 }

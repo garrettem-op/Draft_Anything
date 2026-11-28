@@ -31,7 +31,10 @@ Tier-4+ **psychic** power (Omega-level telekinesis or telepathy) now counts as h
 | starwars | 56 | **reviewed** | 1 | 6 | 5 | 23 | 1 |
 | lotr | 55 | **reviewed** | 5 | 22 | 1 | 25 | 16 |
 | harrypotter | 94 | **reviewed** | 0 | 6 | 12 | 12 | 4 |
-| toons, games, pokemon, muppets, actionmovies | 360 | not yet | | | | | |
+| toons | 57 | **reviewed** | 2 | 17 | 5 | 18 | 3 |
+| muppets | 43 | **reviewed** | 0 | 0 | 5 | 36 | 1 |
+| actionmovies | 12 | **reviewed** | 1 | 3 | 1 | 2 | 1 |
+| games, pokemon | 248 | not yet | | | | | |
 
 Counts include reviewed melee signatures. Individual profiles re-tiered in Version 2: Yoda and Emperor Palpatine, tier 3 to tier 4 (paramount Force users of their setting; Version 1 keeps tier 3).
 
@@ -88,6 +91,16 @@ Wand magic is this setting's ordinary power, so a trained adult witch or wizard 
 Measured (1,000 seeded duels, before to after): Hedwig vs Harry Potter 72.2% to 0.2%; Crookshanks vs Ron 70.1% to 0.9%; Bowtruckle vs Harry 48.9% to 0.1%; Nearly Headless Nick vs Harry 77.8% to 1.6%; Ollivander vs Bellatrix 52.1% to 1.0%; Lockhart vs Harry 32.6% to 0.9%; Fudge vs Harry 43.0% to 8.1%; Krum vs Harry 85.5% to 44.8%; Harry vs Draco 58.4% to 75.1%; Madame Maxime vs Hagrid 7.8% to 47.0%; Dumbledore vs Grindelwald 65.7% to 58.5%; Obscurus-hosting Credence vs Dumbledore 0.3% (Dumbledore beat him outright in Berlin).
 
 Not solved in Harry Potter: Dementor vs Harry 94% (see problem 7); Flitwick vs Lucius Malfoy 47% and Dobby vs Lucius 22% (problem 6); Molly Weasley vs Bellatrix 25% (she won their one duel); the generic Obscurus beats Dumbledore 71% on its template body.
+
+## Cartoons, Muppets and Action Movies (reviewed 2026-11-27)
+**Comedy is not a power attack.** The research turned stage acts, heckling, pranks and management into "control" moves, which gave Waldorf's insults and Scooter's backstage cues the same strength as Black Canary's cry. Those are dropped: the designed mechanics for comedy are MuppetForce and ToonForce, which are unchanged. Sam Eagle vs Batman goes from 19.4% to 0.0%, Scooter vs Hawkeye from 9.9% to 0.4%.
+- **Cartoons, tier 4:** Rick Sanchez (destroyed a civilization with garage inventions), Hades (a god who freed the Titans). **Tier 3:** Jafar, Maleficent, Ursula, King Triton, Elsa (a kingdom in eternal winter), Maui (pulled islands from the sea), Po (chi mastery over Kai), Toph, Iroh and Katara, the Powerpuff Girls (peers of the Kryptonians), Optimus Prime, Megatron and their forms. **Tier 1:** Wile E. Coyote's ACME devices, WALL-E's cutting laser, Pepé Le Pew, Lumière, Mushu. **Melee signatures (tier 2):** Stitch and his unrestrained form, Big Chungus. **Dropped (18):** ordinary weapons (Aladdin, Belle, Jasmine, Frollo, Splinter), pranks and slapstick (Goofy, Timon, Woody, Yogi, Garfield, Lucy), non-attacks (Ariel, Snow White, Moana, Bluey, Velma's traps, Speedy's running), and Buzz Lightyear's toy laser.
+- **Bugs Bunny and Courage keep their move at the standard**, renamed to the power the record actually lists (cartoon physics) instead of "disguise and deception". Their strength is unchanged.
+- **Muppets:** 36 of 43 moves dropped (performances, talk, management, Link Hogthrob's blaster). **Tier 1:** Crazy Harry's explosives, Bunsen's inventions, Strangepork's Dissolvatron, and the trainee magic of Abby Cadabby and the Amazing Mumford. Miss Piggy's karate chop is a tier-2 melee signature. The Count's thunderstorm stays at the standard.
+- **Action Movies:** Aslan tier 4 (routed the Witch's army and killed her); Imhotep (a sandstorm over Cairo), Neo and the White Witch tier 3; Evelyn's reading from the Book of Amun-Ra tier 1; the Xenomorph Queen a tier-2 melee signature. The Bride and Li Mu Bai keep the standard, named after their special techniques. Dropped: Lucy Pevensie's dagger, Xerxes' army.
+- **Left at the standard for lack of a feat:** Aang (the record's only feat is an air scooter; the Avatar State is a separate form), Zuko, Master Shifu, Elastigirl, Frozone, Violet, Plankton, SpongeBob.
+
+Measured (1,000 seeded duels, before to after): Hades vs Thor 12.3% to 55.1%; Rick Sanchez vs Iron Man 22.5% to 34.8%; Maleficent vs Captain America 41.9% to 51.4%; Blossom vs Superman 28.2% to 35.4%; Miss Piggy vs Kermit 94.7% to 99.9%; Xerxes vs Leonidas 19.1% to 1.4%; Goofy vs Hawkeye 27.9% to 0.8%; Wile E. Coyote vs Hawkeye 18.6% to 7.8%. Bugs Bunny vs Batman moved from 99.8% to 91.6% only because Batman's attributes were corrected (#698).
 
 ## Left at the standard because the record has no feat that supports more
 Sentry, Martian Manhunter, Fernus the Burning, King Shazam, Apex Lex, Ikaris, Sersi, Wong, Human Torch, Rey, Lobo (tier 2 only), and the Star Wars forms without feats (Dark Empire Luke, Vader of Mustafar, Ahsoka the White). They need a feats pass before they can be tiered higher.
