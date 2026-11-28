@@ -44,13 +44,13 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 
 | Matchup | Sport | V1 ratings | V1 win rate | Option C | Range | Same favorite | V1 inside range | Status / basis | Typed coverage |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | brawl | 121.7 / 153.9 | 1% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
+| The Chungus vs The Crossover | brawl | 121.7 / 153.9 | 0% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
 | Batman crew vs Hellbat crew | brawl | 92.6 / 93.2 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
 | Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 10% |
 | Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 30% | 0%–70% | **no** | **no** | provisional / numeric + typed | 20% |
 | Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
 | Black Adam crew vs Silver Surfer crew | brawl | 94.2 / 93.5 | 41% | 55% | 15%–95% | **no** | yes | provisional / numeric + typed | 20% |
-| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 53% | 90% | 55%–100% | yes | **no** | provisional / numeric + typed | 30% |
+| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 47% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 30% |
 | Muppets vs DC roster | brawl | 104.8 / 108.8 | 0% | 35% | 0%–70% | yes | yes | provisional / numeric + typed | 60% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 115.5 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
@@ -60,16 +60,17 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | Wizarding World vs Pokemon | hockey | 87.7 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 | DC vs Marvel | baseball | 103.0 / 96.5 | 95% | 95% | 70%–95% | yes | yes | provisional / numeric only | n/a |
 
-**Same favorite in 13 of 15; Version 1 frequency inside the Option C range in 8 of 15.**
+**Same favorite in 12 of 15; Version 1 frequency inside the Option C range in 8 of 15.**
 
 Different favorite:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30%.
 - Black Adam crew vs Silver Surfer crew: Version 1 41%, Option C 55%.
+- Looney crew vs Avengers: Version 1 47%, Option C 90%.
 
 Version 1 frequency outside the Option C range:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30% (0%–70%).
 - Darkseid crew vs Spectre crew: Version 1 0%, Option C 45% (5%–85%).
-- Looney crew vs Avengers: Version 1 53%, Option C 90% (55%–100%).
+- Looney crew vs Avengers: Version 1 47%, Option C 90% (55%–100%).
 - Superman + Kermit + NBA vs NBA legends: Version 1 100%, Option C 95% (75%–95%).
 - Spider-Man libero + NBA vs Star Wars: Version 1 100%, Option C 95% (75%–95%).
 - Cartoons vs Video Games: Version 1 100%, Option C 95% (70%–95%).
@@ -162,7 +163,7 @@ Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnosti
 
 **The Crossover is favored over The Chungus, roughly 95/5 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 1%.
+Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 0%.
 
 **The Chungus** (Version 1 rating 121.73)
 
@@ -187,9 +188,9 @@ What could stop them:
 
 What each starter can do:
 - Ares (DC) [tk1, evidence: reviewed]: Documented technique: God of War strike (melee, tier 3). Limit: War conflict empowers him; conceptual warfare is not infinite arena damage. Guards against melee. Ability index: teleport [provisional].
-- The Watcher [tk2, evidence: reviewed]: Documented technique: Cosmic intervention (cosmic, tier 4). Limit: Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene. Guards against cosmic. Registered exceptional power: What If...? multiverse: Watcher observes and sometimes intervenes across realities. Limit: Vow of non-interference and screen/comic continuities differ. Ability index: psychic [provisional], stealth [provisional], teleport [provisional].
+- The Watcher [tk2, evidence: reviewed]: Documented technique: Cosmic intervention (cosmic, tier 4). Limit: Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene. Guards against cosmic and energy. Registered exceptional power: What If...? multiverse: Watcher observes and sometimes intervenes across realities. Limit: Vow of non-interference and screen/comic continuities differ. Ability index: psychic [provisional], stealth [provisional], teleport [provisional].
 - Death of the Endless [d1, evidence: reviewed]: Documented technique: The Endless presence (reality, tier 5). Limit: Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout. Guards against reality. Registered exceptional power: The Sandman: personification of death and endpoint of mortal existence. Limit: Usually a metaphysical function, not an offensive brawler.
-- Scarlet Witch [d2, evidence: reviewed]: Documented technique: Chaos hex (magic, tier 4). Limit: Baseline chaos magic; House of M feat is not every ordinary strike. Guards against magic. Registered exceptional power: House of M and Scarlet Witch stories: alters the fabric of reality through chaos magic. Limit: Magical competence, focus and continuity vary. Ability index: flight [provisional], magic [provisional], psychic [provisional], teleport [provisional]. Signature move "Chaos Magic" (chaos).
+- Scarlet Witch [d2, evidence: reviewed]: Documented technique: Chaos hex (magic, tier 4). Limit: Baseline chaos magic; House of M feat is not every ordinary strike. Guards against magic and energy. Registered exceptional power: House of M and Scarlet Witch stories: alters the fabric of reality through chaos magic. Limit: Magical competence, focus and continuity vary. Ability index: flight [provisional], magic [provisional], psychic [provisional], teleport [provisional]. Signature move "Chaos Magic" (chaos).
 - Darkseid [d3, evidence: reviewed]: Documented technique: Omega Beams (cosmic, tier 4). Limit: Avatar-scale arena encounter; not the full transcendent form or guaranteed disintegration. Guards against cosmic and energy. Registered exceptional power: DC Fourth World: Omega Effect and tremendous godlike destructive force. Limit: Avatars and true form are not interchangeable. Ability index: teleport [provisional].
 
 Paths to victory:
@@ -263,7 +264,7 @@ Estimate range for Black Adam crew: 15%–95%. Version 1 engine over 300 private
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Hector [tk2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
-- Black Adam [d1, evidence: provisional]: Documented technique: Living lightning bolts (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Ability index: flight [needs-review], magic [needs-review], electric [provisional].
+- Black Adam [d1, evidence: provisional]: Documented technique: Living lightning bolts (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Vulnerable to magic. Ability index: flight [needs-review], magic [needs-review], electric [provisional].
 - Paris [d2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Agamemnon [d3, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 
@@ -380,8 +381,8 @@ Rules that still bind:
 **Star Wars** (Version 1 rating 89.00)
 
 What each starter can do:
-- Luke Skywalker [s, evidence: reviewed]: Documented technique: Force and lightsaber (psychic, tier 3). Limit: Lost to Vader on Cloud City (The Empire Strikes Back) and overpowered him on the second Death Star (Return of the Jedi); the Jedi Knight of Return of the Jedi is modelled. Guards against psychic. Ability index: flight [provisional], psychic [provisional]. Signature move "Trench Run" (clutch).
-- Yoda [oh1, evidence: reviewed]: Documented technique: Force mastery (psychic, tier 3). Limit: Absorbed Dooku's and Sidious's Force lightning and fought Sidious to a standstill (Revenge of the Sith); not an automatic win. Guards against psychic. Ability index: psychic [provisional]. Signature move "Size Matters Not" (unbreakable).
+- Luke Skywalker [s, evidence: reviewed]: Documented technique: Force and lightsaber (psychic, tier 3). Limit: Lost to Vader on Cloud City (The Empire Strikes Back) and overpowered him on the second Death Star (Return of the Jedi); the Jedi Knight of Return of the Jedi is modelled. Guards against psychic and energy. Ability index: flight [provisional], psychic [provisional]. Signature move "Trench Run" (clutch).
+- Yoda [oh1, evidence: reviewed]: Documented technique: Force mastery (psychic, tier 3). Limit: Absorbed Dooku's and Sidious's Force lightning and fought Sidious to a standstill (Revenge of the Sith); not an automatic win. Guards against psychic and energy. Ability index: psychic [provisional]. Signature move "Size Matters Not" (unbreakable).
 - Obi-Wan Kenobi [mb1, evidence: provisional]: Documented technique: Soresu (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Signature move "The High Ground" (clutch).
 - Anakin Skywalker [opp, evidence: provisional]: Documented technique: Aggressive Djem So lightsaber combat (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [needs-review], psychic [provisional].
 - Mace Windu [oh2, evidence: provisional]: Documented technique: Vaapad (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: psychic [provisional]. Signature move "Vaapad" (chaos).

@@ -394,6 +394,8 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
         log.intrinsicRank?`Intrinsic cosmic power: +${Number(log.intrinsicHp)||0} combat HP, ×${Number(log.combatMultiplier).toFixed(2)} attack power, up to two actions per round.`:'',
         Number.isFinite(log.offenseCredibility)?`Offensive capability: ${Math.round(log.offenseCredibility*100)}% · attack fit ${Number(log.attackFit).toFixed(1)} · team damage multiplier ×${Number(log.teamSupport).toFixed(2)} (from the whole team's rating, including commander and reinforcement).`:'',
         domainNote,
+        log.proficiency?`Documented ${esc(log.proficiency)} fighting proficiency (${esc(log.proficiencyTechnique)}): the technique carries the blow instead of raw strength.`:'',
+        Array.isArray(log.weakTo)&&log.weakTo.length?`Documented weakness to ${esc(log.weakTo.join(', '))} attacks.`:'',
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
         targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG, ${Number(t.hits)||0} hits)`).join(', ')+
           `. Total ${targetSum} DMG`+(overkill?`, of which ${overkill} was excess on a finishing blow.`:'.'):'No successful hits recorded.',

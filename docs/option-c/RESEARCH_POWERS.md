@@ -93,3 +93,22 @@ The research tick merges records without regenerating, so the file can lag a lit
 - **Evaluator (resolved 2026-11-21).** The evaluator now reads the same research moves and its Battle Royale odds are fitted to these fights. See `docs/option-c/CALIBRATION.md`.
 - **Some move names are descriptive.** For example "Herbology as a weapon" and "Banjo strike". They are the record's own words.
 - **Not separately reviewed.** The moves inherit each record's sourcing. No one has checked a move against its sources separately.
+
+## Combat extras from the same record (2026-11-27)
+
+Owner direction 2026-11-27: Version 1 stays as it is, and Version 2 must cover weapon mastery from researched techniques and durability from documented powers. The research record now supplies four more things to the live fight, for **every** researched identity (V1-profiled and physical-only characters included, NBA exempt), under the same switch as research moves.
+
+| Extra | Read from | Rule (explicit wording only) | Fixed strength |
+| --- | --- | --- | --- |
+| Guards | `defense.mechanisms` | The closed guard patterns (energy shield or deflection, magic ward, psychic barrier) | 13% of a matching signature hit, as V1 guards |
+| Weaknesses | `weaknesses` | "weak / vulnerable / susceptible to [one intensity word] magic, psychic, energy or electricity". An energy *drain* is not a weakness to energy attacks | 12%, as V1 weaknesses |
+| Power barrier | `defense.mechanisms` | Force field, energy shield, magical ward or aura, telekinetic shield. A mental shield or a carried shield does not count | The weakest V1 shield: pool 30, catches 60% of what gets through, stops any attack |
+| Fighting proficiency | `offense.techniques` | A technique that names a weapon or fighting skill. Level only from a level word in that same technique: master, expert (or a named form), otherwise trained | A floor under Strength for the strike only: trained 70, expert 80, master 88 |
+
+Precedence: an individual Version 1 shield entry wins over a research barrier; guards and weaknesses are the union of the V1 profile's and the record's. Proficiency never changes a team rating, fit, credibility, HP or armor: it only stops a documented weapon from hitting like bare hands. A form uses its own record, never its base's.
+
+Counts when generated: 720 identities carry extras (236 barriers; 538 with proficiency: 487 trained, 22 expert, 29 master; 56 with a weakness; 208 with a guard).
+
+**Measured (1,000 seeded duels each, research on):** Yoda vs Achilles 10.0% → 17.1%; Yoda vs Palpatine 81.5% → 71.8%; Vader vs Luke 86.8% → 79.9%; Dumbledore vs Voldemort 49.8% → 52.7%; Obi-Wan vs Darth Maul 28.3% → 43.6%; Leia vs Bryan Mills 1.9% → 8.5%. 300 random battles: no errors.
+
+**Known limits.** The research `energy` type covers blasters, lightsabers and electricity alike, so Vader's guard (lightsaber deflection) and his weakness (electrical discharge) land on the same type and nearly cancel; a separate electric type would fix that. Armor wording (356 records) is not used: stored Endurance and Size may already include it. Levels follow the record's wording, so a great fighter whose techniques carry no level word reads as trained (Achilles).

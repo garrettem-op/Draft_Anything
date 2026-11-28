@@ -27,6 +27,10 @@
     return researchFor(c)||own;
   };
   const shieldFor=c=>abilityApi?.brawlShieldOf?.(c)||null;
+  // Version 2: guards, weaknesses, a power barrier and fighting proficiency from the research record
+  // (data/option-c/research-moves.js researchCombatOf). Null on a page without it, so V1 is unchanged.
+  const researchCombatFor=c=>{const api=root&&root.DA_RESEARCH_MOVES;return api&&typeof api.researchCombatOf==='function'?api.researchCombatOf(c):null;};
+  const unionOf=(a,b)=>[...new Set([...(a||[]),...(b||[])])];
   // Rare, reviewed transformations must feel qualitatively different from a
   // mild stat boost. Tier-5 forms and feat-reviewed flagship forms are Apex;
   // other reviewed tier-4 forms are Empowered. Baseline characters and
@@ -192,7 +196,11 @@
     const tank=!!row.pos.tank;
     const a=k=>attr(row,k);
     const fit=clamp(Number(row.fit)||50,1,165);
-    const power=.44*a('str')+.18*a('acc')+.16*a('spd')+.12*a('ref')+.10*a('iq');
+    // A documented weapon or fighting technique carries the blow: it sets a floor under raw strength.
+    const research=researchCombatFor(row.cand);
+    const proficiency=research?.proficiency||null;
+    const strikeStr=Math.max(a('str'),proficiency?proficiency.strike:0);
+    const power=.44*strikeStr+.18*a('acc')+.16*a('spd')+.12*a('ref')+.10*a('iq');
     const armor=.34*a('end')+.21*a('siz')+.23*a('str')+.13*a('ref')+.09*a('agi');
     // Rating/fit already account for signature team support, selected variants,
     // ToonForce/MuppetForce and registered exceptional-power bonuses.
@@ -214,7 +222,8 @@
     const armorHp=ability?.armorHp||0;
     const armorPhysicalGuard=ability?.armorPhysicalGuard||0;
     // A documented power shield: a separate, depleting barrier (see brawlShieldOf).
-    const shield=shieldFor(c);
+    // An individual V1 shield entry wins; otherwise the barrier named in the research record.
+    const shield=shieldFor(c)||research?.shield||null;
     const maxHp=Math.round(130+1.30*a('end')+.62*a('str')+
       .58*a('siz')+.24*fit+(tank?64:0)+wardHp+Math.max(apexHp,intrinsicHp)+armorHp);
     // A physical combat tier is distinct from magic/reality technique tiers.
@@ -238,6 +247,7 @@
     return {
       id:c.id,name:c.n,position:row.pos.id,side,tank,
       shield,shieldHp:shield?shield.pool:0,shieldAbsorbed:0,
+      guard:unionOf(ability?.guard,research?.guard),weakTo:unionOf(ability?.weakTo,research?.weakTo),proficiency,
       ability,tactics:tacticsFor(c),physicalTier,ordinaryBody,wardHp,apexRank,apexHp,armorHp,armorPhysicalGuard,intrinsicRank,intrinsicHp,combatMultiplier,
       attack:strike*offenseScale*combatMultiplier,armor,fit,maxHp,hp:maxHp,credibility,attackFit,
       accuracy:a('acc'),focus:a('iq'),speed:a('spd'),reflex:a('ref'),agility:a('agi'),
@@ -375,8 +385,8 @@
         // Keep the established defense against conventional empowered strikes,
         // but never halve a cosmic peer's offense merely because it is a form.
         block+=raw*interaction.baselineGuard;
-        if(signature&&target.ability?.guard?.includes(domain))block+=raw*.13;
-        if(signature&&target.ability?.weakTo?.includes(domain))block-=raw*.12;
+        if(signature&&target.guard.includes(domain))block+=raw*.13;
+        if(signature&&target.weakTo.includes(domain))block-=raw*.12;
         // A non-superhuman punch or gadget does not routinely punch through
         // invulnerable physiology. Toon physics uses its own resilience model.
         // Signature reality/cosmic/magic attacks bypass the *physical* gap;
@@ -449,6 +459,7 @@
           powerUses:f.powerUses,powerDmg:f.powerDmg,powerMove:f.ability?.move||'',
           physicalTier:f.physicalTier,ordinaryBody:f.ordinaryBody,wardHp:f.wardHp,armorHp:f.armorHp,armorPhysicalGuard:f.armorPhysicalGuard,
           shieldKind:f.shield?.kind||'',shieldMax:f.shield?.pool||0,shieldAbsorbed:f.shieldAbsorbed,shieldSource:f.shield?.source||'',
+          proficiency:f.proficiency?.level||'',proficiencyTechnique:f.proficiency?.technique||'',weakTo:f.weakTo.slice(),guard:f.guard.slice(),
           apexRank:f.apexRank,apexHp:f.apexHp,intrinsicRank:f.intrinsicRank,intrinsicHp:f.intrinsicHp,combatMultiplier:f.combatMultiplier,offenseCredibility:f.credibility,attackFit:f.attackFit,teamSupport:support[side],skillDomain:f.skillDomain,
           powerDomain:f.ability?.domain||'',powerSource:f.ability?.source||'',
           powerLimit:f.ability?.limit||'',powerContinuity:f.ability?.continuity||'',

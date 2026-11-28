@@ -54,6 +54,37 @@
       wearStart: 0, wearRate: 0, source: m.source, origin: 'research', limit: LIMIT, continuity: m.continuity,
     };
   }
+  /* Combat extras from the same research record (2026-11-27), for EVERY researched identity, V1-profiled
+   * and physical-only characters included: the record's own guards and weaknesses, a power barrier named
+   * in its defense wording, and fighting proficiency named in its techniques. Strength is one fixed
+   * standard (the research records no power level): the barrier is the weakest V1 shield (level 1), and
+   * proficiency only lets a documented weapon or technique carry the blow instead of raw strength.
+   * A form uses its own record, never its base's. Same switch as research moves. Never mutates `c`. */
+  const SHIELD = Object.freeze({ level: 1, pool: 30, share: 0.6, blocks: 'all' });
+  const STRIKE = Object.freeze({ trained: 70, expert: 80, master: 88 });
+  let combatIndex = null;
+  function combatLookup() {
+    if (combatIndex) return combatIndex;
+    combatIndex = Object.create(null);
+    const d = data();
+    for (const [id, guard, weakTo, shield, prof, source] of (d && d.combat) || []) {
+      combatIndex[id] = Object.freeze({ guard: Object.freeze(guard.slice()), weakTo: Object.freeze(weakTo.slice()),
+        shield: shield ? Object.freeze({ kind: shield[0], feat: shield[1] }) : null,
+        proficiency: prof ? Object.freeze({ level: prof[0], technique: prof[1] }) : null, source });
+    }
+    return combatIndex;
+  }
+  function researchCombatOf(c) {
+    if (!enabled || !c) return null;
+    const m = combatLookup()[researchIdOf(c)];
+    if (!m) return null;
+    return {
+      guard: m.guard.slice(), weakTo: m.weakTo.slice(),
+      shield: m.shield ? { kind: m.shield.kind, feat: m.shield.feat, source: m.source, origin: 'research', ...SHIELD } : null,
+      proficiency: m.proficiency ? { level: m.proficiency.level, technique: m.proficiency.technique, strike: STRIKE[m.proficiency.level], source: m.source } : null,
+      source: m.source,
+    };
+  }
   /* Run fn with the switch temporarily set (used by Head-to-Head), restoring it afterwards. */
   function withEnabled(on, fn) {
     const before = enabled;
@@ -62,9 +93,10 @@
   }
 
   const api = {
-    version: 'research-moves-v1', STRENGTH, LIMIT,
+    version: 'research-moves-v2', STRENGTH, LIMIT,
     enabled: () => enabled, setEnabled: (on) => { enabled = !!on; }, withEnabled,
     researchIdOf, researchMoveOf, count: () => Object.keys(lookup()).length,
+    SHIELD, STRIKE, researchCombatOf, combatCount: () => Object.keys(combatLookup()).length,
   };
   if (root) root.DA_RESEARCH_MOVES = api;
   if (isNode) module.exports = api;
