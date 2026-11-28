@@ -4269,7 +4269,7 @@ const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
   'autoassembly.org.uk':'community', 'dcuguide.com':'community',
   'harrypotterstats.com':'community', 'comics.org':'community',
   'hp-lexicon.org':'community', 'fxguide.com':'editorial', 'khwiki.com':'community', 'bulbapedia.bulbagarden.net':'game-data', 'multiversus.wiki.gg':'community', 'bkbrent.com':'community', 'sparknotes.com':'editorial',
-  'silmarillionwritersguild.org':'community',
+  'silmarillionwritersguild.org':'community', 'vimeo.com':'community',
 });
 const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
 /* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */
