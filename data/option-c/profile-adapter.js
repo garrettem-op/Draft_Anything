@@ -227,6 +227,28 @@
         weakTo = d.weakTo.slice();
       }
     }
+    /* Version 2 combat extras from the research record, as the live fight applies them (research-moves.js
+     * researchCombatOf, same switch): the record's own guards and weaknesses for EVERY researched identity,
+     * a power barrier named in its defense wording, and fighting proficiency named in its techniques. */
+    const RMX = root.DA_RESEARCH_MOVES || (isNode ? require('./research-moves.js') : null);
+    const researchCombat = RMX && typeof RMX.researchCombatOf === 'function' ? RMX.researchCombatOf(candidate) : null;
+    if (researchCombat) {
+      for (const g of researchCombat.guard) if (!guards.includes(g)) guards.push(g);
+      for (const w of researchCombat.weakTo) if (!weakTo.includes(w)) weakTo.push(w);
+    }
+    const v1Shield = typeof L.attack.brawlShieldOf === 'function' ? L.attack.brawlShieldOf(candidate) : null;
+    const shieldSrc = v1Shield || (researchCombat && researchCombat.shield) || null;
+    const shield = shieldSrc ? {
+      kind: shieldSrc.kind, level: shieldSrc.level, blocks: shieldSrc.blocks, feat: shieldSrc.feat, source: shieldSrc.source || null,
+      origin: v1Shield ? 'brawl-shield-entry' : 'research-record', evidenceStatus: v1Shield ? EVIDENCE.REVIEWED : EVIDENCE.PROVISIONAL,
+      note: 'A depleting barrier separate from the body; it absorbs part of each hit until spent and is not invulnerability.',
+    } : null;
+    const proficiency = researchCombat && researchCombat.proficiency ? {
+      level: researchCombat.proficiency.level, technique: researchCombat.proficiency.technique, source: researchCombat.proficiency.source || null,
+      origin: 'research-record', evidenceStatus: EVIDENCE.PROVISIONAL,
+      note: 'Read from the record\'s own technique wording; a documented weapon or technique carries the blow instead of raw strength.',
+    } : null;
+
     /* Version 1's generic attack (derived from a reviewed attacking-power tag; main #691) is what the live
      * fight plays when there is neither an individual profile nor a research move. The evaluator reads the
      * same move so it judges the fight that is actually played. Evidence stays provisional: a tag-derived
@@ -240,7 +262,6 @@
         source: genericAttack.source || null, limitation: genericAttack.limit || null, continuity: null,
         origin: 'generic-attack', evidenceStatus: EVIDENCE.PROVISIONAL,
       };
-      guards = []; weakTo = [];
     }
     const ward = ability && ability.tier >= 4 && ['reality', 'cosmic', 'magic', 'elemental'].includes(ability.domain)
       ? { tier: ability.tier, note: 'Finite protective ward of a documented tier-4+ power; it depletes and is not invulnerability.' }
@@ -304,7 +325,7 @@
       id, formId, key: formId || id, pool, baseName, formName,
       displayName: String(candidate.n), isVariant, variantReviewed,
       continuity, attributes, physicalTier,
-      signature, guards, weakTo, ward, apexRank,
+      signature, guards, weakTo, ward, apexRank, shield, proficiency,
       apexLabel: apexRank === 2 ? 'Apex' : apexRank === 1 ? 'Empowered' : null,
       exceptional,
       forces: {
