@@ -40,7 +40,8 @@ test('every reviewed tier is tied to the record: the generated row carries the t
     assert.ok(typeof r[8] === 'string' && r[8].length >= 20, id + ' needs a basis from its record');
     if (t.domain) assert.equal(r[2], t.domain, id);
     if (t.domain === 'melee') assert.ok(t.move, id + ': a melee signature names its technique');
-    if (t.move) assert.ok(r[1].startsWith(t.move.slice(0, 20)), id + ': move named after the reviewed technique');
+    if (t.move) { const shown = r[1].toLowerCase(), named = t.move.toLowerCase(); // the generator capitalises and shortens the technique
+      assert.ok(shown.startsWith(named.slice(0, 20)) || named.startsWith(shown), id + ': move named after the reviewed technique'); }
   }
   for (const r of DATA.rows) if (!(r[0] in OVERLAY.tiers)) assert.equal(r.length, 7, r[0] + ' is not reviewed and must stay at the standard strength');
   const rec = { id: 'x:y', feats: [{ claim: 'Did a thing', citation: 'Book 1' }], offense: { techniques: ['Blast'] } };

@@ -29,7 +29,8 @@ Tier-4+ **psychic** power (Omega-level telekinesis or telepathy) now counts as h
 | mcu | 82 | **reviewed** | 7 | 20 | 1 | 12 | 11 |
 | dc | 76 | **reviewed** | 3 | 36 | 1 | 8 | 9 |
 | starwars | 56 | **reviewed** | 1 | 6 | 5 | 23 | 1 |
-| harrypotter, lotr, toons, games, pokemon, muppets, actionmovies | 509 | not yet | | | | | |
+| lotr | 55 | **reviewed** | 5 | 22 | 1 | 25 | 16 |
+| harrypotter, toons, games, pokemon, muppets, actionmovies | 454 | not yet | | | | | |
 
 Counts include reviewed melee signatures. Individual profiles re-tiered in Version 2: Yoda and Emperor Palpatine, tier 3 to tier 4 (paramount Force users of their setting; Version 1 keeps tier 3).
 
@@ -59,12 +60,26 @@ Between signature uses a power user strikes with a lesser use of the power, not 
 
 300 random battles: no errors.
 
+## Middle-earth (reviewed 2026-11-27)
+- **Tier 4:** Ancalagon the Black (drove back the Host of the Valar), Ungoliant (drained the Two Trees), Eärendil (slew Ancalagon), Lúthien (put Morgoth and his court to sleep), Oromë (melee: the huntsman of the Valar).
+- **Tier 3:** Smaug, Glaurung, Durin's Bane, Gothmog, Elrond (the Bruinen flood), Galadriel (threw down Dol Guldur), Finrod (the contest of songs with Sauron), the Witch-king (broke the gate of Minas Tirith), Tilion, Ossë.
+- **Melee signatures** for the duelists and beasts whose records name a feat against a dragon, a Balrog or a Dark Lord: Fingolfin, Fëanor, Glorfindel, Ecthelion, Gil-galad, Elendil, Húrin, Túrin, Thorondor, Huan, Carcharoth, Treebeard (tier 3); Tuor, Quickbeam, Beorn's bear form (tier 2). Ordinary-bodied weapon masters (Aragorn, Boromir, Legolas, Gimli, Éowyn) get none, as in the other pools: plain attacks, attributes and proficiency model them.
+- **Dropped (25):** ordinary swordplay and archery filed as "magic" (Celeborn, Círdan, Maglor, Thingol, Isildur, Beleg, Frodo), leadership and decrees (Finarfin, Amandil, Tar-Palantir, Tar-Míriel), craft and foresight (Celebrimbor, Idril), defences and escapes (Melian, Elwing), schemes (Gríma, Annatar), and the Valar whose gift is not an attack (Estë, Irmo, Námo, Nienna, Vairë, Vána, Yavanna).
+- **Fire is one type.** Dragon-fire and Balrog-fire are typed `elemental`, as Smaug's already was. Ancalagon's record listed only `energy` although both of its techniques are dragon-fire; `fire` was added to the record's power types.
+- **Record corrected:** Fëanor's technique named Ringil, which is Fingolfin's sword; it now reads "Swordsmanship with his own blade".
+- Attributes were reviewed in the same change: `docs/middle-earth-attribute-review.md` (22 characters).
+
+Measured (1,000 seeded duels, before to after): Tar-Míriel vs Aragorn 72.4% to 0.0%; Arwen vs Aragorn 91.7% to 52.5%; Idril vs Tuor 92.2% to 12.1%; Aragorn vs John Wick 40.2% to 53.1%; Aragorn vs Captain America 20.3% to 35.8%; Legolas vs Aragorn 81.1% to 67.6%; Gandalf vs Durin's Bane 64.9% to 55.6%; Ancalagon vs Smaug 47.0% to 81.4%; Ecthelion vs Gothmog 28.9% to 54.0%; Azog vs Thorin 5.1% to 60.4%; Ungoliant vs Sauron 15.5% to 36.7%; Huan vs Carcharoth 49.3% to 61.5%.
+
+Not solved in Middle-earth: Gimli vs Legolas 4.9% (see problem 6); Lúthien vs Sauron 7.7% and Witch-king vs Éowyn 98.9% (see problem 2: the engine has no enchantment or prophecy win condition); Eärendil vs Ancalagon 33% (he won with the Eagles' help).
+
 ## Left at the standard because the record has no feat that supports more
 Sentry, Martian Manhunter, Fernus the Burning, King Shazam, Apex Lex, Ikaris, Sersi, Wong, Human Torch, Rey, Lobo (tier 2 only), and the Star Wars forms without feats (Dark Empire Luke, Vader of Mustafar, Ahsoka the White). They need a feats pass before they can be tiered higher.
 
 ## Problems this review exposed (not fixed here)
-1. **Template attributes.** *DC fixed 2026-11-27*: 79 DC characters corrected one by one, each with a reason and a source, in `docs/dc-attribute-review.md` (Batman from Speed 67 / Agility 72 / Strength 64 to 80 / 92 / 84). Measured over 1,000 seeded duels, before to after: Batman vs John Wick 3.7% to 60.7%; Bane vs Batman 100% to 81.5%; Batman vs Captain America 0.7% to 40.5%; Batman vs Deathstroke 2.3% to 39.9%; Batman vs Joker 48.7% to 97.6%; Killer Croc vs Batman 99.9% to 55.5%; Captain Cold vs Flash 48.4% to 5.6%; Hal Jordan vs Sinestro 30.7% to 47.3%. **Still open:** Middle-earth and Harry Potter were built from the same templates and need the same review. Two DC results to revisit: Cassandra Cain vs Deathstroke fell from 36.6% to 6.8% (her small body now counts against her and the engine has no credit for pure skill against a stronger expert), and Green Arrow beats Hawkeye 88% (the assassin template is more generous than the hand-authored Marvel humans).
+1. **Template attributes.** *DC fixed 2026-11-27*: 79 DC characters corrected one by one, each with a reason and a source, in `docs/dc-attribute-review.md` (Batman from Speed 67 / Agility 72 / Strength 64 to 80 / 92 / 84). Measured over 1,000 seeded duels, before to after: Batman vs John Wick 3.7% to 60.7%; Bane vs Batman 100% to 81.5%; Batman vs Captain America 0.7% to 40.5%; Batman vs Deathstroke 2.3% to 39.9%; Batman vs Joker 48.7% to 97.6%; Killer Croc vs Batman 99.9% to 55.5%; Captain Cold vs Flash 48.4% to 5.6%; Hal Jordan vs Sinestro 30.7% to 47.3%. *Middle-earth fixed 2026-11-27* (22 characters, `docs/middle-earth-attribute-review.md`). **Still open:** Harry Potter was built from the same templates and needs the same review. Two DC results to revisit: Cassandra Cain vs Deathstroke fell from 36.6% to 6.8% (her small body now counts against her and the engine has no credit for pure skill against a stronger expert), and Green Arrow beats Hawkeye 88% (the assassin template is more generous than the hand-authored Marvel humans).
 2. **Purely mental powers in an HP fight.** Professor X at tier 4 still loses to John Wick nearly every time: a frail body, and the engine has no way to end a fight by taking a mind. That needs a qualitative win condition, not a bigger number.
 3. **Loose `control` typing.** Many dropped moves were tactics the research filed under `control`. The remaining pools will have more.
 4. **Compressed attributes at the top.** The Hulk still loses to Thor 85% and to Iron Man 86%: his stored Accuracy 45 and Touch 42 cut his hit rate and strike, and Strength 99 sits only 3 points above Iron Man's 96. That is an attribute-scale problem, not a tier problem.
 5. **Palpatine vs Vader (38%).** Palpatine's frail stored body and the single `energy` type (Vader's lightsaber guard and his lightning weakness cancel) keep the master behind the apprentice.
+6. **No credit for armour or pure skill in a small body.** Gimli killed one more Orc than Legolas at Helm's Deep and loses to him 95% of the time; Cassandra Cain loses to Deathstroke 93%. Their attributes are right; the engine reads Speed, Agility and Size and has nothing for mail, or for skill that outweighs reach. That needs an engine rule (armour from the research record, or a larger share for proficiency), not inflated attributes.

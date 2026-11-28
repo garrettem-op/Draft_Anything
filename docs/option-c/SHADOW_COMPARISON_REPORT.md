@@ -54,7 +54,7 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | Muppets vs DC roster | brawl | 104.8 / 111.9 | 0% | 25% | 0%–60% | yes | yes | provisional / numeric + typed | 60% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 113.3 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
-| Doctor Strange QB + NBA vs Middle-earth | football | 95.2 / 94.8 | 61% | 70% | 45%–95% | yes | yes | provisional / numeric only | n/a |
+| Doctor Strange QB + NBA vs Middle-earth | football | 95.2 / 93.7 | 73% | 80% | 55%–95% | yes | yes | provisional / numeric only | n/a |
 | Muppets vs NBA legends | basketball | 97.6 / 102.5 | 12% | 10% | 5%–25% | yes | yes | provisional / numeric only | n/a |
 | Cartoons vs Video Games | soccer | 95.9 / 73.4 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 | Wizarding World vs Pokemon | hockey | 87.7 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
@@ -109,7 +109,7 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 | Pool | Characters | Reviewed | Provisional | Unknown | Continuity open | Forms | Forms reviewed |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | dc | 104 | 17 | 74 | 13 | 37 | 40 | 18 |
-| lotr | 115 | 9 | 60 | 46 | 72 | 8 | 4 |
+| lotr | 115 | 9 | 53 | 53 | 72 | 8 | 4 |
 | harrypotter | 106 | 2 | 97 | 7 | 26 | 12 | 3 |
 | actionmovies | 100 | 0 | 13 | 87 | 99 | 0 | 0 |
 | nba | 134 | 0 | 0 | 134 | 0 | 0 | 0 |
@@ -119,7 +119,7 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 | games | 118 | 3 | 98 | 17 | 75 | 59 | 15 |
 | pokemon | 151 | 1 | 136 | 14 | 85 | 40 | 5 |
 | starwars | 98 | 5 | 56 | 37 | 63 | 8 | 3 |
-| **Total** | **1304** | **48** | **828** | **428** | **629** | **243** | **94** |
+| **Total** | **1304** | **48** | **821** | **435** | **629** | **243** | **94** |
 
 Typed combat coverage is 4% of base characters and 39% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 
