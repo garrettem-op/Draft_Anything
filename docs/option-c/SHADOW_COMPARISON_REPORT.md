@@ -46,11 +46,11 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | The Chungus vs The Crossover | brawl | 121.7 / 153.9 | 0% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
 | Batman crew vs Hellbat crew | brawl | 92.6 / 93.2 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
-| Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 10% |
+| Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 20% |
 | Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 30% | 0%–70% | **no** | **no** | provisional / numeric + typed | 20% |
 | Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
-| Black Adam crew vs Silver Surfer crew | brawl | 94.2 / 93.5 | 29% | 45% | 5%–85% | yes | yes | provisional / numeric + typed | 20% |
-| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 43% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 30% |
+| Black Adam crew vs Silver Surfer crew | brawl | 94.2 / 93.5 | 27% | 45% | 5%–85% | yes | yes | provisional / numeric + typed | 20% |
+| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 27% | 90% | 55%–100% | **no** | **no** | provisional / numeric + typed | 40% |
 | Muppets vs DC roster | brawl | 104.8 / 108.8 | 0% | 35% | 0%–70% | yes | yes | provisional / numeric + typed | 60% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 115.5 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
@@ -64,12 +64,12 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 
 Different favorite:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30%.
-- Looney crew vs Avengers: Version 1 43%, Option C 90%.
+- Looney crew vs Avengers: Version 1 27%, Option C 90%.
 
 Version 1 frequency outside the Option C range:
 - Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30% (0%–70%).
 - Darkseid crew vs Spectre crew: Version 1 0%, Option C 45% (5%–85%).
-- Looney crew vs Avengers: Version 1 43%, Option C 90% (55%–100%).
+- Looney crew vs Avengers: Version 1 27%, Option C 90% (55%–100%).
 - Superman + Kermit + NBA vs NBA legends: Version 1 100%, Option C 95% (75%–95%).
 - Spider-Man libero + NBA vs Star Wars: Version 1 100%, Option C 95% (75%–95%).
 - Cartoons vs Video Games: Version 1 100%, Option C 95% (70%–95%).
@@ -107,18 +107,18 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 
 | Pool | Characters | Reviewed | Provisional | Unknown | Continuity open | Forms | Forms reviewed |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| dc | 104 | 17 | 72 | 15 | 37 | 40 | 18 |
+| dc | 104 | 17 | 74 | 13 | 37 | 40 | 18 |
 | lotr | 115 | 9 | 60 | 46 | 72 | 8 | 4 |
 | harrypotter | 106 | 2 | 97 | 7 | 26 | 12 | 3 |
 | actionmovies | 100 | 0 | 13 | 87 | 99 | 0 | 0 |
 | nba | 134 | 0 | 0 | 134 | 0 | 0 | 0 |
-| mcu | 143 | 9 | 97 | 37 | 109 | 64 | 41 |
+| mcu | 143 | 9 | 98 | 36 | 109 | 64 | 41 |
 | toons | 134 | 2 | 95 | 37 | 63 | 12 | 5 |
 | muppets | 101 | 0 | 101 | 0 | 0 | 0 | 0 |
 | games | 118 | 3 | 98 | 17 | 75 | 59 | 15 |
 | pokemon | 151 | 1 | 136 | 14 | 85 | 40 | 5 |
-| starwars | 98 | 5 | 70 | 23 | 63 | 8 | 3 |
-| **Total** | **1304** | **48** | **839** | **417** | **629** | **243** | **94** |
+| starwars | 98 | 5 | 56 | 37 | 63 | 8 | 3 |
+| **Total** | **1304** | **48** | **828** | **428** | **629** | **243** | **94** |
 
 Typed combat coverage is 4% of base characters and 39% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 
@@ -256,7 +256,7 @@ Uncertainties that could change this:
 
 **Silver Surfer crew is favored over Black Adam crew, roughly 55/45 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for Black Adam crew: 5%–85%. Version 1 engine over 300 private seeds: Black Adam crew won 29%.
+Estimate range for Black Adam crew: 5%–85%. Version 1 engine over 300 private seeds: Black Adam crew won 27%.
 
 **Black Adam crew** (Version 1 rating 94.18)
 
@@ -380,10 +380,10 @@ Rules that still bind:
 
 What each starter can do:
 - Luke Skywalker [s, evidence: reviewed]: Documented technique: Force and lightsaber (psychic, tier 3). Limit: Lost to Vader on Cloud City (The Empire Strikes Back) and overpowered him on the second Death Star (Return of the Jedi); the Jedi Knight of Return of the Jedi is modelled. Guards against psychic and energy. Ability index: flight [provisional], psychic [provisional]. Signature move "Trench Run" (clutch).
-- Yoda [oh1, evidence: reviewed]: Documented technique: Force mastery (psychic, tier 3). Limit: Absorbed Dooku's and Sidious's Force lightning and fought Sidious to a standstill (Revenge of the Sith); not an automatic win. Guards against psychic and energy. Ability index: psychic [provisional]. Signature move "Size Matters Not" (unbreakable).
-- Obi-Wan Kenobi [mb1, evidence: provisional]: Documented technique: Soresu (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Signature move "The High Ground" (clutch).
-- Anakin Skywalker [opp, evidence: provisional]: Documented technique: Aggressive Djem So lightsaber combat (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [needs-review], psychic [provisional].
-- Mace Windu [oh2, evidence: provisional]: Documented technique: Vaapad (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: psychic [provisional]. Signature move "Vaapad" (chaos).
+- Yoda [oh1, evidence: reviewed]: Documented technique: Force mastery (psychic, tier 4). Limit: Grand Master of the Jedi Order: absorbed Dooku's and Sidious's Force lightning and fought Sidious to a standstill (Revenge of the Sith); not an automatic win. Guards against psychic and energy. Ability index: psychic [provisional]. Signature move "Size Matters Not" (unbreakable).
+- Obi-Wan Kenobi [mb1, evidence: provisional]: Documented technique: Soresu (energy, tier 3). Limit: Research move (Version 2), reviewed power tier 3. Basis in its research record: Defeated General Grievous in lightsaber and blaster combat. (Star Wars: Episode III - Revenge of the Sith) Guards against energy. Ability index: flight [provisional], psychic [provisional]. Signature move "The High Ground" (clutch).
+- Anakin Skywalker [opp, evidence: provisional]: Documented technique: Aggressive Djem So lightsaber combat (energy, tier 3). Limit: Research move (Version 2), reviewed power tier 3. Basis in its research record: Defeated Count Dooku in single combat aboard the Invisible Hand. (Star Wars Episode III: Revenge of the Sith) Guards against energy. Ability index: flight [needs-review], psychic [provisional].
+- Mace Windu [oh2, evidence: provisional]: Documented technique: Vaapad (energy, tier 3). Limit: Research move (Version 2), reviewed power tier 3. Basis in its research record: Disarmed and defeated Darth Sidious in a lightsaber duel. (Star Wars: Episode III - Revenge of the Sith) Guards against energy. Ability index: psychic [provisional]. Signature move "Vaapad" (chaos).
 - Qui-Gon Jinn [lib, evidence: provisional]: Documented technique: Ataru lightsaber form (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: psychic [provisional].
 - Ahsoka Tano [mb2, evidence: provisional]: Documented technique: Dual lightsabers (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Sidekick role tag (supports Anakin Skywalker).
 

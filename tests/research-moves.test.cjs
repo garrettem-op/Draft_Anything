@@ -25,7 +25,9 @@ test('generated moves: real identities, power types only, never a V1-profiled ch
   for (const [id, move, domain, guard, weakTo, source, continuity] of DATA.rows) {
     assert.ok(ROSTER.has(id), 'not a roster identity: ' + id);
     assert.ok(!seen.has(id), 'duplicate ' + id); seen.add(id);
-    assert.ok(POWER_TYPES.has(domain), id + ': ' + domain + ' is not a non-physical power type');
+    // A melee signature exists only by review (research/option-c/power-tiers.json), never by default.
+    if (domain === 'melee') assert.ok(Number.isInteger(DATA.rows.find((r) => r[0] === id)[7]), id + ': a melee signature needs a reviewed tier');
+    else assert.ok(POWER_TYPES.has(domain), id + ': ' + domain + ' is not a non-physical power type');
     assert.ok(typeof move === 'string' && move.length >= 3 && move.length <= 46, id + ': bad move name ' + move);
     assert.ok(!CORE[id] && !VARIANT_ABILITY_PROFILES[id], id + ' already has a V1 combat profile');
     assert.ok(!id.startsWith('nba:'), 'NBA players never get research moves');
@@ -61,7 +63,8 @@ test('researchMoveOf: standard strength, fresh objects, forms by their own recor
   m.guard.push('x');
   assert.deepEqual(RM.researchMoveOf(pika).guard, [], 'callers cannot change the shared table');
   assert.deepEqual(Object.keys(pika), ['pool', 'n', 'a'], 'candidate not mutated');
-  assert.equal(RM.researchMoveOf({ pool: 'mcu', n: 'Hulk' }), null, 'physical-only research gives no move');
+  assert.equal(RM.researchMoveOf({ pool: 'mcu', n: 'Captain America' }), null, 'physical-only research gives no move');
+  assert.equal(RM.researchMoveOf({ pool: 'mcu', n: 'Hulk' }).domain, 'melee', 'unless a review gives the powerhouse a melee signature');
   assert.equal(RM.researchMoveOf({ pool: 'nba', n: 'Michael Jordan' }), null);
   assert.equal(RM.researchMoveOf({ pool: 'pokemon', n: 'Pikachu', variantAbilities: { domains: ['energy'] } }), null, 'a reviewed form keeps its V1 kit');
   const formRow = DATA.rows.find((r) => r[0].includes('|'));
@@ -94,7 +97,8 @@ test('in the page: research moves fight beside V1 profiles; V1 kits win; switch 
   assert.equal(row('lotr:Gandalf'), undefined, 'a V1-profiled character has no generated research move');
   assert.equal(a.Gandalf.move, CORE['lotr:Gandalf'].move, 'individual V1 profile kept');
   assert.equal(a.Darkseid.move, 'Omega Beams', 'V1 profile kept'); assert.equal(a.Superman.move, 'Kryptonian power');
-  assert.equal(a.Hulk.move, '', 'physical-only research: plain attacks, as in V1');
+  assert.equal(a.Hulk.move, 'Destructive ground smashes', 'a reviewed melee signature from his record');
+  assert.equal(b.Hulk.move, '', 'switch off: plain attacks, as in V1');
   // A research move at the standard strength never brings a ward; no research move ever brings an Apex rank.
   for (const x of on.f) if (/Research move/.test(x.limit)) { if (!/reviewed power tier 4/.test(x.limit)) assert.equal(x.ward, 0, x.name + ' gets no ward'); assert.equal(x.apex, 0, x.name + ' gets no Apex rank'); }
   // Switch off = Version 1: Pikachu falls back to V1's generic attack from his reviewed electric tag (main #691),

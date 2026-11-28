@@ -3,7 +3,8 @@
  "note": "Reviewed power tiers for Version 2 research moves (editorial gameplay calibration by the project lead; rubric in docs/option-c/POWER_TIERS.md). Every listed tier is tied to a feat or technique in that character's own research record by tools/build-research-moves.cjs. Characters not listed stay at the standard research strength (tier 2).",
  "reviewedPools": [
   "mcu",
-  "dc"
+  "dc",
+  "starwars"
  ],
  "tiers": {
   "dc:Aquaman": {
@@ -13,6 +14,16 @@
   },
   "dc:Atrocitus": {
    "tier": 3
+  },
+  "dc:Bane": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Venom-pumped strikes"
+  },
+  "dc:Batman|Devastator Batman": {
+   "tier": 3,
+   "domain": "melee",
+   "move": "Brutal physical strikes with Doomsday-enhanced strength"
   },
   "dc:Beast Boy|Starro Beast Boy": {
    "tier": 3
@@ -30,6 +41,11 @@
   "dc:Captain Atom": {
    "tier": 3
   },
+  "dc:Cheetah": {
+   "tier": 3,
+   "domain": "melee",
+   "move": "Feral claw slashing"
+  },
   "dc:Circe": {
    "tier": 3
   },
@@ -45,6 +61,11 @@
   "dc:General Zod": {
    "tier": 3
   },
+  "dc:Giganta": {
+   "tier": 3,
+   "domain": "melee",
+   "move": "Giant-scale physical strikes"
+  },
   "dc:Gorilla Grodd": {
    "tier": 3
   },
@@ -58,14 +79,30 @@
    "tier": 4,
    "domain": "cosmic"
   },
+  "dc:Hawkman": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Nth-metal mace bludgeoning"
+  },
   "dc:Jon Kent": {
    "tier": 3
+  },
+  "dc:King Shark": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Crushing bite"
   },
   "dc:Krypto": {
    "tier": 3
   },
   "dc:Larfleeze": {
    "tier": 3
+  },
+  "dc:Lobo": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Brutal hand-to-hand combat",
+   "technique": "Brutal hand-to-hand combat"
   },
   "dc:Mera": {
    "tier": 3
@@ -91,6 +128,11 @@
   },
   "dc:Sinestro|Parallax Sinestro": {
    "tier": 4
+  },
+  "dc:Solomon Grundy": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Brute force strikes"
   },
   "dc:Starfire": {
    "tier": 3
@@ -120,6 +162,11 @@
   },
   "dc:The Flash (Wally West)": {
    "tier": 3
+  },
+  "dc:Wonder Woman|Golden Eagle Armor Wonder Woman": {
+   "tier": 3,
+   "domain": "melee",
+   "move": "Wing-assisted strikes"
   },
   "dc:Zoom (Hunter Zolomon)": {
    "tier": 3
@@ -154,6 +201,16 @@
   "mcu:Hela": {
    "tier": 4
   },
+  "mcu:Hulk": {
+   "tier": 3,
+   "domain": "melee",
+   "move": "Destructive ground smashes"
+  },
+  "mcu:Hulk|Green Scar Hulk": {
+   "tier": 3,
+   "domain": "melee",
+   "move": "Calculated shockwave stomps"
+  },
   "mcu:Invisible Woman": {
    "tier": 3
   },
@@ -163,8 +220,19 @@
   "mcu:Kang the Conqueror": {
    "tier": 3
   },
+  "mcu:Luke Cage": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Superhuman punch",
+   "feat": 1
+  },
   "mcu:Monica Rambeau": {
    "tier": 3
+  },
+  "mcu:Namor": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Vibranium spear strikes"
   },
   "mcu:Professor X": {
    "tier": 4
@@ -175,13 +243,34 @@
   "mcu:Shang-Chi": {
    "tier": 3
   },
+  "mcu:She-Hulk": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Gamma-powered strikes and shockwaves"
+  },
   "mcu:Silver Surfer": {
    "tier": 4,
    "domain": "cosmic"
   },
+  "mcu:Smart Hulk": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Hulk-level physical strikes",
+   "feat": 1
+  },
+  "mcu:Thanos": {
+   "tier": 4,
+   "domain": "melee",
+   "move": "Brute physical pummeling"
+  },
   "mcu:The Ancient One": {
    "tier": 3,
    "domain": "magic"
+  },
+  "mcu:The Thing": {
+   "tier": 3,
+   "domain": "melee",
+   "move": "Heavy rock punches"
   },
   "mcu:Thor": {
    "tier": 3
@@ -192,11 +281,79 @@
   "mcu:Vision": {
    "tier": 3
   },
+  "mcu:Wolverine": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Adamantium claw slashing and stabbing",
+   "technique": "Adamantium claw slashing and stabbing"
+  },
+  "mcu:Wolverine|Old Man Logan": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Adamantium claw slashing"
+  },
+  "mcu:Wolverine|Weapon X Wolverine": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Adamantium claw strikes",
+   "feat": 1
+  },
   "mcu:Xu Wenwu": {
    "tier": 3
   },
   "mcu:Zeus": {
    "tier": 4
+  },
+  "starwars:Anakin Skywalker": {
+   "tier": 3
+  },
+  "starwars:Bo-Katan Kryze": {
+   "tier": 2,
+   "move": "Darksaber combat"
+  },
+  "starwars:Boba Fett": {
+   "tier": 1,
+   "move": "Wrist flamethrower"
+  },
+  "starwars:Chopper": {
+   "tier": 1
+  },
+  "starwars:Darth Maul": {
+   "tier": 3
+  },
+  "starwars:Emperor Palpatine|Clone Emperor Palpatine": {
+   "tier": 4,
+   "domain": "magic"
+  },
+  "starwars:Jango Fett": {
+   "tier": 1
+  },
+  "starwars:Kylo Ren": {
+   "tier": 3
+  },
+  "starwars:Mace Windu": {
+   "tier": 3
+  },
+  "starwars:Moff Gideon": {
+   "tier": 2,
+   "move": "Darksaber combat"
+  },
+  "starwars:Obi-Wan Kenobi": {
+   "tier": 3
+  },
+  "starwars:R2-D2": {
+   "tier": 1
+  },
+  "starwars:Rancor": {
+   "tier": 2,
+   "domain": "melee",
+   "move": "Massive physical crushing"
+  },
+  "starwars:Supreme Leader Snoke": {
+   "tier": 3
+  },
+  "starwars:The Mandalorian": {
+   "tier": 1
   }
  },
  "noMove": {
@@ -219,6 +376,29 @@
   "mcu:Ned Leeds": "Opening a portal for positioning is not an attack.",
   "mcu:Obadiah Stane": "A machine gun is an ordinary weapon; plain attacks model it.",
   "mcu:Valentina Allegra de Fontaine": "Recruiting and directing operatives is not an arena attack.",
-  "mcu:Zemo": "Psychological manipulation and framing is a scheme, not an arena attack."
+  "mcu:Zemo": "Psychological manipulation and framing is a scheme, not an arena attack.",
+  "starwars:Admiral Ackbar": "Coordinating a fleet bombardment is command, not an arena attack.",
+  "starwars:Admiral Holdo": "A lightspeed ram is a starship maneuver, not an arena attack.",
+  "starwars:Bail Organa": "Political maneuvering is not a way of hurting an opponent.",
+  "starwars:Battle Droid": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Bossk": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Cad Bane": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Captain Phasma": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Captain Rex": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Chewbacca": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Chirrut Îmwe": "Staff strikes are physical blows; plain attacks and proficiency model them.",
+  "starwars:Droideka": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Finn": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Greedo": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Jabba the Hutt": "Ordering an execution is not his own arena attack.",
+  "starwars:Maz Kanata": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Mon Mothma": "Oratory and political mobilization is not an arena attack.",
+  "starwars:Obi-Wan Kenobi|Force Spirit Obi-Wan": "Guidance and telepathic counsel is not an attack.",
+  "starwars:Sabine Wren": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Stormtrooper": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Watto": "Verbal threats are not an attack.",
+  "starwars:Wedge Antilles": "A starfighter torpedo is a vehicle weapon, not an arena attack.",
+  "starwars:Wrecker": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it.",
+  "starwars:Zeb Orrelios": "A blaster is the setting's ordinary sidearm; plain attacks and proficiency model it."
  }
 }

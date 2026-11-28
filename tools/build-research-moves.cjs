@@ -116,6 +116,19 @@ function build() {
     if (CORE[r.id] || VARIANT_ABILITY_PROFILES[r.id]) { skipped.v1Profile++; continue; }
     if (!USABLE_STATUS.has(r.researchStatus)) { skipped.needsReview++; continue; }
     const d = deriveFromRecord(r);
+    /* A reviewed MELEE signature (2026-11-27): a physical powerhouse whose record lists physical offense
+       can be given a melee signature move by review, named after one of its own techniques and tied to a
+       feat like any other tier. Version 1 does the same by hand for Superman, Doomsday and Abomination. */
+    const tm = overlay.tiers && overlay.tiers[r.id];
+    if (d && tm && tm.domain === 'melee') {
+      const tokens = ((r.offense && r.offense.domains) || []).map((x) => String(x).toLowerCase());
+      if (!tokens.includes('physical') && !tokens.includes('melee')) throw new Error(r.id + ': a melee signature needs physical offense in the record');
+      if (!tm.move || !((r.offense && r.offense.techniques) || []).includes(tm.move)) throw new Error(r.id + ': a melee signature must name a technique in the record');
+      if (!(Number.isInteger(tm.tier) && tm.tier >= 1 && tm.tier <= 4)) throw new Error(r.id + ': reviewed tier must be 1-4');
+      const continuity = String(r.continuity || '').replace(/\s+/g, ' ').trim().slice(0, 110);
+      rows.push([r.id, shortName(tm.move), 'melee', d.guards, d.weakTo, d.source || '', continuity, tm.tier, tierBasis(r, tm)]);
+      used.add(r.id); continue;
+    }
     if (!d || !d.primaryDomain) { skipped.physicalOnly++; continue; }
     if (overlay.noMove && overlay.noMove[r.id]) { skipped.noMove++; used.add(r.id); continue; }
     const t = overlay.tiers && overlay.tiers[r.id];

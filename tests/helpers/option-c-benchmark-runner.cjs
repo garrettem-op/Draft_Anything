@@ -49,7 +49,9 @@ const PAGE = `
     const T = brawlTeam({ d1: ['mcu', 'Thanos', 'King Thanos'] }), L = ledger('brawl', T);
     out['combat-identity-form-king-thanos'] = {
       distinct: base.key !== king.key && king.formId === 'mcu:Thanos|King Thanos',
-      baseHasNoFormPower: base.signature === null && base.apexRank === 0 && base.guards.length === 0,
+      // The base may fight with its own reviewed signature (2026-11-27: Thanos has a reviewed melee signature
+      // from his own record), but never with the form's move, origin or Apex rank.
+      baseHasNoFormPower: (base.signature === null || (base.signature.label !== 'End-of-Time Onslaught' && base.signature.origin !== 'variant-ability-profile')) && base.apexRank === 0,
       formPower: king.signature.label === 'End-of-Time Onslaught' && king.apexRank > 0,
       formImpactRecorded: !!entry(L, 'apex-form:d1') && !!entry(L, 'variant-surge:d1'),
       formLimitKept: /does not grant Infinity Stones/.test(king.signature.limitation || ''),
