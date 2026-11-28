@@ -7,6 +7,8 @@
  const entries=[
  // Full-roster baseline powers. No variant gear or future form is silently stacked.
  ['dc:Perpetua','Multiversal creation surge','reality',5,.40,['reality','cosmic'],4,'https://www.dcuniverseinfinite.com/comics/book/justice-league-2018-38/caabff58-ead0-460e-9572-46c7482745f4','Restored creator portrayal; power is bounded by the arena and can be depleted or opposed.'],
+ ['games:Mewtwo','Psystrike','psychic',3,.24,['psychic'],3,'https://www.pokemon.com/us/pokedex/0150','Powerful psychic attacks, not unrestricted reality alteration.'],
+ ['pokemon:Mewtwo','Psystrike','psychic',3,.24,['psychic'],3,'https://www.pokemon.com/us/pokedex/0150','Powerful psychic attacks, not unrestricted reality alteration.'],
  ['toons:Marvin the Martian','Martian energy weapon','tech',4,.32,['tech'],3,'https://www.imdb.com/title/tt0051701/','Advanced alien arsenal includes the Q-36 device; arena attacks are bounded and do not destroy planets.'],
  ['games:Rayman','Extendable fist strike','melee',3,.18,[],3,'https://www.ubisoft.com/en-us/games/rayman-legends','Limbless melee and platforming attacks require range and timing; not an automatic knockout.'],
  ['games:Bowser','Fire breath','elemental',3,.20,['elemental'],3,'https://www.mariowiki.com/Fire_Breath','Base Bowser uses fire breath; giant Fury form is not assumed.'],
@@ -62,12 +64,14 @@
    if(activeForm(candidate)){
      const v=candidate.variantAbilities,tier=clamp(Number(v.tier)||2,1,5);
      const hellbat=candidate.pool==='dc'&&candidate.n==='Hellbat Armor Batman'&&v.move==='Hellbat Counteroffensive';
+     const armoredMewtwo=candidate.pool==='games'&&candidate.variantBase==='Mewtwo'&&candidate.n==='Armored Mewtwo'&&v.move==='Restrained psychic blast';
      return {
        move:v.move||'Signature strike',domain:v.domains[0],tier,
-       pierce:hellbat ? .34 :clamp(.08+.045*tier,.10,.34),
+       pierce:hellbat ? .34 : armoredMewtwo ? .12 :clamp(.08+.045*tier,.10,.34),
        guard:Array.isArray(v.guards)?v.guards.slice(0,8):[],
        weakTo:Array.isArray(v.weakTo)?v.weakTo.slice(0,8):[],
-       cooldown:hellbat ? 3 :(tier>=5?4:3),
+       cooldown:hellbat ? 3 : armoredMewtwo ? 4 :(tier>=5?4:3),
+       armorHp:armoredMewtwo ? 70 : 0,armorPhysicalGuard:armoredMewtwo ? .12 : 0,
        wearStart:hellbat ? 5 :0,wearRate:hellbat ? .025 :0,
        source:hellbat?'https://www.dc.com/blog/2014/12/19/this-just-happened-robin-rises-batman-falls':(v.source||''),
        origin:v.origin||'',limit:v.limit||'',
