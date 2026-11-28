@@ -1,0 +1,224 @@
+{
+ "schema": 1,
+ "note": "Reviewed power tiers for Version 2 research moves (editorial gameplay calibration by the project lead; rubric in docs/option-c/POWER_TIERS.md). Every listed tier is tied to a feat or technique in that character's own research record by tools/build-research-moves.cjs. Characters not listed stay at the standard research strength (tier 2).",
+ "reviewedPools": [
+  "mcu",
+  "dc"
+ ],
+ "tiers": {
+  "dc:Aquaman": {
+   "tier": 2,
+   "domain": "control",
+   "move": "Marine life command"
+  },
+  "dc:Atrocitus": {
+   "tier": 3
+  },
+  "dc:Beast Boy|Starro Beast Boy": {
+   "tier": 3
+  },
+  "dc:Bizarro": {
+   "tier": 3
+  },
+  "dc:Black Adam": {
+   "tier": 3,
+   "domain": "magic"
+  },
+  "dc:Brainiac": {
+   "tier": 3
+  },
+  "dc:Captain Atom": {
+   "tier": 3
+  },
+  "dc:Circe": {
+   "tier": 3
+  },
+  "dc:Deathstroke|Godkiller Deathstroke": {
+   "tier": 3
+  },
+  "dc:Etrigan": {
+   "tier": 3
+  },
+  "dc:Firestorm": {
+   "tier": 3
+  },
+  "dc:General Zod": {
+   "tier": 3
+  },
+  "dc:Gorilla Grodd": {
+   "tier": 3
+  },
+  "dc:Green Lantern (Hal Jordan)": {
+   "tier": 3
+  },
+  "dc:Green Lantern (John Stewart)": {
+   "tier": 3
+  },
+  "dc:Green Lantern (John Stewart)|Ascended John Stewart": {
+   "tier": 4,
+   "domain": "cosmic"
+  },
+  "dc:Jon Kent": {
+   "tier": 3
+  },
+  "dc:Krypto": {
+   "tier": 3
+  },
+  "dc:Larfleeze": {
+   "tier": 3
+  },
+  "dc:Mera": {
+   "tier": 3
+  },
+  "dc:Penguin": {
+   "tier": 1
+  },
+  "dc:Power Girl": {
+   "tier": 3
+  },
+  "dc:Raven": {
+   "tier": 3
+  },
+  "dc:Reverse-Flash (Eobard Thawne)": {
+   "tier": 3
+  },
+  "dc:Shazam": {
+   "tier": 3,
+   "domain": "magic"
+  },
+  "dc:Sinestro": {
+   "tier": 3
+  },
+  "dc:Sinestro|Parallax Sinestro": {
+   "tier": 4
+  },
+  "dc:Starfire": {
+   "tier": 3
+  },
+  "dc:Supergirl (Kara Zor-El)": {
+   "tier": 3
+  },
+  "dc:Supergirl (Kara Zor-El)|Red Lantern Supergirl": {
+   "tier": 3
+  },
+  "dc:Superman|Kingdom Come Superman": {
+   "tier": 3
+  },
+  "dc:Superman|Superman Doomed": {
+   "tier": 3
+  },
+  "dc:Swamp Thing": {
+   "tier": 3,
+   "feat": 1,
+   "move": "Plant manipulation and growth"
+  },
+  "dc:The Flash (Barry Allen)": {
+   "tier": 3
+  },
+  "dc:The Flash (Barry Allen)|Black Racer Barry Allen": {
+   "tier": 4
+  },
+  "dc:The Flash (Wally West)": {
+   "tier": 3
+  },
+  "dc:Zoom (Hunter Zolomon)": {
+   "tier": 3
+  },
+  "mcu:Agatha Harkness": {
+   "tier": 3
+  },
+  "mcu:Captain America|Worthy Captain America": {
+   "tier": 3
+  },
+  "mcu:Captain Marvel": {
+   "tier": 3
+  },
+  "mcu:Cassandra Nova": {
+   "tier": 4
+  },
+  "mcu:Doctor Doom": {
+   "tier": 3
+  },
+  "mcu:Druig": {
+   "tier": 3
+  },
+  "mcu:Ego": {
+   "tier": 4
+  },
+  "mcu:Gorr the God Butcher": {
+   "tier": 3
+  },
+  "mcu:Grandmaster": {
+   "tier": 1
+  },
+  "mcu:Hela": {
+   "tier": 4
+  },
+  "mcu:Invisible Woman": {
+   "tier": 3
+  },
+  "mcu:Iron Man|Godbuster Iron Man": {
+   "tier": 3
+  },
+  "mcu:Kang the Conqueror": {
+   "tier": 3
+  },
+  "mcu:Monica Rambeau": {
+   "tier": 3
+  },
+  "mcu:Professor X": {
+   "tier": 4
+  },
+  "mcu:Ronan the Accuser": {
+   "tier": 3
+  },
+  "mcu:Shang-Chi": {
+   "tier": 3
+  },
+  "mcu:Silver Surfer": {
+   "tier": 4,
+   "domain": "cosmic"
+  },
+  "mcu:The Ancient One": {
+   "tier": 3,
+   "domain": "magic"
+  },
+  "mcu:Thor": {
+   "tier": 3
+  },
+  "mcu:Ultron|Phalanx Ultron": {
+   "tier": 3
+  },
+  "mcu:Vision": {
+   "tier": 3
+  },
+  "mcu:Xu Wenwu": {
+   "tier": 3
+  },
+  "mcu:Zeus": {
+   "tier": 4
+  }
+ },
+ "noMove": {
+  "dc:Amanda Waller": "Deploying a task force is not an arena attack.",
+  "dc:Batman|The Batman Who Laughs": "Batarangs are ordinary thrown weapons; plain attacks model them.",
+  "dc:Clayface": "Mimicry is a disguise, not an attack.",
+  "dc:Killer Croc": "A bite is a physical attack; plain attacks model it.",
+  "dc:Plastic Man": "Constriction is a physical hold; plain attacks model it.",
+  "dc:Riddler": "Prepared death traps are a scheme, not an arena attack.",
+  "dc:Vixen": "Borrowed animal attributes are physical; plain attacks model them.",
+  "dc:Wonder Woman|Flashpoint Wonder Woman": "Sword and spear combat is a physical skill; plain attacks model it.",
+  "mcu:Captain America|Hydra Supreme (Steve Rogers)": "A thrown shield is an ordinary weapon strike; plain attacks model it.",
+  "mcu:Deadpool|Zenpool": "Non-violent mediation is not a way of hurting an opponent.",
+  "mcu:Heimdall": "Sword combat is a physical skill; plain attacks and proficiency model it.",
+  "mcu:Hercules": "Mace strikes are physical blows; plain attacks model them.",
+  "mcu:Mole Man": "An ambush is a tactic; plain attacks already model it.",
+  "mcu:Moon Knight": "A thrown blade is an ordinary weapon strike; plain attacks model it.",
+  "mcu:Moon Knight|Jake Lockley (Moon Knight)": "Close-quarters combat is a physical skill; plain attacks model it.",
+  "mcu:Moon Knight|Mr. Knight": "Truncheon strikes are physical blows; plain attacks model them.",
+  "mcu:Ned Leeds": "Opening a portal for positioning is not an attack.",
+  "mcu:Obadiah Stane": "A machine gun is an ordinary weapon; plain attacks model it.",
+  "mcu:Valentina Allegra de Fontaine": "Recruiting and directing operatives is not an arena attack.",
+  "mcu:Zemo": "Psychological manipulation and framing is a scheme, not an arena attack."
+ }
+}

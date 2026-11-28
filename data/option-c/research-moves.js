@@ -7,7 +7,10 @@
  *  - the move's name is the record's own technique;
  *  - its strength is ONE fixed standard for every research move (tier 2, 17% pierce, every third
  *    round), because the research deliberately records no power level. Tier 2 never triggers the
- *    tier-4+ ward, damage floor or Apex/Empowered rules, so no character is promoted by research.
+ *    tier-4+ ward, damage floor or Apex/Empowered rules, so no character is promoted by research alone.
+ *  - a REVIEWED tier (research/option-c/power-tiers.json, rubric in docs/option-c/POWER_TIERS.md) replaces
+ *    the standard where the project lead has read the record and tied the tier to one of its feats or
+ *    techniques. Tier 1-4 only; tier 5 and Apex/intrinsic ranks stay with individual profiles.
  * A Version 1 profile (core or reviewed form) always wins: this module is only asked when the V1
  * lookup returned nothing. Without these two files the fight engine behaves exactly as in V1.
  *
@@ -20,6 +23,8 @@
   const isNode = typeof module !== 'undefined' && !!module.exports && typeof require === 'function';
   const STRENGTH = Object.freeze({ tier: 2, pierce: 0.17, cooldown: 3 });
   const LIMIT = 'Research move (Version 2): its power type comes from this character\'s research record. It hits at the standard research strength because the research records no power level.';
+  /* Pierce by tier: 12%, 17% (the standard), 22%, 27%. */
+  const pierceFor = (tier) => Math.round((0.07 + 0.05 * tier) * 100) / 100;
   let enabled = true;
   let index = null;
 
@@ -31,8 +36,9 @@
     if (index) return index;
     index = Object.create(null);
     const d = data();
-    for (const [id, move, domain, guard, weakTo, source, continuity] of (d && d.rows) || []) {
-      index[id] = Object.freeze({ move, domain, guard: Object.freeze(guard.slice()), weakTo: Object.freeze(weakTo.slice()), source, continuity });
+    for (const [id, move, domain, guard, weakTo, source, continuity, tier, basis] of (d && d.rows) || []) {
+      index[id] = Object.freeze({ move, domain, guard: Object.freeze(guard.slice()), weakTo: Object.freeze(weakTo.slice()), source, continuity,
+        tier: Number.isInteger(tier) ? tier : null, basis: basis || '' });
     }
     return index;
   }
@@ -48,10 +54,14 @@
     if (c.variantAbilities && Array.isArray(c.variantAbilities.domains) && c.variantAbilities.domains.length) return null;
     const m = lookup()[researchIdOf(c)];
     if (!m) return null;
+    // A reviewed tier (research/option-c/power-tiers.json) replaces the standard strength; pierce follows the tier.
+    const tier = m.tier || STRENGTH.tier;
     return {
-      move: m.move, domain: m.domain, tier: STRENGTH.tier, pierce: STRENGTH.pierce,
+      move: m.move, domain: m.domain, tier, pierce: pierceFor(tier),
       guard: m.guard.slice(), weakTo: m.weakTo.slice(), cooldown: STRENGTH.cooldown,
-      wearStart: 0, wearRate: 0, source: m.source, origin: 'research', limit: LIMIT, continuity: m.continuity,
+      wearStart: 0, wearRate: 0, source: m.source, origin: 'research', continuity: m.continuity,
+      tierReviewed: !!m.tier, basis: m.basis,
+      limit: m.tier ? 'Research move (Version 2), reviewed power tier ' + m.tier + '. Basis in its research record: ' + m.basis : LIMIT,
     };
   }
   /* Combat extras from the same research record (2026-11-27), for EVERY researched identity, V1-profiled
@@ -93,7 +103,7 @@
   }
 
   const api = {
-    version: 'research-moves-v2', STRENGTH, LIMIT,
+    version: 'research-moves-v3', STRENGTH, LIMIT, pierceFor,
     enabled: () => enabled, setEnabled: (on) => { enabled = !!on; }, withEnabled,
     researchIdOf, researchMoveOf, count: () => Object.keys(lookup()).length,
     SHIELD, STRIKE, researchCombatOf, combatCount: () => Object.keys(combatLookup()).length,

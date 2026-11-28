@@ -216,8 +216,10 @@
     // High-order magic/reality/cosmic entities bring limited protective power
     // even when their human/child physical stats are unexceptional. This is a
     // depleted gameplay ward, not an assertion of literal invulnerability.
+    // Version 2 (2026-11-27): tier-4+ psychic power (Omega-level telekinesis or telepathy) is as
+    // high-order as tier-4 elemental power, so it brings the same finite ward and damage floor.
     const wardHp=ability&&ability.tier>=4&&
-      ['reality','cosmic','magic','elemental'].includes(ability.domain)
+      ['reality','cosmic','magic','elemental','psychic'].includes(ability.domain)
       ?Math.round(26*ability.tier):0;
     const armorHp=ability?.armorHp||0;
     const armorPhysicalGuard=ability?.armorPhysicalGuard||0;
@@ -375,7 +377,7 @@
         const rolled=f.attack*(f.tank?1.02:1.14)*support[f.side]*
           (.83+.34*rng())*fatigue*(action?.82:1)*(signature?(1+.19+.06*p.tier):1);
         const elevated=signature&&p.tier>=4&&
-          ['reality','cosmic','magic','elemental'].includes(p.domain);
+          ['reality','cosmic','magic','elemental','psychic'].includes(p.domain);
         const floor=elevated?(30+14*p.tier)*support[f.side]*fatigue:0;
         let raw=Math.max(1,Math.round(Math.max(rolled,floor)));
         const domain=signature?p.domain:'physical';

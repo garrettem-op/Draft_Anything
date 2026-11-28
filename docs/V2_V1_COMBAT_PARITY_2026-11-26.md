@@ -119,3 +119,6 @@ The whole Version 1 line since the baseline (50 commits: lane targeting and form
 - Rule 2 (durability is not body size): **first version live**: a power barrier named in the record is a depleting shield at the weakest V1 strength; research weaknesses and guards now reach V1-profiled and physical-only characters.
 - Rules 3 and 4 (per-character attribute review; era-specific portrayals): open.
 - Fixtures after this change (research on): Jean Grey vs Achilles 34%, Yoda vs Achilles 17%, Yoda vs Palpatine 72%, Vader vs Luke 80%, Dumbledore vs Voldemort 53%, Doctor Strange vs Scarlet Witch 32%. Jean and Yoda are still not favored over Achilles: that needs reviewed power tiers per character and the attribute review, not a stronger generic rule.
+
+## Reviewed power tiers, 2026-11-27
+`docs/option-c/POWER_TIERS.md` is the ledger for the per-character combat profile review. Marvel and DC research moves are reviewed (2 of 10 pools). Fixtures now met: Jean Grey vs Achilles 69% (Jean favored), Silver Surfer vs Black Adam 90%. Still open: Yoda vs Achilles 17% and Vader vs Luke 80% (Star Wars pool not yet reviewed), Professor X vs John Wick 0% (no mental win condition), Batman vs John Wick 4% (template attributes in the DC pool).

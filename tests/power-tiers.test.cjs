@@ -1,0 +1,84 @@
+'use strict';
+/* Version 2: reviewed power tiers for research moves (research/option-c/power-tiers.json,
+   docs/option-c/POWER_TIERS.md). A tier is an editorial review tied to the record's own feat or technique. */
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { loadApp } = require('./helpers/option-c-app-harness.cjs');
+const DATA = require('../data/option-c/research-moves-data.js');
+const RM = require('../data/option-c/research-moves.js');
+const builder = require('../tools/build-research-moves.cjs');
+const pipe = require('../tools/v2-research-pipeline.cjs');
+const { CORE } = require('../data/brawl-attack-profiles.js');
+const OVERLAY = JSON.parse(fs.readFileSync(path.join(__dirname, '../research/option-c/power-tiers.json'), 'utf8'));
+const ROSTER = new Set(pipe.rosterIds());
+const row = (id) => DATA.rows.find((r) => r[0] === id);
+
+test('the overlay: real identities in reviewed pools, tiers 1-4, a stated reason for every dropped move', () => {
+  const pools = new Set(OVERLAY.reviewedPools);
+  assert.ok(pools.size >= 2);
+  for (const [id, t] of Object.entries(OVERLAY.tiers)) {
+    assert.ok(ROSTER.has(id), 'not a roster identity: ' + id);
+    assert.ok(pools.has(id.split(':')[0]), id + ' is tiered but its pool is not marked reviewed');
+    assert.ok(Number.isInteger(t.tier) && t.tier >= 1 && t.tier <= 4, id + ': tier 5 and ranks stay with individual profiles');
+    assert.ok(!CORE[id], id + ' has an individual profile; tier it there');
+    assert.ok(!(id in OVERLAY.noMove), id + ' is both tiered and dropped');
+  }
+  for (const [id, reason] of Object.entries(OVERLAY.noMove)) {
+    assert.ok(ROSTER.has(id), 'not a roster identity: ' + id);
+    assert.ok(typeof reason === 'string' && reason.length >= 25, id + ' needs a reason');
+    assert.equal(row(id), undefined, id + ' must have no generated move');
+  }
+});
+
+test('every reviewed tier is tied to the record: the generated row carries the tier and its basis', () => {
+  for (const [id, t] of Object.entries(OVERLAY.tiers)) {
+    const r = row(id);
+    assert.ok(r, id + ' has no generated move');
+    assert.equal(r[7], t.tier, id);
+    assert.ok(typeof r[8] === 'string' && r[8].length >= 20, id + ' needs a basis from its record');
+    if (t.domain) assert.equal(r[2], t.domain, id);
+    if (t.move) assert.ok(r[1].startsWith(t.move.slice(0, 20)), id + ': move named after the reviewed technique');
+  }
+  for (const r of DATA.rows) if (!(r[0] in OVERLAY.tiers)) assert.equal(r.length, 7, r[0] + ' is not reviewed and must stay at the standard strength');
+  const rec = { id: 'x:y', feats: [{ claim: 'Did a thing', citation: 'Book 1' }], offense: { techniques: ['Blast'] } };
+  assert.equal(builder.tierBasis(rec, { tier: 3 }), 'Did a thing (Book 1)');
+  assert.equal(builder.tierBasis(rec, { tier: 3, technique: 'Blast' }), 'Technique on record: Blast');
+  assert.throws(() => builder.tierBasis(rec, { tier: 3, technique: 'Invented' }), /not in the record/);
+  assert.throws(() => builder.tierBasis({ id: 'x:z', feats: [], offense: {} }, { tier: 4 }), /no feat in the record/);
+  const built = builder.build();
+  assert.deepEqual(built.rows.filter((r) => r.length > 7).map((r) => [r[0], r[7]]), DATA.rows.filter((r) => r.length > 7).map((r) => [r[0], r[7]]), 'generated file is in step with the overlay');
+  assert.deepEqual(DATA.reviewedPools, OVERLAY.reviewedPools);
+});
+
+test('strength follows the tier: pierce 12/17/22/27%, the standard is unchanged, the limit states the basis', () => {
+  assert.deepEqual([1, 2, 3, 4].map(RM.pierceFor), [0.12, 0.17, 0.22, 0.27]);
+  const surfer = RM.researchMoveOf({ pool: 'mcu', n: 'Silver Surfer' });
+  assert.equal(surfer.tier, 4); assert.equal(surfer.domain, 'cosmic'); assert.equal(surfer.pierce, 0.27); assert.equal(surfer.tierReviewed, true);
+  assert.match(surfer.limit, /reviewed power tier 4\. Basis in its research record: Traveled across galaxies/);
+  const std = DATA.rows.find((r) => r.length === 7), [pool, n] = [std[0].split(':')[0], std[0].slice(std[0].indexOf(':') + 1)];
+  if (!n.includes('|')) { const m = RM.researchMoveOf({ pool, n }); assert.equal(m.tier, 2); assert.equal(m.pierce, 0.17); assert.equal(m.tierReviewed, false); assert.equal(m.limit, RM.LIMIT); }
+  assert.equal(RM.researchMoveOf({ pool: 'dc', n: 'Amanda Waller' }), null, 'directing a task force is not an arena attack');
+});
+
+test('in the fight: tier 4 brings the ward, never a rank; tier-4 psychic power is high-order; a dropped move falls back to V1', () => {
+  const r = JSON.parse(loadApp().run(`JSON.stringify((() => {
+    const pos = SPORTS.brawl.pos.find(p => p.id === 'd1'), find = (pool, n) => getCands(pool).find(c => c.n === n);
+    const T = c => ({ rating: 80, rows: [{ pos, cand: c, fit: fitIn('brawl', c, pos) }] });
+    const F = (pa, a, pb, b) => { const g = DA_BRAWL_COMBAT.resolveBrawlCombat(T(find(pa, a)), T(find(pb, b)), [80, 80], rngFrom('pt')); return g.sides.map(s => s.fighters[0]).map(f => ({ move: f.powerMove, dom: f.powerDomain, ward: f.wardHp, apex: f.apexRank, rank: f.intrinsicRank, limit: f.powerLimit })); };
+    const duel = (pa, a, pb, b) => { let w = 0; const ta = T(find(pa, a)), tb = T(find(pb, b)); for (let s = 0; s < 300; s++) if (DA_BRAWL_COMBAT.resolveBrawlCombat(ta, tb, [80, 80], rngFrom('pt|' + s)).winner === 0) w++; return w / 300; };
+    return { sb: F('mcu', 'Silver Surfer', 'dc', 'Black Adam'), jx: F('mcu', 'Jean Grey', 'mcu', 'Professor X'), aq: F('dc', 'Aquaman', 'dc', 'Amanda Waller'), cr: F('dc', 'Killer Croc', 'dc', 'Mera'),
+      surferVsAdam: duel('mcu', 'Silver Surfer', 'dc', 'Black Adam'), jeanVsAchilles: duel('mcu', 'Jean Grey', 'actionmovies', 'Achilles') };
+  })())`));
+  const [surfer, adam] = r.sb, [jean, xavier] = r.jx, [aquaman, waller] = r.aq;
+  assert.ok(surfer.ward > 0, 'tier-4 cosmic research move brings the finite ward'); assert.equal(adam.ward, 0, 'tier 3 does not');
+  for (const f of [surfer, adam, xavier]) { assert.equal(f.apex, 0); assert.equal(f.rank, 0, 'research never grants an Apex or intrinsic rank'); }
+  assert.ok(jean.ward > 0 && xavier.ward > 0, 'tier-4 psychic power is high-order');
+  assert.equal(aquaman.move, 'Marine life command', 'the review names the move after another technique in the record');
+  assert.equal(waller.move, '', 'no signature move: plain attacks');
+  assert.equal(r.cr[0].move, '', 'a bite is a plain attack');
+  // The project vision's own example, and the matchup that started the caster work.
+  assert.ok(r.surferVsAdam > 0.6, 'Silver Surfer is generally favored over Black Adam: ' + r.surferVsAdam);
+  assert.ok(r.jeanVsAchilles > 0.5, 'Jean Grey is favored over Achilles: ' + r.jeanVsAchilles);
+});
