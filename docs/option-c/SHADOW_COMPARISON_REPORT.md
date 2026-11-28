@@ -57,7 +57,7 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 | Doctor Strange QB + NBA vs Middle-earth | football | 95.2 / 93.7 | 73% | 80% | 55%–95% | yes | yes | provisional / numeric only | n/a |
 | Muppets vs NBA legends | basketball | 97.6 / 102.5 | 12% | 10% | 5%–25% | yes | yes | provisional / numeric only | n/a |
 | Cartoons vs Video Games | soccer | 95.9 / 73.4 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
-| Wizarding World vs Pokemon | hockey | 87.7 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
+| Wizarding World vs Pokemon | hockey | 89.2 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 | DC vs Marvel | baseball | 105.0 / 96.5 | 98% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 
 **Same favorite in 13 of 15; Version 1 frequency inside the Option C range in 7 of 15.**
@@ -110,7 +110,7 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | dc | 104 | 17 | 74 | 13 | 37 | 40 | 18 |
 | lotr | 115 | 9 | 53 | 53 | 72 | 8 | 4 |
-| harrypotter | 106 | 2 | 97 | 7 | 26 | 12 | 3 |
+| harrypotter | 106 | 2 | 92 | 12 | 26 | 12 | 3 |
 | actionmovies | 100 | 0 | 13 | 87 | 99 | 0 | 0 |
 | nba | 134 | 0 | 0 | 134 | 0 | 0 | 0 |
 | mcu | 143 | 9 | 98 | 36 | 109 | 64 | 41 |
@@ -119,7 +119,7 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 | games | 118 | 3 | 98 | 17 | 75 | 59 | 15 |
 | pokemon | 151 | 1 | 136 | 14 | 85 | 40 | 5 |
 | starwars | 98 | 5 | 56 | 37 | 63 | 8 | 3 |
-| **Total** | **1304** | **48** | **821** | **435** | **629** | **243** | **94** |
+| **Total** | **1304** | **48** | **816** | **440** | **629** | **243** | **94** |
 
 Typed combat coverage is 4% of base characters and 39% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 
@@ -131,7 +131,7 @@ With `context.useResearch: true`, an identity that Version 1 has no typed profil
 | --- | --- | --- | --- | --- |
 | dc | 104 | 17 | 57 | 30 |
 | lotr | 115 | 9 | 53 | 53 |
-| harrypotter | 106 | 2 | 90 | 14 |
+| harrypotter | 106 | 2 | 91 | 13 |
 | actionmovies | 100 | 0 | 12 | 88 |
 | nba | 134 | 0 | 11 | 123 |
 | mcu | 143 | 9 | 67 | 67 |
@@ -140,7 +140,7 @@ With `context.useResearch: true`, an identity that Version 1 has no typed profil
 | games | 118 | 3 | 83 | 32 |
 | pokemon | 151 | 1 | 103 | 47 |
 | starwars | 98 | 5 | 51 | 42 |
-| **Total** | **1304** | **48** | **623** | **633** |
+| **Total** | **1304** | **48** | **624** | **632** |
 
 Battle Royale scenarios, Option C estimate for the first team without and with research (Version 1 over 300 private seeds):
 

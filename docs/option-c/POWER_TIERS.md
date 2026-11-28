@@ -30,7 +30,8 @@ Tier-4+ **psychic** power (Omega-level telekinesis or telepathy) now counts as h
 | dc | 76 | **reviewed** | 3 | 36 | 1 | 8 | 9 |
 | starwars | 56 | **reviewed** | 1 | 6 | 5 | 23 | 1 |
 | lotr | 55 | **reviewed** | 5 | 22 | 1 | 25 | 16 |
-| harrypotter, toons, games, pokemon, muppets, actionmovies | 454 | not yet | | | | | |
+| harrypotter | 94 | **reviewed** | 0 | 6 | 12 | 12 | 4 |
+| toons, games, pokemon, muppets, actionmovies | 360 | not yet | | | | | |
 
 Counts include reviewed melee signatures. Individual profiles re-tiered in Version 2: Yoda and Emperor Palpatine, tier 3 to tier 4 (paramount Force users of their setting; Version 1 keeps tier 3).
 
@@ -73,13 +74,30 @@ Measured (1,000 seeded duels, before to after): Tar-Míriel vs Aragorn 72.4% to 
 
 Not solved in Middle-earth: Gimli vs Legolas 4.9% (see problem 6); Lúthien vs Sauron 7.7% and Witch-king vs Éowyn 98.9% (see problem 2: the engine has no enchantment or prophecy win condition); Eärendil vs Ancalagon 33% (he won with the Eagles' help).
 
+## Harry Potter (reviewed 2026-11-27)
+Wand magic is this setting's ordinary power, so a trained adult witch or wizard is the standard (tier 2). Dumbledore and Voldemort are the Version 1 tier-3 profiles and stay the top of the pool.
+- **Tier 3:** Grindelwald and his Elder Wand form (Protego Diabolica across a Paris amphitheatre; Dumbledore's peer), the Obscurus and Credence Barebone (levelled New York streets), the Thunderbird (a storm over New York), the Basilisk (a gaze that kills on eye contact).
+- **Tier 1:** spellwork the record itself calls student-level or without any combat: Cho Chang, Lavender Brown, Padma and Parvati Patil, Pansy Parkinson, Winky, Madam Hooch, Narcissa Malfoy, Rita Skeeter, Sybill Trelawney, Gilderoy Lockhart (the Memory Charm, his one real spell), and the hatchling Norbert.
+- **Stay at the standard:** McGonagall, Snape, Bellatrix and the other senior duellists. Voldemort held off McGonagall, Kingsley and Slughorn together, so none of them is tiered with him.
+- **Melee signatures (tier 2):** Hagrid, Aragog, the Zouwu, Lupin's werewolf form.
+- **Dropped (12):** the four ghosts and Peeves (a ghost cannot touch the living; thrown objects are plain attacks), healing and wandlore (Pomfrey, Ollivander), founders with no combat magic on record (Hufflepuff, Ravenclaw), and authority or spying (Fudge, Picquery, Rita Skeeter's beetle form).
+- **Moves renamed to an attack in the record:** Snape (Sectumsempra), Hermione (Stupefy), Lupin, Aberforth, Fleur, McGonagall (statue animation), Grindelwald (Protego Diabolica).
+- **Record corrected:** the Basilisk's power types were `physical, venom, gaze`; `gaze` is not a type the engine knows, so its killing stare produced no move. `magic` was added.
+- Attributes were reviewed in the same change: `docs/harry-potter-attribute-review.md` (25 characters).
+
+Measured (1,000 seeded duels, before to after): Hedwig vs Harry Potter 72.2% to 0.2%; Crookshanks vs Ron 70.1% to 0.9%; Bowtruckle vs Harry 48.9% to 0.1%; Nearly Headless Nick vs Harry 77.8% to 1.6%; Ollivander vs Bellatrix 52.1% to 1.0%; Lockhart vs Harry 32.6% to 0.9%; Fudge vs Harry 43.0% to 8.1%; Krum vs Harry 85.5% to 44.8%; Harry vs Draco 58.4% to 75.1%; Madame Maxime vs Hagrid 7.8% to 47.0%; Dumbledore vs Grindelwald 65.7% to 58.5%; Obscurus-hosting Credence vs Dumbledore 0.3% (Dumbledore beat him outright in Berlin).
+
+Not solved in Harry Potter: Dementor vs Harry 94% (see problem 7); Flitwick vs Lucius Malfoy 47% and Dobby vs Lucius 22% (problem 6); Molly Weasley vs Bellatrix 25% (she won their one duel); the generic Obscurus beats Dumbledore 71% on its template body.
+
 ## Left at the standard because the record has no feat that supports more
 Sentry, Martian Manhunter, Fernus the Burning, King Shazam, Apex Lex, Ikaris, Sersi, Wong, Human Torch, Rey, Lobo (tier 2 only), and the Star Wars forms without feats (Dark Empire Luke, Vader of Mustafar, Ahsoka the White). They need a feats pass before they can be tiered higher.
 
 ## Problems this review exposed (not fixed here)
-1. **Template attributes.** *DC fixed 2026-11-27*: 79 DC characters corrected one by one, each with a reason and a source, in `docs/dc-attribute-review.md` (Batman from Speed 67 / Agility 72 / Strength 64 to 80 / 92 / 84). Measured over 1,000 seeded duels, before to after: Batman vs John Wick 3.7% to 60.7%; Bane vs Batman 100% to 81.5%; Batman vs Captain America 0.7% to 40.5%; Batman vs Deathstroke 2.3% to 39.9%; Batman vs Joker 48.7% to 97.6%; Killer Croc vs Batman 99.9% to 55.5%; Captain Cold vs Flash 48.4% to 5.6%; Hal Jordan vs Sinestro 30.7% to 47.3%. *Middle-earth fixed 2026-11-27* (22 characters, `docs/middle-earth-attribute-review.md`). **Still open:** Harry Potter was built from the same templates and needs the same review. Two DC results to revisit: Cassandra Cain vs Deathstroke fell from 36.6% to 6.8% (her small body now counts against her and the engine has no credit for pure skill against a stronger expert), and Green Arrow beats Hawkeye 88% (the assassin template is more generous than the hand-authored Marvel humans).
+1. **Template attributes.** *DC fixed 2026-11-27*: 79 DC characters corrected one by one, each with a reason and a source, in `docs/dc-attribute-review.md` (Batman from Speed 67 / Agility 72 / Strength 64 to 80 / 92 / 84). Measured over 1,000 seeded duels, before to after: Batman vs John Wick 3.7% to 60.7%; Bane vs Batman 100% to 81.5%; Batman vs Captain America 0.7% to 40.5%; Batman vs Deathstroke 2.3% to 39.9%; Batman vs Joker 48.7% to 97.6%; Killer Croc vs Batman 99.9% to 55.5%; Captain Cold vs Flash 48.4% to 5.6%; Hal Jordan vs Sinestro 30.7% to 47.3%. *Middle-earth fixed 2026-11-27* (22 characters, `docs/middle-earth-attribute-review.md`). *Harry Potter fixed 2026-11-27* (25 characters, `docs/harry-potter-attribute-review.md`). All four template-built pools (Action Movies, DC, Middle-earth, Harry Potter) have now had the review. Two DC results to revisit: Cassandra Cain vs Deathstroke fell from 36.6% to 6.8% (her small body now counts against her and the engine has no credit for pure skill against a stronger expert), and Green Arrow beats Hawkeye 88% (the assassin template is more generous than the hand-authored Marvel humans).
 2. **Purely mental powers in an HP fight.** Professor X at tier 4 still loses to John Wick nearly every time: a frail body, and the engine has no way to end a fight by taking a mind. That needs a qualitative win condition, not a bigger number.
 3. **Loose `control` typing.** Many dropped moves were tactics the research filed under `control`. The remaining pools will have more.
 4. **Compressed attributes at the top.** The Hulk still loses to Thor 85% and to Iron Man 86%: his stored Accuracy 45 and Touch 42 cut his hit rate and strike, and Strength 99 sits only 3 points above Iron Man's 96. That is an attribute-scale problem, not a tier problem.
 5. **Palpatine vs Vader (38%).** Palpatine's frail stored body and the single `energy` type (Vader's lightsaber guard and his lightning weakness cancel) keep the master behind the apprentice.
 6. **No credit for armour or pure skill in a small body.** Gimli killed one more Orc than Legolas at Helm's Deep and loses to him 95% of the time; Cassandra Cain loses to Deathstroke 93%. Their attributes are right; the engine reads Speed, Agility and Size and has nothing for mail, or for skill that outweighs reach. That needs an engine rule (armour from the research record, or a larger share for proficiency), not inflated attributes.
+7. **No named counters.** Harry Potter's record feat is driving off a hundred Dementors with a Patronus, and a Dementor still beats him 94%; Sam drove off Shelob with the Phial of Galadriel and loses every time. Guards and weaknesses work by power type, so a specific counter to a specific creature has nowhere to go.
+8. **Speed reads as fighting ability.** Lowering Speed for a limp or a heavy build moves duel results by tens of points (Moody 40% to 24% against Lucius Malfoy for his wooden leg alone), so Moody, Gandalf and Saruman keep template Speed and Agility that their bodies do not really have. A fight-specific mobility rule would let the stored attribute be honest.
