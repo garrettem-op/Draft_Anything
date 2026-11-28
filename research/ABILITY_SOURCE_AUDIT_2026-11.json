@@ -1,10 +1,10 @@
 {
  "audited": "2026-11-10",
  "standard": "accuracy-first (owner, 2026-11-10)",
- "indexDigest": "e10dba9bc10e1c2805d7b89bfb08476c2ecd002134742da134a1fd7ddd960133",
- "grants": 1250,
+ "indexDigest": "8936f2476654e60864e4c7e3ea1656d71d578f2155d4a60321fec3fdf31c87b6",
+ "grants": 1253,
  "totals": {
-  "owner-ruling": 21,
+  "owner-ruling": 24,
   "corroborated": 10,
   "credible": 831,
   "needs-review": 125,
@@ -12,7 +12,7 @@
   "unsourced": 263
  },
  "checkedBy": {
-  "owner": 21,
+  "owner": 24,
   "review": 46,
   "automated": 920,
   "none": 263
@@ -27,7 +27,7 @@
    "unsourced": 0
   },
   "mcu": {
-   "owner-ruling": 0,
+   "owner-ruling": 1,
    "corroborated": 0,
    "credible": 57,
    "needs-review": 8,
@@ -43,7 +43,7 @@
    "unsourced": 25
   },
   "muppets": {
-   "owner-ruling": 0,
+   "owner-ruling": 2,
    "corroborated": 0,
    "credible": 15,
    "needs-review": 2,
@@ -101,7 +101,7 @@
  },
  "byTag": {
   "flight": {
-   "owner-ruling": 2,
+   "owner-ruling": 5,
    "corroborated": 0,
    "credible": 120,
    "needs-review": 38,
@@ -198,7 +198,7 @@
   }
  },
  "communityOnly": {
-  "owner-ruling": 21,
+  "owner-ruling": 23,
   "corroborated": 0,
   "credible": 571,
   "needs-review": 107,
@@ -206,19 +206,20 @@
   "unsourced": 0
  },
  "hosts": {
+  "official\tmarvel.com": 4,
+  "community\t*.fandom.com": 438,
+  "community\tvimeo.com": 1,
   "community\tsilmarillionwritersguild.org": 2,
   "official\tin.portal-pokemon.com": 3,
   "official\tprimagames.com": 2,
   "community\ten.uesp.net": 2,
   "official\tstarwars.com": 31,
   "dialogue\timsdb.com": 1,
-  "community\t*.fandom.com": 437,
   "dialogue\tsellingyourscreenplay.com": 1,
   "game-data\tpokemondb.net": 223,
   "community\tzeldawiki.wiki": 11,
   "official\td23.com": 7,
   "official\tpixar.com": 1,
-  "official\tmarvel.com": 3,
   "editorial\tsyfy.com": 1,
   "editorial\tthemarysue.com": 1,
   "editorial\tfxguide.com": 1,
@@ -3042,6 +3043,19 @@
    "id": "mcu:Jean Grey",
    "pool": "mcu",
    "character": "Jean Grey",
+   "tag": "flight",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 2,
+   "sourceTypes": [
+    "official"
+   ],
+   "source": "https://www.marvel.com/characters/phoenix-jean-grey"
+  },
+  {
+   "id": "mcu:Jean Grey",
+   "pool": "mcu",
+   "character": "Jean Grey",
    "tag": "psychic",
    "status": "unsourced",
    "checkedBy": "none",
@@ -4546,6 +4560,19 @@
    "source": "https://muppet.fandom.com/wiki/Dr._Bunsen_Honeydew"
   },
   {
+   "id": "muppets:Sam Eagle",
+   "pool": "muppets",
+   "character": "Sam Eagle",
+   "tag": "flight",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 2,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://muppet.fandom.com/wiki/Sam_the_Eagle_(Muppet_Babies)"
+  },
+  {
    "id": "muppets:Link Hogthrob",
    "pool": "muppets",
    "character": "Link Hogthrob",
@@ -4651,6 +4678,19 @@
     "community"
    ],
    "source": "https://muppet.fandom.com/wiki/Abby_Cadabby"
+  },
+  {
+   "id": "muppets:Hoots the Owl",
+   "pool": "muppets",
+   "character": "Hoots the Owl",
+   "tag": "flight",
+   "status": "owner-ruling",
+   "checkedBy": "owner",
+   "priority": 2,
+   "sourceTypes": [
+    "community"
+   ],
+   "source": "https://vimeo.com/134410239"
   },
   {
    "id": "muppets:Little Bird",

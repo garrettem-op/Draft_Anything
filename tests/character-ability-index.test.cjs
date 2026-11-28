@@ -513,3 +513,12 @@ test('saved player appeals cannot override explicitly incorrect audited tags', (
       'non-disputed player approval remains usable');
   } finally { game.ctx.KnowledgeEngine = original; }
 });
+
+// 2026-11-28: explicitly settled Skyborne appeals.
+test('Jean Grey, Sam Eagle and Hoots the Owl qualify for Skyborne offline', () => {
+  for (const id of ['mcu:Jean Grey', 'muppets:Sam Eagle', 'muppets:Hoots the Owl']) {
+    const c = get(id);
+    assert.equal(game.allowed(c, 'flight'), true, id);
+    assert.ok(game.tagIndex[c.pool][c.n].includes('natural-flight'), id);
+  }
+});
