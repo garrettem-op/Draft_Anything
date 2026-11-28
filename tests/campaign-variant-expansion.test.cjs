@@ -84,21 +84,26 @@ test('targeted Variant Surge picks the requested roster character and one determ
  assert.equal(roster.b.n,first.name);
  assert.notEqual(roster.b.a,doom.a,'Only temporary transformed copy may change');
  assert.equal(doom.a[0],80,'Canonical roster stats never mutate');
- assert.equal(ctx.api.campaignUseVariantSurge(a,captain.id),null,'One use per challenge');
+ const next=ctx.api.campaignUseVariantSurge(a,captain.id);
+ assert.ok(next,'A second identity can surge');
+ assert.equal(ctx.api.campaignVariantRoster(a).a.n,next.name);
  delete a.roster.b;
- assert.equal(ctx.api.campaignVariantRoster(a),a.roster,'Spent surge stays spent after removal');
+ assert.equal(ctx.api.campaignUseVariantSurge(a,doom.id),null);
+ a.roster.b=doom;
+ assert.equal(ctx.api.campaignUseVariantSurge(a,doom.id),null,'Redrafting cannot reroll');
+ assert.equal(ctx.api.campaignVariantRoster(a).b.n,first.name);
 });
 
 test('UI loads the expanded catalog before strategy and exposes character-specific form selection',()=>{
  const html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
  const campaign=fs.readFileSync(path.join(ROOT,'data/campaign.js'),'utf8');
  assert.ok(html.indexOf('data/campaign-variant-expansion.js')<html.indexOf('data/campaign-strategy.js'));
- assert.match(html,/campaignUseVariantSurge\(S\.campaign,S\.campaign\.variantTarget\)/);
- assert.match(html,/camp-variant-target/);
+ assert.match(html,/campaignUseVariantSurge\(v,base\.id\)/);
+ assert.match(campaign,/campaignSurgeSlots\(v\)/);
   // Shared form controls now live in the universal game UI, not Campaign alone.
-  assert.match(html,/possible forms/);
-  assert.match(html,/variantOptions\(c\)\.length/);
-  assert.match(campaign,/renderVariantSurgePanel\(v,'camp-variant'/);
+  assert.doesNotMatch(html,/renderVariantOdds\(/);
+  assert.match(html,/variantSurgeCandidates\(v\)/);
+  assert.match(campaign,/renderCampaignSurgeDialog\(v\)/);
  assert.match(campaign,/minDistinctPools:3,encounters:2/);
- assert.match(campaign,/campaignFinalBossOpponent\(v,st,first\)/);
+ assert.match(campaign,/campaignSnakeSecond\(v,st,first\)/);
 });

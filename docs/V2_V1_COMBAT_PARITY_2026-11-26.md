@@ -25,6 +25,8 @@ All below are confirmed merged into main except stacked #660, incorporated throu
 | [#679](https://github.com/garrettem-op/Draft_Anything/pull/679) | 2026-11-27 | Campaign eligibility judged in the actually rolled Variant Surge form. See the active-form section below. |
 
 ## Actual V2 snapshot audit
+> **Superseded 2026-11-27:** the engine parity merge below brought every module listed here level with `main` at `e078533`. Kept for the record.
+
 Inspected develop/v2-option-c legacy modules at this audit:
 - data/brawl-combat.js (blob a747b86d59fb5d967da38383ff4965c4529e779b): old raw*4 anti-Apex counter, no laneTarget/formationTarget, no offensiveCredibility, no scoped tactics/row-order handling from #659/#660. Existing initiative and Apex action model remain. V2 qualitative specification already calls for range/initiative, typed interactions, selected form distinctions and team effects, but does not specify these new mechanics or tests.
 - data/campaign-strategy.js (c710e40dfa6ef2be6b9b1cad346e82db0ef0147b) and data/campaign.js (a08f47a51946c8750f233eaecffcbaca5e1e961a): old match seed, no current multi-surge/snake/single-use indicators. Do not assume parity.
@@ -102,3 +104,12 @@ Owner direction (2026-11-27): V1 stays as it is; V2 must cover the remaining gro
 | Dumbledore vs Voldemort | 53% | Dumbledore slightly favored (won the Ministry duel) |
 | Doctor Strange vs Scarlet Witch | 38% | Scarlet Witch favored, not overwhelming |
 | Stephen Curry vs Hawkeye (DPS) | see audit | Hawkeye favored (sporting skill is not combat skill) |
+
+## Engine parity merge, 2026-11-27 (main `e078533` → develop/v2-option-c)
+The whole Version 1 line since the baseline (50 commits: lane targeting and formation, attack credibility, intrinsic power rank, commander system v2, multi-surge and snake-draft Campaign, active-form eligibility, the 2026-11-27 combat audit, generic attacks, caster profiles and power shields, Tap One) is merged into V2. Every "Requirement to preserve" row above is now met by the same code that runs on `main`.
+
+**Proof of exact parity.** With `data/option-c/` and `data/archetype-groups.js` not loaded and `main`'s `data/bench-chemistry.js` put back, the merged checkout reproduces all 17 fixed seeded fixtures of `main` `e078533` byte for byte (championship, season, series and Head-to-Head in six sports plus Battle Royale). The only live differences from Version 1 are the documented Version 2 rules: bench rework (2026-11-15), archetype and tag chemistry groups (2026-11-18/19) and research moves (2026-11-20). `tests/fixtures/option-c-v1-golden.json` records the re-pin as a revision.
+
+**How the two attack sources combine.** An individual Version 1 profile or reviewed form wins; otherwise the Version 2 research move (tier 2, 17% pierce); otherwise Version 1's generic tag-derived attack (tier 2, 12% pierce). The shadow evaluator reads the same order and treats the generic attack as a live move with provisional evidence, never as a reviewed profile. 28 generated research moves were dropped because their characters now have individual profiles (Gandalf, Dumbledore, Yoda, Jean Grey, Mewtwo and others).
+
+**Evaluator gaps the merge exposed (not fixed here).** The shadow evaluator does not yet read intrinsic power rank, attack credibility, power shields, skill-domain transfer or the ToonForce combat gate, and its Battle Royale constants were fitted to the old engine (2026-11-21). The regenerated comparison report shows it: Franklin Richards crew vs Abomination crew (engine 100%, evaluator 30%), Darkseid crew vs Spectre crew (0% vs 45%), Looney crew vs Avengers (53% vs 90%). Next: teach the adapter those engine facts, then re-run `tools/option-c-calibrate.cjs`.

@@ -35,3 +35,25 @@ test('documented cosmic users compete with ToonForce without making other sports
   for(const name of ['Franklin Richards','Scarlet Witch','Galactus'])
     assert.ok(brawlExceptionalPower(sample('mcu',name),'brawl',fighter)>=46,name);
 });
+
+test('Perpetua, Trigon and Odin receive distinct cosmic power with form-specific limits',()=>{
+  const {brawlAbilityOf}=require('../data/brawl-attack-profiles.js');
+  const {apexRankOf}=require('../data/brawl-combat.js');
+  const p=sample('dc','Perpetua'), trigon=sample('dc','Trigon'), odin=sample('mcu','Odin');
+  assert.equal(brawlExceptionalPower(p,'brawl',fighter),65);
+  assert.equal(brawlExceptionalPower(trigon,'brawl',fighter),50);
+  assert.equal(brawlExceptionalPower(odin,'brawl',fighter),40);
+  assert.equal(brawlExceptionalPower(sample('mcu','Young Odin (Prehistoric Avengers)'),'brawl',fighter),40);
+  assert.equal(brawlExceptionalPower(sample('mcu','Odin in Destroyer Armor'),'brawl',fighter),50);
+  assert.equal(brawlAbilityOf(p).tier,5);
+  assert.equal(brawlAbilityOf(p).domain,'reality');
+  assert.equal(apexRankOf(p,brawlAbilityOf(p)),0,'base cosmic being is not a variant');
+  assert.equal(brawlAbilityOf(trigon).tier,5);
+  assert.equal(brawlAbilityOf(odin).tier,4);
+  for(const c of [p,trigon,odin]){
+    assert.equal(brawlExceptionalPower(c,'brawl',coach),0);
+    assert.equal(brawlExceptionalPower(c,'brawl',bench),0);
+    assert.equal(brawlExceptionalPower(c,'basketball',fighter),0);
+    assert.equal(brawlExceptionalPower({...c,pool:'toons'},'brawl',fighter),0);
+  }
+});

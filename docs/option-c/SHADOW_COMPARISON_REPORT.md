@@ -44,35 +44,36 @@ Version 1 column: raw share of 300 private seeded games won by the first team (u
 
 | Matchup | Sport | V1 ratings | V1 win rate | Option C | Range | Same favorite | V1 inside range | Status / basis | Typed coverage |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | brawl | 121.8 / 154.2 | 38% | 5% | 0%–35% | yes | **no** | provisional / numeric + typed | 100% |
-| Batman crew vs Hellbat crew | brawl | 91.4 / 92.0 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
-| Thanos crew vs King Thanos crew | brawl | 92.2 / 95.4 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 10% |
-| Franklin Richards crew vs Abomination crew | brawl | 86.2 / 91.1 | 3% | 30% | 0%–70% | yes | yes | provisional / numeric + typed | 20% |
-| Darkseid crew vs Spectre crew | brawl | 103.0 / 105.3 | 42% | 45% | 5%–85% | yes | yes | provisional / numeric + typed | 20% |
-| Black Adam crew vs Silver Surfer crew | brawl | 92.9 / 92.3 | 41% | 55% | 15%–95% | **no** | yes | provisional / numeric + typed | 20% |
-| Looney crew vs Avengers | brawl | 145.3 / 103.1 | 99% | 95% | 60%–100% | yes | yes | provisional / numeric + typed | 30% |
-| Muppets vs DC roster | brawl | 108.4 / 108.7 | 0% | 40% | 5%–75% | yes | **no** | provisional / numeric + typed | 50% |
+| The Chungus vs The Crossover | brawl | 121.7 / 153.9 | 1% | 5% | 0%–35% | yes | yes | provisional / numeric + typed | 100% |
+| Batman crew vs Hellbat crew | brawl | 92.6 / 93.2 | 0% | 10% | 0%–50% | yes | yes | provisional / numeric + typed | 10% |
+| Thanos crew vs King Thanos crew | brawl | 93.4 / 96.6 | 0% | 5% | 0%–45% | yes | yes | provisional / numeric + typed | 10% |
+| Franklin Richards crew vs Abomination crew | brawl | 87.5 / 92.3 | 100% | 30% | 0%–70% | **no** | **no** | provisional / numeric + typed | 20% |
+| Darkseid crew vs Spectre crew | brawl | 104.3 / 106.5 | 0% | 45% | 5%–85% | yes | **no** | provisional / numeric + typed | 20% |
+| Black Adam crew vs Silver Surfer crew | brawl | 94.2 / 93.5 | 41% | 55% | 15%–95% | **no** | yes | provisional / numeric + typed | 20% |
+| Looney crew vs Avengers | brawl | 125.0 / 102.3 | 53% | 90% | 55%–100% | yes | **no** | provisional / numeric + typed | 30% |
+| Muppets vs DC roster | brawl | 104.8 / 108.8 | 0% | 35% | 0%–70% | yes | yes | provisional / numeric + typed | 60% |
 | Superman + Kermit + NBA vs NBA legends | basketball | 115.5 / 102.5 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Spider-Man libero + NBA vs Star Wars | volleyball | 100.4 / 89.0 | 100% | 95% | 75%–95% | yes | **no** | provisional / numeric only | n/a |
 | Doctor Strange QB + NBA vs Middle-earth | football | 95.2 / 94.8 | 61% | 70% | 45%–95% | yes | yes | provisional / numeric only | n/a |
 | Muppets vs NBA legends | basketball | 97.6 / 102.5 | 12% | 10% | 5%–25% | yes | yes | provisional / numeric only | n/a |
 | Cartoons vs Video Games | soccer | 95.9 / 73.4 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
 | Wizarding World vs Pokemon | hockey | 87.7 / 53.3 | 100% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
-| DC vs Marvel | baseball | 103.0 / 96.0 | 97% | 95% | 70%–95% | yes | **no** | provisional / numeric only | n/a |
+| DC vs Marvel | baseball | 103.0 / 96.5 | 95% | 95% | 70%–95% | yes | yes | provisional / numeric only | n/a |
 
-**Same favorite in 14 of 15; Version 1 frequency inside the Option C range in 8 of 15.**
+**Same favorite in 13 of 15; Version 1 frequency inside the Option C range in 8 of 15.**
 
 Different favorite:
+- Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30%.
 - Black Adam crew vs Silver Surfer crew: Version 1 41%, Option C 55%.
 
 Version 1 frequency outside the Option C range:
-- The Chungus vs The Crossover: Version 1 38%, Option C 5% (0%–35%).
-- Muppets vs DC roster: Version 1 0%, Option C 40% (5%–75%).
+- Franklin Richards crew vs Abomination crew: Version 1 100%, Option C 30% (0%–70%).
+- Darkseid crew vs Spectre crew: Version 1 0%, Option C 45% (5%–85%).
+- Looney crew vs Avengers: Version 1 53%, Option C 90% (55%–100%).
 - Superman + Kermit + NBA vs NBA legends: Version 1 100%, Option C 95% (75%–95%).
 - Spider-Man libero + NBA vs Star Wars: Version 1 100%, Option C 95% (75%–95%).
 - Cartoons vs Video Games: Version 1 100%, Option C 95% (70%–95%).
 - Wizarding World vs Pokemon: Version 1 100%, Option C 95% (70%–95%).
-- DC vs Marvel: Version 1 97%, Option C 95% (70%–95%).
 
 ## 3. Baseline parity (shadow cannot change a result)
 
@@ -106,20 +107,20 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 
 | Pool | Characters | Reviewed | Provisional | Unknown | Continuity open | Forms | Forms reviewed |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| dc | 104 | 14 | 77 | 13 | 34 | 40 | 18 |
-| lotr | 115 | 6 | 56 | 53 | 74 | 8 | 4 |
-| harrypotter | 106 | 0 | 99 | 7 | 18 | 12 | 3 |
-| actionmovies | 100 | 0 | 0 | 100 | 100 | 0 | 0 |
+| dc | 104 | 17 | 76 | 11 | 37 | 40 | 18 |
+| lotr | 115 | 9 | 60 | 46 | 72 | 8 | 4 |
+| harrypotter | 106 | 2 | 97 | 7 | 26 | 12 | 3 |
+| actionmovies | 100 | 0 | 13 | 87 | 99 | 0 | 0 |
 | nba | 134 | 0 | 0 | 134 | 0 | 0 | 0 |
-| mcu | 143 | 6 | 100 | 37 | 112 | 64 | 39 |
-| toons | 134 | 0 | 86 | 48 | 63 | 12 | 5 |
+| mcu | 143 | 9 | 101 | 33 | 109 | 64 | 41 |
+| toons | 134 | 2 | 95 | 37 | 63 | 12 | 5 |
 | muppets | 101 | 0 | 101 | 0 | 0 | 0 | 0 |
-| games | 118 | 0 | 95 | 23 | 71 | 59 | 11 |
-| pokemon | 151 | 0 | 132 | 19 | 85 | 40 | 5 |
-| starwars | 98 | 0 | 66 | 32 | 63 | 8 | 3 |
-| **Total** | **1304** | **26** | **812** | **466** | **620** | **243** | **88** |
+| games | 118 | 3 | 98 | 17 | 75 | 59 | 15 |
+| pokemon | 151 | 1 | 136 | 14 | 85 | 40 | 5 |
+| starwars | 98 | 5 | 70 | 23 | 63 | 8 | 3 |
+| **Total** | **1304** | **48** | **847** | **409** | **629** | **243** | **94** |
 
-Typed combat coverage is 2% of base characters and 36% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
+Typed combat coverage is 4% of base characters and 39% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 
 ## 4b. Opt-in research-derived lines of attack (shadow only)
 
@@ -127,31 +128,31 @@ With `context.useResearch: true`, an identity that Version 1 has no typed profil
 
 | Pool | Characters | Typed in Version 1 | Gain a research line | Still without a typed line |
 | --- | --- | --- | --- | --- |
-| dc | 104 | 14 | 57 | 33 |
-| lotr | 115 | 6 | 47 | 62 |
-| harrypotter | 106 | 0 | 91 | 15 |
-| actionmovies | 100 | 0 | 0 | 100 |
+| dc | 104 | 17 | 57 | 30 |
+| lotr | 115 | 9 | 53 | 53 |
+| harrypotter | 106 | 2 | 90 | 14 |
+| actionmovies | 100 | 0 | 12 | 88 |
 | nba | 134 | 0 | 11 | 123 |
-| mcu | 143 | 6 | 59 | 78 |
-| toons | 134 | 0 | 37 | 97 |
-| muppets | 101 | 0 | 23 | 78 |
-| games | 118 | 0 | 69 | 49 |
-| pokemon | 151 | 0 | 92 | 59 |
-| starwars | 98 | 0 | 40 | 58 |
-| **Total** | **1304** | **26** | **526** | **752** |
+| mcu | 143 | 9 | 67 | 67 |
+| toons | 134 | 2 | 53 | 79 |
+| muppets | 101 | 0 | 43 | 58 |
+| games | 118 | 3 | 83 | 32 |
+| pokemon | 151 | 1 | 103 | 47 |
+| starwars | 98 | 5 | 51 | 42 |
+| **Total** | **1304** | **48** | **623** | **633** |
 
 Battle Royale scenarios, Option C estimate for the first team without and with research (Version 1 over 300 private seeds):
 
 | Matchup | V1 win rate | Option C default | Option C with research | Fighters with a research line | V1 inside range (default / research) |
 | --- | --- | --- | --- | --- | --- |
-| The Chungus vs The Crossover | 38% | 5% | 5% | 0 | no / no |
+| The Chungus vs The Crossover | 1% | 5% | 5% | 0 | yes / yes |
 | Batman crew vs Hellbat crew | 0% | 10% | 10% | 0 | yes / yes |
 | Thanos crew vs King Thanos crew | 0% | 5% | 5% | 0 | yes / yes |
-| Franklin Richards crew vs Abomination crew | 3% | 30% | 30% | 0 | yes / yes |
-| Darkseid crew vs Spectre crew | 42% | 45% | 45% | 0 | yes / yes |
-| Black Adam crew vs Silver Surfer crew | 45% | 55% | 55% | 2 | yes / yes |
-| Looney crew vs Avengers | 100% | 95% | 95% | 3 | yes / yes |
-| Muppets vs DC roster | 0% | 40% | 40% | 3 | yes / no |
+| Franklin Richards crew vs Abomination crew | 100% | 30% | 30% | 0 | no / no |
+| Darkseid crew vs Spectre crew | 0% | 45% | 45% | 0 | no / no |
+| Black Adam crew vs Silver Surfer crew | 55% | 55% | 55% | 2 | yes / yes |
+| Looney crew vs Avengers | 55% | 90% | 90% | 3 | yes / yes |
+| Muppets vs DC roster | 0% | 30% | 35% | 4 | yes / yes |
 
 Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnostic, not a calibration: the half weight is an editorial choice and nothing was fitted to these results.
 
@@ -161,9 +162,9 @@ Same favorite as Version 1 (default / research): 7 / 7 of 8. This is a diagnosti
 
 **The Crossover is favored over The Chungus, roughly 95/5 (editorial estimate, provisional; numeric baseline plus typed interactions).**
 
-Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 38%.
+Estimate range for The Chungus: 0%–35%. Version 1 engine over 300 private seeds: The Chungus won 1%.
 
-**The Chungus** (Version 1 rating 121.85)
+**The Chungus** (Version 1 rating 121.73)
 
 What each starter can do:
 - Abomination [tk1, evidence: reviewed]: Documented technique: Gamma-powered onslaught (melee, tier 3). Limit: Base Emil Blonsky, not a temporary Chaos King or enhanced variant. Guards against melee. Ability index: healing [needs-review], giants [provisional].
@@ -175,19 +176,19 @@ What each starter can do:
 Paths to victory:
 - Hellbat Armor Batman can win exchanges with Hellbat Counteroffensive against Ares (DC) (pinnacle form on offense). Blunted against The Watcher and Darkseid. The Watcher, Death of the Endless, Scarlet Witch and Darkseid can hurt Hellbat Armor Batman in return. Limit: Hellbat armor drains the wearer.
 - Lucifer Morningstar can win exchanges with Creation-shaping will against Ares (DC), The Watcher, Scarlet Witch and Darkseid (high-order power does not scale with punching strength). The Watcher and Darkseid can hurt Lucifer Morningstar in return. Limit: Cosmic agency is constrained by story and intent; no automatic win.
-- Team-wide support already inside the rating: chemistry: Super-Soldiers and Gotham (1.01 pts); signature lift +1.6; coaching style +0.15.
+- Team-wide support already inside the rating: chemistry: Super-Soldiers and Gotham (1.01 pts); signature lift +1.6; coaching style +0.31.
 
 What could stop them:
 - Hellbat Armor Batman: Hellbat Counteroffensive taxes the user from round 5; a long fight favors the opponent.
 - Hellbat Armor Batman is vulnerable to magic, which Scarlet Witch can bring.
 - Trails on the numeric position-fit baseline.
 
-**The Crossover** (Version 1 rating 154.16)
+**The Crossover** (Version 1 rating 153.94)
 
 What each starter can do:
-- Ares (DC) [tk1, evidence: reviewed]: Documented technique: God of War strike (melee, tier 3). Limit: War conflict empowers him; conceptual warfare is not infinite arena damage. Guards against melee.
+- Ares (DC) [tk1, evidence: reviewed]: Documented technique: God of War strike (melee, tier 3). Limit: War conflict empowers him; conceptual warfare is not infinite arena damage. Guards against melee. Ability index: teleport [provisional].
 - The Watcher [tk2, evidence: reviewed]: Documented technique: Cosmic intervention (cosmic, tier 4). Limit: Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene. Guards against cosmic. Registered exceptional power: What If...? multiverse: Watcher observes and sometimes intervenes across realities. Limit: Vow of non-interference and screen/comic continuities differ. Ability index: psychic [provisional], stealth [provisional], teleport [provisional].
-- Death of the Endless [d1, evidence: reviewed]: Documented technique: The Endless presence (reality, tier 4). Limit: Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout. Guards against reality. Registered exceptional power: The Sandman: personification of death and endpoint of mortal existence. Limit: Usually a metaphysical function, not an offensive brawler.
+- Death of the Endless [d1, evidence: reviewed]: Documented technique: The Endless presence (reality, tier 5). Limit: Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout. Guards against reality. Registered exceptional power: The Sandman: personification of death and endpoint of mortal existence. Limit: Usually a metaphysical function, not an offensive brawler.
 - Scarlet Witch [d2, evidence: reviewed]: Documented technique: Chaos hex (magic, tier 4). Limit: Baseline chaos magic; House of M feat is not every ordinary strike. Guards against magic. Registered exceptional power: House of M and Scarlet Witch stories: alters the fabric of reality through chaos magic. Limit: Magical competence, focus and continuity vary. Ability index: flight [provisional], magic [provisional], psychic [provisional], teleport [provisional]. Signature move "Chaos Magic" (chaos).
 - Darkseid [d3, evidence: reviewed]: Documented technique: Omega Beams (cosmic, tier 4). Limit: Avatar-scale arena encounter; not the full transcendent form or guaranteed disintegration. Guards against cosmic and energy. Registered exceptional power: DC Fourth World: Omega Effect and tremendous godlike destructive force. Limit: Avatars and true form are not interchangeable. Ability index: teleport [provisional].
 
@@ -200,7 +201,7 @@ Paths to victory:
 - Team-wide support already inside the rating: chaos signatures cost the opponent 0.7.
 
 Uncertainties that could change this:
-- (medium) Continuity is not adjudicated for dc:Ares (DC), dc:Death of the Endless, dc:Joker, mcu:Adam Warlock, mcu:Scarlet Witch; feats from another adaptation are not assumed.
+- (medium) Continuity is not adjudicated for dc:Death of the Endless, dc:Joker, mcu:Adam Warlock, mcu:Scarlet Witch; feats from another adaptation are not assumed.
 - (low) Bench heat, playoff boom/clutch and ToonForce spotlight are seeded per match and are not rolled here.
 - (medium) Battle Royale odds are fitted to simulated Version 2 fights (2026-11-21): they predict this game engine, not canon. Every research move uses one standard strength.
 
@@ -210,7 +211,7 @@ Uncertainties that could change this:
 
 Estimate range for Batman crew: 0%–50%. Version 1 engine over 300 private seeds: Batman crew won 0%.
 
-**Batman crew** (Version 1 rating 91.40)
+**Batman crew** (Version 1 rating 92.64)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
@@ -228,7 +229,7 @@ What could stop them:
 - No documented way to seriously hurt Hellbat Armor Batman.
 - Trails on the numeric position-fit baseline.
 
-**Hellbat crew** (Version 1 rating 91.97)
+**Hellbat crew** (Version 1 rating 93.21)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
@@ -257,12 +258,12 @@ Uncertainties that could change this:
 
 Estimate range for Black Adam crew: 15%–95%. Version 1 engine over 300 private seeds: Black Adam crew won 41%.
 
-**Black Adam crew** (Version 1 rating 92.95)
+**Black Adam crew** (Version 1 rating 94.18)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Hector [tk2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
-- Black Adam [d1, evidence: provisional]: Documented technique: Mystic lightning bursts (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Ability index: flight [needs-review], magic [needs-review], electric [provisional].
+- Black Adam [d1, evidence: provisional]: Documented technique: Living lightning bolts (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Ability index: flight [needs-review], magic [needs-review], electric [provisional].
 - Paris [d2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Agamemnon [d3, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 
@@ -272,12 +273,12 @@ Paths to victory:
 - Team-wide support already inside the rating: chemistry: Troy and 300 (1.4 pts).
 - No reviewed typed win condition on record: this side must win through conventional attrition, focus fire, initiative and seeded variance. Some fighters are unresearched, so real abilities may exist.
 
-**Silver Surfer crew** (Version 1 rating 92.26)
+**Silver Surfer crew** (Version 1 rating 93.50)
 
 What each starter can do:
 - Achilles [tk1, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Hector [tk2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
-- Silver Surfer [d1, evidence: provisional]: Documented technique: Absorbs and manipulates cosmic energy (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional].
+- Silver Surfer [d1, evidence: provisional]: Documented technique: Cosmic energy blasts (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional].
 - Paris [d2, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 - Agamemnon [d3, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
 
@@ -305,7 +306,7 @@ Estimate range for Superman + Kermit + NBA: 75%–95%. Version 1 engine over 300
 **Superman + Kermit + NBA** (Version 1 rating 115.54)
 
 What each starter can do:
-- Kermit the Frog [pg, evidence: provisional]: Documented technique: Banjo strike (control, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. MuppetForce 68 (situational). Limit: Usually the straight man; stage control does not grant superhuman force. Signature move "Rainbow Connection" (lift).
+- Kermit the Frog [pg, evidence: provisional]: Documented technique: Stage direction chaos control (control, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. MuppetForce 68 (situational). Limit: Usually the straight man; stage control does not grant superhuman force. Signature move "Rainbow Connection" (lift).
 - Michael Jordan [sg, evidence: unknown]: Signature move "The Flu Game" (clutch).
 - LeBron James [sf, evidence: unknown]: Signature move "Makes Everyone Better" (lift).
 - Kareem Abdul-Jabbar [pf, evidence: unknown]: No power or typed profile is on record; assessed on the 12 numeric attributes only.
@@ -379,13 +380,13 @@ Rules that still bind:
 **Star Wars** (Version 1 rating 89.00)
 
 What each starter can do:
-- Luke Skywalker [s, evidence: provisional]: Documented technique: Lightsaber combat (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Signature move "Trench Run" (clutch).
-- Yoda [oh1, evidence: provisional]: Documented technique: Force push and pull (magic, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: psychic [provisional]. Signature move "Size Matters Not" (unbreakable).
-- Obi-Wan Kenobi [mb1, evidence: provisional]: Documented technique: Lightsaber combat (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Signature move "The High Ground" (clutch).
-- Anakin Skywalker [opp, evidence: provisional]: Documented technique: Force choke (magic, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Ability index: flight [needs-review], psychic [provisional].
-- Mace Windu [oh2, evidence: provisional]: Documented technique: Lightsaber strike (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: psychic [provisional]. Signature move "Vaapad" (chaos).
+- Luke Skywalker [s, evidence: reviewed]: Documented technique: Force and lightsaber (psychic, tier 3). Limit: Lost to Vader on Cloud City (The Empire Strikes Back) and overpowered him on the second Death Star (Return of the Jedi); the Jedi Knight of Return of the Jedi is modelled. Guards against psychic. Ability index: flight [provisional], psychic [provisional]. Signature move "Trench Run" (clutch).
+- Yoda [oh1, evidence: reviewed]: Documented technique: Force mastery (psychic, tier 3). Limit: Absorbed Dooku's and Sidious's Force lightning and fought Sidious to a standstill (Revenge of the Sith); not an automatic win. Guards against psychic. Ability index: psychic [provisional]. Signature move "Size Matters Not" (unbreakable).
+- Obi-Wan Kenobi [mb1, evidence: provisional]: Documented technique: Soresu (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Signature move "The High Ground" (clutch).
+- Anakin Skywalker [opp, evidence: provisional]: Documented technique: Aggressive Djem So lightsaber combat (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [needs-review], psychic [provisional].
+- Mace Windu [oh2, evidence: provisional]: Documented technique: Vaapad (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: psychic [provisional]. Signature move "Vaapad" (chaos).
 - Qui-Gon Jinn [lib, evidence: provisional]: Documented technique: Ataru lightsaber form (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: psychic [provisional].
-- Ahsoka Tano [mb2, evidence: provisional]: Documented technique: Force push (magic, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Sidekick role tag (supports Anakin Skywalker).
+- Ahsoka Tano [mb2, evidence: provisional]: Documented technique: Dual lightsabers (energy, tier 2). Limit: Research move (Version 2): its power type comes from this character's research record. It hits at the standard research strength because the research records no power level. Guards against energy. Ability index: flight [provisional], psychic [provisional]. Sidekick role tag (supports Anakin Skywalker).
 
 Paths to victory:
 - Team-wide support already inside the rating: chemistry: Jedi, Blades & Claws, Jedi Council, Prequels, The Clone Wars, Agile Fighters, Original Trilogy and Skywalker Family (2.8 pts); chaos signatures cost the opponent 0.7.

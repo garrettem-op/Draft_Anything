@@ -284,8 +284,10 @@ test('incomplete research is reported, not papered over', () => {
   const out = page(`
     const fill = 'actionmovies';
     // Pinned with V2 research moves off: this checks how missing research is reported.
+    // Aquaman replaces Black Adam since the 2026-11-27 engine merge: Version 1 now gives Black Adam a generic
+    // attack from his reviewed lightning tag, so that matchup is no longer free of typed moves.
     const [a, b] = DA_RESEARCH_MOVES.withEnabled(false, () => [
-      DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Black Adam'] }, fill), teamB: ocTeam('brawl', { d1: ['mcu', 'Silver Surfer'] }, fill) }),
+      DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Aquaman'] }, fill), teamB: ocTeam('brawl', { d1: ['mcu', 'Silver Surfer'] }, fill) }),
       DA_OPTION_C.evaluateMatchup({ sportKey: 'brawl', teamA: ocTeam('brawl', { d1: ['dc', 'Batman'] }, fill), teamB: ocTeam('brawl', { d1: ['dc', 'Batman', 'Hellbat Armor Batman'] }, fill) }),
     ]);
     const src = ['evaluator', 'probability', 'interaction-engine', 'explain'].map(n => 'data/option-c/' + n + '.js');
@@ -295,7 +297,7 @@ test('incomplete research is reported, not papered over', () => {
   assert.equal(a.evidence.reviewed, 0);
   assert.equal(a.probabilityModel.basis, 'numeric-baseline-only');
   assert.ok(a.sides[0].probabilityRange[1] - a.sides[0].probabilityRange[0] >= 0.5, 'a wide range, not false precision');
-  assert.ok(a.uncertainties.some(u => u.kind === 'unresearched-kits' && u.impact === 'high' && /Black Adam/.test(u.text) && /Silver Surfer/.test(u.text)));
+  assert.ok(a.uncertainties.some(u => u.kind === 'unresearched-kits' && u.impact === 'high' && /Aquaman/.test(u.text) && /Silver Surfer/.test(u.text)));
   assert.ok(a.sides.every(s => s.winConditions.some(w => w.type === 'attrition' && w.evidence === 'unknown')));
   assert.ok(![0.8, 0.2].includes(a.sides[0].probability), 'the conversational 80/20 is not hard-coded');
   for (const file of out.src) assert.ok(!/0\.8\s*[,\]]\s*0\.2|80\s*\/\s*20/.test(fs.readFileSync(path.join(root, file), 'utf8')), file);

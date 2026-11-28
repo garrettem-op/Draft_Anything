@@ -54,7 +54,8 @@ function loadApp(options = {}) {
   sandbox.window = sandbox; sandbox.globalThis = sandbox; sandbox.self = sandbox;
   vm.createContext(sandbox);
   const tags = [...html.matchAll(/<script(?:\s+src="([^"]+)")?[^>]*>([\s\S]*?)<\/script>/g)];
-  for (const [, src, inline] of tags) {
+  for (const [, rawSrc, inline] of tags) {
+    const src = rawSrc && rawSrc.split('?')[0]; // cache-busting query strings are not part of the file path
     if (src && src.startsWith('vendor/')) continue; // network client, not needed offline
     if (src && options.skip && options.skip(src)) continue;
     vm.runInContext(src ? fs.readFileSync(path.join(base, src), 'utf8') : inline, sandbox, { filename: src || 'index.html#inline' });

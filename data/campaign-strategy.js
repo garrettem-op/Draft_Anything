@@ -1,8 +1,8 @@
 /* Draft Anything: Campaign encounter strategy and one-shot alternate forms.
    Every encounter is locked to a campaign seed + stage, never to the player's
-   chosen lineup. The same retry uses the same opponents and simulation RNG.
-   Variant Surge locks one random eligible character AND one documented form
-   per stage; replacing that character does not return the charge. */
+   chosen lineup. Opponents stay fixed; each submitted attempt has fresh combat RNG.
+   Variant Surge locks one weighted documented form per eligible character
+   per stage; replacing that character does not refund the roll. */
 // The form-specific power catalog is independent from Claude's base-character audit.
 const VARIANT_ABILITIES_API=(typeof window!=='undefined'&&window.DA_VARIANT_ABILITY_API)||
   (typeof require==='function'?require('./variant-abilities.js'):null);
@@ -78,11 +78,11 @@ const BASE_CAMPAIGN_VARIANTS=Object.freeze({
   ],
   'games:Charizard':[
     {name:'Mega Charizard X',changes:{str:13,tch:8,end:8},origin:'Pokémon · Mega Evolution'},
-    {name:'Mega Charizard Y',changes:{acc:13,tch:11,spd:6},origin:'Pokémon · Mega Evolution'}
+    {name:'Mega Charizard Y',changes:{acc:13,tch:11,spd:6,agi:8},origin:'Pokémon · Mega Evolution'}
   ],
   'games:Mewtwo':[
-    {name:'Mega Mewtwo X',changes:{str:13,tch:11,end:7},origin:'Pokémon · Mega Evolution'},
-    {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9},origin:'Pokémon · Mega Evolution'}
+    {name:'Mega Mewtwo X',changes:{str:13,tch:11,end:7,siz:8},origin:'Pokémon · Mega Evolution'},
+    {name:'Mega Mewtwo Y',changes:{tch:13,spd:11,iq:9,end:-10},origin:'Pokémon · Mega Evolution'}
   ]
 });
 // The large form catalog lives in its own evidence-labelled data module. Keep
@@ -100,85 +100,167 @@ const CAMPAIGN_VARIANTS=Object.freeze(Object.fromEntries(
 function campaignStageSeed(v,step=v.step){
   return String(v.seed||'legacy-campaign')+'|'+v.sport+'|'+step+'|'+(v.stageOrder?.[step]??step);
 }
-function campaignOpponentPool(rule,all){
-  if(rule==='kids')return all.filter(c=>!CAMPAIGN_KIDS.has(c.n));
-  if(rule==='mortal')return all.filter(c=>!campaignAllowed(c,'mortal'));
-  if(rule==='underdog')return all.filter(c=>c.a.reduce((x,y)=>x+y,0)/12>76);
-  if(rule==='short'||rule==='final')return all;
-  return all.filter(c=>campaignAllowed(c,rule));
+// Stable encounter seeds, with independent combat rolls per submission.
+function campaignCombatSeed(v,index=0,attempt=v.attempts?.[v.step]||0){
+  return campaignStageSeed(v)+':match:'+attempt+':boss-'+index;
 }
-// The ceiling is calculated from the challenge rules and the entire character
-// catalog, NOT from what the player submitted. For short-handed games, compare
-// against a best-case short-handed roster rather than a full seven-slot team.
-function campaignChallengeCeiling(sport,rule){
-  const sp=SPORTS[sport],all=getCands('mashup'),P=sp.pos.length;
-  const eligible=rule==='short'||rule==='final'?all:all.filter(c=>campaignAllowed(c,rule));
-  const pool=eligible.length>=P?eligible:all;
-  const full=aiStackDraft(sport,pool,1,false)[0]||{};
-  if(rule!=='short'&&rule!=='final')return teamScore(sport,full).rating;
-  const starters=sp.pos.filter(p=>!p.side&&!p.coach&&!p.bench);
-  const count=Math.max(1,Math.ceil(starters.length*0.6));
-  const chosen=starters.slice().sort((a,b)=>{
-    const af=full[a.id]?fitIn(sport,full[a.id],a)*a.imp:0;
-    const bf=full[b.id]?fitIn(sport,full[b.id],b)*b.imp:0;
-    return bf-af;
-  }).slice(0,count);
-  return teamScore(sport,Object.fromEntries(chosen.map(p=>[p.id,full[p.id]]).filter(([,c])=>!!c))).rating;
+// Exactly the same slot-aware eligibility and campaign history as the player.
+const CAMPAIGN_OPPONENT_RULE_VERSION=2;
+function campaignOpponentPool(rule,all,pos=null,side='player',v=S.campaign){
+  return all.filter(c=>campaignPickAllowed(c,rule,pos,side,v));
 }
-function campaignBuildOpponent(v,stage){
-  const P=SPORTS[v.sport].pos.length,all=getCands('mashup');
-  let pool=campaignOpponentPool(stage.rule,all);
-  if(pool.length<P)pool=all;
-  const rng=rngFrom(campaignStageSeed(v)+':opponent');
-  const challengeCeiling=campaignChallengeCeiling(v.sport,stage.rule);
-  // Progression is anchored to the BEST POSSIBLE challenge roster in the
-  // catalog, NOT to this player's picks. Short-handed stages get appropriately
-  // weaker, complete opponents instead of unwinnable top-7 superteams.
-  const target=challengeCeiling*(0.88+0.08*Math.max(0,Math.min(9,v.step))/9);
-  const ranked=pool.map(c=>({c,rank:candVal(v.sport,c)+(rng()-0.5)*7}))
-    .sort((a,b)=>a.rank-b.rank).map(x=>x.c);
-  let best=null,lo=P,hi=ranked.length;
-  for(let i=0;i<11&&lo<=hi;i++){
-    const n=Math.max(P,Math.floor((lo+hi)/2));
-    const roster=aiStackDraft(v.sport,ranked.slice(0,n),1,false)[0];
-    if(!roster)break;
-    const rating=teamScore(v.sport,roster).rating;
-    const diff=Math.abs(rating-target);
-    if(!best||diff<best.diff)best={roster,diff};
-    if(rating<target)lo=n+1;else hi=n-1;
+// Role-aware, seeded drafting. Normal slots share the same eligibility;
+// the commander may also qualify through a documented specialty. Fill
+// starters first so a specialist/support pick cannot consume a required starter.
+function campaignDraftLegalRoster(sport,rule,all,rng,jitter=0,side='player',v=S.campaign){
+  const slots=campaignSlots(sport,rule),limit=campaignLimit(sport,rule);
+  const minimum=campaignCriteria(rule)?.minDistinctPools||0;
+  const active=p=>!p.coach&&!p.bench&&!p.side;
+  const ranked=slots.map(p=>({p,choices:campaignOpponentPool(rule,all,p,side,v)
+    .map(c=>({c,value:fitIn(sport,c,p)+(rng()-0.5)*jitter}))
+    .sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id))}));
+  const priority=p=>active(p)?2:p.coach?0:1;
+  ranked.sort((a,b)=>priority(b.p)-priority(a.p)||
+    (b.choices[0]?.value??-Infinity)-(a.choices[0]?.value??-Infinity));
+  const roster={},used=new Set(),pools=new Set();
+  for(const {p,choices} of ranked){
+    if(used.size===limit)break;
+    const needPool=pools.size<minimum;
+    const pick=choices.find(({c})=>!used.has(c.id)&&(!needPool||!pools.has(c.pool)));
+    if(!pick)continue;
+    roster[p.id]=pick.c;
+    used.add(pick.c.id);
+    pools.add(pick.c.pool);
   }
-  const roster=best?.roster||aiStackDraft(v.sport,ranked,1,false)[0]||{};
+  return campaignRosterLegal(sport,rule,roster,side,v)?roster:null;
+}
+function campaignChallengeCeiling(sport,rule){
+  const roster=campaignDraftLegalRoster(sport,rule,getCands('mashup'),()=>0.5);
+  return roster?teamScore(sport,roster).rating:0;
+}
+function campaignBuildOpponent(v,stage,excludedIds=new Set(),side='player'){
+  const rng=rngFrom(campaignStageSeed(v)+':opponent');
+  // Later stages reduce drafting noise instead of granting raw rating bonuses.
+  const jitter=18-15*Math.max(0,Math.min(9,v.step))/9;
+  const roster=campaignDraftLegalRoster(v.sport,stage.rule,getCands('mashup').filter(c=>!excludedIds.has(c.id)),rng,jitter,side,side==='cpu'?v:S.campaign);
+  if(!roster)return null;
   const strategies=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
   const tactic=strategies[Math.floor(rng()*strategies.length)]||strategies[0];
-  return {roster:Object.fromEntries(Object.entries(roster).map(([slot,c])=>[slot,c.id])),tactic,
-    difficultyBonus:+(v.step*0.13).toFixed(2)};
+  return {roster:Object.fromEntries(Object.entries(roster).map(([slot,c])=>[slot,c.id])),
+    tactic,ruleVersion:CAMPAIGN_OPPONENT_RULE_VERSION,rule:stage.rule};
+}
+function campaignHydrateOpponent(o){
+  return Object.fromEntries(Object.entries(o?.roster||{}).map(([slot,id])=>[slot,candById('mashup',id)]));
 }
 function campaignLockedOpponent(v,stage){
   if(!v.opponents||typeof v.opponents!=='object')v.opponents={};
-  let o=v.opponents[v.step];
-  if(!o||!o.roster||!o.tactic||!Object.values(o.roster).every(id=>!!candById('mashup',id))){
+  let o=v.opponents[v.step],roster=campaignHydrateOpponent(o);
+  // Migrate old saved opponents in place; preserve seed, current picks and wins.
+  if(o?.ruleVersion!==CAMPAIGN_OPPONENT_RULE_VERSION||o.rule!==stage.rule||
+     !CAMPAIGN_TACTICS[o.tactic]||!campaignRosterLegal(v.sport,stage.rule,roster)){
     o=campaignBuildOpponent(v,stage);
+    if(!o)return null;
     v.opponents[v.step]=o;
     saveCampaign();
+    roster=campaignHydrateOpponent(o);
   }
-  const roster=Object.fromEntries(Object.entries(o.roster).map(([slot,id])=>[slot,candById('mashup',id)]).filter(([,c])=>!!c));
-  const score=teamScore(v.sport,roster);
-  score.rating+=Number(o.difficultyBonus)||0;
-  return {roster,score,tactic:o.tactic,difficultyBonus:o.difficultyBonus||0};
+  return {roster,score:teamScore(v.sport,roster),tactic:o.tactic};
 }
-// The final Siege fields TWO opponents for a single submitted full-strength
-// lineup. Both are seeded independently, stable across retries and unaffected
-// by the player's lineup. This does not consume the Variant Surge twice.
-function campaignFinalBossOpponent(v,stage,firstBoss){
+// Both independent finale opponents must meet the same alliance and history rules.
+function campaignFinalBossOpponent(v,stage,firstBoss,playerIds=null){
   const alt={...v,seed:String(v.seed||'legacy-campaign')+'|second-siege-boss'};
-  const generated=campaignBuildOpponent(alt,stage);
-  const roster=Object.fromEntries(Object.entries(generated.roster).map(([slot,id])=>[slot,candById('mashup',id)]).filter(([,c])=>!!c));
-  const score=teamScore(v.sport,roster);
-  score.rating+=(Number(generated.difficultyBonus)||0)+0.5;
+  if(!firstBoss?.roster)return null;
+  // Surge variants retain their original candidate ID. Exclude all roles.
+  const excludedIds=new Set([...Object.values(firstBoss.roster).map(c=>c.id),...(playerIds||[])]);
+  const side=playerIds?'cpu':'player';
+  const generated=campaignBuildOpponent(alt,stage,excludedIds,side);
+  if(!generated)return null;
+  const roster=campaignHydrateOpponent(generated);
+  if(!campaignRosterLegal(v.sport,stage.rule,roster,side,side==='cpu'?v:S.campaign)||Object.values(roster).some(c=>excludedIds.has(c.id)))return null;
   const possible=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
   const tactic=generated.tactic===firstBoss?.tactic
     ?(possible.find(s=>s!==firstBoss.tactic)||'precision'):generated.tactic;
-  return {roster,score,tactic,difficultyBonus:generated.difficultyBonus||0};
+  return {roster,score:teamScore(v.sport,roster),tactic};
+}
+// Snake sequence is ABBAABBA…; alternate first pick by challenge.
+function campaignSnakeOrder(limit,cpuFirst=false){
+  return Array.from({length:2*limit},(_,i)=>((Math.floor((i+1)/2)%2===0)!==cpuFirst?'player':'cpu'));
+}
+function campaignSnakeCpuDue(limit,playerPicks,cpuFirst=false){
+  let humans=0,cpus=0;
+  for(const side of campaignSnakeOrder(limit,cpuFirst)){
+    if(side==='player'){if(humans===playerPicks)break;humans++;}
+    else cpus++;
+  }
+  return cpus;
+}
+function campaignSnakeOpponent(v,stage){
+  const slots=campaignSlots(v.sport,stage.rule),limit=campaignLimit(v.sport,stage.rule);
+  if(v.snake?.step!==v.step)v.snake={step:v.step,cpu:{},tactic:null};
+  const draft=v.snake,playerIds=new Set(Object.values(v.roster||{}).map(c=>c.id));
+  const all=getCands('mashup'),candidates=new Map(all.map(c=>[c.id,c]));
+  const positions=new Map(slots.map(p=>[p.id,p]));
+  // Active-form rules (data/campaign.js). The CPU decides from eligibility and the published surge
+  // odds only; a surge is rolled when it commits to a pick, and a failed roll burns that character
+  // for this round, exactly as a failed roll does for the player. It never previews roll outcomes.
+  const forms=typeof campaignCpuCanAttempt==='function';
+  const canAttempt=(c,p)=>forms?campaignCpuCanAttempt(c,stage.rule,p,v):campaignPickAllowed(c,stage.rule,p,'cpu',v);
+  const valid=(c,p)=>forms?campaignCpuPickAllowed(c,stage.rule,p,v):campaignPickAllowed(c,stage.rule,p,'cpu',v);
+  const chance=new Map();
+  const odds=(c,p)=>{
+    if(!forms||campaignPickAllowed(c,stage.rule,p,'cpu',v))return 1;
+    const key=c.id+'|'+p.id;
+    if(!chance.has(key))chance.set(key,campaignFormQualifyChance(c,stage.rule,p,'cpu',v));
+    return chance.get(key);
+  };
+  if(forms){draft.failed||={};draft.forms||={};}
+  // Migrate an unfinished/legacy draft without deleting the user's picks.
+  for(const [slot,id] of Object.entries(draft.cpu)){
+    if(playerIds.has(id)||!positions.has(slot)||!valid(candidates.get(id),positions.get(slot)))delete draft.cpu[slot];
+  }
+  const due=campaignSnakeCpuDue(limit,Math.min(limit,playerIds.size),v.step%2===1);
+  let dirty=false;
+  const minimum=campaignCriteria(stage.rule)?.minDistinctPools||0;
+  const jitter=18-15*Math.max(0,Math.min(9,v.step))/9;
+  while(Object.keys(draft.cpu).length<due){
+    const used=new Set([...playerIds,...Object.values(draft.cpu),...Object.keys(draft.failed||{})]);
+    const pools=new Set(Object.values(draft.cpu).map(id=>candidates.get(id)?.pool));
+    const rng=rngFrom(campaignStageSeed(v)+':snake:'+Object.keys(draft.cpu).length+(Object.keys(draft.failed||{}).length?':'+Object.keys(draft.failed).length:''));
+    const remaining=slots.filter(p=>!draft.cpu[p.id]);
+    const priority=p=>!p.coach&&!p.bench&&!p.side?2:p.coach?0:1;
+    const options=remaining.map(p=>{
+      const legal=all.filter(c=>!used.has(c.id)&&canAttempt(c,p)&&
+        (pools.size>=minimum||!pools.has(c.pool)));
+      // A gamble on a base-ineligible character is valued by its chance of rolling a qualifying form.
+      const ranked=legal.map(c=>({c,value:(fitIn(v.sport,c,p)+(rng()-.5)*jitter)*odds(c,p)})).sort((a,b)=>b.value-a.value||a.c.id.localeCompare(b.c.id));
+      return {p,ranked};
+    }).filter(x=>x.ranked.length).sort((a,b)=>priority(b.p)-priority(a.p)||a.ranked.length-b.ranked.length||b.ranked[0].value-a.ranked[0].value);
+    if(!options.length)break;
+    const best=options[0],pick=best.ranked[0].c;
+    dirty=true;
+    // Commit, then roll. A failed attempt stands: the character is spent and the CPU picks again.
+    if(forms&&!campaignPickAllowed(pick,stage.rule,best.p,'cpu',v)&&!campaignCpuCommitSurge(pick,stage.rule,best.p,v))continue;
+    draft.cpu[best.p.id]=pick.id;
+  }
+  if(!draft.tactic){
+    const choices=CAMPAIGN_RULE_TACTICS[stage.rule]||['assault','control','blitz'];
+    draft.tactic=choices[Math.floor(rngFrom(campaignStageSeed(v)+':tactic')()*choices.length)]||choices[0];dirty=true;
+  }
+  if(dirty)saveCampaign();
+  const roster=campaignHydrateOpponent({roster:draft.cpu});
+  if(Object.keys(roster).length!==limit||!(forms?campaignRosterReady(v.sport,stage.rule,roster)&&Object.entries(roster).every(([slot,c])=>valid(c,positions.get(slot))):campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v))||Object.values(roster).some(c=>playerIds.has(c.id)))return null;
+  return {roster,score:teamScore(v.sport,roster),tactic:draft.tactic};
+}
+function campaignSnakeSecond(v,stage,first){
+  const unavailable=new Set([...Object.values(v.roster).map(c=>c.id),...Object.values(first.roster).map(c=>c.id)]);
+  let second=v.snake?.second,roster=campaignHydrateOpponent(second);
+  if(!second||!campaignRosterLegal(v.sport,stage.rule,roster,'cpu',v)||Object.values(roster).some(c=>unavailable.has(c.id))){
+    const generated=campaignFinalBossOpponent(v,stage,first,new Set(Object.values(v.roster).map(c=>c.id)));
+    if(!generated)return null;
+    second={roster:Object.fromEntries(Object.entries(generated.roster).map(([slot,c])=>[slot,c.id])),tactic:generated.tactic};
+    v.snake.second=second;saveCampaign();return generated;
+  }
+  return {roster,score:teamScore(v.sport,roster),tactic:second.tactic};
 }
 function campaignActiveAverage(sport,roster,attr){
   const ix=CAMPAIGN_ATTR_INDEX[attr];
@@ -210,54 +292,108 @@ function campaignTacticalMatch(sport,yourRoster,rivalRoster,tacticKey){
 function variantOptions(candidate){
   return candidate?CAMPAIGN_VARIANTS[candidate.pool+':'+(candidate.variantBase||candidate.n)]||[]:[];
 }
+// Legacy single records remain readable; new saves retain every spent identity.
+function variantSurgeRecords(v){
+  const raw=Array.isArray(v?.surge)?v.surge:v?.surge?[v.surge]:[];
+  const seen=new Set();
+  return raw.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&!seen.has(x.id)&&seen.add(x.id));
+}
 function variantSurgeCandidates(v){
-  const sp=SPORTS[v.sport];
-  return sp.pos.filter(p=>!p.coach&&v.roster[p.id]&&variantOptions(v.roster[p.id]).length)
+  const spent=new Set(variantSurgeRecords(v).map(x=>x.id));
+  return SPORTS[v.sport].pos.filter(p=>!p.coach&&v.roster[p.id]&&!spent.has(v.roster[p.id].id)&&variantOptions(v.roster[p.id]).length)
     .map(p=>v.roster[p.id]);
 }
+const VARIANT_ODDS_TABLE=[
+  [],[100],[75,25],[55,35,10],[45,30,20,5],[35,30,20,12,3],
+  [30,25,20,15,8,2],[28,24,19,14,9,5,1],[25,22,18,14,10,6,4,1]
+];
+// A gameplay estimate, not a new canonical power audit. Explicit reviewed
+// surgePower overrides can refine the ranking without editing the odds engine.
+function variantPowerEstimate(base,form){
+  if(Number.isFinite(form.surgePower))return form.surgePower;
+  const delta=Object.entries(form.changes||{}).reduce((sum,[k,d])=>{
+    const a=base.a[CAMPAIGN_ATTR_INDEX[k]];
+    return Number.isFinite(a)?sum+Math.max(1,Math.min(99,a+d))-a:sum;
+  },0);
+  const ability=VARIANT_ABILITIES_API?.variantAbilityProfile(base,form);
+  // Reuse the reviewed combat engine's Apex classification (including flagship
+  // tier-4 forms such as Hellbat), rather than ranking solely by stat deltas.
+  const combatApi=(typeof window!=='undefined'&&window.DA_BRAWL_COMBAT)||
+    (typeof require==='function'?require('./brawl-combat.js'):null);
+  const apex=ability?combatApi?.apexRankOf?.({...base,n:form.name,variantAbilities:ability},ability)||0:0;
+  return delta/12+(Number(form.ratingBonus)||0)+(ability?Math.max(0,ability.tier-2)*2.5:0)+apex*8;
+}
+function variantOdds(base){
+  const ranked=variantOptions(base).map(form=>({form,power:variantPowerEstimate(base,form)}))
+    .sort((a,b)=>a.power-b.power||a.form.name.localeCompare(b.form.name));
+  const n=ranked.length;
+  if(!n)return [];
+  const fallback=ranked.map((_,i)=>Math.exp(-3.2*i/Math.max(1,n-1)));
+  const total=fallback.reduce((a,b)=>a+b,0);
+  const weights=VARIANT_ODDS_TABLE[n]?.slice()||fallback.map(x=>100*x/total);
+  // Near-equal forms share probability; do not invent large differences for ties.
+  for(let i=0;i<n;){
+    let j=i+1;
+    while(j<n&&ranked[j].power-ranked[i].power<=0.5)j++;
+    const mean=weights.slice(i,j).reduce((a,b)=>a+b,0)/(j-i);
+    for(let k=i;k<j;k++)weights[k]=mean;
+    i=j;
+  }
+  return ranked.map((entry,i)=>({...entry,percent:weights[i],
+    classification:entry.power<-.5?'Depowered':entry.power<=.5?'Lateral':entry.power<4?'Enhanced':entry.power<9?'Ascended':'God-tier'}));
+}
 function useVariantSurge(v,targetId=null,seed='shared-variant'){
-  if(v.surge||(v.status&&v.status!=='draft'))return null;
+  if(v.status&&v.status!=='draft')return null;
   const options=variantSurgeCandidates(v);
   if(!options.length)return null;
-  const rng=rngFrom(seed+':variant-surge');
+  const rng=rngFrom(seed+':variant-target');
   const target=targetId?options.find(c=>c.id===targetId):options[Math.floor(rng()*options.length)];
   if(!target)return null;
-  const forms=variantOptions(target);
-  const formRng=targetId?rngFrom(seed+':variant-form:'+target.id):rng;
-  const form=forms[Math.floor(formRng()*forms.length)];
-  if(!form)return null;
-  v.surge={id:target.id,name:form.name};
-  return v.surge;
+  const odds=variantOdds(target);
+  const roll=rngFrom(seed+':variant-form:'+target.id)()*100;
+  let sum=0;
+  const chosen=odds.find(entry=>(sum+=entry.percent)>roll)||odds[odds.length-1];
+  if(!chosen)return null;
+  const record={id:target.id,name:chosen.form.name};
+  v.surge=[...variantSurgeRecords(v),record];
+  return record;
 }
-function variantForm(v){
-  if(!v.surge)return null;
-  const base=Object.values(v.roster).find(c=>c?.id===v.surge.id);
-  if(!base)return null;
-  const form=variantOptions(base).find(f=>f.name===v.surge.name);
-  return form?{base,form}:null;
+function variantForms(v){
+  const byId=new Map(Object.values(v.roster).filter(Boolean).map(c=>[c.id,c]));
+  return variantSurgeRecords(v).flatMap(record=>{
+    const base=byId.get(record.id),form=base&&variantOptions(base).find(f=>f.name===record.name);
+    return form?[{base,form}]:[];
+  });
 }
+function variantForm(v){return variantForms(v)[0]||null;}
 function variantRoster(v){
-  const transform=variantForm(v);
-  if(!transform)return v.roster;
+  const transforms=new Map(variantForms(v).map(x=>[x.base.id,x]));
+  if(!transforms.size)return v.roster;
   const roster={...v.roster};
   for(const [slot,c] of Object.entries(roster)){
-    if(c?.id!==transform.base.id)continue;
+    const transform=transforms.get(c?.id);
+    if(!transform)continue;
     const attrs=c.a.slice();
     for(const [k,delta] of Object.entries(transform.form.changes)){
       const i=CAMPAIGN_ATTR_INDEX[k];
       if(i!==undefined)attrs[i]=Math.max(1,Math.min(99,attrs[i]+delta));
     }
-    // Preserve base identity, signatures, boom flags, synergy and ability tags.
-    // The transformed stats and any documented cosmic bonus are one-use effects.
     const abilities=VARIANT_ABILITIES_API?.variantAbilityProfile(c,transform.form)||null;
     roster[slot]={...c,n:transform.form.name,a:attrs,variantBase:c.n,
-      // A documented alternate form replaces the base move; it does not stack
-      // a second, hidden signature. Profiles are never inferred for unreviewed forms.
       sig:abilities?{name:abilities.move,kind:abilities.kind}:c.sig,
       variantAbilities:abilities,
       variantRatingBonus:Math.max(0,Math.min(5,Number(transform.form.ratingBonus)||0))};
   }
   return roster;
+}
+// CPU can make the same risk/reward choice, with independent reproducible odds.
+function cpuVariantRoster(sport,roster,seed){
+  const v={sport,roster,surge:null,status:'draft'};
+  for(const c of variantSurgeCandidates(v)){
+    const odds=variantOdds(c);
+    if(odds.reduce((n,x)=>n+x.power*x.percent/100,0)>0)useVariantSurge(v,c.id,seed);
+  }
+  return variantRoster(v);
 }
 // Historical Campaign entrypoints are adapters over the same power engine.
 function campaignVariantOptions(c){return variantOptions(c);}
@@ -266,7 +402,7 @@ function campaignUseVariantSurge(v,targetId=null){return useVariantSurge(v,targe
 function campaignVariantForm(v){return variantForm(v);}
 function campaignVariantRoster(v){return variantRoster(v);}
 if(typeof module!=='undefined'&&module.exports){
-  module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignOpponentPool,campaignBuildOpponent,
+  module.exports={CAMPAIGN_TACTICS,CAMPAIGN_VARIANTS,campaignStageSeed,campaignCombatSeed,campaignOpponentPool,campaignBuildOpponent,
     campaignChallengeCeiling,campaignFinalBossOpponent,campaignActiveAverage,campaignTeamVariety,campaignTacticalMatch,campaignVariantOptions,
-    campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster,variantOptions,variantSurgeCandidates,useVariantSurge,variantForm,variantRoster};
+    campaignUseVariantSurge,campaignVariantForm,campaignVariantRoster,variantOptions,variantOdds,variantSurgeRecords,variantSurgeCandidates,useVariantSurge,variantForm,variantForms,variantRoster,cpuVariantRoster};
 }

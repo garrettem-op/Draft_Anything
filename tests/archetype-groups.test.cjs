@@ -204,5 +204,8 @@ test('skipping the archetype file reproduces the previous V1 golden digests exac
   const rev = (golden.revisions || []).find(r => /archetype/i.test(r.reason));
   assert.ok(rev && rev.previousDigests, 'the golden file records the pre-archetype digests');
   const noArch = runParityFixtures(loadApp({ skip: s => s.startsWith('data/option-c/') || s.includes('archetype-groups') }), false);
-  for (const id of Object.keys(rev.previousDigests)) assert.equal(noArch.digests[id], rev.previousDigests[id], 'without archetypes, ' + id + ' should match the pre-archetype baseline');
+  // After a live engine change the pre-archetype digests are re-pinned as noArchetypeDigests
+  // (2026-11-27 Version 1 engine parity merge); before that they are the first archetype revision's.
+  const expected = golden.noArchetypeDigests || rev.previousDigests;
+  for (const id of Object.keys(expected)) assert.equal(noArch.digests[id], expected[id], 'without archetypes, ' + id + ' should match the pre-archetype baseline');
 });

@@ -5,6 +5,12 @@
    Evidence is deliberately NOT shown in the pre-submission picker, because Campaign
    is intended to test the player's knowledge. */
 const CHARACTER_ABILITY_RECORDS_CURATED = {
+  "lotr:Shelob": [
+    {tag:"giants", tags:["giant-sized"], kind:"giant-sized", feat:"In The Two Towers, Book IV, chapter 9, Shelob is described as larger than great hunting beasts, with a vast body and long legs. Giant non-humanoid creatures qualify by overall physical scale rather than upright height.", source:"https://www.silmarillionwritersguild.org/node/4448", continuity:"Tolkien: The Two Towers, IV.9–10", limitation:"No exact canonical height; overall creature scale is the basis.", ruling:"owner-ruled 2026-11-27 (Garrett, PR #678): giant non-humanoid creatures qualify for Giant Problems by documented overall physical scale; no height is assigned.", verification:"owner-ruling", audit:"2026-11"},
+  ],
+  "lotr:Carcharoth": [
+    {tag:"giants", tags:["giant-sized"], kind:"giant-sized", feat:"In The Silmarillion, chapter 19, Morgoth rears and empowers the wolf until he grows too large to enter a den; he is bred to confront the enormous Huan. Giant non-humanoid creatures qualify by overall physical scale.", source:"https://www.silmarillionwritersguild.org/node/4358", continuity:"Tolkien: The Silmarillion, ch. 19", limitation:"No exact canonical height; supernatural growth and overall creature scale are the basis.", ruling:"owner-ruled 2026-11-27 (Garrett, PR #678): giant non-humanoid creatures qualify for Giant Problems by documented overall physical scale; no height is assigned.", verification:"owner-ruling", audit:"2026-11"},
+  ],
   // Skyborne is "known flyer OR aerial combatant", not "natural flight only".
   // This evidence is bundled and works without any network call or OpenAI credits.
   'pokemon:Articuno': [
@@ -2954,7 +2960,7 @@ const CHARACTER_ABILITY_RESEARCH_QUEUE = Object.freeze([
   {id:"dc:Death of the Endless", tag:"magic", note:"Needs an owner ruling: Death is a personification, not a spellcaster.", source:"https://en.wikipedia.org/wiki/Death_(DC_Comics)", audit:"2026-11-r2"},
   {id:"dc:Doctor Fate", tag:"psychic", note:"Telepathy appears in some eras; a specific scene is needed.", source:"https://en.wikipedia.org/wiki/Doctor_Fate", audit:"2026-11-r2"},
   {id:"lotr:Quickbeam", tag:"giants", note:"Round 3: Tolkien Gateway gives only 'Tall'; no page states a height or size comparison for Quickbeam. Treebeard's 14 ft does not carry over.", source:"https://tolkiengateway.net/wiki/Quickbeam"},
-  {id:"lotr:Carcharoth", tag:"giants", note:"Round 3: sources say only 'grew to great size' and 'huge'; no measurement or fixing comparison.", source:"https://lotr.fandom.com/wiki/Carcharoth"},
+
   {id:"lotr:Melian", tag:"psychic", note:"Seed-list grant removed pending a telepathy scene; her documented powers are enchantment and foresight.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
   {id:"lotr:Melian", tag:"healing", note:"Seed-list grant removed pending a healing scene.", source:"https://lotr.fandom.com/wiki/Melian", audit:"2026-11-r2"},
   {id:"harrypotter:Albus Dumbledore", tag:"psychic", note:"Seed-list grant removed pending a specific on-page Legilimency scene; Wizarding World materials call him a skilled Legilimens.", source:"https://harrypotter.fandom.com/wiki/Albus_Dumbledore", audit:"2026-11-r2"},
@@ -4029,7 +4035,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Witch-king of Angmar": ["flight", "mount", "magic", "spellcaster", "stealth", "invisibility"],
     "Khamûl the Easterling": ["flight", "mount", "stealth", "invisibility"],
     "Mouth of Sauron": ["magic", "spellcaster"],
-    "Shelob": [],
+    "Shelob": ["giants", "giant-sized"],
     "Durin's Bane": ["fire", "fire-control", "giants", "giant-sized"],
     "Smaug": ["flight", "natural-flight", "fire", "fire-control", "giants", "giant-sized"],
     "Gwaihir": ["flight", "natural-flight"],
@@ -4079,7 +4085,7 @@ const CHARACTER_ABILITY_TAGS = Object.freeze({
     "Beleg Cúthalion": [],
     "Mablung": [],
     "Huan the Hound": [],
-    "Carcharoth": [],
+    "Carcharoth": ["giants", "giant-sized"],
     "Glaurung": ["psychic", "mind-control", "fire", "fire-control", "giants", "giant-sized"],
     "Ancalagon the Black": ["flight", "natural-flight", "fire", "fire-control", "giants", "giant-sized"],
     "Gothmog (Lord of Balrogs)": ["fire", "fire-control", "giants", "giant-sized"],
@@ -4256,6 +4262,7 @@ const CHARACTER_ABILITY_SOURCE_TIERS = Object.freeze({
   'autoassembly.org.uk':'community', 'dcuguide.com':'community',
   'harrypotterstats.com':'community', 'comics.org':'community',
   'hp-lexicon.org':'community', 'fxguide.com':'editorial', 'khwiki.com':'community', 'bulbapedia.bulbagarden.net':'game-data', 'multiversus.wiki.gg':'community', 'bkbrent.com':'community', 'sparknotes.com':'editorial',
+  'silmarillionwritersguild.org':'community',
 });
 const CHARACTER_ABILITY_SOURCE_TYPES = Object.freeze(['official', 'game-data', 'dialogue', 'editorial', 'community']);
 /* Source type for one URL: a listed host, any *.fandom.com wiki ('community'), or null when unclassified. */

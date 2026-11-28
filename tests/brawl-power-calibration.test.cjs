@@ -24,12 +24,20 @@ test('all registered exceptional-power identities have separately reviewed comba
   assert.ok(special.length>=20);
   assert.ok(Object.keys(CORE).length>=30);
   for(const key of special){
-    assert.ok(CORE[key],key+' lacks ability profile');
+    if(CORE[key])continue;
+    const catalog=require('../data/campaign-variant-expansion.js');
+    const {variantAbilityProfile}=require('../data/variant-abilities.js');
+    const [pool,name]=key.split(':');
+    const matching=Object.entries(catalog).flatMap(([id,forms])=>forms.filter(f=>id.startsWith(pool+':')&&f.name===name).map(f=>[id,f]));
+    assert.equal(matching.length,1,key+' lacks exact reviewed form identity');
+    const [id,form]=matching[0],base=hero(pool,id.slice(pool.length+1));
+    const kit=brawlAbilityOf({...base,n:name,variantBase:base.n,variantAbilities:variantAbilityProfile(base,form)});
+    assert.ok(kit&&kit.source&&kit.limit,key+' lacks reviewed form ability');
   }
   for(const [key,p] of Object.entries(CORE)){
-    assert.match(key,/^(dc|mcu|lotr):./);
+    assert.match(key,/^(dc|mcu|lotr|toons|games|pokemon|harrypotter|starwars):./);
     assert.ok(p.move.length>=5&&p.limit.length>=25,key);
-    assert.ok(['toxin','melee','tech','cosmic','magic','reality','elemental'].includes(p.domain),key);
+    assert.ok(['toxin','melee','tech','cosmic','magic','reality','elemental','psychic'].includes(p.domain),key);
     assert.ok(p.pierce>=0&&p.pierce<=.45,key);
     assert.ok(p.tier>=1&&p.tier<=5,key);
     assert.ok(p.cooldown>=2&&p.cooldown<=5,key);

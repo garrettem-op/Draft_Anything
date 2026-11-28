@@ -35,6 +35,47 @@ function daVolleyballPoints(setsWon,note,side) {
   return Math.max(0,Math.round(Number(setsWon)||0))*25;
 }
 
+// Counterfactual support contribution: score the identical roster with only
+// this slot empty, using the actual production team-score pipeline. This keeps
+// signature caps, chemistry, MuppetForce, bench synergies and role multipliers
+// intact rather than estimating them from a random positional-fit roll.
+function daSupportImpact(sport,score,slot,scorer){
+  const calculate=scorer||(typeof teamScore==='function'?teamScore:null);
+  if(!calculate||!Array.isArray(score?.rows))return null;
+  const row=score.rows.find(r=>r.pos.id===slot&&r.cand);
+  if(!row||(!row.pos.coach&&!row.pos.bench))return null;
+  const roster=Object.fromEntries(score.rows.filter(r=>r.cand).map(r=>[r.pos.id,r.cand]));
+  const without={...roster};delete without[slot];
+  const full=calculate(sport,roster),empty=calculate(sport,without);
+  if(!Number.isFinite(full?.rating)||!Number.isFinite(empty?.rating))return null;
+  const n=x=>Number.isFinite(x)?x:0;
+  const specialtyPercent=n(score.commanderEffect?.percent);
+  const specialtyFull=full.rating*specialtyPercent/100;
+  const specialtyWithout=row.pos.coach?0:empty.rating*specialtyPercent/100;
+  const parts={
+    'Role multiplier':n(full.playerScore)*n(full.mult)-n(empty.playerScore)*n(empty.mult),
+    'Signature lift':n(full.sig?.lift)-n(empty.sig?.lift),
+    'Team chemistry':n(full.syn?.total)-n(empty.syn?.total),
+    'MuppetForce teamwork':n(full.muppetTeam?.points)-n(empty.muppetTeam?.points),
+    'Bench chemistry':n(full.benchChem?.points)-n(empty.benchChem?.points),
+    'Variant rating bonus':n(full.variantBonus)-n(empty.variantBonus),
+    'Team variety':n(full.variety?.pts)-n(empty.variety?.pts),
+    'Campaign commander specialty':specialtyFull-specialtyWithout
+  };
+  const total=full.rating-empty.rating+specialtyFull-specialtyWithout;
+  // Keep any future score components visible rather than silently dropping them.
+  const remainder=total-Object.values(parts).reduce((sum,x)=>sum+x,0);
+  if(Math.abs(remainder)>1e-7)parts['Other team-rating effects']=remainder;
+  const round=x=>Math.round(x*100)/100;
+  // What produced the role multiplier, so the report can show its working.
+  const detail={sport,fit:round(n(row.fit)),playerScore:round(n(full.playerScore)),
+    multiplierWith:Math.round(n(full.mult)*1000)/1000,multiplierWithout:Math.round(n(empty.mult)*1000)/1000,
+    leadershipNote:sport==='brawl'&&row.pos.coach&&row.cand&&typeof window!=='undefined'&&window.DA_COMBAT_TRANSFER&&window.DA_COMBAT_TRANSFER.combatTransfer(row.cand).command<1?
+      'Leadership was earned in sport, not commanding fighters, so it counts '+Math.round(window.DA_COMBAT_TRANSFER.combatTransfer(row.cand).command*100)+'% above an untrained baseline in a fight.':'',
+    system:row.pos.coach&&full.syn?.style?{label:String(full.syn.style.label||''),match:String(full.syn.style.match||''),points:round(n(full.syn.style.pts))}:null};
+  return {detail,points:round(total),parts:Object.fromEntries(Object.entries(parts).filter(([,x])=>Math.abs(x)>=.005).map(([k,x])=>[k,round(x)])),
+    opponentPenalty:round(n(full.sig?.chaos)-n(empty.sig?.chaos))};
+}
 function daBoxScore(sport,score,points,seed='',options={}) {
   const entries=(score?.rows||[]).filter(r=>r.cand).map(r=>({
     id:r.cand.id,name:r.cand.n,role:r.pos.ab,position:r.pos.id,fit:Math.round(r.fit||0),
@@ -44,7 +85,7 @@ function daBoxScore(sport,score,points,seed='',options={}) {
   const attrs=['spd','agi','str','siz','lep','end','tch','acc','ref','iq','clu','ldr'];
   const val=(r,k)=>r.attrs[attrs.indexOf(k)]||50;
   const pulse=r=>.81+.38*daHash(seed+':'+r.id+':'+r.position);
-  for(const r of entries){r.impact=Math.max(0,Math.round(r.fit*pulse(r)));r.delta=r.impact-r.fit;}
+  for(const r of entries){r.impact=r.active?Math.max(0,Math.round(r.fit*pulse(r))):r.fit;r.delta=r.impact-r.fit;}
   const active=entries.filter(r=>r.active);
   function metric(label,total,eligible,weight,salt) {
     const candidates=active.filter(eligible||(()=>true));
@@ -180,13 +221,34 @@ function daBoxScore(sport,score,points,seed='',options={}) {
     default:metric('Scoring',total,null,r=>r.fit,'scoring');
   }
   entries.forEach(r=>{
-    if(!r.active)r.stats.push([r.position==='cmd'?'Leadership impact':r.position==='hc'||r.position==='mgr'?'Coaching impact':'Bench impact',Math.max(0,Math.round((r.impact-50)/7))]);
+    if(!r.active){
+      const support=daSupportImpact(sport,score,r.position,options.supportScorer);
+      r.support=support;
+      const label=r.position==='cmd'?'Leadership impact (rating pts)':r.position==='hc'||r.position==='mgr'?'Coaching impact (rating pts)':'Bench impact (rating pts)';
+      r.stats.push([label,support?support.points:'—']);
+      if(support?.opponentPenalty)r.stats.push(['Opponent rating penalty',support.opponentPenalty]);
+    }
     delete r.attrs;delete r.imp;delete r.active;
   });
   entries.summary=summary;
   return entries;
 }
 
+function daSupportExplanation(row){
+  if(!row||!Object.prototype.hasOwnProperty.call(row,'support'))return '';
+  const s=row.support;
+  const signed=x=>(x>0?'+':'')+x.toFixed(2);
+  return '<details class="da-fighter-why"><summary>How support impact was calculated</summary><div>'+
+    (s?((s.detail?`Role rating ${s.detail.fit.toFixed(1)} from this character's own attributes (${row.position==='bn'?(s.detail.sport==='brawl'?'Clutch, Reflexes, Agility, Endurance, Accuracy and Leadership':'Endurance, Leadership, Clutch and Agility'):'Game IQ, Leadership and Clutch'}). `+
+        `With this character the fighters' combined score (${s.detail.playerScore.toFixed(1)}) is multiplied by ×${s.detail.multiplierWith.toFixed(3)}; with the slot empty, by ×${s.detail.multiplierWithout.toFixed(3)}. `+
+        (s.detail.leadershipNote?esc(s.detail.leadershipNote)+' ':'')+
+        (s.detail.system?`Command style "${esc(s.detail.system.label)}": ${esc(s.detail.system.match)} with this roster (${signed(s.detail.system.points)}). `:
+          row.position==='bn'?'':'No command style is on record for this character, so roster compatibility is neutral. '):'')+
+      'Total = team rating with this character minus team rating with this slot empty. '+Object.entries(s.parts).map(([k,v])=>esc(k)+': '+signed(v)).join(' · ')+
+      (s.opponentPenalty?' · Additional opponent rating penalty: '+signed(s.opponentPenalty):'')+
+      '. This is a pre-match rating contribution, not measured damage or a replay of the battle. In a Battle Royale the team rating has one combat effect: it sets the team damage multiplier shown in each fighter\'s breakdown. Commander and reinforcement contributions overlap and should not be added together. Match-specific random effects are separate.'):
+      'The original roster scoring data is unavailable. No impact value has been invented.')+'</div></details>';
+}
 function daReport(sport,score,points,title='',options={}) {
   if(!score?.rows)return '';
   const result=daBoxScore(sport,score,points,options.seed||title,options);
@@ -202,7 +264,7 @@ function daReport(sport,score,points,title='',options={}) {
   const footer=scoring?`<p class="note">Scoring allocation: ${scoring.td} TD × 7 + ${scoring.fg} FG × 3 + ${scoring.safeties} safeties × 2${scoring.unassigned?' + '+scoring.unassigned+' other':''} = ${scoring.total}. Field goals are team special-teams points; no kicker position exists on this roster.${result.summary.unassignedTD?' '+result.summary.unassignedTD+' touchdown(s) cannot be assigned because this lineup has no eligible scorer.':''}</p>`:
     sport==='volleyball'?`<p class="note">Estimated rally points: ${result.summary.teamRallyPoints}. Kills, blocks and aces are projected from rally totals, not official recorded events.</p>`:'';
   return `<div class="panel" style="padding:14px;margin-top:14px"><div class="sec"><h3 class="h">${esc(title||'After-action report')}</h3><span class="note">Simulated box score · not tracked play-by-play</span></div>
-  <div class="tbl-wrap"><table class="t"><thead><tr><th>Character</th><th>Role</th><th>Fit</th><th>Form</th><th>Estimated contributions</th></tr></thead><tbody>${result.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.role)}</td><td class="num">${r.fit}</td><td class="num">${r.impact} (${r.delta>=0?'+':''}${r.delta})</td><td>${r.stats.map(([k,v])=>`${esc(k)}: <b class="num">${v}</b>`).join(' · ')}</td></tr>`).join('')}</tbody></table></div>
+  <div class="tbl-wrap"><table class="t"><thead><tr><th>Character</th><th>Role</th><th>Fit</th><th>Form</th><th>Estimated contributions</th></tr></thead><tbody>${result.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.role)}</td><td class="num">${r.fit}</td><td class="num">${Object.prototype.hasOwnProperty.call(r,'support')?'—':`${r.impact} (${r.delta>=0?'+':''}${r.delta})`}</td><td>${r.stats.map(([k,v])=>`${esc(k)}: <b class="num">${v}</b>`).join(' · ')}${daSupportExplanation(r)}</td></tr>`).join('')}</tbody></table></div>
   ${footer}${scouting}<p class="note" style="margin:10px 0 0">${top?'Strongest simulated form vs baseline: '+esc(top.name)+'. ':''}${low&&low!==top?'Below baseline: '+esc(low.name)+'. ':''}Form varies deterministically by matchup; use these as scouting estimates, not observed statistics.</p></div>`;
 }
 
@@ -230,6 +292,12 @@ function daMatchBreakdown(detail,scoreA,scoreB,nameA='Your team',nameB='Opponent
     const st=sc.syn?.style,quality=sc.coachFit==null?'':` Coach quality: ${num(sc.coachFit)}/99 (multiplier ×${num(.9+.2*sc.coachFit/99)}).`;
     if(!st)return `<p class="note"><b>${esc(name)}:</b> No specialized coaching system was assigned.${quality}</p>`;
     const fit=st.match||(st.pts>.15?'Good fit':st.pts<-.15?'Poor fit':'Neutral');
+    if(st.version===2){
+      const members=Array.isArray(st.members)?st.members:[];
+      const components=[['Absolute proficiency',.5*1.4*st.absolute],['Philosophical compatibility',.3*1.4*st.philosophy],['Tactical specialization',.2*1.4*st.specialization]];
+      const rows=members.map(m=>`<li><b>${esc(m.name)}</b>${m.weight<1?' (reinforcement, half weight)':''}: priority attributes ${num(m.focus)}/99; tactical differential ${signed(m.diff)}; philosophy ${m.known?esc(m.reason)+' ('+signed(m.philosophy)+')':'not rated (neutral)'}. Weighted rating contribution ${signed(1.4*m.weight*m.contribution/members.reduce((sum,x)=>sum+x.weight,0))}.</li>`).join('');
+      return `<p class="note"><b>${esc(name)}:</b> ${esc(st.name)} — ${esc(st.label)}: <b>${esc(fit)} (${signed(st.pts)} rating)</b>. Priority attributes ${num(st.focusAvg)}/99. ${components.map(([label,value])=>label+' '+signed(value)).join(' · ')}. Philosophy rated for ${st.philosophyKnown}/${members.length} members.${quality}</p><details class="note"><summary>Why this coaching fit?</summary><ul>${rows}</ul></details>`;
+    }
     return `<p class="note"><b>${esc(name)}:</b> ${esc(st.name)} — ${esc(st.label)}: <b>${esc(fit)} (${signed(st.pts)} rating)</b>. System-priority attributes average ${num(st.focusAvg)} versus overall roster attributes ${num(st.baseline)}.${quality}</p>`;
   };
   const diff=fix(detail.final?.[0])-fix(detail.final?.[1]),baseGap=fix(detail.base?.[0])-fix(detail.base?.[1]);
@@ -276,6 +344,7 @@ function daMetricKey(sport) {
 function daLineupMetric(row,sport) {
   const primary=daMetricKey(sport);
   if(!row)return null;
+  if(Object.prototype.hasOwnProperty.call(row,'support'))return row.stats[0]||null;
   const base=row.stats.find(x=>x[0]===primary);
   if(sport==='brawl'&&base)return base;
   if(sport==='football'&&(!base||!base[1])) {
@@ -295,8 +364,8 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
   // Seed each team's projections by its stable match-side identity instead of
   // its current on-screen column so both clients see identical box scores.
   const stableSideKeys=options.stableSideKeys||['left','right'];
-  const left=daBoxScore(sport,leftScore,leftPoints,seed+':'+stableSideKeys[0],{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints,combatSide:options.combat?.sides?.[0]});
-  const right=daBoxScore(sport,rightScore,rightPoints,seed+':'+stableSideKeys[1],{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints,combatSide:options.combat?.sides?.[1]});
+  const left=daBoxScore(sport,leftScore,leftPoints,seed+':'+stableSideKeys[0],{note:options.note,side:options.leftSide||0,opponentPoints:rightPoints,combatSide:options.combat?.sides?.[0],supportScorer:options.supportScorer});
+  const right=daBoxScore(sport,rightScore,rightPoints,seed+':'+stableSideKeys[1],{note:options.note,side:options.rightSide||0,opponentPoints:leftPoints,combatSide:options.combat?.sides?.[1],supportScorer:options.supportScorer});
   const primary=sport==='brawl'&&!options.combat?'KOs':daMetricKey(sport);
   const total=(rows,key)=>rows.reduce((sum,row)=>sum+(row.stats.find(x=>x[0]===key)?.[1]||0),0);
   const leftTotal=total(left,primary),rightTotal=total(right,primary),denom=Math.max(1,leftTotal+rightTotal);
@@ -311,16 +380,30 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
     let explanation='';
     if(log&&typeof log.attacks==='number'){
       const hits=Number(log.hits)||0,attempts=Number(log.attacks)||0;
-      const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg).slice(0,3);
+      // Every target is listed so the breakdown always adds up to the DMG total.
+      const targets=Object.values(log.targets||{}).sort((a,b)=>b.dmg-a.dmg);
+      const targetSum=targets.reduce((sum,t)=>sum+(Number(t.dmg)||0),0);
+      const overkill=Number(log.overkill)||0;
+      const domainNote=log.skillDomain==='sport'?'Skill ratings come from sport, not combat: Touch, Accuracy and Game IQ count only partly in a fight; physical traits count in full.':
+        log.skillDomain==='sport-trained'?'Skill ratings come from sport, with documented fight training: Touch, Accuracy and Game IQ count partly in a fight.':'';
       const why=[
         log.apexRank===2?`Apex form: exceptional damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:
           log.apexRank===1?`Empowered form: enhanced damage, a second attack per round and +${Number(log.apexHp)||0} combat HP.`:'',
-        `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive.`,
+         `${hits} hits from ${attempts} attacks over ${Number(log.roundsAlive)||0} rounds alive`+
+           (Number(log.avgHitChance)>0?` (average chance to hit ${Math.round(log.avgHitChance*100)}%; each attack is rolled separately).`:'.'),
+        log.intrinsicRank?`Intrinsic cosmic power: +${Number(log.intrinsicHp)||0} combat HP, ×${Number(log.combatMultiplier).toFixed(2)} attack power, up to two actions per round.`:'',
+        Number.isFinite(log.offenseCredibility)?`Offensive capability: ${Math.round(log.offenseCredibility*100)}% · attack fit ${Number(log.attackFit).toFixed(1)} · team damage multiplier ×${Number(log.teamSupport).toFixed(2)} (from the whole team's rating, including commander and reinforcement).`:'',
+        domainNote,
         log.powerUses?`${esc(log.powerMove||'Signature move')}: ${log.powerUses} attempts, ${Number(log.powerDmg)||0} DMG (already in total).`:'',
-        targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG)`).join(', ')+'.':'No successful hits recorded.',
+        targets.length?'Targets: '+targets.map(t=>`${esc(t.name)} (${t.dmg} DMG, ${Number(t.hits)||0} hits)`).join(', ')+
+          `. Total ${targetSum} DMG`+(overkill?`, of which ${overkill} was excess on a finishing blow.`:'.'):'No successful hits recorded.',
+        typeof log.receivedHits==='number'?`Took ${Number(log.abs)||0} damage from ${log.receivedHits} hits; blocked ${Number(log.mit)||0}${log.shieldAbsorbed?` (${Number(log.shieldAbsorbed)} by a ${esc(log.shieldKind)} shield)`:''}.`:'',
+        log.rangeSkips?`Out of range: ${log.rangeSkips} action opportunities skipped until front-line access opened.`:'',
+        log.intercepts?`Intercepted ${log.intercepts} attacks for rear allies.`:'',
+        log.redirected?`${log.redirected} incoming attacks intercepted by allies.`:'',
         log.wardHp?`Bounded power ward: +${log.wardHp} protective HP at start.`:'',
         log.wear?`Ability strain: ${log.wear} HP lost (not credited as opponent DMG).`:'',
-        log.koRound?`Knocked out in round ${log.koRound}.`:
+        log.koRound?`Knocked out in round ${log.koRound}${log.koBy?' by '+esc(log.koBy):''}.`:
           `Remaining HP: ${Number(log.hp)||0}/${Number(log.maxHp)||0}.`,
         log.powerLimit?`Limit: ${esc(log.powerLimit)}`:''
       ].filter(Boolean).join(' ');
@@ -332,7 +415,7 @@ function daComparison(sport,leftScore,rightScore,leftPoints,rightPoints,leftName
       explanation=`<details class="da-fighter-why"><summary>Why this DMG?</summary><div>${why}${sourceHTML}</div></details>`;
     }
     return `<div class="da-player"><span class="da-name">${esc(r.name)}</span><span class="da-primary">${main?`<b class="num">${main[1]}</b> <small>${esc(main[0])}</small>`:'—'}</span>
-      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span>${explanation}</div>`;
+      <span class="da-secondary">${r.stats.filter(x=>x!==main).map(([key,value])=>`<span>${esc(key)} <b class="num">${value}</b></span>`).join('')}</span>${explanation}${daSupportExplanation(r)}</div>`;
   };
   const pairs=Array.from({length:Math.max(left.length,right.length)},(_,i)=>{
     const a=left[i],b=right[i],role=a?.role||b?.role||'';
@@ -388,4 +471,4 @@ function daMatchBrowser(sport,sim,teams,selected,summaryHTML='') {
 }
 
 
-if(typeof module!=='undefined'&&module.exports)module.exports={daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches,daMatchBreakdown,daComparison,daMetricKey,daLineupMetric,daPointsFor,daMatchBrowser};
+if(typeof module!=='undefined'&&module.exports)module.exports={daSupportImpact,daAllocate,daHash,daFootballBreakdown,daVolleyballPoints,daBoxScore,daReport,daGameReport,daUserMatches,daMatchBreakdown,daComparison,daMetricKey,daLineupMetric,daPointsFor,daMatchBrowser};

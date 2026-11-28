@@ -68,3 +68,21 @@ The goal is that an **Apex** transformation often decides a fight against an ord
 - **Unreviewed**: do not acquire Apex advantages from their names or inflated attributes alone.
 
 The combat engine is shared by match modes; the new tiers affect only live combat when the form is selected, not the probability of drafting it. The second attack is placed after all surviving combatants' first initiative turns. Metabolic wear, signature cooldowns, cosmic counters and damage-event accounting remain in force. Against the same synthetic Hellbat–Darkseid isolation used in the earlier audit, the baseline Darkseid retains a small but nonzero chance of defeating the Apex suit; this is not a canonical probability. Reports disclose Apex/Empowered effects. Existing stored results are historical and are not recomputed by changing these rules.
+
+
+## Combat audit corrections (2026-11-27)
+
+Follow-up to a campaign battle in which Stephen Curry out-damaged Maximus and Marge Simpson out-tanked John Rambo. Full findings: [COMBAT_AUDIT_2026-11-27.md](COMBAT_AUDIT_2026-11-27.md).
+
+- **Skill domain (`data/brawl-combat-transfer.js`).** Touch, Accuracy and Game IQ record skill in whatever a character is known for. A fight uses physical traits in full, but uses skill only as far as it was earned in combat. Each character has a skill domain; the default is `combat` (no change). NBA ratings are basketball ratings, so above-baseline Touch/Accuracy count 30% and Game IQ 50% in a fight (60%/65% for a player with documented fight training, listed individually with a source). Stored attributes never change and no other mode is affected.
+- **Delivering force.** For a character with an ordinary human body (the existing No Powers Allowed trait), strength counts toward offensive capability only alongside fighting skill, and the Power damage style is scaled by offensive capability exactly as Speed already was. A beyond-human body or a reviewed power needs no training.
+- **Physical tier.** Tier 3 (extreme physiology that shrugs off conventional blows) now requires a body that is not classified as ordinary human.
+- **ToonForce.** The Battle Royale multiplier and the per-hit cartoon block are scaled by `toonForceCombatGate(score)`: nothing at 65, full effect from 90 (the existing "extraordinary" tier). Previously every profiled cartoon received at least +31% Tank fit. Sports are unchanged.
+- **Reports.** Every target is listed and the list adds up to total DMG (finishing-blow excess is stated). Each fighter shows average chance to hit, damage taken and blocked, and who knocked them out. Commander and reinforcement impact shows the role rating and the multiplier with and without the character.
+
+## Caster profiles and power shields (owner ruling 2026-11-27, option C)
+
+- **Individual caster profiles** (`data/brawl-attack-profiles.js` CORE): Dumbledore, Voldemort, Gandalf, Saruman, Sauron, Yoda, Luke Skywalker, Palpatine, Dooku, Vader, Doctor Strange, Doctor Fate, Zatanna and Genie, one cited source and a stated limit each. They replace the generic tier-2 attack. Tier 4 only for cosmic-scale casters (Strange, Fate, Sauron, Genie), matching existing tier-4 entries (Scarlet Witch, Odin, Jean Grey).
+- **Power shields** (`SHIELD_ENTRIES`, `brawlShieldOf`): a separate, depleting barrier for characters with a specific, sourced shielding feat (Jean Grey, Doctor Strange, Dumbledore, Voldemort, Yoda, Vader). Pool 30 × level (1–3); it catches 60% of what gets through each hit until spent. `blocks: 'powers'` shields (Yoda's lightning absorption, the Ministry-duel spell defenses) only stop signature powers; `'all'` shields (Jean's force fields, the Shield of the Seraphim, Vader stopping blaster bolts) stop any attack. Shield absorption is counted as mitigation, so reports still reconcile. Forms never inherit a base shield.
+- Psychic signature attacks use the same hit-chance floor as magic, reality and cosmic powers.
+- Known gaps: lightsaber and weapon mastery are only the Touch/Accuracy attributes; small bodies (Yoda) still get low HP.

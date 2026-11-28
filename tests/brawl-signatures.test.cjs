@@ -111,8 +111,9 @@ test('opt-in trace identifies named attacks, mitigation, targets, knockouts and 
 test('browser and match report wire combat ability profiles and expandable DMG explanation',()=>{
   const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
   const reports=fs.readFileSync(path.join(__dirname,'../data/after-action.js'),'utf8');
-  const p=html.indexOf('<script src="data/brawl-attack-profiles.js"></script>');
-  const q=html.indexOf('<script src="data/brawl-combat.js"></script>');
+  const {scriptIndex}=require('./lib/html-scripts.cjs');
+  const p=scriptIndex(html,'data/brawl-attack-profiles.js');
+  const q=scriptIndex(html,'data/brawl-combat.js');
   assert.ok(p>0&&q>p);
   assert.match(reports,/Why this DMG\?/);
   assert.match(reports,/rounds alive/);

@@ -297,7 +297,8 @@
         "spd": 9
       },
       "origin": "Marvel Legacy (2017) #1 / Avengers (2018) · Avengers of 1,000,000 BC",
-      "continuity": "Marvel Comics, prehistoric Odin"
+      "continuity": "Marvel Comics, prehistoric Odin",
+      "source": "https://www.marvel.com/teams-and-groups/avengers/in-comics"
     },
     {
       "name": "Odin in Destroyer Armor",
@@ -306,8 +307,9 @@
         "str": 13,
         "tch": 9
       },
-      "origin": "Thor comics · Odin's enchanted Destroyer construct",
-      "continuity": "Marvel Comics; artifact-dependent"
+      "origin": "Thor (1966) #300 · Odin in the empowered Destroyer against the Celestials",
+      "continuity": "Marvel Comics; artifact and collective Asgardian life-force dependent",
+      "source": "https://www.comics.org/issue/34789/"
     }
   ],
   "mcu:Thanos": [
@@ -1529,7 +1531,8 @@
       "changes": {
         "str": 12,
         "end": 12,
-        "tch": 13
+        "tch": 13,
+        "siz": 8
       },
       "origin": "Warcraft III / World of Warcraft · demon form",
       "continuity": "Blizzard"
@@ -1564,11 +1567,13 @@
       "name": "Armored Mewtwo",
       "changes": {
         "end": 11,
+        "siz": 14,
         "tch": 10,
         "spd": -5
       },
       "origin": "Pokémon: The First Movie (1998) · Giovanni's restraint armor",
-      "continuity": "Pokémon anime"
+      "continuity": "Pokémon anime; defensive gameplay corroborated by Pokémon GO",
+      "source": "https://www.pokemon.com/uk/strategy/catch-mewtwo-in-pokemon-go"
     }
   ],
   "games:Charizard": [
@@ -1643,7 +1648,8 @@
       "changes": {
         "acc": 13,
         "spd": 10,
-        "tch": 11
+        "tch": 11,
+        "agi": 8
       },
       "origin": "Pokémon X/Y · Mega Evolution Y",
       "continuity": "Pokémon games"
@@ -1665,7 +1671,8 @@
       "changes": {
         "str": 14,
         "end": 9,
-        "tch": 10
+        "tch": 10,
+        "siz": 8
       },
       "origin": "Pokémon X/Y · Mega Evolution X",
       "continuity": "Pokémon games"
@@ -1675,7 +1682,8 @@
       "changes": {
         "tch": 14,
         "spd": 13,
-        "iq": 11
+        "iq": 11,
+        "end": -10
       },
       "origin": "Pokémon X/Y · Mega Evolution Y",
       "continuity": "Pokémon games"
@@ -1743,7 +1751,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1755,7 +1764,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "siz": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1767,7 +1777,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1779,7 +1790,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1815,7 +1827,8 @@
       "changes": {
         "str": 11,
         "tch": 10,
-        "end": 8
+        "end": 8,
+        "spd": 8
       },
       "origin": "Pokémon X/Y (2013) and subsequent games · Mega Evolution",
       "continuity": "Pokémon games"
@@ -1961,7 +1974,8 @@
       "name": "Alolan Sandslash",
       "changes": {
         "end": 12,
-        "acc": 10
+        "acc": 10,
+        "agi": -6
       },
       "origin": "Pokémon Sun/Moon (2016) · Alolan Ice/Steel form",
       "continuity": "Pokémon games"
@@ -2092,7 +2106,8 @@
       "changes": {
         "tch": 13,
         "iq": 9,
-        "clu": 9
+        "clu": 9,
+        "end": 8
       },
       "origin": "The Rise of Skywalker (2019) · dyad / Jedi spirits",
       "continuity": "Star Wars canon; temporary"
@@ -2365,7 +2380,9 @@
       "changes": {
         "siz": 15,
         "str": 12,
-        "clu": 6
+        "clu": 6,
+        "spd": -10,
+        "agi": -10
       },
       "origin": "Wabbit Twouble (1941) · exaggerated rotund Bugs",
       "continuity": "Looney Tunes; gag form"

@@ -186,6 +186,18 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .needs { display: flex; flex-wrap: wrap; gap: 5px; }
 .needs span { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; background: var(--panel2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 7px; }
 .picker-tools { padding: 10px 16px; display: flex; gap: 8px; border-bottom: 1px solid var(--line); }
+#camp-plist [hidden], .camp-filter [hidden] { display: none !important; }
+#camp-query { flex: 1 1 0; min-width: 0; }
+.camp-filter { position: relative; flex: 0 0 auto; }
+.camp-filter-toggle { display: flex; align-items: center; justify-content: center; min-width: 44px; height: 100%; cursor: pointer; list-style: none; }
+.camp-filter-toggle::-webkit-details-marker { display: none; }
+.camp-filter-count { font-size: 12px; color: var(--accent-strong); }
+.camp-filter-menu { position: absolute; z-index: 3; right: 0; top: calc(100% + 6px); width: min(280px, 76vw); max-height: 38vh; overflow: auto; overscroll-behavior: contain; padding: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); display: grid; gap: 8px; }
+.camp-filter-menu label { display: flex; align-items: center; gap: 8px; min-height: 32px; cursor: pointer; }
+.camp-filter-menu input[type="checkbox"] { width: 20px; height: 20px; flex: none; accent-color: var(--accent-strong); }
+@media (max-width:899px) {
+  .picker.open.camp-keyboard { bottom: var(--camp-keyboard-inset, 0px); min-height: 0; max-height: min(78vh, var(--camp-visible-height, 78vh)); }
+}
 .plist { overflow-y: auto; padding: 6px; display: grid; align-content: start; gap: 2px; }
 .cand { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; gap: 10px; align-items: center; border: 0; background: none; border-radius: 8px; padding: 6px 8px; text-align: left; width: 100%; }
 .cand:hover:not(:disabled) { background: var(--panel2); }
@@ -898,6 +910,58 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
   .gt-confetti { display:none; }
 }
 
+/* Tap One: eight rounds, four big cards each. */
+.to-shell { width:min(100%,640px); margin:0 auto; display:grid; gap:15px; }
+.to-pools { display:flex; justify-content:center; gap:8px; }
+.to-pools .btn[aria-pressed="true"] { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+.to-head { text-align:center; display:grid; gap:2px; }
+.to-cat { font-size:clamp(30px,9vw,48px); margin:0; line-height:1.05; }
+.to-hand { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.to-card { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; min-height:150px; padding:14px 8px; background:var(--panel); border:2px solid var(--line); border-radius:12px; color:var(--ink); }
+.to-card:hover, .to-card:focus-visible { border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+.to-card:active { transform:scale(.98); }
+.to-card strong { font-size:clamp(14px,3.8vw,17px); line-height:1.15; text-align:center; }
+.to-av { width:72px; height:72px; }
+.to-emblem { width:46px; height:46px; margin:2px auto 0; color:var(--accent-strong); animation:to-float 2.6s ease-in-out infinite; }
+.to-card { position:relative; overflow:hidden; border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink); background:radial-gradient(circle at 1px 1px, color-mix(in srgb,var(--ink) 11%,transparent) 1.2px, transparent 1.6px) 0 0/9px 9px, var(--panel); animation:to-deal .42s cubic-bezier(.2,.9,.3,1.2) both; animation-delay:calc(var(--i,0) * 70ms); }
+.to-card:nth-child(odd) { --tilt:-1.2deg; } .to-card:nth-child(even) { --tilt:1.2deg; }
+.to-card:hover, .to-card:focus-visible { transform:translate(-1px,-2px) rotate(var(--tilt,0)); box-shadow:6px 7px 0 var(--ink); }
+.to-card.to-picked { animation:to-pick .36s ease-out both; border-color:var(--accent); z-index:2; }
+.to-card.to-picked::after { content:''; position:absolute; inset:0; background:radial-gradient(circle, color-mix(in srgb,var(--accent) 55%,transparent), transparent 70%); animation:to-flash .36s ease-out both; }
+.to-card.to-fade { animation:to-out .3s ease-in both; pointer-events:none; }
+.to-cat { animation:to-slam .45s cubic-bezier(.2,1.3,.4,1) both; }
+.to-steps li.to-done { animation:to-tick .35s ease-out both; }
+.to-row { animation:to-rise .4s ease-out both; animation-delay:calc(var(--i,0) * 80ms + 250ms); }
+.to-score { animation:to-slam .6s cubic-bezier(.2,1.3,.4,1) both; }
+.to-result { position:relative; overflow:hidden; }
+.to-perfect { box-shadow:0 0 0 3px var(--accent), 0 0 28px color-mix(in srgb,var(--accent) 60%,transparent); }
+.to-confetti { position:absolute; left:50%; top:90px; width:0; height:0; pointer-events:none; }
+.to-confetti i { position:absolute; width:9px; height:14px; background:var(--c); border-radius:2px; opacity:0; animation:to-confetti 1.3s ease-out both; animation-delay:calc(.25s + var(--d)); }
+@keyframes to-deal { from { transform:translateY(34px) rotate(-5deg) scale(.88); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes to-pick { 0% { transform:scale(1); } 45% { transform:scale(1.1) rotate(-2deg); } 100% { transform:scale(1.04); } }
+@keyframes to-flash { from { opacity:1; } to { opacity:0; } }
+@keyframes to-out { to { transform:scale(.9); opacity:0; } }
+@keyframes to-slam { 0% { transform:scale(1.7) rotate(-4deg); opacity:0; } 100% { transform:none; opacity:1; } }
+@keyframes to-float { 50% { transform:translateY(-4px) rotate(4deg); } }
+@keyframes to-tick { 0% { transform:scale(1.25); } 100% { transform:none; } }
+@keyframes to-rise { from { transform:translateY(12px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes to-confetti { 0% { transform:translate(0,0) rotate(0); opacity:1; } 100% { transform:translate(var(--dx),calc(var(--dy) + 150px)) rotate(var(--r)); opacity:0; } }
+@media (prefers-reduced-motion: reduce) {
+  .to-card, .to-card.to-picked, .to-card.to-fade, .to-cat, .to-emblem, .to-score, .to-row, .to-steps li.to-done { animation:none !important; }
+  .to-confetti { display:none; }
+}
+.to-steps { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:5px; }
+.to-steps li { padding:6px 4px; border:1px solid var(--line); border-radius:7px; background:var(--panel); text-align:center; font-family:var(--f-mono); font-size:10px; color:var(--muted); }
+.to-steps li.to-now { border-color:var(--accent); color:var(--ink); }
+.to-steps li.to-done { background:color-mix(in srgb,var(--accent) 16%,var(--panel)); color:var(--ink); }
+.to-result { padding:18px; display:grid; gap:10px; text-align:center; }
+.to-score { font:800 clamp(64px,22vw,110px)/1 var(--f-display); color:var(--accent-strong); }
+.to-rows { list-style:none; margin:4px 0; padding:0; display:grid; gap:5px; text-align:left; }
+.to-row { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) auto; align-items:center; gap:8px; padding:7px 9px; border:1px solid var(--line); border-radius:8px; border-left-width:5px; }
+.to-row.to-g0 { border-left-color:var(--good); } .to-row.to-g1 { border-left-color:#d9b92e; } .to-row.to-g2 { border-left-color:#e08a2e; } .to-row.to-g3 { border-left-color:var(--bad); }
+.to-rc { font-size:12px; color:var(--muted); } .to-rp { display:flex; align-items:center; gap:7px; min-width:0; } .to-rp b { font-size:13px; } .to-rg { font-size:12px; font-weight:700; }
+.to-mini { width:28px; height:28px; flex:none; }
+.to-result .row { justify-content:center; gap:10px; flex-wrap:wrap; }
 /* Daily Grid: independent responsive nine-square game board and archive. */
 .dg-shell { width:min(100%,860px); margin:0 auto; display:grid; gap:15px; }
 .dg-head { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; }
@@ -1013,9 +1077,9 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .h2h-rail-pick{display:flex;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:13px;overflow-wrap:anywhere}
 .h2h-rail-pick:last-child{border:0}
 .h2h-rail-position{color:var(--muted);min-width:28px;font:600 11px var(--f-mono)}
-.variant-ready{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important;cursor:pointer!important}
+.variant-ready{cursor:pointer!important}.variant-ready .disc{animation:h2h-variant-pulse 1.65s ease-in-out infinite!important}
 @keyframes h2h-variant-pulse{0%,100%{filter:drop-shadow(0 0 2px var(--accent))}50%{filter:drop-shadow(0 0 13px var(--accent));transform:translateY(-3px)}}
-@media(prefers-reduced-motion:reduce){.variant-ready{animation:none!important;outline:3px solid var(--accent)}}
+@media(prefers-reduced-motion:reduce){.variant-ready .disc{animation:none!important;outline:3px solid var(--accent)}}
 .h2h-ready-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap}
 .h2h-ability-phase{min-width:0}
 .h2h-ability-phase .h2h-ready-actions .btn{flex:0 0 auto}
@@ -1025,6 +1089,12 @@ html.draft-active .board.hand .hand-reselect-btn { white-space: nowrap; }
 .h2h-variant-dialog{background:var(--panel);color:var(--ink);border-radius:16px;padding:24px;width:min(100%,360px);box-shadow:var(--shadow)}
 .h2h-variant-dialog h3{font:800 28px var(--f-display);margin:0 0 12px}
 .h2h-variant-dialog p{margin:0 0 20px}
+.campaign-surge-shake .disc{animation:campaign-surge-shake .6s ease-in-out both}
+@keyframes campaign-surge-shake{0%,100%{transform:translateX(0);filter:drop-shadow(0 0 0 var(--accent))}15%,45%,75%{transform:translateX(-5px) rotate(-7deg);filter:drop-shadow(0 0 14px var(--accent))}30%,60%,90%{transform:translateX(5px) rotate(7deg);filter:drop-shadow(0 0 14px var(--accent))}}
+.campaign-surge-reveal{animation:campaign-surge-reveal .2s .6s both}
+@keyframes campaign-surge-reveal{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.campaign-surge-shake .disc,.campaign-surge-reveal{animation:none}}
+.campaign-surge-hint{margin:8px 0 12px}
 @media(max-width:700px){.h2h-court-layout{grid-template-columns:minmax(0,1fr) 122px;gap:8px}.h2h-rail-pick{font-size:11px;gap:4px}.h2h-rail-picks{padding:4px 6px}.h2h-rail-toggle{padding:8px;font-size:12px}.h2h-rail-position{min-width:20px;font-size:10px}}
 
 /* H2H's court + opponent rail replaced .board.h2h; explicitly size it for the fixed
@@ -1120,7 +1190,7 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/pools-dc.js"></script>
 <script src="data/pools-middle-earth.js"></script>
 <script src="data/pools-harry-potter.js"></script>
-<script src="data/pools-action-movies.js"></script>
+<script src="data/pools-action-movies.js?v=20261127-combat-audit"></script>
 <script src="data/new-pool-traits.js"></script>
 <script src="data/new-pool-powers.js"></script>
 <script src="data/pool-lore-dc.js"></script>
@@ -1129,22 +1199,25 @@ html.draft-active.h2h-scrollable .field-wrap .side-node{
 <script src="data/character-abilities.js"></script>
 <script src="data/campaign-eligibility.js"></script>
 <script src="data/muppet-force.js"></script>
-<script src="data/toon-force.js"></script>
+<script src="data/toon-force.js?v=20261127-combat-audit"></script>
 <script src="data/bench-chemistry.js"></script>
 <script src="data/brawl-exceptional-power.js"></script>
-<script src="data/brawl-attack-profiles.js"></script>
-<script src="data/brawl-combat.js"></script>
+<script src="data/brawl-attack-profiles.js?v=20261127-casters-shields"></script>
+<script src="data/brawl-combat-transfer.js?v=20261127-command-transfer"></script>
+<script src="data/brawl-combat.js?v=20261127-casters-shields"></script>
 <script src="data/knowledge-engine.js"></script>
-<script src="data/campaign.js"></script>
+<script src="data/variant-form-research.js?v=20261127-active-forms"></script>
+<script src="data/campaign.js?v=20261127-active-forms"></script>
 <script src="data/team-names.js"></script>
 <script src="data/daily-grid.js"></script>
+<script src="data/tap-one.js"></script>
 <script src="data/gauntlet.js"></script>
 <script src="data/gauntlet-feed.js"></script>
 <script src="data/archetype-groups.js"></script>
 <script src="data/campaign-variant-expansion.js"></script>
 <script src="data/variant-abilities.js"></script>
-<script src="data/campaign-strategy.js"></script>
-<script src="data/after-action.js"></script>
+<script src="data/campaign-strategy.js?v=20261127-active-forms"></script>
+<script src="data/after-action.js?v=20261127-casters-shields"></script>
 <!-- Option C (Version 2) shadow evaluator. Default OFF; read-only; see docs/OPTION_C_SHADOW_EVALUATOR.md -->
 <script src="data/option-c/runtime.js"></script>
 <script src="data/option-c/reviewed-capabilities.js"></script>
@@ -1334,7 +1407,8 @@ const SPORTS = {
       { id: 'd1', ab: 'DPS', nm: 'Damage', x: 20, y: 58, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
       { id: 'd2', ab: 'DPS', nm: 'Damage', x: 50, y: 70, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
       { id: 'd3', ab: 'DPS', nm: 'Damage', x: 80, y: 58, imp: 1.05, at: 'dealing damage', styles: DPS_STYLES },
-      { ...BENCH(), nm: 'Reinforcement', ab: 'RNF' },
+      // Combat backup values timely intervention, precision and staying power; command belongs to CMD.
+      { ...BENCH(), nm: 'Reinforcement', ab: 'RNF', w: { clu: 4, ref: 3, agi: 2, end: 2, acc: 2, ldr: 1 } },
       { id: 'cmd', ab: 'CMD', nm: 'Commander', side: true, coach: true, imp: 0, w: COACH_W },
     ],
   },
@@ -1666,7 +1740,7 @@ POOLS.mcu = { id: 'mcu', name: 'Marvel Cinematic Universe', short: 'MCU', blurb:
 ["Sif","","Asgardian warrior",[82,88,84,64,84,90,86,88,88,80,86,84]],
 ["Korg","🪨","Gentle rock guy",[44,40,88,86,40,92,50,62,60,60,74,66]],
 ["Hercules","","Son of Zeus",[80,80,96,78,90,96,70,74,80,60,74,72]],
-["Zeus","","God of Thunder (the other one)",[72,60,94,72,82,94,74,90,84,74,72,80]],
+["Zeus","","God of Thunder (the other one)",[72,60,94,72,82,94,74,90,84,74,72,96]],
 ["Gorr the God Butcher","","Necrosword wielder",[96,86,90,66,94,92,84,95,86,84,72,60]],
 ["Thanos","🟣","Mad Titan",[83,87,99,94,82,99,90,91,94,98,95,92]],
 ["Ultron","🤖","Rogue AI",[88,84,95,74,92,99,82,90,90,96,70,80]],
@@ -2590,7 +2664,8 @@ const FIGHT_TAGS = {
 function fightStyles(c) {
   const t = FIGHT_TAGS[c.pool] && FIGHT_TAGS[c.pool][c.n];
   if (t) return t.split('');
-  const a = c.a, out = [];
+  // Untagged characters are read from what a fight can use: a shooter's touch is not a ranged weapon.
+  const a = brawlAttrs(c), out = [];
   if (a[4] >= 92) out.push('F');
   if (a[7] >= 90) out.push('R');
   if (a[9] >= 92) out.push('T');
@@ -2873,13 +2948,81 @@ if (typeof ArchetypeGroups !== 'undefined') for (const g of ArchetypeGroups.grou
   for (const m of g.members) ((ARCH_MEMBERS[m.pool] = ARCH_MEMBERS[m.pool] || {})[m.name] = ARCH_MEMBERS[m.pool][m.name] || []).push(id);
 }
 
+// Commander system compatibility v2. Curated philosophical matches are
+// explicit; missing character evidence is neutral, never inferred from stats.
+// A form-specific entry wins over its base identity, including explicit zero.
+const COMMANDER_PHILOSOPHY = Object.freeze({
+  balance: Object.freeze({
+    'lotr:Námo (Mandos)': [1, 'judgment, restraint and adherence to duty'],
+    'lotr:Manwë': [1, 'wise stewardship and restraint'],
+    'lotr:Gandalf': [1, 'mentorship and responsible use of power'],
+    'lotr:Gandalf the White': [1, 'renewed stewardship and disciplined leadership'],
+    'lotr:Saruman': [-0.5, 'ambition and resistance to guidance'],
+    'lotr:Saruman of Many Colours': [-0.75, 'pride and pursuit of power over restraint'],
+    'actionmovies:Aslan': [1, 'wisdom, restraint and protective leadership'],
+    'dc:King Shazam': [-1, 'corruption and uncontrolled aggression'],
+    'mcu:Captain America': [1, 'discipline and self-restraint'],
+    'mcu:The Ancient One': [1, 'balance and disciplined mastery'],
+    'mcu:Doctor Strange': [0.5, 'mystic training tempered by independence'],
+    'toons:Uncle Iroh': [1, 'patience, balance and mentorship'],
+    'toons:Master Splinter': [1, 'discipline and mentorship'],
+    'toons:Master Shifu': [1, 'disciplined training and inner peace']
+  }),
+  teamwork: Object.freeze({
+    'lotr:Manwë': [0.5, 'protective stewardship'],
+    'lotr:Gandalf': [1, 'cooperative leadership and mentorship'],
+    'lotr:Saruman': [-0.75, 'self-serving ambition'],
+    'lotr:Saruman of Many Colours': [-1, 'self-serving ambition'],
+    'dc:King Shazam': [-1, 'corruption and aggression'],
+    'mcu:Captain America': [1, 'team-first leadership'],
+    'mcu:Black Panther': [1, 'duty and protective leadership'],
+    'mcu:Nick Fury': [0.5, 'coordinating disparate allies'],
+    'toons:Optimus Prime': [1, 'team-first protective leadership'],
+    'toons:Uncle Iroh': [0.5, 'supportive mentorship'],
+    'muppets:Kermit the Frog': [1, 'cooperative leadership']
+  })
+});
+const COMMANDER_PHILOSOPHY_SYSTEM = Object.freeze({
+  'mcu:The Ancient One':'balance', 'mcu:Stick':'balance',
+  'toons:Uncle Iroh':'balance', 'toons:Master Splinter':'balance',
+  'toons:Master Shifu':'balance',
+  'mcu:Captain America':'teamwork', 'mcu:Phil Coulson':'teamwork',
+  'toons:Optimus Prime':'teamwork', 'muppets:Kermit the Frog':'teamwork'
+});
+function commanderSystemFit(coach, st, slots, attrKeys) {
+  const clamp = v => Math.max(-1, Math.min(1, v));
+  const keys = Object.keys(st.w), tw = keys.reduce((sum,k)=>sum+st.w[k],0);
+  const profile = COMMANDER_PHILOSOPHY[COMMANDER_PHILOSOPHY_SYSTEM[coach.pool+':'+coach.n]] || {};
+  const members = [];
+  for (const { c, weight } of slots) {
+    if (!c || !Array.isArray(c.a) || !weight) continue;
+    const focus = keys.reduce((sum,k)=>sum+st.w[k]*c.a[attrKeys.indexOf(k)],0)/tw;
+    const baseline = c.a.reduce((sum,v)=>sum+v,0)/c.a.length;
+    const diff = focus-baseline;
+    const absolute = clamp((focus-70)/29);
+    const specialization = clamp(diff/12);
+    const evidence = profile[c.pool+':'+c.n] ?? profile[c.pool+':'+c.variantBase];
+    const philosophy = evidence ? evidence[0] : 0;
+    const contribution = .5*absolute+.3*philosophy+.2*specialization;
+    members.push({ name:c.n, weight, focus, baseline, diff, absolute, specialization, philosophy, known:!!evidence, reason:evidence?.[1]||'', contribution });
+  }
+  const weightSum = members.reduce((sum,m)=>sum+m.weight,0);
+  if (!weightSum) return null;
+  const mean = k => members.reduce((sum,m)=>sum+m.weight*m[k],0)/weightSum;
+  const pts = 1.4*mean('contribution');
+  return { version:2, name:coach.n, label:st.label, pts, focusAvg:mean('focus'), baseline:mean('baseline'),
+    diff:mean('diff'), absolute:mean('absolute'), specialization:mean('specialization'), philosophy:mean('philosophy'),
+    philosophyKnown:members.filter(m=>m.known).length, members,
+    match:pts>.15?'Good fit':pts<-.15?'Poor fit':'Neutral' };
+}
+
 // Returns { total, links:[{id,name,count,pts}], style:{name,label,pts}|null }
 function synergyOf(sportKey, roster) {
   const sp = SPORTS[sportKey], counts = {}, players = [];
   let coach = null;
   for (const p of sp.pos) {
     const c = roster[p.id]; if (!c) continue;
-    if (p.coach) coach = c; else players.push(c);
+    if (p.coach) coach = c; else players.push({ c, weight:p.bench ? .5 : 1 });
     for (const g of c.g || []) counts[g] = (counts[g] || 0) + 1;
   }
   const links = []; let sum = 0;
@@ -2891,18 +3034,7 @@ function synergyOf(sportKey, roster) {
   links.sort((a, b) => b.pts - a.pts);
   let style = null;
   const st = coach && STYLES[coach.pool + ':' + coach.n];
-  if (st && players.length) {
-    const ks = Object.keys(st.w), tw = ks.reduce((s, k) => s + st.w[k], 0);
-    let avg = 0;
-    for (const c of players) avg += ks.reduce((s, k) => s + st.w[k] * c.a[AK.indexOf(k)], 0) / tw;
-    avg /= players.length;
-    // A strong roster is not automatically a stylistic match. Compare the coach's
-    // prioritized attributes against the roster's own all-attribute baseline.
-    const baseline = players.reduce((sum,c)=>sum+c.a.reduce((x,y)=>x+y,0)/c.a.length,0)/players.length;
-    const diff = avg - baseline;
-    const pts = Math.max(-1.4,Math.min(1.4,diff*0.12));
-    style = { name:coach.n,label:st.label,pts,focusAvg:avg,baseline,diff,match:pts>0.15?'Good fit':pts< -0.15?'Poor fit':'Neutral' };
-  }
+  if (st && players.length) style = commanderSystemFit(coach, st, players, AK);
   return { total: Math.min(LINK_CAP, sum) + (style ? style.pts : 0), links, style };
 }
 
@@ -3599,12 +3731,12 @@ function rcEdges(c, ref, p, n, r) {
       ? rcPick(r, ['physical resilience', 'raw staying power'])
       : rcPick(r, TRAIT_STR[x.key])));
   }
-  if (p.styles) p = bestStyle(c.a, p).st; // a damage dealer is described by the style they fight in
+  if (p.styles) p = bestStyle(brawlAttrs(c), p).st; // a damage dealer is described by the style they fight in
   let ks = p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, n).map(x => AK[x.k]);
   if (!ks.length) ks = [...p.keys].sort((a, b) => c.a[b] - c.a[a]).slice(0, n).map(k => AK[k]);
   return rcAnd(ks.map(k => rcPick(r, TRAIT_STR[k])));
 }
-function rcLackKey(c, ref, p) { if (p.tank) return [...tankFactors(c, ref)].sort((a,b) => a.diff * a.weight - b.diff * b.weight)[0].key; if (p.styles) p = bestStyle(c.a, p).st; return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
+function rcLackKey(c, ref, p) { if (p.tank) return [...tankFactors(c, ref)].sort((a,b) => a.diff * a.weight - b.diff * b.weight)[0].key; if (p.styles) p = bestStyle(brawlAttrs(c), p).st; return AK[p.keys.map(k => ({ k, v: (c.a[k] - ref[k]) * (p.w[AK[k]] || 0) })).sort((a, b) => a.v - b.v)[0].k]; }
 
 // Shared building blocks
 function rcStars(sportKey, sc, base, N, r) {
@@ -3832,9 +3964,30 @@ function expertAdj(sportKey, c, pos, base) {
 function characterForceMultiplier(sportKey,c,pos){
   return muppetForceMultiplier(c,sportKey,pos)*toonForceMultiplier(c,sportKey,pos);
 }
-function fitIn(sportKey, c, pos) { const b = fitFor(c, pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
+// The attribute vector a fight uses (see data/brawl-combat-transfer.js). Stored attributes are untouched.
+function brawlAttrs(c){ return window.DA_COMBAT_TRANSFER?window.DA_COMBAT_TRANSFER.combatAttributes(c):c.a; }
+function brawlRoleFit(sportKey,c,pos,useSignature=true){
+  // A commander is rated on leadership earned commanding fighters (see commandAttributes).
+  if(sportKey==='brawl'&&pos.coach&&window.DA_COMBAT_TRANSFER){
+    const ca=window.DA_COMBAT_TRANSFER.commandAttributes(c);
+    return useSignature&&c.sig?.kind==='unbreakable'?fitFree(ca,pos):fitScore(ca,pos);
+  }
+  // The Reinforcement weighs Accuracy, so it reads the combat-transfer vector too.
+  if(sportKey==='brawl'&&pos.bench){
+    const ca=brawlAttrs(c);
+    return useSignature&&c.sig?.kind==='unbreakable'?fitFree(ca,pos):fitScore(ca,pos);
+  }
+  if(sportKey!=='brawl'||!pos.styles)return useSignature?fitFor(c,pos):fitScore(c.a,pos);
+  // Damage styles lean on Touch, Accuracy and IQ, so they read the combat-transfer vector:
+  // a jump shot is not marksmanship. Tanks use physical traits only and are unaffected.
+  const ca=brawlAttrs(c);
+  const raw=style=>useSignature&&c.sig?.kind==='unbreakable'?fitFree(ca,style):fitScore(ca,style);
+  // Precision is skill by definition. Speed and Power count as far as the fighter can deliver them.
+  return Math.max(...pos.styles.map(style=>style.name==='Precision'?raw(style):window.DA_BRAWL_COMBAT.speedDpsFit(c,raw(style))));
+}
+function fitIn(sportKey, c, pos) { const b = brawlRoleFit(sportKey,c,pos); return (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos); }
 function fitAI(sportKey, c, pos) {
-  const b = fitScore(c.a, pos), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos)+(pos.bench&&isSidekick(c)?6:0);
+  const b = brawlRoleFit(sportKey,c,pos,false), f = (b + expertAdj(sportKey, c, pos, b))*characterForceMultiplier(sportKey,c,pos)+brawlExceptionalPower(c,sportKey,pos)+(pos.bench&&isSidekick(c)?6:0);
   if (!pos.bats || !SPORTS[sportKey].batting) return f;
   // for drafting, a lineup spot is worth its glove plus an average turn in the batting order
   const L = SPORTS[sportKey].lwAvg, bat = batFitAI(c);
@@ -3922,7 +4075,7 @@ function loadBoard(mode) {
   if (mode === 'deal' && !saved.rv2 && !saved.queue) st.rivals = 'balanced'; // new default rival setting
   st.rv2 = true;
   if (!st.variantSeed) st.variantSeed=Date.now().toString(36)+':'+Math.random().toString(36).slice(2);
-  if (!st.surge?.id || !st.surge?.name) st.surge=null;
+  st.surge=variantSurgeRecords(st);
   if (mode === 'champ' && saved.style === 'hand') { st.roster = {}; st.stage = 'setup'; } // Dealt Hand drafts moved to their own mode
   st.stage = st.stage === 'results' ? 'draft' : st.stage; // results are not persisted
   st.result = null; st.sel = null; st.handSel = null;
@@ -4042,6 +4195,15 @@ try {
 } catch { }
 function researchPowersOn() { try { return localStorage.getItem('da.flag.researchPowers') !== '0'; } catch { return true; } }
 if (typeof DA_RESEARCH_MOVES !== 'undefined') DA_RESEARCH_MOVES.setEnabled(researchPowersOn());
+// Tap One is an experimental mode, OFF by default. Enable with ?tapone=1 (remembered on this device); ?tapone=0 turns it off.
+function tapOneEnabled() {
+  try { return localStorage.getItem('da.flag.tapone') === '1'; } catch { return false; }
+}
+try {
+  const q = new URLSearchParams(location.search).get('tapone');
+  if (q === '1') localStorage.setItem('da.flag.tapone', '1'); else if (q === '0') localStorage.removeItem('da.flag.tapone');
+} catch { }
+if (S.mode === 'tapone' && !tapOneEnabled()) { S.mode = 'champ'; lsSet('da.mode', S.mode); }
 // Shared Gauntlet ladder endpoint (separate Supabase project). Voters must opt in before anything is sent.
 Gauntlet.configureSync('https://xijqendpphnclwthqtfy.supabase.co/functions/v1/submit-votes');
 document.addEventListener('visibilitychange', () => { if (document.hidden && S.gauntlet) Gauntlet.flush(S.gauntlet, { includeLatest: true }).catch(() => { }); });
@@ -4063,17 +4225,16 @@ function sigLine(c) { return c.sig ? `<small class="sig">Signature move · ${esc
 // One shared controls component for Perfect Season, Campaign, Dealt Hand and H2H.
 function renderVariantSurgePanel(v,action,input,ready,label='draft') {
   const choices=variantSurgeCandidates(v),selected=choices.find(c=>c.id===v.variantTarget)||choices[0];
-  if(!v.surge&&selected)v.variantTarget=selected.id;
-  const active=variantForm(v);
-  const ability=active?window.DA_VARIANT_ABILITY_API?.variantAbilityProfile(active.base,active.form):null;
+  if(selected)v.variantTarget=selected.id;
+  const active=variantForms(v),spent=variantSurgeRecords(v);
   return `<div class="panel" style="padding:14px 16px;margin-bottom:14px">
     <div class="row" style="justify-content:space-between">
-      <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">Once per ${esc(label)}: transform ONE drafted character into a random documented alternate form. Removing the character never refunds the charge.</p></div>
-      <button type="button" class="btn ${v.surge?'':'primary'}" data-act="${action}" ${v.surge||!choices.length||!ready?'disabled':''}>${v.surge?'Surge spent':'Activate surge'}</button>
+      <div><b>Variant Surge</b><p class="note" style="margin:5px 0 0">One weighted roll per character per ${esc(label)}. Surge as many different characters as you want; stronger forms are rarer. Rolls are permanent even if you remove a character.</p></div>
+      <button type="button" class="btn ${choices.length?'primary':''}" data-act="${action}" ${!choices.length||!ready?'disabled':''}>${choices.length?'Activate surge':'No surges available'}</button>
     </div>
-    ${!v.surge&&choices.length?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="${input}" id="${input}">${choices.map(c=>`<option value="${esc(c.id)}" ${selected?.id===c.id?'selected':''}>${esc(c.n)} · ${variantOptions(c).length} possible forms</option>`).join('')}</select></label>`:''}
-    <p class="note" style="margin:8px 0 0">${v.surge?(active?'Active: '+esc(active.base.n)+' → '+esc(active.form.name)+' · '+esc(active.form.origin):'Surge spent; transformed character no longer on roster.'):(choices.length?choices.length+' eligible character(s) on your roster.'+(ready?' A random form will be selected from the chosen character’s catalog.':' Complete the lineup to activate.'):'No eligible alternate-form characters drafted yet.')}</p>
-    ${ability?`<div class="note" style="margin-top:10px"><b>Unique move: ${esc(ability.move)}</b> · Power domains: ${esc(ability.domains.join(', '))}.<div>Defenses: ${esc(ability.guards.join(', ')||'none documented')}${ability.weakTo.length?' · Vulnerable to: '+esc(ability.weakTo.join(', ')):''}.</div><div>Limit: ${esc(ability.limit)}</div><div>Matchups matter: countering powers reduce the surge's added impact.</div></div>`:active?'<p class="note">This form currently changes attributes only; its special ability profile awaits review.</p>':''}
+    ${choices.length?`<label class="field-label" style="margin-top:10px"><span>Select character to transform</span><select data-input="${input}" id="${input}">${choices.map(c=>`<option value="${esc(c.id)}" ${selected?.id===c.id?'selected':''}>${esc(c.n)} · Surge available</option>`).join('')}</select></label>`:''}
+    <p class="note" style="margin:8px 0 0">${spent.length} locked surge(s) · ${choices.length} remaining eligible character(s).${ready?'':' Complete the lineup to activate.'}</p>
+    ${active.map(({base,form})=>{const ability=window.DA_VARIANT_ABILITY_API?.variantAbilityProfile(base,form);return `<div class="note" style="margin-top:10px"><b>${esc(base.n)} → ${esc(form.name)}</b> · ${esc(form.origin)}${ability?`<div>Unique move: ${esc(ability.move)} · ${esc(ability.domains.join(', '))}</div><div>Defenses: ${esc(ability.guards.join(', ')||'none documented')}${ability.weakTo.length?' · Vulnerable to: '+esc(ability.weakTo.join(', ')):''}.</div><div>Limit: ${esc(ability.limit)}</div>`:'<div>Attribute changes only; special ability profile awaits review.</div>'}</div>`;}).join('')}
   </div>`;
 }
 function shortName(n) { if (n.length <= 12) return n; const w = n.split(' '); return w[w.length - 1].length > 2 ? w[w.length - 1] : w.slice(-2).join(' '); }
@@ -4086,20 +4247,20 @@ function renderField(sportKey, roster, o = {}) {
   const team = o.team === 'opp' ? 'var(--opp)' : 'var(--you)';
   const node = p => {
     const c = roster[p.id];
-    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const cls = ['node', c ? 'filled' : 'empty', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : '', o.variantShakeSlot===p.id?'campaign-surge-shake':''].join(' ');
     const variantPick = !!(c && o.variantSlots?.has(p.id));
     const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const gr = '';
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
+    return `<button class="${cls}" style="left:${p.x}%;top:${p.y}%" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c ? ': ' + esc(c.n) : ' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}${variantPick?' — Variant Surge available':''}">${disc}${c ? `<span class="tag"><b>${p.ab}</b> <span class="nm">${esc(c.n)}</span></span>` : ''}${gr}</button>`;
   };
   const side = p => {
     const c = roster[p.id];
-    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : ''].join(' ');
+    const cls = ['side-node', c ? 'filled' : '', o.sel === p.id ? 'active' : '', o.invalidSlots?.has(p.id) ? 'invalid' : '', o.forced === p.id || (o.targets && !c) ? 'forced' : '', o.variantSlots?.has(p.id) ? 'variant-ready' : '', o.variantShakeSlot===p.id?'campaign-surge-shake':''].join(' ');
     const variantPick = !!(c && o.variantSlots?.has(p.id));
     const dis = !variantPick && (!o.interactive || (o.eligibleSlots && !o.eligibleSlots.has(p.id)) || (o.forced && o.forced !== p.id) || (o.lockFilled && c));
     const disc = c ? `<span class="disc">${tokenSVG(c, { team: true })}</span>` : `<span class="disc">${p.ab}</span>`;
-    return `<button class="${cls}" data-act="${variantPick ? 'h-variant-open' : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
+    return `<button class="${cls}" data-act="${variantPick ? (o.variantAction||'h-variant-open') : 'slot'}" data-slot="${p.id}" ${dis ? 'disabled' : ''} aria-label="${esc(p.nm)}${c?': '+esc(c.n):' (empty)'}${o.invalidSlots?.has(p.id)?' — Does not meet challenge requirements':''}${variantPick?' — Variant Surge available':''}">${disc}<span class="lbl"><small>${esc(p.nm)}${p.id === 'mb2' ? ' · subs for libero' : p.bench ? ' · lifts the whole squad' : ''}</small><b>${c ? esc(c.n) : 'Open'}</b></span></button>`;
   };
   const sides=sp.pos.filter(p=>p.side);
   return `<div class="field-wrap ${dense ? 'dense' : ''}" style="--team:${team}">
@@ -4119,6 +4280,7 @@ function renderTop() {
       <button data-act="mode" data-mode="h2h" aria-pressed="${S.mode === 'h2h'}">Head-to-Head</button>
        <button data-act="mode" data-mode="grid" aria-pressed="${S.mode === 'grid'}">Daily Grid</button>
       ${gauntletEnabled() ? `<button data-act="mode" data-mode="gauntlet" aria-pressed="${S.mode === 'gauntlet'}">Gauntlet</button>` : ''}
+      ${tapOneEnabled() ? `<button data-act="mode" data-mode="tapone" aria-pressed="${S.mode === 'tapone'}">Tap One</button>` : ''}
     </div>
     <button class="linkish" data-act="open-guide">Character guide</button><button class="linkish" data-act="howto">How scoring works</button>
   </header>`;
@@ -4552,7 +4714,7 @@ function runChampionship() {
     : c.champRivals === 'even' ? aiDraft(c.sport, remaining, c.opps, rng) : aiStackDraft(c.sport, remaining, c.opps);
   const mineName = (c.teamName || '').trim() || suggestedTeamName(c.poolId);
   const names = poolRivalTeamNames(c.poolId, c.opps, rng, mineName);
-  const teams = [{ name: mineName, roster: variantRoster(c), user: true }, ...ai.map((r, i) => ({ name: names[i], roster: r }))];
+  const teams = [{ name: mineName, roster: variantRoster(c), user: true }, ...ai.map((r, i) => ({ name: names[i], roster: cpuVariantRoster(c.sport,r,'board|'+c.variantSeed+'|cpu|'+i) }))];
   for (const t of teams) t.score = teamScore(c.sport, t.roster);
   const season = c.format === 'season';
   const sim = season ? simSeason(c.sport, teams, rng) : simChampionship(c.sport, teams, UPSET_SIGMA[c.upsets], rng);
@@ -4580,7 +4742,7 @@ function linkChips(sc, mine = true) {
   const who = mine ? 'your roster' : 'the roster';
   const verdict = st ? (st.match || (st.pts > .15 ? 'Good fit' : st.pts < -.15 ? 'Poor fit' : 'Neutral')) : '';
   const signed = n => (n>=0?'+':'')+n.toFixed(2);
-  const S = st ? `<span class="link style ${st.pts>0.15?'on':st.pts< -0.15?'off':''}">${esc(st.name)}'s ${esc(st.label)}: <b>${esc(verdict)}</b> (${signed(st.pts)} rating) · focus ${st.focusAvg.toFixed(1)} vs roster ${st.baseline.toFixed(1)}</span>` : '';
+  const S = st ? `<span class="link style ${st.pts>0.15?'on':st.pts< -0.15?'off':''}">${esc(st.name)}'s ${esc(st.label)}: <b>${esc(verdict)}</b> (${signed(st.pts)} rating) · focus ${st.focusAvg.toFixed(1)}/99${st.version===2?' · absolute, tactical and philosophical fit':' vs roster '+st.baseline.toFixed(1)}</span>` : '';
   const SG = (sc.sig ? sc.sig.list : []).map(x => `<span class="link sig">${esc(x.c.n)} · ${esc(x.name)}: ${SIG_TEXT[x.kind]}</span>`).join('');
   const V = sc.variety && sc.variety.n >= 3 ? `<span class="link variety">Fighting variety <b>×${sc.variety.n}</b>: ${sc.variety.picks.map(x => `${esc(FIGHT_STYLES[x.s])} (${esc(x.c.n)})`).join(', ')}</span>` : '';
   return (L || S || SG || V) ? `<div class="links">${L}${S}${SG}${V}</div>` : `<div class="note" style="padding:12px 16px">No chemistry fired. Look for shared teams, schools, factions and coaches.</div>`;
@@ -4715,7 +4877,7 @@ function runPerfectSeason() {
   const rng = rngFrom(Date.now() + ':' + Math.random());
   const opp = buildCrossLeague(c.sport, c.poolId, c.roster, rng);
   const names = aiTeamNames(opp.length, rng);
-  const teams = [{ name: c.teamName || 'Your team', roster: variantRoster(c), user: true, u: c.poolId }, ...opp.map((t, i) => ({ name: names[i], roster: t.roster, u: t.u, elite: t.elite }))];
+  const teams = [{ name: c.teamName || 'Your team', roster: variantRoster(c), user: true, u: c.poolId }, ...opp.map((t, i) => ({ name: names[i], roster: cpuVariantRoster(c.sport,t.roster,'board|'+c.variantSeed+'|cpu|'+i), u: t.u, elite: t.elite }))];
   for (const t of teams) t.score = teamScore(c.sport, t.roster);
   const sim = simSeason(c.sport, teams, rng);
   const pi = perfectInfo(sim);
@@ -5086,7 +5248,7 @@ async function makePick(slot, cid, auto = false, expectK = null) {
     if (m) toast(m); else if (e.code !== 'stale') toast(dbErr(e));
   } finally { picking = false; }
 }
-// Both H2H players can choose one documented alternate form and lock abilities
+// Both H2H players can roll one documented alternate form per character and lock abilities
 // before scoring. This prevents a final pick from bypassing the Surge option.
 async function useH2HVariant() {
   const side=mySide(S.h2h.contest),id=S.h2h.cid;
@@ -5100,7 +5262,7 @@ async function useH2HVariant() {
       const target=S.h2h.variantTarget||variantSurgeCandidates(v)[0]?.id;
       const surge=useVariantSurge(v,target,'h2h|'+id+'|'+side);
       if(!surge)throw {code:'no_variant'};
-      await ref.update({surges:{...(d.surges||{}),[side]:surge},updatedAt:Date.now()});
+      await ref.update({surges:{...(d.surges||{}),[side]:v.surge},updatedAt:Date.now()});
     });
   }catch(e){toast(e.code==='no_variant'?'Variant Surge already used or no eligible character selected.':dbErr(e));}
 }
@@ -5212,8 +5374,8 @@ function renderH2HCourt(d,side,powers=false,sel=null,forced=null){
   const myR=powers?h2hRoster(d,side):rosterOf(d,side);
   const oppR=powers?h2hRoster(d,opp):rosterOf(d,opp);
   const shown=showOpp?opp:side,roster=showOpp?oppR:myR;
-  const canSurge=powers&&!showOpp&&!!mySide(d)&&!d.powerReady?.[side]&&!d.surges?.[side];
-  const eligible=canSurge?new Set(variantSurgeCandidates({sport:d.sport,roster:myR,surge:null}).map(c=>c.id)):new Set();
+  const canSurge=powers&&!showOpp&&!!mySide(d)&&!d.powerReady?.[side];
+  const eligible=canSurge?new Set(variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,side),surge:d.surges?.[side]||null}).map(c=>c.id)):new Set();
   const eligibleSlots=new Set(Object.entries(myR).filter(([,c])=>eligible.has(c?.id)).map(([slot])=>slot));
   const picks=Object.entries(showOpp?myR:oppR);
   return `<div class="h2h-court-layout">
@@ -5229,11 +5391,11 @@ function renderH2HCourt(d,side,powers=false,sel=null,forced=null){
 }
 function renderH2HPowers(d){
   const me=mySide(d)||'host',ready=!!d.powerReady?.[me];
-  const canChoose=!!mySide(d)&&!ready&&!d.surges?.[me];
+  const canChoose=!!mySide(d)&&!ready;
   const slots=variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,me),surge:d.surges?.[me]||null});
   const target=S.h2h.variantTarget,selected=slots.find(c=>c.id===target);
   return `<section class="h2h-ability-phase">
-    ${mySide(d)?`<div class="h2h-ready-actions"><span class="note">${ready?'Ready · waiting for opponent':d.surges?.[me]?'Variant used · confirm to play':'Optional Variant Surge'}</span>${!ready?`<button class="btn primary" data-act="h-ready">${d.surges?.[me]?'Finalize & view results':'Skip Surge · Finalize'}</button>`:''}</div>`:''}
+    ${mySide(d)?`<div class="h2h-ready-actions"><span class="note">${ready?'Ready · waiting for opponent':variantSurgeRecords({surge:d.surges?.[me]}).length?'Variants locked · continue or confirm':'Optional Variant Surge'}</span>${!ready?`<button class="btn primary" data-act="h-ready">${variantSurgeRecords({surge:d.surges?.[me]}).length?'Finalize & view results':'Skip Surge · Finalize'}</button>`:''}</div>`:''}
     ${renderH2HCourt(d,me,true)}
     ${canChoose&&selected?`<div class="h2h-variant-shade" data-act="h-variant-cancel"><div class="h2h-variant-dialog" role="dialog" aria-modal="true" aria-label="Variant Surge"><h3>Variant Surge</h3><p>Use Variant Surge on <b>${esc(selected.n)}</b>?</p><div class="row"><button class="btn" data-act="h-variant-cancel">Cancel</button><button class="btn primary" data-act="h-variant-confirm">Use Variant Surge</button></div></div></div>`:''}
   </section>`;
@@ -5435,7 +5597,7 @@ let lastFocus = null;
 function jumpTalentPoolLetter(listId, labelId, letter) {
   const list = document.getElementById(listId);
   if (!list) return;
-  const entries = Array.from(list.querySelectorAll('.cand'));
+  const entries = Array.from(list.querySelectorAll('.cand')).filter(el=>!el.closest('[hidden]'));
   if (!entries.length) return;
   const nameOf = el => (el.querySelector('.who b')?.textContent || '').trim().toUpperCase();
   const target = entries.find(el => nameOf(el).charAt(0) >= letter) || entries[entries.length - 1];
@@ -5573,10 +5735,11 @@ function render() {
   let main;
   if (S.mode === 'gauntlet' && gauntletEnabled()) main = Gauntlet.render(S.gauntlet || (S.gauntlet = Gauntlet.newState()));
   else if (S.mode === 'grid') main = DailyGrid.render(S.daily);
+  else if (S.mode === 'tapone' && tapOneEnabled()) main = TapOne.render(S.tapone || (S.tapone = TapOne.newState()));
   else if (S.mode === 'champ' && S.champ.campaignMode) main = renderCampaign();
   else if (S.mode !== 'h2h') main = S.champ.stage === 'setup' ? renderChampSetup() : S.champ.stage === 'draft' ? renderChampDraft() : S.champ.result && S.champ.result.cross ? renderPerfectResults() : renderChampResults();
   else main = renderH2H();
-  const draftActive = (S.mode==='grid' || S.mode==='gauntlet' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
+  const draftActive = (S.mode==='grid' || S.mode==='tapone' || S.mode==='gauntlet' || (S.mode==='champ' && S.champ.campaignMode)) ? false : S.mode !== 'h2h' ? S.champ.stage === 'draft' : S.h2h.stage === 'room' && S.h2h.contest?.status === 'drafting';
   document.documentElement.classList.toggle('draft-active', draftActive);
   // Only Head-to-Head drafting unlocks document scrolling; other game modes
   // retain their existing fixed-viewport boards and scrollable picker lists.
@@ -5584,6 +5747,7 @@ function render() {
   document.documentElement.classList.toggle('h2h-scrollable', h2hScrollable);
   app.innerHTML = renderTop() + `<main>${main}</main>` + renderModal() + renderGuideModal() + renderShareModal() + renderDealPopup() + renderHandInfo() + (S.mode === 'champ' && S.champ.campaignMode ? renderCampaignInfo()+renderCampaignRejected()+renderCampaignDispute() : '');
   fitHandCardNames();
+  syncCampaignKeyboard();
   restoreH2HAccordions(accordionKey);
   for(const {selector,top,left} of scrollState){
     if(top==null)continue;
@@ -5592,6 +5756,7 @@ function render() {
   }
   if (lastFocus) { const el = document.getElementById(lastFocus.id); if (el && el.tagName === 'INPUT') { el.focus({preventScroll:true}); try { el.setSelectionRange(lastFocus.s, lastFocus.e); } catch { } } }
   if(window.scrollX!==scrollX||window.scrollY!==scrollY)window.scrollTo(scrollX,scrollY);
+  if (S.mode === 'tapone' && typeof TapOne !== 'undefined') TapOne.afterRender();
 }
 function refreshPlist() {
   const el = $('#plist'); if (!el) return;
@@ -5727,6 +5892,37 @@ async function campaignSubmitKnowledgeDispute(){
   }
 }
 
+// Keep the native search input mounted and focused while a result is tapped.
+// Cancel mismatched touch clicks rather than drafting a different character
+// when Safari changes the visual viewport during keyboard dismissal.
+let campaignTap=null;
+document.addEventListener('pointerdown',e=>{
+  campaignTap=null;
+  const btn=e.target?.closest?.('#camp-plist button[data-cid]');
+  if(!btn||!e.isPrimary||btn.disabled)return;
+  campaignTap={id:btn.dataset.cid,act:btn.dataset.act,pointer:e.pointerId};
+  if(document.activeElement?.id==='camp-query')e.preventDefault();
+},true);
+document.addEventListener('pointercancel',e=>{if(campaignTap?.pointer===e.pointerId)campaignTap=null;},true);
+document.addEventListener('click',e=>{
+  const tap=campaignTap;campaignTap=null;
+  if(!tap||e.detail===0)return;
+  const btn=e.target?.closest?.('#camp-plist button[data-cid]');
+  if(!btn||btn.dataset.cid!==tap.id||btn.dataset.act!==tap.act){
+    e.preventDefault();e.stopImmediatePropagation();
+  }
+},true);
+function syncCampaignKeyboard(){
+  const sheet=document.getElementById('camp-query')?.closest('.picker');
+  const viewport=window.visualViewport;
+  if(!sheet||!viewport)return;
+  const inset=Math.max(0,window.innerHeight-viewport.height-viewport.offsetTop);
+  sheet.classList.toggle('camp-keyboard',inset>80);
+  sheet.style.setProperty('--camp-keyboard-inset',inset+'px');
+  sheet.style.setProperty('--camp-visible-height',Math.max(0,viewport.height-8)+'px');
+}
+window.visualViewport?.addEventListener('resize',syncCampaignKeyboard);
+window.visualViewport?.addEventListener('scroll',syncCampaignKeyboard);
 document.addEventListener('click', e => {
   const t = e.target?.closest?.('[data-act]'); if (!t) return;
   // Backdrop actions must only fire for a click directly on the backdrop.
@@ -5738,6 +5934,18 @@ document.addEventListener('click', e => {
   const a = t.dataset.act, c = S.champ, h = S.h2h;
   switch (a) {
     case 'mode': S.mode = t.dataset.mode; lsSet('da.mode', S.mode); S.gen.open = false; break;
+    case 'tap-pick': {
+      if (!S.tapone) S.tapone = TapOne.newState();
+      if (S.tapone.busy) return;
+      const id = t.dataset.cid;
+      const commit = () => { S.tapone.busy = false; const r = TapOne.choose(S.tapone, id); if (!r.accepted) toast(r.reason); render(); window.scrollTo(0, 0); };
+      const wait = TapOne.flash(t);
+      if (!wait) { commit(); return; }
+      S.tapone.busy = true; setTimeout(commit, wait); return;
+    }
+    case 'tap-pool': S.tapone = S.tapone || TapOne.newState(); TapOne.setPool(S.tapone, t.dataset.pool); render(); window.scrollTo(0, 0); return;
+    case 'tap-again': S.tapone = S.tapone || TapOne.newState(); TapOne.again(S.tapone); render(); window.scrollTo(0, 0); return;
+    case 'tap-share': if (S.tapone) { copyText(TapOne.shareText(S.tapone.run, TapOne.lookupFn(S.tapone.pool))); S.tapone.copied = true; render(); } return;
     case 'grid-today': S.daily.date=DailyGrid.today(); S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render(); return;
     case 'grid-archive': S.daily.archiveOpen=!S.daily.archiveOpen; render(); return;
     case 'grid-day': if(DailyGrid.validDay(t.dataset.date)){S.daily.date=t.dataset.date; S.daily.target=null; S.daily.query=''; S.daily.archiveOpen=false; render();window.scrollTo(0,0);}return;
@@ -5786,13 +5994,17 @@ document.addEventListener('click', e => {
     case 'c-kind': c.campaignMode = t.dataset.v === 'campaign'; c.stage = 'setup'; break;
     case 'camp-sport':
       if (campaignSportValid(t.dataset.sport) && S.campaign.sport !== t.dataset.sport) {
-        const name = S.campaign.teamName;
-        S.campaign = { ...campaignDefault(), sport: t.dataset.sport, teamName: name };
+        const name = S.campaign.teamName,singleUse=S.campaign.singleUse;
+        S.campaign = { ...campaignDefault(), sport: t.dataset.sport, teamName: name,singleUse };
       }
       break;
-    case 'camp-start': if(!S.campaign.stageOrder)S.campaign.stageOrder=campaignNewOrder(S.campaign.sport); S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
+    case 'camp-single-use': if(S.campaign.step===0&&S.campaign.status==='setup'&&!S.campaign.history.length&&!S.campaign.snake)S.campaign.singleUse=t.dataset.v==='1';break;
+    case 'camp-redraft': {const v=S.campaign;if(v.status!=='draft'||v.defeat||campaignCheckExhaustion(v,campaignStage()))break;if(window.confirm('Restart this round’s shared draft? Current picks and surges will be cleared. Previous campaign wins stay saved.')){v.roster={};v.snake=null;v.surge=null;v.selected=null;v.validation='';v.validationOpen=false;}break;}
+    case 'camp-start': if(S.campaign.defeat){S.campaign.status='defeated';break;} if(!S.campaign.stageOrder)S.campaign.stageOrder=campaignNewOrder(S.campaign.sport); S.campaign.status = S.campaign.result ? 'results' : S.campaign.step >= 10 ? 'complete' : 'draft'; break;
     case 'camp-reset': campaignReset(); break;
-    case 'camp-setup': S.campaign.status = 'setup'; S.campaign.selected = null; break;
+    case 'camp-new': if(S.campaign.defeat){campaignReset();S.campaign.status='draft';saveCampaign();window.scrollTo(0,0);}break;
+    case 'camp-concede': if(!S.campaign.defeat&&!S.campaign.result?.win&&window.confirm('End this campaign? All progress will be lost. You must start again at challenge 1.')){campaignEnd(S.campaign,'conceded');window.scrollTo(0,0);}break;
+    case 'camp-setup': if(S.campaign.defeat)break; S.campaign.status = 'setup'; S.campaign.selected = null; break;
     case 'camp-slot': {
       const slots = campaignSlots(S.campaign.sport,campaignStage().rule);
       if (slots.some(p=>p.id===t.dataset.slot)) {
@@ -5833,15 +6045,23 @@ document.addEventListener('click', e => {
     }
 
     case 'camp-letter': {const list=document.getElementById('camp-plist');const letter=t.dataset.letter;const item=[...(list?.querySelectorAll('.cand')||[])].find(el=>el.querySelector('.who b')?.textContent?.toUpperCase().startsWith(letter));if(item&&list)list.scrollTop=item.parentElement.offsetTop-list.offsetTop;return;}
+    case 'camp-filter-clear': {
+      S.campaign.pickerPools=[];
+      for(const el of document.querySelectorAll('[data-input="camp-pool"]'))el.checked=false;
+      refreshCampaignPicker();return;
+    }
+    case 'camp-filter-done': t.closest('details').open=false;return;
     case 'camp-info': S.campaign.infoId=t.dataset.cid;break;
     case 'camp-info-close': S.campaign.infoId=null; break;
     case 'camp-remove': if(S.campaign.selected){delete S.campaign.roster[S.campaign.selected];S.campaign.validationOpen=false;if(campaignQualified())S.campaign.validation='';}break;
     case 'camp-pick': {
       const v=S.campaign, candidate=candById('mashup',t.dataset.cid);
-      if (!candidate || !v.selected || campaignWinUses(candidate.id)>=2 || (campaignStage().rule==='final'&&campaignUsed().has(candidate.id))) break;
+      campaignSnakeOpponent(v,campaignStage());
+      if (!candidate || !v.selected || campaignPlayerPickBlocked(candidate,v,campaignStage().rule)) break;
       if(!v.roster[v.selected]&&Object.keys(v.roster).length>=campaignLimit(v.sport,campaignStage().rule))break;
       if (Object.entries(v.roster).some(([k,p])=>k!==v.selected&&p.id===candidate.id)) break;
       v.roster[v.selected]=candidate;
+      campaignSnakeOpponent(v,campaignStage());
       v.validationOpen=false;if(campaignQualified())v.validation='';v.query='';
       const remaining=campaignSlots(v.sport,campaignStage().rule).find(p=>!v.roster[p.id]);
       v.selected=window.innerWidth<900?null:remaining?.id||null;
@@ -5849,20 +6069,30 @@ document.addEventListener('click', e => {
     }
     case 'camp-random': {
       const v=S.campaign,slots=campaignSlots(v.sport,campaignStage().rule);
-      const taken=new Set(Object.values(v.roster).map(c=>c.id));
-      const options=shuffled(getCands('mashup').filter(c=>!taken.has(c.id)&&campaignWinUses(c.id)<2&&(campaignStage().rule!=='final'||!campaignUsed().has(c.id))));
-      for(const p of slots)if(!v.roster[p.id]&&options.length&&Object.keys(v.roster).length<campaignLimit(v.sport,campaignStage().rule))v.roster[p.id]=options.pop();
+      const st=campaignStage();campaignSnakeOpponent(v,st);
+      for(const p of slots)if(!v.roster[p.id]&&Object.keys(v.roster).length<campaignLimit(v.sport,st.rule)){
+        const taken=new Set(Object.values(v.roster).map(c=>c.id));
+        const options=shuffled(getCands('mashup').filter(c=>!taken.has(c.id)&&!campaignPlayerPickBlocked(c,v,st.rule)));
+        if(!options.length)break;v.roster[p.id]=options.pop();campaignSnakeOpponent(v,st);
+      }
       v.selected=null;
       break;
     }
+    case 'camp-surge-close': S.campaign.surgeDialog=null;S.campaign.surgeReveal=null;break;
+    case 'camp-surge-edit': {
+      const v=S.campaign;v.selected=v.surgeDialog;v.surgeDialog=null;v.surgeReveal=null;v.validationOpen=false;break;
+    }
     case 'camp-variant': {
-      const surge=campaignUseVariantSurge(S.campaign,S.campaign.variantTarget);
-      if(surge)toast('Variant Surge: '+surge.name+'! Your one transformation is locked for this challenge.');
-      else toast('Variant Surge unavailable: fill the lineup with at least one eligible alternate-form character.');
+      const v=S.campaign,slot=v.surgeDialog,base=v.roster[slot];
+      if(v.status!=='draft'||!base||!campaignSurgeSlots(v).has(slot)) {v.surgeDialog=null;break;}
+      const surge=campaignUseVariantSurge(v,base.id);
+      v.surgeDialog=null;
+      if(surge){v.surgeReveal={slot,base:base.n,name:surge.name};saveCampaign();}
+      else toast('Variant Surge unavailable for this character.');
       break;
     }
-    case 'camp-play': campaignPlay(); if(S.campaign.status==='results')window.scrollTo(0,0); break;
-    case 'camp-retry': case 'camp-edit': S.campaign.status='draft'; S.campaign.result=null; S.campaign.validation='';S.campaign.validationOpen=false;break;
+    case 'camp-play': campaignPlay(); if(S.campaign.status==='results'||S.campaign.status==='defeated')window.scrollTo(0,0); break;
+    case 'camp-retry': case 'camp-edit': if(S.campaign.defeat)break; S.campaign.status='draft'; S.campaign.result=null; S.campaign.validation='';S.campaign.validationOpen=false;break;
     case 'camp-next': campaignAdvance(); window.scrollTo(0,0); break;
     // championship
     case 'c-sport': if (c.sport !== t.dataset.sport) { c.sport = t.dataset.sport; resetDraft(); } break;
@@ -5913,7 +6143,7 @@ document.addEventListener('click', e => {
     case 'c-setup': c.stage = 'setup'; c.sel = null; c.result = null; break;
     case 'slot':
       if (S.mode === 'champ' && c.campaignMode) {
-        if (campaignSlots(S.campaign.sport,campaignStage().rule).some(p=>p.id===t.dataset.slot)) {S.campaign.selected=t.dataset.slot;S.campaign.validationOpen=false;}
+        if (campaignSlots(S.campaign.sport,campaignStage().rule).some(p=>p.id===t.dataset.slot)) {const v=S.campaign;if(campaignSurgeSlots(v).has(t.dataset.slot)){v.surgeDialog=t.dataset.slot;v.selected=null;}else{v.selected=t.dataset.slot;v.validationOpen=false;}}
         break;
       }
       if (handMode()) {
@@ -5975,9 +6205,9 @@ document.addEventListener('click', e => {
     case 'h-toggle-court': h.viewOpp=!h.viewOpp; break;
     case 'h-variant-open': {
       const d=h.contest,side=d&&mySide(d);
-      if(!d||d.status!=='powers'||!side||d.powerReady?.[side]||d.surges?.[side])break;
+      if(!d||d.status!=='powers'||!side||d.powerReady?.[side])break;
       const c=rosterOf(d,side)[t.dataset.slot];
-      if(c&&variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,side),surge:null}).some(v=>v.id===c.id))h.variantTarget=c.id;
+      if(c&&variantSurgeCandidates({sport:d.sport,roster:rosterOf(d,side),surge:d.surges?.[side]||null}).some(v=>v.id===c.id))h.variantTarget=c.id;
       break;
     }
     case 'h-variant-cancel': h.variantTarget=null; break;
@@ -6000,7 +6230,12 @@ document.addEventListener('input', e => {
   else if (k === 'h-variant-target') { S.h2h.variantTarget=v; render(); }
   else if (k === 'camp-dispute-claim') { S.campaign.disputeClaim=v; }
   else if (k === 'camp-dispute-source') { S.campaign.disputeSource=v; }
-  else if (k === 'camp-query') { S.campaign.query=v; render(); }
+  else if (k === 'camp-query') { S.campaign.query=v; refreshCampaignPicker(); }
+  else if (k === 'camp-pool') {
+    const pools=campaignPickerPools(S.campaign);
+    if(e.target.checked)pools.add(v);else pools.delete(v);
+    S.campaign.pickerPools=[...pools];refreshCampaignPicker();
+  }
   else if (k === 'camp-letter-range' || k === 'pick-letter-range') {const letter=String.fromCharCode(65+Math.max(0,Math.min(25,+v||0)));jumpTalentPoolLetter(k==='camp-letter-range'?'camp-plist':'plist',k==='camp-letter-range'?'camp-letter-label':'pick-letter-label',letter);}
   else if (k === 'report-match') { S.champ.reportMatch=+v; render(); }
   else if (k === 'c-team') { S.champ.teamName = v; saveChamp(); }
@@ -6015,6 +6250,7 @@ document.addEventListener('keydown', e => {
   if(e.key === 'Escape' && S.mode==='grid' && S.daily.target!==null) {S.daily.target=null;S.daily.query='';render();return;}
   if(e.key === 'Escape' && S.handInfoId){S.handInfoId=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.disputeSlot&&!S.campaign.disputeBusy) {S.campaign.disputeSlot=null;S.campaign.disputeResult=null;render();return;}
+  if (e.key === 'Escape' && (S.campaign?.surgeDialog||S.campaign?.surgeReveal)) {S.campaign.surgeDialog=null;S.campaign.surgeReveal=null;render();return;}
   if (e.key === 'Escape' && S.campaign?.infoId) { S.campaign.infoId=null; render(); return; }
   if (e.key === 'Escape') { if (S.modal) { S.modal = null; render(); } else if (S.champ.sel || S.h2h.sel || S.champ.handSel) { S.champ.sel = null; S.h2h.sel = null; S.champ.handSel = null; render(); } }
   if (e.key === 'Enter' && e.target.id === 'h-code') joinByCode();

@@ -36,8 +36,10 @@ test('all modes use the same documented character form catalog',()=>{
   assert.equal(powers.variantSurgeCandidates(newDraft()).length,1);
   assert.match(html,/renderVariantSurgePanel\(c,'c-variant','c-variant-target',full,/,
     'Perfect Season and Dealt Hand must share the Surge UI');
-  assert.match(campaign,/renderVariantSurgePanel\(v,'camp-variant','camp-variant-target',valid,'challenge'\)/,
-    'Campaign must share the Surge UI');
+  assert.match(campaign,/variantSurgeCandidates\(v\)/,
+    'Campaign board must use the shared eligibility engine');
+  assert.match(html,/campaignUseVariantSurge\(v,base\.id\)/,
+    'Campaign must use the shared transformation engine');
   // H2H intentionally uses the newer on-character Surge prompt, not the
   // older dropdown panel, but must still use the shared form catalog/engine.
   assert.match(html,/function renderH2HPowers\(d\)/,

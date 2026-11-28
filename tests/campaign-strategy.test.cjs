@@ -5,12 +5,13 @@ const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
 const code=fs.readFileSync(path.join(root,'data/campaign-strategy.js'),'utf8');
+const campaignCode=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');
 const expansion=require('../data/campaign-variant-expansion.js');
 const P=[...Array.from({length:5},(_,i)=>({id:'p'+i,imp:1})),{id:'bench',bench:true,side:true,imp:0},{id:'coach',coach:true,side:true,imp:0}];
 const SPORTS={brawl:{pos:P}};
 const chars=Array.from({length:110},(_,i)=>{
  const speed=Math.min(99,25+i);
- return {id:'games:extra'+i,n:'Extra '+i,pool:'games',a:[speed,speed,65,speed,65,65,65,65,65,speed,65,65]};
+ return {id:'games:extra'+i,n:'Extra '+i,pool:['games','mcu','toons'][i%3],a:[speed,speed,65,speed,65,65,65,65,65,speed,65,65]};
 });
 chars.push({id:'mcu:Thor',n:'Thor',pool:'mcu',a:Array(12).fill(75)});
 chars.push({id:'mcu:Jean Grey',n:'Jean Grey',pool:'mcu',a:Array(12).fill(85)});
@@ -34,10 +35,11 @@ const context={
  window:{DA_CAMPAIGN_VARIANT_EXPANSION:expansion},
  SPORTS,getCands:()=>chars,candById:(pool,id)=>chars.find(c=>c.id===id),
  aiStackDraft:ai,candVal:(sport,c)=>c.a[0],fitIn:(sport,c,p)=>c.a[0],
- teamScore:rate,rngFrom:seeded,saveCampaign:()=>saved.push(true),
- CAMPAIGN_KIDS:new Set(),campaignAllowed:(c,rule)=>rule==='fast'?c.a[0]>=90:true
+ teamScore:rate,rngFrom:seeded,lsSet:()=>saved.push(true),
+ S:{campaign:{history:[]}}
 };
-vm.runInNewContext(code+'\nthis.strategyApi={campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS};',context);
+vm.runInNewContext(campaignCode,context);
+vm.runInNewContext(code+'\nthis.strategyApi={campaignSnakeSecond,campaignSnakeOrder,campaignSnakeCpuDue,campaignSnakeOpponent,campaignCombatSeed,campaignChallengeCeiling,campaignBuildOpponent,campaignLockedOpponent,campaignFinalBossOpponent,campaignVariantOptions,campaignVariantRoster,campaignUseVariantSurge,campaignTacticalMatch,CAMPAIGN_VARIANTS,variantOdds,variantSurgeRecords,variantForms};',context);
 const api=context.strategyApi;
 function stage(seed='campaign-A',step=0,rule='fast'){
  return {seed,step,sport:'brawl',stageOrder:[0,1,2,3,4,5,6,7,8,9],roster:{},opponents:{},surge:null,status:'draft',rule};
@@ -61,7 +63,9 @@ test('short-handed ceiling is appropriately below full-strength ceiling',()=>{
  assert.ok(full>short*1.25,{full,short});
  const early=api.campaignBuildOpponent(stage('a',0,'short'),{rule:'short'});
  const rival=Object.fromEntries(Object.entries(early.roster).map(([slot,id])=>[slot,chars.find(c=>c.id===id)]));
- assert.ok(rate('brawl',rival).rating<full*0.9,'Full-strength boss cannot be unreasonably high for 3-on-5');
+ assert.equal(Object.keys(rival).length,3,'Both sides field exactly three starters');
+ assert.ok(!rival.bench&&!rival.coach);
+ assert.ok(rate('brawl',rival).rating<full*0.9);
 });
 test('opponent tactical profile is measurable and counterplay changes actual rating',()=>{
  const offense={p0:chars[90],p1:chars[85],p2:chars[87],p3:chars[80],p4:chars[88]};
@@ -80,7 +84,7 @@ test('Variant Surge picks a documented form once and does not alter base charact
  v.roster={p0:thor,p1:jean,p2:chars[72],p3:chars[73],p4:chars[74]};
  const surge=api.campaignUseVariantSurge(v);
  assert.ok(surge?.id&&surge.name);
- assert.equal(api.campaignUseVariantSurge(v),null,'Surge cannot be spent twice in one stage');
+ assert.equal(api.campaignUseVariantSurge(v,surge.id),null,'The same identity cannot surge twice');
  const changed=api.campaignVariantRoster(v);
  const updated=Object.values(changed).find(c=>c.id===surge.id);
  assert.equal(updated.n,surge.name);
@@ -88,11 +92,53 @@ test('Variant Surge picks a documented form once and does not alter base charact
  assert.equal(chars.find(c=>c.id===surge.id).n,surge.id===thor.id?'Thor':'Jean Grey','Do not mutate original catalog');
  const originalKeys=Object.keys(v.roster),selected=originalKeys.find(k=>v.roster[k].id===surge.id);
  delete v.roster[selected];
- assert.equal(api.campaignUseVariantSurge(v),null,'Removing character cannot restore surge');
+ assert.equal(api.campaignUseVariantSurge(v,surge.id),null,'Removing character cannot restore surge');
  assert.equal(api.campaignVariantRoster(v),v.roster,'Variant form is inactive after removal');
  const replay=stage('variant-test',2,'psychic');
  replay.roster={p0:thor,p1:jean,p2:chars[72],p3:chars[73],p4:chars[74]};
  assert.equal(JSON.stringify(api.campaignUseVariantSurge(replay)),JSON.stringify(surge),'Stage-seeded variant must be reproducible');
+ const other=surge.id===thor.id?jean:thor;
+ assert.ok(api.campaignUseVariantSurge(replay,other.id));
+ assert.equal(api.variantForms(replay).length,2);
+ assert.equal(api.variantSurgeRecords(replay).length,2);
+ assert.equal(api.campaignUseVariantSurge(replay,other.id),null);
+ const odds=api.variantOdds(thor);
+ assert.ok(Math.abs(odds.reduce((n,x)=>n+x.percent,0)-100)<1e-8);
+ assert.ok(odds[0].percent>=odds[odds.length-1].percent);
+});
+test('finale board highlights eligible characters before lineup validation and hides possible outcomes',()=>{
+ const previous=context.S.campaign;
+ const stubNames=['esc','renderField'];
+ const savedStubs=Object.fromEntries(stubNames.map(k=>[k,context[k]]));
+ try{
+  const v=stage('final-surge',9,'final');
+  const thor=chars.find(c=>c.id==='mcu:Thor');
+  const jean=chars.find(c=>c.id==='mcu:Jean Grey');
+  v.query='';v.history=[];v.roster={p0:thor,p1:jean};
+  context.S.campaign=v;
+  context.esc=String;
+  context.renderField=(sport,roster,options)=>{assert.equal(options.variantSlots.has('p0'),true);assert.equal(options.variantSlots.has('p1'),true);assert.equal(options.variantAction,'slot');return 'BOARD';};
+  assert.equal(context.campaignReady(),false);
+  v.surgeDialog='p0';
+  const html=context.renderCampaignDraft();
+  assert.ok(html.includes('BOARD'));
+  assert.match(html,/data-act="camp-play" disabled/);
+  assert.match(html,/data-act="camp-variant"/);
+  assert.match(html,/Thor<\/b> is eligible/);
+  for(const form of api.campaignVariantOptions(thor))assert.ok(!html.includes(form.name));
+  const surge=api.campaignUseVariantSurge(v,thor.id);
+  assert.ok(surge);
+  assert.equal(context.campaignSurgeSlots(v).has('p0'),false);
+  assert.equal(context.campaignSurgeSlots(v).has('p1'),true);
+  v.surgeDialog=null;v.surgeReveal={slot:'p0',base:thor.n,name:surge.name};
+  assert.ok(context.renderCampaignSurgeDialog(v).includes(surge.name));
+  assert.ok(api.campaignUseVariantSurge(v,jean.id));
+  assert.equal(api.campaignUseVariantSurge(v,thor.id),null);
+  assert.equal(api.variantSurgeRecords(v).length,2);
+ }finally{
+  context.S.campaign=previous;
+  for(const k of stubNames)if(savedStubs[k]===undefined)delete context[k];else context[k]=savedStubs[k];
+ }
 });
 test('variant catalog refers to actual roster characters and well-labeled alternate forms',()=>{
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
@@ -130,18 +176,209 @@ test('finale draws a second stable boss with different roster and strategy',()=>
  const second=api.campaignFinalBossOpponent(v,ch,first);
  const repeated=api.campaignFinalBossOpponent(v,ch,first);
  assert.equal(JSON.stringify(second.roster),JSON.stringify(repeated.roster));
- assert.notEqual(JSON.stringify(second.roster),JSON.stringify(first.roster),'Second boss must be a different team');
+ const firstIds=new Set(Object.values(first.roster).map(c=>c.id));
+ assert.equal(Object.values(second.roster).filter(c=>firstIds.has(c.id)).length,0,'No overlap in any roster position');
  assert.notEqual(second.tactic,first.tactic,'Second boss should require different tactical counterplay');
  assert.equal(second.score.rating,repeated.score.rating);
 });
-test('campaign runtime no longer scales opponents to player rating or changes match seed per retry',()=>{
+test('campaign runtime keeps opponents fixed but uses a fresh combat seed per attempt',()=>{
  const c=fs.readFileSync(path.join(root,'data/campaign.js'),'utf8');
  assert.doesNotMatch(c,/target=baseRating\s*\+/);
- assert.match(c,/gameSeed=campaignStageSeed\(v\)\+':match'/);
- assert.match(c,/campaignLockedOpponent\(v,st\)/);
+ assert.match(c,/gameSeed=campaignCombatSeed\(v,index,attempt\)/);
+ assert.match(c,/attempts:v.attempts/);
+ const v=stage('retry',9,'final');
+ assert.notEqual(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,0,2));
+ assert.notEqual(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,1,1));
+ assert.equal(api.campaignCombatSeed(v,0,1),api.campaignCombatSeed(v,0,1));
+ assert.match(c,/campaignSnakeOpponent\(v,st\)/);
  assert.match(c,/campaignVariantRoster\(v\)/);
- assert.match(c,/campaignWinUses\(c\.id\)>=2/);
+ assert.match(c,/campaignWinUses\(c\.id,v\)>=2/);
  const h=fs.readFileSync(path.join(root,'index.html'),'utf8');
  assert.match(h,/case 'camp-variant'/);
  assert.match(h,/data\/campaign-strategy\.js/);
+});
+
+test('Underdogs uses the exact player rating criterion, and migrates an illegal cached team',()=>{
+ const v=stage('underdog',7,'underdog'),ch={rule:'underdog'};
+ v.opponents[7]={roster:Object.fromEntries(P.map((p,i)=>[p.id,chars[100+i].id])),tactic:'assault',difficultyBonus:10};
+ const result=api.campaignLockedOpponent(v,ch);
+ assert.ok(result);
+ assert.equal(Object.keys(result.roster).length,7);
+ for(const c of Object.values(result.roster))assert.ok(c.a.reduce((a,b)=>a+b,0)/c.a.length<=73,c.n);
+ assert.equal(result.score.rating,rate('brawl',result.roster).rating,'No hidden CPU rating bonus');
+ assert.equal(v.opponents[7].ruleVersion,2);
+});
+test('opponent cannot bypass unavailable eligibility or campaign history',()=>{
+ const v=stage('no-fallback',4,'women');
+ assert.equal(api.campaignBuildOpponent(v,{rule:'women'}),null);
+ const old=context.S.campaign.history;
+ try{
+  context.S.campaign.history=[{ids:chars.map(c=>c.id)},{ids:chars.map(c=>c.id)}];
+  assert.equal(api.campaignBuildOpponent(v,{rule:'fast'}),null);
+ }finally{context.S.campaign.history=old;}
+});
+test('both final bosses have three roster pools and exclude previously winning characters',()=>{
+ const v=stage('alliance',9,'final'),ch={rule:'final'};
+ const old=context.S.campaign.history;
+ try{
+  const banned=chars.slice(80,110).map(c=>c.id);
+  context.S.campaign.history=[{ids:banned}];
+  const first=api.campaignLockedOpponent(v,ch),second=api.campaignFinalBossOpponent(v,ch,first);
+  assert.ok(first&&second);
+  const firstIds=new Set(Object.values(first.roster).map(c=>c.id));
+  assert.ok(Object.values(second.roster).every(c=>!firstIds.has(c.id)));
+  for(const boss of [first,second]){
+   assert.ok(boss);
+   assert.equal(Object.keys(boss.roster).length,7);
+   assert.ok(new Set(Object.values(boss.roster).map(c=>c.pool)).size>=3);
+   assert.ok(Object.values(boss.roster).every(c=>!banned.includes(c.id)));
+   assert.equal(boss.score.rating,rate('brawl',boss.roster).rating);
+  }
+ }finally{context.S.campaign.history=old;}
+});
+
+test('commander and reinforcement contribute to the three-pool alliance in both challenges',()=>{
+ const old=context.S.campaign.history;
+ const make=(pool,i)=>({id:pool+':alliance'+i,pool,n:'Alliance '+i,a:Array(12).fill(80)});
+ const roster=Object.fromEntries(P.slice(0,5).map((p,i)=>[p.id,make('mcu',i)]));
+ roster.bench=make('dc',5);
+ roster.coach=make('lotr',6);
+ try{
+  context.S.campaign.history=[];
+  for(const rule of ['final','triple-threat']){
+   assert.equal(context.campaignRosterReady('brawl',rule,roster),true);
+   assert.equal(context.campaignRosterLegal('brawl',rule,roster),true);
+   assert.equal(context.campaignRosterReady('brawl',rule,{...roster,coach:make('dc',7)}),false);
+   assert.equal(context.campaignRosterReady('brawl',rule,{...roster,bench:make('lotr',8)}),false);
+   assert.equal(context.campaignRosterReady('brawl',rule,{...roster,coach:roster.bench}),false);
+  }
+ }finally{context.S.campaign.history=old;}
+});
+
+test('kids and mortal rivals use the same trait rule instead of reversing it',()=>{
+ const start=chars.length;
+ const add=(pool,n)=>chars.push({id:pool+':'+n,pool,n,a:Array(12).fill(80)});
+ for(const n of ['Spider-Man','Ms. Marvel','Ironheart','America Chavez','Sprite','Franklin Richards','Ned Leeds'])add('mcu',n);
+ for(const n of ['Black Widow','Hawkeye','Kate Bishop','Falcon','Happy Hogan','Howard Stark','Nick Fury'])add('mcu',n);
+ try{
+  for(const [rule,names] of [['kids',['Spider-Man','Ms. Marvel','Ironheart','America Chavez','Sprite','Franklin Richards','Ned Leeds']],['mortal',['Black Widow','Hawkeye','Kate Bishop','Falcon','Happy Hogan','Howard Stark','Nick Fury','Ned Leeds']]]){
+   const v=stage('trait-'+rule,3,rule),r=api.campaignLockedOpponent(v,{rule});
+   assert.ok(r,rule);
+   assert.equal(Object.keys(r.roster).length,7);
+   assert.ok(Object.values(r.roster).every(c=>names.includes(c.n)),rule);
+  }
+ }finally{chars.splice(start);}
+});
+
+test('single documented form is guaranteed and legacy single surge remains spent',()=>{
+ const entry=Object.entries(api.CAMPAIGN_VARIANTS).find(([,forms])=>forms.length===1);
+ assert.ok(entry);
+ const [key,forms]=entry,split=key.indexOf(':');
+ const candidate={id:key,pool:key.slice(0,split),n:key.slice(split+1),a:Array(12).fill(75)};
+ const odds=api.variantOdds(candidate);
+ assert.equal(odds.length,1);
+ assert.equal(odds[0].percent,100);
+ const v=stage('single-variant');
+ v.roster={p0:candidate};
+ assert.equal(api.campaignUseVariantSurge(v,candidate.id).name,forms[0].name);
+ v.surge={id:candidate.id,name:forms[0].name};
+ assert.equal(api.campaignUseVariantSurge(v,candidate.id),null);
+ assert.equal(api.campaignVariantRoster(v).p0.n,forms[0].name);
+});
+
+test('100 finale seeds keep every starter and support identity disjoint under campaign history restrictions',()=>{
+ const old=context.S.campaign.history;
+ try{
+  for(let i=0;i<100;i++){
+   const v=stage('boss'+i,9,'final'),ch={rule:'final'};
+   context.S.campaign.history=[{ids:chars.slice(i%20,i%20+25).map(c=>c.id)}];
+   const first=api.campaignLockedOpponent(v,ch),second=api.campaignFinalBossOpponent(v,ch,first);
+   assert.ok(first&&second);
+   const ids=new Set(Object.values(first.roster).map(c=>c.id));
+   assert.equal(ids.size,7);
+   assert.equal(Object.keys(second.roster).length,7);
+   assert.ok(Object.values(second.roster).every(c=>!ids.has(c.id)));
+   assert.ok(context.campaignRosterLegal('brawl','final',second.roster));
+   assert.equal(JSON.stringify(second.roster),JSON.stringify(api.campaignFinalBossOpponent(v,ch,first).roster));
+  }
+ }finally{context.S.campaign.history=old;}
+});
+
+test('shared snake alternates first pick and reserves each CPU selection before the next human turn',()=>{
+ assert.deepEqual(Array.from(api.campaignSnakeOrder(4)),['player','cpu','cpu','player','player','cpu','cpu','player']);
+ assert.deepEqual(Array.from(api.campaignSnakeOrder(4,true)),['cpu','player','player','cpu','cpu','player','player','cpu']);
+ assert.equal(api.campaignSnakeCpuDue(7,0),0);assert.equal(api.campaignSnakeCpuDue(7,1),2);assert.equal(api.campaignSnakeCpuDue(7,2),2);assert.equal(api.campaignSnakeCpuDue(7,7),7);
+ const v=stage('snake',0,'final');v.history=[];context.S.campaign=v;
+ try{
+  for(let i=0;i<7;i++){
+   const reserved=new Set(Object.values(v.snake?.cpu||{}));
+   v.roster[P[i].id]=chars.find(c=>c.pool===['games','mcu','toons'][i%3]&&!reserved.has(c.id)&&!Object.values(v.roster).some(x=>x.id===c.id));
+   api.campaignSnakeOpponent(v,{rule:'final'});
+  }
+  const cpu=api.campaignSnakeOpponent(v,{rule:'final'});assert.ok(cpu);
+  const human=new Set(Object.values(v.roster).map(c=>c.id));assert.ok(Object.values(cpu.roster).every(c=>!human.has(c.id)));
+  const second=api.campaignFinalBossOpponent(v,{rule:'final'},cpu,human);assert.ok(second);
+  const unavailable=new Set([...human,...Object.values(cpu.roster).map(c=>c.id)]);assert.ok(Object.values(second.roster).every(c=>!unavailable.has(c.id)));
+ }finally{context.S.campaign={history:[]};}
+});
+test('history rules distinguish CPU appearances, player wins and optional shared single use',()=>{
+ const v=stage();v.history=[{ids:[chars[0].id],cpuIds:[chars[1].id]}];
+ assert.ok(context.campaignHistoryReason(chars[0],'final','player',v));
+ assert.ok(context.campaignHistoryReason(chars[1],'fast','cpu',v));
+ assert.equal(context.campaignHistoryReason(chars[0],'fast','player',v),'');
+ assert.equal(context.campaignHistoryReason(chars[1],'fast','player',v),'');
+ v.singleUse=true;assert.ok(context.campaignHistoryReason(chars[1],'fast','player',v));assert.ok(context.campaignHistoryReason(chars[0],'fast','cpu',v));
+});
+
+test('recover prior winners and CPU from legacy report, and keep all attempted character identities',()=>{
+ const v=stage('legacy',3,'final');
+ const old=context.esc;context.esc=s=>String(s);
+ try{
+  v.history=[{report:'<tr><td class="da-side"><span class="da-name">Extra 0</span></td><th>Role</th><td class="da-side"><span class="da-name">Extra 1</span></td></tr>'}];
+  context.campaignRecoverHistory(v);
+  assert.equal(v.history[0].ids[0],chars[0].id);assert.equal(v.history[0].cpuIds[0],chars[1].id);
+  context.campaignRecordUsage(v,{ids:[chars[2].id],cpuIds:[chars[3].id]});
+  context.campaignRecordUsage(v,{ids:[chars[4].id],cpuIds:[chars[5].id]});
+  assert.equal(v.stageUsage.player.length,2);assert.equal(v.stageUsage.cpu.length,2);
+  v.history.push({ids:[chars[4].id],playerUsedIds:v.stageUsage.player,cpuIds:v.stageUsage.cpu});
+  v.singleUse=true;assert.ok(context.campaignHistoryReason(chars[2],'fast','cpu',v));
+  v.singleUse=false;assert.ok(context.campaignHistoryReason(chars[3],'fast','cpu',v));
+ }finally{context.esc=old;}
+});
+
+test('exact exhaustion respects identity uniqueness, short roster limits and reserved CPU picks',()=>{
+ const v=stage('exhaustion',0,'short'),slots=P.slice(0,3);
+ const all=chars.slice(0,6);
+ v.snake={step:0,cpu:Object.fromEntries(slots.map((p,i)=>[p.id,all[i].id]))};
+ assert.equal(context.campaignCanFill('brawl','short',all,'player',v,new Set(all.slice(0,3).map(c=>c.id))),true);
+ assert.equal(context.campaignExhaustion(v,{rule:'short'},all),null);
+ assert.equal(context.campaignExhaustion(v,{rule:'short'},all.slice(0,5)),'roster-exhausted');
+ // A broken CPU lineup is not evidence the player lost.
+ v.snake.cpu[slots[2].id]='unknown';
+ assert.equal(context.campaignExhaustion(v,{rule:'short'},all.slice(0,5)),null);
+});
+test('finale feasibility requires three actual represented pools, including support',()=>{
+ const v=stage('diversity',9,'final');
+ const pool=chars.slice(0,7).map((c,i)=>({...c,pool:i===0?'mcu':'games'}));
+ assert.equal(context.campaignCanFill('brawl','final',pool,'player',v),false);
+ pool[1].pool='toons';
+ assert.equal(context.campaignCanFill('brawl','final',pool,'player',v),true);
+ assert.equal(context.campaignCanFill('brawl','final',pool,'player',v,new Set([pool[0].id])),false);
+});
+test('a confirmed loss is terminal and archived once, without erasing prior wins',()=>{
+ const old=context.S.campaign,oldGet=context.lsGet,oldSet=context.lsSet;
+ const store={};
+ try{
+   const v=stage('terminal-test',1,'short');v.history=[{name:'Previous challenge',score:'5–0',ids:['one'],cpuIds:['two']}];
+   context.S.campaign=v;
+   context.lsGet=(key,fallback)=>store[key]??fallback;
+   context.lsSet=(key,value)=>{store[key]=JSON.parse(JSON.stringify(value));};
+   assert.equal(context.campaignEnd(v,'roster-exhausted'),true);
+   assert.equal(v.status,'defeated');
+   assert.equal(v.history.length,1);
+   assert.equal(store['da.campaign.v1'].defeat.reason,'roster-exhausted');
+   assert.equal(store['da.campaign.defeats.v1'].length,1);
+   assert.equal(context.campaignEnd(v,'roster-exhausted'),false);
+   assert.equal(store['da.campaign.defeats.v1'].length,1);
+ }finally{context.S.campaign=old;context.lsGet=oldGet;context.lsSet=oldSet;}
 });
