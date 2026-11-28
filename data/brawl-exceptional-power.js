@@ -6,6 +6,36 @@
  * not official canonical numeric measurements. Variant forms remain separate.
  */
 const BRAWL_EXCEPTIONAL_POWER=Object.freeze({
+  "dc:Perpetua": [
+    65,
+    "Justice League (2018) #22 and #38: original multiversal creator, mother of the Monitor, Anti-Monitor and World Forger.",
+    "https://www.dc.com/blog/2019/01/23/totality-talk-scott-snyder-on-justice-league-16s-big-revelations",
+    "Restored creator power is the modeled portrayal; imprisonment, depletion and peer opposition limit her."
+  ],
+  "dc:Trigon": [
+    50,
+    "DC character history: interdimensional demon lord with extreme cosmic power who repeatedly threatens reality.",
+    "https://www.dc.com/characters/trigon",
+    "Raven and the Titans have thwarted him; realm and manifestation constrain his power."
+  ],
+  "mcu:Odin": [
+    40,
+    "Marvel Comics Odinforce: vast mystical energy wielded by the All-Father, separate from physical strength.",
+    "https://latency.marvel.com/comics/discover/1048/odin",
+    "Comics-informed V1 portrayal; Odinsleep replenishes the force. No Destroyer or borrowed life force in base form."
+  ],
+  "mcu:Young Odin (Prehistoric Avengers)": [
+    40,
+    "Prehistoric All-Father portrayal with the existing reviewed Primordial Odinforce ability, not Destroyer empowerment.",
+    "https://www.marvel.com/teams-and-groups/avengers/in-comics",
+    "Historical form retains Odinforce-scale gameplay, not pooled Asgardian life forces."
+  ],
+  "mcu:Odin in Destroyer Armor": [
+    50,
+    "Thor (1966) #300: Odin enters the empowered Destroyer to confront the Celestial Fourth Host.",
+    "https://www.comics.org/issue/34789/",
+    "Artifact and pooled Asgardian life force are required; the Celestials defeated the armor."
+  ],
   "dc:Anti-Monitor": [
     60,
     "Crisis on Infinite Earths: annihilates universes with antimatter waves.",

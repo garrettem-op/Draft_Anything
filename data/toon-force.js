@@ -590,12 +590,19 @@ const TOON_FORCE_BRAWL_EVENTS=Object.freeze({
   fourthWall:'escapes the scene boundary for a moment'
 });
 
+// How much of a profile's cartoon physics carries into a fight. Being drawn is not
+// durability: a 'situational' profile (household slapstick, a straight character) earns
+// little, and only an 'extraordinary' one (score 90+) earns the full Battle Royale effect.
+// Editorial calibration; sports are unaffected.
+function toonForceCombatGate(score){
+  return Math.max(0,Math.min(1,((Number(score)||0)-65)/25));
+}
 function toonForceOf(candidate){
   if(!candidate||candidate.pool!=='toons')return null;
   const record=TOON_FORCE_PROFILES[candidate.n];
   const facets=TOON_FORCE_FACETS[candidate.n];
   if(!record||!facets)return null;
-  return {type:'toonforce',score:record[0],feat:record[1],limit:record[2],
+  return {type:'toonforce',score:record[0],feat:record[1],limit:record[2],combatGate:toonForceCombatGate(record[0]),
     dimensions:Object.fromEntries(TOON_FORCE_FACET_KEYS.map((key,i)=>[key,facets[i]])),
     tier:record[0]>=90?'extraordinary':record[0]>=78?'established':'situational'};
 }
@@ -607,9 +614,15 @@ function toonForceMultiplier(candidate,sportKey,pos){
   if(!tf||!pos||pos.coach||pos.bench)return 1;
   const d=tf.dimensions;
   if(sportKey==='brawl'){
+    // Tanks retain the defensive composite. DPS gains only the documented
+    // offensive-facing dimensions, not resilience or evasion.
+    if(pos.styles||/^d[1-3]$/.test(pos.id||'')){
+      const offense=(0.52*d.body+0.40*d.environment+0.08*d.fourthWall)/99;
+      return +(1+0.24*offense*tf.combatGate).toFixed(5);
+    }
     const combat=(0.25*d.resilience+0.24*d.environment+0.20*d.comedy+
       0.19*d.body+0.12*d.fourthWall)/99;
-    return +(1+0.32*(tf.score/99)+0.14*combat).toFixed(5);
+    return +(1+(0.32*(tf.score/99)+0.14*combat)*tf.combatGate).toFixed(5);
   }
   // Space Jam establishes *sports* uses, not an unlimited exemption from
   // every rule. Basketball receives the strongest sporting translation,
@@ -648,5 +661,5 @@ function toonForceBattleEvent(team,sportKey,rng,opposingTeam=null){
     source:toon.feat,continuity:'Cartoon-physics gag; conditional, not guaranteed'};
 }
 if(typeof module!=='undefined'&&module.exports)module.exports={
-  TOON_FORCE_PROFILES,TOON_FORCE_FACETS,TOON_FORCE_FACET_KEYS,toonForceOf,toonForceMultiplier,toonForceBattleEvent
+  TOON_FORCE_PROFILES,TOON_FORCE_FACETS,TOON_FORCE_FACET_KEYS,toonForceOf,toonForceMultiplier,toonForceBattleEvent,toonForceCombatGate
 };

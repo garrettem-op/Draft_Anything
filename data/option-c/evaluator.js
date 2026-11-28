@@ -68,8 +68,9 @@
     /* Evidence coverage. */
     const fighters = active[0].concat(active[1]);
     const count = s => fighters.filter(r => r.profile.evidence.combat === s).length;
-    // A V2 research move is a typed power in the fight that is actually played, so it counts as typed coverage.
-    const liveMove = r => !!(r.profile.signature && r.profile.signature.origin === 'research-move');
+    // A V2 research move, or Version 1's generic tag-derived attack, is a typed power in the fight that is
+    // actually played, so it counts as typed coverage (its evidence stays provisional).
+    const liveMove = r => !!(r.profile.signature && (r.profile.signature.origin === 'research-move' || r.profile.signature.origin === 'generic-attack'));
     const typed = count(EVIDENCE.REVIEWED) + fighters.filter(liveMove).length;
     const researchDerivedN = fighters.filter(r => r.profile.researchDerived && r.profile.signature && r.profile.signature.origin === 'research-record').length;
     const coverage = fighters.length ? typed / fighters.length : 0;

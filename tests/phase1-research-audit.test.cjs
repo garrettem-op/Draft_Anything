@@ -104,5 +104,15 @@ test('Star Wars source-linked #82 batch documents individual visual, age and syn
  // Do not collapse continuity ambiguities into unresearched blanket negatives.
  assert.equal(base('starwars','Ahsoka Tano','kids').decision,'needs-review');
  assert.equal(base('starwars','Luke Skywalker','kids').decision,'needs-review');
- assert.equal(load().summary.needsReview,17841);
+ // 17840 -> 17838 on 2026-11-27: owner ruling PR #678 resolved Shelob and Carcharoth giants to yes.
+ // 17838 -> 17820 the same day: PR #679 reviewed 18 form-specific Variant Surge decisions.
+ assert.equal(load().summary.needsReview,17820);
+});
+
+test('issue #646: Supergirl teenage classification is source-linked',()=>{
+ const f=base('dc',"Supergirl (Kara Zor-El)",'kids');
+ assert.equal(f.decision,'yes');
+ assert.equal(f.status,'individual-trait-review');
+ assert.equal(f.source,"https://www.dc.com/blog/2016/08/11/karas-back-steve-orlando-takes-supergirl-to-new-heights");
+ assert.equal(form('dc','dc:Supergirl (Kara Zor-El)|Red Lantern Supergirl','kids').decision,'needs-review');
 });

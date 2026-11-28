@@ -75,7 +75,7 @@ test('researchMoveOf: standard strength, fresh objects, forms by their own recor
 
 const FIGHT = `JSON.stringify((() => {
   const T = (o, pool) => ocTeam('brawl', o, pool);
-  const A = T({ tk1: ['mcu', 'Hulk'], tk2: ['dc', 'Superman'], d1: ['lotr', 'Gandalf'], d2: ['toons', 'Bugs Bunny'], d3: ['starwars', 'Darth Vader'], bn: ['muppets', 'Kermit the Frog'], cmd: ['starwars', 'Yoda'] }, 'mcu');
+  const A = T({ tk1: ['mcu', 'Hulk'], tk2: ['dc', 'Superman'], d1: ['lotr', 'Gandalf'], d2: ['toons', 'Bugs Bunny'], d3: ['starwars', 'Mace Windu'], bn: ['muppets', 'Kermit the Frog'], cmd: ['starwars', 'Yoda'] }, 'mcu');
   const B = T({ tk1: ['dc', 'Doomsday'], tk2: ['mcu', 'Thanos'], d1: ['mcu', 'Scarlet Witch'], d2: ['pokemon', 'Pikachu'], d3: ['dc', 'Darkseid'], bn: ['muppets', 'Gonzo'], cmd: ['harrypotter', 'Albus Dumbledore'] }, 'mcu');
   const g = playGame('brawl', A, B, 2.5, rngFrom('research-moves'), true);
   const f = g.combat.sides.flatMap(s => s.fighters).map(x => ({ name: x.name, move: x.powerMove, uses: x.powerUses, domain: x.powerDomain, limit: x.powerLimit, ward: x.wardHp, apex: x.apexRank }));
@@ -89,11 +89,17 @@ test('in the page: research moves fight beside V1 profiles; V1 kits win; switch 
   assert.equal(a.Pikachu.move, 'Thunderbolt'); assert.ok(a.Pikachu.uses > 0); assert.match(a.Pikachu.limit, /Research move/);
   // Names follow the research, which keeps growing (sequels and comics); compare with the generated file, not a fixed name.
   const row = (id) => DATA.rows.find((r) => r[0] === id);
-  assert.equal(a.Gandalf.move, row('lotr:Gandalf')[1]); assert.equal(a['Darth Vader'].domain, row('starwars:Darth Vader')[2]);
+  assert.equal(a['Mace Windu'].move, row('starwars:Mace Windu')[1]); assert.equal(a['Mace Windu'].domain, row('starwars:Mace Windu')[2]);
+  // Since the 2026-11-27 engine merge Gandalf has an individual Version 1 profile, which wins over research.
+  assert.equal(row('lotr:Gandalf'), undefined, 'a V1-profiled character has no generated research move');
+  assert.equal(a.Gandalf.move, CORE['lotr:Gandalf'].move, 'individual V1 profile kept');
   assert.equal(a.Darkseid.move, 'Omega Beams', 'V1 profile kept'); assert.equal(a.Superman.move, 'Kryptonian power');
   assert.equal(a.Hulk.move, '', 'physical-only research: plain attacks, as in V1');
   for (const x of on.f) if (/Research move/.test(x.limit)) { assert.equal(x.ward, 0, x.name + ' gets no ward'); assert.equal(x.apex, 0, x.name + ' gets no Apex rank'); }
-  assert.equal(b.Pikachu.move, ''); assert.equal(b.Pikachu.uses, 0); assert.equal(b.Gandalf.move, '');
+  // Switch off = Version 1: Pikachu falls back to V1's generic attack from his reviewed electric tag (main #691),
+  // which the research move outranks when the switch is on.
+  assert.equal(b.Pikachu.move, 'Electric control'); assert.match(b.Pikachu.limit, /Generic modest attack/);
+  assert.equal(b.Gandalf.move, CORE['lotr:Gandalf'].move);
   assert.equal(b.Darkseid.move, 'Omega Beams');
   assert.equal(on.winner, on.again, 'seeded fights stay deterministic');
 });
@@ -134,5 +140,6 @@ test('the evaluator reads the same research moves the fight uses', () => {
   assert.equal(r.sig.origin, 'research-move'); assert.equal(r.sig.label, 'Thunderbolt'); assert.equal(r.sig.tier, 2);
   assert.equal(r.combat, 'provisional', 'a research move is never reviewed evidence');
   assert.ok(!/Pikachu/.test(r.kits), 'Pikachu is no longer listed as having no typed profile');
-  assert.equal(r.offSig, null, 'with the switch off the evaluator sees Version 1 profiles only');
+  assert.equal(r.offSig.origin, 'generic-attack', 'with the switch off the evaluator sees what Version 1 plays: the generic tag-derived attack');
+  assert.equal(r.offSig.evidenceStatus, 'provisional');
 });

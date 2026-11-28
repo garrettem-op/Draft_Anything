@@ -7,6 +7,8 @@
 (function(root){
   const CATALOG=[
     // base pool/id, form, signature, domains, resists, vulnerability domains, tier, signature kind, limitation
+    ['mcu:Odin','Young Odin (Prehistoric Avengers)','Primordial Odinforce','magic,melee','magic','',4,'lift','Prehistoric Avengers continuity; no Destroyer armor or later borrowed powers.'],
+    ['mcu:Odin','Odin in Destroyer Armor','Destroyer energy discharge','cosmic,magic,melee','cosmic,magic,melee','',5,'unbreakable','Thor #300 Celestial confrontation: artifact and collective Asgardian life-force dependent; Celestials defeated the armor, so no invulnerability.'],
     ['mcu:Thor','Rune King Thor','Unweave the Ragnarok Cycle','reality,magic','magic,reality','',5,'chaos','Runic ascension is a story-specific state, not baseline Thor.'],
     ['mcu:Thor','King Thor','All-Father Thunder','cosmic,elemental','elemental','',4,'lift','King Thor belongs to a future comics continuity.'],
     ['mcu:Thor','Herald of Thunder Thor','Power Cosmic Storm','cosmic,elemental','elemental,cosmic','',4,'chaos','Galactus\'s herald empowerment is temporary.'],
@@ -67,6 +69,7 @@
     ['games:Sonic the Hedgehog','Super Sonic','Chaos Emerald Ascension','speed,cosmic','speed','',4,'unbreakable','Super form requires Chaos Emeralds and a finite power source.'],
     ['games:Sonic the Hedgehog','Hyper Sonic','Hyper Sonic Flash','speed,cosmic','speed,cosmic','',5,'chaos','Hyper form depends on Super Emeralds.'],
     ['games:Shadow the Hedgehog','Super Shadow','Chaos Control Superform','speed,time,cosmic','speed','',4,'clutch','Super state requires the Chaos Emeralds.'],
+    ['games:Bowser','Fury Bowser','Fury Blast','elemental,melee','elemental','',4,'chaos','Giant fury state uses sweeping fire breath and destructive physical attacks; vulnerable to Giga Cat Mario and Cat Shine interruptions.'],
     ['games:Bowser','Dreamy Bowser','Dream Power Reality Strike','reality,magic','magic','',4,'chaos','Dream Stone is the enabling power source.'],
     ['games:Ganondorf','Demon King Ganondorf','Secret Stone Gloom','magic,shadow','magic','elemental',4,'chaos','Secret Stone empowers this particular Ganondorf.'],
     ['games:Link','Fierce Deity Link','Fierce Deity Blade','magic,melee','melee','',4,'unbreakable','Fierce Deity Mask transformation depends on the mask.'],
@@ -75,6 +78,9 @@
     ['games:Sephiroth','Safer Sephiroth','Supernova','cosmic,magic','magic','',4,'chaos','Final-boss form, not ordinary Sephiroth.'],
     ['games:Liu Kang','Fire God Liu Kang','Fire God Temporal Command','time,elemental','elemental,time','',5,'lift','Fire God status is continuity-specific.'],
     ['games:Arthas Menethil','The Lich King','Scourge Dominion','shadow,magic','shadow','elemental',4,'chaos','Crown and Frostmourne powers are tied to the Lich King.'],
+    ['games:Mewtwo','Armored Mewtwo','Restrained psychic blast','psychic','psychic,melee,tech','shadow',3,'clutch','Giovanni\'s armor suppresses psychic output; defensive protection is bounded, not invulnerability.'],
+    ['games:Mewtwo','Mega Mewtwo Y','Mega Psychic Pressure','psychic,cosmic','psychic','',3,'chaos','Mega Evolution requires the appropriate Mega Stone.'],
+    ['games:Mewtwo','Mega Mewtwo X','Mega Psychic Combat','psychic,melee','psychic','',3,'unbreakable','Mega Evolution requires the appropriate Mega Stone.'],
     ['pokemon:Mewtwo','Mega Mewtwo Y','Mega Psychic Pressure','psychic,cosmic','psychic','',3,'chaos','Mega Evolution requires the appropriate Mega Stone.'],
     ['pokemon:Mewtwo','Mega Mewtwo X','Mega Psychic Combat','psychic,melee','psychic','',3,'unbreakable','Mega Evolution requires the appropriate Mega Stone.'],
     ['pokemon:Gengar','Mega Gengar','Shadow Trap','shadow,magic','shadow','psychic',3,'chaos','Mega Evolution is a temporary transformation.'],

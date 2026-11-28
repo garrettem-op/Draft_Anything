@@ -70,7 +70,7 @@ test('mashup and custom pools retain the generic city-and-mascot generator', () 
 });
 
 test('the live app loads the naming catalog before use in single-pool game modes', () => {
-  const script = html.indexOf('<script src="data/team-names.js"></script>');
+  const script = require('./lib/html-scripts.cjs').scriptIndex(html, 'data/team-names.js');
   const app = html.indexOf('<script>\nconst POOLS');
   assert.ok(script > 0 && script < app, 'themed names must be loaded before app script');
   assert.match(html, /poolRivalTeamNames\(c\.poolId, c\.opps, rng, mineName\)/);

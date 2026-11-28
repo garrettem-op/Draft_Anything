@@ -165,7 +165,12 @@
 
     // Typed battle signature: the reviewed form profile for a selected form,
     // otherwise the documented baseline profile. Never the base kit for a form.
-    const ability = L.attack.brawlAbilityOf(candidate);
+    // Version 1's generic derived attack (a tag-derived floor, brawl-attack-profiles.js derivedAbilityOf) is
+    // NOT a reviewed profile: it is kept apart and only used last, exactly as the live fight orders them
+    // (individual profile or reviewed form, then the research move, then the generic floor).
+    const own = L.attack.brawlAbilityOf(candidate);
+    const ability = own && !own.derived ? own : null;
+    const genericAttack = own && own.derived ? own : null;
     let signature = ability ? {
       id: 'signature', label: ability.move, domain: ability.domain, domainClass: domainClass(ability.domain),
       tier: ability.tier, pierce: ability.pierce, cooldown: ability.cooldown,
@@ -222,6 +227,21 @@
         weakTo = d.weakTo.slice();
       }
     }
+    /* Version 1's generic attack (derived from a reviewed attacking-power tag; main #691) is what the live
+     * fight plays when there is neither an individual profile nor a research move. The evaluator reads the
+     * same move so it judges the fight that is actually played. Evidence stays provisional: a tag-derived
+     * floor is not a researched profile, and it never carries a ward, Apex rank or proficiency. */
+    let genericMove = null;
+    if (!signature && genericAttack) {
+      genericMove = genericAttack;
+      signature = {
+        id: 'signature', label: genericAttack.move, domain: genericAttack.domain, domainClass: domainClass(genericAttack.domain),
+        tier: genericAttack.tier, pierce: genericAttack.pierce, cooldown: genericAttack.cooldown, selfLimiting: null,
+        source: genericAttack.source || null, limitation: genericAttack.limit || null, continuity: null,
+        origin: 'generic-attack', evidenceStatus: EVIDENCE.PROVISIONAL,
+      };
+      guards = []; weakTo = [];
+    }
     const ward = ability && ability.tier >= 4 && ['reality', 'cosmic', 'magic', 'elemental'].includes(ability.domain)
       ? { tier: ability.tier, note: 'Finite protective ward of a documented tier-4+ power; it depletes and is not invulnerability.' }
       : null;
@@ -248,6 +268,9 @@
     if (researchMove) {
       combat = EVIDENCE.PROVISIONAL;
       gaps.push('Fights with a Version 2 research move (' + researchMove.move + ', ' + researchMove.domain + '): power type from its research record at the standard research strength; no tier, ward or Apex rank is inferred.');
+    } else if (genericMove) {
+      combat = EVIDENCE.PROVISIONAL;
+      gaps.push('Fights with the generic attack derived from a reviewed power tag (' + genericMove.move + ', ' + genericMove.domain + '): a modest floor, not a researched profile; no tier above 2, ward, Apex rank or combat proficiency is inferred.');
     } else if (researchDerived && signature && signature.origin === 'research-record') {
       combat = EVIDENCE.PROVISIONAL;
       gaps.push('Line of attack derived from the research record for this exact identity (declared status: ' + researchDerived.declaredStatus + '); no tier, ward, Apex rank or combat proficiency is inferred.');

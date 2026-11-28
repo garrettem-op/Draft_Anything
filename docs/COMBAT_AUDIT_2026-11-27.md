@@ -149,6 +149,6 @@ Regression fixtures V2 should carry: every row of the two tables in section 4.
 
 ## 7. Verification
 
-- `node --test tests/*.test.cjs`: 425 pass (417 existing plus 8 new in `tests/combat-audit-2026-11.test.cjs`).
+- `node --test tests/*.test.cjs`: 425 pass (417 existing plus 8 new in `tests/combat-audit-engine.test.cjs`, `tests/combat-audit-action-movies.test.cjs` and `tests/combat-audit-report.test.cjs`).
 - `node tests/browser-smoke.cjs`, `tests/battle-royale-tank-regression.mjs`, `tests/dealt-hand-regression.mjs`, `tests/volleyball-score-audit.test.js`: pass.
 - Not tested: the campaign tactic layer and commander specialty for this battle; saved results from before the change are not recomputed.

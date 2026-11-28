@@ -214,9 +214,11 @@ const BENCH_HEAT = Object.freeze({
   cold: 0.06, sidekickCold: 0.02, coldPts: 1.2,        // chance and size of a cold night
 });
 
+// Variant Surge changes the display name, not the character's canonical identity.
+function benchIdentity(c) { return c && (c.variantBase || c.n); }
 function sidekickOf(c) {
   if (!c || !c.pool || !c.n) return null;
-  const r = SIDEKICK_ROSTER[c.pool] && SIDEKICK_ROSTER[c.pool][c.n];
+  const r = SIDEKICK_ROSTER[c.pool] && SIDEKICK_ROSTER[c.pool][benchIdentity(c)];
   return r ? { leads: r[0].slice(), note: r[1] } : null;
 }
 function isSidekick(c) { return !!sidekickOf(c); }
@@ -243,7 +245,14 @@ function benchChemistry(roster, positions, baseRating) {
   const mates = positions.filter(p => p !== slot && roster[p.id]).map(p => roster[p.id]).filter(c => c !== b);
   const sk = sidekickOf(b);
   const sp = specialistOf(b);
-  const leads = sk ? mates.filter(c => c.pool === b.pool && sk.leads.includes(c.n)).map(c => c.n) : [];
+  // Explicit franchise crossover: Pokémon-pool Pikachu is also Ash's partner.
+  // Do not match unrelated same-name characters across pools.
+  const leadMates = sk ? mates.filter(c =>
+    (c.pool === b.pool && sk.leads.includes(benchIdentity(c))) ||
+    (b.pool === 'pokemon' && benchIdentity(b) === 'Pikachu' &&
+      c.pool === 'games' && benchIdentity(c) === 'Ash Ketchum')
+  ) : [];
+  const leads = leadMates.map(c => c.n);
   const lock = sk ? BENCH_CHEM.sidekickLock : 0;
   const roleLift = Math.max(lock, sp ? sp.percent : 0);
   const raw = roleLift + BENCH_CHEM.leadEach * Math.min(BENCH_CHEM.leadMax, leads.length);

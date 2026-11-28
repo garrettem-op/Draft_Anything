@@ -61,7 +61,7 @@ function pickIdentities(app) {
         const base = PA.getProfile(c);
         const on = PA.getProfile(c, { useResearch: true });
         if (!base.signature && on.signature && !derived) derived = id;
-        if (base.signature && !legacy) legacy = id;
+        if (base.signature && base.signature.origin === 'brawl-attack-profile' && !legacy) legacy = id;
       }
     }
     return { derived, legacy };

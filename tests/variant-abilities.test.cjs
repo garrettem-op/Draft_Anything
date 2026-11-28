@@ -132,3 +132,19 @@ test('King Thanos transforms through the shared surge path with an evidence-link
   assert.equal(ability.variantAbilityProfile(base,{name:'King Thanos'}).tier,4);
   assert.equal(base.variantAbilities,undefined);
 });
+
+ test('Armored Mewtwo is a defensive psychic form, not Apex or an offensive upgrade',()=>{
+ const {brawlAbilityOf}=require('../data/brawl-attack-profiles.js');
+ const {apexRankOf}=require('../data/brawl-combat.js');
+ const base=make('games','Mewtwo');
+ base.a=[88,82,84,76,92,90,60,96,96,98,92,78];
+ const c=v.variantRoster(set(base,'Armored Mewtwo')).fighter;
+ const power=brawlAbilityOf(c),plain=brawlAbilityOf(base);
+ assert.equal(c.a[3],90); assert.equal(c.a[5],99);
+ assert.equal(power.domain,'psychic'); assert.equal(power.armorHp,70);
+ assert.equal(power.armorPhysicalGuard,.12); assert.ok(power.pierce<plain.pierce);
+ assert.ok(power.cooldown>plain.cooldown); assert.equal(apexRankOf(c,power),0);
+ assert.equal(plain.armorHp,undefined); assert.ok(power.source.includes('pokemon.com'));
+ assert.equal(brawlAbilityOf(make('pokemon','Mewtwo')).domain,'psychic');
+ for(const name of ['Mega Mewtwo X','Mega Mewtwo Y'])assert.equal(brawlAbilityOf(v.variantRoster(set(base,name)).fighter).domain,'psychic');
+ });

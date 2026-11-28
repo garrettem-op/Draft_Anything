@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {SIDEKICK_ROSTER, BENCH_SPECIALISTS, BENCH_CHEM, sidekickOf, isSidekick, specialistOf, characterRoleTags, benchChemistry, benchHeatRoll} = require('../data/bench-chemistry.js');
 const {CHARACTER_ABILITY_TAGS} = require('../data/character-abilities.js');
+const {scriptIndex} = require('./lib/html-scripts.cjs');
 
 const C = (pool, n, g = []) => ({pool, n, g});
 const POS = [{id: 'a'}, {id: 'b'}, {id: 'c'}, {id: 'd'}, {id: 'hc', coach: true}, {id: 'bn', bench: true}];
@@ -140,10 +141,67 @@ test('Off the Bench heat: clutch raises the heater, sidekicks rarely go cold, on
 
 test('the game wires bench chemistry into scoring, AI value and every game', () => {
   const html = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
-  const tag = html.indexOf('<script src="data/bench-chemistry.js"></script>');
-  assert.ok(tag > 0 && tag < html.indexOf('<script src="data/campaign.js"></script>'));
+  const tag = scriptIndex(html, 'data/bench-chemistry.js');
+  assert.ok(tag > 0 && tag < scriptIndex(html, 'data/campaign.js'));
   assert.match(html, /const benchChem=benchChemistry\(roster,sp\.pos,baseRating\)/);
   assert.match(html, /rating:baseRating\+muppetTeam\.points\+benchChem\.points/);
   assert.match(html, /benchChemistry\(roster,sp\.pos,baseRating\)\.points;\n\}/);
   assert.match(html, /benchHeatRoll\(bh\.clutch, bh\.fit, bh\.sidekick, playoff, rng\)/);
+});
+
+test('all canonical sidekick relationships survive variant display names', () => {
+  for (const [pool, list] of Object.entries(SIDEKICK_ROSTER)) {
+    for (const [name, [leads]] of Object.entries(list)) {
+      const bench = C(pool, name, ['shared']);
+      const surgedBench = {...bench, n: 'Surged bench', variantBase: name};
+      assert.ok(isSidekick(surgedBench));
+      assert.deepEqual(characterRoleTags(surgedBench), ['sidekick']);
+      for (const lead of leads) {
+        const starter = C(pool, lead, ['shared']);
+        const surgedLead = {...starter, n: 'Surged lead', variantBase: lead};
+        for (const b of [bench, surgedBench]) {
+          for (const a of [starter, surgedLead]) {
+            for (const slot of ['a', 'hc']) {
+              const r = benchChemistry({[slot]: a, bn: b}, POS, 80);
+              assert.equal(r.percent, 5, pool + ':' + name + ':' + lead);
+              assert.equal(r.points, 4);
+              assert.deepEqual(r.leads, [a.n]);
+              // Version 2 (owner ruling 2026-11-15, docs/option-c/BENCH_REWORK_2026-11-15.md): the bench no longer
+              // lifts teammates through shared groups, so there is no mesh list to report.
+              assert.equal(r.mesh, undefined);
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+test('variant identity does not grant unrelated or cross-pool lead credit', () => {
+  const sam = C('lotr', 'Samwise Gamgee');
+  const unrelated = {...C('lotr', 'Frodo Baggins'), variantBase: 'Aragorn'};
+  const crossPool = {...C('mcu', 'Variant'), variantBase: 'Frodo Baggins'};
+  assert.equal(benchChemistry({a: unrelated, b: crossPool, bn: sam}, POS, 80).percent, 3);
+});
+
+
+test('Pikachu receives the Ash reunion bonus from either pool including surged variants', () => {
+  for (const pool of ['games','pokemon']) {
+    for (const bench of [C(pool,'Pikachu'), {...C(pool,'Surged Pikachu'),variantBase:'Pikachu'}]) {
+      for (const lead of [C('games','Ash Ketchum'), {...C('games','Surged Ash'),variantBase:'Ash Ketchum'}]) {
+        for (const slot of ['a','hc']) {
+          const result=benchChemistry({[slot]:lead,bn:bench},POS,80);
+          assert.equal(result.percent,5);
+          assert.equal(result.points,4);
+          assert.deepEqual(result.leads,[lead.n]);
+        }
+      }
+      assert.equal(benchChemistry({hc:C('mcu','Ash Ketchum'),bn:bench},POS,80).percent,3);
+    }
+  }
+});
+test('Battle Royale uses a combat-specific reinforcement fit, without altering sports bench weights',()=>{
+  const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+  assert.match(html,/nm: 'Reinforcement', ab: 'RNF', w: \{ clu: 4, ref: 3, agi: 2, end: 2, acc: 2, ldr: 1 \}/);
+  assert.match(html,/const BENCH_W = \{ end: 4, ldr: 3, clu: 2, agi: 1 \}/);
 });

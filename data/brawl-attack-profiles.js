@@ -6,11 +6,20 @@
  'use strict';
  const entries=[
  // Full-roster baseline powers. No variant gear or future form is silently stacked.
+ ['dc:Perpetua','Multiversal creation surge','reality',5,.40,['reality','cosmic'],4,'https://www.dcuniverseinfinite.com/comics/book/justice-league-2018-38/caabff58-ead0-460e-9572-46c7482745f4','Restored creator portrayal; power is bounded by the arena and can be depleted or opposed.'],
+ ['games:Mewtwo','Psystrike','psychic',3,.24,['psychic'],3,'https://www.pokemon.com/us/pokedex/0150','Powerful psychic attacks, not unrestricted reality alteration.'],
+ ['pokemon:Mewtwo','Psystrike','psychic',3,.24,['psychic'],3,'https://www.pokemon.com/us/pokedex/0150','Powerful psychic attacks, not unrestricted reality alteration.'],
+ ['toons:Marvin the Martian','Martian energy weapon','tech',4,.32,['tech'],3,'https://www.imdb.com/title/tt0051701/','Advanced alien arsenal includes the Q-36 device; arena attacks are bounded and do not destroy planets.'],
+ ['games:Rayman','Extendable fist strike','melee',3,.18,[],3,'https://www.ubisoft.com/en-us/games/rayman-legends','Limbless melee and platforming attacks require range and timing; not an automatic knockout.'],
+ ['games:Bowser','Fire breath','elemental',3,.20,['elemental'],3,'https://www.mariowiki.com/Fire_Breath','Base Bowser uses fire breath; giant Fury form is not assumed.'],
  ['dc:Joker','Joker toxin','toxin',1,.05,[],3,'https://www.dc.com/characters/the-joker','Weapons and toxin rely on delivery; no superhuman physiology.'],
  ['dc:Darkseid','Omega Beams','cosmic',4,.34,['cosmic','energy'],3,'https://www.dc.com/characters/darkseid','Avatar-scale arena encounter; not the full transcendent form or guaranteed disintegration.'],
  ['dc:Ares (DC)','God of War strike','melee',3,.20,['melee'],3,'https://www.dc.com/characters/ares','War conflict empowers him; conceptual warfare is not infinite arena damage.'],
  ['dc:Lucifer Morningstar','Creation-shaping will','reality',5,.43,['reality','magic'],4,'https://www.dc.com/characters/lucifer','Cosmic agency is constrained by story and intent; no automatic win.'],
- ['dc:Death of the Endless','The Endless presence','reality',4,.25,['reality'],4,'https://www.dc.com/blog/2022/08/26/the-sandman-deaths-among-us','Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout.'],
+ // Tier 5 by owner ruling 2026-11-27: the ultimate personification of death, the only Endless to outlive
+ // this universe, and the one who takes Dream himself (The Sandman #69). Pierce and cooldown are
+ // unchanged: she has no offensive combat feats, so her arena attack stays modest.
+ ['dc:Death of the Endless','The Endless presence','reality',5,.25,['reality'],4,'https://www.dc.com/blog/2022/08/26/the-sandman-deaths-among-us','Personification of mortality is represented by an arena manifestation, not literally killed by an HP knockout.'],
  ['dc:Superman','Kryptonian power','melee',3,.22,['melee'],3,'https://www.dc.com/characters/superman','Baseline Superman; weakness and continuity-dependent feats remain relevant.'],
  ['dc:Wonder Woman','Amazon divine combat','melee',3,.20,['melee'],3,'https://www.dc.com/characters/wonder-woman','Divine strength and weapon skill do not bypass all magical defenses.'],
  ['dc:Doomsday','Adaptive brutal force','melee',3,.24,['melee'],3,'https://www.dc.com/characters/doomsday','Evolution across encounters is not instantaneous immunity within one exchange.'],
@@ -18,7 +27,24 @@
  ['mcu:Adam Warlock','Cosmic energy projection','cosmic',3,.27,['cosmic'],3,'https://www.marvel.com/comics/discover/731/adam-warlock','The Soul Gem is not assumed active unless the selected form equips it.'],
  ['mcu:Abomination','Gamma-powered onslaught','melee',3,.18,['melee'],3,'https://www.marvel.com/comics/guides/2318/the_abomination','Base Emil Blonsky, not a temporary Chaos King or enhanced variant.'],
  ['mcu:Scarlet Witch','Chaos hex','magic',4,.32,['magic'],3,'https://www.marvel.com/articles/comics/marvel-unlimited-reading-club-comics-to-read-before-house-of-m-event-starring-scarlet-witch','Baseline chaos magic; House of M feat is not every ordinary strike.'],
+ ['mcu:Jean Grey','Psionic force','psychic',4,.30,['psychic'],3,'https://www.marvel.com/characters/phoenix-jean-grey','Base Jean Grey (telekinesis, telepathy; Omega-level mutant). The Phoenix Force forms are separate entries and are not assumed here; telepathy is not an automatic win against a minded opponent, and her feats vary by era.'],
+ // Iconic casters (owner ruling 2026-11-27): individual sourced entries replace the generic derived attack.
+ ['harrypotter:Albus Dumbledore','Master duellist spellwork','magic',3,.30,['magic'],3,'https://www.hp-lexicon.org/?p=4195','Defeated Voldemort in the Ministry Atrium duel, after which Voldemort fled (Order of the Phoenix ch. 36), and defeated Grindelwald in 1945; no instant-kill spell is modelled.'],
+ ['harrypotter:Lord Voldemort','Killing Curse duelling','magic',3,.26,['magic'],3,'https://www.harrypotter.com/features/ranked-most-significant-wizarding-world-duels','Order of the Phoenix ch. 36 duel with Dumbledore; Avada Kedavra is not an automatic arena knockout and Horcrux survival is not modelled.'],
+ ['lotr:Gandalf','Wizard\'s fire and staff','magic',3,.24,['magic'],3,'https://tolkiengateway.net/wiki/The_Bridge_of_Khazad-d%C3%BBm','A Maia sent as an Istar in limited form; held the Bridge against Durin\'s Bane. Gandalf the White is a separate form and is not assumed.'],
+ ['lotr:Saruman','Voice and wizardry','magic',3,.22,['magic'],3,'https://tolkiengateway.net/wiki/Saruman','Chief of the Istari and a Maia of Aulë; his power works largely through persuasion and craft rather than open battle.'],
+ ['lotr:Sauron','Dark Lord\'s might','magic',4,.30,['magic'],3,'https://en.wikipedia.org/wiki/Sauron','Mightiest of the Maiar; fought Elendil and Gil-galad in person. Much of his power is bound to the One Ring, which is not assumed present.'],
+ ['starwars:Yoda','Force mastery','psychic',3,.26,['psychic'],3,'https://www.sideshow.com/blog/a-small-and-powerful-jedi-yodas-greatest-feats/','Absorbed Dooku\'s and Sidious\'s Force lightning and fought Sidious to a standstill (Revenge of the Sith); not an automatic win.'],
+ ['starwars:Luke Skywalker','Force and lightsaber','psychic',3,.22,['psychic'],3,'https://www.starwars.com/films/star-wars-episode-6-return-of-the-jedi-story-gallery','Lost to Vader on Cloud City (The Empire Strikes Back) and overpowered him on the second Death Star (Return of the Jedi); the Jedi Knight of Return of the Jedi is modelled.'],
+ ['starwars:Emperor Palpatine','Force lightning','elemental',3,.28,['elemental'],3,'https://www.starwars.com/films/star-wars-episode-3-revenge-of-the-sith-story-gallery','Killed three Jedi Masters and fought Windu and Yoda (Revenge of the Sith); lightning can be deflected or turned back by a skilled opponent.'],
+ ['starwars:Count Dooku','Force lightning','elemental',3,.22,['elemental'],3,'https://www.sideshow.com/blog/a-small-and-powerful-jedi-yodas-greatest-feats/','Used Force lightning against Yoda, who absorbed it (Attack of the Clones).'],
+ ['starwars:Darth Vader','Force choke and telekinesis','psychic',3,.22,['psychic'],3,'https://screenrant.com/star-wars-15-most-impressive-uses-of-the-force-in-the-movies/','Repeated Force chokes (A New Hope, The Empire Strikes Back, Rogue One); the lightsaber is his main weapon and choking needs a target he can perceive.'],
+ ['mcu:Doctor Strange','Mystic arts','magic',4,.32,['magic'],3,'https://www.marvel.com/characters/doctor-strange-stephen-strange/in-comics','Sorcerer Supreme drawing on the Vishanti and the Eye of Agamotto; the title and patrons have been lost and regained, so this is not an automatic win.'],
+ ['dc:Doctor Fate','Magic of Order','magic',4,.30,['magic'],3,'https://en.wikipedia.org/wiki/Nabu_(DC_Comics)','Power comes from Nabu, a Lord of Order, through the Helmet of Fate; without the helmet Fate is far weaker.'],
+ ['dc:Zatanna','Backwards spellcasting','magic',3,.24,['magic'],3,'https://www.dc.com/characters/zatanna','Spells cast by speaking backwards; silencing or disrupting her speech blocks them.'],
+ ['toons:Genie','Phenomenal cosmic power','magic',4,.26,['magic'],3,'https://en.wikipedia.org/wiki/Genie_(Disney)','Bound by his rules (no killing, no romance, no revival); a freed Genie has "semi-phenomenal" power. Arena use is bounded and not wish-granting.'],
  ['mcu:The Watcher','Cosmic intervention','cosmic',4,.30,['cosmic'],4,'https://www.marvel.com/comics/guides/2196/when-the-watcher-does-more-than-watch','Uatu has a non-interference oath; being drafted for battle assumes he chooses to intervene.'],
+ ['mcu:Odin','Odinforce discharge','magic',4,.32,['magic','cosmic'],3,'https://latency.marvel.com/comics/discover/1048/odin','Odinforce requires replenishment during Odinsleep; no automatic victory.'],
  // Publisher-grounded exceptional beings, with continuity limits from the existing exceptional-power register.
  ['dc:Anti-Monitor','Antimatter wave','cosmic',5,.38,['cosmic'],4,'https://www.dc.com/characters/anti-monitor','Multiversal feats are scenario-dependent, not instant arena obliteration.'],
  ['dc:Mister Mxyzptlk','Fifth-dimensional revision','reality',5,.40,['reality'],4,'https://www.dc.com/blog/2024/05/02/invasion-of-the-imps-five-magical-pranksters-from-the-fifth-dimension','Trickable and bound by narrative banishment conventions.'],
@@ -53,12 +79,14 @@
    if(activeForm(candidate)){
      const v=candidate.variantAbilities,tier=clamp(Number(v.tier)||2,1,5);
      const hellbat=candidate.pool==='dc'&&candidate.n==='Hellbat Armor Batman'&&v.move==='Hellbat Counteroffensive';
+     const armoredMewtwo=candidate.pool==='games'&&candidate.variantBase==='Mewtwo'&&candidate.n==='Armored Mewtwo'&&v.move==='Restrained psychic blast';
      return {
        move:v.move||'Signature strike',domain:v.domains[0],tier,
-       pierce:hellbat ? .34 :clamp(.08+.045*tier,.10,.34),
+       pierce:hellbat ? .34 : armoredMewtwo ? .12 :clamp(.08+.045*tier,.10,.34),
        guard:Array.isArray(v.guards)?v.guards.slice(0,8):[],
        weakTo:Array.isArray(v.weakTo)?v.weakTo.slice(0,8):[],
-       cooldown:hellbat ? 3 :(tier>=5?4:3),
+       cooldown:hellbat ? 3 : armoredMewtwo ? 4 :(tier>=5?4:3),
+       armorHp:armoredMewtwo ? 70 : 0,armorPhysicalGuard:armoredMewtwo ? .12 : 0,
        wearStart:hellbat ? 5 :0,wearRate:hellbat ? .025 :0,
        source:hellbat?'https://www.dc.com/blog/2014/12/19/this-just-happened-robin-rises-batman-falls':(v.source||''),
        origin:v.origin||'',limit:v.limit||'',
@@ -67,9 +95,68 @@
    }
    if(candidate.variantBase)return null;
    const rec=CORE[String(candidate.pool||'')+':'+String(candidate.n||'')];
-   return rec?{...rec,guard:rec.guard.slice(),weakTo:[],wearStart:0,wearRate:0}:null;
+   return rec?{...rec,guard:rec.guard.slice(),weakTo:[],wearStart:0,wearRate:0}:derivedAbilityOf(candidate);
  }
- const api={brawlAbilityOf,CORE};
+ // A character with a reviewed attacking power but no individual atlas entry still has that power.
+ // Until a sourced profile is written, they get one modest generic attack derived from their reviewed
+ // ability record: tier 2 (an ordinary attack with a repeatable edge, never an Apex or ward), low pierce,
+ // a slow cadence. Only powers that are themselves a way of hurting someone count: spellcasting,
+ // elemental control and telekinesis. Flight, healing, stealth, teleportation, gadgets and size do not.
+ // An individual entry in CORE, a reviewed form, or a registered exceptional power always wins.
+ const DERIVED=Object.freeze([
+  // [broad tag, specific tag, domain, move]
+  ['fire','fire-control','elemental','Fire control'],
+  ['ice','ice-control','elemental','Ice control'],
+  ['electric','electric-control','elemental','Electric control'],
+  ['aquatic','water-control','elemental','Water control'],
+  ['psychic','telekinesis','psychic','Telekinetic strike'],
+  ['magic','spellcaster','magic','Spellcasting']
+ ]);
+ const DERIVED_TIER=2,DERIVED_PIERCE=.12,DERIVED_COOLDOWN=4;
+ function derivedAbilityOf(candidate){
+   if(!candidate||!candidate.pool||!candidate.n)return null;
+   // The reviewed ability index lists every roster character's tags (broad id, then specific tags).
+   // Script-level const declarations are global bindings but not window properties, so read by name.
+   const index=typeof CHARACTER_ABILITY_TAGS!=='undefined'?CHARACTER_ABILITY_TAGS:root&&root.CHARACTER_ABILITY_TAGS;
+   const tags=index&&index[candidate.pool]&&index[candidate.pool][candidate.n];
+   if(!Array.isArray(tags)||!tags.length)return null;
+   const exceptional=root&&root.brawlExceptionalPower;
+   if(typeof exceptional==='function'&&exceptional(candidate,'brawl',{id:'d1'})>0)return null;
+   const evidence=root&&root.characterAbilityEvidence;
+   for(const [broad,specific,domain,move] of DERIVED){
+     if(!tags.includes(specific))continue;
+     let rec=null;
+     try{rec=typeof evidence==='function'?evidence(candidate,broad):null;}catch(e){rec=null;}
+     return {move,domain,tier:DERIVED_TIER,pierce:DERIVED_PIERCE,guard:[],weakTo:[],cooldown:DERIVED_COOLDOWN,
+       wearStart:0,wearRate:0,source:String(rec&&rec.source||''),origin:'derived',derived:true,
+       limit:'Generic modest attack derived from the reviewed '+specific+' ability record; not a published power level. An individual profile replaces it.'};
+   }
+   return null;
+ }
+ // Documented power shields (owner ruling 2026-11-27). A shield is a separate defense from the body:
+ // it absorbs part of each incoming hit until its pool is spent, so a psychic or caster with an
+ // ordinary body is protected by what they can actually do. Only characters with a specific,
+ // sourced shielding feat are listed; level 1-3 is editorial gameplay calibration, not a
+ // published value. Forms are listed separately and never inherit a base shield.
+ const SHIELD_ENTRIES=[
+  // [id, kind, level, blocks ('all' = any attack, 'powers' = signature powers only), feat, source]
+  ['mcu:Jean Grey','telekinetic',2,'all','Uses telekinesis to create protective force fields.','https://www.marvel.com/characters/phoenix-jean-grey'],
+  ['mcu:Doctor Strange','magical',3,'all','Shield of the Seraphim and other protective shield spells; absorbed a blast of Dormammu\'s magic.','https://www.cbr.com/doctor-stranges-greatest-powers-and-abilities/'],
+  ['harrypotter:Albus Dumbledore','magical',2,'powers','Animated the Fountain statues, which deflected Voldemort\'s Killing Curse, and was shielded by Fawkes swallowing another (Order of the Phoenix ch. 36).','https://en.wikibooks.org/wiki/Muggles%27_Guide_to_Harry_Potter/Books/Order_of_the_Phoenix/Chapter_36'],
+  ['harrypotter:Lord Voldemort','magical',2,'powers','Conjured a silver shield to block Dumbledore\'s spell in the Ministry Atrium (Order of the Phoenix ch. 36).','https://www.harrypotter.com/features/ranked-most-significant-wizarding-world-duels'],
+  ['starwars:Yoda','force',2,'powers','Absorbed Force lightning from Dooku and from Sidious.','https://screenrant.com/yoda-every-force-power-star-wars-canon/'],
+  ['starwars:Darth Vader','force',1,'all','Deflected Han Solo\'s blaster bolts barehanded on Cloud City (The Empire Strikes Back).','https://www.gamesradar.com/50-greatest-darth-vader-moments/']
+ ];
+ const SHIELDS=Object.create(null);
+ for(const [id,kind,level,blocks,feat,source] of SHIELD_ENTRIES)SHIELDS[id]=Object.freeze({kind,level,blocks,feat,source});
+ Object.freeze(SHIELDS);
+ const SHIELD_POOL_PER_LEVEL=30,SHIELD_SHARE=.6;
+ function brawlShieldOf(candidate){
+   if(!candidate||candidate.variantBase||candidate.variantAbilities)return null;
+   const rec=SHIELDS[String(candidate.pool||'')+':'+String(candidate.n||'')];
+   return rec?{...rec,pool:SHIELD_POOL_PER_LEVEL*rec.level,share:SHIELD_SHARE}:null;
+ }
+ const api={brawlAbilityOf,CORE,derivedAbilityOf,brawlShieldOf,SHIELDS};
  if(root)root.DA_BRAWL_ABILITY_API=api;
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:typeof globalThis!=='undefined'?globalThis:null);

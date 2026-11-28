@@ -73,6 +73,19 @@ const server=http.createServer((req,res)=>{
       id:c.id,pool:c.pool,name:c.n,rating:Math.max(...pos.map(p=>fitIn('brawl',c,p)))
     })).sort((a,b)=>b.rating-a.rating);
     const index=rank.findIndex(r=>r.id===bugs.id);
+    // Who outranks Bugs, and why: exceptional (cosmic/apex) power, ToonForce, or neither.
+    const exceptional=c=>pos.some(p=>brawlExceptionalPower(c,'brawl',p)>0);
+    const byId=Object.fromEntries(getCands('mashup').map(c=>[c.id,c]));
+    const outrankers=rank.slice(0,index).map(r=>({name:r.name,pool:r.pool,
+      kind:exceptional(byId[r.id])?'exceptional':toonForceOf(byId[r.id])?'toonforce':'ordinary'}));
+    // Seeded one-on-one Battle Royale matchups: the actual combat outcome, not a fit proxy.
+    const duel=c=>({rating:100,rows:[{cand:c,pos:pos.find(p=>p.id==='d1'),w:0.22}],sig:{chaos:0,spark:[]},muppetTeam:{points:0}});
+    const named=(pool,n)=>getCands(pool).find(c=>c.n===n);
+    const winRate=opp=>{let w=0;for(let k=0;k<60;k++)
+      if(playGame('brawl',duel(bugs),duel(opp),5,rngFrom('bugs-duel-'+opp.n+'-'+k),true).winner===0)w++;return w/60;};
+    const matchups={};
+    for(const [pool,n] of [['toons','Daffy Duck'],['toons','Wile E. Coyote'],['dc','Batman'],['mcu','Galactus'],['dc','Anti-Monitor']])
+      matchups[n]=winRate(named(pool,n));
     const baseline=getCands('mashup').map(c=>({
       id:c.id,name:c.n,pool:c.pool,
       raw:Math.max(...pos.map(p=>fitIn('brawl',c,p)/characterForceMultiplier('brawl',c,p))),
@@ -103,7 +116,7 @@ const server=http.createServer((req,res)=>{
     const spaceJam=toonForceOf(bugs).dimensions.sports;
     const ensemble=SPORTS.brawl.pos.filter(p=>!p.bench&&!p.coach);
     const calc=n=>{const roster=Object.fromEntries(ensemble.map((p,i)=>[p.id,i<n?teammates[i]:getCands('nba')[0]]));return muppetForceTeamwork(roster,ensemble,90);};
-    return {count:rank.length,rank:index+1,bugs:rank[index],top25:rank.slice(0,25),rawTop15:baseline.slice().sort((a,b)=>b.raw-a.raw).slice(0,15),scenarios,
+    return {count:rank.length,rank:index+1,bugs:rank[index],outrankers,matchups,top25:rank.slice(0,25),rawTop15:baseline.slice().sort((a,b)=>b.raw-a.raw).slice(0,15),scenarios,
       physics:{bugs:toonForceMultiplier(bugs,'brawl',pos[0]),daffy:toonForceMultiplier(daffy,'brawl',pos[0]),
         wile:toonForceMultiplier(wile,'brawl',pos[0]),spaceJam},
       triggered:!!trace,traceCheck:check,toonMoment:trace?.toonEvents?.[0]||null,
@@ -112,7 +125,17 @@ const server=http.createServer((req,res)=>{
   });
   console.log('TOON_RANK_AUDIT '+JSON.stringify(toonAudit));
   assert.ok(toonAudit.bugs.rating>100,'Bugs should have a meaningful battle reality-warping impact');
-  assert.ok(toonAudit.rank>=15&&toonAudit.rank<=22,'Bugs should be an elite top-15-to-20-ish character, not the strongest in the roster');
+  // Bugs is elite but not the strongest. This used to be an absolute rank band (15th-22nd), which broke
+  // whenever a legitimately stronger cosmic character joined the roster or ToonForce offense was recalibrated
+  // (#654 stopped counting defensive ToonForce as strike damage). The invariants below test the intent instead.
+  assert.ok(toonAudit.rank>10,'Bugs should not be among the very strongest characters in the roster');
+  assert.deepEqual(toonAudit.outrankers.filter(o=>o.kind==='ordinary'),[],
+    'Only cosmic/exceptional powers or ToonForce peers may outrank Bugs; no ordinary fighter should');
+  assert.ok(toonAudit.rank<=Math.ceil(toonAudit.count*0.05),'Bugs should stay in the top 5% of the full roster');
+  for(const n of ['Daffy Duck','Wile E. Coyote','Batman'])
+    assert.ok(toonAudit.matchups[n]>=0.75,'Bugs should usually beat '+n+' one-on-one: '+toonAudit.matchups[n]);
+  for(const n of ['Galactus','Anti-Monitor'])
+    assert.ok(toonAudit.matchups[n]<=0.10,'Cosmic beings should overwhelm Bugs one-on-one: '+n+' '+toonAudit.matchups[n]);
   assert.ok(toonAudit.triggered,'Daffy should sometimes survive/escape with a situational ToonForce event');
   assert.equal(toonAudit.ironManRocket?.facet,'resilience','A blast from Iron Man should trigger Daffy-style comic recovery when ToonForce activates');
   assert.ok(Math.abs(toonAudit.traceCheck)<1e-6,'The conditional gag must reconcile exactly with scoring');
@@ -185,6 +208,32 @@ const server=http.createServer((req,res)=>{
   assert.equal(opening.locked,false,'Campaign inherited fixed draft layout from another mode');
   assert.ok(Math.abs(opening.after-opening.before)<2,'Opening the character picker jumped the page: '+JSON.stringify(opening));
   await page.locator('#camp-plist .cand').first().waitFor({timeout:10000});
+  // Search must not replace the input or rows as each letter arrives.
+  const search=page.locator('#camp-query');
+  await page.evaluate(()=>{
+    window.campTestInput=document.getElementById('camp-query');
+    window.campTestRow=document.querySelector('#camp-plist .talent-entry');
+  });
+  await search.pressSequentially('Aang');
+  assert.equal(await search.inputValue(),'Aang','Campaign search lost keystrokes');
+  assert.ok(await page.evaluate(()=>window.campTestInput===document.activeElement&&window.campTestRow===document.querySelector('#camp-plist .talent-entry')),'Search rebuilt the input or rows');
+  assert.ok(await page.locator('#camp-plist .talent-entry:not([hidden]) .who b').allTextContents().then(names=>names.includes('Aang')),'Search did not find Aang');
+  await search.fill('no-character-xyz-123');
+  assert.equal(await page.locator('#camp-plist .talent-entry:not([hidden])').count(),0);
+  assert.ok(await page.locator('.camp-no-matches').isVisible());
+  await search.fill('');
+  await page.locator('.camp-filter-toggle').click();
+  await page.locator('[data-input="camp-pool"][value="mcu"]').check();
+  const filtered=await page.locator('#camp-plist .talent-entry:not([hidden])').evaluateAll(rows=>({count:rows.length,allMCU:rows.every(r=>r.dataset.pools.split(' ').includes('mcu'))}));
+  assert.ok(filtered.count>0&&filtered.allMCU,'Talent pool filter returned non-MCU characters');
+  await search.fill('Aang');
+  assert.equal(await page.locator('#camp-plist .talent-entry:not([hidden])').count(),0,'Search and pool filter must intersect');
+  await search.fill('');
+  await page.locator('[data-act="camp-filter-clear"]').click();
+  await page.locator('[data-act="camp-filter-done"]').click();
+  assert.equal(await page.locator('.camp-filter').evaluate(el=>el.open),false);
+  assert.equal(await page.locator('#camp-plist .talent-entry:not([hidden])').count(),await page.evaluate(()=>getCands('mashup').length),'Clear filters did not restore every candidate');
+
   const scroll=await page.evaluate(()=>{
    const el=document.getElementById('camp-plist');el.scrollTop=470;return el.scrollTop;
   });
@@ -211,14 +260,23 @@ const server=http.createServer((req,res)=>{
   assert.ok(await page.evaluate(()=>document.getElementById('camp-plist').scrollTop)>scroll,'Alphabet jump did not advance the list');
   const nameFont=await page.locator('#camp-plist .cand .who b').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
   assert.ok(nameFont>=16,'Mobile character rows are too small: '+nameFont);
-  await page.evaluate(()=>{
+  const intended=await page.evaluate(()=>{
    const stage=campaignStage();
-   const eligible=getCands('mashup').find(c=>campaignAllowed(c,stage.rule));
+   // A drafted character with a Variant Surge opens the surge dialog when its field slot is tapped,
+   // so the picker-pinning checks below use an eligible character without one. The stage order is
+   // random per run; this keeps the flow the same whichever challenge comes first.
+   const eligible=getCands('mashup').find(c=>campaignAllowed(c,stage.rule)&&!variantOptions(c).length);
    if(!eligible)throw Error('No eligible character in '+stage.rule);
-   const btn=[...document.querySelectorAll('#camp-plist button[data-act="camp-pick"]')].find(b=>b.dataset.cid===eligible.id);
-   if(!btn)throw Error('Eligible character not rendered in picker');
-   btn.click();
+   return {id:eligible.id,name:eligible.n,slot:S.campaign.selected};
   });
+  await search.fill(intended.name);
+  const intendedButton=page.locator('#camp-plist .talent-entry:not([hidden]) button[data-act="camp-pick"]').filter({hasText:intended.name});
+  const candidates=await intendedButton.all();
+  let exact=null;
+  for(const btn of candidates)if(await btn.getAttribute('data-cid')===intended.id){exact=btn;break;}
+  assert.ok(exact,'Intended search result missing');
+  await exact.click();
+  assert.equal(await page.evaluate(slot=>S.campaign.roster[slot]?.id,intended.slot),intended.id,'Tap while search was focused drafted the wrong character');
   const positionAfterPick=await page.evaluate(()=>window.scrollY);
   assert.ok(Math.abs(positionAfterPick-opening.before)<2,'Selecting a character reset the page position');
   // Selecting a filled field position pins its current character above the scrolling list.
@@ -408,17 +466,20 @@ const server=http.createServer((req,res)=>{
   await page.locator('.da-summary-toggle > summary').click();
   assert.equal(await page.locator('.da-summary-toggle[open]').count(),1,'Read Summary did not open');
   assert.ok(await page.locator('.da-story').isVisible(),'Summary did not become visible');
-  // An unchanged lineup gets identical scores, enemy roster, and result on retry.
+  // Retrying an unchanged lineup keeps the opponent, tactics, Variant Surge rolls and ratings fixed;
+  // since #659 each submission gets its own combat roll (campaignCombatSeed includes the attempt).
   const replay=await page.evaluate(()=>{
     const original=S.campaign.result;
-    const snapshot=r=>({win:r.win,score:[r.ourPoints,r.theirPoints],enemy:r.opponentNames,
-      ratings:[r.ourRating,r.theirRating],tactics:r.tactics});
-    const first=snapshot(original);
+    const snapshot=r=>({enemy:r.opponentNames,ratings:[r.ourRating,r.theirRating],tactics:r.tactics});
+    const first=snapshot(original),attempt=S.campaign.attempts[S.campaign.step];
     S.campaign.status='draft';S.campaign.result=null;
     campaignPlay();
-    return {first,again:snapshot(S.campaign.result)};
+    return {first,again:snapshot(S.campaign.result),attempts:[attempt,S.campaign.attempts[S.campaign.step]],
+      seeds:[campaignCombatSeed(S.campaign,0,attempt),campaignCombatSeed(S.campaign,0,attempt+1)]};
   });
-  assert.deepEqual(replay.again,replay.first,'Retrying the unchanged team rerolled the match or opponent');
+  assert.deepEqual(replay.again,replay.first,'Retrying the unchanged team changed the opponent, tactics or ratings');
+  assert.equal(replay.attempts[1],replay.attempts[0]+1,'A retry must count as a new attempt');
+  assert.notEqual(replay.seeds[0],replay.seeds[1],'Each attempt must get its own combat roll');
   // The active campaign has a one-shot variant control, which locks its result
   // and survives a page reload. Use a known legal flight-themed roster.
   await page.evaluate(()=>{
@@ -436,15 +497,17 @@ const server=http.createServer((req,res)=>{
     }
     saveCampaign();render();
   });
+  await page.locator('.field-wrap .variant-ready').filter({hasText:'Thor'}).first().click();
   const variantButton=page.locator('button[data-act="camp-variant"]');
   assert.equal(await variantButton.isEnabled(),true,'Variant button not enabled with Thor on legal roster');
   await variantButton.click();
   const variant=await page.evaluate(()=>{
     const v=S.campaign,active=campaignVariantForm(v),preview=campaignVariantRoster(v);
-    return {surge:v.surge,active:!!active,changed:Object.values(preview).some(c=>c.n===v.surge?.name)};
+    return {surge:v.surge,active:!!active,changed:Object.values(preview).some(c=>c.n===variantSurgeRecords(v)[0]?.name)};
   });
   assert.ok(variant.surge&&variant.active&&variant.changed,'Variant generator did not transform an eligible character');
-  assert.equal(await variantButton.isDisabled(),true,'A second variant roll should not be available');
+  assert.equal(await page.evaluate(()=>variantSurgeCandidates(S.campaign).some(c=>c.id===variantSurgeRecords(S.campaign)[0].id)),false,'Same character cannot roll twice');
+  await page.locator('button[data-act="camp-surge-close"]').click();
   await page.reload({waitUntil:'domcontentloaded'});
   const persisted=await page.evaluate(()=>({surge:S.campaign.surge,stage:S.campaign.step}));
   assert.equal(JSON.stringify(persisted.surge),JSON.stringify(variant.surge),'Variant result did not persist on reload');
@@ -456,6 +519,9 @@ const server=http.createServer((req,res)=>{
     v.step=0;v.stageOrder[0]=CAMPAIGN_STAGES.length-1;
     v.seed='multiverse-siege-mobile-fixture';v.opponents={};
     v.history=[];v.status='draft';v.surge=null;v.variantTarget=null;v.result=null;
+    // Start the finale's shared draft fresh. Otherwise the previous (randomly ordered) challenge's CPU
+    // picks stay reserved and can collide with this fixture's roster, making the test order-dependent.
+    v.snake=null;v.attempts={};v.defeat=null;v.selected=null;v.surgeDialog=null;v.surgeReveal=null;v.validation='';v.validationOpen=false;
     const rosterNames=[['dc','Batman'],['mcu','Doctor Doom'],['games','Mario'],['mcu','Thor'],
       ['lotr','Gandalf'],['dc','Superman'],['mcu','Ultron'],['toons','Bugs Bunny']];
     // Live candidate IDs are slugged. Research uses pool:display-name keys.
@@ -465,15 +531,14 @@ const server=http.createServer((req,res)=>{
     if(!campaignReady())throw Error('Three-universe final lineup is not ready');
     saveCampaign();render();
   });
-  const variantTarget=page.locator('#camp-variant-target');
-  await variantTarget.waitFor();
+  await page.locator('.field-wrap .variant-ready').filter({hasText:'Doctor Doom'}).first().click();
   assert.equal(await page.locator('button[data-act="camp-variant"]').isEnabled(),true,
     'Variant Surge should activate with Batman, Doom and other documented forms');
   const doomId=await page.evaluate(()=>getCands('mashup').find(c=>c.pool==='mcu'&&c.n==='Doctor Doom').id);
-  await variantTarget.selectOption(doomId);
   await page.locator('button[data-act="camp-variant"]').click();
-  const targeted=await page.evaluate(()=>S.campaign.surge);
+  const targeted=await page.evaluate(()=>variantSurgeRecords(S.campaign)[0]);
   assert.equal(targeted.id,doomId,'User-targeted Doom should receive the variant');
+  await page.locator('button[data-act="camp-surge-close"]').click();
   await page.locator('button[data-act="camp-play"]').click();
   const finalInfo=await page.evaluate(()=>({
     win:S.campaign.result?.win,rounds:S.campaign.result?.finalRounds,
@@ -542,7 +607,15 @@ const server=http.createServer((req,res)=>{
       }
     }
     if(!helPower||!darkPower)throw Error('Signature abilities never triggered across full-roster seeds');
-    return {avgHellbat:h/250,avgJoker:j/250,avgDarkseid:d/250,wins:hellWins,helPower,darkPower,underJoker,noAttacks,results};
+    // Since #676, Lucifer Morningstar carries a reviewed rank-2 intrinsic cosmic power, so the full fixture
+    // above no longer isolates the Apex question. Re-run it with Lucifer swapped for a heavy hitter who has
+    // no intrinsic or Apex rank: the cosmic squad must still be able to beat a team led by an Apex form.
+    const isolatedLeft={...left,d3:pick('dc','Black Adam')};
+    if(window.DA_BRAWL_COMBAT.intrinsicPowerOf(isolatedLeft.d3,null))throw Error('Isolation fixture must not have intrinsic power');
+    const isolatedA=teamScore('brawl',isolatedLeft);
+    let isolatedWins=0;
+    for(let i=0;i<250;i++)if(playGame('brawl',isolatedA,B,8,rngFrom('hellbat-real-roster-'+i)).combat.winner===0)isolatedWins++;
+    return {avgHellbat:h/250,avgJoker:j/250,avgDarkseid:d/250,wins:hellWins,isolatedWins,helPower,darkPower,underJoker,noAttacks,results};
   });
   assert.equal(combatAudit.results.length,250);
   assert.ok(combatAudit.avgHellbat>combatAudit.avgJoker*1.3,
@@ -554,12 +627,15 @@ const server=http.createServer((req,res)=>{
   // back with documented signature techniques rather than an imposed ranking.
   assert.ok(combatAudit.avgDarkseid>0&&combatAudit.darkPower>0,
     'Darkseid must still execute damaging, documented cosmic attacks');
-  assert.ok(combatAudit.wins<250,
+  assert.ok(combatAudit.isolatedWins<250,
     'a whole team of cosmic entities should retain a credible chance to defeat an Apex fighter');
+  // #676: a rank-2 intrinsic cosmic entity is decisive. Direction only; the magnitude is a calibration question.
+  assert.ok(combatAudit.wins>combatAudit.isolatedWins,
+    'Adding a rank-2 intrinsic cosmic entity (Lucifer) should improve the Apex team\'s results');
   console.log('Actual roster (250 seeds): Hellbat',combatAudit.avgHellbat.toFixed(1),
     'Joker',combatAudit.avgJoker.toFixed(1),
     'Darkseid',combatAudit.avgDarkseid.toFixed(1),
-    'Chungus wins',combatAudit.wins,
+    'Chungus wins',combatAudit.wins,'without Lucifer',combatAudit.isolatedWins,
     'Hellbat below Joker',combatAudit.underJoker,'Hellbat no attacks',combatAudit.noAttacks);
   // Option C shadow evaluator (Version 2): present in the real browser, OFF by
   // default, and unable to change a seeded result, the RNG stream or storage.

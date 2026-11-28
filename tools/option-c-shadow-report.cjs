@@ -86,7 +86,8 @@ const researchCoverage = JSON.parse(rapp.run(`JSON.stringify((() => {
     for (const c of getCands(pool)) {
       const base = DA_OPTION_C.getProfile(c), on = DA_OPTION_C.getProfile(c, { useResearch: true });
       r.total++;
-      if (base.signature) r.typedV1++;
+      // An individual Version 1 profile counts as typed; Version 1's generic tag-derived attack does not.
+      if (base.signature && base.signature.origin !== 'generic-attack') r.typedV1++;
       else if (on.signature && on.signature.origin === 'research-record') r.gained++;
     }
     rows.push(r);
