@@ -116,10 +116,10 @@ Combat evidence per base character: **reviewed** = a typed, sourced battle profi
 | mcu | 143 | 9 | 98 | 36 | 109 | 64 | 41 |
 | toons | 134 | 2 | 85 | 47 | 63 | 12 | 5 |
 | muppets | 101 | 0 | 101 | 0 | 0 | 0 | 0 |
-| games | 118 | 3 | 98 | 17 | 75 | 59 | 15 |
-| pokemon | 151 | 1 | 136 | 14 | 85 | 40 | 5 |
+| games | 118 | 3 | 91 | 24 | 75 | 59 | 15 |
+| pokemon | 151 | 1 | 135 | 15 | 85 | 40 | 5 |
 | starwars | 98 | 5 | 56 | 37 | 63 | 8 | 3 |
-| **Total** | **1304** | **48** | **804** | **452** | **629** | **243** | **94** |
+| **Total** | **1304** | **48** | **796** | **460** | **629** | **243** | **94** |
 
 Typed combat coverage is 4% of base characters and 39% of alternate forms. Issues #82 (research) and #83 (combat atlas) remain open; this PR does not close or advance them.
 

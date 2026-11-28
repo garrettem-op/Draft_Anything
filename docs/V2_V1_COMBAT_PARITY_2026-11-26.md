@@ -137,3 +137,6 @@ Attributes: 25 characters corrected (`docs/harry-potter-attribute-review.md`): p
 
 ## Tier review: cartoons, Muppets, Action Movies, 2026-11-27
 Eight of ten pools reviewed. Comedy, performance and management moves dropped (MuppetForce and ToonForce unchanged); gods and reality-benders tiered (Hades, Rick Sanchez, Aslan at 4). No stored attribute changed, so the golden baseline is untouched (17/17). Remaining: games and Pokémon (248 research moves).
+
+## Tier review complete: games and Pokémon, 2026-11-27
+All ten pools reviewed (`research/option-c/power-tiers.json`: every research move is tiered from a record feat or technique, kept at the standard, or dropped with a reason). Games: 2 tier 4, 45 tier 3, 10 tier 1, 14 dropped, 5 melee signatures. Pokémon: tiers follow evolution and legend (39 tier 1, 19 tier 3). No stored attribute changed: golden baseline untouched (17/17). Finding: attributes outweigh tiers in a duel, so the remaining calibration is the top-end attribute scale.

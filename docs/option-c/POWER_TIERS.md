@@ -34,7 +34,10 @@ Tier-4+ **psychic** power (Omega-level telekinesis or telepathy) now counts as h
 | toons | 57 | **reviewed** | 2 | 17 | 5 | 18 | 3 |
 | muppets | 43 | **reviewed** | 0 | 0 | 5 | 36 | 1 |
 | actionmovies | 12 | **reviewed** | 1 | 3 | 1 | 2 | 1 |
-| games, pokemon | 248 | not yet | | | | | |
+| games | 118 | **reviewed** | 2 | 45 | 10 | 14 | 5 |
+| pokemon | 130 | **reviewed** | 0 | 19 | 39 | 2 | 0 |
+
+**All ten pools are reviewed (2026-11-27).**
 
 Counts include reviewed melee signatures. Individual profiles re-tiered in Version 2: Yoda and Emperor Palpatine, tier 3 to tier 4 (paramount Force users of their setting; Version 1 keeps tier 3).
 
@@ -101,6 +104,20 @@ Not solved in Harry Potter: Dementor vs Harry 94% (see problem 7); Flitwick vs L
 - **Left at the standard for lack of a feat:** Aang (the record's only feat is an air scooter; the Avatar State is a separate form), Zuko, Master Shifu, Elastigirl, Frozone, Violet, Plankton, SpongeBob.
 
 Measured (1,000 seeded duels, before to after): Hades vs Thor 12.3% to 55.1%; Rick Sanchez vs Iron Man 22.5% to 34.8%; Maleficent vs Captain America 41.9% to 51.4%; Blossom vs Superman 28.2% to 35.4%; Miss Piggy vs Kermit 94.7% to 99.9%; Xerxes vs Leonidas 19.1% to 1.4%; Goofy vs Hawkeye 27.9% to 0.8%; Wile E. Coyote vs Hawkeye 18.6% to 7.8%. Bugs Bunny vs Batman moved from 99.8% to 91.6% only because Batman's attributes were corrected (#698).
+
+## Video games and Pokémon (reviewed 2026-11-27)
+- **Games, tier 4:** Kratos (killed Poseidon and the Titan Cronos), Bayonetta (sent the creator-goddess Jubileus into the sun). **Tier 3** for the leads and final bosses whose records name a kingdom- or world-scale feat: Sephiroth and Cloud, Aerith (Holy), Link, Zelda and Ganondorf, Calamity Ganon, Alduin and the Dovahkiin, Dante and his forms, Doomguy, Kirby and his forms, Samus, Shadow, Chrono, Ness, Sora, Arthas, Illidan, Kerrigan, Yennefer, Ciri, M. Bison, Raiden of Mortal Kombat, Devil Jin, the super forms (Hyper Knuckles, Super Tails, Giga Bowser, Mega and Gigantamax Charizard).
+- **Rivals are tiered together:** Sonic (a tier-3 melee signature, the Spin Dash) with Shadow.
+- **Melee signatures:** Raiden of Metal Gear (tier 3: cut the legs off Metal Gear Excelsus and threw it), Sonic (tier 3), Master Chief, Albert Wesker, King Dedede (tier 2).
+- **Tier 1:** the Creeper, Fire and Ice Mario, Luigi and Ice Luigi, Spyro, Jigglypuff, Aloy's elemental arrows, Dr. Cortex's ray gun, Duke Nukem's shrink ray.
+- **Dropped (14):** a trainer's or pilot's attack is not his own (Ash Ketchum, Professor Oak, Fox McCloud, Falco Lombardi: a starfighter is not available in a personal fight), ordinary weapons (Marth, Altaïr, Steve, Garrus, Amy Rose, Tails, Yoshi), and non-attacks (Cortana's hacking, Isabelle, Q*bert).
+- **Renamed to the real power:** GLaDOS (neurotoxin), Gordon Freeman (Gravity Gun), Clank, Ratchet (RYNO), Geralt (Aard).
+- **Pokémon** follow evolution and legend: unevolved Pokémon tier 1 (39, from Abra to Zubat), evolved Pokémon the standard, and tier 3 for the legendary birds, Dragonite, Gyarados, and the Mega and Gigantamax forms of fully evolved Pokémon. Pikachu stays at the standard. Ditto's Transform and Porygon's Conversion are not attacks.
+- **Left at the standard for lack of a feat:** Mew, Thrall, Evil Ryu, Death Knight Arthas, Darkspine and Excalibur Sonic, Liu Kang, Mega Man, Commander Shepard.
+
+Measured (1,000 seeded duels, before to after): Bayonetta vs Dante 38.6% to 78.0%; Kratos vs Thor 17.7% to 24.1%; Fox McCloud vs John Wick 48.0% to 13.9%; Ash Ketchum vs Hawkeye 6.5% to 0.3%; Master Chief vs Doomguy 32.7% to 38.5%; Samus vs Iron Man 12.1% to 16.0%; Geralt vs Aragorn 55.0% to 43.8% (Aragorn's corrected attributes). Pokémon results barely move (Pidgey vs Pikachu 0.7% to 0.2%; Zapdos vs Pikachu 99.2% to 99.3%): their stored attributes already separate the stages.
+
+**What the full review shows:** in a duel, stored attributes outweigh the tier. Sonic and Shadow are tiered together and Sonic still wins only 16%; Cloud beat Sephiroth and wins 24%. The next calibration step is attributes for the hand-authored pools' top characters (problem 4), not more tiers.
 
 ## Left at the standard because the record has no feat that supports more
 Sentry, Martian Manhunter, Fernus the Burning, King Shazam, Apex Lex, Ikaris, Sersi, Wong, Human Torch, Rey, Lobo (tier 2 only), and the Star Wars forms without feats (Dark Empire Luke, Vader of Mustafar, Ahsoka the White). They need a feats pass before they can be tiered higher.
